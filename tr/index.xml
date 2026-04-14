@@ -3267,6 +3267,7 @@ Gönder →
 </blockquote>
 <hr>
 <h2 id="1-kurumsal-ağ-mimarisi--veri-merkezi">1. Kurumsal Ağ Mimarisi &amp; Veri Merkezi</h2>
+<p><img alt="Veri Merkezi VXLAN" loading="lazy" src="/img/postimages/project-dc-fabric-vxlan.webp"></p>
 <h3 id="veri-merkezi-fabric-modernizasyonu--bankacılık-sektörü">Veri Merkezi Fabric Modernizasyonu — Bankacılık Sektörü</h3>
 <p><strong>Rol:</strong> Kıdemli Ağ Güvenliği Mühendisi | İstanbul, 2022–2025</p>
 <ul>
@@ -3276,6 +3277,7 @@ Gönder →
 </ul>
 <p><code>Cisco NDFC</code> <code>Nexus 9000</code> <code>VXLAN</code> <code>BGP-EVPN</code></p>
 <hr>
+<p><img alt="Fabrika Ağı" loading="lazy" src="/img/postimages/project-packaging-factory.webp"></p>
 <h3 id="ağ-altyapısı-yenileme--global-ambalaj-üreticisi">Ağ Altyapısı Yenileme — Global Ambalaj Üreticisi</h3>
 <p><strong>Rol:</strong> Ağ Güvenliği Lideri | Çoklu site, 2018–2022</p>
 <ul>
@@ -3285,6 +3287,7 @@ Gönder →
 </ul>
 <p><code>Cisco Catalyst 9000</code> <code>ISE</code> <code>Fortinet FGT</code> <code>AMP</code></p>
 <hr>
+<p><img alt="Otel Ağı" loading="lazy" src="/img/postimages/project-hotel-network.webp"></p>
 <h3 id="otel-ağ-altyapısı-kurulumu--otelcilik-sektörü">Otel Ağ Altyapısı Kurulumu — Otelcilik Sektörü</h3>
 <p><strong>Rol:</strong> Ağ Güvenliği Lideri | İstanbul</p>
 <ul>
@@ -3294,6 +3297,7 @@ Gönder →
 </ul>
 <p><code>Aruba AP</code> <code>Fortinet Firewall</code> <code>VLAN Segmentasyonu</code> <code>Misafir Wi-Fi</code></p>
 <hr>
+<p><img alt="F5 Migrasyon" loading="lazy" src="/img/postimages/project-f5-migration.webp"></p>
 <h3 id="yük-dengeleyici-migrasyonu--bankacılık-sektörü">Yük Dengeleyici Migrasyonu — Bankacılık Sektörü</h3>
 <p><strong>Rol:</strong> Kıdemli Ağ Güvenliği Mühendisi | İstanbul, 2022–2025</p>
 <ul>
@@ -3304,6 +3308,7 @@ Gönder →
 <p><code>F5 LTM</code> <code>F5 GTM</code> <code>TMOS 15.x</code> <code>HA Clustering</code> <code>SSL Offloading</code></p>
 <hr>
 <h2 id="2-siber-güvenlik--zero-trust-dağıtımları">2. Siber Güvenlik &amp; Zero Trust Dağıtımları</h2>
+<p><img alt="Zero Trust VPN" loading="lazy" src="/img/postimages/project-zero-trust-vpn.webp"></p>
 <h3 id="ssl-vpn--zero-trust-uygulaması--bankacılık-sektörü">SSL VPN &amp; Zero Trust Uygulaması — Bankacılık Sektörü</h3>
 <p><strong>Rol:</strong> Kıdemli Ağ Güvenliği Mühendisi | İstanbul, 2022–2025</p>
 <ul>
@@ -3322,6 +3327,7 @@ Gönder →
 </ul>
 <p><code>Palo Alto NGFW</code> <code>GlobalProtect</code> <code>MFA</code> <code>Rol Tabanlı Erişim</code></p>
 <hr>
+<p><img alt="DNA Center" loading="lazy" src="/img/postimages/project-dna-center-sdaccess.webp"></p>
 <h3 id="kurumsal-ağ-modernizasyonu--otomasyon--üretim-treg">Kurumsal Ağ Modernizasyonu &amp; Otomasyon — Üretim (TR/EG)</h3>
 <p><strong>Rol:</strong> Ağ Güvenliği Lideri | Türkiye &amp; Mısır, 2018–2022</p>
 <ul>
@@ -3332,6 +3338,7 @@ Gönder →
 </ul>
 <p><code>Cisco DNA Center</code> <code>ISE</code> <code>Umbrella</code> <code>Stealthwatch</code> <code>Firepower</code> <code>Catalyst 9000</code></p>
 <hr>
+<p><img alt="Firewall Policy" loading="lazy" src="/img/postimages/project-firewall-policy.webp"></p>
 <h3 id="firewall-policy-optimizasyonu--soc-entegrasyonu--bankacılık-sektörü">Firewall Policy Optimizasyonu &amp; SOC Entegrasyonu — Bankacılık Sektörü</h3>
 <p><strong>Rol:</strong> Kıdemli Ağ Güvenliği Mühendisi | İstanbul, 2022–2025</p>
 <ul>
@@ -3342,6 +3349,7 @@ Gönder →
 <p><code>FortiManager</code> <code>FortiAnalyzer</code> <code>Uyumluluk Otomasyonu</code> <code>SOC</code></p>
 <hr>
 <h2 id="3-ağ-otomasyonu--gözlemlenebilirlik">3. Ağ Otomasyonu &amp; Gözlemlenebilirlik</h2>
+<p><img alt="SOC Splunk" loading="lazy" src="/img/postimages/project-splunk-soc.webp"></p>
 <h3 id="soc-tehdit-görünürlüğü--splunk-dashboard--bankacılık-sektörü">SOC Tehdit Görünürlüğü &amp; Splunk Dashboard — Bankacılık Sektörü</h3>
 <p><strong>Rol:</strong> Kıdemli Ağ Güvenliği Mühendisi | İstanbul, 2022–2025</p>
 <ul>
@@ -3351,6 +3359,7 @@ Gönder →
 </ul>
 <p><code>Splunk SIEM</code> <code>Fortinet IPS</code> <code>Check Point</code> <code>Dashboard Otomasyonu</code></p>
 <hr>
+<p><img alt="Python Otomasyon" loading="lazy" src="/img/postimages/project-python-automation.webp"></p>
 <h3 id="python-tabanlı-ağ-otomasyonu--bankacılık-sektörü">Python Tabanlı Ağ Otomasyonu — Bankacılık Sektörü</h3>
 <p><strong>Rol:</strong> Kıdemli Ağ Güvenliği Mühendisi | İstanbul, 2022–2025</p>
 <ul>
@@ -3640,7 +3649,7 @@ Gönder →
 <li><strong>Substack:</strong> <a href="https://substack.com/@barashhelvadzhaoglu">Teknik Notlar ve Analizler</a> — <em>Ağ güvenliği ve mimari üzerine derinlemesine makaleler.</em></li>
 <li><strong>E-posta:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></li>
 </ul>
-]]></content:encoded></item><item><title>Kurumsal Ağ Güvenliği ve Altyapı Danışmanlığı</title><link>https://barashhelvadzhaoglu.com/tr/services/network-security-consulting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/services/network-security-consulting/</guid><description>Münih&amp;#39;te kurumsal ağ güvenliği danışmanlığı. Firewall migrasyonu, Zero Trust mimarisi ve otomasyon. Ücretsiz teknik ön görüşme.</description><content:encoded><![CDATA[<h1 id="kurumsal-ağ-güvenliği-ve-altyapı-danışmanlığı">Kurumsal Ağ Güvenliği ve Altyapı Danışmanlığı</h1>
+]]></content:encoded></item><item><title>Kurumsal Ağ Güvenliği ve Altyapı Danışmanlığı</title><link>https://barashhelvadzhaoglu.com/tr/services/network-security-consulting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/services/network-security-consulting/</guid><description>Kurumsal ağ güvenliği danışmanlığı. Firewall migrasyonu, Zero Trust mimarisi ve ağ otomasyonu. Uzaktan destek. Ücretsiz teknik ön görüşme.</description><content:encoded><![CDATA[<h1 id="kurumsal-ağ-güvenliği-ve-altyapı-danışmanlığı">Kurumsal Ağ Güvenliği ve Altyapı Danışmanlığı</h1>
 <p>Günümüzün karmaşık tehdit ortamında, ağ altyapınız sadece &ldquo;çalışıyor&rdquo; olmamalı; dayanıklı, şeffaf ve güvenli olmalıdır. <strong>Kıdemli Ağ Güvenliği Mühendisi</strong> olarak 11 yılı aşkın tecrübemle, kritik altyapınızı küresel standartlara göre modernize ediyorum.</p>
 <p>Münih merkezli olarak; bankacılık ve sanayi gibi yüksek güvenlikli sektörlerdeki uzmanlığımı doğrudan işletmenize getiriyorum.</p>
 <blockquote>
@@ -4078,7 +4087,7 @@ Veri kaybı yok, hasar yok
 <p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
 <p><strong>📧 E-posta:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
 <p><em>Ücretsiz kontrol. Onayınız olmadan hiçbir işlem yapılmaz. Bağımlılık yok.</em></p>
-]]></content:encoded></item><item><title>Web Shield – Web Sitesi Koruma ve Yönetim Hizmeti</title><link>https://barashhelvadzhaoglu.com/tr/services/web-shield/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/services/web-shield/</guid><description>Münih&amp;#39;te profesyonel web sitesi yönetimi. SSL, WAF, DDoS koruması, ücretsiz hosting ve aylık güvenlik raporları. Tüm erişimler sizde kalır.</description><content:encoded><![CDATA[<h1 id="web-shield--profesyonel-web-sitesi-koruma-ve-yönetim-hizmeti">Web Shield – Profesyonel Web Sitesi Koruma ve Yönetim Hizmeti</h1>
+]]></content:encoded></item><item><title>Web Shield – Web Sitesi Koruma ve Yönetim Hizmeti</title><link>https://barashhelvadzhaoglu.com/tr/services/web-shield/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/services/web-shield/</guid><description>Profesyonel web sitesi yönetimi ve koruma. SSL sertifikası, WAF, DDoS savunması ve aylık güvenlik raporları. Uzaktan hizmet. Tüm erişimler sizde kalır.</description><content:encoded><![CDATA[<h1 id="web-shield--profesyonel-web-sitesi-koruma-ve-yönetim-hizmeti">Web Shield – Profesyonel Web Sitesi Koruma ve Yönetim Hizmeti</h1>
 <p>Web siteniz, potansiyel müşterilerin işletmenizle ilgili ilk izlenimini oluşturur. Bir çöküş, siber saldırı veya süresi dolmuş SSL sertifikası müşteri ve güven kaybetmenize neden olabilir — çoğu zaman fark etmeden.</p>
 <p><strong>Web Shield</strong>, işletmenizin web sitesi için aylık kapsamlı bir koruma paketidir: güvenlik, bakım, yedekleme ve izleme — tek elden, hiç uğraşmadan.</p>
 <blockquote>

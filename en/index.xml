@@ -3345,6 +3345,7 @@ This version expands the architectural foundation for the series.</p>
 </blockquote>
 <hr>
 <h2 id="1-enterprise-network-architecture--data-center">1. Enterprise Network Architecture &amp; Data Center</h2>
+<p><img alt="Data Center Fabric" loading="lazy" src="/img/postimages/project-dc-fabric-vxlan.webp"></p>
 <h3 id="data-center-fabric-modernization--banking-sector">Data Center Fabric Modernization — Banking Sector</h3>
 <p><strong>Role:</strong> Senior Network Security Engineer | Istanbul, 2022–2025</p>
 <ul>
@@ -3354,6 +3355,7 @@ This version expands the architectural foundation for the series.</p>
 </ul>
 <p><code>Cisco NDFC</code> <code>Nexus 9000</code> <code>VXLAN</code> <code>BGP-EVPN</code></p>
 <hr>
+<p><img alt="Factory Network" loading="lazy" src="/img/postimages/project-packaging-factory.webp"></p>
 <h3 id="network-infrastructure-renewal--global-packaging-manufacturer">Network Infrastructure Renewal — Global Packaging Manufacturer</h3>
 <p><strong>Role:</strong> Network Security Lead | Multi-site, 2018–2022</p>
 <ul>
@@ -3363,6 +3365,7 @@ This version expands the architectural foundation for the series.</p>
 </ul>
 <p><code>Cisco Catalyst 9000</code> <code>ISE</code> <code>Fortinet FGT</code> <code>AMP</code></p>
 <hr>
+<p><img alt="Hotel Network" loading="lazy" src="/img/postimages/project-hotel-network.webp"></p>
 <h3 id="hotel-network-infrastructure-deployment--hospitality-sector">Hotel Network Infrastructure Deployment — Hospitality Sector</h3>
 <p><strong>Role:</strong> Network Security Lead | Istanbul</p>
 <ul>
@@ -3372,6 +3375,7 @@ This version expands the architectural foundation for the series.</p>
 </ul>
 <p><code>Aruba APs</code> <code>Fortinet Firewall</code> <code>VLAN Segmentation</code> <code>Guest Wi-Fi</code></p>
 <hr>
+<p><img alt="F5 Migration" loading="lazy" src="/img/postimages/project-f5-migration.webp"></p>
 <h3 id="load-balancer-renewal--migration--banking-sector">Load Balancer Renewal &amp; Migration — Banking Sector</h3>
 <p><strong>Role:</strong> Senior Network Security Engineer | Istanbul, 2022–2025</p>
 <ul>
@@ -3382,6 +3386,7 @@ This version expands the architectural foundation for the series.</p>
 <p><code>F5 LTM</code> <code>F5 GTM</code> <code>TMOS 15.x</code> <code>HA Clustering</code> <code>SSL Offloading</code></p>
 <hr>
 <h2 id="2-cybersecurity--zero-trust-deployments">2. Cybersecurity &amp; Zero Trust Deployments</h2>
+<p><img alt="Zero Trust VPN" loading="lazy" src="/img/postimages/project-zero-trust-vpn.webp"></p>
 <h3 id="ssl-vpn--zero-trust-implementation--banking-sector">SSL VPN &amp; Zero Trust Implementation — Banking Sector</h3>
 <p><strong>Role:</strong> Senior Network Security Engineer | Istanbul, 2022–2025</p>
 <ul>
@@ -3400,6 +3405,7 @@ This version expands the architectural foundation for the series.</p>
 </ul>
 <p><code>Palo Alto NGFW</code> <code>GlobalProtect</code> <code>MFA</code> <code>Role-Based Access</code></p>
 <hr>
+<p><img alt="DNA Center" loading="lazy" src="/img/postimages/project-dna-center-sdaccess.webp"></p>
 <h3 id="enterprise-network-modernization--automation--manufacturing-treg">Enterprise Network Modernization &amp; Automation — Manufacturing (TR/EG)</h3>
 <p><strong>Role:</strong> Network Security Lead | Turkey &amp; Egypt, 2018–2022</p>
 <ul>
@@ -3410,6 +3416,7 @@ This version expands the architectural foundation for the series.</p>
 </ul>
 <p><code>Cisco DNA Center</code> <code>ISE</code> <code>Umbrella</code> <code>Stealthwatch</code> <code>Firepower</code> <code>Catalyst 9000</code></p>
 <hr>
+<p><img alt="Firewall Policy" loading="lazy" src="/img/postimages/project-firewall-policy.webp"></p>
 <h3 id="firewall-policy-optimization--soc-integration--banking-sector">Firewall Policy Optimization &amp; SOC Integration — Banking Sector</h3>
 <p><strong>Role:</strong> Senior Network Security Engineer | Istanbul, 2022–2025</p>
 <ul>
@@ -3420,6 +3427,7 @@ This version expands the architectural foundation for the series.</p>
 <p><code>FortiManager</code> <code>FortiAnalyzer</code> <code>Compliance Automation</code> <code>SOC</code></p>
 <hr>
 <h2 id="3-network-automation-observability--analytics">3. Network Automation, Observability &amp; Analytics</h2>
+<p><img alt="SOC Splunk" loading="lazy" src="/img/postimages/project-splunk-soc.webp"></p>
 <h3 id="soc-threat-visibility--splunk-dashboard-integration--banking-sector">SOC Threat Visibility &amp; Splunk Dashboard Integration — Banking Sector</h3>
 <p><strong>Role:</strong> Senior Network Security Engineer | Istanbul, 2022–2025</p>
 <ul>
@@ -3429,6 +3437,7 @@ This version expands the architectural foundation for the series.</p>
 </ul>
 <p><code>Splunk SIEM</code> <code>Fortinet IPS</code> <code>Check Point</code> <code>Dashboard Automation</code></p>
 <hr>
+<p><img alt="Python Automation" loading="lazy" src="/img/postimages/project-python-automation.webp"></p>
 <h3 id="python-based-network-automation-for-capacity-planning--banking-sector">Python-Based Network Automation for Capacity Planning — Banking Sector</h3>
 <p><strong>Role:</strong> Senior Network Security Engineer | Istanbul, 2022–2025</p>
 <ul>

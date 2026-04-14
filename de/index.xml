@@ -3258,6 +3258,7 @@ Nachricht senden →
 </blockquote>
 <hr>
 <h2 id="1-enterprise-netzwerkarchitektur--rechenzentrum">1. Enterprise-Netzwerkarchitektur &amp; Rechenzentrum</h2>
+<p><img alt="Rechenzentrum VXLAN" loading="lazy" src="/img/postimages/project-dc-fabric-vxlan.webp"></p>
 <h3 id="rechenzentrum-fabric-modernisierung--banking-sektor">Rechenzentrum Fabric-Modernisierung — Banking-Sektor</h3>
 <p><strong>Rolle:</strong> Senior Network Security Engineer | Istanbul, 2022–2025</p>
 <ul>
@@ -3267,6 +3268,7 @@ Nachricht senden →
 </ul>
 <p><code>Cisco NDFC</code> <code>Nexus 9000</code> <code>VXLAN</code> <code>BGP-EVPN</code></p>
 <hr>
+<p><img alt="Fabrik Netzwerk" loading="lazy" src="/img/postimages/project-packaging-factory.webp"></p>
 <h3 id="netzwerkinfrastruktur-erneuerung--globaler-verpackungshersteller">Netzwerkinfrastruktur-Erneuerung — Globaler Verpackungshersteller</h3>
 <p><strong>Rolle:</strong> Network Security Lead | Mehrere Standorte, 2018–2022</p>
 <ul>
@@ -3276,6 +3278,7 @@ Nachricht senden →
 </ul>
 <p><code>Cisco Catalyst 9000</code> <code>ISE</code> <code>Fortinet FGT</code> <code>AMP</code></p>
 <hr>
+<p><img alt="Hotel Netzwerk" loading="lazy" src="/img/postimages/project-hotel-network.webp"></p>
 <h3 id="hotel-netzwerkinfrastruktur--hospitality-sektor">Hotel-Netzwerkinfrastruktur — Hospitality-Sektor</h3>
 <p><strong>Rolle:</strong> Network Security Lead | Istanbul</p>
 <ul>
@@ -3285,6 +3288,7 @@ Nachricht senden →
 </ul>
 <p><code>Aruba APs</code> <code>Fortinet Firewall</code> <code>VLAN-Segmentierung</code> <code>Gäste-WLAN</code></p>
 <hr>
+<p><img alt="F5 Migration" loading="lazy" src="/img/postimages/project-f5-migration.webp"></p>
 <h3 id="load-balancer-migration--banking-sektor">Load-Balancer-Migration — Banking-Sektor</h3>
 <p><strong>Rolle:</strong> Senior Network Security Engineer | Istanbul, 2022–2025</p>
 <ul>
@@ -3295,6 +3299,7 @@ Nachricht senden →
 <p><code>F5 LTM</code> <code>F5 GTM</code> <code>TMOS 15.x</code> <code>HA Clustering</code> <code>SSL Offloading</code></p>
 <hr>
 <h2 id="2-cybersicherheit--zero-trust-deployments">2. Cybersicherheit &amp; Zero Trust Deployments</h2>
+<p><img alt="Zero Trust VPN" loading="lazy" src="/img/postimages/project-zero-trust-vpn.webp"></p>
 <h3 id="ssl-vpn--zero-trust-implementierung--banking-sektor">SSL VPN &amp; Zero Trust Implementierung — Banking-Sektor</h3>
 <p><strong>Rolle:</strong> Senior Network Security Engineer | Istanbul, 2022–2025</p>
 <ul>
@@ -3313,6 +3318,7 @@ Nachricht senden →
 </ul>
 <p><code>Palo Alto NGFW</code> <code>GlobalProtect</code> <code>MFA</code> <code>Rollenbasierter Zugriff</code></p>
 <hr>
+<p><img alt="DNA Center" loading="lazy" src="/img/postimages/project-dna-center-sdaccess.webp"></p>
 <h3 id="enterprise-netzwerkmodernisierung--automatisierung--industrie-treg">Enterprise-Netzwerkmodernisierung &amp; Automatisierung — Industrie (TR/EG)</h3>
 <p><strong>Rolle:</strong> Network Security Lead | Türkei &amp; Ägypten, 2018–2022</p>
 <ul>
@@ -3323,6 +3329,7 @@ Nachricht senden →
 </ul>
 <p><code>Cisco DNA Center</code> <code>ISE</code> <code>Umbrella</code> <code>Stealthwatch</code> <code>Firepower</code> <code>Catalyst 9000</code></p>
 <hr>
+<p><img alt="Firewall Policy" loading="lazy" src="/img/postimages/project-firewall-policy.webp"></p>
 <h3 id="firewall-policy-optimierung--soc-integration--banking-sektor">Firewall Policy-Optimierung &amp; SOC-Integration — Banking-Sektor</h3>
 <p><strong>Rolle:</strong> Senior Network Security Engineer | Istanbul, 2022–2025</p>
 <ul>
@@ -3333,6 +3340,7 @@ Nachricht senden →
 <p><code>FortiManager</code> <code>FortiAnalyzer</code> <code>Compliance Automation</code> <code>SOC</code></p>
 <hr>
 <h2 id="3-netzwerkautomatisierung--observability">3. Netzwerkautomatisierung &amp; Observability</h2>
+<p><img alt="SOC Splunk" loading="lazy" src="/img/postimages/project-splunk-soc.webp"></p>
 <h3 id="soc-threat-visibility--splunk-dashboard--banking-sektor">SOC Threat Visibility &amp; Splunk Dashboard — Banking-Sektor</h3>
 <p><strong>Rolle:</strong> Senior Network Security Engineer | Istanbul, 2022–2025</p>
 <ul>
@@ -3342,6 +3350,7 @@ Nachricht senden →
 </ul>
 <p><code>Splunk SIEM</code> <code>Fortinet IPS</code> <code>Check Point</code> <code>Dashboard Automation</code></p>
 <hr>
+<p><img alt="Python Automatisierung" loading="lazy" src="/img/postimages/project-python-automation.webp"></p>
 <h3 id="python-basierte-netzwerkautomatisierung--banking-sektor">Python-basierte Netzwerkautomatisierung — Banking-Sektor</h3>
 <p><strong>Rolle:</strong> Senior Network Security Engineer | Istanbul, 2022–2025</p>
 <ul>
