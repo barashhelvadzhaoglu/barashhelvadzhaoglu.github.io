@@ -1,1 +1,130 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>VPN on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/vpn/</link><description>Recent content in VPN on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Sat, 03 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/vpn/index.xml" rel="self" type="application/rss+xml"/><item><title>Zero Trust Zihniyeti: Güvenliği Bir Ürün Değil, Bir Mimari Olarak Mühendislemek</title><link>https://barashhelvadzhaoglu.com/tr/architecture/zero-trust-architecture-behaviors/</link><pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/zero-trust-architecture-behaviors/</guid><description>Zero Trust bir ürün değil mimari yaklaşımdır. Kullanıcı doğrulama, sürekli erişim kontrolü ve VPN ötesinde modern güvenlik nasıl çalışır.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>VPN on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/vpn/</link><description>Recent content in VPN on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Sat, 03 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/vpn/index.xml" rel="self" type="application/rss+xml"/><item><title>Zero Trust Zihniyeti: Güvenliği Bir Ürün Değil, Bir Mimari Olarak Mühendislemek</title><link>https://barashhelvadzhaoglu.com/tr/architecture/zero-trust-architecture-behaviors/</link><pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/zero-trust-architecture-behaviors/</guid><description>Zero Trust bir ürün değil mimari yaklaşımdır. Kullanıcı doğrulama, sürekli erişim kontrolü ve VPN ötesinde modern güvenlik nasıl çalışır.</description><content:encoded><![CDATA[<h1 id="zero-trust-zihniyeti-güvenliği-bir-ürün-değil-bir-mimari-olarak-mühendislemek">Zero Trust Zihniyeti: Güvenliği Bir Ürün Değil, Bir Mimari Olarak Mühendislemek</h1>
+<p>Zero Trust bugün neredeyse her güvenlik sunumunda geçen bir kavram. Ancak sahada karşılığına baktığımızda, çoğu zaman yanlış yerde, yanlış beklentiyle ve yanlış araçlarla ele alındığını görüyoruz. Bunun temel sebebi, Zero Trust&rsquo;ın bir teknoloji ya da satın alınabilir bir ürün gibi konumlandırılması. Oysa Zero Trust; lisanslanan, kutulanan ya da tek bir vendor&rsquo;dan alınan bir çözüm değildir. Zero Trust, bir mimari bakış açısıdır ve daha da önemlisi, bir davranış biçimidir.</p>
+<p>Zero Trust&rsquo;ın özü son derece nettir: <strong>Never trust, always verify.</strong> Hiçbir kullanıcıya, hiçbir cihaza, hiçbir bağlantıya varsayılan olarak güvenme. Güven, sürekli olarak yeniden kazanılan bir durumdur. Bu yaklaşım, klasik &ldquo;içerisi güvenlidir, dışarısı tehlikelidir&rdquo; varsayımını tamamen ortadan kaldırır. Çünkü modern IT dünyasında içerisi ve dışarısı artık net sınırlarla ayrılmış değildir.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/zero-trust-layered-architecture.webp"/> <figcaption>
+            Zero Trust: Katmanlı Bir Mimari
+        </figcaption>
+</figure>
+
+<p><strong>Özetle:</strong></p>
+<ul>
+<li>Zero Trust bir ürün değil, mimari yaklaşımdır</li>
+<li>Varsayılan güven kavramını reddeder</li>
+<li>Sürekli doğrulama esasına dayanır</li>
+</ul>
+<blockquote>
+<p>Bu yazı, IT altyapısını sistem olarak ele alan serinin bir parçasıdır. Başlangıç noktası için: <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a></p>
+</blockquote>
+<h2 id="zero-trust-hiçbir-üreticinin-malı-değildir">Zero Trust Hiçbir Üreticinin Malı Değildir</h2>
+<p>Zero Trust kavramı pratikte ilk olarak güvenlik üreticilerinin vizyonlarıyla şekillenmeye başladı. Ancak burada önemli bir ayrım yapmak gerekir: Zero Trust herhangi bir üreticinin &ldquo;sahip olduğu&rdquo; bir konsept değildir. Tek bir teknolojiyle temsil edilemez.</p>
+<p>Bunun sebebi şudur: Zero Trust, aynı anda birden fazla katmanın birlikte ve tutarlı şekilde çalışmasını zorunlu kılar. Network, güvenlik, kimlik, kullanıcı, cihaz ve uygulama katmanları birbirinden kopuk çalışıyorsa, Zero Trust yalnızca bir söylem olarak kalır. Mimari olarak karşılığı yoktur.</p>
+<p><strong>Bu bölümün özü:</strong></p>
+<ul>
+<li>Zero Trust vendor&rsquo;a ait değildir</li>
+<li>Tek bir teknolojiyle kurulamaz</li>
+<li>Katmanlar arası tutarlılık gerektirir</li>
+</ul>
+<h2 id="kullanıcı-ve-cihaz-doğrulaması-mimarinin-başladığı-yer">Kullanıcı ve Cihaz Doğrulaması: Mimarinin Başladığı Yer</h2>
+<p>Zero Trust mimarisi pratikte çok temel bir soruyla başlar:</p>
+<blockquote>
+<p>&ldquo;Bu kullanıcı ve bu cihaz, şu anda erişmek istediği kaynağa gerçekten erişmeli mi?&rdquo;</p>
+</blockquote>
+<p>Bu soruya anlamlı bir cevap verebilmek için ilk adım, network&rsquo;e dahil olan kullanıcıların ve cihazların doğrulanmasıdır. Active Directory, LDAP veya modern identity provider&rsquo;lar bu yapının merkezinde yer alır. Kullanıcıya hangi kaynaklara erişebileceği sadece kimliğine değil, rolüne ve risk durumuna göre belirlenir.</p>
+<p>Ancak Zero Trust açısından önemli olan yalnızca kullanıcının kim olduğu değildir; cihazın durumu, kurumsal envantere ait olup olmadığı ve güvenlik politikalarına uygunluğu da bu kararın bir parçasıdır.</p>
+<p><strong>Hatırlanması gerekenler:</strong></p>
+<ul>
+<li>Kullanıcı doğrulaması tek başına yeterli değildir</li>
+<li>Cihaz kimliği ve durumu da değerlendirilir</li>
+<li>Erişim kararı bağlama göre verilir</li>
+</ul>
+<h2 id="vpn--zero-trust-uzaktan-erişimin-doğru-çerçevesi">VPN ≠ Zero Trust: Uzaktan Erişimin Doğru Çerçevesi</h2>
+<p>Uzaktan çalışma artık istisna değil, standarttır. Ancak birçok organizasyonda hâlâ klasik VPN mantığıyla hareket edilir: kullanıcı VPN&rsquo;e bağlanır ve bir anda tüm lokal network&rsquo;ün parçası haline gelir. <strong>Bu yaklaşım Zero Trust değildir.</strong> Bu yalnızca uzaktan erişimdir.</p>
+<p>Zero Trust mimarisinde uzaktan erişim, &ldquo;her yere erişim&rdquo; anlamına gelmez. Kullanıcı yalnızca yetkili olduğu uygulamalara veya kaynaklara erişir. Amaç her zaman aynıdır: erişimi minimumda tutmak ve sürekli kontrol etmek.</p>
+<p><strong>Bu bölümün kilidi:</strong></p>
+<ul>
+<li>VPN ≠ Zero Trust</li>
+<li>Erişim tüm network&rsquo;e değil, kaynağa olmalıdır</li>
+<li>Yetki sürekli kontrol edilir</li>
+</ul>
+<h2 id="sürekli-doğrulama-ve-mfa">Sürekli Doğrulama ve MFA</h2>
+<p>Zero Trust&rsquo;ı klasik güvenlik yaklaşımlarından ayıran en önemli nokta, doğrulamanın tek seferlik kabul edilmemesidir. Kullanıcı ve cihaz davranışı değiştikçe, erişim sürekli olarak yeniden değerlendirilir.</p>
+<p>Bu noktada <strong>çok faktörlü kimlik doğrulama (MFA)</strong> devreye girer. SMS, mobil uygulama bildirimi, donanımsal token veya biyometrik doğrulama gibi ek katmanlar kullanılır. Özellikle mail server, finans sistemleri veya ERP gibi kritik uygulamalara erişimde, kullanıcıdan belirli aralıklarla kendini yeniden doğrulaması istenir.</p>
+<p><strong>Özetle:</strong></p>
+<ul>
+<li>Doğrulama süreklidir</li>
+<li>MFA Zero Trust&rsquo;ın temel bileşenidir</li>
+<li>Kritik kaynaklarda periyotlar kısaltılır</li>
+</ul>
+<h2 id="firewall-politika-karar-noktası">Firewall: Politika Karar Noktası</h2>
+<p>Firewall katmanı, Zero Trust mimarisinde merkezi bir rol oynar. Ancak bu rol, klasik anlamda &ldquo;internet çıkışını kontrol eden cihaz&rdquo; olmaktan çok daha fazlasıdır. Zero Trust yaklaşımında firewall, kimlik ve bağlam farkındalığı olan bir karar noktasıdır.</p>
+<p>Firewall üzerinde tanımlanan kurallar yalnızca IP veya port bazlı olmamalıdır. Kullanıcı, grup ve uygulama bazlı kurallar yazılabildiğinde Zero Trust gerçek anlamda uygulanabilir hale gelir.</p>
+<blockquote>
+<p>Switch, firewall ve AP&rsquo;nin birlikte nasıl çalıştığını anlamak için: <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a></p>
+</blockquote>
+<p><strong>Bu katmanın özeti:</strong></p>
+<ul>
+<li>Firewall politika karar noktasıdır</li>
+<li>Kimlik ve uygulama farkındalığı şarttır</li>
+<li>Port bazlı kurallar yeterli değildir</li>
+</ul>
+<h2 id="access-katmanı-zero-trust-buradan-başlar">Access Katmanı: Zero Trust Buradan Başlar</h2>
+<p>Zero Trust yalnızca firewall ve VPN katmanında uygulanmaz. Mimarinin başladığı yer access katmanıdır. 802.1X ve NAC çözümleri bu noktada devreye girer. Tüm switch portları ve wireless erişimler merkezi bir sistem tarafından kontrol edilir. Kullanıcı veya cihaz network&rsquo;e bağlanmadan önce doğrulanır ve bu doğrulama sonucuna göre dinamik olarak VLAN atanır veya politika uygulanır.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/zero-trust-access-layer-802-1x.webp"/> <figcaption>
+            802.1X Erişim Kontrolü: Ağ Kenarında Zero Trust
+        </figcaption>
+</figure>
+
+<p><strong>Bu bölümün özü:</strong></p>
+<ul>
+<li>Zero Trust access katmanında başlar</li>
+<li>802.1X merkezi kontrol sağlar</li>
+<li>Statik VLAN / SSID yapıları ölçeklenmez</li>
+</ul>
+<h2 id="cihaz-profilleme-ve-iot">Cihaz Profilleme ve IoT</h2>
+<p>Modern Zero Trust mimarilerinde yalnızca kullanıcı cihazları değil, network&rsquo;e bağlanan tüm uçlar kontrol altına alınır. Yazıcılar, kameralar, IP telefonlar, kart okuyucular gibi cihazlar da doğrulama sürecine dahil edilir.</p>
+<p>Yeni nesil NAC çözümleri DHCP fingerprint, CDP/LLDP bilgileri ve cihaz üretici bilgileri gibi birçok parametreyi birleştirerek cihaz profillemesi yapar. Cihazın güncel olup olmadığı, güvenlik durumu veya kurumsal standartlara uygunluğu da değerlendirilir.</p>
+<p><strong>Kilit noktalar:</strong></p>
+<ul>
+<li>Cihaz profilleme kritik önemdedir</li>
+<li>MAC adresi tek başına yeterli değildir</li>
+<li>Envanter entegrasyonu şarttır</li>
+</ul>
+<h2 id="misafir-erişimi-güven-varsayılmaz">Misafir Erişimi: Güven Varsayılmaz</h2>
+<p>Zero Trust mimarisinde misafir erişimleri bile kontrol altındadır. Guest portal&rsquo;lar aracılığıyla misafir kullanıcılar doğrulamadan geçirilir ve yalnızca belirli süre ve yetkilerle erişim sağlanır. Misafirler genellikle sadece internete çıkabilir; şirket kaynaklarına erişimleri sınırlıdır.</p>
+<p><strong>Bu bölümün özeti:</strong></p>
+<ul>
+<li>Misafir erişimi sınırsız değildir</li>
+<li>Süre ve yetki bazlı kontrol uygulanır</li>
+<li>Güven varsayılmaz</li>
+</ul>
+<h2 id="sürekli-izleme-mimarinin-en-kritik-parçası">Sürekli İzleme: Mimarinin En Kritik Parçası</h2>
+<p>Her katmanda erişim ve davranışlar izlenir ve kaydedilir. Anormal bir durum veya riskli hareket tespit edilirse, sistem otomatik olarak erişimi sınırlar veya ek doğrulama ister.</p>
+<blockquote>
+<p>Altyapıda gerçek görünürlük nasıl kurulur: <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a></p>
+</blockquote>
+<h2 id="sonuç">Sonuç</h2>
+<p>Zero Trust bir ürün değildir.
+Tek bir cihazla kurulmaz.
+&ldquo;Kurduk, bitti&rdquo; denilemez.</p>
+<p>Zero Trust; firewall, switch ve wireless altyapılarının; kullanıcı ve cihaz bilgilerini merkezi bir noktadan alarak birlikte çalıştığı, erişimin her aşamada yeniden sorgulandığı yaşayan bir mimaridir. Bu yüzden Zero Trust&rsquo;ı satın alınacak bir teknoloji değil, tasarlanacak ve işletilecek bir yetkinlik olarak görmek gerekir.</p>
+<h2 id="not">Not</h2>
+<p>Bu makale ilk olarak <strong>Substack</strong>&rsquo;te daha kısa, anlatısal bir biçimde yayınlanmıştı.
+Bu versiyon, serinin mimari temelini genişletiyor.</p>
+<p>👉 <strong>Makaleyi Substack&rsquo;te okuyun:</strong> <a href="https://substack.com/home/post/p-183954997">Burayı Tıklayın</a></p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Mimari &amp; Güvenlik Tasarımı</strong></p>
+<ul>
+<li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Bu serinin temel yazısı</li>
+<li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a> — Core network tasarımında sistem düşüncesi</li>
+<li>📊 <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a> — Altyapıda gerçek görünürlük</li>
+</ul>
+<p><strong>Teknik Mühendislik</strong></p>
+<ul>
+<li>🔐 <a href="/tr/posts/unlocking-success-in-802-1x-projects-field-insights/">802.1X Projelerinde Başarı: Saha Deneyimleri</a> — Kimlik tabanlı erişimin sahada uygulanması</li>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Gelişmiş trafik görünürlüğü ve güvenlik stratejisi</li>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-terminal-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Her şey kesildiğinde out-of-band erişim</li>
+</ul>
+]]></content:encoded></item></channel></rss>

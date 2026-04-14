@@ -1,1 +1,197 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Network on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/network/</link><description>Recent content in Network on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>en</language><lastBuildDate>Wed, 25 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/network/index.xml" rel="self" type="application/rss+xml"/><item><title>Wi-Fi Problems? A Permanent Mesh Solution Without Cables — For Offices, Villas, and Luxury Properties</title><link>https://barashhelvadzhaoglu.com/en/posts/wifi-mesh-solution/</link><pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/posts/wifi-mesh-solution/</guid><description>Does your Wi-Fi not reach every room in the office or at home? Learn how Aruba Instant On Mesh and ClientMatch help permanently — without any cable work.</description></item><item><title>Cisco Nexus NX-OS Software Upgrade Guide: Field-Tested Step by Step</title><link>https://barashhelvadzhaoglu.com/en/posts/cisco-nexus-nxos-upgrade-guide/</link><pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/posts/cisco-nexus-nxos-upgrade-guide/</guid><description>Field-tested guide for upgrading Cisco Nexus NX-OS — preparation, upgrade path, file transfer, rollback, and ROMMON recovery scenarios.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Network on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/network/</link><description>Recent content in Network on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>en</language><lastBuildDate>Wed, 25 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/network/index.xml" rel="self" type="application/rss+xml"/><item><title>Wi-Fi Problems? A Permanent Mesh Solution Without Cables — For Offices, Villas, and Luxury Properties</title><link>https://barashhelvadzhaoglu.com/en/posts/wifi-mesh-solution/</link><pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/posts/wifi-mesh-solution/</guid><description>Does your Wi-Fi not reach every room in the office or at home? Learn how Aruba Instant On Mesh and ClientMatch help permanently — without any cable work.</description><content:encoded><![CDATA[<p>You know the feeling? In the front office or at reception the Wi-Fi is perfect — but the moment you step into the meeting room, the kitchen, or the back area, the connection drops or becomes too slow for productive work.</p>
+<p>Or at home: Netflix runs smoothly in the living room, but on the upper floor or in the garden the connection comes and goes. In a three-story villa or a luxury property on the water, strong Wi-Fi in every room seems like a dream.</p>
+<p>It isn&rsquo;t. And the best part: the problem can be solved permanently — <strong>without laying a single meter of cable.</strong></p>
+<figure>
+    <img loading="lazy" src="/img/postimages/wifi-mesh-cover.webp"/> <figcaption>
+            Wi-Fi Mesh Solution for Office and Villa — Aruba Instant On
+        </figcaption>
+</figure>
+
+<h2 id="why-isnt-one-router-enough">Why Isn&rsquo;t One Router Enough?</h2>
+<p>A standard router was designed for a flat of maybe 80–100 square meters. In an office with multiple rooms and thick concrete walls, or in a large house where dozens of devices connect simultaneously, a single router simply cannot cope.</p>
+<p>The problem is not just range. Devices stubbornly cling to their current access point even when the signal is weak, instead of switching to a stronger one. This phenomenon is called the <strong>&ldquo;Sticky Client&rdquo;</strong> problem — and many users deal with it daily without knowing it.</p>
+<h2 id="the-solution-mesh--done-right">The Solution: Mesh — Done Right</h2>
+<p>Mesh networks allow multiple access points to communicate with each other and form a single seamless network. But not all mesh systems are equal.</p>
+<p>Cheap consumer mesh systems may be sufficient for a small flat. But when 30+ devices connect simultaneously in a three-story villa, or 15 employees work online in an office, these systems quickly hit their limits.</p>
+<h2 id="aruba-instant-on-and-clientmatch-technology">Aruba Instant On and ClientMatch Technology</h2>
+<p>Aruba is HP&rsquo;s professional networking brand. The Instant On series brings enterprise know-how to small businesses and premium home users at an accessible price.</p>
+<p>The feature that truly sets Aruba apart is <strong>ClientMatch technology</strong>:</p>
+<p>A standard access point connects your device and then leaves it alone. You walk from room to room, but your phone stubbornly holds onto the weak access point fifteen meters behind you. ClientMatch keeps all access points in constant communication. The moment signal quality drops, the system automatically directs your device to the strongest available point — seamlessly, without interruption.</p>
+<p>This is especially important in scenarios like:</p>
+<ul>
+<li>Moving between floors or from the house to the garden</li>
+<li>Employees moving around a large open-plan office</li>
+<li>The homeowner walking between rooms during a video call</li>
+</ul>
+<h2 id="how-does-it-work-without-cables">How Does It Work Without Cables?</h2>
+<p>With Aruba Instant On, access points communicate wirelessly with each other. One is connected to the internet via cable; the others are fed by it:</p>
+<pre tabindex="0"><code>Internet → Modem/Router
+                ↓ (cable — just this one)
+         Main Aruba AP (ground floor)
+                ↓ (wireless mesh)
+         2nd Aruba AP (1st floor)
+                ↓ (wireless mesh)
+         3rd Aruba AP (2nd floor / garden)
+</code></pre><p>Wherever there is a power outlet, an access point can be placed. Nothing more is needed.</p>
+<h2 id="the-design-works-too">The Design Works Too</h2>
+<p>Aruba Instant On devices impress not just technically but visually. Their minimalist white design fits effortlessly on a desk, a bookshelf, or next to the TV. Ceiling mounting is not required.</p>
+<h2 id="beyond-wi-fi-switches-poe-and-camera-integration">Beyond Wi-Fi: Switches, PoE, and Camera Integration</h2>
+<p>The Aruba Instant On ecosystem goes far beyond Wi-Fi. By adding <strong>mini PoE switches</strong>, a much more comprehensive infrastructure can be built:</p>
+<p><strong>What is PoE (Power over Ethernet)?</strong>
+Data and power are transmitted over a single Ethernet cable. For camera installations, this is a real game-changer:</p>
+<pre tabindex="0"><code>Aruba PoE Switch
+      ├── Aruba AP (Wi-Fi — powered via cable)
+      ├── IP Camera 1 (power + data, one cable)
+      ├── IP Camera 2 (power + data, one cable)
+      └── IP Camera 3 (power + data, one cable)
+</code></pre><p>No separate electrician needed for the cameras. A single Ethernet cable handles everything.</p>
+<h2 id="security">Security</h2>
+<p>With Aruba Instant On, the employee network and guest network are completely isolated from each other. Anyone connected to the guest Wi-Fi cannot access internal systems, NAS storage, or printers — critical for both security and GDPR compliance.</p>
+<h2 id="from-practice-a-law-firm">From Practice: A Law Firm</h2>
+<p>A small law firm, three office rooms. In the two back rooms where the lawyers work, the connection kept dropping. Video calls were interrupted.</p>
+<p>The solution: two Aruba Instant On APs added — one in the corridor, one in the back office — connected via wireless mesh. Installation took two hours, during business hours, without a single minute of downtime.</p>
+<p>The result: strong, stable connection in every corner. Separate networks for staff and clients. Video calls run smoothly.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Wi-Fi problems usually have a simpler solution than they first appear. No cables to lay, no walls to open up. With the right devices and ClientMatch technology, seamless, high-performance Wi-Fi is completely achievable in every corner of your office or every floor of your villa.</p>
+<p>Message me on WhatsApp for a free analysis — I usually respond within an hour.</p>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<hr>
+<h2 id="related-articles">Related Articles</h2>
+<p><strong>Protection &amp; Security</strong></p>
+<ul>
+<li>💾 <a href="/en/posts/nas-backup/">Your NAS Without RAID Is a Ticking Time Bomb</a> — Data backup with AWS S3</li>
+<li>🔋 <a href="/en/posts/ups-office/">What Happens When the Power Goes Out?</a> — UPS protection for offices and practices</li>
+<li>🔒 <a href="/en/posts/ssl-websecurity/">SSL Certificate — Why &ldquo;Not Secure&rdquo; Costs You Customers</a> — Website security for SMBs</li>
+</ul>
+<p><strong>Architecture &amp; Infrastructure</strong></p>
+<ul>
+<li>🏗️ <a href="/en/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough</a> — Architecture-first network design</li>
+<li>📐 <a href="/en/architecture/it-infrastructure-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a> — System thinking for resilient IT</li>
+</ul>
+]]></content:encoded></item><item><title>Cisco Nexus NX-OS Software Upgrade Guide: Field-Tested Step by Step</title><link>https://barashhelvadzhaoglu.com/en/posts/cisco-nexus-nxos-upgrade-guide/</link><pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/posts/cisco-nexus-nxos-upgrade-guide/</guid><description>Field-tested guide for upgrading Cisco Nexus NX-OS — preparation, upgrade path, file transfer, rollback, and ROMMON recovery scenarios.</description><content:encoded><![CDATA[<p>This guide covers the <strong>Cisco Nexus NX-OS software upgrade process</strong> in a practical, step-by-step manner — including <strong>rollback and recovery scenarios</strong>. The goal is to minimize service disruption and ensure the device can always be recovered in case of failure.</p>
+<p>Most upgrade failures are not caused by the upgrade itself — they are caused by skipping preparation steps. This guide treats preparation as seriously as execution.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/nexus-nxos-upgrade-cover.webp"/> <figcaption>
+            Cisco Nexus NX-OS Upgrade Process
+        </figcaption>
+</figure>
+
+<blockquote>
+<p>For out-of-band access during upgrade failures, see: <a href="/en/posts/next-gen-console-server-architecture/">The Backdoor of the Network: Next-Gen Console Server Architecture</a></p>
+</blockquote>
+<h2 id="1-pre-upgrade-checks">1. Pre-Upgrade Checks</h2>
+<p>Before starting the software upgrade, you must complete the preparation steps below. This phase is the most commonly skipped — and the most common source of problems.</p>
+<h3 id="configuration-backup">Configuration Backup</h3>
+<ul>
+<li>Take a <strong>backup of the current configuration</strong> before anything else.</li>
+<li>Store the backup on your own computer or an <strong>external location</strong> such as FTP/SFTP — not on the switch itself.</li>
+<li>If the upgrade fails or a rollback is needed, this backup is critical.</li>
+</ul>
+<h3 id="verify-switch-model-and-current-software-version">Verify Switch Model and Current Software Version</h3>
+<p>Check the switch model and the running NX-OS version with these commands:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>show version
+</span></span><span style="display:flex;"><span>show module
+</span></span><span style="display:flex;"><span>show inventory
+</span></span></code></pre></div><p>These outputs are required to select the correct NX-OS image, determine the upgrade path, and verify hardware compatibility.</p>
+<h2 id="2-download-the-software-image">2. Download the Software Image</h2>
+<ul>
+<li>Download the correct NX-OS image for your switch model from Cisco&rsquo;s official portal:
+<a href="https://software.cisco.com/download/home">https://software.cisco.com/download/home</a></li>
+<li>A valid <strong>Cisco account with the appropriate entitlements</strong> is required.</li>
+<li>After downloading, <strong>note the MD5 hash value</strong> — you will need it to verify file integrity after transfer.</li>
+</ul>
+<blockquote>
+<p>MD5 verification confirms the file was not corrupted during download. This step is not optional.</p>
+</blockquote>
+<h2 id="3-verify-the-upgrade-path">3. Verify the Upgrade Path</h2>
+<p>A direct upgrade from your current NX-OS version to the target version is <strong>not always supported</strong>. Some version combinations require intermediate steps.</p>
+<p>Use Cisco&rsquo;s official tools to verify:</p>
+<ul>
+<li><strong>Nexus Upgrade Matrix Tools</strong></li>
+<li>Nexus 9000 / 3000 Series</li>
+<li>Nexus 7000 Series</li>
+</ul>
+<blockquote>
+<p>If multiple upgrade steps are required, download <strong>all intermediate images</strong> before starting the process.</p>
+</blockquote>
+<h2 id="4-copy-the-software-file-to-the-switch">4. Copy the Software File to the Switch</h2>
+<h3 id="option-a-ftp-transfer">Option A: FTP Transfer</h3>
+<p>FTP is one of the most common methods. Note that NX-OS images can be close to 2 GB, so transfer time depends on network speed.</p>
+<p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>copy ftp://user1:Qazwsx@10.10.10.5/nxos.9.3.10.bin bootflash:
+</span></span></code></pre></div><p>If multiple VRFs are configured on the Nexus, you will be asked which VRF to use for the transfer. Since the management interface typically uses the management VRF, select management VRF.</p>
+<h3 id="option-b-usb-transfer-recommended">Option B: USB Transfer (Recommended)</h3>
+<p>USB transfer is my preferred method when:</p>
+<ul>
+<li>No FTP server is readily available</li>
+<li>You have time constraints</li>
+<li>You want to avoid any network transfer risk</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>copy usb1:nxos.9.3.10.bin bootflash:
+</span></span></code></pre></div><p>Ensure the USB filesystem format is supported by the Nexus device before proceeding.</p>
+<h3 id="md5-hash-verification">MD5 Hash Verification</h3>
+<p>After the transfer, verify file integrity:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>show file bootflash:nxos.9.3.10.bin md5sum
+</span></span></code></pre></div><p>The output must exactly match the MD5 hash from the Cisco download portal.</p>
+<h2 id="5-run-the-upgrade">5. Run the Upgrade</h2>
+<p>Once all checks are complete, start the upgrade:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>install all nxos bootflash:nxos.9.3.10.bin
+</span></span></code></pre></div><ul>
+<li>The switch automatically saves the current configuration before installation.</li>
+<li>You will be prompted for confirmation before the reboot.</li>
+<li>After confirmation, the device reboots and the upgrade begins.</li>
+</ul>
+<p>Upgrade duration varies depending on the device model and software size.</p>
+<h2 id="6-rollback-and-recovery-scenarios">6. Rollback and Recovery Scenarios</h2>
+<figure>
+    <img loading="lazy" src="/img/postimages/nexus-upgrade-rollback.webp"/> <figcaption>
+            Nexus Upgrade Rollback and Recovery Path
+        </figcaption>
+</figure>
+
+<h3 id="rommon-mode-entry">ROMMON Mode Entry</h3>
+<p>If the installation fails or the device does not boot:</p>
+<ul>
+<li>During device startup, press <strong>CTRL + L</strong> or <strong>CTRL + C</strong> via console connection to enter <strong>ROMMON mode</strong>.</li>
+</ul>
+<h3 id="boot-via-tftp-from-rommon">Boot via TFTP from ROMMON</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>set ip 10.10.10.2 255.255.255.0
+</span></span><span style="display:flex;"><span>set gw 10.10.10.1
+</span></span><span style="display:flex;"><span>cmdline recoverymode<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>boot tftp://10.10.10.2/tftpboot/nxos.9.3.10.bin
+</span></span><span style="display:flex;"><span>init system
+</span></span><span style="display:flex;"><span>reload-nxos
+</span></span></code></pre></div><h3 id="boot-via-usb-from-rommon">Boot via USB from ROMMON</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>boot usb1:nxos.9.3.10.bin bootflash:
+</span></span><span style="display:flex;"><span>set ip 10.10.10.2 255.255.255.0
+</span></span><span style="display:flex;"><span>set gw 10.10.10.1
+</span></span><span style="display:flex;"><span>cmdline recoverymode<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>boot usb1:nxos.9.3.10.bin
+</span></span><span style="display:flex;"><span>init system
+</span></span><span style="display:flex;"><span>reload-nxos
+</span></span></code></pre></div><p>After booting from TFTP or USB, verify and correct the boot settings:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>show boot
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>configure terminal
+</span></span><span style="display:flex;"><span>  boot nxos bootflash:/nxos.9.3.10.bin
+</span></span></code></pre></div><h2 id="critical-warning">Critical Warning</h2>
+<p>During the software upgrade:</p>
+<ul>
+<li><strong>Do not interrupt the network connection</strong></li>
+<li><strong>Do not interrupt the power supply</strong></li>
+</ul>
+<p>Either condition can render the device unrecoverable without physical intervention.</p>
+<hr>
+<h2 id="related-articles">Related Articles</h2>
+<p><strong>Architecture &amp; Operations</strong></p>
+<ul>
+<li>🛠️ <a href="/en/posts/next-gen-console-server-architecture/">The Backdoor of the Network: Next-Gen Console Server Architecture</a> — Out-of-band access when IP management is lost</li>
+<li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">Monitoring Done Right: How to Build a Proactive IT Operations Culture</a> — Catching problems before they escalate</li>
+<li>🏗️ <a href="/en/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough</a> — Architecture-first core network design</li>
+<li>🎯 <a href="/en/architecture/network-product-selection-strategy/">Network Infrastructure Product Selection: Strategic Criteria</a> — Evaluating vendors strategically</li>
+</ul>
+<p><strong>Practical Engineering</strong></p>
+<ul>
+<li>🛡️ <a href="/en/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Traffic visibility and security strategy</li>
+<li>🔐 <a href="/en/technology/identity-based-microsegmentation-8021x/">802.1X Field Deployment Guide</a> — Identity-based network access control</li>
+</ul>
+]]></content:encoded></item></channel></rss>

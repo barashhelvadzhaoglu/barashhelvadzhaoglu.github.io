@@ -1,1 +1,63 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>SNMP on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/snmp/</link><description>Recent content in SNMP on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>en</language><lastBuildDate>Sun, 04 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/snmp/index.xml" rel="self" type="application/rss+xml"/><item><title>Monitoring Done Right: How to Build a Proactive IT Operations Culture</title><link>https://barashhelvadzhaoglu.com/en/architecture/monitoring-not-just-seeing/</link><pubDate>Sun, 04 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/architecture/monitoring-not-just-seeing/</guid><description>Monitoring is not just a dashboard. It is the discipline of understanding infrastructure, catching problems early, and building proactive operations.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>SNMP on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/snmp/</link><description>Recent content in SNMP on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>en</language><lastBuildDate>Sun, 04 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/snmp/index.xml" rel="self" type="application/rss+xml"/><item><title>Monitoring Done Right: How to Build a Proactive IT Operations Culture</title><link>https://barashhelvadzhaoglu.com/en/architecture/monitoring-not-just-seeing/</link><pubDate>Sun, 04 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/architecture/monitoring-not-just-seeing/</guid><description>Monitoring is not just a dashboard. It is the discipline of understanding infrastructure, catching problems early, and building proactive operations.</description><content:encoded><![CDATA[<h1 id="monitoring-done-right-how-to-build-a-proactive-it-operations-culture">Monitoring Done Right: How to Build a Proactive IT Operations Culture</h1>
+<p>Monitoring is one of those topics almost every IT team talks about — and almost every IT team gets wrong. When someone says &ldquo;monitoring,&rdquo; the immediate image is software, a dashboard, or a screen full of red and green alerts. But monitoring is not a tool or a collection of graphs.</p>
+<p><strong>The real value of monitoring is seeing problems before users do — and acting before they escalate.</strong></p>
+<p>As IT infrastructures grow and diversify, the question &ldquo;is everything working?&rdquo; becomes increasingly meaningless. Modern environments run physical servers, virtualization platforms, network devices, firewalls, access points, and dozens of different software systems simultaneously. Mail servers, file servers, camera systems, web applications, industry-specific business software — all must stay up at the same time. Monitoring is what makes it possible to catch something before it breaks.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/monitoring-not-just-seeing.webp"
+         alt="IT monitoring dashboard and infrastructure visualization"/> <figcaption>
+            Monitoring and Observability
+        </figcaption>
+</figure>
+
+<blockquote>
+<p>This article is the operational layer of a broader architecture series. For the foundation: <a href="/en/architecture/it-infrastructure-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a></p>
+</blockquote>
+<h2 id="two-core-layers-physical-infrastructure-and-softwareservices">Two Core Layers: Physical Infrastructure and Software/Services</h2>
+<p>To approach monitoring correctly, you must first separate two distinct layers: physical infrastructure and the software/service layer. When this distinction is not made clearly, monitoring either stays incomplete or generates noise.</p>
+<p>Physical infrastructure includes servers, network devices, firewalls, storage systems, access points, and the power and cooling components keeping everything alive. Problems at this layer usually start silently. A fan slows down. A power supply fluctuates. A CPU stays at high utilization for too long. The system is running — but it is not healthy. Monitoring&rsquo;s job here is not to track &ldquo;up/down&rdquo; status, but health status. If a CPU has been pegged for hours or a fan is underperforming, the system is technically active but already at risk.</p>
+<p><strong>Key takeaway from this layer:</strong> physical infrastructure problems start silently; monitoring must focus on health indicators, not just availability.</p>
+<h2 id="physical-layer-metrics-configuration-before-tools">Physical Layer Metrics: Configuration Before Tools</h2>
+<p>Physical infrastructure monitoring begins with hardware-level metrics: CPU and memory utilization, disk fill rates, power supply status, fan speeds, temperature readings. But there is a critical requirement — for these metrics to be meaningful, the devices&rsquo; operating systems must be stable and correctly configured.</p>
+<p>If SNMP-based monitoring is the approach, SNMP configurations must be properly defined, access credentials correctly set, and the necessary network-level permissions granted. Without this, the monitoring system exists but the data is unreliable. Open-source solutions like Zabbix are highly capable here; commercial solutions like SolarWinds and PRTG typically offer easier deployment and management. But regardless of which tool is used, the tool does not solve the problem — the right metrics monitored at the right thresholds do.</p>
+<p><strong>The key to this layer:</strong> configuration comes before tooling; wrong data produces wrong alerts.</p>
+<h2 id="software-and-service-layer-one-size-fits-all-monitoring-doesnt-work">Software and Service Layer: One-Size-Fits-All Monitoring Doesn&rsquo;t Work</h2>
+<p>At the software and service layer, monitoring becomes considerably more complex. Every application has different behavior, different load profiles, and different critical thresholds. For a web service, response time is what matters. For a mail server, queues and service states are more critical. For a file server, disk I/O is the priority. For a camera system, stream continuity and connection stability are the key indicators.</p>
+<p>Add to this the industry-specific software each organization depends on. In hospitality: reservation systems. In healthcare: appointment and patient management systems. In manufacturing: production and automation software. Each of these is business-critical, and each requires a different monitoring approach. One-size-fits-all monitoring does not work at the software layer.</p>
+<p><strong>Summary of this layer:</strong> software monitoring cannot be generalized; it must be designed around business criticality.</p>
+<h2 id="monitoring-without-a-routine-loses-its-meaning">Monitoring Without a Routine Loses Its Meaning</h2>
+<figure>
+    <img loading="lazy" src="/img/postimages/monitoring-proactive-operations.webp"/> <figcaption>
+            Proactive IT Operations: Monitoring as a Process
+        </figcaption>
+</figure>
+
+<p>One of the most common reasons monitoring fails in organizations is that it never becomes part of the operational routine. Systems are deployed, a monitoring tool is set up, a few alerts are defined — and then, under the weight of daily operations, the whole thing fades into the background. Alerts are either ignored because there are too many, or problems are only discovered through user complaints because alerts were never properly tuned.</p>
+<p>Monitoring must be a regularly reviewed process. Daily checks can be done through a simple checklist or automatically generated tasks in an ITSM system. IT teams already have daily and weekly work routines — monitoring checks must be deliberately added to those routines. If the organization uses an ITSM or task management system, monitoring reviews should be created as recurring tasks and assigned to the right people. This transforms monitoring from a &ldquo;we&rsquo;ll look when we can&rdquo; habit into a measurable operational activity.</p>
+<p><strong>The core idea here:</strong> monitoring that is not reviewed loses its purpose; the process must be part of the routine.</p>
+<h2 id="the-real-value-of-proactive-operations">The Real Value of Proactive Operations</h2>
+<p>This approach has an important side effect: time spent becomes visible. When an hour a day or a few hours a week are dedicated to monitoring, that time is not wasted. It produces concrete evidence that IT operations are running proactively. Problems are caught before they surface, resolved before users notice — and this proves that the IT team operates preventively, not reactively.</p>
+<p>Central monitoring also enables problems to be analyzed from a single point. This both shortens time-to-resolution and makes root cause analysis possible. When the same type of problem recurs, the conversation shifts from &ldquo;what happened&rdquo; to &ldquo;why did it happen.&rdquo; That is where monitoring delivers its deepest value.</p>
+<p><strong>Key to this layer:</strong> monitoring enables proactive, not reactive operations; time and effort become visible and measurable.</p>
+<h2 id="holistic-monitoring-service-behavior-over-device-status">Holistic Monitoring: Service Behavior Over Device Status</h2>
+<p>Ultimately, monitoring requires that network, server, firewall, wireless, and software layers be observed together — not in isolation. Monitoring only devices is not enough; the impact of those devices on business services must also be visible.</p>
+<p>A firewall can be up while users cannot send email — that is a monitoring failure. A switch can be running while access points keep dropping connections — that is also a monitoring failure. The real value of monitoring is making visible how the IT infrastructure actually behaves. When that visibility exists, capacity planning improves, changes carry less risk, and operations become more predictable.</p>
+<p><strong>Final key:</strong> monitoring must be holistic; service behavior matters more than device status.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Monitoring is not dashboards, alerts, or graphs. Monitoring is the pulse of your infrastructure.</p>
+<p>A well-designed monitoring practice allows IT teams to catch problems before users notice, respond in a planned and deliberate way, and manage infrastructure proactively rather than reactively. This transforms monitoring from a technical detail into a direct operational and strategic capability.</p>
+<p>Monitoring is not something you &ldquo;set up and leave running.&rdquo; It is a process to be designed, operated, and continuously improved.</p>
+<hr>
+<h2 id="related-articles">Related Articles</h2>
+<p><strong>Architecture &amp; Strategy</strong></p>
+<ul>
+<li>📐 <a href="/en/architecture/it-infrastructure-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a> — The foundational article of this series</li>
+<li>🏗️ <a href="/en/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough</a> — Architecture-first core network design</li>
+<li>🛡️ <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product</a> — Security as architecture</li>
+<li>🎯 <a href="/en/architecture/network-infrastructure-product-selection-strategic-criteria/">Network Infrastructure Product Selection: Strategic Criteria and Field Experiences</a> — Strategic vendor evaluation</li>
+</ul>
+<p><strong>Technical Engineering</strong></p>
+<ul>
+<li>🛠️ <a href="/en/posts/next-gen-console-server-terminal-server-architecture/">The Backdoor of the Network: Next-Gen Console Server Architecture</a> — Out-of-band access</li>
+<li>🛡️ <a href="/en/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Traffic visibility and security strategy</li>
+</ul>
+]]></content:encoded></item></channel></rss>

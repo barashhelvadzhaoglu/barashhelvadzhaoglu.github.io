@@ -1,1 +1,201 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>PROFINET on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/profinet/</link><description>Recent content in PROFINET on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Fri, 03 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/profinet/index.xml" rel="self" type="application/rss+xml"/><item><title>OT Ağları: Bir IT Mühendisinin Fabrika Zemininde Gerçekte Karşılaştıkları</title><link>https://barashhelvadzhaoglu.com/tr/technology/ot-network-security/</link><pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/ot-network-security/</guid><description>IT mühendisi için OT güvenlik rehberi — Purdue modeli, Katman 2 firewall, OT imzaları, yama yapılamayan sistemler ve endüstriyel 802.1X.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>PROFINET on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/profinet/</link><description>Recent content in PROFINET on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Fri, 03 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/profinet/index.xml" rel="self" type="application/rss+xml"/><item><title>OT Ağları: Bir IT Mühendisinin Fabrika Zemininde Gerçekte Karşılaştıkları</title><link>https://barashhelvadzhaoglu.com/tr/technology/ot-network-security/</link><pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/ot-network-security/</guid><description>IT mühendisi için OT güvenlik rehberi — Purdue modeli, Katman 2 firewall, OT imzaları, yama yapılamayan sistemler ve endüstriyel 802.1X.</description><content:encoded><![CDATA[<h1 id="ot-ağları-bir-it-mühendisinin-fabrika-zemininde-gerçekte-karşılaştıkları">OT Ağları: Bir IT Mühendisinin Fabrika Zemininde Gerçekte Karşılaştıkları</h1>
+<p>Çoğu ağ mühendisi kariyerini IT altyapısında geçirir — kurumsal LAN&rsquo;lar, veri merkezleri, kampüs ağları, bulut bağlantısı. Sonra bir gün masanıza fabrika, depo otomasyon sistemi veya bir tesis içeren bir proje düşer. Ve birden tanıdık kurallar tam olarak geçerli olmaz.</p>
+<p>OT (Operational Technology — Operasyonel Teknoloji) ağları IT ağları değildir. Cihazlar farklıdır, protokoller farklıdır, öncelikler farklıdır ve — kritik olarak — bir şeyi yanlış yapmanın sonuçları farklıdır. IT&rsquo;de yanlış yapılandırılmış bir switch ağ kesintisine neden olur. OT&rsquo;de yanlış yapılandırılmış bir ağ değişikliği üretim hattını durdurabilir, pahalı ekipmanı hasar görebilir veya kritik altyapı senaryolarında fiziksel güvenlik riskleri yaratabilir.</p>
+<p>Bu yazı IT mühendisinin perspektifinden yazılmıştır — bir firewall eklemek, bir ağı segmente etmek veya endüstriyel bir sistemi kurumsal ağa bağlamak için çağrılan kişi. Derin bir SCADA mühendisliği rehberi değil, karşılaşacaklarınız ve herhangi bir şeye dokunmadan önce düşünmeniz gerekenler için pratik bir yönlendirme.</p>
+<hr>
+<h2 id="temel-fark-gizlilik-yerine-erişilebilirlik">Temel Fark: Gizlilik Yerine Erişilebilirlik</h2>
+<p>IT güvenliğinde klasik öncelik sırası <strong>CIA: Gizlilik, Bütünlük, Erişilebilirlik</strong>&rsquo;tir. Gizlilik önce gelir — verileri yetkisiz erişimden korumak birincil endişedir.</p>
+<p>OT&rsquo;de öncelik sırası esasen <strong>AIC: Erişilebilirlik, Bütünlük, Gizlilik</strong>&rsquo;tir. Üretim hattı çalışmaya devam etmelidir. IT ortamında 30 saniyelik ağ kesintisi bir rahatsızlıktır. Bir üretim tesisinde 30 saniyelik ağ kesintisi, ıskarta ürün, hasar görmüş makineler veya bir güvenlik olayı anlamına gelebilir.</p>
+<p>Bu tersine çevirme, OT ortamındaki her ağ kararı için doğrudan sonuçlar doğurur:</p>
+<ul>
+<li><strong>OT cihazlarını kapsamlı planlama olmadan yeniden başlatmazsınız.</strong> IT ortamında bir Cisco switch dramaya gerek kalmadan 3 dakikada yeniden başlatılabilir. Üretim hattına gömülü bir switch, planlanmış bakım penceresi, üretim durdurma ve tesis operasyon ekibiyle koordinasyon gerektirebilir.</li>
+<li><strong>Yama yönetimi basit değildir.</strong> IT&rsquo;de sistemleri düzenli olarak yamarsınız. OT&rsquo;de birçok sistem yamalanamamaktadır — satıcı yazılım sürümünü sertifikalandırır ve herhangi bir değişiklik sertifikayı geçersiz kılar veya pahalı yeniden doğrulama gerektirir.</li>
+<li><strong>Ağ değişiklikleri koordinasyon gerektirir.</strong> IT&rsquo;de VLAN eklemek rutindir. OT&rsquo;de aynı değişiklik üretim yöneticilerinden, güvenlik mühendislerinden ve ekipman satıcılarından onay gerektirebilir.</li>
+</ul>
+<p>Bunu çalışmaya başlamadan önce anlamak yalnızca mesleki nezaket değildir — gerçek operasyonel olayları önler.</p>
+<hr>
+<h2 id="purdue-modeli-ot-ağ-mimarisinin-haritası">Purdue Modeli: OT Ağ Mimarisinin Haritası</h2>
+<p>Purdue Modeli (ISA-95), endüstriyel ağ mimarisini anlamak için standart çerçevedir. En alttaki fiziksel süreçlerden en üstteki kurumsal IT&rsquo;ye kadar seviyeleri tanımlar:</p>
+<pre tabindex="0"><code>Seviye 4/5  — Kurumsal IT Ağı (ERP, e-posta, kurumsal LAN)
+─────────────────────────────────────────────────────────────
+              IT/OT DMZ  ← IT mühendislerinin çalıştığı sınır
+─────────────────────────────────────────────────────────────
+Seviye 3    — Operasyonlar / Saha Yönetimi
+              (Tarihçi sunucular, mühendislik iş istasyonları,
+               HMI sunucuları, toplu yönetim)
+
+Seviye 2    — Denetimsel Kontrol
+              (SCADA sunucuları, HMI istemcileri, DCS iş istasyonları)
+
+Seviye 1    — Temel Kontrol
+              (PLC&#39;ler, DCS kontrolörleri, RTU&#39;lar)
+
+Seviye 0    — Fiziksel Süreç
+              (Sensörler, aktüatörler, motorlar, valfler)
+</code></pre><p><strong>IT mühendislerinin tipik olarak çalıştığı yer:</strong> IT/OT DMZ ve Seviye 3. Kurumsal IT ağı ile OT ortamı arasındaki bağlantının yönetildiği yer burasıdır. Firewall projeleri, tarihçi bağlantısı, uzak erişim çözümleri ve ağ segmentasyonu çalışmalarının yapıldığı yer.</p>
+<p><strong>IT mühendislerinin nadiren doğrudan dokunduğu şeyler:</strong> Seviye 0, 1 ve 2 — gerçek kontrol sistemleri, PLC&rsquo;ler ve SCADA bileşenleri. Bunlar OT/otomasyon mühendisleri ve ekipman satıcılarının alanıdır.</p>
+<p>IT ile OT arasındaki DMZ, endüstriyel ağ mimarisindeki en kritik sınırdır. Var olmalıdır. Trafik kurumsal ağ ile OT ortamı arasında serbestçe akmamalıdır.</p>
+<hr>
+<h2 id="ot-protokolleri-bu-ağlarda-neler-çalışıyor">OT Protokolleri: Bu Ağlarda Neler Çalışıyor</h2>
+<p>Bir OT ağına ilk kez ağ analizörü bağladığınızda, hiçbir IT ağında görünmeyen protokoller göreceksiniz. Bunların ne olduğunu — yüzey düzeyinde bile olsa — anlamak, makul firewall ve segmentasyon kararları vermenize yardımcı olur.</p>
+<h3 id="modbus">Modbus</h3>
+<p>1979&rsquo;da geliştirilen en eski endüstriyel protokol. Üretim, kamu hizmetleri ve bina otomasyonunda hâlâ yaygın biçimde kullanılmaktadır.</p>
+<ul>
+<li><strong>Modbus RTU:</strong> Seri tabanlı (RS-232, RS-485). Ethernet değil, fiziksel seri bağlantılar üzerinden çalışır.</li>
+<li><strong>Modbus TCP:</strong> TCP/IP içinde kapsüllenmiş Modbus. Port 502 üzerinde çalışır.</li>
+</ul>
+<p>Modbus&rsquo;ta <strong>kimlik doğrulama yoktur, şifreleme yoktur, yetkilendirme yoktur</strong>. Modbus etkin bir kontrolörün port 502&rsquo;sine ulaşabilen ağdaki herhangi bir cihaz sensör değerlerini okuyabilir veya kontrol komutları yazabilir. Bu tarihsel bir ihmal değildir — Modbus, fiziksel erişimin güvenlik kontrolü olduğu izole seri ağlar için tasarlanmıştır.</p>
+<p>Modbus TCP, OT segmentinin dışından erişilebilen bir Ethernet ağında olduğunda, kimlik doğrulamanın yokluğu önemli bir risktir. Firewall politikası, Modbus etkin kontrolörlere hangi cihazların ulaşabileceğini kısıtlamalıdır.</p>
+<h3 id="dnp3-distributed-network-protocol">DNP3 (Distributed Network Protocol)</h3>
+<p>Kamu hizmetlerinde yaygın — enerji üretimi, su arıtma, petrol ve gaz. Başlangıçta kontrol merkezleri ile uzak saha cihazları (trafo merkezleri, pompa istasyonları) arasındaki SCADA iletişimi için tasarlanmıştır.</p>
+<p>DNP3&rsquo;ün temel kimlik doğrulama uzantıları vardır (Güvenli Kimlik Doğrulama Sürüm 5), ancak dağıtılmış uygulamaların çoğu hâlâ orijinal kimlik doğrulamasız sürümü kullanmaktadır. Modbus gibi, izole ağlar için tasarlanmış ve çoğunlukla kağıt üzerinde mevcut olan güvenlik özellikleri olmadan dağıtılmıştır.</p>
+<h3 id="opc-ua-opc-unified-architecture">OPC-UA (OPC Unified Architecture)</h3>
+<p>Eski protokollerdeki güvenlik açıklarını gidermek için özel olarak tasarlanmış modern endüstriyel iletişim standardı. OPC-UA şunları destekler:</p>
+<ul>
+<li>Sertifika tabanlı kimlik doğrulama</li>
+<li>Şifreli iletişim</li>
+<li>İnce taneli yetkilendirme (hangi istemcilerin hangi veri noktalarını okuyabileceği)</li>
+</ul>
+<p>OPC-UA, yeni kurulumlarda ve Tarihçi sunucu bağlantısında karşılaşacağınız protokoldür — Seviye 3 sistemlerin bir güvenlik sınırını korurken Seviye 2 kontrolörlerden veri topladığı yöntem.</p>
+<h3 id="profinet">PROFINET</h3>
+<p>Siemens&rsquo;in endüstriyel Ethernet protokolü, Avrupa üretiminde (otomotiv, gıda işleme, ilaç) baskındır. PROFINET standart Ethernet üzerinde çalışır ancak belirli EtherType değerleri kullanır ve gerçek zamanlı açıdan hassastır — milisaniyelik gecikmeler önemlidir.</p>
+<p>PROFINET&rsquo;in neredeyse hiç yerleşik güvenliği yoktur. Fiziksel olarak izole edilmiş bir ağı varsayar. PROFINET kontrolörlü ortamlarda, ağ segmentasyonu katı olmalıdır — PROFINET trafiği asla kendi özel VLAN&rsquo;ının dışına çıkmamalıdır.</p>
+<h3 id="ethernetip">EtherNet/IP</h3>
+<p>Rockwell Automation / Allen-Bradley&rsquo;nin endüstriyel Ethernet protokolü. Kuzey Amerika üretiminde yaygın. PROFINET&rsquo;e benzer güvenlik özellikleri — izole ağlar için tasarlanmış, sınırlı kimlik doğrulama.</p>
+<hr>
+<h2 id="it-mühendisinin-gerçekte-yapması-istenenler">IT Mühendisinin Gerçekte Yapması İstenenler</h2>
+<p>Pratikte, IT/ağ mühendisleri OT projelerine dahil olduğunda, talep genellikle şu kategorilerden birine girer:</p>
+<h3 id="senaryo-1-pc-ile-makine-arasına-firewall-ekle">Senaryo 1: &ldquo;PC ile Makine Arasına Firewall Ekle&rdquo;</h3>
+<p>En yaygın senaryo. Bir Windows PC (SCADA yazılımı veya HMI çalıştıran), aralarında hiçbir ağ cihazı olmadan Ethernet aracılığıyla doğrudan bir PLC veya üretim makinesine bağlıdır. Talep, bir güvenlik katmanı eklemektir.</p>
+<pre tabindex="0"><code>Önce:
+  [Windows HMI PC] ──────────────── [PLC / Makine Kontrolörü]
+
+Sonra (tipik yaklaşım):
+  [Windows HMI PC] ── [Firewall] ── [PLC / Makine Kontrolörü]
+</code></pre><p><strong>Katman 2 şeffaf firewall deployment&rsquo;ı:</strong></p>
+<p>Bu yola firewall eklemenin operasyonel açıdan en güvenli yolu, <strong>Katman 2 şeffaf mod</strong>dur (&ldquo;bump in the wire&rdquo; veya köprü modu olarak da adlandırılır). Firewall trafiği şeffaf olarak geçirir — ne cihaz onun varlığından haberdar olur, ne IP adresleri değişir ne de routing değişiklikleri yapılır. Firewall arızalanırsa, trafik kaldırılıp doğrudan yeniden bağlanarak geri yüklenebilir.</p>
+<p>Bu önemlidir çünkü PLC veya endüstriyel kontrolör üzerindeki IP adreslerini değiştirmek, onunla konuşan uygulama yazılımını yeniden yapılandırmayı gerektirir — bu, satıcı desteği, yeniden sertifikalama ve üretim kesintisi içerebilecek bir süreçtir.</p>
+<p>Şeffaf modda:</p>
+<ul>
+<li>PLC mevcut IP adresini korur</li>
+<li>HMI PC mevcut IP adresini korur</li>
+<li>Firewall, yönlendirilmiş bir atlama olmadan trafiği inceler ve politikayı uygular</li>
+</ul>
+<p>Bu senaryoda firewall politikası tipik olarak şunları içerir:</p>
+<ul>
+<li>HMI&rsquo;dan kontrolöre belirli OT protokolü trafiğine izin ver (Modbus port 502, PROFINET, EtherNet/IP)</li>
+<li>Yalnızca gerekli yönetim protokollerine izin ver</li>
+<li>Geri kalanını engelle</li>
+<li>Görünürlük için tüm trafiği logla</li>
+</ul>
+<h3 id="senaryo-2-ot-ağını-kurumsal-itye-bağla">Senaryo 2: &ldquo;OT Ağını Kurumsal IT&rsquo;ye Bağla&rdquo;</h3>
+<p>Üretim ekibi, fabrika zemininden kurumsal sistemlere veri almak ister — ERP&rsquo;ye üretim istatistikleri, raporlama veritabanına sensör verileri, uzak izleme yeteneği.</p>
+<p>Bu bir DMZ mimarisi gerektirir:</p>
+<pre tabindex="0"><code>[Kurumsal IT Ağı]
+         │
+    [IT/OT Firewall]   ← Katı politika: yalnızca belirli akışlara izin ver
+         │
+    [OT DMZ]
+    [Tarihçi Sunucu]    ← OT&#39;den veri toplar, IT&#39;ye sunar
+         │
+    [OT Firewall]       ← OT&#39;yi DMZ&#39;den koruyan ayrı firewall
+         │
+    [OT Ağı — Seviye 2/3]
+</code></pre><p>DMZ prensibi: kurumsal ağ, OT cihazlarına doğrudan ulaşamaz. DMZ&rsquo;deki Tarihçi sunucu, OT sistemlerinden veri toplar (OT firewall tarafından izin verilir) ve kurumsal sistemlerin kullanımına sunar (IT firewall tarafından izin verilir). Kurumsal ağ ne OT ağına, ne de OT ağı kurumsal ağa doğrudan bağlantı başlatabilir.</p>
+<p><strong>Neden iki firewall, bir değil?</strong> DMZ&rsquo;deki Tarihçi sunucu ele geçirilirse, herhangi bir ağa erişim yolu sağlamamalıdır. DMZ segmentli tek bir firewall, iki ayrı firewall&rsquo;dan daha az izolasyon sağlar.</p>
+<h3 id="senaryo-3-düz-ot-ağına-segmentasyon-ekle">Senaryo 3: &ldquo;Düz OT Ağına Segmentasyon Ekle&rdquo;</h3>
+<p>Birçok eski OT ortamı tamamen düz bir ağa sahiptir — tüm PLC&rsquo;ler, HMI&rsquo;lar, mühendislik iş istasyonları ve hatta bazen kurumsal bağlantılı PC&rsquo;ler aynı Katman 2 yayın etki alanındadır. Her cihaz diğer her cihaza ulaşabilir.</p>
+<p>Bu ağı segmente etmek şunları içerir:</p>
+<ul>
+<li>VLAN yetenekli yönetilen switchler eklemek</li>
+<li>Cihaz türü veya işleve göre VLAN&rsquo;lar tanımlamak (Seviye 2 kontrolörler, Seviye 3 denetimsel, mühendislik iş istasyonları)</li>
+<li>Katı VLAN arası politikayla bir firewall üzerinden VLAN&rsquo;lar arasında routing yapmak</li>
+</ul>
+<p><strong>Kritik kısıt:</strong> Herhangi bir ağ değişikliği yapmadan önce mevcut iletişim akışlarını kapsamlı biçimde belgeleyin. Hangi cihazlar hangi cihazlarla konuşur? Hangi portlar üzerinde? Bir PLC ile kontrolörü arasındaki belgelenmemiş iletişim yolunu kıran segmentasyon, üretim hattını durdurur.</p>
+<p>IT ortamlarında, akışları birkaç gün izleyerek keşfedebilir ve ardından uygulayabilirsiniz. OT&rsquo;de, bazı iletişim akışları yalnızca belirli üretim aşamalarında gerçekleşir — haftalık bir toplu işlem, vardiya sonu raporu — ve kısa bir izleme penceresi sırasında görünmez. Segmentasyonu uygulamadan önce tüm iletişim gereksinimlerini belgelemek için OT ekibiyle çalışın.</p>
+<hr>
+<h2 id="ot-odaklı-firewalllar-satıcıların-geliştirdikleri">OT Odaklı Firewall&rsquo;lar: Satıcıların Geliştirdikleri</h2>
+<p>Standart IT firewall&rsquo;ları (NGFW&rsquo;ler bile) OT protokollerine sınırlı görünürlüğe sahiptir. IP başlıklarını ve TCP/UDP portlarını inceleyebilirler, ancak Modbus TCP komutunun içeriğini anlayamazlar — &ldquo;sensör değeri oku&rdquo; ile &ldquo;aktüatöre kontrol komutu yaz&rdquo; arasındaki farkı ayırt edemezler.</p>
+<p>OT odaklı firewall&rsquo;lar <strong>endüstriyel protokol incelemesi</strong> ekler — OT protokolü payload&rsquo;larını ayrıştırma ve protokole özgü içeriğe dayalı politika kararları verme yeteneği.</p>
+<h3 id="imza-farkı">İmza Farkı</h3>
+<p>Standart bir NGFW&rsquo;nin 2.000–5.000 uygulama imzası olabilir — çoğunlukla IT uygulamaları (HTTP, TLS, DNS, SMB, Office 365, vb.). OT yetenekli bir firewall lisansı, endüstriyel protokoller için yüzlerce ek imza ekler:</p>
+<ul>
+<li><strong>Modbus TCP:</strong> Okuma isteklerini (HMI&rsquo;dan kabul edilebilir) yazma komutlarından (yalnızca yetkili sistemlerle kısıtla) ayırt et</li>
+<li><strong>PROFINET:</strong> Belirli PROFINET servislerini tanımla ve kontrol et</li>
+<li><strong>EtherNet/IP:</strong> CIP (Common Industrial Protocol) komutlarını ayrıştır</li>
+<li><strong>DNP3:</strong> DNP3 fonksiyon kodlarını ve nesne türlerini incele</li>
+<li><strong>OPC-DA/UA:</strong> OPC iletişim yönünü ve veri türlerini kontrol et</li>
+<li><strong>BACnet:</strong> Bina otomasyon protokolü incelemesi</li>
+<li>Düzinelerce endüstriyel ve bina otomasyon protokolü daha</li>
+</ul>
+<p><strong>Neden önemli:</strong> OT protokolü incelemesi olmadan, bir firewall yalnızca &ldquo;bu IP o IP&rsquo;ye bu portta ulaşabilir mi&rdquo; yi kontrol edebilir. OT incelemesiyle, &ldquo;HMI, PLC&rsquo;den Modbus holding registerlarını okuyabilir, ancak coillere yazamaz&rdquo; ı zorunlu kılabilir — IP/port filtrelemeden temel olarak farklı bir kontrol düzeyi.</p>
+<h3 id="satıcı-ortamı">Satıcı Ortamı</h3>
+<p><strong>OT Bundle&rsquo;lı Fortinet FortiGate:</strong>
+Fortinet, temel NGFW&rsquo;yi endüstriyel protokol imzaları ve OT&rsquo;ye özgü tehdit istihbaratıyla genişleten belirli OT/ICS lisansları sunar. FortiGate, şeffaf modda (Katman 2) veya yönlendirilmiş modda dağıtılabilir. IT için zaten FortiGate çalıştıran ortamlarda, aynı platform her ikisini de yönetir.</p>
+<p><strong>ICS/SCADA içeriğiyle Palo Alto Networks:</strong>
+Palo Alto&rsquo;nun App-ID motoru, endüstriyel protokol tanımlamasını içerir. Industrial IoT Security aboneliği OT cihaz görünürlüğü, risk değerlendirmesi ve protokole özgü politikalar ekler. Bölge tabanlı mimari, Purdue modeli segmentasyonuyla iyi uyum sağlar.</p>
+<p><strong>Claroty, Nozomi Networks, Dragos (OT&rsquo;ye özel):</strong>
+Bunlar geleneksel firewall&rsquo;lar değildir — OT&rsquo;ye özgü güvenlik izleme platformlarıdır. SPAN portu aracılığıyla OT ağına bağlanırlar (pasif izleme) ve derin görünürlük sağlarlar: varlık keşfi, protokol analizi, davranışsal temel, anomali tespiti. Trafiği engellemezler ancak genel IT araçlarının sağlayamadığı görünürlük sunarlar. Genellikle standart bir firewall ile birlikte kullanılır.</p>
+<p><strong>Cisco Industrial Network Director:</strong>
+Cisco&rsquo;nun OT odaklı yönetim ve güvenlik platformu, OT ağı görünürlüğü için Cisco endüstriyel switchleri ve firewall&rsquo;larıyla entegre olur.</p>
+<h3 id="lisanslama-gerçeği">Lisanslama Gerçeği</h3>
+<p>OT firewall yetenekleri, standart IT NGFW özelliklerinden ayrı olarak lisanslanır. OT projesi için bir firewall belirtiyorsanız, standart kurumsal lisans yeterli değildir — OT/ICS bundle veya eşdeğeri gerekir. Bu hem maliyeti hem de müşteriyle satıcı seçim görüşmesini etkiler.</p>
+<hr>
+<h2 id="yama-sorunu-dokunamadığınız-eski-sistemler">Yama Sorunu: Dokunamadığınız Eski Sistemler</h2>
+<p>IT&rsquo;de yama rutin bir işlemdir. Aylık yama döngüleri, otomatik dağıtım, merkezi yönetim. OT&rsquo;de yama çoğunlukla imkânsızdır.</p>
+<p>Sebepler spesifik ve meşrudur:</p>
+<p><strong>Satıcı sertifikasyonu:</strong> Endüstriyel ekipman üreticileri (Siemens, Rockwell, Schneider, ABB, vb.) sistemlerini belirli yazılım sürümleriyle sertifikalandırır. İşletim sistemi sürümünü değiştirmek veya işletim sistemi yaması uygulamak, ekipman sertifikasyonunu geçersiz kılabilir; orijinal ekipmandan daha pahalıya mal olabilecek ve aylarca sürebilecek bir yeniden doğrulama süreci başlatır.</p>
+<p><strong>Üretim bağımlılığı:</strong> Yama, kesinti gerektirir. Sürekli süreç endüstrilerinde (kimya tesisleri, çelik fabrikaları), &ldquo;kesinti&rdquo; planlanmış yıllık bakım penceresi anlamına gelebilir — yama uygulamak için yılda bir fırsat.</p>
+<p><strong>Kullanım ömrü dolmuş yazılım:</strong> Kritik endüstriyel yazılım çalıştıran Windows XP, Windows 2003 Server ve daha eski sistemlerle karşılaşacaksınız. Microsoft bu sistemler için yıllardır güvenlik yaması yayınlamamıştır. Üzerlerinde çalışan endüstriyel yazılım daha yeni Windows sürümlerinde doğrulanmadığı için yükseltilemezler.</p>
+<p><strong>Ağ güvenliği için ne anlama gelir:</strong></p>
+<p>Sistemleri yamalayamazsanız, ağ kontrolleriyle telafi etmelisiniz:</p>
+<ul>
+<li><strong>Katı ağ segmentasyonu:</strong> Yamalanamamış sistemler, internet kaynaklı tehditlere maruz kalabilecekleri herhangi bir ağdan erişilemez olmalıdır</li>
+<li><strong>Uygulama beyaz listesi:</strong> Yalnızca özellikle yetkili uygulamalar OT uç noktalarında çalışabilir (uç nokta işletim sistemi bunu destekliyorsa)</li>
+<li><strong>Telafi edici kontroller:</strong> Firewall, yamanın normalde yapacağı işi yapmalıdır — ağ politikası aracılığıyla saldırı yüzeyini kısıtlama</li>
+<li><strong>Çevrimdışı antivirüs güncellemeleri:</strong> İnternet bağlantısı yerine hava boşluklu ortamlarda USB veya çevrimdışı medya aracılığıyla iletilen AV güncellemeleri</li>
+</ul>
+<p>OT&rsquo;deki güvenlik görüşmesi &ldquo;sistemlerinizi yama yapın&rdquo; değildir — &ldquo;yamayalamadığımız sistemleri ağ mimarisi ve telafi edici kontroller aracılığıyla nasıl koruruz&rdquo; sorusudur.</p>
+<hr>
+<h2 id="otde-8021x-ve-nac-standart-it-yaklaşımlarının-neden-doğrudan-transfer-olmadığı">OT&rsquo;de 802.1X ve NAC: Standart IT Yaklaşımlarının Neden Doğrudan Transfer Olmadığı</h2>
+<p>802.1X port tabanlı ağ erişim kontrolü, kurumsal IT&rsquo;de standarttır. OT&rsquo;de belirli zorluklar yaratır:</p>
+<p><strong>PLC&rsquo;ler ve kontrolörlerin 802.1X supplicant&rsquo;ları yoktur.</strong> Bir Siemens S7 PLC veya Allen-Bradley ControlLogix kontrolörü, 802.1X istemcisi olan standart bir işletim sistemi çalıştırmaz. Kullanıcı adı/şifre veya sertifika kullanarak bir RADIUS sunucusuna kendini doğrulayamaz. Bir 802.1X etkin switch portuna basitçe bağlanamaz.</p>
+<p><strong>Geçici çözüm olarak MAC Authentication Bypass (MAB):</strong> OT cihazları için standart yaklaşım MAB&rsquo;dır — cihazın MAC adresi kimlik doğrulama kimlik bilgisi olarak kullanılır. Switch, MAC adresini RADIUS&rsquo;a gönderir; RADIUS bunu yetkili cihaz veritabanına göre kontrol eder. MAC biliniyorsa erişim verilir.</p>
+<p>MAB bir miktar kontrol sağlar — bilinmeyen cihazlar ağ erişimi alamaz — ancak sertifika veya kimlik bilgisi tabanlı kimlik doğrulamadan daha zayıftır. MAC adresleri taklit edilebilir. Değer görünürlükte ve yetkisiz cihazların bağlanmasını önlemede, kriptografik kimlik doğrulamada değildir.</p>
+<p><strong>Katı MAC adresi yönetimi gereksinimi:</strong> OT&rsquo;de MAB, tüm yetkili cihaz MAC adreslerinin doğru bir veritabanını sürdürmeyi gerektirir. Dinamik IT ortamında bu uygulanamaz. Cihazların nadiren değiştiği ve tüm eklemelerin değişiklik yönetiminden geçtiği OT&rsquo;de uygulanabilirdir — ancak disiplin gerektirir.</p>
+<p><strong>Alternatif olarak profiling:</strong> OT güvenlik platformları (Claroty, Nozomi, Cisco CyberVision), ağdaki cihazları profilleyebilir — pasif trafik analizinden PLC modellerini, yazılım sürümlerini ve iletişim kalıplarını tanımlar. Bu, cihazların kimlik doğrulaması yapmasını gerektirmeden varlık görünürlüğü sağlar. Profil verileri NAC politikalarına beslenebilir: &ldquo;bu cihaz profili bir Siemens S7 PLC ile eşleşiyorsa, PLC VLAN&rsquo;ına yerleştir.&rdquo;</p>
+<p><strong>Ağ değişikliği riski:</strong> Mevcut bir düz OT ağında son derece dikkatli planlama olmadan 802.1X&rsquo;i etkinleştirmek, üretim hattını durdurabilir. Zorunluluğu etkinleştirmeden önce her cihaz yetkili veritabanında olmalıdır. Doğrulama süreci yalnızca normal operasyonu değil, tüm üretim aşamalarını kapsamalıdır. Hafta sonu toplu çalışması sırasında ağdan düşen kaçırılan bir cihaz Pazartesi sabahı olayına neden olabilir.</p>
+<hr>
+<h2 id="pratik-kontrol-listesi-ot-ağına-dokunmadan-önce">Pratik Kontrol Listesi: OT Ağına Dokunmadan Önce</h2>
+<p>Saha deneyiminden — OT ortamında herhangi bir ağ değişikliği yapmadan önce gerçekleşmesi gereken şeyler:</p>
+<ul>
+<li><strong>Önce OT ekibiyle konuşun.</strong> Otomasyon mühendisleri ve tesis operasyon personeli, ağ hakkında belgelenmemiş şeyler bilir. Herhangi bir değişiklikten önce onların katkısı gereklidir.</li>
+<li><strong>Mevcut iletişim akışlarını belgeleyin.</strong> Hangi cihazlar hangileriyle, hangi portlar üzerinde, hangi sıklıkta konuşuyor. Kısa süreli izlemeye güvenmeyin — tüm bilinen iletişim yollarının belgelerini OT ekibinden isteyin.</li>
+<li><strong>Üretim programını anlayın.</strong> Bakım penceresi ne zaman? Tesiste planlanmış kesinti ne zaman? Değişiklikler bu pencerelerle uyumlu olmalı, üretim üzerine dayatılmamalıdır.</li>
+<li><strong>Mümkünse lab veya staging ortamında test edin.</strong> Birçok satıcı endüstriyel ekipmanları için lab ortamları veya simülatörler sağlar.</li>
+<li><strong>Bir geri alma planınız olsun.</strong> Katman 2 firewall eklemesi için geri alma, firewall&rsquo;u kaldırıp doğrudan yeniden bağlamaktır — bu prosedürü gerektiğinde hızlıca uygulanabilmesi için belgeleyin.</li>
+<li><strong>Yazılım/konfigürasyon yedeklerini koordine edin.</strong> Herhangi bir ağ değişikliği yapmadan önce OT cihaz konfigürasyonlarının yedeklendiğinden emin olun. Bir PLC&rsquo;nin güç döngüsüne ihtiyacı varsa, konfigürasyonu kurtarılabilir olmalıdır.</li>
+<li><strong>Değişiklikten önce ve sonra &ldquo;çalışıyor&rdquo; tanımını yapın.</strong> OT ekibiyle kabul kriterlerini belirleyin — hangi sistemlere erişilebilir olmalı, hangi süreçler çalışıyor olmalı — değişikliği başarılı ilan etmeden önce.</li>
+</ul>
+<hr>
+<h2 id="temel-çıkarımlar">Temel Çıkarımlar</h2>
+<ul>
+<li><strong>OT ağları, gizlilik yerine erişilebilirliği önceliklendirir</strong> — bu, birçok IT güvenlik varsayımını tersine çevirir ve her kararı bilgilendirmelidir.</li>
+<li><strong>Purdue modeli</strong>, IT/OT sınırının nerede oturduğunu tanımlar. Seviye 3 ile kurumsal IT arasındaki DMZ, IT mühendislerinin en sık çalıştığı yerdir.</li>
+<li><strong>OT protokolleri (Modbus, PROFINET, EtherNet/IP, DNP3)</strong> kimlik doğrulama veya şifrelemeye sahip değildir. Ağ kontrolleri birincil güvenlik mekanizmasıdır.</li>
+<li><strong>Katman 2 şeffaf firewall deployment&rsquo;ı</strong>, OT cihazları arasına güvenlik eklemenin en güvenli yoludur — IP adresi değişikliği yok, routing değişikliği yok, konfigürasyon değişiklikleri olmadan geri alınabilir.</li>
+<li><strong>OT odaklı firewall&rsquo;lar</strong>, endüstriyel protokolleri anlar ve politikayı protokol düzeyinde zorunlu kılabilir (okumalara izin ver, yazmaları engelle) — IP/port filtrelemeden temel olarak farklı bir yetenek.</li>
+<li><strong>OT firewall lisanslaması</strong>, IT NGFW lisanslamasından ayrıdır — bunu proje kapsamına dahil edin.</li>
+<li><strong>Yamalanmamış eski sistemler OT&rsquo;de normaldir</strong> — telafi edici ağ kontrolleri, IT&rsquo;de yamanın sağladığının yerini alır.</li>
+<li><strong>802.1X doğrudan transfer olmaz</strong> — PLC&rsquo;ler kimlik doğrulayamaz. MAB ve cihaz profiling pratik alternatiflerdir.</li>
+<li><strong>Herhangi bir şeye dokunmadan önce OT ekipleriyle koordine edin</strong> — üretim ortamlarındaki ağ hatalarının sonuçları IT&rsquo;dekinden önemli ölçüde daha ciddidir.</li>
+</ul>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<ul>
+<li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Kimlik Tabanlı Mimari Sahada</a> — 802.1X&rsquo;in IT ortamlarında nasıl çalıştığı ve OT&rsquo;nin neden farklı olduğu</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — IT/OT sınır tasarımına uygulanan Zero Trust prensipleri</li>
+<li>🛡️ <a href="/tr/technology/ddos-koruma-stratejileri-isp-scrubbing-on-premise-bulut/">DDoS Koruma Stratejileri</a> — OT bağlantılı altyapıyı volumetrik saldırılardan korumak</li>
+<li>🏗️ <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Ürünler Koleksiyonu Değildir</a> — OT ağ tasarımı için de geçerli sistem düşüncesi</li>
+</ul>
+]]></content:encoded></item></channel></rss>

@@ -1,1 +1,526 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Kurumsal Ağ on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/kurumsal-a%C4%9F/</link><description>Recent content in Kurumsal Ağ on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Wed, 01 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/kurumsal-a%C4%9F/index.xml" rel="self" type="application/rss+xml"/><item><title>Kurumsal WiFi Mimarisi: Standartlardan Deployment'a — Kapsamlı Rehber</title><link>https://barashhelvadzhaoglu.com/tr/technology/wifi-master/</link><pubDate>Wed, 01 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/wifi-master/</guid><description>Kurumsal kablosuz ağ master rehberi — 802.11 standartları, controller mimarileri, KOBİ ve otel tasarımı, roaming, güvenlik ve site survey.</description></item><item><title>Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler ve Saha Deneyimleri</title><link>https://barashhelvadzhaoglu.com/tr/architecture/network-product-selection-strategy/</link><pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/network-product-selection-strategy/</guid><description>Kurumsal ağlarda ürün seçimi bir kontrol listesinden fazlasıdır. Firewall, switch ve AP değerlendirmesi için saha testi yapılmış çerçeve.</description></item><item><title>Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</title><link>https://barashhelvadzhaoglu.com/tr/architecture/core-network-is-not-a-product-list/</link><pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/core-network-is-not-a-product-list/</guid><description>Kurumsal ağlar parçalı mimari yüzünden başarısız olur. Firewall, switching, AP seçimi ve kapasite planlaması üzerine saha incelemesi.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Kurumsal Ağ on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/kurumsal-a%C4%9F/</link><description>Recent content in Kurumsal Ağ on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Wed, 01 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/kurumsal-a%C4%9F/index.xml" rel="self" type="application/rss+xml"/><item><title>Kurumsal WiFi Mimarisi: Standartlardan Deployment'a — Kapsamlı Rehber</title><link>https://barashhelvadzhaoglu.com/tr/technology/wifi-master/</link><pubDate>Wed, 01 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/wifi-master/</guid><description>Kurumsal kablosuz ağ master rehberi — 802.11 standartları, controller mimarileri, KOBİ ve otel tasarımı, roaming, güvenlik ve site survey.</description><content:encoded><![CDATA[<h1 id="kurumsal-wifi-mimarisi-standartlardan-deploymenta">Kurumsal WiFi Mimarisi: Standartlardan Deployment&rsquo;a</h1>
+<p>WiFi, herhangi bir ağın en görünür parçasıdır. Çalıştığında kimse söylemez. Çalışmadığında ise — dakikalar içinde IT ekibi binanın her köşesinden duyar.</p>
+<p>Ancak kablosuz ağ oluşturma aldatıcı biçimde karmaşıktır. Bir kullanıcıya &ldquo;sadece WiFi&rdquo; gibi görünen şey, birbirleriyle etkileşen kararların bir yığınıdır: hangi 802.11 standardı, hangi frekans bandı, kaç erişim noktası, hangi controller mimarisi, kimlik doğrulamanın nasıl yönetileceği, roaming&rsquo;in nasıl davranacağı, RF ortamının nasıl yönetileceği. Bunlardan herhangi birini yanlış yaparsanız, kağıt üzerinde iyi görünen ağ üretimde başarısız olur.</p>
+<p>Aruba, Cisco Meraki ve Cisco kurumsal platformları kullanarak bankacılık genel merkezleri, üretim tesisleri, oteller, lojistik depoları ve muayenehanelerde kablosuz ağlar tasarladım ve deploy ettim. Bu seri, bu senaryoların her birinde gerçekte önemli olan şeyleri belgeliyor.</p>
+<hr>
+<h2 id="bu-seriyi-nasıl-okuyalım">Bu Seriyi Nasıl Okuyalım</h2>
+<p>Bu yazı size <strong>büyük resmi</strong> verir — kurumsal kablosuz mimarisinin neyi içerdiğini, temel kararların neler olduğunu ve her deep dive&rsquo;ın nereye gittiğini.</p>
+<p><strong>Mühendisseniz</strong> ve belirli bir konuya derinlemesine inmek istiyorsanız — kullanım senaryonuzu kapsayan yazıya atlayın:</p>
+<ul>
+<li>📡 <strong><a href="/tr/technology/wifi-80211-standartlari-wifi4-wifi5-wifi6/">802.11 Standartları Deep Dive: WiFi 4, 5, 6, 6E ve Gerçekte Ne Değişti</a></strong> — ax, ac, n ve be&rsquo;nin kapasite, kapsama alanı ve deployment kararları için gerçekte ne anlama geldiği</li>
+<li>🏢 <strong><a href="/tr/technology/kurumsal-wifi-controller-mimarisi-cisco-aruba/">Kurumsal Controller Mimarisi: Cisco ve Aruba WLAN Tasarımı</a></strong> — Merkezi ve dağıtık kontrol, mobilite alanları, WLC ve bulut yönetimi karşılaştırması</li>
+<li>🏨 <strong><a href="/tr/technology/wifi-tasarimi-kobi-otel-saglik/">KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı</a></strong> — Yoğunluk planlaması, misafir segmentasyonu ve beklenti yönetimi üzerine pratik saha notları</li>
+<li>🔐 <strong><a href="/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/">WiFi Güvenliği: WPA3, 802.1X, Sahte AP Tespiti ve Site Survey</a></strong> — Kimlik doğrulama, şifreleme, saldırı tespiti ve Ekahau survey metodolojisi</li>
+</ul>
+<p><strong>Mimar veya karar vericiyseniz</strong> ve kablosuz çözümleri değerlendiriyorsanız — burada okumaya devam edin. Bu yazı, RF uzmanlığı gerektirmeden stratejik soruları yanıtlar.</p>
+<hr>
+<h2 id="wifi-mimarisinin-erişim-noktası-sayısından-daha-fazlasını-neden-önemlidir">WiFi Mimarisinin Erişim Noktası Sayısından Daha Fazlasını Neden Önemlidir</h2>
+<p>WiFi deployment&rsquo;larındaki en yaygın hata: kablosuzu bir miktar problemi olarak ele almak. &ldquo;Daha iyi WiFi&rsquo;ye ihtiyacımız var — daha fazla erişim noktası ekleyelim.&rdquo;</p>
+<p>Kötü tasarlanmış bir ağa erişim noktası eklemek onu daha da kötüleştirir. Aynı alanda daha fazla AP, daha fazla girişim, daha fazla kanal çakışması, daha fazla roaming olayı ve daha fazla karmaşıklık demektir — kullanıcı deneyiminde orantılı bir iyileşme olmadan.</p>
+<p>Kurumsal kablosuz tasarımı erişim noktası yoğunluğu ile ilgili değildir. Şunlarla ilgilidir:</p>
+<ul>
+<li><strong>Kapasite planlaması:</strong> Kaç eş zamanlı istemci, hangi veri hızlarına ihtiyaç duyarlar, hangi uygulamaları çalıştırıyorlar?</li>
+<li><strong>RF tasarımı:</strong> Hangi kanallar, hangi güç seviyeleri, hangi band yönlendirme politikaları oluşturmak yerine girişimi önler?</li>
+<li><strong>Controller mimarisi:</strong> Ağ kararları nasıl verir? Kimlik doğrulama nerede gerçekleşir? Roaming nasıl yönetilir?</li>
+<li><strong>Güvenlik:</strong> Ağa kim, hangi kimlikle ve ne düzeyde erişimle izin verilir?</li>
+<li><strong>Operasyonel model:</strong> Kim yönetir, nasıl izlenir, sorunlar nasıl teşhis edilir?</li>
+</ul>
+<p>Bunları doğru yaparsanız erişim noktası sayısı bir başlangıç noktası değil, türetilmiş bir hesaplama olur.</p>
+<hr>
+<h2 id="80211-standartları-gerçekte-ne-değişti">802.11 Standartları: Gerçekte Ne Değişti</h2>
+<p>IEEE 802.11 standardı, her biri pazarlama amacıyla farklı biçimde markalanmış birden fazla nesil geçirdi:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Standart</th>
+          <th>Pazarlama Adı</th>
+          <th>Maks Teorik Hız</th>
+          <th>Temel İyileştirme</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>802.11n</td>
+          <td>WiFi 4</td>
+          <td>600 Mbps</td>
+          <td>MIMO, 5 GHz desteği</td>
+      </tr>
+      <tr>
+          <td>802.11ac</td>
+          <td>WiFi 5</td>
+          <td>3,5 Gbps</td>
+          <td>MU-MIMO, daha geniş kanallar (80/160 MHz)</td>
+      </tr>
+      <tr>
+          <td>802.11ax</td>
+          <td>WiFi 6</td>
+          <td>9,6 Gbps</td>
+          <td>OFDMA, BSS Boyama, TWT, yüksek yoğunluk</td>
+      </tr>
+      <tr>
+          <td>802.11ax (6 GHz)</td>
+          <td>WiFi 6E</td>
+          <td>9,6 Gbps</td>
+          <td>Yeni 6 GHz bandı, daha az tıkanıklık</td>
+      </tr>
+      <tr>
+          <td>802.11be</td>
+          <td>WiFi 7</td>
+          <td>46 Gbps</td>
+          <td>Çok Bağlantılı Çalışma, 320 MHz kanallar</td>
+      </tr>
+  </tbody>
+</table>
+<p>Pazarlama materyallerindeki teorik hızlar pratikte hiçbir zaman ulaşılmaz. Gerçek deployment&rsquo;larda önemli olan her nesil için farklıdır:</p>
+<p><strong>WiFi 6 (802.11ax)</strong>, yoğun ortamlarda gerçekten önemli iki yetenek getirdi:</p>
+<ul>
+<li><strong>OFDMA (Orthogonal Frequency Division Multiple Access):</strong> Bir AP&rsquo;nin bölünmüş frekans kaynakları üzerinde aynı anda birden fazla istemciye hizmet vermesini sağlar — bir seferde bir istemci iletim yapmak yerine, birden fazla istemci kanalı verimli biçimde paylaşır. Çok sayıda IoT cihazı, telefon ve tablet bulunan ortamlar için kritik.</li>
+<li><strong>BSS Boyama:</strong> Örtüşen hücreler arasında aynı kanal girişimini azaltan bir mekanizma. Komşu AP&rsquo;ler iletimlerini &ldquo;boyar&rdquo;, bu da cihazların &ldquo;benim AP&rsquo;m&rdquo; ile &ldquo;yan odadaki AP&rdquo; arasındaki ayrımı daha verimli yapmasını sağlar.</li>
+</ul>
+<p><strong>WiFi 6E</strong>, 6 GHz bandını ekledi — komşu ağlardan ve eski cihazlardan gelen girişimi ortadan kaldıran büyük ölçüde tıkanmamış bir spektrum. Yoğun kentsel ortamlarda önemli avantaj.</p>
+<p><strong>WiFi 7</strong> ortaya çıkıyor ve Çok Bağlantılı Çalışma (MLO) sayesinde tek bir cihazın aynı anda birden fazla bant ve kanalı kullanması — verimi iyileştiriyor ve gecikmeyi azaltıyor. 2026 itibarıyla hâlâ erken kurumsal deployment aşamasında.</p>
+<p>→ <strong><a href="/tr/technology/wifi-80211-standartlari-wifi4-wifi5-wifi6/">802.11 Standartları Deep Dive</a></strong></p>
+<hr>
+<h2 id="controller-mimarisi-zekanın-nerede-yaşadığı">Controller Mimarisi: Zekanın Nerede Yaşadığı</h2>
+<p>Kurumsal kablosuz ağlarda iki temel mimari model vardır:</p>
+<h3 id="merkezi-controller-geleneksel-kurumsal">Merkezi Controller (Geleneksel Kurumsal)</h3>
+<p>Tüm erişim noktaları &ldquo;ince&quot;dir — RF iletimini yönetirler ancak tüm trafiği ve tüm kontrol kararlarını merkezi bir Kablosuz LAN Controller&rsquo;a (WLC) gönderirler:</p>
+<pre tabindex="0"><code>[AP] ──CAPWAP tüneli──→ [WLC] → Çekirdek Ağ
+[AP] ──CAPWAP tüneli──→ [WLC]
+[AP] ──CAPWAP tüneli──→ [WLC]
+</code></pre><p>WLC, kimlik doğrulamayı, roaming kararlarını, RF yönetimini, güvenlik politikasını ve trafik iletimini yönetir. AP&rsquo;ler birbirinin yerine geçebilir — birini kaldırın ve yerine başkasını takın; WLC yapılandırmayı yönetir.</p>
+<p><strong>Güçlü yönler:</strong> Merkezi görünürlük, tutarlı politika uygulaması, controller alanı içinde kesintisiz roaming.</p>
+<p><strong>Zayıf yönler:</strong> WLC tek hata noktasıdır (HA çiftleriyle hafifletilir). Trafik, yerel iletişim için bile WLC üzerinden geçer. Ölçeklendirme WLC kapasitesi eklemeyi gerektirir.</p>
+<p>Cisco&rsquo;nun kampüs kablosuz platformu ve Aruba&rsquo;nın Mobility Master/Controller mimarisi baskın örneklerdir.</p>
+<h3 id="bulut-yönetimli-modern-yaklaşım">Bulut Yönetimli (Modern Yaklaşım)</h3>
+<p>Erişim noktalarının daha fazla zekası vardır. Yönetim, yapılandırma ve görünürlük buluttadır; veri düzlemi trafiği doğrudan ağa gider:</p>
+<pre tabindex="0"><code>[AP] ──veri──→ Çekirdek Ağ (doğrudan, hairpin yok)
+[AP] ──yönetim tüneli──→ Bulut Panosu
+</code></pre><p><strong>Güçlü yönler:</strong> Şirket içi controller donanımı yok. Dağıtık siteler arasında daha kolay yönetim. Yerleşik izleme ve analitik. Daha düşük operasyonel karmaşıklık.</p>
+<p><strong>Zayıf yönler:</strong> Yönetim için bulut bağlantısına bağımlı (AP&rsquo;ler buluta ulaşılamazsa çalışmaya devam eder). Karmaşık kurumsal politikalar için daha az esnek.</p>
+<p>Cisco Meraki ve Aruba Central, önde gelen bulut yönetimli platformlardır.</p>
+<h3 id="dağıtık--kampüs-fabric">Dağıtık / Kampüs Fabric</h3>
+<p>Modern büyük kampüs deployment&rsquo;ları çoğunlukla kablosuzu daha geniş ağ fabric&rsquo;ine entegre eder — AP&rsquo;ler, cihaz kablo veya kablosuz bağlansın tutarlı erişim kontrolüyle kimlik tabanlı VLAN atamasıyla kablolu portlarla aynı politika ve segmentasyon modeline katılır.</p>
+<p>SD-Access ile Cisco DNA Center ve Central ile Aruba CX bu yaklaşımın örnekleridir.</p>
+<p>→ <strong><a href="/tr/technology/kurumsal-wifi-controller-mimarisi-cisco-aruba/">Kurumsal Controller Mimarisi Deep Dive</a></strong></p>
+<hr>
+<h2 id="kobi-otel-ve-muayenehane-tasarım-prensipleri">KOBİ, Otel ve Muayenehane: Tasarım Prensipleri</h2>
+<p>Tüketici WiFi ekipmanı, profesyonel ortamlarda düşük kalite nedeniyle değil — yoğunluk, yönetim gereksinimleri veya bu ortamların güvenlik beklentileri için tasarlanmadığı için başarısız olur.</p>
+<h3 id="kobi-küçük-ve-orta-ölçekli-işletme">KOBİ (Küçük ve Orta Ölçekli İşletme)</h3>
+<p>Tipik KOBİ zorluğu: arka ofiste veya toplantı odasında WiFi&rsquo;nin yavaş olduğundan şikayet eden personel — resepsiyonda tam sinyal olmasına rağmen. Kök nedenler neredeyse her zaman şunlardır:</p>
+<ul>
+<li>RF kapsamı yerine kablolama kolaylığına göre yerleştirilen AP&rsquo;ler</li>
+<li>Kullanılabilir veri hızlarında fiziksel olarak kapsaması imkânsız bir katı kapsama almaya çalışan tek AP</li>
+<li>Band yönlendirme yok — yeni cihazlar beklerken eski cihazlar 2,4 GHz&rsquo;i monopolleştiriyor</li>
+<li>QoS yok — video görüşmeleri dosya yedeklemeleriyle eşit rekabet ediyor</li>
+</ul>
+<p>KOBİ kablosuz tasarım prensipleri:</p>
+<ul>
+<li>Ofis ortamlarında <strong>150–200 m² başına bir AP</strong> planlayın (evrensel kural değil, tipik yükler için gerçekçi bir başlangıç noktası)</li>
+<li>Her zaman misafir ve kurumsal trafiği ayırın (farklı SSID&rsquo;ler, farklı VLAN&rsquo;lar, aralarında firewall politikası)</li>
+<li>Operasyonel sadelik için bulut yönetimli AP&rsquo;ler kullanın (Aruba Instant On, Meraki Go, Cisco Business)</li>
+</ul>
+<h3 id="otel-wifisi">Otel WiFi&rsquo;si</h3>
+<p>Oteller belirli bir zorluk sunar: odalarda yüksek istemci yoğunluğu (her misafir 3–5 cihaz getirir), günün saatine göre son derece değişken talep ve &ldquo;WiFi&quot;nin sıcak su gibi bir hizmet olduğu beklentisi — her zaman mevcut, hiçbir zaman düşünülmeyen.</p>
+<p>Temel otel WiFi tasarım kararları:</p>
+<ul>
+<li><strong>AP yerleşimi:</strong> Odaları kapsayan koridor AP&rsquo;leri ve oda içi AP&rsquo;ler karşılaştırması. Oda içi AP&rsquo;ler odalar arasında daha iyi sinyal izolasyonu sağlar (daha az girişim) ancak daha yüksek deployment maliyeti ve bakım karmaşıklığı.</li>
+<li><strong>Bant genişliği yönetimi:</strong> Kullanıcı başına hız sınırlama, tek misafirin paylaşılan uplink&rsquo;i doyurmasını önler. Tek bir 4K video akışının düzinelerce diğer kullanıcıyı etkileyebildiği ortamlarda gerekli.</li>
+<li><strong>Misafir portalı:</strong> Kimlik doğrulama, şartlar kabul, potansiyel olarak oda numarası doğrulama. Otomatik sağlama için PMS (Otel Yönetim Sistemi) ile entegrasyon.</li>
+<li><strong>Personel ve misafir ağı:</strong> Tamamen ayrı — personel ağına hiçbir koşulda misafir ağından erişilememeli.</li>
+</ul>
+<p>→ <strong><a href="/tr/technology/wifi-tasarimi-kobi-otel-saglik/">KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı Deep Dive</a></strong></p>
+<hr>
+<h2 id="roaming-ve-band-yönlendirme">Roaming ve Band Yönlendirme</h2>
+<h3 id="roaming-göründüğünden-neden-daha-zordur">Roaming: Göründüğünden Neden Daha Zordur</h3>
+<p>Roaming — bir istemcinin bir AP&rsquo;den diğerine geçişi — pek çok kablosuz deployment&rsquo;ın sessizce başarısız olduğu yerdir. Belirtiler &ldquo;WiFi sorunları&rdquo; gibi görünür ama kök neden roaming davranışıdır.</p>
+<p><strong>Yapışkan istemci sorunu:</strong> Bir istemci cihaz, AP değil, ne zaman dolaşacağına kendisi karar verir. 30 metre ötedeki AP-1&rsquo;e güçlü bağlantısı olan bir dizüstü bilgisayar, 5 metre ötedeki AP-2&rsquo;ye dolaşmayı reddedebilir, çünkü AP-1&rsquo;e bağlantısı teknik olarak hâlâ işlevseldir. AP, istemciyi dolaşmaya zorlayamaz (istemci yönlendirme mekanizmaları kullanmadan).</p>
+<p><strong>Hızlı roaming protokolleri:</strong></p>
+<ul>
+<li><strong>802.11r (Fast BSS Transition):</strong> İstemcinin mevcut AP&rsquo;den tam olarak bağlantısını kesmeden önce hedef AP ile önceden kimlik doğrulama yaparak roaming süresini azaltır. Bağlantı kesintilerinin görüşme düşmelerine neden olduğu ses ve video uygulamaları için gerekli.</li>
+<li><strong>802.11k (Komşu Raporları):</strong> AP, istemciye yakındaki AP&rsquo;lerin ve sinyal güçlerinin listesini sağlar, istemcilerin daha iyi roaming kararları vermesine yardımcı olur.</li>
+<li><strong>802.11v (BSS Geçiş Yönetimi):</strong> AP&rsquo;lerin bir istemcinin farklı bir AP&rsquo;ye dolaşmasını önermesine veya talep etmesine olanak tanır — ağa istemci roaming davranışı üzerinde biraz etki verir.</li>
+</ul>
+<p>Kurumsal deployment&rsquo;larda, en iyi roaming davranışı için üç protokolün (topluca 802.11r/k/v olarak adlandırılır) birlikte etkinleştirilmesi gerekir.</p>
+<h3 id="band-yönlendirme">Band Yönlendirme</h3>
+<p>Çift bantlı AP&rsquo;ler hem 2,4 GHz hem de 5 GHz üzerinde yayın yapar. Kendi tercihlerine bırakıldığında, birçok istemci 2,4 GHz&rsquo;i seçer — daha uzun menzili vardır ve tanıdıktır. Ancak 2,4 GHz&rsquo;in (çoğu bölgede) yalnızca 3 örtüşmeyen kanalı vardır, komşu ağlar ve IoT cihazları tarafından yoğun biçimde kullanılır ve daha düşük verim sağlar.</p>
+<p>Band yönlendirme, yetenekli istemcileri 5 GHz&rsquo;e (veya WiFi 6E deployment&rsquo;larında 6 GHz&rsquo;e) iter:</p>
+<ul>
+<li>2,4 GHz probe yanıtlarını geciktir — yanıt bekleyen istemciler 5 GHz&rsquo;i dener</li>
+<li>Aktif yönlendirme — controller 5 GHz&rsquo;e yetenekli istemcileri tanımlar ve 2,4 GHz ilişkisini reddeder</li>
+</ul>
+<p>Tüm istemciler agresif band yönlendirmeye iyi yanıt vermez. Eski veya daha az yetenekli cihazlar için yönlendirme ile bağlantı arasındaki dengeyi bulun.</p>
+<hr>
+<h2 id="wifi-güvenliği-çoğu-ekibin-yanlış-yaptığı-katman">WiFi Güvenliği: Çoğu Ekibin Yanlış Yaptığı Katman</h2>
+<p>WiFi güvenliği yalnızca SSID&rsquo;deki bir şifre değildir. Kurumsal ortamlarda kimlik doğrulama mimarisini, şifreleme standartlarını, ağ segmentasyonunu ve sahte altyapıyı izlemeyi içerir.</p>
+<h3 id="kimlik-doğrulama-pskdan-8021xe">Kimlik Doğrulama: PSK&rsquo;dan 802.1X&rsquo;e</h3>
+<p><strong>WPA2-PSK / WPA3-SAE (Önceden Paylaşılan Anahtar):</strong> Tüm kullanıcılar için tek şifre. Basit, ancak kritik zayıflıkları var: bir sızdırılan şifre tüm kullanıcıları tehlikeye atar, bireysel hesap verebilirlik yoktur ve iptal her yerde şifreyi değiştirmeyi gerektirir.</p>
+<p><strong>WPA2/WPA3-Enterprise (802.1X):</strong> Her kullanıcı, bireysel kimlik bilgileriyle (kullanıcı adı/şifre, sertifika veya akıllı kart) bir RADIUS sunucusuna (Windows NPS, Cisco ISE, Aruba ClearPass) karşı kimlik doğrular. Faydaları:</p>
+<ul>
+<li>Bireysel hesap verebilirlik — tam olarak hangi kullanıcının bağlı olduğunu bilirsiniz</li>
+<li>Ayrıntılı iptal — diğerlerini etkilemeden tek kullanıcıyı devre dışı bırakın</li>
+<li>Dinamik VLAN ataması — kimlik, departman veya cihaz türüne göre kullanıcıları farklı VLAN&rsquo;lara yerleştirin</li>
+<li>Grup üyeliğine dayalı otomatik erişim için Active Directory ile entegrasyon</li>
+</ul>
+<p>Hassas veriler işleyen herhangi bir kurumsal ortam için 802.1X isteğe bağlı değildir — taban çizgisidir.</p>
+<h3 id="şifreleme-wpa3-ve-neden-önemlidir">Şifreleme: WPA3 ve Neden Önemlidir</h3>
+<p>WPA3, WPA2&rsquo;nin PSK el sıkışmasının yerini alan <strong>SAE (Simultaneous Authentication of Equals)</strong> getirdi. Kritik iyileştirme: SAE <strong>ileri gizlilik</strong> sağlar — el sıkışmayı yakalamak ve daha sonra şifreyi elde etmek, daha önce yakalanan trafiğin şifresini çözmeye izin vermez.</p>
+<p>WPA2 (PMKID saldırılarıyla), yakalanan el sıkışmalarının çevrimdışı kaba kuvvet kırılmasına olanak tanıyordu. WPA3 bu saldırı vektörünü ortadan kaldırır.</p>
+<p>802.1X kullanan kurumsal deployment&rsquo;lar için, 192 bit güvenlik modundaki WPA3-Enterprise mevcut en güçlü kablosuz şifrelemeyi sağlar.</p>
+<h3 id="sahte-ap-tespiti">Sahte AP Tespiti</h3>
+<p>Sahte AP, ağınıza bağlı yetkisiz bir erişim noktasıdır — kötü niyetle yerleştirilen veya ofise ev yönlendiricisi getiren iyi niyetli bir çalışan.</p>
+<p>Kurumsal kablosuz controller&rsquo;lar RF ortamını sürekli olarak AP&rsquo;ler için tarar. Kablolu ağınızın BSSID&rsquo;si veya SSID&rsquo;siyle eşleşen bir AP tespit edildiğinde, sahte olarak işaretlenir ve — çoğu platformda — otomatik olarak çevrelenebilir (controller, sahte AP&rsquo;ye bağlanan istemcilere kimlik doğrulama iptali çerçeveleri gönderir).</p>
+<p>→ <strong><a href="/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/">WiFi Güvenliği Deep Dive: WPA3, 802.1X, Sahte AP Tespiti ve Site Survey</a></strong></p>
+<hr>
+<h2 id="site-survey-çoğu-projenin-atladığı-adım">Site Survey: Çoğu Projenin Atladığı Adım</h2>
+<p>Site survey, AP deployment öncesinde ve sonrasında RF ortamının sistematik olarak ölçülmesidir. Bu adımı atlamak, &ldquo;WiFi deployment yaptık ama düzgün çalışmıyor&rdquo; durumlarının en yaygın nedenidir.</p>
+<p><strong>Tahmine dayalı survey (deployment öncesi):</strong> Beklenen kapsama alanını modellemek için bir kat planı ve duvar malzemeleriyle RF simülasyon yazılımı (Ekahau Site Survey sektör standardıdır) kullanın. Herhangi bir şey kurmadan AP yerleşimini, kanal atamalarını ve güç seviyelerini belirleyin.</p>
+<p><strong>Doğrulama surveyi (deployment sonrası):</strong> Ekahau çalıştıran bir dizüstü bilgisayarla alanı yürüyerek gerçek sinyal gücünü, gürültü tabanını, kanal kullanımını ve roaming davranışını ölçün. Tahmine dayalı modelle karşılaştırın ve gerektiğinde AP yerleşimini veya ayarlarını düzenleyin.</p>
+<p>Site survey&rsquo;in ortaya koyduğu şeyler:</p>
+<ul>
+<li>Tahmine dayalı modelin öngörmediği kapsama boşlukları (beklenmedik girişim kaynakları, beklenenden daha fazla zayıflatan duvar malzemeleri)</li>
+<li>Komşu ağlardan kanal tıkanıklığı</li>
+<li>Kendi AP&rsquo;leriniz arasındaki aynı kanal girişimi</li>
+<li>İstemcilerin AP&rsquo;ler arasında bağlantıyı kaybettiği roaming ölü noktaları</li>
+</ul>
+<p>Uygun bir site survey&rsquo;in maliyeti, kurulumdan sonra önemli yeniden çalışma gerektiren kablosuz deployment maliyetiyle karşılaştırıldığında küçüktür.</p>
+<p>→ <strong><a href="/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/">WiFi Güvenliği Deep Dive, Site Survey metodolojisini içerir</a></strong></p>
+<hr>
+<h2 id="doğru-platformu-seçme">Doğru Platformu Seçme</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Senaryo</th>
+          <th>Önerilen Platform</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Küçük ofis, basit yönetim</td>
+          <td>Aruba Instant On, Cisco Business, Meraki Go</td>
+      </tr>
+      <tr>
+          <td>IT personeli olan KOBİ</td>
+          <td>Cisco Meraki, Aruba Central (bulut yönetimli)</td>
+      </tr>
+      <tr>
+          <td>Kurumsal kampüs, karmaşık politika</td>
+          <td>Aruba Mobility Master, Cisco DNA Center</td>
+      </tr>
+      <tr>
+          <td>Otel / konaklama</td>
+          <td>Aruba, Cisco Meraki (PMS entegrasyonu ile)</td>
+      </tr>
+      <tr>
+          <td>Sağlık / düzenlenmiş ortam</td>
+          <td>Aruba ClearPass + Mobility Master, Cisco ISE + WLC</td>
+      </tr>
+      <tr>
+          <td>Yüksek yoğunluklu mekanlar</td>
+          <td>Cisco (Catalyst Center), Aruba (AOS 10)</td>
+      </tr>
+      <tr>
+          <td>Çok siteli, merkezi yönetim</td>
+          <td>Cisco Meraki, Aruba Central</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="bu-seri">Bu Seri</h2>
+<ul>
+<li>📡 <strong><a href="/tr/technology/wifi-80211-standartlari-wifi4-wifi5-wifi6/">802.11 Standartları Deep Dive</a></strong> — WiFi 4, 5, 6, 6E ve 7: ne değişti, pratikte ne önemli</li>
+<li>🏢 <strong><a href="/tr/technology/kurumsal-wifi-controller-mimarisi-cisco-aruba/">Kurumsal Controller Mimarisi</a></strong> — Cisco ve Aruba mimarileri, merkezi ve bulut karşılaştırması, mobilite alanları</li>
+<li>🏨 <strong><a href="/tr/technology/wifi-tasarimi-kobi-otel-saglik/">KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı</a></strong> — Gerçek dünya deployment senaryolarında pratik saha notları</li>
+<li>🔐 <strong><a href="/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/">WiFi Güvenliği: WPA3, 802.1X, Sahte AP, Site Survey</a></strong> — Kimlik doğrulama, şifreleme, saldırı tespiti, Ekahau metodolojisi</li>
+</ul>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<ul>
+<li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Kimlik Tabanlı Mimari Sahada</a> — Kurumsal WiFi güvenliğini işlevsel kılan kimlik katmanı</li>
+<li>🏗️ <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Ürünler Koleksiyonu Değildir</a> — Kablosuz tasarımın arkasındaki sistem düşüncesi</li>
+<li>🎯 <a href="/tr/architecture/network-product-selection-strategy/">Ağ Altyapısı Ürün Seçimi: Stratejik Kriterler</a> — Kablosuz satıcıları nesnel olarak nasıl değerlendirirsiniz</li>
+</ul>
+]]></content:encoded></item><item><title>Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler ve Saha Deneyimleri</title><link>https://barashhelvadzhaoglu.com/tr/architecture/network-product-selection-strategy/</link><pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/network-product-selection-strategy/</guid><description>Kurumsal ağlarda ürün seçimi bir kontrol listesinden fazlasıdır. Firewall, switch ve AP değerlendirmesi için saha testi yapılmış çerçeve.</description><content:encoded><![CDATA[<h1 id="ağ-altyapısında-ürün-seçimi-stratejik-kriterler-ve-saha-deneyimleri">Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler ve Saha Deneyimleri</h1>
+<h2 id="switch-firewall-ve-apyi-veri-sayfasının-ötesinde-nasıl-değerlendirirsiniz">Switch, Firewall ve AP&rsquo;yi veri sayfasının ötesinde nasıl değerlendirirsiniz</h2>
+<p>Kurumsal ağ projelerinin çoğu aynı noktada başlıyor: ürün seçimi. Ve çoğu zaman aynı noktada kırılıyor: ürünlerin birlikte çalışmaması. Çünkü &ldquo;core network&rdquo; dediğimiz şey, üç kutunun yan yana durması değil; bu üç kutunun birlikte kimlik taşıması, birlikte segment üretmesi, birlikte politika uygulatması ve en önemlisi birlikte operasyon kaldırmasıdır.</p>
+<p>Benim yıllardır gördüğüm şu: bir şirketin ağı kötü olduğu için değil, ağın karar mekanizması parçalı olduğu için problem yaşanıyor. En pahalı cihazlar, en iyi lisanslar, en yüksek throughput… Hepsi var; ama olay anında hangi cihaz hangi bağlamla karar veriyor, trafik nerede ayrışıyor, nerede kontrol ediliyor — bu soruların net cevabı yok. Sonuç: &ldquo;network var&rdquo; ama &ldquo;network davranışı&rdquo; yok.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/network-product-selection-strategy.webp"/> <figcaption>
+            Stratejik Ürün Seçim Çerçevesi
+        </figcaption>
+</figure>
+
+<p>Bu yazıda, core network ürünlerini üç bacakta değerlendirmek için sahada test edilmiş bir çerçeveyi paylaşacağım: Firewall, Switching ve Access (Wi-Fi). Ama başlamadan önce: &ldquo;teknik özellik&rdquo; kadar belirleyici olan iki faktör var ve çoğu ekip bunları geç fark ediyor — <strong>raporlar/validasyon</strong> ve <strong>support/lifecycle</strong>.</p>
+<blockquote>
+<p>Bu seçim sürecinin arkasındaki mimari felsefeyi anlamak için: <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a></p>
+</blockquote>
+<h2 id="adım-1-raporları-testleri-ve-pazarlama-gürültüsünü-filtrelemek">Adım 1: Raporları, Testleri ve Pazarlama Gürültüsünü Filtrelemek</h2>
+<p>Ürün seçerken bakılacak ilk referanslardan biri Gartner raporlarıdır. Gartner gibi raporlar bir ürünün pazar konumu hakkında fikir verir: kim lider, kim vizyoner, kim niş oynuyor. Bu özellikle karar vericileri ikna etmekte işe yarar.</p>
+<p>Ama kritik bir tuzak var: <strong>Gartner sana senin senaryonda hangisinin doğru olduğunu söylemez.</strong> Gartner bir pazar haritasıdır; senin işin mimari harita çizmek. Gartner&rsquo;ı ilk filtre olarak kullanmak daha doğru — seçenekleri daraltır ama final kararı vermez.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/filtering-reports-tests-and-marketing-noise.webp"/> <figcaption>
+            Raporları ve Pazarlama Gürültüsünü Filtrelemek
+        </figcaption>
+</figure>
+
+<p>Gartner&rsquo;a ek olarak, bağımsız laboratuvarların performans ve güvenlik testleri, karşılaştırmalı raporlar ve real-world benchmark&rsquo;lar işin içine girmeli. Veri sayfasındaki throughput ile gerçek hayatta IPS açıkken, SSL decrypt varken, app-control çalışırken alınan throughput aynı şey değildir. Raporlar burada ikinci filtre olur: &ldquo;Bu kutu bu yükte ne yapıyor?&rdquo; sorusuna pazarlama dışı bir cevap ararsın.</p>
+<h2 id="adım-2-support-ve-lifecycle--görünmez-kolon">Adım 2: Support ve Lifecycle — Görünmez Kolon</h2>
+<p>Bir ürünün teknik yetenekleri hikayenin sadece yarısıdır. Destek modeli ve yaşam döngüsü de aynı derecede kritiktir. Network tasarımı yalnızca kurulum günüyle bitmez. Asıl soru şudur: <strong>3 yıl sonra ne olacak?</strong></p>
+<ul>
+<li>Bu ürünün EoL / EoS tarihleri nedir?</li>
+<li>Patch, bugfix, security update hızı nasıldır?</li>
+<li>TAC/Support gerçekten erişilebilir mi?</li>
+<li>RMA süreçleri ve yedek parça gerçekliği nedir?</li>
+<li>Lisans modeli 1 yıl sonra sürpriz çıkarır mı?</li>
+<li>Üretici roadmap&rsquo;i senin gittiğin yöne mi gidiyor?</li>
+</ul>
+<p>Sahada en sık gördüğüm problem: ekip teknik olarak doğruya yakın bir ürün seçiyor ama support/lifecycle önceliklendirilmediği için 12 ay sonra operasyon kâbusa dönüyor. Suç cihaza kalıyor — oysa sorun hiçbir zaman cihazın kendisi değildi.</p>
+<h2 id="adım-3-firewall-katmanının-değerlendirilmesi">Adım 3: Firewall Katmanının Değerlendirilmesi</h2>
+<p>Firewall, ağın &ldquo;kenarındaki güvenlik cihazı&rdquo; olmayı çoktan geçti. Doğru konumlandırılırsa mimarinin politika beynidir. Yanlış konumlandırılırsa her şeyin üstüne yıkıldığı darboğaz olur.</p>
+<p><strong>UTM vs NGFW — gerekli bir ayrım:</strong></p>
+<p>UTM yaklaşımı &ldquo;tek kutuda her şey&rdquo; felsefesini takip eder: firewall + IPS + web filter + AV + gateway özellikleri. Daha küçük yapılarda yönetim kolaylığı ve paket lisanslama yüzünden tercih edilir.</p>
+<p>NGFW ise uygulama farkındalığı, kullanıcı/kimlik bağlamı ve daha derin politika kontrolü etrafında konumlanır. Bugünün kurumsal ihtiyacında yalnızca port/protokol üzerinden güvenlik yürütmek çoğu zaman yetmez.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/firewall-selection.webp"/> <figcaption>
+            Firewall Seçimi: UTM vs NGFW vs Çoklu Rol
+        </figcaption>
+</figure>
+
+<p><strong>Aynı organizasyonda iki veya üç firewall neden normaldir:</strong></p>
+<ul>
+<li><strong>Perimeter/Internet Edge Firewall:</strong> İnternet çıkışı, VPN, NAT, inbound/outbound policy</li>
+<li><strong>Internal Segmentation Firewall (ISFW):</strong> East-west kontrol, iç segmentasyon, kritik zon izolasyonu</li>
+<li><strong>Data Center / High-performance FW:</strong> DC trafiği, yüksek session, yüksek PPS, düşük latency</li>
+<li>Bazı yapılarda: WAF veya Cloud FW</li>
+</ul>
+<p>Bu &ldquo;iki firewall almak&rdquo; demek değildir — &ldquo;iki farklı işi doğru araca vermek&rdquo; demektir.</p>
+<blockquote>
+<p>Firewall mimarisinin daha geniş network tasarımı içindeki yerine bakış için: <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a></p>
+</blockquote>
+<h2 id="adım-4-firewall-kapasite-planlaması--throughput-yalan-söyleyebilir">Adım 4: Firewall Kapasite Planlaması — Throughput Yalan Söyleyebilir</h2>
+<p>Firewall seçiminde en tehlikeli hata yalnızca Gbps throughput rakamına odaklanmaktır. Pratikte firewall&rsquo;lar throughput yüzünden değil şunlar yüzünden başarısız olur:</p>
+<ul>
+<li>PPS (packets per second)</li>
+<li>Concurrent session sayısı</li>
+<li>New session rate</li>
+<li>NAT table ve state</li>
+<li>Aktif IPS/AV/App-ID ile performans</li>
+<li>SSL/TLS decrypt yükü</li>
+<li>Log üretimi ve SIEM taşıma</li>
+</ul>
+<p>Gerçek bir örnek: &ldquo;10 Gbps firewall aldık&rdquo; cümlesi tek başına anlam taşımaz. O 10 Gbps çoğu vendor datasheet&rsquo;inde ideal koşul ölçümüdür. IPS, URL filtering, app control ve decrypt aktifse gerçek kapasite dramatik şekilde değişir. Doğru soru her zaman şudur:</p>
+<blockquote>
+<p><em>&ldquo;Açacağım güvenlik özellikleriyle ve benim trafik karakterimde — bu firewall gerçekte ne kadar iş kaldırır?&rdquo;</em></p>
+</blockquote>
+<p>Bu sorunun güvenilir bir cevabı yoksa, seçim risklidir.</p>
+<h2 id="adım-5-switch-değerlendirmesi--port-sayısı-değil-rol-ve-yük">Adım 5: Switch Değerlendirmesi — Port Sayısı Değil Rol ve Yük</h2>
+<p>Switch seçimi çoğu zaman port sayısıyla başlar: bakır port, fiber port, PoE ihtiyacı. Bunlar önemlidir — ama core network perspektifinden yeterli değildir. Switch yalnızca uçları bağlayan bir priz değildir; trafiğin nerede yoğunlaşacağını, nerede ayrışacağını ve nerede yukarı taşınacağını belirleyen bir karar noktasıdır.</p>
+<p><strong>En yaygın access layer hatası:</strong> yalnızca bugünün ihtiyacına göre planlama yapmak. Access katmanı ağda en hızlı değişen katmandır. Bugün yeterli görünen 1G bakır bir noktada yarın yüksek bant genişliği isteyen AP veya edge cihaz konumlanabilir. Multi-Gig portlar (2.5G/5G), port başına PoE sürdürülebilirliği ve uplink&rsquo;lerin gerçek kapasitesi kritik hale gelir.</p>
+<p>Uplink&rsquo;ler sürekli hafife alınır. &ldquo;2×10G uplink yeter&rdquo; çok duyulur — trafik karakteri analiz edilmeden. Kullanıcı sayısı arttıkça ve east-west trafik değiştikçe, uplink&rsquo;ler beklenenden çok daha hızlı doygunluğa ulaşır. Backplane kapasitesi ve oversubscription oranları uplink hızı kadar önemlidir.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/switching-selection.webp"/> <figcaption>
+            Switch Seçimi: Access vs Core vs Data Center
+        </figcaption>
+</figure>
+
+<p><strong>Edge switch vs datacenter switch:</strong> bu sınır çoğu projede net çizilmez. Edge switch&rsquo;ler port yoğunluğu ve PoE için optimize edilir; datacenter switch&rsquo;leri throughput, düşük latency, yüksek PPS ve east-west trafik için gelir. Tek cihazdan her ikisini beklemek ya maliyeti gereksiz artırır ya da performansı düşürür.</p>
+<p>Core network tasarlarken <strong>&ldquo;Bu switch nerede duracak ve neyi taşıyacak?&rdquo;</strong> sorusu <strong>&ldquo;Kaç portu var?&rdquo;</strong> sorusundan önce gelmelidir.</p>
+<h2 id="adım-6-kablosuz--uplink-ve-controller-mimarisi">Adım 6: Kablosuz — Uplink ve Controller Mimarisi</h2>
+<p>Kablosuz konuşulurken odak Wi-Fi standardına kayar: Wi-Fi 6, 6E, 7. Pratikte kablosuz performansı çoğu zaman radyo değil kablo sınırlar. AP ne kadar güçlü olursa olsun, uplink bunu taşıyamıyorsa teorik hızlar anlamsızdır.</p>
+<p>Pek çok kurumsal AP, 1 Gbps uplink ile sınırlandığında potansiyelinin önemli bir kısmını kullanamaz. 2.5G ve 5G bakır uplink desteği yüksek yoğunluklu ortamlarda lüks değil, doğrudan tasarım gereksinimidir. Ve kritik nokta: AP 2.5G destekliyorsa ama bağlı olduğu switch portu desteklemiyorsa, tüm yatırım boşa gider. <strong>AP ve switch seçimi birlikte yapılmalıdır.</strong></p>
+<figure>
+    <img loading="lazy" src="/img/postimages/wifi-selection.webp"/> <figcaption>
+            Kablosuz Mimarisi: AP, Uplink ve Controller
+        </figcaption>
+</figure>
+
+<p>Controller mimarisi de kritiktir. Desteklenen AP sayısı, eş zamanlı client kapasitesi ve roaming davranışı gerçek hayat stabilitesini belirler. &ldquo;500 AP destekler&rdquo; yazan controller yüksek yoğunluklu ortamlarda çok daha erken zorlanabilir. Controller kapasitesi yalnızca lisans sayısıyla değil; CPU, bellek, session handling ve policy enforcement ile birlikte değerlendirilmelidir.</p>
+<p>Kablosuz ağlar çoğu zaman edge katmanı gibi görünür ama core network&rsquo;ü en hızlı zorlayan katmandır. AP seçimi kapsama hesabı değil — core network davranışını doğrudan etkileyen mimari bir karardır.</p>
+<h2 id="adım-7-üretici-değerlendirmesi--saha-gerçekleri">Adım 7: Üretici Değerlendirmesi — Saha Gerçekleri</h2>
+<p>Aşağıdakiler tamamen kişisel saha deneyimlerime dayanıyor. Amaç övmek veya yermek değil — her üreticinin nerede güçlü, nerede zorlandığını açıkça söylemek.</p>
+<p><strong>Cisco,</strong> switching ve routing tarafında hâlâ sektörün en güçlü oyuncularından biri. Wireless uzun yıllardır olgun. Firewall tarafında özellikle Sourcefire gibi satın almalarla ciddi gelişim gösterdiler.
+Uyarı: tüm ürünleri Cisco seçtiğinizde entegrasyon çoğu zaman yorucu olabilir. Her şey mümkün ama genellikle &ldquo;kolay&rdquo; değil.</p>
+<p><strong>HPE Aruba,</strong> Juniper dahil olmak üzere satın almalarla portföyü önemli ölçüde büyüdü. Switching yaygın ve sevilen. Wireless benim kişisel görüşüme göre sektörün en güçlülerinden biri.
+Güçlü bir native firewall ürün ailesinin olmaması bu alanda eksiklik olmaya devam ediyor.</p>
+<p><strong>Fortinet,</strong> tek çatı altında firewall, switching ve wireless sunan en geniş portföylerden birine sahip. Firewall kökenli güçleri tartışmasız. Switching daha geç olgunlaştı ama sahada giderek daha fazla görülüyor.
+En büyük operasyonel avantaj: entegrasyon ve yönetim kolaylığı. Sınırlı IT ekiplerinde bu fark çok net hissediliyor.</p>
+<p><strong>Palo Alto Networks,</strong> firewall alanında açık ara lider — switching ve wireless&rsquo;a bilinçli olarak girmiyor. Uygulama görünürlüğü, politika derinliği ve SASE liderliğinde en belirgin farkı yaratıyorlar.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/vendor-selection.webp"/> <figcaption>
+            Üretici Karşılaştırması: Saha Gerçeği
+        </figcaption>
+</figure>
+
+<p>Pratikte organizasyonlar tüm kombinasyonları kullanır: tek vendor, çift vendor veya best-of-breed. Bu kararlar teknik olduğu kadar organizasyoneldir.</p>
+<p>Kişisel görüşüm: ekip olgunsa her katman için uzmanlaşmış üreticiler teknik olarak daha güçlü sonuçlar üretir. Basitlik ve tek destek kanalı daha önemliyse tek vendor yaklaşımı tamamen geçerlidir.</p>
+<p><strong>Son nokta:</strong> API desteği artık bonus değil, seçim kriteridir. &ldquo;Bu mimariyi nasıl otomatik yöneteceğim?&rdquo; sorusu switch, firewall ve AP seçiminden önce gelmelidir. Bana göre doğru core network tasarımı tam burada başlar.</p>
+<h2 id="sistem-odası-ve-kablolama-kimsenin-konuşmak-istemediği-ama-herkesin-bedelini-ödediği-gerçek">Sistem Odası ve Kablolama: Kimsenin Konuşmak İstemediği Ama Herkesin Bedelini Ödediği Gerçek</h2>
+<p>Network projelerinde en çok konuşulan konular genelde en parlak olanlardır. Ama sahada yaşanan problemlerin önemli bir kısmı çok daha temel bir yerde başlar: sistem odası tasarımı ve kablolama altyapısı.</p>
+<p>Ne kadar iyi ürünler seçersen seç — sistem odası ve kablolama zayıfsa, o ağ eninde sonunda problem üretir. Ve bu problemler &ldquo;network arızası&rdquo; gibi görünür ama kök sebep neredeyse hiçbir zaman gerçekten network değildir.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/server-room-and-cabling.webp"/> <figcaption>
+            Sistem Odası ve Kablolama: Konuşulmayan Temel
+        </figcaption>
+</figure>
+
+<p>Sistem odası çoğu kurumda hâlâ eşya odası gibi ele alınıyor. Kablolar üst üste geliyor, geçici çözümler kalıcı hale geliyor. Kimsenin dokunmak istemediği ama herkesin bağımlı olduğu bir alan oluşuyor. Asıl risk tam burada başlıyor.</p>
+<p>Isı, enerji, hava akışı, erişilebilirlik ve düzen birlikte düşünülmelidir. Yedekli güç kaynakları satın alınır ama farklı enerji hatlarına gidip gitmediği kontrol edilmez. UPS var denir ama kapasite hesabı yapılmaz. Bunlar kağıt üzerinde küçük detay gibi görünür — kriz anında tüm mimariyi anlamsız kılar.</p>
+<p>Kablolama ağın en uzun ömürlü parçasıdır. Switch, firewall ve AP değişir — kablo kalır. Bugünkü ihtiyaca göre kablolama yapmak garantili bir hatadır. 1G altyapısı 2.5G/5G AP&rsquo;lerle hızla sınıra dayanır.</p>
+<p>Benim bakış açıma göre sistem odası ve kablolama core network tasarımının &ldquo;alt katmanı&rdquo; değil; temelidir. İyi çalışan bir network kimsenin fark etmediği şeydir — çünkü sorun çıkmaz. Ve bu, bir altyapı tasarımının alabileceği en büyük övgüdür.</p>
+<h2 id="not">Not</h2>
+<p>Bu makale ilk olarak <strong>Substack</strong>&rsquo;te daha kısa, anlatısal bir biçimde yayınlanmıştı.
+Bu versiyon, serinin mimari temelini genişletiyor.</p>
+<p>👉 <strong>Makaleyi Substack&rsquo;te okuyun:</strong> <a href="https://substack.com/home/post/p-183952844">Burayı Tıklayın</a></p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Mimari &amp; Strateji</strong></p>
+<ul>
+<li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Bu serinin temel yazısı</li>
+<li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a> — Mimari öncelikli core network tasarımı</li>
+<li>🛡️ <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Mimari olarak güvenlik</li>
+</ul>
+<p><strong>Teknik Mühendislik</strong></p>
+<ul>
+<li>📊 <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a> — Operasyonel görünürlük</li>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-terminal-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Out-of-band erişim</li>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Trafik görünürlüğü ve güvenlik stratejisi</li>
+</ul>
+]]></content:encoded></item><item><title>Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</title><link>https://barashhelvadzhaoglu.com/tr/architecture/core-network-is-not-a-product-list/</link><pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/core-network-is-not-a-product-list/</guid><description>Kurumsal ağlar parçalı mimari yüzünden başarısız olur. Firewall, switching, AP seçimi ve kapasite planlaması üzerine saha incelemesi.</description><content:encoded><![CDATA[<h1 id="switch-firewall-ap--doğru-ürünleri-seçmek-neden-yeterli-değildir">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</h1>
+<h2 id="mimari-kapasite-planlaması-ve-kimsenin-konuşmadığı-üretici-gerçeği">Mimari, kapasite planlaması ve kimsenin konuşmadığı üretici gerçeği</h2>
+<p>Kurumsal ağ projelerinin çoğu aynı noktada başlıyor: ürün seçimi. Ve çoğu zaman aynı noktada kırılıyor: ürünlerin birlikte çalışmaması. Çünkü &ldquo;core network&rdquo; dediğimiz şey, üç kutunun (switch, firewall, access point) yan yana durması değil; bu üç kutunun birlikte kimlik taşıması, birlikte segment üretmesi, birlikte politika uygulatması ve en önemlisi birlikte operasyon kaldırmasıdır.</p>
+<p>Benim yıllardır gördüğüm şu: bir şirketin ağı kötü olduğu için değil, ağın karar mekanizması parçalı olduğu için problem yaşanıyor. En pahalı cihazlar, en iyi lisanslar, en yüksek throughput… Hepsi var; ama olay anında kim neyi biliyor, hangi cihaz hangi bağlamla karar veriyor, trafik nerede ayrışıyor, nerede kontrol ediliyor—bu soruların net cevabı yok. Sonuç: &ldquo;network var&rdquo; ama &ldquo;network davranışı&rdquo; yok.</p>
+<p>Bu yazıda core network&rsquo;ü üç bacakta ele alacağım: Firewall, Switching, Access (Wi-Fi). Ama başlamadan önce bir şeyi net koymak istiyorum: seçim sürecinde &ldquo;teknik özellik&rdquo; kadar belirleyici olan iki faktör var ve çoğu ekip bunları geç fark ediyor: raporlar/validasyon ve support/lifecycle.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/core-network-architecture-overview.webp"/> <figcaption>
+            Core Network Mimarisine Genel Bakış
+        </figcaption>
+</figure>
+
+<h2 id="raporlar-testler-ve-pazarlama-gürültüsünü-filtrelemek">Raporlar, testler ve &ldquo;pazarlama gürültüsü&quot;nü filtrelemek</h2>
+<p>Ürün seçerken bakılacak yerlerden biri, evet, Gartner raporları. Çünkü Gartner gibi raporlar sana bir ürünün &ldquo;pazardaki konumu&rdquo; hakkında fikir verir: kim lider, kim vizyoner, kim niş oynuyor. Bu özellikle karar verici tarafı ikna etmekte işe yarar; bütçe masasında &ldquo;neden bu marka?&rdquo; sorusuna bir çerçeve sunar.</p>
+<p>Ama burada kritik bir tuzak var: Gartner sana senin senaryonda hangisinin doğru olduğunu söylemez. Gartner bir &ldquo;pazar haritası&quot;dır; senin işin &ldquo;mimari harita&rdquo; çizmek. Bu yüzden Gartner&rsquo;ı bir ilk filtre gibi kullanmak daha doğru: seçenekleri daraltır ama final kararı vermez.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/filtering-reports-tests-and-marketing-noise.webp"/> 
+</figure>
+
+<p>Gartner&rsquo;a ek olarak, üreticilerin ya da bağımsız laboratuvarların yaptığı performans ve güvenlik testleri, karşılaştırmalı raporlar, &ldquo;real-world&rdquo; benchmark&rsquo;lar da işin içine girmeli. Çünkü veri sayfasındaki throughput ile, gerçek hayatta IPS açıkken, SSL decrypt varken, app-control çalışırken alınan throughput aynı şey değildir. Raporlar burada bir ikinci filtre olur: &ldquo;Bu kutu bu yükte ne yapıyor?&rdquo; sorusuna pazarlama dışı bir cevap ararsın.</p>
+<h2 id="support-ve-lifecycle-projeyi-ayakta-tutan-görünmez-kolon">Support ve lifecycle: Projeyi ayakta tutan görünmez kolon</h2>
+<p>Bir ürünün teknik yetenekleri kadar kritik olan şey, onun destek modeli ve yaşam döngüsüdür. Çünkü network tasarımı yalnızca &ldquo;kurulum günü&quot;nden ibaret değildir. Asıl mesele 3 yıl sonra ne olacağıdır:</p>
+<ul>
+<li>Bu ürünün EoL / EoS tarihleri nedir?</li>
+<li>Patch, bugfix, security update hızı nasıldır?</li>
+<li>TAC/Support gerçekten erişilebilir mi, escalation süreci nasıl işler?</li>
+<li>RMA süreçleri ve yedek parça gerçekliği nedir?</li>
+<li>Lisans modeli 1 yıl sonra sürpriz çıkarır mı?</li>
+<li>Üretici roadmap&rsquo;i senin gittiğin yöne mi gidiyor?</li>
+</ul>
+<p>Bunu yazıya özellikle koymak istiyorum çünkü sahada en sık gördüğüm problem şu: ekip teknik olarak doğruya yakın bir ürün seçiyor ama support/lifecycle yüzünden 12 ay sonra operasyon kâbusa dönüyor. Sonra suç cihazda kalıyor; oysa sorun cihazın kendisinden çok, seçimin &ldquo;destek&rdquo; tarafının ciddiye alınmamasıdır.</p>
+<h2 id="firewall-utm-mi-ngfw-mi-yoksa-birden-fazla-rol-mü">Firewall: UTM mi, NGFW mi, yoksa birden fazla rol mü?</h2>
+<p>Firewall, günümüzde ağın &ldquo;kenarındaki güvenlik cihazı&rdquo; olmayı çoktan geçti. Doğru konumlandırılırsa politika beynidir; yanlış konumlandırılırsa her şeyin üstüne yıkıldığı için darboğaz olur.</p>
+<p>Burada en baştan terminolojiyi netlemek iyi olur: UTM ve NGFW kavramları çoğu ortamda birbirine karışıyor.</p>
+<p>UTM yaklaşımı genelde &ldquo;her şey tek kutuda&rdquo; düşüncesine yakın durur: temel firewall + IPS + web filter + AV + bazı gateway özellikleri… Özellikle daha küçük/orta ölçekli yapılarda, yönetim kolaylığı ve paket yaklaşımı yüzünden tercih edilir.</p>
+<p>NGFW ise daha çok uygulama farkındalığı, kullanıcı/kimlik farkındalığı, daha gelişmiş security services ve policy derinliğiyle konumlanır. Bugünün kurumsal ihtiyacında &ldquo;sadece port-protocol&rdquo; ile güvenlik yürütmek çoğu zaman yetmez; NGFW burada devreye girer.</p>
+<p>Ama asıl kritik nokta şu: bir şirketin ihtiyacı tek bir &ldquo;firewall tipi&rdquo; ile bitmeyebilir. Çünkü firewall dediğimiz şey, aslında farklı amaçlar için farklı katmanlarda görev alabilir.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/firewall-selection.webp"/> 
+</figure>
+
+<h3 id="aynı-şirkette-iki-hatta-üç-firewall-neden-normaldir">Aynı şirkette iki (hatta üç) firewall neden normaldir?</h3>
+<p>Birçok kurumda şu senaryolar çok makuldür:</p>
+<ul>
+<li>Perimeter/Internet Edge Firewall: İnternet çıkışı, VPN, NAT, inbound/outbound policy.</li>
+<li>Internal Segmentation Firewall (ISFW): İç ağda segmentasyon, east-west kontrol, kritik zonlar.</li>
+<li>Data Center / High-performance FW: DC trafiği, yüksek session, yüksek PPS, düşük latency ihtiyacı.</li>
+<li>Bazı yapılarda ayrıca WAF ya da Cloud FW gibi özel bileşenler.</li>
+</ul>
+<p>Bu &ldquo;iki firewall almak&rdquo; demek değildir; bu, &ldquo;iki farklı işi doğru araca vermek&rdquo; demektir. Tek kutuya her şeyi yığdığında, ya performans kaybedersin ya yönetim kaybedersin ya da güvenlik kaybedersin.</p>
+<blockquote>
+<p>Bu mimarinin arkasındaki güvenlik felsefesini daha derinlemesine anlamak için: <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Mimari Olarak Mühendislemek</a></p>
+</blockquote>
+<p>Ve bu bizi doğrudan kapasite planlamasına götürür.</p>
+<h2 id="firewall-kapasite-planlaması-throughput-tek-başına-yalan-söyleyebilir">Firewall kapasite planlaması: Throughput tek başına yalan söyleyebilir</h2>
+<p>Firewall seçiminde en tehlikeli yanlış, yalnızca &ldquo;Gbps throughput&rdquo; rakamına bakmaktır. Çünkü gerçek hayatta firewall&rsquo;u öldüren şey çoğu zaman throughput değil:</p>
+<ul>
+<li>PPS (packets per second)</li>
+<li>Concurrent session sayısı</li>
+<li>New session rate</li>
+<li>NAT table ve state</li>
+<li>IPS/AV/App-ID açıkken performans</li>
+<li>SSL/TLS decrypt gibi ağır iş yükleri</li>
+<li>Log üretimi ve log&rsquo;u taşımak (SIEM entegrasyonu)</li>
+</ul>
+<figure>
+    <img loading="lazy" src="/img/postimages/firewall-capacity-planning.webp"/> <figcaption>
+            Firewall Kapasite Planlama Metrikleri
+        </figcaption>
+</figure>
+
+<p>Örnek bir gerçek: &ldquo;10 Gbps firewall aldık&rdquo; cümlesi tek başına anlam taşımaz. Çünkü o 10 Gbps, çoğu vendor datasheet&rsquo;inde &ldquo;ideal koşul&rdquo; ölçümüdür. Senin ortamında IPS, URL filtering, app control, decrypt aktifse; gerçek kapasite dramatik şekilde değişir. Bu yüzden doğru soru şu olmalı:
+&ldquo;Benim açacağım güvenlik özellikleriyle, benim trafik karakterimde, bu firewall ne kadar iş kaldırıyor?&rdquo;</p>
+<p>Bu sorunun cevabı yoksa, seçim risklidir.</p>
+<h2 id="switching-port-sayısından-çok-taşıyabileceği-yük-ve-rolü-önemlidir">Switching: Port sayısından çok, taşıyabileceği yük ve rolü önemlidir</h2>
+<p>Switch seçimi çoğu zaman port sayısıyla başlar: kaç adet bakır port, kaç adet fiber port, PoE ihtiyacı var mı yok mu… Bunlar elbette önemlidir ama core network perspektifinden bakıldığında yeterli değildir. Çünkü switch yalnızca uçları bağlayan bir priz değildir; trafiğin nerede yoğunlaşacağını, nerede ayrışacağını ve nerede yukarı taşınacağını belirleyen bir karar noktasıdır.</p>
+<p>Özellikle access switch tarafında yapılan en yaygın hata, bugünkü ihtiyaca göre port planlaması yapmaktır. Oysa access katmanı, ağda en hızlı değişen katmandır. Bugün bakır port yeterli görünen bir noktada, yarın yüksek bant genişliği isteyen bir AP, bir kamera ya da farklı bir edge cihaz konumlanabilir. Bu yüzden bakır portların hız kabiliyeti (1G mi, 2.5G/5G mi destekliyor), PoE bütçesinin yalnızca toplam watt değil port başına sürdürülebilirliği ve uplink&rsquo;lerin gerçek kapasitesi kritik hale gelir.</p>
+<p>Uplink konusu genellikle hafife alınır. &ldquo;2×10G uplink yeter&rdquo; gibi cümleler çok duyulur ama bu uplink&rsquo;lerin hangi trafik karakterini taşıyacağı çoğu zaman konuşulmaz. Access katmanında kullanıcı sayısı arttıkça, east-west trafik ve broadcast davranışı değiştikçe, uplink&rsquo;ler beklenenden çok daha hızlı doygunluğa ulaşabilir. Bu noktada yalnızca uplink hızına değil, switch&rsquo;in backplane kapasitesine ve oversubscription oranlarına bakmak gerekir.</p>
+<p>Edge switch ile datacenter switch arasındaki fark da çoğu projede net çizilmez. Edge switch&rsquo;ler genellikle kullanıcı ve cihaz yoğunluğu için optimize edilir: çok sayıda port, PoE, erişim odaklı özellikler. Datacenter switch&rsquo;ler ise yüksek throughput, düşük latency, yüksek PPS ve east-west trafiği kaldıracak mimariyle gelir. Core network tasarlarken &ldquo;bu switch nerede duracak ve neyi taşıyacak?&rdquo; sorusu, &ldquo;kaç portu var?&rdquo; sorusundan önce gelmelidir.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/switching-selection.webp"/> 
+</figure>
+
+<p>Inter-VLAN routing kararları da switch seçimiyle doğrudan ilişkilidir. Eğer routing switch üzerinde yapılacaksa, bu switch&rsquo;in yalnızca L3 desteklemesi yetmez; route scale, TCAM kapasitesi, policy uygulanabilirliği ve bu kararların firewall ile nasıl entegre olacağı düşünülmelidir.</p>
+<h2 id="access--wi-fi-radyo-kadar-uplink-ve-kontrol-katmanı-da-mimarinin-parçasıdır">Access / Wi-Fi: Radyo kadar uplink ve kontrol katmanı da mimarinin parçasıdır</h2>
+<p>Kablosuz ağlar konuşulurken odak genellikle Wi-Fi standardına kayar: Wi-Fi 6, 6E, 7… Oysa pratikte kablosuz performansı sınırlayan şey çoğu zaman hava değil, kablodur. Access point ne kadar güçlü olursa olsun, arkasındaki uplink bunu taşıyamıyorsa teorik hızlar hiçbir anlam ifade etmez.</p>
+<p>Bugün pek çok kurumsal AP, 1 Gbps uplink ile sınırlandığında potansiyelinin ciddi bir kısmını kullanamaz. Bu yüzden 2.5G ve 5G bakır uplink desteği, özellikle yoğun kullanıcı olan ortamlarda bir &ldquo;lüks&rdquo; değil, doğrudan tasarım gereksinimidir. AP ve switch seçimi bu yüzden ayrı ayrı değil, birlikte yapılmalıdır.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/wifi-selection.webp"/> 
+</figure>
+
+<p>Wi-Fi tarafında bir diğer kritik konu, controller mimarisidir. Controller&rsquo;ın desteklediği AP sayısı, eş zamanlı client kapasitesi ve roaming davranışı, ağın gerçek hayattaki stabilitesini belirler. Controller kapasitesi yalnızca lisans sayısı değil; CPU, bellek, session handling ve policy enforcement kapasitesiyle birlikte değerlendirilmelidir.</p>
+<p>Ayrıca kablosuz ağlar çoğu zaman &ldquo;edge&rdquo; gibi düşünülür ama gerçekte core network&rsquo;ü en hızlı zorlayan katmandır. AP seçimi yalnızca kapsama alanı hesabı değil; core network davranışını doğrudan etkileyen bir mimari karardır.</p>
+<h2 id="kapanış-üretici-seçimi-mimari-olgunluk-ve-gerçekler">Kapanış: Üretici Seçimi, Mimari Olgunluk ve Gerçekler</h2>
+<p>Bu noktada şunu özellikle belirtmek istiyorum: aşağıda bahsettiklerim tamamen kişisel saha tecrübelerime ve gözlemlerime dayanıyor. Bir üreticiyi övmek ya da yermekten çok, nerede güçlü olduklarını ve nerede zorlandıklarını açıkça söylemek niyetindeyim.</p>
+<p>Cisco ile başlamak doğal. Switching ve routing tarafında hâlâ sektörün en güçlü oyuncularından biri. Özellikle büyük ve karmaşık yapılarda, campus ve datacenter switching konusunda ciddi bir olgunlukları var. Ancak şunu net söylemek gerekir: tüm ürünleri Cisco seçtiğinizde, bu ürünlerin birbiriyle entegrasyonu çoğu zaman bir admin için yorucu ve zahmetli olabiliyor.</p>
+<p>Yaklaşık on yıldır gelişimini yakından izlediğim HPE Aruba tarafı ise farklı bir hikâye sunuyor. Switching tarafında Aruba ailesi oldukça yaygın ve sevecen bir kullanıcı kitlesine sahip. Wireless tarafında ise benim kişisel görüşüm, sektördeki en güçlü Wi-Fi çözümlerinden birine sahipler. Kendi başına güçlü bir firewall ürün ailesinin olmaması bu alanda bir eksiklik.</p>
+<p>Fortinet tarafı ise çok geniş bir ürün yelpazesi sunuyor. Firewall, switching ve wireless tarafında &ldquo;tek çatı altında&rdquo; komple bir çözüm sunabilmeleri ciddi bir avantaj. Fortinet ekosisteminin bana göre en büyük artılarından biri, kullanım ve arayüz kolaylığı.</p>
+<p>Palo Alto Networks tarafına geldiğimizde tablo daha net: Palo Alto, firewall konusunda çok güçlü ve bu alanda tartışmasız şekilde lider üreticilerden biri. Application visibility, policy derinliği ve özellikle SASE gibi alanlarda Palo Alto&rsquo;nun ciddi bir fark yarattığını düşünüyorum.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/vendor-selection.webp"/> 
+</figure>
+
+<p>Son olarak özellikle altını çizmek istediğim bir nokta var: günümüzde neredeyse tüm büyük üreticiler otomasyon tarafına ciddi yatırım yapıyor. API desteği artık bir &ldquo;ekstra&rdquo; değil, doğrudan bir seçim kriteri.</p>
+<blockquote>
+<p>Altyapınızda gerçek görünürlük oluşturmak için pratik bir çerçeve: <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a></p>
+</blockquote>
+<h2 id="sistem-odası-ve-kablolama-kimsenin-konuşmak-istemediği-ama-herkesin-bedelini-ödediği-gerçek">Sistem Odası ve Kablolama: Kimsenin Konuşmak İstemediği Ama Herkesin Bedelini Ödediği Gerçek</h2>
+<p>Network projelerinde en çok konuşulan konular genelde en &ldquo;parlak&rdquo; olanlardır. Ama sahada yaşanan problemlerin önemli bir kısmı, bu ürünlerden çok daha temel bir yerde başlar: sistem odası tasarımı ve kablolama altyapısı.</p>
+<p>Benim yıllar içinde defalarca gördüğüm bir gerçek var: ne kadar iyi ürünler seçersen seç, ne kadar doğru mimari kurgularsan kurgula; eğer sistem odası ve kablolama altyapısı zayıfsa, o ağ eninde sonunda problem üretir.</p>
+<p>Sistem odası çoğu kurumda hâlâ bir &ldquo;eşya odası&rdquo; gibi ele alınıyor. İlk başta küçük bir alana birkaç rack konuyor, işler büyüdükçe aynı odaya yeni cihazlar ekleniyor, kablolar üst üste geliyor, geçici çözümler kalıcı hale geliyor. İşte asıl risk tam burada başlıyor.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/server-room-and-cabling.webp"/> 
+</figure>
+
+<p>Bir sistem odası yalnızca cihazların durduğu bir yer değildir. O oda, ağın kalbidir. Isı, enerji, hava akışı, erişilebilirlik ve düzen; hepsi birlikte düşünülmelidir.</p>
+<p>Kablolama altyapısı ise genelde &ldquo;bir kere yapılır ve unutulur&rdquo; diye düşünülür. Oysa kablolama, network&rsquo;ün en uzun ömürlü parçasıdır. Switch&rsquo;i, firewall&rsquo;u, access point&rsquo;i değiştirirsin; ama kablo orada kalır.</p>
+<p>Fiber ve bakır kabloların nerede, hangi amaçla kullanılacağı da mimari bir karardır. Patch panel düzeni, kablo etiketleme, rack içi ve rack arası kablo yönetimi doğrudan operasyonel konulardır.</p>
+<p>Benim bakış açıma göre sistem odası ve kablolama, core network tasarımının &ldquo;alt katmanı&rdquo; değildir; temelidir. İyi çalışan bir network&rsquo;ün arkasında çoğu zaman iyi tasarlanmış bir sistem odası ve temiz bir kablolama altyapısı vardır. Kimse bunu fark etmez; çünkü zaten sorun çıkmaz. Ve bana göre bu, bir altyapı tasarımının alabileceği en büyük övgüdür.</p>
+<h2 id="not">Not</h2>
+<p>Bu makale ilk olarak <strong>Substack</strong>&rsquo;te daha kısa, anlatısal bir biçimde yayınlanmıştı.
+Bu versiyon, serinin mimari temelini genişletiyor.</p>
+<p>👉 <strong>Makaleyi Substack&rsquo;te okuyun:</strong> <a href="https://substack.com/home/post/p-183952844">Burayı Tıklayın</a></p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p>Bu yazıyı faydalı bulduysanız, şu yazılar da ilginizi çekebilir:</p>
+<p><strong>Mimari &amp; Güvenlik Tasarımı</strong></p>
+<ul>
+<li>📐 <a href="/tr/architecture/it-infrastructure-is-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Bu serinin temel yazısı</li>
+<li>🛡️ <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Mimari Olarak Mühendislemek</a> — Zero Trust neden bir ürün değil, bir felsefedir</li>
+<li>📊 <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a> — Altyapınızda gerçek görünürlük nasıl inşa edilir</li>
+</ul>
+<p><strong>Teknik Mühendislik</strong></p>
+<ul>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-terminal-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Her şey kesildiğinde out-of-band erişim</li>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Gelişmiş trafik görünürlüğü ve güvenlik stratejisi</li>
+<li>🔐 <a href="/tr/posts/unlocking-success-in-802-1x-projects-field-insights/">802.1X Projelerinde Başarı: Saha Deneyimleri</a> — Kurumsal ağlarda kimlik tabanlı erişim</li>
+<li>⚙️ <a href="/tr/posts/cisco-nexus-nxos-upgrade-guide/">Nexus Yazılım Yükseltme Rehberi</a> — Kesintisiz NX-OS yükseltme adım adım</li>
+</ul>
+]]></content:encoded></item></channel></rss>

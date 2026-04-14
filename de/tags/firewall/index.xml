@@ -1,1 +1,672 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Firewall on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/firewall/</link><description>Recent content in Firewall on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>de</language><lastBuildDate>Mon, 06 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/firewall/index.xml" rel="self" type="application/rss+xml"/><item><title>Firewall-Auswahl und Kapazitätsplanung: Was die Datenblätter Ihnen nicht sagen</title><link>https://barashhelvadzhaoglu.com/de/technology/firewall-selection-capacity/</link><pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/firewall-selection-capacity/</guid><description>Enterprise-Firewall-Auswahl — realer Durchsatz, SSL-Inspection, Stärken und Kompromisse bei Fortinet, Palo Alto, Cisco und Check Point.</description></item><item><title>OT-Netzwerke: Was ein IT-Ingenieur auf dem Fabrikboden wirklich antrifft</title><link>https://barashhelvadzhaoglu.com/de/technology/ot-network-security/</link><pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/ot-network-security/</guid><description>IT-Leitfaden zur OT-Sicherheit — Purdue-Modell, Layer-2-Firewall, OT-Signaturen, Legacy-Systeme und 802.1X in industriellen Umgebungen.</description></item><item><title>Produktauswahl in der Netzwerkinfrastruktur: Strategische Kriterien und Felderfahrungen</title><link>https://barashhelvadzhaoglu.com/de/architecture/network-product-selection-strategy/</link><pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/architecture/network-product-selection-strategy/</guid><description>Produktauswahl in Unternehmensnetzwerken ist mehr als eine Checkliste. Framework zur Bewertung von Firewalls, Switches und APs jenseits von Datenblättern.</description></item><item><title>Switch, Firewall, AP — Warum die richtige Produktwahl allein nicht ausreicht</title><link>https://barashhelvadzhaoglu.com/de/architecture/core-network-is-not-a-product-list/</link><pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/architecture/core-network-is-not-a-product-list/</guid><description>Unternehmensnetzwerke scheitern an fragmentierter Architektur. Deep-Dive zu Firewall, Switching, AP-Auswahl und Kapazitätsplanung aus 11+ Jahren Praxis.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Firewall on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/firewall/</link><description>Recent content in Firewall on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>de</language><lastBuildDate>Mon, 06 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/firewall/index.xml" rel="self" type="application/rss+xml"/><item><title>Firewall-Auswahl und Kapazitätsplanung: Was die Datenblätter Ihnen nicht sagen</title><link>https://barashhelvadzhaoglu.com/de/technology/firewall-selection-capacity/</link><pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/firewall-selection-capacity/</guid><description>Enterprise-Firewall-Auswahl — realer Durchsatz, SSL-Inspection, Stärken und Kompromisse bei Fortinet, Palo Alto, Cisco und Check Point.</description><content:encoded><![CDATA[<h1 id="firewall-auswahl-und-kapazitätsplanung-was-die-datenblätter-ihnen-nicht-sagen">Firewall-Auswahl und Kapazitätsplanung: Was die Datenblätter Ihnen nicht sagen</h1>
+<p>Gespräche über Firewall-Auswahl verlaufen meist auf eine von zwei Arten. Entweder wird die Entscheidung auf Basis von Markenvertrautheit getroffen — „wir haben immer Anbieter X verwendet&quot; — oder sie basiert auf Durchsatzzahlen aus Datenblättern, ohne zu verstehen, was diese Zahlen in der Produktion wirklich bedeuten. Beide Ansätze führen entweder dazu, für Kapazität zu viel zu bezahlen, die man nicht nutzen wird, oder zu einer Unterdimensionierung für den tatsächlichen Datenverkehr.</p>
+<p>Nach dem Deployment von Hunderten von Fortinet-Firewalls in Banking- und Fertigungsumgebungen und umfangreicher Arbeit mit Palo Alto und Cisco in Produktionsinfrastruktur möchte ich zeigen, wie der Auswahlprozess tatsächlich aussieht, wenn man für das Ergebnis verantwortlich ist — nicht nur für die Empfehlung.</p>
+<p>Den architektonischen Kontext hinter Firewall-Platzierungsentscheidungen finden Sie unter: <a href="/de/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Warum die Auswahl der richtigen Produkte nicht ausreicht</a></p>
+<hr>
+<h2 id="die-zahl-die-alle-irreführt-firewall-durchsatz">Die Zahl, die alle irreführt: Firewall-Durchsatz</h2>
+<p>Jedes Firewall-Datenblatt beginnt mit einer Durchsatzzahl. 10 Gbps. 40 Gbps. 100 Gbps. Diese Zahlen sind real — unter den spezifischen Bedingungen, unter denen sie gemessen wurden.</p>
+<p>Diese Bedingungen sind nicht Ihre Produktionsumgebung.</p>
+<p>Datenblatt-Durchsatz wird typischerweise gemessen mit:</p>
+<ul>
+<li>Großen Paketgrößen (1518 Bytes) — realer Datenverkehr enthält viel kleinere Pakete</li>
+<li>Keine Sicherheitsfunktionen aktiviert — kein IPS, keine Anwendungskontrolle, keine SSL-Inspection</li>
+<li>Synthetischem Testdatenverkehr — nicht der gemischte, stoßartige, unregelmäßige Datenverkehr eines echten Netzwerks</li>
+</ul>
+<p>Was tatsächlich Firewall-Kapazität in der Produktion verbraucht:</p>
+<p><strong>PPS (Pakete pro Sekunde):</strong> Kleine Pakete sind teurer als große Pakete. Eine Firewall, die 1 Gbps aus 64-Byte-Paketen bewegt, verarbeitet etwa 20× mehr Pakete pro Sekunde als 1 Gbps aus 1500-Byte-Paketen. Umgebungen mit hohen Transaktionsraten (Banking, Handel, Datenbankreplikation) belasten PPS-Grenzen lange vor Bandbreitengrenzen.</p>
+<p><strong>Gleichzeitige Sitzungen:</strong> Jede verfolgte Verbindung belegt Speicher in der Zustandstabelle. Eine Firewall mit 2 Millionen gleichzeitiger Sitzungskapazität bedeutet nicht „2 Millionen Benutzer&quot; — ein einzelner Benutzer kann gleichzeitig Dutzende offener Sitzungen haben. Hochgradig gleichzeitige Umgebungen (Webserver hinter der Firewall, Datenbankcluster, Microservices-Architekturen) erschöpfen Sitzungstabellen schneller als Bandbreite.</p>
+<p><strong>Neue Sitzungsrate:</strong> Wie viele neue Verbindungen pro Sekunde die Firewall herstellen kann. Bei SYN-Flood-Bedingungen oder in Spitzenverkehrsperioden wird die neue Sitzungsrate zur bindenden Einschränkung.</p>
+<p><strong>SSL/TLS-Inspection:</strong> Hier geht die meiste Kapazitätsplanung schief. Wenn SSL-Inspection aktiviert ist — HTTPS-Datenverkehr entschlüsseln, inspizieren, neu verschlüsseln — fällt der Durchsatz auf den meisten Plattformen erheblich. Das Ausmaß der Auswirkungen variiert je nach Anbieter und Modell.</p>
+<hr>
+<h2 id="die-ssl-inspection-realität">Die SSL-Inspection-Realität</h2>
+<p>Der Großteil des Enterprise-Datenverkehrs ist heute HTTPS. Wenn Ihre Firewall SSL nicht inspiziert, inspiziert sie den Großteil Ihres Datenverkehrs nicht. Aber die Aktivierung der SSL-Inspection hat direkte, erhebliche Leistungskosten.</p>
+<p>Eine Firewall, die mit 10 Gbps Durchsatz vermarktet wird, könnte bei aktivierter vollständiger SSL-Inspection je nach Plattform 2–4 Gbps liefern. Das ist kein Fehler oder Anbietermangel — SSL-Entschlüsselung ist rechenintensiv, und Hardware-SSL-Beschleunigung (bei höherwertigen Modellen verfügbar) ist das, was in der Praxis Einstiegs- von Mittelklasseplattformen unterscheidet.</p>
+<p><strong>Die Berechnung, die zählt:</strong></p>
+<p>Bei der Dimensionierung einer Firewall lautet die Frage nicht „wie viel Bandbreite habe ich?&quot; sondern „wie viel dieser Bandbreite wird SSL-inspiziert?&quot; Für die meisten Organisationen:</p>
+<ul>
+<li>Internetgebundener Datenverkehr: nahezu 100% HTTPS → alles SSL-inspiziert</li>
+<li>Interner Segmentierungsdatenverkehr: Mix aus verschlüsseltem und unverschlüsseltem Anwendungsdatenverkehr</li>
+<li>Server-zu-Server-Datenverkehr: zunehmend TLS aus Compliance-Gründen</li>
+</ul>
+<p>Wenn Sie 2 Gbps Internetbandbreite haben und planen, alles zu inspizieren, dimensionieren Sie die Firewall für 2 Gbps SSL-Inspection-Durchsatz — nicht für 2 Gbps Rohdurchsatz. Das sind oft sehr unterschiedliche Zahlen.</p>
+<hr>
+<h2 id="multi-firewall-architektur-eine-größe-passt-nicht-allen">Multi-Firewall-Architektur: Eine Größe passt nicht allen</h2>
+<p>In vielen Produktionsumgebungen ist eine einzelne Firewall, die alle Rollen übernimmt, ein Design-Kompromiss statt einer Design-Wahl. Verschiedene Datenverkehrstypen haben unterschiedliche Anforderungen:</p>
+<pre tabindex="0"><code>Internet Edge Firewall:
+  → Hoher SSL-Inspection-Durchsatz (der meiste Datenverkehr ist HTTPS)
+  → VPN-Terminierungskapazität
+  → IPS für aus dem Internet stammende Bedrohungen
+  → Moderate Sitzungsanzahl
+
+Interne Segmentierungs-Firewall (Ost-West):
+  → Hohe PPS (interner Datenverkehr besteht oft aus kleinen Paketen)
+  → Sehr hohe gleichzeitige Sitzungsanzahl
+  → Geringere SSL-Inspection-Anforderungen (interner Datenverkehr oft unverschlüsselt)
+  → Hohe neue Sitzungsrate
+
+Rechenzentrum / Server-Firewall:
+  → Extreme Sitzungsanzahlen (Server haben viele gleichzeitige Verbindungen)
+  → Geringe Latenz (anwendungsleistungsempfindlich)
+  → Hoher Durchsatz für Massendatenübertragungen
+  → IPS abgestimmt auf serverseitige Exploits
+</code></pre><p>Dasselbe Firewall-Modell für alle drei Rollen zu verwenden bedeutet, bei mindestens einer Kompromisse einzugehen. Die für SSL-Inspection optimierte Internet-Edge-Firewall ist oft falsch für Ost-West-Segmentierung. Die hochsitzungsanzahl-DC-Firewall ist oft überentwickelt für eine Zweigstelle.</p>
+<p>Das ist nicht theoretisch — ich habe Netzwerke gesehen, wo die Internet-Edge-Firewall bei 30% ihres Nenndurchsatzes sättigte, weil die Sitzungsanzahlgrenze erreicht wurde, während die DC-Firewall reichlich Durchsatz-Headroom hatte, aber aufgrund von PPS-Grenzen Pakete verlor.</p>
+<hr>
+<h2 id="anbieter-praxisnotizen">Anbieter-Praxisnotizen</h2>
+<p>Was folgt, basiert auf direkter Produktionserfahrung. Das sind operative Beobachtungen, keine Benchmark-Vergleiche. Anbieterfähigkeiten entwickeln sich mit Softwareversionen und neuen Hardwaregenerationen — validieren Sie aktuelle Spezifikationen für jedes aktive Projekt.</p>
+<h3 id="fortinet-fortigate">Fortinet FortiGate</h3>
+<p>Fortinet ist dort, wo der Großteil meiner Produktions-Firewall-Erfahrung konzentriert ist — über kleine Zweigstellen-Deployments, Banking-Hauptsitze und große Fertigungsumgebungen.</p>
+<p><strong>Wo FortiGate wirklich glänzt:</strong></p>
+<p>Hochdurchsatzumgebungen mit moderaten Sicherheits-Inspection-Anforderungen. Fortinets benutzerdefinierte NP (Netzwerkprozessor)- und CP (Inhaltsprozessor)-ASICs lagern spezifische Funktionen auf Hardware aus — Paketverarbeitung, IPsec-VPN und einige Inspection-Aufgaben laufen auf dedizierten Siliziumchips statt auf Allzweck-CPUs. Bei hoher Bandbreite macht diese Hardware-Beschleunigung einen bedeutenden Unterschied.</p>
+<p>Für Umgebungen, die große Datenverkehrsvolumina bewegen müssen — Server-zu-Server, große Dateiübertragungen, Hochbandbreiten-Zweigstellenkonnektivität — liefert FortiGate Durchsatz, mit dem softwarebasierte Architekturen zu gleichwertigen Preispunkten nicht mithalten können.</p>
+<p>Das Fortinet Security Fabric ist ein echter operativer Vorteil für Organisationen, die FortiGate neben FortiSwitch, FortiAP, FortiAnalyzer und FortiManager betreiben. Richtlinien, Protokollierung und Verwaltung sind auf eine Weise vereinheitlicht, die die Integrationsarbeit reduziert, die Multi-Vendor-Umgebungen erfordern.</p>
+<p><strong>Wo FortiGate Einschränkungen hat:</strong></p>
+<p>Tiefe Inspection im großen Maßstab. Wenn IPS, Anwendungskontrolle, SSL-Inspection und Antivirus gleichzeitig auf stark frequentierten Links aktiviert sind, kann der Durchsatz erheblich unter die Titelzahlen fallen. Fortinet veröffentlicht „Bedrohungsschutz&quot;-Durchsatzzahlen, die dies widerspiegeln — aber diese Zahlen sind im Vergleich zu dem, was Sie mit Ihrem spezifischen Datenverkehrsmix und vollständiger Funktionsaktivierung sehen werden, immer noch oft optimistisch.</p>
+<p><strong>Hardware-Generationsupdate (2024–2025):</strong> Fortinets neuere Appliance-Serien haben die SSL-Inspection-Kapazität erheblich verbessert. Die im Jahr 2025 von Keysight validierte FortiGate 700G-Serie erreicht bis zu 14 Gbps SSL-Deep-Inspection-Durchsatz — eine bedeutende Verbesserung gegenüber äquivalenten Mittelklassemodellen früherer Generationen. Verwenden Sie beim Dimensionieren immer die Datenblatt-Zahlen für das spezifische Modell und die Generation, die Sie bewerten.</p>
+<p><strong>Praktische Anleitung:</strong> Bei der Dimensionierung von FortiGate für vollständige SSL-Inspection-Deployments verwende ich 20–30% der SSL-Inspection-Durchsatzzahl aus dem Datenblatt als meine Arbeitsschätzung für Produktionsdatenverkehr. Das klingt konservativ, berücksichtigt aber Datenverkehrsmix, gleichzeitige Verbindungen und Protokollierungsaufwand. Wenn die Rechnung bei dieser Zahl aufgeht, haben Sie ausreichend Headroom.</p>
+<hr>
+<h3 id="palo-alto-networks">Palo Alto Networks</h3>
+<p>Palo Altos Architektur unterscheidet sich grundlegend von traditionellen Firewalls, und das Verstehen dieser Unterschiede ist sowohl für die Wertschätzung der Stärken als auch für die Planung der Einschränkungen wesentlich.</p>
+<p><strong>Die App-ID-Architektur:</strong></p>
+<p>Palo Alto identifiziert Datenverkehr nach Anwendung, bevor entschieden wird, was damit zu tun ist. Jede Sitzung wird analysiert, um zu bestimmen, welche Anwendung sie darstellt — nicht nur, welchen Port sie verwendet. HTTP auf Port 80, Port 8080 oder einem benutzerdefinierten Port wird alles als die spezifische Anwendung identifiziert, die darauf läuft.</p>
+<p>Das ist architektonisch mächtig für die Sicherheit: die Richtlinie basiert auf „Salesforce vom Vertriebsteam erlauben&quot; statt „TCP 443 aus Subnetz X erlauben&quot;. Unbekannte Anwendungen — Datenverkehr, der keiner bekannten Anwendungssignatur entspricht — werden standardmäßig als potenziell verdächtig behandelt.</p>
+<p><strong>Der Sicherheitsvorteil, den das schafft:</strong></p>
+<p>In Umgebungen, in denen das Bedrohungsmodell vollständige Anwendungssichtbarkeit erfordert — Finanzdienstleistungen, regulierte Branchen, Umgebungen mit strengen Compliance-Anforderungen — schafft Palo Altos Ansatz echte Sicherheitstiefe. Das Richtlinienmodell erzwingt explizite Entscheidungen über jeden Datenverkehrstyp. Nichts passiert ungeprüft.</p>
+<p><strong>Der operative Kompromiss:</strong></p>
+<p>Dieselbe Architektur, die Palo Alto in sicherheitsorientierten Umgebungen leistungsstark macht, erzeugt in anderen Reibung. Unbekannte oder ungewöhnliche Anwendungen erfordern Untersuchung und explizite Richtlinienentscheidungen. Für Organisationen ohne dedizierte Sicherheitsteams oder für Umgebungen mit vielfältigen, sich entwickelnden Anwendungssätzen kann der operative Aufwand der Pflege eines anwendungsbasierten Richtlinienmodells erheblich sein.</p>
+<p><strong>Panorama:</strong></p>
+<p>Die zentralisierte Verwaltung von Palo Alto Firewalls über Panorama ist wesentlich leistungsfähiger als die Verwaltung einzelner Geräte. Für Multi-Firewall-Umgebungen ist Panorama faktisch erforderlich, um Palo Alto im Großmaßstab zu betreiben.</p>
+<p><strong>SASE-Führerschaft (Update 2025):</strong> Palo Altos Cloud-Sicherheitsplattform (Prisma SASE) ist zu einem ihrer stärksten Wachstumsbereiche geworden — drei aufeinanderfolgende Jahre bis 2025 als Gartner SASE Leader benannt, mit 1,3 Milliarden Dollar ARR bei 35% Jahreswachstum. Wenn Ihre Organisation eine breitere Sicherheitsplattform statt nur einer Perimeter-Firewall evaluiert, ist dies relevant.</p>
+<hr>
+<h3 id="cisco-firepower-jetzt-cisco-secure-firewall">Cisco Firepower (Jetzt Cisco Secure Firewall)</h3>
+<p>Ciscos NGFW-Geschichte hat eine Geschichte, die es wert ist, verstanden zu werden. Die ursprüngliche ASA (Adaptive Security Appliance) war eine starke Stateful-Firewall — zuverlässig, weit verbreitet deployt, aber in Next-Generation-Fähigkeiten begrenzt. Ciscos Antwort war der Kauf von Sourcefire, dessen IPS-Technologie (Snort-basiert) wirklich stark war und bleibt, und der Aufbau der Firepower-Plattform auf der ASA-Architektur.</p>
+<p><strong>Wo Firepower stark ist:</strong></p>
+<p>Die IPS-Fähigkeit ist real. Sourcefires Bedrohungsintelligenz und -erkennung, jetzt Cisco Talos (eine der größten Bedrohungsintelligenzorganisationen der Welt), treibt Firepowers IPS mit einer Erkennungsqualität an, die allgemein respektiert wird.</p>
+<p>Die Integration mit Ciscos breiterem Ökosystem — ISE, Umbrella, Stealthwatch (jetzt Secure Network Analytics), SecureX — ist zunehmend kohärent.</p>
+<p><strong>Die Verwaltungsherausforderung:</strong></p>
+<p>Cisco Firepower wurde historisch für Verwaltungskomplexität kritisiert. Firepower ohne Firepower Management Center (FMC) zu betreiben bedeutet, erhebliche Einschränkungen bei Sichtbarkeit und Richtlinienverwaltung zu akzeptieren.</p>
+<p>Die Plattform hat sich erheblich weiterentwickelt, und Cisco hat stark in die Verbesserung der Verwaltungserfahrung investiert. Im Jahr 2024 benannte Cisco den Cisco Defense Orchestrator als <strong>Security Cloud Control</strong> um — eine KI-eingebettete Cloud-Verwaltungsplattform, die FMC, ASA und andere Cisco-Sicherheitsprodukte unter einer Oberfläche vereint. Es enthält jetzt einen KI-Assistenten für die Erstellung von Richtlinienregeln, AIOps-Einblicke für proaktive Empfehlungen und Cloud-geliefertes FMC, das den On-Premise-Infrastrukturaufwand reduziert. Teams, die von einfacheren Firewall-Plattformen kommen, werden immer noch eine Anpassungszeit haben, aber die Lücke hat sich im Vergleich zu vor einigen Jahren verringert.</p>
+<p><strong>Architektonischer Kontext:</strong></p>
+<p>Cisco ist am stärksten in Umgebungen, die bereits tief in das Cisco-Ökosystem investiert sind — wo ISE Identität, Catalyst Switching und DNA Center / Catalyst Center zentralisierte Verwaltung bereitstellt.</p>
+<hr>
+<h3 id="check-point">Check Point</h3>
+<p>Check Point ist einer der ursprünglichen Enterprise-Firewall-Anbieter — das Unternehmen, das in den 1990er Jahren Firewall-Technologie zum Mainstream machte. Ihre Architektur spiegelt dieses Erbe wider: ausgereift, sicherheitsorientiert und um ein Betriebssystem (Gaia, basierend auf Linux) aufgebaut, das Administratoren erhebliche Kontrolle gibt, aber entsprechende Expertise erfordert.</p>
+<p><strong>Wo Check Point stark ist:</strong></p>
+<p>Tiefe Sicherheitsrichtlinien und Inspektionsqualität. Check Points Richtlinienmodell ist granular, und ihre Inspektionsfähigkeiten sind ausgereift. In Umgebungen, wo die Komplexität der Sicherheitsrichtlinien hoch ist — viele Regeln, viele Ausnahmen, detaillierte Protokollierungsanforderungen — verwaltet Check Points Verwaltungsinfrastruktur die Skalierung gut.</p>
+<p><strong>Die operative Realität:</strong></p>
+<p>Check Points Verwaltungsmodell unterscheidet sich von anderen Anbietern. Verwaltung ist von Durchsetzung getrennt — der Verwaltungsserver, der Security Management Server (SMS), ist von den Durchsetzungs-Gateways getrennt. Das Verstehen und Arbeiten mit dieser Trennung, dem Richtlinieninstallationsprozess und dem zugrunde liegenden Gaia-OS erfordert echte Expertise.</p>
+<p>Aus der Perspektive eines Netzwerkingenieurs ist Check Point nicht die betrieblich transparenteste Plattform. Vertrautheit mit Linux-Administration hilft erheblich. Richtlinienverwaltung ohne ein solides Verständnis des Objektmodells und der Regelbasenstruktur führt zu Komplexität, die sich im Laufe der Zeit anhäuft.</p>
+<hr>
+<h2 id="ha-architektur-aktiv-standby-vs-aktiv-aktiv">HA-Architektur: Aktiv-Standby vs. Aktiv-Aktiv</h2>
+<p>Enterprise-Firewall-Deployments erfordern Hochverfügbarkeit. Die zwei Modelle haben unterschiedliche Eigenschaften:</p>
+<p><strong>Aktiv-Standby:</strong></p>
+<ul>
+<li>Eine Firewall verarbeitet den gesamten Datenverkehr; der Standby überwacht und übernimmt bei Ausfall</li>
+<li>Sitzungszustand wird zum Standby synchronisiert — Failover ist für bestehende Verbindungen transparent</li>
+<li>Einfacher zu fehlersuchen — zu jedem Zeitpunkt gesamter Datenverkehr durch ein Gerät</li>
+<li>Verschwendet 50% der Hardwarekapazität im Normalbetrieb</li>
+<li>Standardwahl für die meisten Enterprise-Edge-Deployments</li>
+</ul>
+<p><strong>Aktiv-Aktiv:</strong></p>
+<ul>
+<li>Beide Firewalls verarbeiten gleichzeitig Datenverkehr, typischerweise für verschiedene Datenverkehrsflüsse oder Zonen</li>
+<li>Komplexer zu konfigurieren und zu fehlersuchen — asymmetrisches Routing muss vermieden werden</li>
+<li>Nutzt beide Geräte, kompliziert aber die Zustandssynchronisierung</li>
+<li>Besser geeignet für sehr hohe Durchsatzanforderungen, wo ein Gerät nicht ausreicht</li>
+<li>Erfordert sorgfältiges Traffic Engineering — asymmetrische Flüsse (Anfrage durch FW-1, Antwort durch FW-2) verursachen Sitzungsabbrüche</li>
+</ul>
+<p>In der Praxis ist Aktiv-Standby die richtige Wahl für die Mehrheit der Enterprise-Deployments. Der Durchsatzvorteil von Aktiv-Aktiv rechtfertigt die operative Komplexität nicht, es sei denn, Sie benötigen wirklich mehr Durchsatz als ein Gerät mit berücksichtigtem HA-Overhead bereitstellen kann.</p>
+<hr>
+<h2 id="policy-hygiene-das-problem-das-sich-langsam-aufbaut">Policy-Hygiene: Das Problem, das sich langsam aufbaut</h2>
+<p>Firewall-Kapazität ist nicht nur eine Hardware-Frage. Die Firewall-Leistung verschlechtert sich, wenn die Regelbasenkomplexität zunimmt — besonders wenn Regelbasen ohne regelmäßige Bereinigung wachsen.</p>
+<p>Eine Regelbasis mit 5.000 Regeln, bei der der meiste Datenverkehr in den ersten 50 Regeln übereinstimmt, funktioniert sehr unterschiedlich von einer 5.000-Regel-Basis, bei der der Datenverkehr über Hunderte von Regeln verteilt ist. Jedes Paket durchläuft die Regelbasis von oben nach unten, bis es übereinstimmt — oder das implizite Ablehnen erreicht.</p>
+<p><strong>Was Policy-Hygiene in der Praxis bedeutet:</strong></p>
+<ul>
+<li>Regeln, die nie übereinstimmen (Schattenregeln, veraltete Regeln), sollten vierteljährlich identifiziert und entfernt werden</li>
+<li>Stark frequentierte Regeln sollten oben in der Regelbasis positioniert werden</li>
+<li>Übermäßig breite Regeln (Beliebig/Beliebig-Genehmigungen mit deaktivierter Protokollierung) sollten dokumentiert und überprüft werden</li>
+<li>Anwendungsspezifische Regeln sollten portbasierte Regeln ersetzen, wo die Plattform dies unterstützt</li>
+</ul>
+<p>FortiManager, Panorama und FMC haben alle Regelnutzungsstatistiken und Schattenregelerkennung. Diese Tools zu verwenden ist Teil des verantwortungsvollen Firewall-Betriebs — keine periodische Bereinigungsübung.</p>
+<hr>
+<h2 id="kapazitätsplanung-der-praktische-rahmen">Kapazitätsplanung: Der praktische Rahmen</h2>
+<p>Bei der Dimensionierung einer Firewall arbeiten Sie diese Metriken der Reihe nach durch:</p>
+<p><strong>1. Grundlegende Datenverkehrscharakterisierung</strong></p>
+<ul>
+<li>Was ist die aktuelle Spitzenbandbreite (nicht Durchschnitt)?</li>
+<li>Welcher Prozentsatz ist SSL/HTTPS?</li>
+<li>Wie hoch ist die gleichzeitige Sitzungsanzahl bei Spitzenlast?</li>
+<li>Wie hoch ist die neue Sitzungsrate bei Spitzenlast?</li>
+</ul>
+<p><strong>2. Wachstumsprojektion</strong></p>
+<ul>
+<li>40–50% Headroom über erwartetem Spitzenbedarf für 3-jährigen Lebenszyklus hinzufügen</li>
+<li>Neue Anwendungen und Dienste berücksichtigen, die hinzugefügt werden</li>
+</ul>
+<p><strong>3. Funktionsauswirkung</strong></p>
+<ul>
+<li>Welche Sicherheitsfunktionen werden aktiviert? (IPS, SSL-Inspection, App-ID, AV)</li>
+<li>Anbieter-„Bedrohungsschutz&quot;-Durchsatzzahlen verwenden, nicht Rohdurchsatz</li>
+<li>Für SSL-Inspection spezifisch: mit Anbieter-Dimensionierungstools mit geschätztem HTTPS-Prozentsatz validieren</li>
+</ul>
+<p><strong>4. HA-Overhead</strong></p>
+<ul>
+<li>Aktiv-Standby: jede Einheit für 100% des Datenverkehrs dimensionieren (Standby muss volle Last bewältigen können)</li>
+<li>Planen Sie nicht, Standby-Kapazität zu nutzen — sie muss für Failover verfügbar sein</li>
+</ul>
+<p><strong>5. Verwaltung und Protokollierung</strong></p>
+<ul>
+<li>Hohe Protokollierungsraten verbrauchen CPU der Firewall selbst</li>
+<li>Externe Protokollverwaltung (FortiAnalyzer, Panorama, FMC) ist bei Skalierung nicht optional</li>
+</ul>
+<p>Ein einfaches Dimensionierungsbeispiel:</p>
+<pre tabindex="0"><code>Umgebung:
+  Spitzenbandbreite: 2 Gbps
+  SSL-Prozentsatz: 80% (1,6 Gbps HTTPS)
+  IPS + App-ID + SSL-Inspection: alle aktiviert
+  3-jähriger Wachstums-Headroom: 50%
+
+Erforderlicher SSL-Inspection-Durchsatz:
+  1,6 Gbps × 1,5 (Wachstum) = 2,4 Gbps
+
+Modell auswählen, das für ≥ 2,4 Gbps SSL-Inspection-Durchsatz bewertet ist
+(nicht 2,4 Gbps Rohdurchsatz)
+</code></pre><hr>
+<h2 id="wichtigste-erkenntnisse">Wichtigste Erkenntnisse</h2>
+<ul>
+<li><strong>Datenblatt-Durchsatz ist nicht Produktions-Durchsatz.</strong> SSL-Inspection, IPS und Anwendungskontrolle reduzieren den effektiven Durchsatz erheblich. Dimensionieren Sie basierend auf Bedrohungsschutz- oder SSL-Inspection-Zahlen, nicht auf Rohzahlen.</li>
+<li><strong>SSL-Inspection-Kapazität ist die bindende Einschränkung</strong> für die meisten Internet-Edge-Deployments. Der Großteil des Datenverkehrs ist HTTPS, und dessen Inspektion ist kostspielig.</li>
+<li><strong>Fortinet</strong> glänzt in Hochdurchsatzumgebungen, wo Hardware-Beschleunigung wichtig ist. Vollständige Tiefeninspektion im Maßstab erfordert sorgfältige Modellauswahl — der Durchsatz fällt mit allen aktivierten Funktionen erheblich.</li>
+<li><strong>Palo Alto</strong> bietet die tiefste Anwendungssichtbarkeit und das rigoroseste Richtlinienmodell. Die Architektur ist mächtig für sicherheitsreife Organisationen; sie fügt operativen Overhead für solche ohne dedizierte Sicherheitsteams hinzu. Panorama ist faktisch für die Verwaltung mehrerer Geräte erforderlich.</li>
+<li><strong>Cisco Firepower</strong> bringt starkes IPS (Talos-Intelligenz) und Cisco-Ökosystem-Integration. Verwaltungskomplexität ist real — FMC ist erforderlich, um den Wert der Plattform zu realisieren.</li>
+<li><strong>Check Point</strong> ist ausgereift und sicherheitsorientiert mit tiefer Richtlinienkontrolle. Erfordert Linux/Gaia-OS-Vertrautheit und diszipliniertes Regelbasenverwaltung für effektiven Betrieb.</li>
+<li><strong>Multi-Firewall-Architektur</strong> — verschiedene Firewalls für Edge, interne Segmentierung und DC — ist oft die richtige Antwort statt einer Plattform für alles.</li>
+<li><strong>Regel-Hygiene</strong> ist ein Leistungs- und Sicherheitsproblem, keine bloße Haushaltsführung. Vernachlässigte Regelbasen verschlechtern beides.</li>
+</ul>
+<hr>
+<h2 id="verwandte-artikel">Verwandte Artikel</h2>
+<ul>
+<li>🏗️ <a href="/de/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Warum die Auswahl der richtigen Produkte nicht ausreicht</a> — Architektonischer Kontext für Firewall-Platzierung</li>
+<li>🔐 <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — Richtlinienphilosophie hinter Firewall-Design</li>
+<li>🛡️ <a href="/de/technology/ddos-schutzstrategien-isp-scrubbing-on-premise-cloud/">DDoS-Schutzstrategien</a> — Was upstream der Firewall sitzt</li>
+<li>🛡️ <a href="/de/technology/f5-waf-asm-advanced-waf-anwendungssicherheit/">F5 WAF Deep Dive</a> — Layer-7-Schutz, der Firewall-Richtlinien ergänzt</li>
+<li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Monitoring richtig gemacht</a> — Firewall-Verhalten sichtbar machen</li>
+</ul>
+]]></content:encoded></item><item><title>OT-Netzwerke: Was ein IT-Ingenieur auf dem Fabrikboden wirklich antrifft</title><link>https://barashhelvadzhaoglu.com/de/technology/ot-network-security/</link><pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/ot-network-security/</guid><description>IT-Leitfaden zur OT-Sicherheit — Purdue-Modell, Layer-2-Firewall, OT-Signaturen, Legacy-Systeme und 802.1X in industriellen Umgebungen.</description><content:encoded><![CDATA[<h1 id="ot-netzwerke-was-ein-it-ingenieur-auf-dem-fabrikboden-wirklich-antrifft">OT-Netzwerke: Was ein IT-Ingenieur auf dem Fabrikboden wirklich antrifft</h1>
+<p>Die meisten Netzwerkingenieure verbringen ihre Karriere in der IT-Infrastruktur — Unternehmens-LANs, Rechenzentren, Campus-Netzwerke, Cloud-Konnektivität. Dann landet eines Tages ein Projekt auf Ihrem Schreibtisch, das eine Fabrik, ein Lagerautomatisierungssystem oder eine Versorgungsanlage betrifft. Und plötzlich gelten die vertrauten Regeln nicht mehr ganz.</p>
+<p>OT (Operational Technology) Netzwerke sind keine IT-Netzwerke. Die Geräte sind anders, die Protokolle sind anders, die Prioritäten sind anders, und — entscheidend — die Konsequenzen eines Fehlers sind anders. In der IT verursacht ein falsch konfigurierter Switch einen Netzwerkausfall. In der OT kann eine falsch konfigurierte Netzwerkänderung eine Produktionslinie stoppen, teure Ausrüstung beschädigen oder in kritischen Infrastrukturszenarien physische Sicherheitsrisiken schaffen.</p>
+<p>Dieser Artikel ist aus der Perspektive des IT-Ingenieurs geschrieben — der Person, die hinzugezogen wird, um eine Firewall hinzuzufügen, ein Netzwerk zu segmentieren oder ein industrielles System mit dem Unternehmensnetzwerk zu verbinden. Kein tiefer SCADA-Engineering-Leitfaden, sondern eine praktische Orientierung für das, was Sie antreffen werden und worüber Sie nachdenken müssen, bevor Sie irgendetwas berühren.</p>
+<hr>
+<h2 id="der-kernunterschied-verfügbarkeit-vor-vertraulichkeit">Der Kernunterschied: Verfügbarkeit vor Vertraulichkeit</h2>
+<p>In der IT-Sicherheit lautet die klassische Prioritätsreihenfolge <strong>CIA: Confidentiality, Integrity, Availability</strong> (Vertraulichkeit, Integrität, Verfügbarkeit). Vertraulichkeit steht an erster Stelle — der Schutz von Daten vor unbefugtem Zugriff ist das primäre Anliegen.</p>
+<p>In der OT lautet die Prioritätsreihenfolge im Wesentlichen <strong>AIC: Availability, Integrity, Confidentiality</strong> (Verfügbarkeit, Integrität, Vertraulichkeit). Die Produktionslinie muss weiter laufen. Ein 30-sekündiger Netzwerkausfall in einer IT-Umgebung ist eine Unannehmlichkeit. Ein 30-sekündiger Netzwerkausfall in einer Fertigungsanlage kann Ausschussprodukte, beschädigte Maschinen oder einen Sicherheitsvorfall bedeuten.</p>
+<p>Diese Umkehrung hat direkte Konsequenzen für jede Netzwerkentscheidung in einer OT-Umgebung:</p>
+<ul>
+<li><strong>Sie starten OT-Geräte nicht ohne umfangreiche Planung neu.</strong> Ein Cisco-Switch in einer IT-Umgebung kann in 3 Minuten ohne Drama neugestartet werden. Ein in eine Produktionslinie eingebetteter Switch benötigt möglicherweise ein geplantes Wartungsfenster, einen Produktionsstopp und Koordination mit dem Anlagenbetriebsteam.</li>
+<li><strong>Patch-Management ist nicht unkompliziert.</strong> In der IT patchen Sie Systeme regelmäßig. In der OT können viele Systeme nicht gepatcht werden — der Hersteller zertifiziert die Softwareversion, und jede Änderung macht die Zertifizierung ungültig oder erfordert eine kostspielige Neubewertung.</li>
+<li><strong>Netzwerkänderungen erfordern Koordination.</strong> In der IT ist das Hinzufügen eines VLANs Routine. In der OT kann dieselbe Änderung die Genehmigung von Produktionsmanagern, Sicherheitsingenieuren und Ausrüstungslieferanten erfordern.</li>
+</ul>
+<p>Das zu verstehen, bevor Sie mit der Arbeit beginnen, ist nicht nur professionelle Höflichkeit — es verhindert echte Betriebsvorfälle.</p>
+<hr>
+<h2 id="das-purdue-modell-eine-karte-der-ot-netzwerkarchitektur">Das Purdue-Modell: Eine Karte der OT-Netzwerkarchitektur</h2>
+<p>Das Purdue-Modell (ISA-95) ist das Standardframework für das Verständnis industrieller Netzwerkarchitektur. Es definiert Ebenen vom physischen Prozess unten bis zur Unternehmens-IT oben:</p>
+<pre tabindex="0"><code>Ebene 4/5  — Unternehmens-IT-Netzwerk (ERP, E-Mail, Unternehmens-LAN)
+─────────────────────────────────────────────────────────────────────
+               IT/OT-DMZ  ← Die Grenze, wo IT-Ingenieure arbeiten
+─────────────────────────────────────────────────────────────────────
+Ebene 3    — Betrieb / Standortverwaltung
+               (Historian-Server, Engineering-Workstations,
+                HMI-Server, Batch-Management)
+
+Ebene 2    — Aufsichtssteuerung
+               (SCADA-Server, HMI-Clients, DCS-Workstations)
+
+Ebene 1    — Grundlegende Steuerung
+               (PLCs, DCS-Controller, RTUs)
+
+Ebene 0    — Physischer Prozess
+               (Sensoren, Aktoren, Motoren, Ventile)
+</code></pre><p><strong>Wo IT-Ingenieure typischerweise arbeiten:</strong> Die IT/OT-DMZ und Ebene 3. Hier wird die Verbindung zwischen dem Unternehmens-IT-Netzwerk und der OT-Umgebung verwaltet. Hier finden Firewall-Projekte, Historian-Konnektivität, Fernzugriffslösungen und Netzwerksegmentierungsarbeiten statt.</p>
+<p><strong>Was IT-Ingenieure selten direkt berühren:</strong> Ebenen 0, 1 und 2 — die eigentlichen Steuerungssysteme, PLCs und SCADA-Komponenten. Das ist die Domäne der OT/Automatisierungsingenieure und Ausrüstungslieferanten.</p>
+<p>Die DMZ zwischen IT und OT ist die kritischste Grenze in der industriellen Netzwerkarchitektur. Sie muss existieren. Der Datenverkehr sollte nicht frei zwischen dem Unternehmensnetzwerk und der OT-Umgebung fließen.</p>
+<hr>
+<h2 id="ot-protokolle-was-in-diesen-netzwerken-läuft">OT-Protokolle: Was in diesen Netzwerken läuft</h2>
+<p>Wenn Sie zum ersten Mal einen Netzwerkanalysator an ein OT-Netzwerk anschließen, sehen Sie Protokolle, die in keinem IT-Netzwerk vorkommen. Zu verstehen, was sie sind — selbst auf Oberflächenebene — hilft Ihnen, vernünftige Firewall- und Segmentierungsentscheidungen zu treffen.</p>
+<h3 id="modbus">Modbus</h3>
+<p>Das älteste industrielle Protokoll, entwickelt 1979. Noch weit verbreitet in der Fertigung, in Versorgungsunternehmen und in der Gebäudeautomation.</p>
+<ul>
+<li><strong>Modbus RTU:</strong> Seriell-basiert (RS-232, RS-485). Läuft über physische serielle Verbindungen, nicht Ethernet.</li>
+<li><strong>Modbus TCP:</strong> Modbus in TCP/IP gekapselt. Läuft auf Port 502.</li>
+</ul>
+<p>Modbus hat <strong>keine Authentifizierung, keine Verschlüsselung, keine Autorisierung</strong>. Jedes Gerät im Netzwerk, das Port 502 eines Modbus-fähigen Controllers erreichen kann, kann Sensorwerte lesen oder Steuerbefehle schreiben. Das ist kein historisches Versehen — Modbus wurde für isolierte serielle Netzwerke konzipiert, wo physischer Zugang die Sicherheitskontrolle war.</p>
+<p>Wenn Modbus TCP in einem Ethernet-Netzwerk ist, das von außerhalb des OT-Segments zugänglich ist, ist das Fehlen der Authentifizierung ein erhebliches Risiko. Die Firewall-Richtlinie muss einschränken, welche Geräte Modbus-fähige Controller erreichen können.</p>
+<h3 id="dnp3-distributed-network-protocol">DNP3 (Distributed Network Protocol)</h3>
+<p>Verbreitet in Versorgungsunternehmen — Stromerzeugung, Wasseraufbereitung, Öl und Gas. Ursprünglich für SCADA-Kommunikation zwischen Steuerzentralen und entfernten Feldgeräten (Umspannwerke, Pumpstationen) konzipiert.</p>
+<p>DNP3 hat grundlegende Authentifizierungserweiterungen (Secure Authentication Version 5), aber viele bereitgestellte Implementierungen verwenden noch die ursprüngliche nicht authentifizierte Version.</p>
+<h3 id="opc-ua-opc-unified-architecture">OPC-UA (OPC Unified Architecture)</h3>
+<p>Der moderne industrielle Kommunikationsstandard, der speziell entwickelt wurde, um die Sicherheitslücken in älteren Protokollen zu schließen. OPC-UA unterstützt:</p>
+<ul>
+<li>Zertifikatbasierte Authentifizierung</li>
+<li>Verschlüsselte Kommunikation</li>
+<li>Feinkörnige Autorisierung (welche Clients welche Datenpunkte lesen können)</li>
+</ul>
+<p>OPC-UA ist das Protokoll, dem Sie in neueren Installationen und bei Historian-Server-Konnektivität begegnen werden.</p>
+<h3 id="profinet">PROFINET</h3>
+<p>Siemens&rsquo; industrielles Ethernet-Protokoll, dominant in der europäischen Fertigung (Automobil, Lebensmittelverarbeitung, Pharmazie). PROFINET läuft über Standard-Ethernet, verwendet aber spezifische EtherType-Werte und ist echtzeitsensitiv — Verzögerungen von Millisekunden sind wichtig.</p>
+<p>PROFINET hat fast keine inhärente Sicherheit. Es setzt ein physisch isoliertes Netzwerk voraus. In Umgebungen mit PROFINET-Controllern muss die Netzwerksegmentierung strikt sein — PROFINET-Datenverkehr sollte niemals sein dediziertes VLAN verlassen.</p>
+<h3 id="ethernetip">EtherNet/IP</h3>
+<p>Rockwell Automation / Allen-Bradleys industrielles Ethernet-Protokoll. Verbreitet in der nordamerikanischen Fertigung. Ähnliche Sicherheitsmerkmale wie PROFINET — für isolierte Netzwerke konzipiert, begrenzte Authentifizierung.</p>
+<hr>
+<h2 id="was-der-it-ingenieur-tatsächlich-gefragt-wird-zu-tun">Was der IT-Ingenieur tatsächlich gefragt wird zu tun</h2>
+<p>In der Praxis fällt die Anfrage, wenn IT/Netzwerkingenieure in OT-Projekte eingebunden werden, normalerweise in eine dieser Kategorien:</p>
+<h3 id="szenario-1-füge-eine-firewall-zwischen-pc-und-maschine-ein">Szenario 1: „Füge eine Firewall zwischen PC und Maschine ein&quot;</h3>
+<p>Das häufigste Szenario. Ein Windows-PC (der SCADA-Software oder HMI ausführt) ist direkt über Ethernet mit einem PLC oder einer Produktionsmaschine verbunden — kein Netzwerkgerät dazwischen. Die Anfrage ist, eine Sicherheitsschicht hinzuzufügen.</p>
+<pre tabindex="0"><code>Vorher:
+  [Windows HMI PC] ──────────────── [PLC / Maschinencontroller]
+
+Nachher (typischer Ansatz):
+  [Windows HMI PC] ── [Firewall] ── [PLC / Maschinencontroller]
+</code></pre><p><strong>Layer-2 transparentes Firewall-Deployment:</strong></p>
+<p>Der betrieblich sicherste Weg, eine Firewall in diesen Pfad einzufügen, ist im <strong>Layer-2 transparenten Modus</strong> (auch „Bump-in-the-Wire&quot; oder Bridge-Modus genannt). Die Firewall leitet Datenverkehr transparent weiter — kein Gerät weiß, dass sie existiert, keine IP-Adressen ändern sich, keine Routing-Änderungen. Wenn die Firewall ausfällt, kann der Datenverkehr durch Entfernen der Firewall und direktes Wiederverbinden wiederhergestellt werden.</p>
+<p>Das ist wichtig, weil das Ändern von IP-Adressen auf einem PLC oder industriellen Controller oft das Neukonfigurieren der Anwendungssoftware erfordert, die mit ihm kommuniziert — ein Prozess, der Lieferantenunterstützung, Re-Zertifizierung und Produktionsausfallzeiten umfassen kann.</p>
+<p>Im transparenten Modus:</p>
+<ul>
+<li>Der PLC behält seine vorhandene IP-Adresse</li>
+<li>Der HMI-PC behält seine vorhandene IP-Adresse</li>
+<li>Die Firewall inspiziert Datenverkehr und wendet Richtlinien an, ohne ein gerouteter Hop zu sein</li>
+</ul>
+<p>Die Firewall-Richtlinie in diesem Szenario ist typischerweise:</p>
+<ul>
+<li>Spezifischen OT-Protokolldatenverkehr vom HMI zum Controller erlauben (Modbus Port 502, PROFINET, EtherNet/IP)</li>
+<li>Nur notwendige Verwaltungsprotokolle erlauben</li>
+<li>Alles andere blockieren</li>
+<li>Gesamten Datenverkehr für Sichtbarkeit protokollieren</li>
+</ul>
+<h3 id="szenario-2-ot-netzwerk-mit-unternehmens-it-verbinden">Szenario 2: „OT-Netzwerk mit Unternehmens-IT verbinden&quot;</h3>
+<p>Das Produktionsteam möchte Daten vom Fabrikboden in Unternehmenssysteme bringen — Produktionsstatistiken in ERP, Sensordaten in eine Berichtsdatenbank, Fernüberwachungsfähigkeit.</p>
+<p>Das erfordert eine DMZ-Architektur:</p>
+<pre tabindex="0"><code>[Unternehmens-IT-Netzwerk]
+           │
+      [IT/OT-Firewall]   ← Strenge Richtlinie: nur bestimmte Flüsse erlaubt
+           │
+      [OT-DMZ]
+      [Historian-Server]  ← Sammelt Daten aus OT, stellt sie IT bereit
+           │
+      [OT-Firewall]       ← Separate Firewall, schützt OT vor DMZ
+           │
+      [OT-Netzwerk — Ebene 2/3]
+</code></pre><p>Das DMZ-Prinzip: Das Unternehmensnetzwerk kann OT-Geräte nicht direkt erreichen. Der Historian-Server in der DMZ sammelt Daten von OT-Systemen (durch die OT-Firewall erlaubt) und macht sie für Unternehmenssysteme verfügbar (durch die IT-Firewall erlaubt).</p>
+<p><strong>Warum zwei Firewalls und nicht eine?</strong> Wenn der Historian-Server in der DMZ kompromittiert wird, sollte er keinen Pfad in eines der Netzwerke bieten. Eine einzelne Firewall mit einem DMZ-Segment bietet weniger Isolation als zwei separate Firewalls.</p>
+<h3 id="szenario-3-netzwerksegmentierung-zum-flachen-ot-netzwerk-hinzufügen">Szenario 3: „Netzwerksegmentierung zum flachen OT-Netzwerk hinzufügen&quot;</h3>
+<p>Viele ältere OT-Umgebungen haben ein völlig flaches Netzwerk — alle PLCs, HMIs, Engineering-Workstations und manchmal sogar unternehmensverbundene PCs in derselben Layer-2-Broadcast-Domain. Jedes Gerät kann jedes andere Gerät erreichen.</p>
+<p>Die Segmentierung dieses Netzwerks umfasst:</p>
+<ul>
+<li>Hinzufügen von verwalteten Switches mit VLAN-Fähigkeit</li>
+<li>Definieren von VLANs nach Gerätetyp oder Funktion</li>
+<li>Routing zwischen VLANs durch eine Firewall mit strikter Inter-VLAN-Richtlinie</li>
+</ul>
+<p><strong>Die kritische Einschränkung:</strong> Dokumentieren Sie vor jeder Netzwerkänderung die bestehenden Kommunikationsflüsse erschöpfend. In der OT treten einige Kommunikationsflüsse nur in bestimmten Produktionsphasen auf — ein wöchentlicher Batch-Prozess, ein Schichtendebericht — und erscheinen nicht während eines kurzen Überwachungsfensters. Arbeiten Sie mit dem OT-Team zusammen, um alle Kommunikationsanforderungen zu dokumentieren, bevor Sie die Segmentierung implementieren.</p>
+<hr>
+<h2 id="ot-fähige-firewalls-was-die-hersteller-entwickelt-haben">OT-fähige Firewalls: Was die Hersteller entwickelt haben</h2>
+<p>Standard-IT-Firewalls (selbst NGFWs) haben begrenzte Sichtbarkeit in OT-Protokolle. Sie können IP-Header und TCP/UDP-Ports inspizieren, aber sie können den Inhalt eines Modbus-TCP-Befehls nicht verstehen — sie können „Sensorwert lesen&quot; nicht von „Steuerbefehl an Aktor schreiben&quot; unterscheiden.</p>
+<p>OT-fähige Firewalls fügen <strong>industrielle Protokollinspektion</strong> hinzu — die Fähigkeit, OT-Protokoll-Payloads zu parsen und Richtlinienentscheidungen basierend auf protokollspezifischem Inhalt zu treffen.</p>
+<h3 id="der-signaturunterschied">Der Signaturunterschied</h3>
+<p>Eine Standard-NGFW könnte 2.000–5.000 Anwendungssignaturen haben — überwiegend IT-Anwendungen (HTTP, TLS, DNS, SMB, Office 365, usw.). Eine OT-fähige Firewall-Lizenz fügt Hunderte zusätzlicher Signaturen für industrielle Protokolle hinzu:</p>
+<ul>
+<li><strong>Modbus TCP:</strong> Leseanfragen (von HMI akzeptabel) von Schreibbefehlen unterscheiden (auf autorisierte Systeme beschränken)</li>
+<li><strong>PROFINET:</strong> Spezifische PROFINET-Dienste identifizieren und kontrollieren</li>
+<li><strong>EtherNet/IP:</strong> CIP (Common Industrial Protocol) Befehle parsen</li>
+<li><strong>DNP3:</strong> DNP3-Funktionscodes und Objekttypen inspizieren</li>
+<li><strong>OPC-DA/UA:</strong> OPC-Kommunikationsrichtung und Datentypen kontrollieren</li>
+<li><strong>BACnet:</strong> Gebäudeautomationsprotokoll-Inspektion</li>
+<li>Dutzende weitere industrielle und Gebäudeautomationsprotokolle</li>
+</ul>
+<p><strong>Warum das wichtig ist:</strong> Ohne OT-Protokollinspektion kann eine Firewall nur steuern, ob diese IP jene IP auf diesem Port erreichen kann. Mit OT-Inspektion kann sie durchsetzen, dass der HMI Modbus-Holding-Register vom PLC lesen kann, aber nicht in Coils schreiben darf — ein grundlegend anderes Kontrollniveau.</p>
+<h3 id="anbieter-landschaft">Anbieter-Landschaft</h3>
+<p><strong>Fortinet FortiGate mit OT-Bundle:</strong>
+Fortinet bietet spezifische OT/ICS-Lizenzierung an, die die Basis-NGFW mit industriellen Protokollsignaturen und OT-spezifischer Bedrohungsintelligenz erweitert. FortiGate kann im transparenten Modus (Layer 2) oder im gerouteten Modus deployt werden.</p>
+<p><strong>Palo Alto Networks mit ICS/SCADA-Inhalt:</strong>
+Das App-ID-Engine von Palo Alto umfasst industrielle Protokollidentifikation. Das Industrial IoT Security-Abonnement fügt OT-Gerätesichtbarkeit, Risikobewertung und protokollspezifische Richtlinien hinzu.</p>
+<p><strong>Claroty, Nozomi Networks, Dragos (OT-spezialisiert):</strong>
+Das sind keine traditionellen Firewalls — sie sind OT-spezifische Sicherheitsüberwachungsplattformen. Sie verbinden sich via SPAN-Port mit dem OT-Netzwerk (passives Monitoring) und bieten tiefe Sichtbarkeit: Asset-Discovery, Protokollanalyse, Verhaltensbaseline, Anomalieerkennung. Sie blockieren keinen Datenverkehr, bieten aber Sichtbarkeit, die generische IT-Tools nicht bereitstellen können.</p>
+<h3 id="lizenzierungsrealität">Lizenzierungsrealität</h3>
+<p>OT-Firewall-Fähigkeiten werden separat von Standard-IT-NGFW-Funktionen lizenziert. Wenn Sie eine Firewall für ein OT-Projekt spezifizieren, reicht die Standard-Enterprise-Lizenz nicht aus — Sie benötigen das OT/ICS-Bundle oder Äquivalent. Das beeinflusst sowohl die Kosten als auch das Gespräch zur Anbieterauswahl mit dem Kunden.</p>
+<hr>
+<h2 id="das-patch-problem-legacy-systeme-die-sie-nicht-berühren-können">Das Patch-Problem: Legacy-Systeme, die Sie nicht berühren können</h2>
+<p>In der IT ist Patchen Routine. In der OT ist Patchen oft unmöglich.</p>
+<p>Die Gründe sind spezifisch und legitim:</p>
+<p><strong>Herstellerzertifizierung:</strong> Industrielle Gerätehersteller (Siemens, Rockwell, Schneider, ABB, usw.) zertifizieren ihre Systeme mit bestimmten Softwareversionen. Das Ändern der Betriebssystemversion oder das Anwenden eines OS-Patches kann die Gerätezertifizierung ungültig machen.</p>
+<p><strong>Produktionsabhängigkeit:</strong> Patchen erfordert Ausfallzeiten. In kontinuierlichen Prozessindustrien (Chemiewerke, Stahlwerke) kann „Ausfallzeit&quot; ein geplantes jährliches Wartungsfenster bedeuten.</p>
+<p><strong>End-of-Life-Software:</strong> Sie werden Windows XP, Windows 2003 Server und noch ältere Systeme mit kritischer industrieller Software antreffen. Microsoft hat seit Jahren keine Sicherheitspatches für diese Systeme veröffentlicht.</p>
+<p><strong>Was das für die Netzwerksicherheit bedeutet:</strong></p>
+<ul>
+<li><strong>Strikte Netzwerksegmentierung:</strong> Systeme, die nicht gepatcht werden können, dürfen von keinem Netzwerk erreichbar sein, das sie Internet-Bedrohungen aussetzen könnte</li>
+<li><strong>Anwendungs-Whitelisting:</strong> Nur speziell autorisierte Anwendungen können auf OT-Endpunkten laufen</li>
+<li><strong>Kompensierende Kontrollen:</strong> Die Firewall muss die Arbeit tun, die normalerweise Patching erledigen würde</li>
+<li><strong>Offline-Antivirus-Updates:</strong> AV-Updates über USB oder Offline-Medien in air-gapped Umgebungen</li>
+</ul>
+<hr>
+<h2 id="8021x-und-nac-in-ot-warum-standard-it-ansätze-sich-nicht-direkt-übertragen">802.1X und NAC in OT: Warum Standard-IT-Ansätze sich nicht direkt übertragen</h2>
+<p><strong>PLCs und Controller haben keine 802.1X-Supplicants.</strong> Ein Siemens S7 PLC oder ein Allen-Bradley ControlLogix Controller läuft kein Standard-Betriebssystem mit einem 802.1X-Client. Er kann sich nicht mit Benutzername/Passwort oder Zertifikat bei einem RADIUS-Server authentifizieren.</p>
+<p><strong>MAC Authentication Bypass (MAB) als Workaround:</strong> Der Standardansatz für OT-Geräte ist MAB — die MAC-Adresse des Geräts wird als Authentifizierungsanmeldedaten verwendet. Der Switch sendet die MAC-Adresse an RADIUS, der sie gegen eine autorisierte Gerätedatenbank prüft.</p>
+<p>MAB bietet einige Kontrolle — unbekannte Geräte erhalten keinen Netzwerkzugang — aber es ist schwächer als zertifikat- oder anmeldedatenbasierte Authentifizierung. MAC-Adressen können gefälscht werden.</p>
+<p><strong>Profiling als Alternative:</strong> OT-Sicherheitsplattformen (Claroty, Nozomi, Cisco CyberVision) können Geräte im Netzwerk profilieren — PLC-Modelle, Firmware-Versionen und Kommunikationsmuster aus passiver Datenverkehrsanalyse identifizieren. Das bietet Asset-Sichtbarkeit ohne dass Geräte authentifizieren müssen.</p>
+<p><strong>Das Netzwerkänderungsrisiko:</strong> Das Aktivieren von 802.1X in einem bestehenden flachen OT-Netzwerk ohne äußerst sorgfältige Planung kann die Produktionslinie zum Stillstand bringen.</p>
+<hr>
+<h2 id="praktische-checkliste-bevor-sie-ein-ot-netzwerk-berühren">Praktische Checkliste: Bevor Sie ein OT-Netzwerk berühren</h2>
+<p>Aus Felderfahrung — Dinge, die vor jeder Netzwerkänderung in einer OT-Umgebung passieren sollten:</p>
+<ul>
+<li><strong>Zuerst mit dem OT-Team sprechen.</strong> Automatisierungsingenieure und Anlagenbetriebspersonal wissen Dinge über das Netzwerk, die nicht dokumentiert sind.</li>
+<li><strong>Bestehende Kommunikationsflüsse dokumentieren.</strong> Welche Geräte kommunizieren mit welchen, auf welchen Ports, mit welcher Häufigkeit. Verlassen Sie sich nicht auf kurzfristiges Monitoring.</li>
+<li><strong>Den Produktionsplan verstehen.</strong> Wann ist das Wartungsfenster? Wann hat die Anlage geplante Ausfallzeiten?</li>
+<li><strong>Wenn möglich, in einer Lab- oder Staging-Umgebung testen.</strong></li>
+<li><strong>Einen Rollback-Plan haben.</strong> Für Layer-2-Firewall-Einführung ist der Rollback das Entfernen der Firewall und direktes Wiederverbinden.</li>
+<li><strong>Firmware/Konfigurationssicherungen koordinieren.</strong> Vor jeder Netzwerkänderung sicherstellen, dass OT-Gerätekonfigurationen gesichert sind.</li>
+<li><strong>Definieren, was „funktioniert&quot; vor und nach bedeutet.</strong> Akzeptanzkriterien mit dem OT-Team vereinbaren, bevor eine Änderung als erfolgreich erklärt wird.</li>
+</ul>
+<hr>
+<h2 id="wichtigste-erkenntnisse">Wichtigste Erkenntnisse</h2>
+<ul>
+<li><strong>OT-Netzwerke priorisieren Verfügbarkeit über Vertraulichkeit</strong> — das kehrt viele IT-Sicherheitsannahmen um und muss jede Entscheidung informieren.</li>
+<li><strong>Das Purdue-Modell</strong> definiert, wo die IT/OT-Grenze liegt. Die DMZ zwischen Ebene 3 und Unternehmens-IT ist der häufigste Arbeitsort für IT-Ingenieure.</li>
+<li><strong>OT-Protokolle (Modbus, PROFINET, EtherNet/IP, DNP3)</strong> haben keine Authentifizierung oder Verschlüsselung. Netzwerkkontrollen sind der primäre Sicherheitsmechanismus.</li>
+<li><strong>Layer-2 transparentes Firewall-Deployment</strong> ist der sicherste Weg, Sicherheit zwischen OT-Geräten hinzuzufügen — keine IP-Adressänderungen, keine Routing-Änderungen, ohne Konfigurationsänderungen rückgängig zu machen.</li>
+<li><strong>OT-fähige Firewalls</strong> verstehen industrielle Protokolle und können Richtlinien auf Protokollebene durchsetzen — eine grundlegend andere Fähigkeit als IP/Port-Filterung.</li>
+<li><strong>OT-Firewall-Lizenzierung ist separat</strong> von IT-NGFW-Lizenzierung — das in die Projektplanung einbeziehen.</li>
+<li><strong>Ungepatchte Legacy-Systeme sind in OT normal</strong> — kompensierende Netzwerkkontrollen ersetzen, was Patching in der IT bietet.</li>
+<li><strong>802.1X überträgt sich nicht direkt</strong> — PLCs können sich nicht authentifizieren. MAB und Geräte-Profiling sind die praktischen Alternativen.</li>
+<li><strong>Mit OT-Teams koordinieren, bevor irgendetwas berührt wird</strong> — die Konsequenzen von Netzwerkfehlern in Produktionsumgebungen sind erheblich ernster als in der IT.</li>
+</ul>
+<hr>
+<h2 id="verwandte-artikel">Verwandte Artikel</h2>
+<ul>
+<li>🔐 <a href="/de/technology/identity-based-microsegmentation-8021x/">802.1X Identitätsbasierte Architektur im Praxiseinsatz</a> — Wie 802.1X in IT-Umgebungen funktioniert und warum OT anders ist</li>
+<li>🔐 <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — Zero-Trust-Prinzipien auf IT/OT-Grenzdesign angewendet</li>
+<li>🛡️ <a href="/de/technology/ddos-schutzstrategien-isp-scrubbing-on-premise-cloud/">DDoS-Schutzstrategien</a> — OT-verbundene Infrastruktur vor volumetrischen Angriffen schützen</li>
+<li>🏗️ <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Systemdenken, das gleichermaßen für OT-Netzwerkdesign gilt</li>
+</ul>
+]]></content:encoded></item><item><title>Produktauswahl in der Netzwerkinfrastruktur: Strategische Kriterien und Felderfahrungen</title><link>https://barashhelvadzhaoglu.com/de/architecture/network-product-selection-strategy/</link><pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/architecture/network-product-selection-strategy/</guid><description>Produktauswahl in Unternehmensnetzwerken ist mehr als eine Checkliste. Framework zur Bewertung von Firewalls, Switches und APs jenseits von Datenblättern.</description><content:encoded><![CDATA[<h1 id="produktauswahl-in-der-netzwerkinfrastruktur-strategische-kriterien-und-felderfahrungen">Produktauswahl in der Netzwerkinfrastruktur: Strategische Kriterien und Felderfahrungen</h1>
+<h2 id="switch-firewall-und-ap-jenseits-des-datenblatts-bewerten">Switch, Firewall und AP jenseits des Datenblatts bewerten</h2>
+<p>Die meisten Unternehmensnetzwerkprojekte beginnen am gleichen Punkt: der Produktauswahl. Und die meisten scheitern am gleichen Punkt: Produkte arbeiten nicht zusammen. Denn was wir ein &ldquo;Core-Netzwerk&rdquo; nennen, sind nicht nur drei Boxen nebeneinander; es geht darum, dass diese drei Komponenten gemeinsam Identität tragen, gemeinsam segmentieren, gemeinsam Policies durchsetzen und vor allem gemeinsam den Betrieb aufrechterhalten.</p>
+<p>Was ich über die Jahre beobachte: Ein Unternehmen kämpft nicht, weil sein Netzwerk &ldquo;schlecht&rdquo; ist, sondern weil der Entscheidungsmechanismus des Netzwerks fragmentiert ist. Die teuersten Geräte, die besten Lizenzen, der höchste Durchsatz — alles vorhanden. Aber wenn ein Incident eintritt, weiß niemand, welches Gerät mit welchem Kontext entscheidet, wo Traffic divergiert oder wo er kontrolliert wird. Das Ergebnis: Es gibt ein &ldquo;Netzwerk,&rdquo; aber kein &ldquo;Netzwerkverhalten.&rdquo;</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/network-product-selection-strategy.webp"/> <figcaption>
+            Strategisches Produktauswahl-Framework
+        </figcaption>
+</figure>
+
+<p>In diesem Artikel teile ich ein praxiserprobtes Framework zur Bewertung von Core-Network-Produkten über drei Säulen: Firewall, Switching und Access (Wi-Fi). Aber vorab: Zwei Faktoren sind genauso entscheidend wie &ldquo;technische Spezifikationen&rdquo; — und die meisten Teams erkennen das zu spät: <strong>Reports/Validierung</strong> und <strong>Support/Lifecycle</strong>.</p>
+<blockquote>
+<p>Für die architektonische Philosophie hinter diesem Auswahlprozess: <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a></p>
+</blockquote>
+<h2 id="schritt-1-reports-tests-und-marketing-rauschen-filtern">Schritt 1: Reports, Tests und Marketing-Rauschen filtern</h2>
+<p>Eine der ersten Referenzen bei der Produktauswahl sind, ja, Gartner-Reports. Sie geben eine Vorstellung von der Marktposition eines Produkts: Wer ist Leader, wer Visionär, wer spielt in einer Nische. Das ist besonders nützlich, um Entscheidungsträger zu überzeugen.</p>
+<p>Aber es gibt eine kritische Falle: <strong>Gartner sagt Ihnen nicht, welches Produkt für Ihr spezifisches Szenario richtig ist.</strong> Gartner ist eine Marktkarte; Ihre Aufgabe ist es, die Architekturkarte zu zeichnen. Nutzen Sie Gartner als ersten Filter — er grenzt Optionen ein, trifft aber keine endgültige Entscheidung.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/filtering-reports-tests-and-marketing-noise.webp"/> <figcaption>
+            Reports und Marketing-Rauschen filtern
+        </figcaption>
+</figure>
+
+<p>Zusätzlich zu Gartner müssen Performance- und Sicherheitstests von Herstellern oder unabhängigen Laboren, Vergleichsberichte und Real-World-Benchmarks berücksichtigt werden. Der Durchsatz auf einem Datenblatt ist nicht derselbe wie der Durchsatz in Produktion, wenn IPS aktiv ist, SSL-Entschlüsselung läuft und App-Control eingeschaltet ist.</p>
+<h2 id="schritt-2-support-und-lifecycle--die-unsichtbaren-säulen">Schritt 2: Support und Lifecycle — Die unsichtbaren Säulen</h2>
+<p>Die technischen Fähigkeiten eines Produkts sind nur die halbe Geschichte. Das Supportmodell und der Lifecycle sind ebenso kritisch. Netzwerkdesign endet nicht am Installationstag. Die eigentliche Frage ist: <strong>Was passiert 3 Jahre später?</strong></p>
+<ul>
+<li>Wie lauten die EoL / EoS-Daten?</li>
+<li>Wie schnell kommen Patches, Bugfixes und Security-Updates?</li>
+<li>Ist TAC/Support wirklich zugänglich?</li>
+<li>Was ist die Realität der RMA-Prozesse?</li>
+<li>Wird das Lizenzmodell nach Jahr eins Überraschungen bringen?</li>
+<li>Passt die Vendor-Roadmap zu Ihrer strategischen Richtung?</li>
+</ul>
+<p>Das häufigste Problem im Feld: Das Team wählt ein technisch solides Produkt, aber weil Support/Lifecycle deprioritisiert wurde, wird der Betrieb 12 Monate später zum Alptraum. Das Gerät bekommt die Schuld — aber das eigentliche Problem war nie das Gerät.</p>
+<h2 id="schritt-3-die-firewall-schicht-bewerten">Schritt 3: Die Firewall-Schicht bewerten</h2>
+<p>Die Firewall hat längst aufgehört, nur ein &ldquo;Sicherheitsgerät am Netzwerkrand&rdquo; zu sein. Richtig positioniert ist sie das Policy-Gehirn der Architektur. Falsch positioniert wird sie zum Bottleneck.</p>
+<p><strong>UTM vs. NGFW — eine notwendige Unterscheidung:</strong></p>
+<p>Der UTM-Ansatz folgt der &ldquo;alles in einer Box&rdquo;-Philosophie: Firewall + IPS + Web-Filter + AV + Gateway-Funktionen. In kleineren Umgebungen wegen Verwaltungseinfachheit und gebündelter Lizenzierung bevorzugt.</p>
+<p>NGFW ist um Anwendungsbewusstsein, Benutzer/Identitätskontext und tiefere Policy-Kontrolle herum positioniert. In modernen Enterprise-Umgebungen reicht die Sicherheit nur auf Port/Protokoll-Basis nicht mehr aus.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/firewall-selection.webp"/> <figcaption>
+            Firewall-Auswahl: UTM vs. NGFW vs. Multi-Rolle
+        </figcaption>
+</figure>
+
+<p><strong>Warum zwei oder drei Firewalls in derselben Organisation normal ist:</strong></p>
+<ul>
+<li><strong>Perimeter/Internet Edge Firewall:</strong> Internet-Egress, VPN, NAT, Inbound/Outbound-Policy</li>
+<li><strong>Internal Segmentation Firewall (ISFW):</strong> East-West-Kontrolle, interne Segmentierung</li>
+<li><strong>Datacenter / High-Performance FW:</strong> DC-Traffic, hohe Session-Zahlen, hohe PPS, geringe Latenz</li>
+</ul>
+<blockquote>
+<p>Für einen tieferen Blick auf Firewall-Architektur im breiteren Netzwerkdesign: <a href="/de/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Warum die richtige Produktwahl allein nicht ausreicht</a></p>
+</blockquote>
+<h2 id="schritt-4-firewall-kapazitätsplanung--durchsatz-kann-lügen">Schritt 4: Firewall-Kapazitätsplanung — Durchsatz kann lügen</h2>
+<p>Der gefährlichste Fehler bei der Firewall-Auswahl ist, sich nur auf die Gbps-Zahl zu konzentrieren. In der Praxis scheitern Firewalls selten am Durchsatz — sie scheitern an:</p>
+<ul>
+<li>PPS (Packets per Second)</li>
+<li>Anzahl gleichzeitiger Sessions</li>
+<li>New-Session-Rate</li>
+<li>NAT-Tabellen und State-Handling</li>
+<li>Performance mit aktivem IPS/AV/App-ID</li>
+<li>SSL/TLS-Entschlüsselungslast</li>
+<li>Log-Generierung und SIEM-Transport</li>
+</ul>
+<p>Die richtige Frage ist immer:</p>
+<blockquote>
+<p><em>&ldquo;Mit den Sicherheitsfunktionen, die ich aktivieren werde, und meinem spezifischen Traffic-Profil — wie viel Last kann diese Firewall tatsächlich tragen?&rdquo;</em></p>
+</blockquote>
+<p>Wenn es keine glaubwürdige Antwort auf diese Frage gibt, ist die Auswahl riskant.</p>
+<h2 id="schritt-5-switch-bewertung--rolle-und-last-statt-portanzahl">Schritt 5: Switch-Bewertung — Rolle und Last statt Portanzahl</h2>
+<p>Die Switch-Auswahl beginnt oft mit Portanzahlen. Diese sind wichtig — aber aus Core-Network-Perspektive nicht ausreichend. Ein Switch ist nicht nur eine Steckdose; er ist ein Entscheidungspunkt, der bestimmt, wo Traffic sich konzentriert, divergiert und nach oben getragen wird.</p>
+<p><strong>Der häufigste Access-Layer-Fehler:</strong> nur für den heutigen Bedarf planen. Der Access-Layer ist die sich am schnellsten verändernde Schicht. Multi-Gig-Ports (2,5G/5G), PoE-Nachhaltigkeit pro Port und echte Uplink-Kapazität werden kritisch.</p>
+<p>Uplinks werden konsequent unterschätzt. &ldquo;2×10G Uplinks reichen&rdquo; hört man oft — ohne das Traffic-Profil zu analysieren. Backplane-Kapazität und Oversubscription-Ratios sind genauso wichtig wie die Uplink-Geschwindigkeit.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/switching-selection.webp"/> <figcaption>
+            Switch-Auswahl: Access vs. Core vs. Datacenter
+        </figcaption>
+</figure>
+
+<p>Beim Entwurf des Core-Netzwerks muss die Frage <strong>&ldquo;Wo steht dieser Switch und welchen Traffic trägt er?&rdquo;</strong> vor <strong>&ldquo;Wie viele Ports hat er?&rdquo;</strong> kommen.</p>
+<h2 id="schritt-6-wireless--uplink-und-controller-architektur">Schritt 6: Wireless — Uplink und Controller-Architektur</h2>
+<p>Bei WLAN verschiebt sich der Fokus meist auf Wi-Fi-Standards: Wi-Fi 6, 6E, 7. In der Praxis wird die Wireless-Performance oft nicht durch das Radio, sondern durch das Kabel begrenzt. Viele Enterprise-APs können ihr volles Potenzial auf einem 1-Gbps-Uplink nicht ausschöpfen.</p>
+<p>2,5G und 5G Kupfer-Uplink-Unterstützung ist in High-Density-Umgebungen kein Luxus — es ist eine Designanforderung. Und kritisch: Wenn der AP 2,5G unterstützt, aber der Switch-Port nicht, ist die gesamte Investition verschwendet. <strong>AP- und Switch-Auswahl müssen zusammen erfolgen.</strong></p>
+<figure>
+    <img loading="lazy" src="/img/postimages/wifi-selection.webp"/> <figcaption>
+            Wireless-Architektur: AP, Uplink und Controller
+        </figcaption>
+</figure>
+
+<p>Controller-Architektur ist ebenso kritisch. Kapazität muss über CPU, Speicher, Session-Handling und Policy-Enforcement bewertet werden — nicht nur nach Lizenzanzahl.</p>
+<h2 id="schritt-7-herstellerbewertung--feldrealitäten">Schritt 7: Herstellerbewertung — Feldrealitäten</h2>
+<p><strong>Cisco</strong> bleibt einer der stärksten Akteure in Switching und Routing. Wireless ist seit Jahren ausgereift. Im Firewall-Bereich nach Akquisitionen wie Sourcefire deutlich wettbewerbsfähiger.
+Vorbehalt: Eine vollständige Cisco-Umgebung ist leistungsfähig, aber selten einfach.</p>
+<p><strong>HPE Aruba</strong> ist durch Akquisitionen inklusive Juniper erheblich gewachsen. Switching weit verbreitet. Wireless nach meiner persönlichen Einschätzung einer der stärksten in der Branche.
+Das Fehlen einer starken nativen Firewall-Familie bleibt eine Lücke.</p>
+<p><strong>Fortinet</strong> bietet eines der breitesten Portfolios unter einem Dach. Firewall-Kompetenz ist stark. Switching reifte später, ist aber zunehmend im Feld präsent.
+Größter operativer Vorteil: relative Einfachheit der Integration und Verwaltung.</p>
+<p><strong>Palo Alto Networks</strong> ist klarer Marktführer bei Firewalls — betritt bewusst nicht Switching oder Wireless. Anwendungssichtbarkeit, Policy-Tiefe und SASE-Führerschaft sind die stärksten Differenzierungsmerkmale.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/vendor-selection.webp"/> <figcaption>
+            Herstellervergleich: Feldrealität
+        </figcaption>
+</figure>
+
+<p><strong>Abschließender Punkt:</strong> API-Unterstützung ist kein Bonus mehr — es ist ein Auswahlkriterium. Die Frage &ldquo;Wie werde ich diese Architektur automatisiert verwalten?&rdquo; sollte vor der Wahl von Switch, Firewall oder AP kommen.</p>
+<h2 id="serverraum-und-verkabelung-was-niemand-besprechen-will-aber-jeder-bezahlt">Serverraum und Verkabelung: Was niemand besprechen will, aber jeder bezahlt</h2>
+<p>In Netzwerkprojekten dominieren die &ldquo;glänzenden&rdquo; Themen. Aber ein erheblicher Teil der Feldprobleme beginnt an einem viel grundlegenderen Ort: Serverraum-Design und Verkabelungsinfrastruktur.</p>
+<p>Egal wie gut die Produkte oder wie korrekt die Architektur — wenn Serverraum und Verkabelung schwach sind, wird das Netzwerk irgendwann Probleme produzieren. Diese Probleme erscheinen als &ldquo;Netzwerkausfälle,&rdquo; aber die Grundursache ist fast nie wirklich das Netzwerk.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/server-room-and-cabling.webp"/> <figcaption>
+            Serverraum und Verkabelung: Das Fundament, über das niemand spricht
+        </figcaption>
+</figure>
+
+<p>Wärme, Strom, Luftströmung, Zugänglichkeit und Ordnung müssen zusammen berücksichtigt werden. Redundante Netzteile werden gekauft, ohne zu prüfen, ob sie tatsächlich an separate Stromleitungen angeschlossen sind. Es heißt, es gibt eine USV, aber keine Kapazitätsberechnung wird durchgeführt.</p>
+<p>Verkabelung ist die langlebigste Komponente des Netzwerks. Switches, Firewalls und APs ändern sich — Kabel bleiben. Eine 1G-Infrastruktur stößt schnell an ihre Grenzen, wenn 2,5G/5G-APs ankommen.</p>
+<p>In meiner Sicht sind Serverraum und Verkabelung nicht die &ldquo;unterste Schicht&rdquo; der Architektur — sie sind das Fundament. Ein gut funktionierendes Netzwerk ist unsichtbar, weil das Fundament solide ist. Niemand bemerkt es. Und das ist meiner Meinung nach das größte Lob, das ein Infrastrukturdesign erhalten kann.</p>
+<h2 id="hinweis">Hinweis</h2>
+<p>Dieser Artikel wurde ursprünglich auf <strong>Substack</strong> in einer kürzeren, erzählerischen Form veröffentlicht.
+Diese Version erweitert die architektonische Grundlage der Serie.</p>
+<p>👉 <strong>Lesen Sie den Artikel auf Substack:</strong> <a href="https://substack.com/home/post/p-183952844">Hier klicken</a></p>
+<hr>
+<h2 id="verwandte-artikel">Verwandte Artikel</h2>
+<p><strong>Architektur &amp; Strategie</strong></p>
+<ul>
+<li>📐 <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Der Grundlagenartikel dieser Serie</li>
+<li>🏗️ <a href="/de/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Warum die richtige Produktwahl allein nicht ausreicht</a> — Architektur-zuerst Core-Network-Design</li>
+<li>🛡️ <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Mindset: Sicherheit als Architektur</a> — Sicherheit als Architektur</li>
+</ul>
+<p><strong>Technisches Engineering</strong></p>
+<ul>
+<li>📊 <a href="/de/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen</a> — Operative Sichtbarkeit</li>
+<li>🛠️ <a href="/de/posts/next-gen-console-server-terminal-server-architecture/">Die Hintertür des Netzwerks: Next-Gen Console Server Architektur</a> — Out-of-Band-Zugang</li>
+<li>🛡️ <a href="/de/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Traffic-Sichtbarkeit und Sicherheitsstrategie</li>
+</ul>
+]]></content:encoded></item><item><title>Switch, Firewall, AP — Warum die richtige Produktwahl allein nicht ausreicht</title><link>https://barashhelvadzhaoglu.com/de/architecture/core-network-is-not-a-product-list/</link><pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/architecture/core-network-is-not-a-product-list/</guid><description>Unternehmensnetzwerke scheitern an fragmentierter Architektur. Deep-Dive zu Firewall, Switching, AP-Auswahl und Kapazitätsplanung aus 11+ Jahren Praxis.</description><content:encoded><![CDATA[<h1 id="switch-firewall-ap--warum-die-richtige-produktwahl-allein-nicht-ausreicht">Switch, Firewall, AP — Warum die richtige Produktwahl allein nicht ausreicht</h1>
+<h2 id="architektur-kapazitätsplanung-und-die-vendor-realität-über-die-niemand-spricht">Architektur, Kapazitätsplanung und die Vendor-Realität, über die niemand spricht</h2>
+<p>Die meisten Unternehmensnetzwerkprojekte beginnen am gleichen Punkt: der Produktauswahl. Und die meisten scheitern ebenfalls dort: an Produkten, die nicht sauber miteinander arbeiten. Denn das, was wir ein „Core-Netzwerk&quot; nennen, besteht nicht aus drei Geräten (Switch, Firewall, Access Point), die nebeneinander stehen; es sind diese drei Komponenten, die gemeinsam Identität tragen, gemeinsam segmentieren, gemeinsam Policies durchsetzen und vor allem gemeinsam den Betrieb aufrechterhalten.</p>
+<p>Was ich seit Jahren beobachte, ist Folgendes: Unternehmen leiden nicht daran, dass ihr Netzwerk schlecht ist, sondern daran, dass der Entscheidungsmechanismus des Netzwerks fragmentiert ist. Die teuersten Geräte, die besten Lizenzen, der höchste Durchsatz – alles ist vorhanden. Doch sobald ein Incident auftritt, weiß niemand genau, welches Gerät auf welcher Basis entscheidet, wo Traffic getrennt wird, wo er kontrolliert wird. Das Ergebnis: Es gibt „ein Netzwerk&quot;, aber kein definiertes „Netzwerkverhalten&quot;.</p>
+<p>In diesem Artikel betrachte ich das Core-Netzwerk anhand von drei Säulen: Firewall, Switching und Access (Wi-Fi). Bevor ich darauf eingehe, möchte ich jedoch eines klar festhalten: Im Auswahlprozess gibt es zwei Faktoren, die mindestens genauso entscheidend sind wie „technische Spezifikationen&quot;, die jedoch von vielen Teams erst zu spät erkannt werden: Reports/Validierung und Support/Lifecycle.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/core-network-architecture-overview.webp"/> <figcaption>
+            Core Network Architekturübersicht
+        </figcaption>
+</figure>
+
+<h2 id="reports-filtern-tests-einordnen-und-marketingrauschen-ausblenden">Reports filtern, Tests einordnen und Marketingrauschen ausblenden</h2>
+<p>Eine der Referenzen bei der Produktauswahl sind – ja – Gartner-Reports. Denn Berichte wie die von Gartner geben eine Vorstellung von der Marktposition eines Produkts: Wer ist Leader, wer Visionär, wer bewegt sich in einer Nische. Gerade gegenüber Entscheidern ist das hilfreich, weil es eine strukturierte Antwort auf die Frage „Warum diese Marke?&quot; liefert.</p>
+<p>Doch hier liegt eine kritische Falle: Gartner sagt dir nicht, welches Produkt für dein konkretes Szenario richtig ist. Gartner liefert eine Marktkarte; deine Aufgabe ist es, eine Architekturkarte zu zeichnen. Deshalb ist es sinnvoll, Gartner als ersten Filter zu nutzen: Er reduziert Optionen, trifft aber keine finale Entscheidung.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/filtering-reports-tests-and-marketing-noise.webp"/> 
+</figure>
+
+<p>Zusätzlich zu Gartner müssen Performance- und Security-Tests von Herstellern oder unabhängigen Laboren, Vergleichsberichte und reale Benchmarks berücksichtigt werden. Denn der Durchsatz auf dem Datenblatt ist nicht identisch mit dem Durchsatz im Echtbetrieb, wenn IPS aktiv ist, SSL-Entschlüsselung läuft und Application Control eingeschaltet ist. Reports dienen hier als zweiter Filter: Sie helfen, eine nicht-marketinggetriebene Antwort auf die Frage zu finden: „Was leistet diese Box unter genau dieser Last?&quot;</p>
+<h2 id="support-und-lifecycle-die-unsichtbare-säule-der-architektur">Support und Lifecycle: die unsichtbare Säule der Architektur</h2>
+<p>Genauso wichtig wie technische Fähigkeiten sind Supportmodell und Lifecycle eines Produkts. Denn Netzwerkdesign endet nicht am Installationstag. Die eigentliche Frage lautet: Was passiert drei Jahre später?</p>
+<ul>
+<li>Wie lauten die EoL- / EoS-Daten?</li>
+<li>Wie schnell kommen Patches, Bugfixes und Security-Updates?</li>
+<li>Wie erreichbar ist der Support wirklich, und wie funktionieren Eskalationen?</li>
+<li>Wie realistisch sind RMA-Prozesse und Ersatzteilverfügbarkeit?</li>
+<li>Gibt es Lizenzüberraschungen nach einem Jahr?</li>
+<li>Passt die Roadmap des Herstellers zur eigenen strategischen Richtung?</li>
+</ul>
+<p>Ich betone diesen Punkt bewusst, weil ich im Feld immer wieder dasselbe sehe: Teams wählen ein technisch fast passendes Produkt, doch wegen Support- oder Lifecycle-Problemen wird der Betrieb nach zwölf Monaten zur Belastung. Die Schuld wird dann dem Gerät gegeben, obwohl das eigentliche Problem die mangelnde Gewichtung des Supports in der Entscheidungsphase war.</p>
+<h2 id="firewall-utm-ngfw-oder-mehrere-rollen">Firewall: UTM, NGFW oder mehrere Rollen?</h2>
+<p>Eine Firewall ist längst nicht mehr nur ein „Security-Gerät am Netzrand&quot;. Richtig positioniert wird sie zum Policy-Gehirn; falsch positioniert wird sie zum Bottleneck, auf dem alles kollabiert.</p>
+<p>Begrifflich lohnt sich eine klare Trennung: UTM und NGFW werden in vielen Umgebungen vermischt.</p>
+<p>Der UTM-Ansatz folgt meist der Idee „alles in einer Box&quot;: klassische Firewall, IPS, Webfilter, AV und einige Gateway-Funktionen. Gerade in kleinen und mittleren Umgebungen wird dies wegen einfacher Verwaltung und gebündelter Lizenzen bevorzugt.</p>
+<p>NGFW hingegen ist auf Applikationssichtbarkeit, Benutzer- und Identitätskontext sowie tiefere Policy-Kontrolle ausgelegt. In modernen Enterprise-Umgebungen reicht es oft nicht mehr, Security nur anhand von Port und Protokoll zu betreiben – hier kommt NGFW ins Spiel.</p>
+<p>Der entscheidende Punkt ist jedoch: Die Anforderungen eines Unternehmens lassen sich oft nicht mit einem einzigen „Firewall-Typ&quot; abdecken. Eine Firewall übernimmt je nach Layer und Zweck unterschiedliche Rollen.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/firewall-selection.webp"/> 
+</figure>
+
+<h3 id="warum-zwei-oder-sogar-drei-firewalls-im-selben-unternehmen-sinnvoll-sind">Warum zwei (oder sogar drei) Firewalls im selben Unternehmen sinnvoll sind</h3>
+<p>In vielen Organisationen sind folgende Szenarien völlig legitim:</p>
+<ul>
+<li>Perimeter- / Internet-Edge-Firewall: Internetzugang, VPN, NAT, Inbound/Outbound-Policy.</li>
+<li>Interne Segmentierungs-Firewall (ISFW): interne Netzsegmentierung, East-West-Kontrolle, Schutz kritischer Zonen.</li>
+<li>Datacenter- / High-Performance-Firewall: DC-Traffic, hohe Session-Zahlen, hohe PPS, geringe Latenz.</li>
+<li>In manchen Architekturen zusätzliche Komponenten wie WAF oder Cloud-Firewalls.</li>
+</ul>
+<p>Das bedeutet nicht „zwei Firewalls kaufen&quot;, sondern „zwei unterschiedliche Aufgaben mit passenden Werkzeugen abdecken&quot;. Wenn alles in eine Box gepackt wird, leidet entweder Performance, Manageability oder Security – meist mindestens eines davon.</p>
+<blockquote>
+<p>Für ein tieferes Verständnis der Sicherheitsphilosophie hinter dieser Architektur empfehle ich: <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt</a></p>
+</blockquote>
+<p>Und damit sind wir direkt bei der Kapazitätsplanung.</p>
+<h2 id="firewall-kapazitätsplanung-durchsatz-allein-ist-trügerisch">Firewall-Kapazitätsplanung: Durchsatz allein ist trügerisch</h2>
+<p>Der gefährlichste Fehler bei der Firewall-Auswahl ist der Fokus auf die reine Gbps-Zahl. In der Praxis scheitern Firewalls selten am Durchsatz, sondern an:</p>
+<ul>
+<li>PPS (Packets per Second)</li>
+<li>Anzahl gleichzeitiger Sessions</li>
+<li>New-Session-Rate</li>
+<li>NAT-Tabellen und State-Handling</li>
+<li>Performance mit aktivem IPS/AV/App-ID</li>
+<li>SSL/TLS-Entschlüsselung</li>
+<li>Log-Erzeugung und Log-Transport (z. B. SIEM)</li>
+</ul>
+<figure>
+    <img loading="lazy" src="/img/postimages/firewall-capacity-planning.webp"/> <figcaption>
+            Firewall Kapazitätsplanung Metriken
+        </figcaption>
+</figure>
+
+<p>Ein reales Beispiel: Die Aussage „wir haben eine 10-Gbps-Firewall gekauft&quot; ist isoliert wertlos. Diese 10 Gbps gelten meist nur unter Idealbedingungen. Sobald IPS, URL-Filter, Application Control und Decryption aktiv sind, sieht die Realität völlig anders aus. Die richtige Frage lautet daher:
+„Wie viel Last kann diese Firewall mit genau den Security-Features und genau meinem Traffic-Profil tragen?&quot;</p>
+<p>Gibt es darauf keine belastbare Antwort, ist die Auswahl riskant.</p>
+<h2 id="switching-rolle-und-last-sind-wichtiger-als-portanzahl">Switching: Rolle und Last sind wichtiger als Portanzahl</h2>
+<p>Switch-Auswahl beginnt häufig mit der Portanzahl: wie viele Kupferports, wie viele Glasfaserports, PoE ja oder nein. Das ist wichtig, aber aus Core-Netzwerk-Sicht nicht ausreichend. Ein Switch ist kein Verlängerungskabel; er ist ein Entscheidungspunkt für Traffic-Konzentration, -Trennung und Weiterleitung.</p>
+<p>Ein häufiger Fehler im Access-Bereich ist die Planung nur für den Ist-Zustand. Dabei ist die Access-Schicht die dynamischste Ebene im Netzwerk. Heute reichen 1G-Kupferports, morgen hängen dort High-Density-APs oder andere Edge-Geräte. Deshalb werden Multi-Gig-Ports (2.5G/5G), PoE-Budgets pro Port und die tatsächliche Uplink-Kapazität entscheidend.</p>
+<p>Uplinks werden oft unterschätzt. Aussagen wie „2×10G reichen&quot; hört man häufig, ohne das Traffic-Profil zu analysieren. Mit steigender Userzahl, mehr East-West-Traffic und veränderter Broadcast-Dynamik sind diese Links schneller gesättigt als erwartet. Hier zählen nicht nur die Uplink-Geschwindigkeit, sondern auch Backplane-Kapazität und Oversubscription-Ratios des Switches.</p>
+<p>Auch die Abgrenzung zwischen Edge- und Datacenter-Switches ist oft unscharf. Edge-Switches sind auf Portdichte und PoE optimiert, Datacenter-Switches auf hohen Durchsatz, niedrige Latenz und hohe PPS. Beides von einem Gerät zu erwarten, führt meist zu unnötigen Kosten oder zu Performanceproblemen. Die Frage „Wo steht dieser Switch und welchen Traffic trägt er?&quot; muss vor der Frage „Wie viele Ports?&quot; kommen.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/switching-selection.webp"/> 
+</figure>
+
+<p>Inter-VLAN-Routing ist ebenfalls ein Architekturaspekt. Wenn Routing auf dem Switch erfolgen soll, reichen Layer-3-Fähigkeiten allein nicht aus. Route-Scale, TCAM-Kapazität, Policy-Integration und das Zusammenspiel mit der Firewall sind entscheidend. Andernfalls entsteht aus einer vermeintlichen Performance-Optimierung später eine komplexe, schwer wartbare Struktur.</p>
+<h2 id="access--wi-fi-uplink-und-control-plane-sind-teil-der-architektur">Access / Wi-Fi: Uplink und Control Plane sind Teil der Architektur</h2>
+<p>Bei WLAN wird oft über Standards gesprochen: Wi-Fi 6, 6E, 7. In der Praxis limitiert jedoch häufig nicht der Funk, sondern das Kabel. Ein leistungsfähiger Access Point ist wertlos, wenn der dahinterliegende Uplink den Traffic nicht tragen kann.</p>
+<p>Viele Enterprise-APs können ihr Potenzial mit 1-Gbps-Uplinks nicht ausschöpfen. Deshalb sind 2.5G- und 5G-Uplinks in High-Density-Umgebungen kein Luxus, sondern Designanforderung. Doch auch hier gilt: Die Kette ist nur so stark wie ihr schwächstes Glied. Ein 2.5G-fähiger AP an einem 1G-Switchport ist eine Fehlinvestition. AP- und Switch-Auswahl müssen gemeinsam erfolgen.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/wifi-selection.webp"/> 
+</figure>
+
+<p>Ein weiterer kritischer Punkt ist die Controller-Architektur. Anzahl unterstützter APs, gleichzeitige Clients und Roaming-Verhalten bestimmen die reale Stabilität. Ein Controller, der „500 APs&quot; unterstützt, kann in High-Density-Umgebungen deutlich früher an Grenzen stoßen. Entscheidend sind nicht nur Lizenzen, sondern CPU, Memory, Session-Handling und Policy-Durchsetzung.</p>
+<p>WLAN gilt oft als Edge-Thema, belastet aber das Core-Netzwerk besonders stark: mobile Clients, häufige Reauthentifizierung, intensive Policy-Zyklen. Kleine Designfehler im Access-Bereich erzeugen unerwartete Lasten im Core. AP-Auswahl ist daher keine reine Coverage-Frage, sondern eine Core-Architekturentscheidung.</p>
+<h2 id="abschluss-vendor-auswahl-architektonische-reife-und-realität">Abschluss: Vendor-Auswahl, architektonische Reife und Realität</h2>
+<p>Die folgenden Einschätzungen basieren ausschließlich auf meinen eigenen Felderfahrungen. Ziel ist weder Lob noch Kritik, sondern eine nüchterne Einordnung von Stärken und Schwächen.</p>
+<p>Cisco ist im Switching und Routing weiterhin extrem stark, insbesondere in großen Campus- und Datacenter-Umgebungen. Wireless ist seit Jahren ausgereift. Im Firewall-Bereich hat Cisco durch Akquisitionen deutlich aufgeholt.
+Gleichzeitig gilt: Eine durchgängige Cisco-Landschaft ist leistungsfähig, aber selten einfach. Integration ist möglich, erfordert jedoch Erfahrung und Aufwand.</p>
+<p>HPE Aruba habe ich über Jahre intensiv begleitet. Das Portfolio ist durch europäische Akquisitionen und zuletzt Juniper stark gewachsen. Aruba ist im Switching breit akzeptiert, im WLAN meiner Ansicht nach branchenführend.
+Historisch gab es Lücken im Routing, die sich mit Juniper weitgehend schließen dürften. Eine starke eigenständige Firewall-Familie fehlt jedoch weiterhin.</p>
+<p>Fortinet bietet ein sehr breites Portfolio aus einer Hand. Besonders die Firewall-Kompetenz ist stark. Switching und Wireless sind später gereift, werden aber zunehmend eingesetzt.
+Ein großer Vorteil ist die vergleichsweise einfache Integration und Bedienbarkeit – ein Pluspunkt für kleinere IT-Teams.</p>
+<p>Palo Alto Networks ist im Firewall-Bereich klar führend. Switching und Wireless gehören bewusst nicht zum Fokus. Viele Organisationen setzen Palo Alto ausschließlich für Firewalls ein – aus guten Gründen.
+Besonders bei Application Visibility, Policy-Tiefe und SASE sehe ich Palo Alto klar an der Spitze.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/vendor-selection.webp"/> 
+</figure>
+
+<p>In der Praxis existieren alle Mischformen: Single-Vendor-Ansätze, Dual-Vendor-Strategien oder Best-of-Breed-Architekturen. Diese Entscheidungen sind ebenso organisatorisch wie technisch geprägt.</p>
+<p>Meine persönliche Haltung: Wo Teams reif genug sind, profitieren Architekturen oft von spezialisierten Herstellern pro Layer. Wo Einfachheit, Klarheit und ein zentraler Supportkanal wichtiger sind, ist ein Single-Vendor-Ansatz völlig legitim.</p>
+<p>Ein letzter Punkt ist mir besonders wichtig: Automatisierung. API-Fähigkeit ist heute kein Bonus mehr, sondern ein Auswahlkriterium. Produkte sollten nicht zuerst nach Hardware, sondern nach Automatisierbarkeit bewertet werden.</p>
+<blockquote>
+<p>Einen praktischen Rahmen für den Aufbau von Infrastruktur-Sichtbarkeit finden Sie hier: <a href="/de/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen und proaktiv handeln</a></p>
+</blockquote>
+<h2 id="serverraum-und-verkabelung-die-realität-über-die-niemand-spricht--aber-jeder-bezahlt">Serverraum und Verkabelung: Die Realität, über die niemand spricht – aber jeder bezahlt</h2>
+<p>In Netzwerkprojekten stehen meist die „glänzenden&quot; Themen im Vordergrund. Doch viele Probleme entstehen viel tiefer: im Serverraum und in der Verkabelung.</p>
+<p>Meine Erfahrung ist eindeutig: Schlechte Serverraum- oder Kabelinfrastruktur macht jede noch so gute Architektur angreifbar. Die Symptome heißen „Netzwerkausfall&quot;, die Ursache liegt fast nie im Netzwerkdesign.</p>
+<p>Serverräume werden oft wie Abstellräume behandelt. Racks wachsen, Kabel häufen sich, Provisorien werden dauerhaft. Irgendwann entsteht ein Raum, den niemand anfassen will – aber jeder braucht. Genau hier beginnt das Risiko.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/server-room-and-cabling.webp"/> 
+</figure>
+
+<p>Ein Serverraum ist das Herz des Netzwerks. Kühlung, Strom, Luftführung, Zugänglichkeit und Ordnung sind keine Nebensachen. Dauerhafte Hitze verkürzt Lebensdauer und erzeugt instabile Effekte.
+Auch Stromkonzepte werden unterschätzt: Redundante Netzteile ohne getrennte Stromkreise, USVs ohne Kapazitätsplanung – im Ernstfall wertlos.</p>
+<p>Verkabelung ist die langlebigste Komponente der Infrastruktur. Geräte wechseln, Kabel bleiben. Deshalb ist Planung nur für den Ist-Zustand ein Fehler. 1G-Designs stoßen mit Multi-Gig-APs schnell an Grenzen.</p>
+<p>Kupfer oder Glasfaser ist keine Glaubensfrage, sondern Architektur. Patchpanel-Struktur, Beschriftung und Kabelmanagement sind operative Notwendigkeiten, keine Ästhetik.</p>
+<p>Unklare Verkabelung macht jede Änderung riskant. Falscher Port, falsches Kabel – und ein anderer Service fällt aus. Dann heißt es wieder: „Das Netzwerk war schuld.&quot;</p>
+<p>Physische Zugriffskontrolle wird ebenfalls oft ignoriert. Ohne klare Regeln verliert jede logische Security an Bedeutung.</p>
+<p>Aus meiner Sicht sind Serverraum und Verkabelung nicht die „unterste Schicht&quot; der Architektur, sondern das Fundament. Eine stabile Infrastruktur wird nicht gelobt – sie fällt nicht auf. Und genau das ist ihr größter Erfolg.</p>
+<h2 id="hinweis">Hinweis</h2>
+<p>Dieser Artikel erschien ursprünglich in kürzerer, erzählerischer Form auf <strong>Substack</strong>.
+Diese Version erweitert die architektonische Grundlage der Serie.</p>
+<p>👉 <strong>Lesen Sie den Artikel auf Substack:</strong> <a href="https://substack.com/home/post/p-183952844">Hier klicken</a></p>
+<hr>
+<h2 id="verwandte-artikel">Verwandte Artikel</h2>
+<p>Wenn Ihnen dieser Artikel gefallen hat, könnten auch diese Beiträge interessant sein:</p>
+<p><strong>Architektur &amp; Sicherheitsdesign</strong></p>
+<ul>
+<li>📐 <a href="/de/architecture/it-infrastructure-is-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Der Grundlagenartikel dieser Serie</li>
+<li>🛡️ <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt</a> — Warum Zero Trust eine Philosophie und kein Produkt ist</li>
+<li>📊 <a href="/de/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen</a> — Echte Transparenz in der Infrastruktur aufbauen</li>
+</ul>
+<p><strong>Technisches Engineering</strong></p>
+<ul>
+<li>🛠️ <a href="/de/posts/next-gen-console-server-terminal-server-architecture/">Die Hintertür des Netzwerks: Next-Gen Console Server Architektur</a> — Out-of-Band-Zugang wenn alles andere versagt</li>
+<li>🛡️ <a href="/de/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Erweiterte Traffic-Sichtbarkeit und Sicherheitsstrategie</li>
+<li>🔐 <a href="/de/posts/unlocking-success-in-802-1x-projects-field-insights/">802.1X Projekte erfolgreich umsetzen: Praxiseinblicke</a> — Identitätsbasierter Zugang in Unternehmensnetzwerken</li>
+<li>⚙️ <a href="/de/posts/cisco-nexus-nxos-upgrade-guide/">Nexus Software Upgrade Guide</a> — NX-OS Upgrade ohne Ausfallzeit</li>
+</ul>
+]]></content:encoded></item></channel></rss>

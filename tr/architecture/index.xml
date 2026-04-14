@@ -1,1 +1,595 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ağ Mimarisi ve Tasarım Prensipleri on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/architecture/</link><description>Recent content in Ağ Mimarisi ve Tasarım Prensipleri on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Sun, 04 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/architecture/index.xml" rel="self" type="application/rss+xml"/><item><title>The Monitoring Mindset: Görmek Değil, Anlamak ve Önceden Davranabilmek</title><link>https://barashhelvadzhaoglu.com/tr/architecture/monitoring-not-just-seeing/</link><pubDate>Sun, 04 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/monitoring-not-just-seeing/</guid><description>Monitoring sadece dashboard değildir. IT altyapısını anlamak, sorunları erken tespit etmek ve proaktif operasyon kültürü için kritik yetkinlik.</description></item><item><title>Zero Trust Zihniyeti: Güvenliği Bir Ürün Değil, Bir Mimari Olarak Mühendislemek</title><link>https://barashhelvadzhaoglu.com/tr/architecture/zero-trust-architecture-behaviors/</link><pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/zero-trust-architecture-behaviors/</guid><description>Zero Trust bir ürün değil mimari yaklaşımdır. Kullanıcı doğrulama, sürekli erişim kontrolü ve VPN ötesinde modern güvenlik nasıl çalışır.</description></item><item><title>Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler ve Saha Deneyimleri</title><link>https://barashhelvadzhaoglu.com/tr/architecture/network-product-selection-strategy/</link><pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/network-product-selection-strategy/</guid><description>Kurumsal ağlarda ürün seçimi bir kontrol listesinden fazlasıdır. Firewall, switch ve AP değerlendirmesi için saha testi yapılmış çerçeve.</description></item><item><title>Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</title><link>https://barashhelvadzhaoglu.com/tr/architecture/core-network-is-not-a-product-list/</link><pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/core-network-is-not-a-product-list/</guid><description>Kurumsal ağlar parçalı mimari yüzünden başarısız olur. Firewall, switching, AP seçimi ve kapasite planlaması üzerine saha incelemesi.</description></item><item><title>IT Altyapısı Bir Ürün Koleksiyonu Değildir — Bir Sistemdir</title><link>https://barashhelvadzhaoglu.com/tr/architecture/it-infrastructure-not-a-collection-of-products/</link><pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/it-infrastructure-not-a-collection-of-products/</guid><description>IT altyapı projeleri ortam sistem haline gelemediğinde başarısız olur. Core Network serisi için mimari çerçeveyi belirleyen temel yazı.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ağ Mimarisi ve Tasarım Prensipleri on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/architecture/</link><description>Recent content in Ağ Mimarisi ve Tasarım Prensipleri on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Sun, 04 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/architecture/index.xml" rel="self" type="application/rss+xml"/><item><title>The Monitoring Mindset: Görmek Değil, Anlamak ve Önceden Davranabilmek</title><link>https://barashhelvadzhaoglu.com/tr/architecture/monitoring-not-just-seeing/</link><pubDate>Sun, 04 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/monitoring-not-just-seeing/</guid><description>Monitoring sadece dashboard değildir. IT altyapısını anlamak, sorunları erken tespit etmek ve proaktif operasyon kültürü için kritik yetkinlik.</description><content:encoded><![CDATA[<h1 id="the-monitoring-mindset-görmek-değil-anlamak-ve-önceden-davranabilmek">The Monitoring Mindset: Görmek Değil, Anlamak ve Önceden Davranabilmek</h1>
+<p>Monitoring, çoğu IT ekiplerinin konuştuğu ama çoğu zaman yanlış uyguladığı bir konu. Monitoring denildiğinde akla bir yazılım, bir dashboard ya da kırmızı–yeşil alarm ekranları gelir. Oysa monitoring, tek başına bir araç ya da grafikler bütünü değildir.</p>
+<p><strong>Monitoring&rsquo;in gerçek değeri, sorunları kullanıcı fark etmeden görüp önlem almaktır.</strong></p>
+<p>IT altyapıları büyüdükçe ve çeşitlendikçe, &ldquo;her şey çalışıyor mu?&rdquo; sorusu giderek anlamsızlaşır. Modern altyapılarda aynı anda fiziksel sunucular, sanallaştırma platformları, network cihazları, firewall&rsquo;lar, access point&rsquo;ler ve bunların üzerinde çalışan onlarca farklı yazılım bulunur. Mail server&rsquo;lar, dosya sunucuları, kamera sistemleri, web uygulamaları, sektöre özel iş yazılımları… Hepsi aynı anda ayakta durmak zorundadır. Monitoring tam olarak bu noktada devreye girer: bir şey bozulmadan önce onu fark edebilmek.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/monitoring-not-just-seeing.webp"
+         alt="IT monitoring dashboard and infrastructure visualization"/> <figcaption>
+            Monitoring and Observability
+        </figcaption>
+</figure>
+
+<blockquote>
+<p>Bu yazı, mimari bir perspektiften başlayan serinin operasyonel ayağını oluşturuyor. Altyapının nasıl tasarlandığını anlamak için: <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a></p>
+</blockquote>
+<h2 id="iki-temel-katman-fiziksel-altyapı-ve-yazılımservis">İki Temel Katman: Fiziksel Altyapı ve Yazılım/Servis</h2>
+<p>Monitoring konusunu sağlıklı ele alabilmek için önce iki temel katmanı ayırmak gerekir: fiziksel altyapı ve yazılım/servis katmanı. Bu ayrım net yapılmadığında monitoring ya eksik kalır ya da gürültü üretir.</p>
+<p>Fiziksel altyapı dediğimizde; sunucular, network cihazları, firewall&rsquo;lar, storage sistemleri, access point&rsquo;ler ve bunları ayakta tutan enerji ve soğutma bileşenleri akla gelir. Bu katmanda yaşanan problemler genellikle sessiz başlar. Bir fan yavaşlar, bir güç kaynağı dalgalanır, bir CPU uzun süre yüksek kullanımda kalır. Sistem çalışıyordur ama sağlıklı değildir. Monitoring&rsquo;in burada görevi &ldquo;çalışıyor&rdquo; durumunu değil, sağlık durumunu takip etmektir. CPU uzun süre yüksek kullanımda veya fan yavaş çalışıyorsa sistem teknik olarak aktif ama risk altındadır.</p>
+<p><strong>Bu bölümden akılda kalması gereken:</strong> fiziksel altyapı problemleri genelde sessiz başlar; monitoring sağlık göstergelerine odaklanmalıdır.</p>
+<h2 id="fiziksel-katmanda-doğru-metrikler">Fiziksel Katmanda Doğru Metrikler</h2>
+<p>Fiziksel altyapının monitör edilmesi çoğu zaman donanım seviyesindeki metriklerle başlar: CPU ve bellek kullanımı, disk doluluk oranları, güç kaynaklarının durumu, fan hızları, sıcaklık değerleri. Ancak burada kritik bir nokta vardır — bu metriklerin anlamlı olabilmesi için cihazlerin işletim sistemlerinin stabil çalışması ve doğru yapılandırılmış olması gerekir.</p>
+<p>SNMP üzerinden monitoring yapılacaksa, SNMP konfigürasyonlarının doğru tanımlanmış olması, erişim yetkilerinin düzgün ayarlanması ve network tarafında gerekli izinlerin verilmiş olması şarttır. Aksi halde monitoring sistemi vardır ama veri güvenilmezdir. Ücretsiz çözümler (Zabbix gibi) bu konuda oldukça güçlüdür; ticari çözümler (SolarWinds, PRTG vb.) ise genellikle kurulum ve kullanım kolaylığı sağlar. Ancak hangi araç kullanılırsa kullanılsın, aracın kendisi problemi çözmez — problemi çözen, doğru metriklerin doğru eşiklerle izlenmesidir.</p>
+<p><strong>Bu katmanın kilidi:</strong> araçtan önce yapılandırma gelir; yanlış veri, yanlış alarm üretir.</p>
+<h2 id="yazılım-ve-servis-katmanı-tek-tip-monitoring-mümkün-değil">Yazılım ve Servis Katmanı: Tek Tip Monitoring Mümkün Değil</h2>
+<p>Yazılım ve servis katmanına geldiğimizde monitoring çok daha karmaşık hale gelir. Çünkü her yazılımın davranışı, yük profili ve kritik eşikleri farklıdır. Bir web servisi için önemli olan response time iken, bir mail server için kuyruklar ve servis durumları daha kritiktir. Bir dosya sunucusunda disk I/O öne çıkarken, bir kamera sistemi için stream sürekliliği ve bağlantı stabilitesi belirleyici olur.</p>
+<p>Buna ek olarak, şirketin faaliyet gösterdiği sektöre özgü yazılımlar devreye girer. Otelcilik sektöründe rezervasyon sistemleri, sağlık sektöründe randevu ve hasta yönetim sistemleri, sanayi tarafında üretim veya otomasyon yazılımları… Bu yazılımların her biri iş sürekliliği açısından kritiktir ve her biri için farklı monitoring yaklaşımları gerekir.</p>
+<p><strong>Bu bölümün özeti:</strong> yazılım monitoring&rsquo;i genelleştirilemez; iş kritikliğine göre tasarlanmalıdır.</p>
+<h2 id="monitoring-bir-rutin-olmadan-anlamsızlaşır">Monitoring Bir Rutin Olmadan Anlamsızlaşır</h2>
+<figure>
+    <img loading="lazy" src="/img/postimages/monitoring-proactive-operations.webp"/> <figcaption>
+            Proaktif IT Operasyonları: Monitoring Bir Süreçtir
+        </figcaption>
+</figure>
+
+<p>Monitoring&rsquo;in çoğu şirkette başarısız olmasının temel sebeplerinden biri, bu konunun operasyonel rutinin bir parçası haline getirilmemesidir. Sistemler kurulur, monitoring aracı devreye alınır, birkaç alarm tanımlanır — ve sonra günlük operasyonun yoğunluğu içinde bu yapı arka plana düşer. Alarmlar ya fazla olduğu için görmezden gelinir ya da hiç üretilmediği için sorunlar kullanıcı şikayetleriyle fark edilir.</p>
+<p>Oysa monitoring düzenli olarak kontrol edilmesi gereken bir süreçtir. Günlük kontroller basit bir checklist ile veya ITSM sistemindeki task&rsquo;lar aracılığıyla yapılabilir. IT ekiplerinin günlük ya da haftalık iş rutinleri vardır — bu rutinlerin içine monitoring kontrolleri de bilinçli olarak eklenmelidir. Eğer şirket bir ITSM veya task yönetim sistemi kullanıyorsa, monitoring kontrolleri periyodik task&rsquo;lar halinde otomatik oluşturulmalı ve ilgili kişilere atanmalıdır. Böylece monitoring &ldquo;bakarsak bakarız&rdquo; yaklaşımından çıkar, ölçülebilir bir iş kalemi haline gelir.</p>
+<p><strong>Buradaki temel fikir:</strong> monitoring kontrol edilmezse anlamını yitirir; süreç rutinin parçası olmalıdır.</p>
+<h2 id="proaktif-çalışmanın-somut-değeri">Proaktif Çalışmanın Somut Değeri</h2>
+<p>Bu yaklaşımın önemli bir yan etkisi daha vardır: harcanan zaman görünür hale gelir. Günlük bir saat ya da haftalık birkaç saat monitoring&rsquo;e ayrıldığında bu süre boşa gitmez. Aksine, IT operasyonlarının proaktif çalıştığını gösteren somut bir kayıt oluşur. Problemler çıkmadan fark edilir, kullanıcıya yansımadan çözülür — ve bu IT ekibinin reaktif değil, önleyici çalıştığını kanıtlar.</p>
+<p>Ayrıca merkezi monitoring sayesinde problemler tek bir noktadan analiz edilebilir. Bu hem sorun çözüm süresini kısaltır hem de kök neden analizini mümkün kılar. Aynı tip problemler tekrarlandığında artık &ldquo;ne olduğunu&rdquo; değil, &ldquo;neden olduğunu&rdquo; konuşmaya başlanır. İşte monitoring&rsquo;in gerçek değeri burada yatar.</p>
+<p><strong>Bu bölümün kilidi:</strong> monitoring reaktif değil proaktif çalışmayı sağlar; zaman ve efor görünür hale gelir.</p>
+<h2 id="bütüncül-monitoring-cihaz-değil-servis-davranışı">Bütüncül Monitoring: Cihaz Değil, Servis Davranışı</h2>
+<p>Günün sonunda monitoring; network, sunucu, firewall, wireless ve yazılım katmanlarının birbirinden kopuk değil birlikte izlenmesini gerektirir. Sadece cihazları izlemek yeterli değildir — bu cihazların ürettiği servislerin iş tarafına etkisi de gözlemlenmelidir.</p>
+<p>Bir firewall çalışıyor olabilir ama kullanıcı mail atamıyorsa monitoring başarısızdır. Bir switch ayakta olabilir ama access point&rsquo;ler sürekli bağlantı kaybediyorsa yine başarısızdır. Monitoring&rsquo;in gerçek değeri IT altyapısının &ldquo;nasıl çalıştığını&rdquo; görünür kılmasındadır. Bu görünürlük sağlandığında kapasite planlaması daha sağlıklı yapılır, değişiklikler daha az riskli olur ve operasyonlar daha öngörülebilir hale gelir.</p>
+<p><strong>Son kilit:</strong> monitoring bütüncül olmak zorundadır; servis davranışı cihazdan daha önemlidir.</p>
+<h2 id="sonuç">Sonuç</h2>
+<p>Monitoring; dashboard&rsquo;lar, alarmlar ya da grafikler değildir. Monitoring; altyapının nabzını tutmaktır.</p>
+<p>Doğru kurgulanmış bir monitoring yapısı sayesinde IT ekipleri sorunları kullanıcıdan önce fark eder, müdahaleleri planlı yapar ve altyapıyı reaktif değil bilinçli şekilde yönetir. Bu da monitoring&rsquo;i teknik bir detay olmaktan çıkarır; doğrudan operasyonel ve stratejik bir yetkinlik haline getirir.</p>
+<p>Bu yüzden monitoring &ldquo;kuralım dursun&rdquo; denilecek bir sistem değil; tasarlanacak, işletilecek ve sürekli iyileştirilecek bir süreçtir.</p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Mimari &amp; Strateji</strong></p>
+<ul>
+<li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Bu serinin temel yazısı</li>
+<li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a> — Mimari öncelikli core network tasarımı</li>
+<li>🛡️ <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Mimari olarak güvenlik</li>
+<li>🎯 <a href="/tr/architecture/network-infrastructure-product-selection-strategic-criteria/">Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler ve Saha Deneyimleri</a> — Stratejik ürün değerlendirmesi</li>
+</ul>
+<p><strong>Teknik Mühendislik</strong></p>
+<ul>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-terminal-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Out-of-band erişim</li>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Trafik görünürlüğü ve güvenlik stratejisi</li>
+</ul>
+]]></content:encoded></item><item><title>Zero Trust Zihniyeti: Güvenliği Bir Ürün Değil, Bir Mimari Olarak Mühendislemek</title><link>https://barashhelvadzhaoglu.com/tr/architecture/zero-trust-architecture-behaviors/</link><pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/zero-trust-architecture-behaviors/</guid><description>Zero Trust bir ürün değil mimari yaklaşımdır. Kullanıcı doğrulama, sürekli erişim kontrolü ve VPN ötesinde modern güvenlik nasıl çalışır.</description><content:encoded><![CDATA[<h1 id="zero-trust-zihniyeti-güvenliği-bir-ürün-değil-bir-mimari-olarak-mühendislemek">Zero Trust Zihniyeti: Güvenliği Bir Ürün Değil, Bir Mimari Olarak Mühendislemek</h1>
+<p>Zero Trust bugün neredeyse her güvenlik sunumunda geçen bir kavram. Ancak sahada karşılığına baktığımızda, çoğu zaman yanlış yerde, yanlış beklentiyle ve yanlış araçlarla ele alındığını görüyoruz. Bunun temel sebebi, Zero Trust&rsquo;ın bir teknoloji ya da satın alınabilir bir ürün gibi konumlandırılması. Oysa Zero Trust; lisanslanan, kutulanan ya da tek bir vendor&rsquo;dan alınan bir çözüm değildir. Zero Trust, bir mimari bakış açısıdır ve daha da önemlisi, bir davranış biçimidir.</p>
+<p>Zero Trust&rsquo;ın özü son derece nettir: <strong>Never trust, always verify.</strong> Hiçbir kullanıcıya, hiçbir cihaza, hiçbir bağlantıya varsayılan olarak güvenme. Güven, sürekli olarak yeniden kazanılan bir durumdur. Bu yaklaşım, klasik &ldquo;içerisi güvenlidir, dışarısı tehlikelidir&rdquo; varsayımını tamamen ortadan kaldırır. Çünkü modern IT dünyasında içerisi ve dışarısı artık net sınırlarla ayrılmış değildir.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/zero-trust-layered-architecture.webp"/> <figcaption>
+            Zero Trust: Katmanlı Bir Mimari
+        </figcaption>
+</figure>
+
+<p><strong>Özetle:</strong></p>
+<ul>
+<li>Zero Trust bir ürün değil, mimari yaklaşımdır</li>
+<li>Varsayılan güven kavramını reddeder</li>
+<li>Sürekli doğrulama esasına dayanır</li>
+</ul>
+<blockquote>
+<p>Bu yazı, IT altyapısını sistem olarak ele alan serinin bir parçasıdır. Başlangıç noktası için: <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a></p>
+</blockquote>
+<h2 id="zero-trust-hiçbir-üreticinin-malı-değildir">Zero Trust Hiçbir Üreticinin Malı Değildir</h2>
+<p>Zero Trust kavramı pratikte ilk olarak güvenlik üreticilerinin vizyonlarıyla şekillenmeye başladı. Ancak burada önemli bir ayrım yapmak gerekir: Zero Trust herhangi bir üreticinin &ldquo;sahip olduğu&rdquo; bir konsept değildir. Tek bir teknolojiyle temsil edilemez.</p>
+<p>Bunun sebebi şudur: Zero Trust, aynı anda birden fazla katmanın birlikte ve tutarlı şekilde çalışmasını zorunlu kılar. Network, güvenlik, kimlik, kullanıcı, cihaz ve uygulama katmanları birbirinden kopuk çalışıyorsa, Zero Trust yalnızca bir söylem olarak kalır. Mimari olarak karşılığı yoktur.</p>
+<p><strong>Bu bölümün özü:</strong></p>
+<ul>
+<li>Zero Trust vendor&rsquo;a ait değildir</li>
+<li>Tek bir teknolojiyle kurulamaz</li>
+<li>Katmanlar arası tutarlılık gerektirir</li>
+</ul>
+<h2 id="kullanıcı-ve-cihaz-doğrulaması-mimarinin-başladığı-yer">Kullanıcı ve Cihaz Doğrulaması: Mimarinin Başladığı Yer</h2>
+<p>Zero Trust mimarisi pratikte çok temel bir soruyla başlar:</p>
+<blockquote>
+<p>&ldquo;Bu kullanıcı ve bu cihaz, şu anda erişmek istediği kaynağa gerçekten erişmeli mi?&rdquo;</p>
+</blockquote>
+<p>Bu soruya anlamlı bir cevap verebilmek için ilk adım, network&rsquo;e dahil olan kullanıcıların ve cihazların doğrulanmasıdır. Active Directory, LDAP veya modern identity provider&rsquo;lar bu yapının merkezinde yer alır. Kullanıcıya hangi kaynaklara erişebileceği sadece kimliğine değil, rolüne ve risk durumuna göre belirlenir.</p>
+<p>Ancak Zero Trust açısından önemli olan yalnızca kullanıcının kim olduğu değildir; cihazın durumu, kurumsal envantere ait olup olmadığı ve güvenlik politikalarına uygunluğu da bu kararın bir parçasıdır.</p>
+<p><strong>Hatırlanması gerekenler:</strong></p>
+<ul>
+<li>Kullanıcı doğrulaması tek başına yeterli değildir</li>
+<li>Cihaz kimliği ve durumu da değerlendirilir</li>
+<li>Erişim kararı bağlama göre verilir</li>
+</ul>
+<h2 id="vpn--zero-trust-uzaktan-erişimin-doğru-çerçevesi">VPN ≠ Zero Trust: Uzaktan Erişimin Doğru Çerçevesi</h2>
+<p>Uzaktan çalışma artık istisna değil, standarttır. Ancak birçok organizasyonda hâlâ klasik VPN mantığıyla hareket edilir: kullanıcı VPN&rsquo;e bağlanır ve bir anda tüm lokal network&rsquo;ün parçası haline gelir. <strong>Bu yaklaşım Zero Trust değildir.</strong> Bu yalnızca uzaktan erişimdir.</p>
+<p>Zero Trust mimarisinde uzaktan erişim, &ldquo;her yere erişim&rdquo; anlamına gelmez. Kullanıcı yalnızca yetkili olduğu uygulamalara veya kaynaklara erişir. Amaç her zaman aynıdır: erişimi minimumda tutmak ve sürekli kontrol etmek.</p>
+<p><strong>Bu bölümün kilidi:</strong></p>
+<ul>
+<li>VPN ≠ Zero Trust</li>
+<li>Erişim tüm network&rsquo;e değil, kaynağa olmalıdır</li>
+<li>Yetki sürekli kontrol edilir</li>
+</ul>
+<h2 id="sürekli-doğrulama-ve-mfa">Sürekli Doğrulama ve MFA</h2>
+<p>Zero Trust&rsquo;ı klasik güvenlik yaklaşımlarından ayıran en önemli nokta, doğrulamanın tek seferlik kabul edilmemesidir. Kullanıcı ve cihaz davranışı değiştikçe, erişim sürekli olarak yeniden değerlendirilir.</p>
+<p>Bu noktada <strong>çok faktörlü kimlik doğrulama (MFA)</strong> devreye girer. SMS, mobil uygulama bildirimi, donanımsal token veya biyometrik doğrulama gibi ek katmanlar kullanılır. Özellikle mail server, finans sistemleri veya ERP gibi kritik uygulamalara erişimde, kullanıcıdan belirli aralıklarla kendini yeniden doğrulaması istenir.</p>
+<p><strong>Özetle:</strong></p>
+<ul>
+<li>Doğrulama süreklidir</li>
+<li>MFA Zero Trust&rsquo;ın temel bileşenidir</li>
+<li>Kritik kaynaklarda periyotlar kısaltılır</li>
+</ul>
+<h2 id="firewall-politika-karar-noktası">Firewall: Politika Karar Noktası</h2>
+<p>Firewall katmanı, Zero Trust mimarisinde merkezi bir rol oynar. Ancak bu rol, klasik anlamda &ldquo;internet çıkışını kontrol eden cihaz&rdquo; olmaktan çok daha fazlasıdır. Zero Trust yaklaşımında firewall, kimlik ve bağlam farkındalığı olan bir karar noktasıdır.</p>
+<p>Firewall üzerinde tanımlanan kurallar yalnızca IP veya port bazlı olmamalıdır. Kullanıcı, grup ve uygulama bazlı kurallar yazılabildiğinde Zero Trust gerçek anlamda uygulanabilir hale gelir.</p>
+<blockquote>
+<p>Switch, firewall ve AP&rsquo;nin birlikte nasıl çalıştığını anlamak için: <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a></p>
+</blockquote>
+<p><strong>Bu katmanın özeti:</strong></p>
+<ul>
+<li>Firewall politika karar noktasıdır</li>
+<li>Kimlik ve uygulama farkındalığı şarttır</li>
+<li>Port bazlı kurallar yeterli değildir</li>
+</ul>
+<h2 id="access-katmanı-zero-trust-buradan-başlar">Access Katmanı: Zero Trust Buradan Başlar</h2>
+<p>Zero Trust yalnızca firewall ve VPN katmanında uygulanmaz. Mimarinin başladığı yer access katmanıdır. 802.1X ve NAC çözümleri bu noktada devreye girer. Tüm switch portları ve wireless erişimler merkezi bir sistem tarafından kontrol edilir. Kullanıcı veya cihaz network&rsquo;e bağlanmadan önce doğrulanır ve bu doğrulama sonucuna göre dinamik olarak VLAN atanır veya politika uygulanır.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/zero-trust-access-layer-802-1x.webp"/> <figcaption>
+            802.1X Erişim Kontrolü: Ağ Kenarında Zero Trust
+        </figcaption>
+</figure>
+
+<p><strong>Bu bölümün özü:</strong></p>
+<ul>
+<li>Zero Trust access katmanında başlar</li>
+<li>802.1X merkezi kontrol sağlar</li>
+<li>Statik VLAN / SSID yapıları ölçeklenmez</li>
+</ul>
+<h2 id="cihaz-profilleme-ve-iot">Cihaz Profilleme ve IoT</h2>
+<p>Modern Zero Trust mimarilerinde yalnızca kullanıcı cihazları değil, network&rsquo;e bağlanan tüm uçlar kontrol altına alınır. Yazıcılar, kameralar, IP telefonlar, kart okuyucular gibi cihazlar da doğrulama sürecine dahil edilir.</p>
+<p>Yeni nesil NAC çözümleri DHCP fingerprint, CDP/LLDP bilgileri ve cihaz üretici bilgileri gibi birçok parametreyi birleştirerek cihaz profillemesi yapar. Cihazın güncel olup olmadığı, güvenlik durumu veya kurumsal standartlara uygunluğu da değerlendirilir.</p>
+<p><strong>Kilit noktalar:</strong></p>
+<ul>
+<li>Cihaz profilleme kritik önemdedir</li>
+<li>MAC adresi tek başına yeterli değildir</li>
+<li>Envanter entegrasyonu şarttır</li>
+</ul>
+<h2 id="misafir-erişimi-güven-varsayılmaz">Misafir Erişimi: Güven Varsayılmaz</h2>
+<p>Zero Trust mimarisinde misafir erişimleri bile kontrol altındadır. Guest portal&rsquo;lar aracılığıyla misafir kullanıcılar doğrulamadan geçirilir ve yalnızca belirli süre ve yetkilerle erişim sağlanır. Misafirler genellikle sadece internete çıkabilir; şirket kaynaklarına erişimleri sınırlıdır.</p>
+<p><strong>Bu bölümün özeti:</strong></p>
+<ul>
+<li>Misafir erişimi sınırsız değildir</li>
+<li>Süre ve yetki bazlı kontrol uygulanır</li>
+<li>Güven varsayılmaz</li>
+</ul>
+<h2 id="sürekli-izleme-mimarinin-en-kritik-parçası">Sürekli İzleme: Mimarinin En Kritik Parçası</h2>
+<p>Her katmanda erişim ve davranışlar izlenir ve kaydedilir. Anormal bir durum veya riskli hareket tespit edilirse, sistem otomatik olarak erişimi sınırlar veya ek doğrulama ister.</p>
+<blockquote>
+<p>Altyapıda gerçek görünürlük nasıl kurulur: <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a></p>
+</blockquote>
+<h2 id="sonuç">Sonuç</h2>
+<p>Zero Trust bir ürün değildir.
+Tek bir cihazla kurulmaz.
+&ldquo;Kurduk, bitti&rdquo; denilemez.</p>
+<p>Zero Trust; firewall, switch ve wireless altyapılarının; kullanıcı ve cihaz bilgilerini merkezi bir noktadan alarak birlikte çalıştığı, erişimin her aşamada yeniden sorgulandığı yaşayan bir mimaridir. Bu yüzden Zero Trust&rsquo;ı satın alınacak bir teknoloji değil, tasarlanacak ve işletilecek bir yetkinlik olarak görmek gerekir.</p>
+<h2 id="not">Not</h2>
+<p>Bu makale ilk olarak <strong>Substack</strong>&rsquo;te daha kısa, anlatısal bir biçimde yayınlanmıştı.
+Bu versiyon, serinin mimari temelini genişletiyor.</p>
+<p>👉 <strong>Makaleyi Substack&rsquo;te okuyun:</strong> <a href="https://substack.com/home/post/p-183954997">Burayı Tıklayın</a></p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Mimari &amp; Güvenlik Tasarımı</strong></p>
+<ul>
+<li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Bu serinin temel yazısı</li>
+<li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a> — Core network tasarımında sistem düşüncesi</li>
+<li>📊 <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a> — Altyapıda gerçek görünürlük</li>
+</ul>
+<p><strong>Teknik Mühendislik</strong></p>
+<ul>
+<li>🔐 <a href="/tr/posts/unlocking-success-in-802-1x-projects-field-insights/">802.1X Projelerinde Başarı: Saha Deneyimleri</a> — Kimlik tabanlı erişimin sahada uygulanması</li>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Gelişmiş trafik görünürlüğü ve güvenlik stratejisi</li>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-terminal-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Her şey kesildiğinde out-of-band erişim</li>
+</ul>
+]]></content:encoded></item><item><title>Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler ve Saha Deneyimleri</title><link>https://barashhelvadzhaoglu.com/tr/architecture/network-product-selection-strategy/</link><pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/network-product-selection-strategy/</guid><description>Kurumsal ağlarda ürün seçimi bir kontrol listesinden fazlasıdır. Firewall, switch ve AP değerlendirmesi için saha testi yapılmış çerçeve.</description><content:encoded><![CDATA[<h1 id="ağ-altyapısında-ürün-seçimi-stratejik-kriterler-ve-saha-deneyimleri">Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler ve Saha Deneyimleri</h1>
+<h2 id="switch-firewall-ve-apyi-veri-sayfasının-ötesinde-nasıl-değerlendirirsiniz">Switch, Firewall ve AP&rsquo;yi veri sayfasının ötesinde nasıl değerlendirirsiniz</h2>
+<p>Kurumsal ağ projelerinin çoğu aynı noktada başlıyor: ürün seçimi. Ve çoğu zaman aynı noktada kırılıyor: ürünlerin birlikte çalışmaması. Çünkü &ldquo;core network&rdquo; dediğimiz şey, üç kutunun yan yana durması değil; bu üç kutunun birlikte kimlik taşıması, birlikte segment üretmesi, birlikte politika uygulatması ve en önemlisi birlikte operasyon kaldırmasıdır.</p>
+<p>Benim yıllardır gördüğüm şu: bir şirketin ağı kötü olduğu için değil, ağın karar mekanizması parçalı olduğu için problem yaşanıyor. En pahalı cihazlar, en iyi lisanslar, en yüksek throughput… Hepsi var; ama olay anında hangi cihaz hangi bağlamla karar veriyor, trafik nerede ayrışıyor, nerede kontrol ediliyor — bu soruların net cevabı yok. Sonuç: &ldquo;network var&rdquo; ama &ldquo;network davranışı&rdquo; yok.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/network-product-selection-strategy.webp"/> <figcaption>
+            Stratejik Ürün Seçim Çerçevesi
+        </figcaption>
+</figure>
+
+<p>Bu yazıda, core network ürünlerini üç bacakta değerlendirmek için sahada test edilmiş bir çerçeveyi paylaşacağım: Firewall, Switching ve Access (Wi-Fi). Ama başlamadan önce: &ldquo;teknik özellik&rdquo; kadar belirleyici olan iki faktör var ve çoğu ekip bunları geç fark ediyor — <strong>raporlar/validasyon</strong> ve <strong>support/lifecycle</strong>.</p>
+<blockquote>
+<p>Bu seçim sürecinin arkasındaki mimari felsefeyi anlamak için: <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a></p>
+</blockquote>
+<h2 id="adım-1-raporları-testleri-ve-pazarlama-gürültüsünü-filtrelemek">Adım 1: Raporları, Testleri ve Pazarlama Gürültüsünü Filtrelemek</h2>
+<p>Ürün seçerken bakılacak ilk referanslardan biri Gartner raporlarıdır. Gartner gibi raporlar bir ürünün pazar konumu hakkında fikir verir: kim lider, kim vizyoner, kim niş oynuyor. Bu özellikle karar vericileri ikna etmekte işe yarar.</p>
+<p>Ama kritik bir tuzak var: <strong>Gartner sana senin senaryonda hangisinin doğru olduğunu söylemez.</strong> Gartner bir pazar haritasıdır; senin işin mimari harita çizmek. Gartner&rsquo;ı ilk filtre olarak kullanmak daha doğru — seçenekleri daraltır ama final kararı vermez.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/filtering-reports-tests-and-marketing-noise.webp"/> <figcaption>
+            Raporları ve Pazarlama Gürültüsünü Filtrelemek
+        </figcaption>
+</figure>
+
+<p>Gartner&rsquo;a ek olarak, bağımsız laboratuvarların performans ve güvenlik testleri, karşılaştırmalı raporlar ve real-world benchmark&rsquo;lar işin içine girmeli. Veri sayfasındaki throughput ile gerçek hayatta IPS açıkken, SSL decrypt varken, app-control çalışırken alınan throughput aynı şey değildir. Raporlar burada ikinci filtre olur: &ldquo;Bu kutu bu yükte ne yapıyor?&rdquo; sorusuna pazarlama dışı bir cevap ararsın.</p>
+<h2 id="adım-2-support-ve-lifecycle--görünmez-kolon">Adım 2: Support ve Lifecycle — Görünmez Kolon</h2>
+<p>Bir ürünün teknik yetenekleri hikayenin sadece yarısıdır. Destek modeli ve yaşam döngüsü de aynı derecede kritiktir. Network tasarımı yalnızca kurulum günüyle bitmez. Asıl soru şudur: <strong>3 yıl sonra ne olacak?</strong></p>
+<ul>
+<li>Bu ürünün EoL / EoS tarihleri nedir?</li>
+<li>Patch, bugfix, security update hızı nasıldır?</li>
+<li>TAC/Support gerçekten erişilebilir mi?</li>
+<li>RMA süreçleri ve yedek parça gerçekliği nedir?</li>
+<li>Lisans modeli 1 yıl sonra sürpriz çıkarır mı?</li>
+<li>Üretici roadmap&rsquo;i senin gittiğin yöne mi gidiyor?</li>
+</ul>
+<p>Sahada en sık gördüğüm problem: ekip teknik olarak doğruya yakın bir ürün seçiyor ama support/lifecycle önceliklendirilmediği için 12 ay sonra operasyon kâbusa dönüyor. Suç cihaza kalıyor — oysa sorun hiçbir zaman cihazın kendisi değildi.</p>
+<h2 id="adım-3-firewall-katmanının-değerlendirilmesi">Adım 3: Firewall Katmanının Değerlendirilmesi</h2>
+<p>Firewall, ağın &ldquo;kenarındaki güvenlik cihazı&rdquo; olmayı çoktan geçti. Doğru konumlandırılırsa mimarinin politika beynidir. Yanlış konumlandırılırsa her şeyin üstüne yıkıldığı darboğaz olur.</p>
+<p><strong>UTM vs NGFW — gerekli bir ayrım:</strong></p>
+<p>UTM yaklaşımı &ldquo;tek kutuda her şey&rdquo; felsefesini takip eder: firewall + IPS + web filter + AV + gateway özellikleri. Daha küçük yapılarda yönetim kolaylığı ve paket lisanslama yüzünden tercih edilir.</p>
+<p>NGFW ise uygulama farkındalığı, kullanıcı/kimlik bağlamı ve daha derin politika kontrolü etrafında konumlanır. Bugünün kurumsal ihtiyacında yalnızca port/protokol üzerinden güvenlik yürütmek çoğu zaman yetmez.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/firewall-selection.webp"/> <figcaption>
+            Firewall Seçimi: UTM vs NGFW vs Çoklu Rol
+        </figcaption>
+</figure>
+
+<p><strong>Aynı organizasyonda iki veya üç firewall neden normaldir:</strong></p>
+<ul>
+<li><strong>Perimeter/Internet Edge Firewall:</strong> İnternet çıkışı, VPN, NAT, inbound/outbound policy</li>
+<li><strong>Internal Segmentation Firewall (ISFW):</strong> East-west kontrol, iç segmentasyon, kritik zon izolasyonu</li>
+<li><strong>Data Center / High-performance FW:</strong> DC trafiği, yüksek session, yüksek PPS, düşük latency</li>
+<li>Bazı yapılarda: WAF veya Cloud FW</li>
+</ul>
+<p>Bu &ldquo;iki firewall almak&rdquo; demek değildir — &ldquo;iki farklı işi doğru araca vermek&rdquo; demektir.</p>
+<blockquote>
+<p>Firewall mimarisinin daha geniş network tasarımı içindeki yerine bakış için: <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a></p>
+</blockquote>
+<h2 id="adım-4-firewall-kapasite-planlaması--throughput-yalan-söyleyebilir">Adım 4: Firewall Kapasite Planlaması — Throughput Yalan Söyleyebilir</h2>
+<p>Firewall seçiminde en tehlikeli hata yalnızca Gbps throughput rakamına odaklanmaktır. Pratikte firewall&rsquo;lar throughput yüzünden değil şunlar yüzünden başarısız olur:</p>
+<ul>
+<li>PPS (packets per second)</li>
+<li>Concurrent session sayısı</li>
+<li>New session rate</li>
+<li>NAT table ve state</li>
+<li>Aktif IPS/AV/App-ID ile performans</li>
+<li>SSL/TLS decrypt yükü</li>
+<li>Log üretimi ve SIEM taşıma</li>
+</ul>
+<p>Gerçek bir örnek: &ldquo;10 Gbps firewall aldık&rdquo; cümlesi tek başına anlam taşımaz. O 10 Gbps çoğu vendor datasheet&rsquo;inde ideal koşul ölçümüdür. IPS, URL filtering, app control ve decrypt aktifse gerçek kapasite dramatik şekilde değişir. Doğru soru her zaman şudur:</p>
+<blockquote>
+<p><em>&ldquo;Açacağım güvenlik özellikleriyle ve benim trafik karakterimde — bu firewall gerçekte ne kadar iş kaldırır?&rdquo;</em></p>
+</blockquote>
+<p>Bu sorunun güvenilir bir cevabı yoksa, seçim risklidir.</p>
+<h2 id="adım-5-switch-değerlendirmesi--port-sayısı-değil-rol-ve-yük">Adım 5: Switch Değerlendirmesi — Port Sayısı Değil Rol ve Yük</h2>
+<p>Switch seçimi çoğu zaman port sayısıyla başlar: bakır port, fiber port, PoE ihtiyacı. Bunlar önemlidir — ama core network perspektifinden yeterli değildir. Switch yalnızca uçları bağlayan bir priz değildir; trafiğin nerede yoğunlaşacağını, nerede ayrışacağını ve nerede yukarı taşınacağını belirleyen bir karar noktasıdır.</p>
+<p><strong>En yaygın access layer hatası:</strong> yalnızca bugünün ihtiyacına göre planlama yapmak. Access katmanı ağda en hızlı değişen katmandır. Bugün yeterli görünen 1G bakır bir noktada yarın yüksek bant genişliği isteyen AP veya edge cihaz konumlanabilir. Multi-Gig portlar (2.5G/5G), port başına PoE sürdürülebilirliği ve uplink&rsquo;lerin gerçek kapasitesi kritik hale gelir.</p>
+<p>Uplink&rsquo;ler sürekli hafife alınır. &ldquo;2×10G uplink yeter&rdquo; çok duyulur — trafik karakteri analiz edilmeden. Kullanıcı sayısı arttıkça ve east-west trafik değiştikçe, uplink&rsquo;ler beklenenden çok daha hızlı doygunluğa ulaşır. Backplane kapasitesi ve oversubscription oranları uplink hızı kadar önemlidir.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/switching-selection.webp"/> <figcaption>
+            Switch Seçimi: Access vs Core vs Data Center
+        </figcaption>
+</figure>
+
+<p><strong>Edge switch vs datacenter switch:</strong> bu sınır çoğu projede net çizilmez. Edge switch&rsquo;ler port yoğunluğu ve PoE için optimize edilir; datacenter switch&rsquo;leri throughput, düşük latency, yüksek PPS ve east-west trafik için gelir. Tek cihazdan her ikisini beklemek ya maliyeti gereksiz artırır ya da performansı düşürür.</p>
+<p>Core network tasarlarken <strong>&ldquo;Bu switch nerede duracak ve neyi taşıyacak?&rdquo;</strong> sorusu <strong>&ldquo;Kaç portu var?&rdquo;</strong> sorusundan önce gelmelidir.</p>
+<h2 id="adım-6-kablosuz--uplink-ve-controller-mimarisi">Adım 6: Kablosuz — Uplink ve Controller Mimarisi</h2>
+<p>Kablosuz konuşulurken odak Wi-Fi standardına kayar: Wi-Fi 6, 6E, 7. Pratikte kablosuz performansı çoğu zaman radyo değil kablo sınırlar. AP ne kadar güçlü olursa olsun, uplink bunu taşıyamıyorsa teorik hızlar anlamsızdır.</p>
+<p>Pek çok kurumsal AP, 1 Gbps uplink ile sınırlandığında potansiyelinin önemli bir kısmını kullanamaz. 2.5G ve 5G bakır uplink desteği yüksek yoğunluklu ortamlarda lüks değil, doğrudan tasarım gereksinimidir. Ve kritik nokta: AP 2.5G destekliyorsa ama bağlı olduğu switch portu desteklemiyorsa, tüm yatırım boşa gider. <strong>AP ve switch seçimi birlikte yapılmalıdır.</strong></p>
+<figure>
+    <img loading="lazy" src="/img/postimages/wifi-selection.webp"/> <figcaption>
+            Kablosuz Mimarisi: AP, Uplink ve Controller
+        </figcaption>
+</figure>
+
+<p>Controller mimarisi de kritiktir. Desteklenen AP sayısı, eş zamanlı client kapasitesi ve roaming davranışı gerçek hayat stabilitesini belirler. &ldquo;500 AP destekler&rdquo; yazan controller yüksek yoğunluklu ortamlarda çok daha erken zorlanabilir. Controller kapasitesi yalnızca lisans sayısıyla değil; CPU, bellek, session handling ve policy enforcement ile birlikte değerlendirilmelidir.</p>
+<p>Kablosuz ağlar çoğu zaman edge katmanı gibi görünür ama core network&rsquo;ü en hızlı zorlayan katmandır. AP seçimi kapsama hesabı değil — core network davranışını doğrudan etkileyen mimari bir karardır.</p>
+<h2 id="adım-7-üretici-değerlendirmesi--saha-gerçekleri">Adım 7: Üretici Değerlendirmesi — Saha Gerçekleri</h2>
+<p>Aşağıdakiler tamamen kişisel saha deneyimlerime dayanıyor. Amaç övmek veya yermek değil — her üreticinin nerede güçlü, nerede zorlandığını açıkça söylemek.</p>
+<p><strong>Cisco,</strong> switching ve routing tarafında hâlâ sektörün en güçlü oyuncularından biri. Wireless uzun yıllardır olgun. Firewall tarafında özellikle Sourcefire gibi satın almalarla ciddi gelişim gösterdiler.
+Uyarı: tüm ürünleri Cisco seçtiğinizde entegrasyon çoğu zaman yorucu olabilir. Her şey mümkün ama genellikle &ldquo;kolay&rdquo; değil.</p>
+<p><strong>HPE Aruba,</strong> Juniper dahil olmak üzere satın almalarla portföyü önemli ölçüde büyüdü. Switching yaygın ve sevilen. Wireless benim kişisel görüşüme göre sektörün en güçlülerinden biri.
+Güçlü bir native firewall ürün ailesinin olmaması bu alanda eksiklik olmaya devam ediyor.</p>
+<p><strong>Fortinet,</strong> tek çatı altında firewall, switching ve wireless sunan en geniş portföylerden birine sahip. Firewall kökenli güçleri tartışmasız. Switching daha geç olgunlaştı ama sahada giderek daha fazla görülüyor.
+En büyük operasyonel avantaj: entegrasyon ve yönetim kolaylığı. Sınırlı IT ekiplerinde bu fark çok net hissediliyor.</p>
+<p><strong>Palo Alto Networks,</strong> firewall alanında açık ara lider — switching ve wireless&rsquo;a bilinçli olarak girmiyor. Uygulama görünürlüğü, politika derinliği ve SASE liderliğinde en belirgin farkı yaratıyorlar.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/vendor-selection.webp"/> <figcaption>
+            Üretici Karşılaştırması: Saha Gerçeği
+        </figcaption>
+</figure>
+
+<p>Pratikte organizasyonlar tüm kombinasyonları kullanır: tek vendor, çift vendor veya best-of-breed. Bu kararlar teknik olduğu kadar organizasyoneldir.</p>
+<p>Kişisel görüşüm: ekip olgunsa her katman için uzmanlaşmış üreticiler teknik olarak daha güçlü sonuçlar üretir. Basitlik ve tek destek kanalı daha önemliyse tek vendor yaklaşımı tamamen geçerlidir.</p>
+<p><strong>Son nokta:</strong> API desteği artık bonus değil, seçim kriteridir. &ldquo;Bu mimariyi nasıl otomatik yöneteceğim?&rdquo; sorusu switch, firewall ve AP seçiminden önce gelmelidir. Bana göre doğru core network tasarımı tam burada başlar.</p>
+<h2 id="sistem-odası-ve-kablolama-kimsenin-konuşmak-istemediği-ama-herkesin-bedelini-ödediği-gerçek">Sistem Odası ve Kablolama: Kimsenin Konuşmak İstemediği Ama Herkesin Bedelini Ödediği Gerçek</h2>
+<p>Network projelerinde en çok konuşulan konular genelde en parlak olanlardır. Ama sahada yaşanan problemlerin önemli bir kısmı çok daha temel bir yerde başlar: sistem odası tasarımı ve kablolama altyapısı.</p>
+<p>Ne kadar iyi ürünler seçersen seç — sistem odası ve kablolama zayıfsa, o ağ eninde sonunda problem üretir. Ve bu problemler &ldquo;network arızası&rdquo; gibi görünür ama kök sebep neredeyse hiçbir zaman gerçekten network değildir.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/server-room-and-cabling.webp"/> <figcaption>
+            Sistem Odası ve Kablolama: Konuşulmayan Temel
+        </figcaption>
+</figure>
+
+<p>Sistem odası çoğu kurumda hâlâ eşya odası gibi ele alınıyor. Kablolar üst üste geliyor, geçici çözümler kalıcı hale geliyor. Kimsenin dokunmak istemediği ama herkesin bağımlı olduğu bir alan oluşuyor. Asıl risk tam burada başlıyor.</p>
+<p>Isı, enerji, hava akışı, erişilebilirlik ve düzen birlikte düşünülmelidir. Yedekli güç kaynakları satın alınır ama farklı enerji hatlarına gidip gitmediği kontrol edilmez. UPS var denir ama kapasite hesabı yapılmaz. Bunlar kağıt üzerinde küçük detay gibi görünür — kriz anında tüm mimariyi anlamsız kılar.</p>
+<p>Kablolama ağın en uzun ömürlü parçasıdır. Switch, firewall ve AP değişir — kablo kalır. Bugünkü ihtiyaca göre kablolama yapmak garantili bir hatadır. 1G altyapısı 2.5G/5G AP&rsquo;lerle hızla sınıra dayanır.</p>
+<p>Benim bakış açıma göre sistem odası ve kablolama core network tasarımının &ldquo;alt katmanı&rdquo; değil; temelidir. İyi çalışan bir network kimsenin fark etmediği şeydir — çünkü sorun çıkmaz. Ve bu, bir altyapı tasarımının alabileceği en büyük övgüdür.</p>
+<h2 id="not">Not</h2>
+<p>Bu makale ilk olarak <strong>Substack</strong>&rsquo;te daha kısa, anlatısal bir biçimde yayınlanmıştı.
+Bu versiyon, serinin mimari temelini genişletiyor.</p>
+<p>👉 <strong>Makaleyi Substack&rsquo;te okuyun:</strong> <a href="https://substack.com/home/post/p-183952844">Burayı Tıklayın</a></p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Mimari &amp; Strateji</strong></p>
+<ul>
+<li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Bu serinin temel yazısı</li>
+<li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a> — Mimari öncelikli core network tasarımı</li>
+<li>🛡️ <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Mimari olarak güvenlik</li>
+</ul>
+<p><strong>Teknik Mühendislik</strong></p>
+<ul>
+<li>📊 <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a> — Operasyonel görünürlük</li>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-terminal-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Out-of-band erişim</li>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Trafik görünürlüğü ve güvenlik stratejisi</li>
+</ul>
+]]></content:encoded></item><item><title>Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</title><link>https://barashhelvadzhaoglu.com/tr/architecture/core-network-is-not-a-product-list/</link><pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/core-network-is-not-a-product-list/</guid><description>Kurumsal ağlar parçalı mimari yüzünden başarısız olur. Firewall, switching, AP seçimi ve kapasite planlaması üzerine saha incelemesi.</description><content:encoded><![CDATA[<h1 id="switch-firewall-ap--doğru-ürünleri-seçmek-neden-yeterli-değildir">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</h1>
+<h2 id="mimari-kapasite-planlaması-ve-kimsenin-konuşmadığı-üretici-gerçeği">Mimari, kapasite planlaması ve kimsenin konuşmadığı üretici gerçeği</h2>
+<p>Kurumsal ağ projelerinin çoğu aynı noktada başlıyor: ürün seçimi. Ve çoğu zaman aynı noktada kırılıyor: ürünlerin birlikte çalışmaması. Çünkü &ldquo;core network&rdquo; dediğimiz şey, üç kutunun (switch, firewall, access point) yan yana durması değil; bu üç kutunun birlikte kimlik taşıması, birlikte segment üretmesi, birlikte politika uygulatması ve en önemlisi birlikte operasyon kaldırmasıdır.</p>
+<p>Benim yıllardır gördüğüm şu: bir şirketin ağı kötü olduğu için değil, ağın karar mekanizması parçalı olduğu için problem yaşanıyor. En pahalı cihazlar, en iyi lisanslar, en yüksek throughput… Hepsi var; ama olay anında kim neyi biliyor, hangi cihaz hangi bağlamla karar veriyor, trafik nerede ayrışıyor, nerede kontrol ediliyor—bu soruların net cevabı yok. Sonuç: &ldquo;network var&rdquo; ama &ldquo;network davranışı&rdquo; yok.</p>
+<p>Bu yazıda core network&rsquo;ü üç bacakta ele alacağım: Firewall, Switching, Access (Wi-Fi). Ama başlamadan önce bir şeyi net koymak istiyorum: seçim sürecinde &ldquo;teknik özellik&rdquo; kadar belirleyici olan iki faktör var ve çoğu ekip bunları geç fark ediyor: raporlar/validasyon ve support/lifecycle.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/core-network-architecture-overview.webp"/> <figcaption>
+            Core Network Mimarisine Genel Bakış
+        </figcaption>
+</figure>
+
+<h2 id="raporlar-testler-ve-pazarlama-gürültüsünü-filtrelemek">Raporlar, testler ve &ldquo;pazarlama gürültüsü&quot;nü filtrelemek</h2>
+<p>Ürün seçerken bakılacak yerlerden biri, evet, Gartner raporları. Çünkü Gartner gibi raporlar sana bir ürünün &ldquo;pazardaki konumu&rdquo; hakkında fikir verir: kim lider, kim vizyoner, kim niş oynuyor. Bu özellikle karar verici tarafı ikna etmekte işe yarar; bütçe masasında &ldquo;neden bu marka?&rdquo; sorusuna bir çerçeve sunar.</p>
+<p>Ama burada kritik bir tuzak var: Gartner sana senin senaryonda hangisinin doğru olduğunu söylemez. Gartner bir &ldquo;pazar haritası&quot;dır; senin işin &ldquo;mimari harita&rdquo; çizmek. Bu yüzden Gartner&rsquo;ı bir ilk filtre gibi kullanmak daha doğru: seçenekleri daraltır ama final kararı vermez.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/filtering-reports-tests-and-marketing-noise.webp"/> 
+</figure>
+
+<p>Gartner&rsquo;a ek olarak, üreticilerin ya da bağımsız laboratuvarların yaptığı performans ve güvenlik testleri, karşılaştırmalı raporlar, &ldquo;real-world&rdquo; benchmark&rsquo;lar da işin içine girmeli. Çünkü veri sayfasındaki throughput ile, gerçek hayatta IPS açıkken, SSL decrypt varken, app-control çalışırken alınan throughput aynı şey değildir. Raporlar burada bir ikinci filtre olur: &ldquo;Bu kutu bu yükte ne yapıyor?&rdquo; sorusuna pazarlama dışı bir cevap ararsın.</p>
+<h2 id="support-ve-lifecycle-projeyi-ayakta-tutan-görünmez-kolon">Support ve lifecycle: Projeyi ayakta tutan görünmez kolon</h2>
+<p>Bir ürünün teknik yetenekleri kadar kritik olan şey, onun destek modeli ve yaşam döngüsüdür. Çünkü network tasarımı yalnızca &ldquo;kurulum günü&quot;nden ibaret değildir. Asıl mesele 3 yıl sonra ne olacağıdır:</p>
+<ul>
+<li>Bu ürünün EoL / EoS tarihleri nedir?</li>
+<li>Patch, bugfix, security update hızı nasıldır?</li>
+<li>TAC/Support gerçekten erişilebilir mi, escalation süreci nasıl işler?</li>
+<li>RMA süreçleri ve yedek parça gerçekliği nedir?</li>
+<li>Lisans modeli 1 yıl sonra sürpriz çıkarır mı?</li>
+<li>Üretici roadmap&rsquo;i senin gittiğin yöne mi gidiyor?</li>
+</ul>
+<p>Bunu yazıya özellikle koymak istiyorum çünkü sahada en sık gördüğüm problem şu: ekip teknik olarak doğruya yakın bir ürün seçiyor ama support/lifecycle yüzünden 12 ay sonra operasyon kâbusa dönüyor. Sonra suç cihazda kalıyor; oysa sorun cihazın kendisinden çok, seçimin &ldquo;destek&rdquo; tarafının ciddiye alınmamasıdır.</p>
+<h2 id="firewall-utm-mi-ngfw-mi-yoksa-birden-fazla-rol-mü">Firewall: UTM mi, NGFW mi, yoksa birden fazla rol mü?</h2>
+<p>Firewall, günümüzde ağın &ldquo;kenarındaki güvenlik cihazı&rdquo; olmayı çoktan geçti. Doğru konumlandırılırsa politika beynidir; yanlış konumlandırılırsa her şeyin üstüne yıkıldığı için darboğaz olur.</p>
+<p>Burada en baştan terminolojiyi netlemek iyi olur: UTM ve NGFW kavramları çoğu ortamda birbirine karışıyor.</p>
+<p>UTM yaklaşımı genelde &ldquo;her şey tek kutuda&rdquo; düşüncesine yakın durur: temel firewall + IPS + web filter + AV + bazı gateway özellikleri… Özellikle daha küçük/orta ölçekli yapılarda, yönetim kolaylığı ve paket yaklaşımı yüzünden tercih edilir.</p>
+<p>NGFW ise daha çok uygulama farkındalığı, kullanıcı/kimlik farkındalığı, daha gelişmiş security services ve policy derinliğiyle konumlanır. Bugünün kurumsal ihtiyacında &ldquo;sadece port-protocol&rdquo; ile güvenlik yürütmek çoğu zaman yetmez; NGFW burada devreye girer.</p>
+<p>Ama asıl kritik nokta şu: bir şirketin ihtiyacı tek bir &ldquo;firewall tipi&rdquo; ile bitmeyebilir. Çünkü firewall dediğimiz şey, aslında farklı amaçlar için farklı katmanlarda görev alabilir.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/firewall-selection.webp"/> 
+</figure>
+
+<h3 id="aynı-şirkette-iki-hatta-üç-firewall-neden-normaldir">Aynı şirkette iki (hatta üç) firewall neden normaldir?</h3>
+<p>Birçok kurumda şu senaryolar çok makuldür:</p>
+<ul>
+<li>Perimeter/Internet Edge Firewall: İnternet çıkışı, VPN, NAT, inbound/outbound policy.</li>
+<li>Internal Segmentation Firewall (ISFW): İç ağda segmentasyon, east-west kontrol, kritik zonlar.</li>
+<li>Data Center / High-performance FW: DC trafiği, yüksek session, yüksek PPS, düşük latency ihtiyacı.</li>
+<li>Bazı yapılarda ayrıca WAF ya da Cloud FW gibi özel bileşenler.</li>
+</ul>
+<p>Bu &ldquo;iki firewall almak&rdquo; demek değildir; bu, &ldquo;iki farklı işi doğru araca vermek&rdquo; demektir. Tek kutuya her şeyi yığdığında, ya performans kaybedersin ya yönetim kaybedersin ya da güvenlik kaybedersin.</p>
+<blockquote>
+<p>Bu mimarinin arkasındaki güvenlik felsefesini daha derinlemesine anlamak için: <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Mimari Olarak Mühendislemek</a></p>
+</blockquote>
+<p>Ve bu bizi doğrudan kapasite planlamasına götürür.</p>
+<h2 id="firewall-kapasite-planlaması-throughput-tek-başına-yalan-söyleyebilir">Firewall kapasite planlaması: Throughput tek başına yalan söyleyebilir</h2>
+<p>Firewall seçiminde en tehlikeli yanlış, yalnızca &ldquo;Gbps throughput&rdquo; rakamına bakmaktır. Çünkü gerçek hayatta firewall&rsquo;u öldüren şey çoğu zaman throughput değil:</p>
+<ul>
+<li>PPS (packets per second)</li>
+<li>Concurrent session sayısı</li>
+<li>New session rate</li>
+<li>NAT table ve state</li>
+<li>IPS/AV/App-ID açıkken performans</li>
+<li>SSL/TLS decrypt gibi ağır iş yükleri</li>
+<li>Log üretimi ve log&rsquo;u taşımak (SIEM entegrasyonu)</li>
+</ul>
+<figure>
+    <img loading="lazy" src="/img/postimages/firewall-capacity-planning.webp"/> <figcaption>
+            Firewall Kapasite Planlama Metrikleri
+        </figcaption>
+</figure>
+
+<p>Örnek bir gerçek: &ldquo;10 Gbps firewall aldık&rdquo; cümlesi tek başına anlam taşımaz. Çünkü o 10 Gbps, çoğu vendor datasheet&rsquo;inde &ldquo;ideal koşul&rdquo; ölçümüdür. Senin ortamında IPS, URL filtering, app control, decrypt aktifse; gerçek kapasite dramatik şekilde değişir. Bu yüzden doğru soru şu olmalı:
+&ldquo;Benim açacağım güvenlik özellikleriyle, benim trafik karakterimde, bu firewall ne kadar iş kaldırıyor?&rdquo;</p>
+<p>Bu sorunun cevabı yoksa, seçim risklidir.</p>
+<h2 id="switching-port-sayısından-çok-taşıyabileceği-yük-ve-rolü-önemlidir">Switching: Port sayısından çok, taşıyabileceği yük ve rolü önemlidir</h2>
+<p>Switch seçimi çoğu zaman port sayısıyla başlar: kaç adet bakır port, kaç adet fiber port, PoE ihtiyacı var mı yok mu… Bunlar elbette önemlidir ama core network perspektifinden bakıldığında yeterli değildir. Çünkü switch yalnızca uçları bağlayan bir priz değildir; trafiğin nerede yoğunlaşacağını, nerede ayrışacağını ve nerede yukarı taşınacağını belirleyen bir karar noktasıdır.</p>
+<p>Özellikle access switch tarafında yapılan en yaygın hata, bugünkü ihtiyaca göre port planlaması yapmaktır. Oysa access katmanı, ağda en hızlı değişen katmandır. Bugün bakır port yeterli görünen bir noktada, yarın yüksek bant genişliği isteyen bir AP, bir kamera ya da farklı bir edge cihaz konumlanabilir. Bu yüzden bakır portların hız kabiliyeti (1G mi, 2.5G/5G mi destekliyor), PoE bütçesinin yalnızca toplam watt değil port başına sürdürülebilirliği ve uplink&rsquo;lerin gerçek kapasitesi kritik hale gelir.</p>
+<p>Uplink konusu genellikle hafife alınır. &ldquo;2×10G uplink yeter&rdquo; gibi cümleler çok duyulur ama bu uplink&rsquo;lerin hangi trafik karakterini taşıyacağı çoğu zaman konuşulmaz. Access katmanında kullanıcı sayısı arttıkça, east-west trafik ve broadcast davranışı değiştikçe, uplink&rsquo;ler beklenenden çok daha hızlı doygunluğa ulaşabilir. Bu noktada yalnızca uplink hızına değil, switch&rsquo;in backplane kapasitesine ve oversubscription oranlarına bakmak gerekir.</p>
+<p>Edge switch ile datacenter switch arasındaki fark da çoğu projede net çizilmez. Edge switch&rsquo;ler genellikle kullanıcı ve cihaz yoğunluğu için optimize edilir: çok sayıda port, PoE, erişim odaklı özellikler. Datacenter switch&rsquo;ler ise yüksek throughput, düşük latency, yüksek PPS ve east-west trafiği kaldıracak mimariyle gelir. Core network tasarlarken &ldquo;bu switch nerede duracak ve neyi taşıyacak?&rdquo; sorusu, &ldquo;kaç portu var?&rdquo; sorusundan önce gelmelidir.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/switching-selection.webp"/> 
+</figure>
+
+<p>Inter-VLAN routing kararları da switch seçimiyle doğrudan ilişkilidir. Eğer routing switch üzerinde yapılacaksa, bu switch&rsquo;in yalnızca L3 desteklemesi yetmez; route scale, TCAM kapasitesi, policy uygulanabilirliği ve bu kararların firewall ile nasıl entegre olacağı düşünülmelidir.</p>
+<h2 id="access--wi-fi-radyo-kadar-uplink-ve-kontrol-katmanı-da-mimarinin-parçasıdır">Access / Wi-Fi: Radyo kadar uplink ve kontrol katmanı da mimarinin parçasıdır</h2>
+<p>Kablosuz ağlar konuşulurken odak genellikle Wi-Fi standardına kayar: Wi-Fi 6, 6E, 7… Oysa pratikte kablosuz performansı sınırlayan şey çoğu zaman hava değil, kablodur. Access point ne kadar güçlü olursa olsun, arkasındaki uplink bunu taşıyamıyorsa teorik hızlar hiçbir anlam ifade etmez.</p>
+<p>Bugün pek çok kurumsal AP, 1 Gbps uplink ile sınırlandığında potansiyelinin ciddi bir kısmını kullanamaz. Bu yüzden 2.5G ve 5G bakır uplink desteği, özellikle yoğun kullanıcı olan ortamlarda bir &ldquo;lüks&rdquo; değil, doğrudan tasarım gereksinimidir. AP ve switch seçimi bu yüzden ayrı ayrı değil, birlikte yapılmalıdır.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/wifi-selection.webp"/> 
+</figure>
+
+<p>Wi-Fi tarafında bir diğer kritik konu, controller mimarisidir. Controller&rsquo;ın desteklediği AP sayısı, eş zamanlı client kapasitesi ve roaming davranışı, ağın gerçek hayattaki stabilitesini belirler. Controller kapasitesi yalnızca lisans sayısı değil; CPU, bellek, session handling ve policy enforcement kapasitesiyle birlikte değerlendirilmelidir.</p>
+<p>Ayrıca kablosuz ağlar çoğu zaman &ldquo;edge&rdquo; gibi düşünülür ama gerçekte core network&rsquo;ü en hızlı zorlayan katmandır. AP seçimi yalnızca kapsama alanı hesabı değil; core network davranışını doğrudan etkileyen bir mimari karardır.</p>
+<h2 id="kapanış-üretici-seçimi-mimari-olgunluk-ve-gerçekler">Kapanış: Üretici Seçimi, Mimari Olgunluk ve Gerçekler</h2>
+<p>Bu noktada şunu özellikle belirtmek istiyorum: aşağıda bahsettiklerim tamamen kişisel saha tecrübelerime ve gözlemlerime dayanıyor. Bir üreticiyi övmek ya da yermekten çok, nerede güçlü olduklarını ve nerede zorlandıklarını açıkça söylemek niyetindeyim.</p>
+<p>Cisco ile başlamak doğal. Switching ve routing tarafında hâlâ sektörün en güçlü oyuncularından biri. Özellikle büyük ve karmaşık yapılarda, campus ve datacenter switching konusunda ciddi bir olgunlukları var. Ancak şunu net söylemek gerekir: tüm ürünleri Cisco seçtiğinizde, bu ürünlerin birbiriyle entegrasyonu çoğu zaman bir admin için yorucu ve zahmetli olabiliyor.</p>
+<p>Yaklaşık on yıldır gelişimini yakından izlediğim HPE Aruba tarafı ise farklı bir hikâye sunuyor. Switching tarafında Aruba ailesi oldukça yaygın ve sevecen bir kullanıcı kitlesine sahip. Wireless tarafında ise benim kişisel görüşüm, sektördeki en güçlü Wi-Fi çözümlerinden birine sahipler. Kendi başına güçlü bir firewall ürün ailesinin olmaması bu alanda bir eksiklik.</p>
+<p>Fortinet tarafı ise çok geniş bir ürün yelpazesi sunuyor. Firewall, switching ve wireless tarafında &ldquo;tek çatı altında&rdquo; komple bir çözüm sunabilmeleri ciddi bir avantaj. Fortinet ekosisteminin bana göre en büyük artılarından biri, kullanım ve arayüz kolaylığı.</p>
+<p>Palo Alto Networks tarafına geldiğimizde tablo daha net: Palo Alto, firewall konusunda çok güçlü ve bu alanda tartışmasız şekilde lider üreticilerden biri. Application visibility, policy derinliği ve özellikle SASE gibi alanlarda Palo Alto&rsquo;nun ciddi bir fark yarattığını düşünüyorum.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/vendor-selection.webp"/> 
+</figure>
+
+<p>Son olarak özellikle altını çizmek istediğim bir nokta var: günümüzde neredeyse tüm büyük üreticiler otomasyon tarafına ciddi yatırım yapıyor. API desteği artık bir &ldquo;ekstra&rdquo; değil, doğrudan bir seçim kriteri.</p>
+<blockquote>
+<p>Altyapınızda gerçek görünürlük oluşturmak için pratik bir çerçeve: <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a></p>
+</blockquote>
+<h2 id="sistem-odası-ve-kablolama-kimsenin-konuşmak-istemediği-ama-herkesin-bedelini-ödediği-gerçek">Sistem Odası ve Kablolama: Kimsenin Konuşmak İstemediği Ama Herkesin Bedelini Ödediği Gerçek</h2>
+<p>Network projelerinde en çok konuşulan konular genelde en &ldquo;parlak&rdquo; olanlardır. Ama sahada yaşanan problemlerin önemli bir kısmı, bu ürünlerden çok daha temel bir yerde başlar: sistem odası tasarımı ve kablolama altyapısı.</p>
+<p>Benim yıllar içinde defalarca gördüğüm bir gerçek var: ne kadar iyi ürünler seçersen seç, ne kadar doğru mimari kurgularsan kurgula; eğer sistem odası ve kablolama altyapısı zayıfsa, o ağ eninde sonunda problem üretir.</p>
+<p>Sistem odası çoğu kurumda hâlâ bir &ldquo;eşya odası&rdquo; gibi ele alınıyor. İlk başta küçük bir alana birkaç rack konuyor, işler büyüdükçe aynı odaya yeni cihazlar ekleniyor, kablolar üst üste geliyor, geçici çözümler kalıcı hale geliyor. İşte asıl risk tam burada başlıyor.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/server-room-and-cabling.webp"/> 
+</figure>
+
+<p>Bir sistem odası yalnızca cihazların durduğu bir yer değildir. O oda, ağın kalbidir. Isı, enerji, hava akışı, erişilebilirlik ve düzen; hepsi birlikte düşünülmelidir.</p>
+<p>Kablolama altyapısı ise genelde &ldquo;bir kere yapılır ve unutulur&rdquo; diye düşünülür. Oysa kablolama, network&rsquo;ün en uzun ömürlü parçasıdır. Switch&rsquo;i, firewall&rsquo;u, access point&rsquo;i değiştirirsin; ama kablo orada kalır.</p>
+<p>Fiber ve bakır kabloların nerede, hangi amaçla kullanılacağı da mimari bir karardır. Patch panel düzeni, kablo etiketleme, rack içi ve rack arası kablo yönetimi doğrudan operasyonel konulardır.</p>
+<p>Benim bakış açıma göre sistem odası ve kablolama, core network tasarımının &ldquo;alt katmanı&rdquo; değildir; temelidir. İyi çalışan bir network&rsquo;ün arkasında çoğu zaman iyi tasarlanmış bir sistem odası ve temiz bir kablolama altyapısı vardır. Kimse bunu fark etmez; çünkü zaten sorun çıkmaz. Ve bana göre bu, bir altyapı tasarımının alabileceği en büyük övgüdür.</p>
+<h2 id="not">Not</h2>
+<p>Bu makale ilk olarak <strong>Substack</strong>&rsquo;te daha kısa, anlatısal bir biçimde yayınlanmıştı.
+Bu versiyon, serinin mimari temelini genişletiyor.</p>
+<p>👉 <strong>Makaleyi Substack&rsquo;te okuyun:</strong> <a href="https://substack.com/home/post/p-183952844">Burayı Tıklayın</a></p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p>Bu yazıyı faydalı bulduysanız, şu yazılar da ilginizi çekebilir:</p>
+<p><strong>Mimari &amp; Güvenlik Tasarımı</strong></p>
+<ul>
+<li>📐 <a href="/tr/architecture/it-infrastructure-is-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Bu serinin temel yazısı</li>
+<li>🛡️ <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Mimari Olarak Mühendislemek</a> — Zero Trust neden bir ürün değil, bir felsefedir</li>
+<li>📊 <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a> — Altyapınızda gerçek görünürlük nasıl inşa edilir</li>
+</ul>
+<p><strong>Teknik Mühendislik</strong></p>
+<ul>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-terminal-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Her şey kesildiğinde out-of-band erişim</li>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Gelişmiş trafik görünürlüğü ve güvenlik stratejisi</li>
+<li>🔐 <a href="/tr/posts/unlocking-success-in-802-1x-projects-field-insights/">802.1X Projelerinde Başarı: Saha Deneyimleri</a> — Kurumsal ağlarda kimlik tabanlı erişim</li>
+<li>⚙️ <a href="/tr/posts/cisco-nexus-nxos-upgrade-guide/">Nexus Yazılım Yükseltme Rehberi</a> — Kesintisiz NX-OS yükseltme adım adım</li>
+</ul>
+]]></content:encoded></item><item><title>IT Altyapısı Bir Ürün Koleksiyonu Değildir — Bir Sistemdir</title><link>https://barashhelvadzhaoglu.com/tr/architecture/it-infrastructure-not-a-collection-of-products/</link><pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/it-infrastructure-not-a-collection-of-products/</guid><description>IT altyapı projeleri ortam sistem haline gelemediğinde başarısız olur. Core Network serisi için mimari çerçeveyi belirleyen temel yazı.</description><content:encoded><![CDATA[<h1 id="it-altyapısı-bir-ürün-koleksiyonu-değildir--bir-sistemdir">IT Altyapısı Bir Ürün Koleksiyonu Değildir — Bir Sistemdir</h1>
+<h2 id="gerçek-altyapı-tasarımı-neden-sistemlerle-başlar-araçlarla-değil">Gerçek altyapı tasarımı neden sistemlerle başlar, araçlarla değil</h2>
+<p>Bu yazı serinin <strong>mimari temeli</strong> olarak işlev görür.
+Switch&rsquo;lerden, firewall&rsquo;lardan, kablosuz ağlardan, Zero Trust&rsquo;tan veya 802.1X&rsquo;ten konuşmadan önce bir şeyi netleştirmemiz gerekiyor:</p>
+<p><strong>IT altyapısı, satın aldığınız ürünlerin toplamı değildir.</strong>
+Sistemlerin baskı altında birlikte nasıl davrandığının sonucudur.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/it-infrastructure-not-a-collection-of-products.webp"/> <figcaption>
+            Entegre Bir Sistem Olarak IT Altyapısı
+        </figcaption>
+</figure>
+
+<hr>
+<h2 id="altyapı-projelerinin-gerçekte-nerede-başarısız-olduğu">Altyapı projelerinin gerçekte nerede başarısız olduğu</h2>
+<p>Altyapı girişimlerinin çoğu iyi niyetle başlar. Bir yenileme planlanır, bütçe onaylanır ve tartışma hızla ürün karşılaştırmalarına döner. Üreticiler değerlendirilir, özellik listeleri karşılaştırılır, veri sayfaları ayrıntılı incelenir.</p>
+<p>Ancak bu projelerin çoğu pratikte başarısız olur — seçilen ürünler kötü olduğu için değil, altyapı hiçbir zaman bir <em>sistem</em> haline gelmediği için.</p>
+<p>Yıllar içinde defalarca gördüğüm tablo şu: Her bileşen kendi başına mükemmel çalışır, ancak ortamın genel davranışı öngörülemezdir. Kimlik bir yerde yönetilir, segmentasyon başka bir yerde, politika uygulama başka bir yerde — ve operasyon elle bir araya getirilir. Bir şey bozulduğunda, hiçbir katmanın tam bağlamı yoktur.</p>
+<p>Altyapı vardır.
+Ama <strong>altyapı davranışı yoktur</strong>.</p>
+<hr>
+<h2 id="ürünler-sorun-çözer-sistemler-organizasyonları-ayakta-tutar">Ürünler sorun çözer. Sistemler organizasyonları ayakta tutar.</h2>
+<p>Bir ürün, belirli bir sorunu çözmek için tasarlanır.
+Bir altyapı, bir organizasyonu ayakta tutmak için tasarlanır.</p>
+<p>Bu ayrım ince ama kritiktir. Ürünler değiştirilebilir. Sistemler evrimleşmek zorundadır.</p>
+<p>Altyapı bir araç koleksiyonu olarak inşa edildiğinde, kararlar yerel olarak optimize edilir. Her ekip kendi alanı için en iyi olanı seçer. Zamanla bu yerel optimizasyonlar küresel bir karmaşıklığa dönüşür. Entegrasyon kırılganlaşır, sorun giderme yavaşlar ve her değişiklik risk taşır.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/products-vs-systems-thinking.webp"/> <figcaption>
+            Ürün vs Sistem Düşüncesi
+        </figcaption>
+</figure>
+
+<p>Sistem odaklı tasarım farklı çalışır. Temel sorularla başlar:</p>
+<ul>
+<li>Kimlik nereden kaynaklanır ve ne kadar ileri gider?</li>
+<li>Güven sınırları nerede tanımlanır?</li>
+<li>Hangi bileşenler politika kararları alır, hangileri yalnızca uygular?</li>
+<li>Bağlam katmanlar arasında nasıl korunur?</li>
+<li>Bir şey başarısız olduğunda operasyonel olarak ne olur?</li>
+</ul>
+<p>Bu sorulara net cevaplar olmadan, en iyi ürünler bile eninde sonunda birbirine karşı çalışacaktır.</p>
+<blockquote>
+<p>Kimliğin ve güven sınırlarının pratikte nasıl tanımlandığına dair derinlemesine bir bakış için: <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Mimari Olarak Mühendislemek</a></p>
+</blockquote>
+<hr>
+<h2 id="mimari-baskı-altında-kendini-gösterir">Mimari baskı altında kendini gösterir</h2>
+<p>Her şey çalışırken altyapı tasarımı kolaydır.
+Mimari ancak bir şeyler ters gittiğinde ortaya çıkar.</p>
+<p>Olaylar, ölçekleme sorunları, güvenlik ihlalleri ve operasyonel değişiklikler, hiçbir zaman yazılmamış tasarım varsayımlarını gün yüzüne çıkarır. Gevşek bağlantılı ürünlerden oluşan ortamlarda bu anlar yangın söndürme tatbikatlarına dönüşür. Geçici çözümler kalıcı istisnalar haline gelir. Zamanla altyapı tutarlılığını kaybeder.</p>
+<p>İyi tasarlanmış sistemler farklı davranır. Zarif biçimde bozulurlar. Sorumluluklar nettir. Arızalar sınırlıdır. Kurtarma yolları önceden bilinir. Bu tesadüf değildir — bilinçli mimari kararların sonucudur.</p>
+<hr>
+<h2 id="entegrasyon-bir-özellik-değildir">Entegrasyon bir özellik değildir</h2>
+<p>Altyapı tasarımındaki en yaygın yanılgılardan biri, entegrasyonu bir onay kutusu olarak ele almaktır. Ürünlerin aynı standartları destekledikleri veya aynı üreticiden geldikleri için entegre olduklarına inanılır.</p>
+<p>Gerçek entegrasyon uyumlulukla ilgili değildir.
+<strong>Paylaşılan bağlamla</strong> ilgilidir.</p>
+<p>Kimlik farkındalıklı uygulama, tutarlı segmentasyon, birleşik loglama, öngörülebilir politika davranışı — bunlar &ldquo;entegre&rdquo; ürünler satın alınarak garanti edilmez. Bir sistemin parçası olarak tasarlanmalı, test edilmeli ve işletilmelidir.</p>
+<p>Bunu olmadan entegrasyon yalnızca slaytlarda var olur.</p>
+<hr>
+<h2 id="operasyon-gerçek-mimariyi-tanımlar">Operasyon gerçek mimariyi tanımlar</h2>
+<p>Bir ortamın gerçek mimarisi diyagramlarda değil,
+operasyonel iş akışlarında bulunur.</p>
+<ul>
+<li>Değişiklikler nasıl devreye alınır?</li>
+<li>Olaylar nasıl teşhis edilir?</li>
+<li>İstisnalar nasıl yönetilir?</li>
+<li>Otomasyon nasıl hayata geçirilir?</li>
+<li>Sorumluluklar ekipler arasında nasıl bölünür?</li>
+</ul>
+<figure>
+    <img loading="lazy" src="/img/postimages/operations-define-architecture.webp"/> <figcaption>
+            Operasyon Gerçek Mimariyi Tanımlar
+        </figcaption>
+</figure>
+
+<p>Bu iş akışları manuel, parçalı veya belgelenmemişse, teknoloji yığını ne kadar modern görünse de altyapı bu gerçeği yansıtacaktır.</p>
+<p>Bu nedenle otomasyon, gözlemlenebilirlik ve yaşam döngüsü yönetimi isteğe bağlı ekstralar değildir. Bunlar mimari unsurlardır. Tutarlı biçimde işletilemeyecek altyapı hiçbir zaman güvenli ölçeklenemez.</p>
+<blockquote>
+<p>Altyapınızda gerçek gözlemlenebilirlik oluşturmak için pratik bir çerçeve: <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a></p>
+</blockquote>
+<hr>
+<h2 id="networkingden-konuşmadan-önce-bu-neden-önemlidir">Networking&rsquo;den konuşmadan önce bu neden önemlidir</h2>
+<p>Networking genellikle bu sorunların ilk görünür hale geldiği yerdir.
+Trafik akışları kırık güven modellerini ortaya çıkarır. Segmentasyon eksik kimliği gözler önüne serer. Performans sorunları mimari kısayolları açığa çıkarır.</p>
+<p>Ama networking kök neden değildir.
+O bir aynادır.</p>
+<p>Bu yüzden bu seri buradan başlıyor. Core network tasarımına, üretici stratejilerine, Zero Trust&rsquo;a veya 802.1X&rsquo;e dalmadan önce ortak bir anlayışa ihtiyacımız var: altyapıya bir bütçeyle oluşturulmuş alışveriş listesi olarak değil, niyetle tasarlanmış bir sistem olarak yaklaşılmalıdır.</p>
+<hr>
+<h2 id="bu-seriyi-yönlendiren-ilke">Bu seriyi yönlendiren ilke</h2>
+<p>Sonraki her makale tek bir ilke üzerine inşa edilir:</p>
+<blockquote>
+<p><strong>Önce sistemi tasarla. Sonra ürünleri seç.</strong></p>
+</blockquote>
+<p>Bu sıra tersine döndüğünde altyapı pahalı ve kırılgan hale gelir.
+Bu sıraya uyulduğunda altyapı öngörülebilir ve uyarlanabilir hale gelir.</p>
+<hr>
+<h2 id="sırada-ne-var">Sırada ne var</h2>
+<p>Bu serinin bir sonraki makalesi bu düşünceyi doğrudan core network&rsquo;e uygular:</p>
+<ul>
+<li>Core network&rsquo;ün neden switch, firewall ve access point listesi olmadığı</li>
+<li>Entegrasyon, kapasite planlaması ve operasyonel bağlamın gerçek network mimarisini nasıl tanımladığı</li>
+</ul>
+<p>Bu ilk makale temeli belirlemek için vardır.
+Diğer her şey bunun üzerine inşa edilir.</p>
+<h2 id="not">Not</h2>
+<p>Bu makale ilk olarak <strong>Substack</strong>&rsquo;te daha kısa, anlatısal bir biçimde yayınlanmıştı.
+Bu versiyon, serinin mimari temelini genişletiyor.</p>
+<p>👉 <strong>Makaleyi Substack&rsquo;te okuyun:</strong> <a href="https://substack.com/home/post/p-182765674">Burayı Tıklayın</a></p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Mimari &amp; Güvenlik Tasarımı</strong></p>
+<ul>
+<li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a> — Core network tasarımında sistem düşüncesi</li>
+<li>🛡️ <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Mimari Olarak Mühendislemek</a> — Zero Trust neden bir ürün değil, bir felsefedir</li>
+<li>📊 <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a> — Altyapınızda gerçek görünürlük nasıl inşa edilir</li>
+</ul>
+<p><strong>Teknik Mühendislik</strong></p>
+<ul>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-terminal-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Her şey kesildiğinde out-of-band erişim</li>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Gelişmiş trafik görünürlüğü ve güvenlik stratejisi</li>
+<li>🔐 <a href="/tr/posts/unlocking-success-in-802-1x-projects-field-insights/">802.1X Projelerinde Başarı: Saha Deneyimleri</a> — Kurumsal ağlarda kimlik tabanlı erişim</li>
+</ul>
+]]></content:encoded></item></channel></rss>

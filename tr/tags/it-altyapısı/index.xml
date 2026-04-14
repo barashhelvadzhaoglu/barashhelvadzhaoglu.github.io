@@ -1,1 +1,183 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>IT Altyapısı on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/it-altyap%C4%B1s%C4%B1/</link><description>Recent content in IT Altyapısı on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Sun, 04 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/it-altyap%C4%B1s%C4%B1/index.xml" rel="self" type="application/rss+xml"/><item><title>The Monitoring Mindset: Görmek Değil, Anlamak ve Önceden Davranabilmek</title><link>https://barashhelvadzhaoglu.com/tr/architecture/monitoring-not-just-seeing/</link><pubDate>Sun, 04 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/monitoring-not-just-seeing/</guid><description>Monitoring sadece dashboard değildir. IT altyapısını anlamak, sorunları erken tespit etmek ve proaktif operasyon kültürü için kritik yetkinlik.</description></item><item><title>IT Altyapısı Bir Ürün Koleksiyonu Değildir — Bir Sistemdir</title><link>https://barashhelvadzhaoglu.com/tr/architecture/it-infrastructure-not-a-collection-of-products/</link><pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/it-infrastructure-not-a-collection-of-products/</guid><description>IT altyapı projeleri ortam sistem haline gelemediğinde başarısız olur. Core Network serisi için mimari çerçeveyi belirleyen temel yazı.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>IT Altyapısı on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/it-altyap%C4%B1s%C4%B1/</link><description>Recent content in IT Altyapısı on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Sun, 04 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/it-altyap%C4%B1s%C4%B1/index.xml" rel="self" type="application/rss+xml"/><item><title>The Monitoring Mindset: Görmek Değil, Anlamak ve Önceden Davranabilmek</title><link>https://barashhelvadzhaoglu.com/tr/architecture/monitoring-not-just-seeing/</link><pubDate>Sun, 04 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/monitoring-not-just-seeing/</guid><description>Monitoring sadece dashboard değildir. IT altyapısını anlamak, sorunları erken tespit etmek ve proaktif operasyon kültürü için kritik yetkinlik.</description><content:encoded><![CDATA[<h1 id="the-monitoring-mindset-görmek-değil-anlamak-ve-önceden-davranabilmek">The Monitoring Mindset: Görmek Değil, Anlamak ve Önceden Davranabilmek</h1>
+<p>Monitoring, çoğu IT ekiplerinin konuştuğu ama çoğu zaman yanlış uyguladığı bir konu. Monitoring denildiğinde akla bir yazılım, bir dashboard ya da kırmızı–yeşil alarm ekranları gelir. Oysa monitoring, tek başına bir araç ya da grafikler bütünü değildir.</p>
+<p><strong>Monitoring&rsquo;in gerçek değeri, sorunları kullanıcı fark etmeden görüp önlem almaktır.</strong></p>
+<p>IT altyapıları büyüdükçe ve çeşitlendikçe, &ldquo;her şey çalışıyor mu?&rdquo; sorusu giderek anlamsızlaşır. Modern altyapılarda aynı anda fiziksel sunucular, sanallaştırma platformları, network cihazları, firewall&rsquo;lar, access point&rsquo;ler ve bunların üzerinde çalışan onlarca farklı yazılım bulunur. Mail server&rsquo;lar, dosya sunucuları, kamera sistemleri, web uygulamaları, sektöre özel iş yazılımları… Hepsi aynı anda ayakta durmak zorundadır. Monitoring tam olarak bu noktada devreye girer: bir şey bozulmadan önce onu fark edebilmek.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/monitoring-not-just-seeing.webp"
+         alt="IT monitoring dashboard and infrastructure visualization"/> <figcaption>
+            Monitoring and Observability
+        </figcaption>
+</figure>
+
+<blockquote>
+<p>Bu yazı, mimari bir perspektiften başlayan serinin operasyonel ayağını oluşturuyor. Altyapının nasıl tasarlandığını anlamak için: <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a></p>
+</blockquote>
+<h2 id="iki-temel-katman-fiziksel-altyapı-ve-yazılımservis">İki Temel Katman: Fiziksel Altyapı ve Yazılım/Servis</h2>
+<p>Monitoring konusunu sağlıklı ele alabilmek için önce iki temel katmanı ayırmak gerekir: fiziksel altyapı ve yazılım/servis katmanı. Bu ayrım net yapılmadığında monitoring ya eksik kalır ya da gürültü üretir.</p>
+<p>Fiziksel altyapı dediğimizde; sunucular, network cihazları, firewall&rsquo;lar, storage sistemleri, access point&rsquo;ler ve bunları ayakta tutan enerji ve soğutma bileşenleri akla gelir. Bu katmanda yaşanan problemler genellikle sessiz başlar. Bir fan yavaşlar, bir güç kaynağı dalgalanır, bir CPU uzun süre yüksek kullanımda kalır. Sistem çalışıyordur ama sağlıklı değildir. Monitoring&rsquo;in burada görevi &ldquo;çalışıyor&rdquo; durumunu değil, sağlık durumunu takip etmektir. CPU uzun süre yüksek kullanımda veya fan yavaş çalışıyorsa sistem teknik olarak aktif ama risk altındadır.</p>
+<p><strong>Bu bölümden akılda kalması gereken:</strong> fiziksel altyapı problemleri genelde sessiz başlar; monitoring sağlık göstergelerine odaklanmalıdır.</p>
+<h2 id="fiziksel-katmanda-doğru-metrikler">Fiziksel Katmanda Doğru Metrikler</h2>
+<p>Fiziksel altyapının monitör edilmesi çoğu zaman donanım seviyesindeki metriklerle başlar: CPU ve bellek kullanımı, disk doluluk oranları, güç kaynaklarının durumu, fan hızları, sıcaklık değerleri. Ancak burada kritik bir nokta vardır — bu metriklerin anlamlı olabilmesi için cihazlerin işletim sistemlerinin stabil çalışması ve doğru yapılandırılmış olması gerekir.</p>
+<p>SNMP üzerinden monitoring yapılacaksa, SNMP konfigürasyonlarının doğru tanımlanmış olması, erişim yetkilerinin düzgün ayarlanması ve network tarafında gerekli izinlerin verilmiş olması şarttır. Aksi halde monitoring sistemi vardır ama veri güvenilmezdir. Ücretsiz çözümler (Zabbix gibi) bu konuda oldukça güçlüdür; ticari çözümler (SolarWinds, PRTG vb.) ise genellikle kurulum ve kullanım kolaylığı sağlar. Ancak hangi araç kullanılırsa kullanılsın, aracın kendisi problemi çözmez — problemi çözen, doğru metriklerin doğru eşiklerle izlenmesidir.</p>
+<p><strong>Bu katmanın kilidi:</strong> araçtan önce yapılandırma gelir; yanlış veri, yanlış alarm üretir.</p>
+<h2 id="yazılım-ve-servis-katmanı-tek-tip-monitoring-mümkün-değil">Yazılım ve Servis Katmanı: Tek Tip Monitoring Mümkün Değil</h2>
+<p>Yazılım ve servis katmanına geldiğimizde monitoring çok daha karmaşık hale gelir. Çünkü her yazılımın davranışı, yük profili ve kritik eşikleri farklıdır. Bir web servisi için önemli olan response time iken, bir mail server için kuyruklar ve servis durumları daha kritiktir. Bir dosya sunucusunda disk I/O öne çıkarken, bir kamera sistemi için stream sürekliliği ve bağlantı stabilitesi belirleyici olur.</p>
+<p>Buna ek olarak, şirketin faaliyet gösterdiği sektöre özgü yazılımlar devreye girer. Otelcilik sektöründe rezervasyon sistemleri, sağlık sektöründe randevu ve hasta yönetim sistemleri, sanayi tarafında üretim veya otomasyon yazılımları… Bu yazılımların her biri iş sürekliliği açısından kritiktir ve her biri için farklı monitoring yaklaşımları gerekir.</p>
+<p><strong>Bu bölümün özeti:</strong> yazılım monitoring&rsquo;i genelleştirilemez; iş kritikliğine göre tasarlanmalıdır.</p>
+<h2 id="monitoring-bir-rutin-olmadan-anlamsızlaşır">Monitoring Bir Rutin Olmadan Anlamsızlaşır</h2>
+<figure>
+    <img loading="lazy" src="/img/postimages/monitoring-proactive-operations.webp"/> <figcaption>
+            Proaktif IT Operasyonları: Monitoring Bir Süreçtir
+        </figcaption>
+</figure>
+
+<p>Monitoring&rsquo;in çoğu şirkette başarısız olmasının temel sebeplerinden biri, bu konunun operasyonel rutinin bir parçası haline getirilmemesidir. Sistemler kurulur, monitoring aracı devreye alınır, birkaç alarm tanımlanır — ve sonra günlük operasyonun yoğunluğu içinde bu yapı arka plana düşer. Alarmlar ya fazla olduğu için görmezden gelinir ya da hiç üretilmediği için sorunlar kullanıcı şikayetleriyle fark edilir.</p>
+<p>Oysa monitoring düzenli olarak kontrol edilmesi gereken bir süreçtir. Günlük kontroller basit bir checklist ile veya ITSM sistemindeki task&rsquo;lar aracılığıyla yapılabilir. IT ekiplerinin günlük ya da haftalık iş rutinleri vardır — bu rutinlerin içine monitoring kontrolleri de bilinçli olarak eklenmelidir. Eğer şirket bir ITSM veya task yönetim sistemi kullanıyorsa, monitoring kontrolleri periyodik task&rsquo;lar halinde otomatik oluşturulmalı ve ilgili kişilere atanmalıdır. Böylece monitoring &ldquo;bakarsak bakarız&rdquo; yaklaşımından çıkar, ölçülebilir bir iş kalemi haline gelir.</p>
+<p><strong>Buradaki temel fikir:</strong> monitoring kontrol edilmezse anlamını yitirir; süreç rutinin parçası olmalıdır.</p>
+<h2 id="proaktif-çalışmanın-somut-değeri">Proaktif Çalışmanın Somut Değeri</h2>
+<p>Bu yaklaşımın önemli bir yan etkisi daha vardır: harcanan zaman görünür hale gelir. Günlük bir saat ya da haftalık birkaç saat monitoring&rsquo;e ayrıldığında bu süre boşa gitmez. Aksine, IT operasyonlarının proaktif çalıştığını gösteren somut bir kayıt oluşur. Problemler çıkmadan fark edilir, kullanıcıya yansımadan çözülür — ve bu IT ekibinin reaktif değil, önleyici çalıştığını kanıtlar.</p>
+<p>Ayrıca merkezi monitoring sayesinde problemler tek bir noktadan analiz edilebilir. Bu hem sorun çözüm süresini kısaltır hem de kök neden analizini mümkün kılar. Aynı tip problemler tekrarlandığında artık &ldquo;ne olduğunu&rdquo; değil, &ldquo;neden olduğunu&rdquo; konuşmaya başlanır. İşte monitoring&rsquo;in gerçek değeri burada yatar.</p>
+<p><strong>Bu bölümün kilidi:</strong> monitoring reaktif değil proaktif çalışmayı sağlar; zaman ve efor görünür hale gelir.</p>
+<h2 id="bütüncül-monitoring-cihaz-değil-servis-davranışı">Bütüncül Monitoring: Cihaz Değil, Servis Davranışı</h2>
+<p>Günün sonunda monitoring; network, sunucu, firewall, wireless ve yazılım katmanlarının birbirinden kopuk değil birlikte izlenmesini gerektirir. Sadece cihazları izlemek yeterli değildir — bu cihazların ürettiği servislerin iş tarafına etkisi de gözlemlenmelidir.</p>
+<p>Bir firewall çalışıyor olabilir ama kullanıcı mail atamıyorsa monitoring başarısızdır. Bir switch ayakta olabilir ama access point&rsquo;ler sürekli bağlantı kaybediyorsa yine başarısızdır. Monitoring&rsquo;in gerçek değeri IT altyapısının &ldquo;nasıl çalıştığını&rdquo; görünür kılmasındadır. Bu görünürlük sağlandığında kapasite planlaması daha sağlıklı yapılır, değişiklikler daha az riskli olur ve operasyonlar daha öngörülebilir hale gelir.</p>
+<p><strong>Son kilit:</strong> monitoring bütüncül olmak zorundadır; servis davranışı cihazdan daha önemlidir.</p>
+<h2 id="sonuç">Sonuç</h2>
+<p>Monitoring; dashboard&rsquo;lar, alarmlar ya da grafikler değildir. Monitoring; altyapının nabzını tutmaktır.</p>
+<p>Doğru kurgulanmış bir monitoring yapısı sayesinde IT ekipleri sorunları kullanıcıdan önce fark eder, müdahaleleri planlı yapar ve altyapıyı reaktif değil bilinçli şekilde yönetir. Bu da monitoring&rsquo;i teknik bir detay olmaktan çıkarır; doğrudan operasyonel ve stratejik bir yetkinlik haline getirir.</p>
+<p>Bu yüzden monitoring &ldquo;kuralım dursun&rdquo; denilecek bir sistem değil; tasarlanacak, işletilecek ve sürekli iyileştirilecek bir süreçtir.</p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Mimari &amp; Strateji</strong></p>
+<ul>
+<li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Bu serinin temel yazısı</li>
+<li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a> — Mimari öncelikli core network tasarımı</li>
+<li>🛡️ <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Mimari olarak güvenlik</li>
+<li>🎯 <a href="/tr/architecture/network-infrastructure-product-selection-strategic-criteria/">Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler ve Saha Deneyimleri</a> — Stratejik ürün değerlendirmesi</li>
+</ul>
+<p><strong>Teknik Mühendislik</strong></p>
+<ul>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-terminal-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Out-of-band erişim</li>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Trafik görünürlüğü ve güvenlik stratejisi</li>
+</ul>
+]]></content:encoded></item><item><title>IT Altyapısı Bir Ürün Koleksiyonu Değildir — Bir Sistemdir</title><link>https://barashhelvadzhaoglu.com/tr/architecture/it-infrastructure-not-a-collection-of-products/</link><pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/it-infrastructure-not-a-collection-of-products/</guid><description>IT altyapı projeleri ortam sistem haline gelemediğinde başarısız olur. Core Network serisi için mimari çerçeveyi belirleyen temel yazı.</description><content:encoded><![CDATA[<h1 id="it-altyapısı-bir-ürün-koleksiyonu-değildir--bir-sistemdir">IT Altyapısı Bir Ürün Koleksiyonu Değildir — Bir Sistemdir</h1>
+<h2 id="gerçek-altyapı-tasarımı-neden-sistemlerle-başlar-araçlarla-değil">Gerçek altyapı tasarımı neden sistemlerle başlar, araçlarla değil</h2>
+<p>Bu yazı serinin <strong>mimari temeli</strong> olarak işlev görür.
+Switch&rsquo;lerden, firewall&rsquo;lardan, kablosuz ağlardan, Zero Trust&rsquo;tan veya 802.1X&rsquo;ten konuşmadan önce bir şeyi netleştirmemiz gerekiyor:</p>
+<p><strong>IT altyapısı, satın aldığınız ürünlerin toplamı değildir.</strong>
+Sistemlerin baskı altında birlikte nasıl davrandığının sonucudur.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/it-infrastructure-not-a-collection-of-products.webp"/> <figcaption>
+            Entegre Bir Sistem Olarak IT Altyapısı
+        </figcaption>
+</figure>
+
+<hr>
+<h2 id="altyapı-projelerinin-gerçekte-nerede-başarısız-olduğu">Altyapı projelerinin gerçekte nerede başarısız olduğu</h2>
+<p>Altyapı girişimlerinin çoğu iyi niyetle başlar. Bir yenileme planlanır, bütçe onaylanır ve tartışma hızla ürün karşılaştırmalarına döner. Üreticiler değerlendirilir, özellik listeleri karşılaştırılır, veri sayfaları ayrıntılı incelenir.</p>
+<p>Ancak bu projelerin çoğu pratikte başarısız olur — seçilen ürünler kötü olduğu için değil, altyapı hiçbir zaman bir <em>sistem</em> haline gelmediği için.</p>
+<p>Yıllar içinde defalarca gördüğüm tablo şu: Her bileşen kendi başına mükemmel çalışır, ancak ortamın genel davranışı öngörülemezdir. Kimlik bir yerde yönetilir, segmentasyon başka bir yerde, politika uygulama başka bir yerde — ve operasyon elle bir araya getirilir. Bir şey bozulduğunda, hiçbir katmanın tam bağlamı yoktur.</p>
+<p>Altyapı vardır.
+Ama <strong>altyapı davranışı yoktur</strong>.</p>
+<hr>
+<h2 id="ürünler-sorun-çözer-sistemler-organizasyonları-ayakta-tutar">Ürünler sorun çözer. Sistemler organizasyonları ayakta tutar.</h2>
+<p>Bir ürün, belirli bir sorunu çözmek için tasarlanır.
+Bir altyapı, bir organizasyonu ayakta tutmak için tasarlanır.</p>
+<p>Bu ayrım ince ama kritiktir. Ürünler değiştirilebilir. Sistemler evrimleşmek zorundadır.</p>
+<p>Altyapı bir araç koleksiyonu olarak inşa edildiğinde, kararlar yerel olarak optimize edilir. Her ekip kendi alanı için en iyi olanı seçer. Zamanla bu yerel optimizasyonlar küresel bir karmaşıklığa dönüşür. Entegrasyon kırılganlaşır, sorun giderme yavaşlar ve her değişiklik risk taşır.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/products-vs-systems-thinking.webp"/> <figcaption>
+            Ürün vs Sistem Düşüncesi
+        </figcaption>
+</figure>
+
+<p>Sistem odaklı tasarım farklı çalışır. Temel sorularla başlar:</p>
+<ul>
+<li>Kimlik nereden kaynaklanır ve ne kadar ileri gider?</li>
+<li>Güven sınırları nerede tanımlanır?</li>
+<li>Hangi bileşenler politika kararları alır, hangileri yalnızca uygular?</li>
+<li>Bağlam katmanlar arasında nasıl korunur?</li>
+<li>Bir şey başarısız olduğunda operasyonel olarak ne olur?</li>
+</ul>
+<p>Bu sorulara net cevaplar olmadan, en iyi ürünler bile eninde sonunda birbirine karşı çalışacaktır.</p>
+<blockquote>
+<p>Kimliğin ve güven sınırlarının pratikte nasıl tanımlandığına dair derinlemesine bir bakış için: <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Mimari Olarak Mühendislemek</a></p>
+</blockquote>
+<hr>
+<h2 id="mimari-baskı-altında-kendini-gösterir">Mimari baskı altında kendini gösterir</h2>
+<p>Her şey çalışırken altyapı tasarımı kolaydır.
+Mimari ancak bir şeyler ters gittiğinde ortaya çıkar.</p>
+<p>Olaylar, ölçekleme sorunları, güvenlik ihlalleri ve operasyonel değişiklikler, hiçbir zaman yazılmamış tasarım varsayımlarını gün yüzüne çıkarır. Gevşek bağlantılı ürünlerden oluşan ortamlarda bu anlar yangın söndürme tatbikatlarına dönüşür. Geçici çözümler kalıcı istisnalar haline gelir. Zamanla altyapı tutarlılığını kaybeder.</p>
+<p>İyi tasarlanmış sistemler farklı davranır. Zarif biçimde bozulurlar. Sorumluluklar nettir. Arızalar sınırlıdır. Kurtarma yolları önceden bilinir. Bu tesadüf değildir — bilinçli mimari kararların sonucudur.</p>
+<hr>
+<h2 id="entegrasyon-bir-özellik-değildir">Entegrasyon bir özellik değildir</h2>
+<p>Altyapı tasarımındaki en yaygın yanılgılardan biri, entegrasyonu bir onay kutusu olarak ele almaktır. Ürünlerin aynı standartları destekledikleri veya aynı üreticiden geldikleri için entegre olduklarına inanılır.</p>
+<p>Gerçek entegrasyon uyumlulukla ilgili değildir.
+<strong>Paylaşılan bağlamla</strong> ilgilidir.</p>
+<p>Kimlik farkındalıklı uygulama, tutarlı segmentasyon, birleşik loglama, öngörülebilir politika davranışı — bunlar &ldquo;entegre&rdquo; ürünler satın alınarak garanti edilmez. Bir sistemin parçası olarak tasarlanmalı, test edilmeli ve işletilmelidir.</p>
+<p>Bunu olmadan entegrasyon yalnızca slaytlarda var olur.</p>
+<hr>
+<h2 id="operasyon-gerçek-mimariyi-tanımlar">Operasyon gerçek mimariyi tanımlar</h2>
+<p>Bir ortamın gerçek mimarisi diyagramlarda değil,
+operasyonel iş akışlarında bulunur.</p>
+<ul>
+<li>Değişiklikler nasıl devreye alınır?</li>
+<li>Olaylar nasıl teşhis edilir?</li>
+<li>İstisnalar nasıl yönetilir?</li>
+<li>Otomasyon nasıl hayata geçirilir?</li>
+<li>Sorumluluklar ekipler arasında nasıl bölünür?</li>
+</ul>
+<figure>
+    <img loading="lazy" src="/img/postimages/operations-define-architecture.webp"/> <figcaption>
+            Operasyon Gerçek Mimariyi Tanımlar
+        </figcaption>
+</figure>
+
+<p>Bu iş akışları manuel, parçalı veya belgelenmemişse, teknoloji yığını ne kadar modern görünse de altyapı bu gerçeği yansıtacaktır.</p>
+<p>Bu nedenle otomasyon, gözlemlenebilirlik ve yaşam döngüsü yönetimi isteğe bağlı ekstralar değildir. Bunlar mimari unsurlardır. Tutarlı biçimde işletilemeyecek altyapı hiçbir zaman güvenli ölçeklenemez.</p>
+<blockquote>
+<p>Altyapınızda gerçek gözlemlenebilirlik oluşturmak için pratik bir çerçeve: <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a></p>
+</blockquote>
+<hr>
+<h2 id="networkingden-konuşmadan-önce-bu-neden-önemlidir">Networking&rsquo;den konuşmadan önce bu neden önemlidir</h2>
+<p>Networking genellikle bu sorunların ilk görünür hale geldiği yerdir.
+Trafik akışları kırık güven modellerini ortaya çıkarır. Segmentasyon eksik kimliği gözler önüne serer. Performans sorunları mimari kısayolları açığa çıkarır.</p>
+<p>Ama networking kök neden değildir.
+O bir aynادır.</p>
+<p>Bu yüzden bu seri buradan başlıyor. Core network tasarımına, üretici stratejilerine, Zero Trust&rsquo;a veya 802.1X&rsquo;e dalmadan önce ortak bir anlayışa ihtiyacımız var: altyapıya bir bütçeyle oluşturulmuş alışveriş listesi olarak değil, niyetle tasarlanmış bir sistem olarak yaklaşılmalıdır.</p>
+<hr>
+<h2 id="bu-seriyi-yönlendiren-ilke">Bu seriyi yönlendiren ilke</h2>
+<p>Sonraki her makale tek bir ilke üzerine inşa edilir:</p>
+<blockquote>
+<p><strong>Önce sistemi tasarla. Sonra ürünleri seç.</strong></p>
+</blockquote>
+<p>Bu sıra tersine döndüğünde altyapı pahalı ve kırılgan hale gelir.
+Bu sıraya uyulduğunda altyapı öngörülebilir ve uyarlanabilir hale gelir.</p>
+<hr>
+<h2 id="sırada-ne-var">Sırada ne var</h2>
+<p>Bu serinin bir sonraki makalesi bu düşünceyi doğrudan core network&rsquo;e uygular:</p>
+<ul>
+<li>Core network&rsquo;ün neden switch, firewall ve access point listesi olmadığı</li>
+<li>Entegrasyon, kapasite planlaması ve operasyonel bağlamın gerçek network mimarisini nasıl tanımladığı</li>
+</ul>
+<p>Bu ilk makale temeli belirlemek için vardır.
+Diğer her şey bunun üzerine inşa edilir.</p>
+<h2 id="not">Not</h2>
+<p>Bu makale ilk olarak <strong>Substack</strong>&rsquo;te daha kısa, anlatısal bir biçimde yayınlanmıştı.
+Bu versiyon, serinin mimari temelini genişletiyor.</p>
+<p>👉 <strong>Makaleyi Substack&rsquo;te okuyun:</strong> <a href="https://substack.com/home/post/p-182765674">Burayı Tıklayın</a></p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Mimari &amp; Güvenlik Tasarımı</strong></p>
+<ul>
+<li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a> — Core network tasarımında sistem düşüncesi</li>
+<li>🛡️ <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Mimari Olarak Mühendislemek</a> — Zero Trust neden bir ürün değil, bir felsefedir</li>
+<li>📊 <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a> — Altyapınızda gerçek görünürlük nasıl inşa edilir</li>
+</ul>
+<p><strong>Teknik Mühendislik</strong></p>
+<ul>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-terminal-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Her şey kesildiğinde out-of-band erişim</li>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Gelişmiş trafik görünürlüğü ve güvenlik stratejisi</li>
+<li>🔐 <a href="/tr/posts/unlocking-success-in-802-1x-projects-field-insights/">802.1X Projelerinde Başarı: Saha Deneyimleri</a> — Kurumsal ağlarda kimlik tabanlı erişim</li>
+</ul>
+]]></content:encoded></item></channel></rss>

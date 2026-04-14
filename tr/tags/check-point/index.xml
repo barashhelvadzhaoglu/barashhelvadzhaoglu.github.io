@@ -1,1 +1,197 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Check Point on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/check-point/</link><description>Recent content in Check Point on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Mon, 06 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/check-point/index.xml" rel="self" type="application/rss+xml"/><item><title>Firewall Seçimi ve Kapasite Planlaması: Datasheet'lerin Söylemediği Şeyler</title><link>https://barashhelvadzhaoglu.com/tr/technology/firewall-selection-capacity/</link><pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/firewall-selection-capacity/</guid><description>Kurumsal firewall seçimi — gerçek throughput, SSL inspection etkisi, Fortinet, Palo Alto, Cisco ve Check Point karşılaştırması.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Check Point on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/check-point/</link><description>Recent content in Check Point on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Mon, 06 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/check-point/index.xml" rel="self" type="application/rss+xml"/><item><title>Firewall Seçimi ve Kapasite Planlaması: Datasheet'lerin Söylemediği Şeyler</title><link>https://barashhelvadzhaoglu.com/tr/technology/firewall-selection-capacity/</link><pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/firewall-selection-capacity/</guid><description>Kurumsal firewall seçimi — gerçek throughput, SSL inspection etkisi, Fortinet, Palo Alto, Cisco ve Check Point karşılaştırması.</description><content:encoded><![CDATA[<h1 id="firewall-seçimi-ve-kapasite-planlaması-datasheetlerin-söylemediği-şeyler">Firewall Seçimi ve Kapasite Planlaması: Datasheet&rsquo;lerin Söylemediği Şeyler</h1>
+<p>Firewall seçim görüşmeleri genellikle iki şekilde ilerler. Ya karar marka tanıdıklığına dayanır — &ldquo;her zaman X satıcısını kullandık&rdquo; — ya da üretimde bu sayıların gerçekte ne anlama geldiğini anlamadan datasheet throughput rakamlarına dayanır. Her iki yaklaşım da ya kullanmayacağınız kapasite için fazla ödemeye ya da gerçekte çalıştıracağınız trafik için yetersiz boyutlandırmaya yol açar.</p>
+<p>Bankacılık ve üretim ortamlarında yüzlerce Fortinet firewall deploy ettikten ve Palo Alto ile Cisco&rsquo;yu üretim altyapısında yoğun biçimde kullandıktan sonra, seçim sürecinin yalnızca öneriyi değil sonucu da üstlendiğinizde gerçekte nasıl göründüğünü paylaşmak istiyorum.</p>
+<p>Firewall yerleştirme kararlarının arkasındaki mimari bağlam için bakınız: <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değil</a></p>
+<hr>
+<h2 id="herkesi-yanıltan-sayı-firewall-throughputu">Herkesi Yanıltan Sayı: Firewall Throughput&rsquo;u</h2>
+<p>Her firewall datasheet&rsquo;i bir throughput rakamıyla başlar. 10 Gbps. 40 Gbps. 100 Gbps. Bu rakamlar gerçektir — ölçüldükleri spesifik koşullarda.</p>
+<p>Bu koşullar, sizin üretim ortamınız değildir.</p>
+<p>Datasheet throughput&rsquo;u tipik olarak şunlarla ölçülür:</p>
+<ul>
+<li>Büyük paket boyutları (1518 bayt) — gerçek trafik çok daha küçük paketler içerir</li>
+<li>Güvenlik özellikleri etkin değil — IPS yok, uygulama kontrolü yok, SSL inspection yok</li>
+<li>Sentetik test trafiği — gerçek bir ağın karışık, patlamalı, düzensiz trafiği değil</li>
+</ul>
+<p>Üretimde firewall kapasitesini tüketen şeyler:</p>
+<p><strong>PPS (Saniyedeki Paket Sayısı):</strong> Küçük paketler büyük paketlerden daha maliyetlidir. 64 baytlık paketlerden oluşan 1 Gbps&rsquo;lik trafiği taşıyan bir firewall, 1500 baytlık paketlerden oluşan 1 Gbps&rsquo;den yaklaşık 20× daha fazla paket işler. Yüksek işlem hızına sahip ortamlar (bankacılık, ticaret, veritabanı replikasyonu), bant genişliği sınırlarından çok önce PPS sınırlarına ulaşır.</p>
+<p><strong>Eş Zamanlı Oturumlar:</strong> İzlenen her bağlantı, durum tablosunda bellek işgal eder. 2 milyon eş zamanlı oturum kapasiteli bir firewall &ldquo;2 milyon kullanıcı&rdquo; anlamına gelmez — tek bir kullanıcı aynı anda düzinelerce açık oturuma sahip olabilir. Yüksek eşzamanlılık ortamları (firewall arkasındaki web sunucuları, veritabanı kümeleri, mikro-servis mimarileri) oturum tablolarını bant genişliğinden daha hızlı tüketir.</p>
+<p><strong>Yeni Oturum Hızı:</strong> Firewall&rsquo;un saniyede kaç yeni bağlantı kurabileceği. SYN flood koşullarında veya yoğun trafik dönemlerinde, yeni oturum hızı bağlayıcı kısıtlama haline gelir.</p>
+<p><strong>SSL/TLS Inspection:</strong> Kapasite planlamasının en çok yanlış yapıldığı yer burasıdır. SSL inspection etkinleştirildiğinde — HTTPS trafiğini şifre çözme, inceleme, yeniden şifreleme — çoğu platformda throughput önemli ölçüde düşer. Etkinin derecesi satıcıya ve modele göre değişir.</p>
+<hr>
+<h2 id="ssl-inspection-gerçeği">SSL Inspection Gerçeği</h2>
+<p>Bugün kurumsal trafiğin büyük çoğunluğu HTTPS&rsquo;tir. Firewall&rsquo;unuz SSL&rsquo;i inspect etmiyorsa, trafiğinizin büyük bölümünü inspect etmiyorsunuz demektir. Ancak SSL inspection&rsquo;ı etkinleştirmenin doğrudan ve önemli bir performans maliyeti vardır.</p>
+<p>10 Gbps throughput ile pazarlanan bir firewall, platforma bağlı olarak tam SSL inspection etkinken 2–4 Gbps sunabilir. Bu bir hata veya satıcı eksikliği değildir — SSL şifre çözme hesaplamsal olarak maliyetlidir ve donanım SSL hızlandırması (üst düzey modellerde mevcut), pratikte giriş seviyesi ile orta segment platformları birbirinden ayıran şeydir.</p>
+<p><strong>Önemli olan hesaplama:</strong></p>
+<p>Bir firewall boyutlandırırken soru &ldquo;ne kadar bant genişliğim var?&rdquo; değil, &ldquo;bu bant genişliğinin ne kadarı SSL inspect edilecek?&rdquo; olmalıdır. Çoğu organizasyon için:</p>
+<ul>
+<li>İnternete giden trafik: neredeyse %100 HTTPS → tümü SSL inspect edilir</li>
+<li>Dahili segmentasyon trafiği: şifreli ve şifresiz uygulama trafiğinin karışımı</li>
+<li>Sunucudan sunucuya trafik: uyumluluk nedeniyle giderek artan oranda TLS</li>
+</ul>
+<p>2 Gbps&rsquo;lik internet bant genişliğiniz varsa ve tamamını inspect etmeyi planlıyorsanız, firewall&rsquo;u 2 Gbps ham throughput için değil, 2 Gbps SSL inspection throughput&rsquo;u için boyutlandırın. Bunlar çoğunlukla çok farklı sayılardır.</p>
+<hr>
+<h2 id="çok-firewall-mimarisi-tek-beden-herkese-uymaz">Çok Firewall Mimarisi: Tek Beden Herkese Uymaz</h2>
+<p>Birçok üretim ortamında, tüm rolleri üstlenen tek bir firewall, bilinçli bir tasarım seçimi değil, bir tasarım uzlaşısıdır. Farklı trafik türlerinin farklı gereksinimleri vardır:</p>
+<pre tabindex="0"><code>İnternet Edge Firewall:
+  → Yüksek SSL inspection throughput&#39;u (trafiğin çoğu HTTPS)
+  → VPN sonlandırma kapasitesi
+  → İnternetten gelen tehditler için IPS
+  → Orta oturum sayısı
+
+Dahili Segmentasyon Firewall&#39;u (Doğu-Batı):
+  → Yüksek PPS (dahili trafik genellikle küçük paketlerdir)
+  → Çok yüksek eş zamanlı oturum sayısı
+  → Daha düşük SSL inspection gereksinimleri (dahili trafik genellikle şifresiz)
+  → Yüksek yeni oturum hızı
+
+Veri Merkezi / Sunucu Firewall&#39;u:
+  → Aşırı oturum sayıları (sunucular çok sayıda eş zamanlı bağlantıya sahiptir)
+  → Düşük gecikme (uygulama performansına duyarlı)
+  → Toplu veri transferleri için yüksek throughput
+  → Sunucu tarafı exploit&#39;ler için ayarlanmış IPS
+</code></pre><p>Üç rol için de aynı firewall modelini kullanmak, en azından birinde uzlaşı anlamına gelir. SSL inspection için optimize edilmiş internet edge firewall&rsquo;u çoğunlukla doğu-batı segmentasyonu için yanlış seçimdir. Yüksek oturum sayılı DC firewall&rsquo;u çoğunlukla bir şube ofisi için gereğinden fazla mühendislenmiştir.</p>
+<p>Bu teorik değildir — oturum sayısı sınırına ulaşıldığı için internet edge firewall&rsquo;un belirtilen throughput&rsquo;unun %30&rsquo;unda doyuma ulaştığı, DC firewall&rsquo;unda ise bol throughput rezervi olmasına rağmen PPS sınırları nedeniyle paket düştüğü ağlar gördüm.</p>
+<hr>
+<h2 id="satıcı-saha-notları">Satıcı Saha Notları</h2>
+<p>Aşağıdakiler doğrudan üretim deneyimine dayanmaktadır. Bunlar kıyaslama karşılaştırmaları değil, operasyonel gözlemlerdir. Satıcı yetenekleri yazılım sürümleri ve yeni donanım nesilleriyle gelişir — her aktif proje için mevcut spesifikasyonları doğrulayın.</p>
+<h3 id="fortinet-fortigate">Fortinet FortiGate</h3>
+<p>Fortinet, üretim firewall deneyimimin büyük bölümünün yoğunlaştığı yerdir — küçük şube deployment&rsquo;larından bankacılık genel merkezlerine ve büyük üretim ortamlarına kadar.</p>
+<p><strong>FortiGate&rsquo;in gerçekten üstün olduğu yerler:</strong></p>
+<p>Orta düzeyde güvenlik inspection gereksinimleri olan yüksek throughput ortamları. Fortinet&rsquo;in özel NP (Ağ İşlemcisi) ve CP (İçerik İşlemcisi) ASIC&rsquo;leri belirli işlevleri donanıma boşaltır — paket işleme, IPsec VPN ve bazı inspection görevleri genel amaçlı CPU&rsquo;lar yerine özel silikon üzerinde çalışır. Yüksek bant genişliğinde bu donanım hızlandırması anlamlı bir fark yaratır.</p>
+<p>Büyük trafik hacimlerini taşıması gereken ortamlar için — sunucudan sunucuya, büyük dosya transferleri, yüksek bant genişlikli şube bağlantısı — FortiGate, eşdeğer fiyat noktalarında yazılım tabanlı mimarilerin karşılaştıramayacağı throughput sunar.</p>
+<p>Fortinet Security Fabric, FortiGate&rsquo;i FortiSwitch, FortiAP, FortiAnalyzer ve FortiManager ile birlikte çalıştıran organizasyonlar için gerçek bir operasyonel avantajdır. Politika, loglama ve yönetim, çok satıcılı ortamların gerektirdiği entegrasyon çalışmasını azaltacak biçimde birleştirilmiştir.</p>
+<p><strong>FortiGate&rsquo;in sınırlılıkları:</strong></p>
+<p>Ölçekte derin inspection. IPS, uygulama kontrolü, SSL inspection ve antivirüs yüksek trafikli bağlantılarda aynı anda etkinleştirildiğinde, throughput başlık rakamlarına kıyasla önemli ölçüde düşebilir. Fortinet, bunu yansıtan &ldquo;tehdit koruması&rdquo; throughput rakamları yayınlar — ancak bu rakamlar hâlâ spesifik trafik karışımınız ve tam özellik aktivasyonuyla göreceğinizden genellikle iyimserdir.</p>
+<p><strong>Donanım nesil güncellemesi (2024–2025):</strong> Fortinet&rsquo;in yeni cihaz serisi, SSL inspection kapasitesini önemli ölçüde iyileştirdi. 2025&rsquo;te Keysight tarafından doğrulanan FortiGate 700G serisi, önceki nesillerin eşdeğer orta segment modellerine göre anlamlı bir iyileştirme olan 14 Gbps&rsquo;e kadar SSL derin inspection throughput&rsquo;u elde ediyor. Boyutlandırırken, genel tahminler değil, değerlendirdiğiniz spesifik model ve nesle ait datasheet rakamlarını her zaman kullanın.</p>
+<p><strong>Pratik rehberlik:</strong> Tam SSL inspection deployment&rsquo;ları için FortiGate boyutlandırırken, üretim trafiği için çalışma tahminim olarak datasheet&rsquo;teki SSL inspection throughput rakamının %20-30&rsquo;unu kullanıyorum. Bu muhafazakâr görünebilir, ancak trafik karışımını, eş zamanlı bağlantıları ve loglama yükünü hesaba katar. Math bu rakamda işe yarıyorsa, uygun rezerviniz var demektir.</p>
+<hr>
+<h3 id="palo-alto-networks">Palo Alto Networks</h3>
+<p>Palo Alto&rsquo;nun mimarisi geleneksel firewall&rsquo;lardan temelden farklıdır ve bunu anlamak hem güçlü yönlerini takdir etmek hem de kısıtlamalarını planlamak için gereklidir.</p>
+<p><strong>App-ID mimarisi:</strong></p>
+<p>Palo Alto, trafiği ne yapacağına karar vermeden önce uygulamaya göre tanımlar. Her oturum, yalnızca hangi portu kullandığını değil, neyi temsil ettiğini belirlemek için analiz edilir. Port 80, port 8080 veya özel bir port üzerindeki HTTP, hepsinde çalışan spesifik uygulama olarak tanımlanır.</p>
+<p>Bu, güvenlik açısından mimari olarak güçlüdür: politika &ldquo;X alt ağından TCP 443&rsquo;e izin ver&rdquo; yerine &ldquo;satış ekibinden Salesforce&rsquo;a izin ver&rdquo; üzerine kuruludur. Bilinmeyen uygulamalar — bilinen hiçbir uygulama imzasıyla eşleşmeyen trafik — varsayılan olarak potansiyel olarak şüpheli kabul edilir. Tanınmayan trafiğin geçmesini istiyorsanız açıkça izin vermeniz gerekir.</p>
+<p><strong>Bunun yarattığı güvenlik avantajı:</strong></p>
+<p>Tehdit modelinin tam uygulama görünürlüğü gerektirdiği ortamlarda — finansal hizmetler, düzenlenmiş sektörler, katı uyumluluk gereksinimleri olan ortamlar — Palo Alto&rsquo;nun yaklaşımı gerçek güvenlik derinliği yaratır. Politika modeli, her trafik türü için açık kararlar almayı zorlar. Hiçbir şey incelenmeden geçemez. Olgun güvenlik ekiplerine sahip güvenlik odaklı organizasyonlar için bu önemli bir avantajdır.</p>
+<p><strong>Operasyonel takas:</strong></p>
+<p>Palo Alto&rsquo;yu güvenlik odaklı ortamlarda güçlü kılan aynı mimari, diğerlerinde sürtünme yaratır. Bilinmeyen veya olağan dışı uygulamalar araştırma ve açık politika kararları gerektirir. Özel güvenlik ekipleri olmayan veya çeşitli, gelişen uygulama setlerine sahip ortamlarda, uygulama tabanlı bir politika modelini sürdürmenin operasyonel yükü önemli olabilir.</p>
+<p>Küçük ve orta ölçekli organizasyonlar için veya birincil gereksinimin maksimum güvenlik derinliği yerine makul güvenlikli bağlantı olduğu ortamlarda, bu takas değmeyebilir. Operasyonel model, her organizasyonun sahip olmadığı bir güvenlik olgunluk düzeyini varsayar.</p>
+<p><strong>Panorama:</strong></p>
+<p>Panorama aracılığıyla Palo Alto firewall&rsquo;larının merkezi yönetimi, bireysel cihazları yönetmekten önemli ölçüde daha yeteneklidir. Çok firewall ortamları için Panorama, Palo Alto&rsquo;yu ölçekte işletmek için fiilen gereklidir. Panorama olmadan yönetim yükü alternatiflere oranla orantısızdır.</p>
+<p><strong>SASE liderliği (2025 güncellemesi):</strong> Palo Alto&rsquo;nun bulut güvenlik platformu (Prisma SASE), en güçlü büyüme alanlarından biri haline geldi — 2025&rsquo;e kadar üç ardışık yıl Gartner SASE Lideri seçildi, yıllık %35 büyümeyle 1,3 milyar dolar ARR. Organizasyonunuz yalnızca bir perimeter firewall değil, daha geniş bir güvenlik platformunu değerlendiriyorsa bu bilgi ilgilidir.</p>
+<hr>
+<h3 id="cisco-firepower-şimdi-cisco-secure-firewall">Cisco Firepower (Şimdi Cisco Secure Firewall)</h3>
+<p>Cisco&rsquo;nun NGFW hikayesinin anlaşılmaya değer bir geçmişi var. Orijinal ASA (Adaptive Security Appliance) güçlü bir stateful firewall&rsquo;du — güvenilir, yaygın biçimde deploy edilmiş, ancak yeni nesil yetenekler açısından sınırlı. Cisco&rsquo;nun yanıtı, IPS teknolojisi (Snort tabanlı) gerçekten güçlü olan ve olan Sourcefire&rsquo;ı satın almak ve Firepower platformunu ASA mimarisinin üzerine inşa etmek oldu.</p>
+<p><strong>Firepower&rsquo;ın güçlü olduğu yerler:</strong></p>
+<p>IPS yeteneği gerçektir. Sourcefire&rsquo;ın tehdit istihbaratı ve tespiti, şimdi Cisco Talos (dünyanın en büyük tehdit istihbaratı organizasyonlarından biri), Firepower&rsquo;ın IPS&rsquo;ini genel olarak saygın bir tespit kalitesiyle güçlendirir. IPS&rsquo;in birincil güvenlik gereksinimi olduğu ortamlar için Cisco ciddi bir yetenek sunar.</p>
+<p>Cisco&rsquo;nun daha geniş ekosistemiyle entegrasyon — ISE, Umbrella, Stealthwatch (şimdi Secure Network Analytics), SecureX — giderek daha tutarlı hale gelmiş ve son yıllarda önemli ölçüde iyileşmiştir.</p>
+<p><strong>Yönetim zorluğu:</strong></p>
+<p>Cisco Firepower, tarihsel olarak yönetim karmaşıklığı nedeniyle eleştirilmiştir. Firepower Management Center (FMC) olmadan Firepower çalıştırmak, görünürlük ve politika yönetiminde önemli sınırlamaları kabul etmek anlamına gelir. FMC&rsquo;nin kendisi, alternatiflere göre daha dik bir öğrenme eğrisine sahiptir.</p>
+<p>Platform önemli ölçüde olgunlaşmış ve Cisco yönetim deneyimini iyileştirmeye yoğun yatırım yapmıştır. 2024&rsquo;te Cisco, Cisco Defense Orchestrator&rsquo;ı <strong>Security Cloud Control</strong> olarak yeniden adlandırdı — FMC, ASA ve diğer Cisco güvenlik ürünlerini tek bir arayüzde birleştiren, yapay zeka destekli bir bulut yönetim platformu. Artık politika kuralı oluşturma için AI Asistanı, proaktif öneriler için AIOps içgörüleri ve şirket içi altyapı yükünü azaltan bulut tabanlı FMC içeriyor. Bu, eski yalnızca FMC modeline göre anlamlı bir iyileştirmedir. Daha basit firewall platformlarından gelen ekipler hâlâ bir uyum dönemi yaşayacak, ancak fark birkaç yıl öncesine kıyasla daralmıştır.</p>
+<p><strong>Mimari bağlam:</strong></p>
+<p>Cisco, ISE&rsquo;nin kimlik, Catalyst&rsquo;ın switching ve DNA Center / Catalyst Center&rsquo;ın merkezi yönetim sağladığı Cisco ekosistemi yatırımına zaten derinden dahil olmuş ortamlarda en güçlüdür. Bu ortamlarda Firepower tutarlı biçimde uyum sağlar. Çok satıcılı ortamlarda entegrasyon hikayesi daha fazla çalışma gerektirir.</p>
+<hr>
+<h3 id="check-point">Check Point</h3>
+<p>Check Point, 1990&rsquo;larda firewall teknolojisini ana akım haline getiren orijinal kurumsal firewall satıcılarından biridir. Mimarileri bu mirası yansıtır: olgun, güvenlik odaklı ve yöneticilere önemli kontrol sağlayan ancak karşılık gelen uzmanlık gerektiren bir işletim sistemi (Linux tabanlı Gaia) etrafında inşa edilmiş.</p>
+<p><strong>Check Point&rsquo;in güçlü olduğu yerler:</strong></p>
+<p>Güvenlik politikası derinliği ve inspection kalitesi. Check Point&rsquo;in politika modeli ayrıntılıdır ve inspection yetenekleri olgunlaşmıştır. Güvenlik politikası karmaşıklığının yüksek olduğu ortamlarda — çok sayıda kural, çok sayıda istisna, ayrıntılı loglama gereksinimleri — Check Point&rsquo;in yönetim altyapısı (SmartConsole, yönetim sunucusu, log sunucusu ayrımı) ölçeği iyi karşılar.</p>
+<p>Platformu bilen güvenlik operasyon ekiplerine sahip organizasyonlar için Check Point yetenekli ve saygın bir seçimdir.</p>
+<p><strong>Operasyonel gerçeklik:</strong></p>
+<p>Check Point&rsquo;in yönetim modeli diğer satıcılardan farklıdır. Yönetim, zorunluluktan ayrıdır — Security Management Server (SMS) olan yönetim sunucusu, zorunluluk gateway&rsquo;lerinden ayrıdır. Bu ayrımla, politika kurulum süreciyle ve temel Gaia OS ile çalışmak gerçek uzmanlık gerektirir.</p>
+<p>Bir ağ mühendisinin perspektifinden Check Point, operasyonel olarak en şeffaf platform değildir. Linux yönetimine aşinalık önemli ölçüde yardımcı olur. Nesne modeli ve kural tabanı yapısı hakkında sağlam bir anlayış olmadan politika yönetimi, zamanla biriken karmaşıklığa yol açar.</p>
+<hr>
+<h2 id="ha-mimarisi-aktif-yedek-ve-aktif-aktif">HA Mimarisi: Aktif-Yedek ve Aktif-Aktif</h2>
+<p>Kurumsal firewall deployment&rsquo;ları yüksek erişilebilirlik gerektirir. İki modelin farklı özellikleri vardır:</p>
+<p><strong>Aktif-Yedek:</strong></p>
+<ul>
+<li>Bir firewall tüm trafiği işler; yedek izler ve arızada devralır</li>
+<li>Oturum durumu yedeğe senkronize edilir — failover kurulu bağlantılara şeffaftır</li>
+<li>Sorun giderme daha basit — herhangi bir zamanda tüm trafik tek cihazdan</li>
+<li>Normal işlemde donanım kapasitesinin %50&rsquo;sini boşa harcar</li>
+<li>Çoğu kurumsal edge deployment için standart seçim</li>
+</ul>
+<p><strong>Aktif-Aktif:</strong></p>
+<ul>
+<li>Her iki firewall da aynı anda trafiği yönetir, tipik olarak farklı trafik akışları veya bölgeler için</li>
+<li>Yapılandırmak ve sorun gidermek daha karmaşık — asimetrik routing&rsquo;den kaçınılmalı</li>
+<li>Her iki cihazı da kullanır, ancak durum senkronizasyonunu karmaşıklaştırır</li>
+<li>Tek cihazın karşılayamayacağı çok yüksek throughput gereksinimleri için daha uygun</li>
+<li>Dikkatli trafik mühendisliği gerektirir — asimetrik akışlar (FW-1 üzerinden istek, FW-2 üzerinden yanıt) oturum düşüşlerine neden olur</li>
+</ul>
+<p>Pratikte Aktif-Yedek, kurumsal deployment&rsquo;ların büyük çoğunluğu için doğru seçimdir. HA yükü hesaba katıldığında tek bir cihazın sağlayabileceğinden gerçekten daha fazla throughput&rsquo;a ihtiyaç duymadıkça, Aktif-Aktif&rsquo;in throughput faydası operasyonel karmaşıklığı haklı kılmaz.</p>
+<hr>
+<h2 id="politika-hijyeni-yavaş-yavaş-biriken-sorun">Politika Hijyeni: Yavaş Yavaş Biriken Sorun</h2>
+<p>Firewall kapasitesi yalnızca bir donanım sorusu değildir. Kural tabanı karmaşıklığı arttıkça firewall performansı düşer — özellikle kural tabanları düzenli temizlik yapılmadan büyüdüğünde.</p>
+<p>Trafiğin çoğunun ilk 50 kuralda eşleştiği 5.000 kurallı bir kural tabanı, trafiğin yüzlerce kural genelinde dağıldığı 5.000 kurallı bir tabanla çok farklı performans gösterir. Her paket, eşleşene veya örtük redde ulaşana kadar kural tabanını yukarıdan aşağıya doğru geçer.</p>
+<p><strong>Kural hijyeni pratikte ne anlama gelir:</strong></p>
+<ul>
+<li>Hiçbir zaman eşleşmeyen kurallar (gölge kurallar, eski kurallar) üç ayda bir tespit edilmeli ve kaldırılmalıdır</li>
+<li>Yüksek trafikli kurallar kural tabanının üst kısmına yerleştirilmelidir</li>
+<li>Aşırı geniş kurallar (loglama devre dışı bırakılmış herhangi/herhangi izinler) belgelenmeli ve gözden geçirilmelidir</li>
+<li>Platform desteklediğinde uygulamaya özgü kurallar port tabanlı kuralların yerini almalıdır</li>
+</ul>
+<p>FortiManager, Panorama ve FMC&rsquo;nin hepsinde kural kullanım istatistikleri ve gölge kural tespiti bulunur. Bu araçları kullanmak, periyodik temizlik alıştırması değil, sorumlu firewall operasyonunun bir parçasıdır.</p>
+<hr>
+<h2 id="kapasite-planlaması-pratik-çerçeve">Kapasite Planlaması: Pratik Çerçeve</h2>
+<p>Bir firewall boyutlandırırken şu metrikleri sırayla işleyin:</p>
+<p><strong>1. Temel trafik karakterizasyonu</strong></p>
+<ul>
+<li>Mevcut zirve bant genişliği nedir (ortalama değil)?</li>
+<li>SSL/HTTPS yüzdesi nedir?</li>
+<li>Zirvede eş zamanlı oturum sayısı nedir?</li>
+<li>Zirvede yeni oturum hızı nedir?</li>
+</ul>
+<p><strong>2. Büyüme projeksiyonu</strong></p>
+<ul>
+<li>3 yıllık yaşam döngüsü için beklenen zirvenin %40–50 üzerinde rezerv ekleyin</li>
+<li>Eklenecek yeni uygulama ve hizmetleri hesaba katın</li>
+</ul>
+<p><strong>3. Özellik etkisi</strong></p>
+<ul>
+<li>Hangi güvenlik özellikleri etkinleştirilecek? (IPS, SSL inspection, App-ID, AV)</li>
+<li>Ham throughput değil, satıcının &ldquo;tehdit koruması&rdquo; throughput rakamlarını kullanın</li>
+<li>SSL inspection için özellikle: tahmini HTTPS yüzdenizi kullanarak satıcı boyutlandırma araçlarıyla doğrulayın</li>
+</ul>
+<p><strong>4. HA yükü</strong></p>
+<ul>
+<li>Aktif-Yedek: her birimi trafiğin %100&rsquo;ü için boyutlandırın (yedek tam yükü karşılayabilmelidir)</li>
+<li>Yedek kapasitesini kullanmayı planlamayın — failover için hazır olmalıdır</li>
+</ul>
+<p><strong>5. Yönetim ve loglama</strong></p>
+<ul>
+<li>Yüksek loglama oranları firewall&rsquo;un kendi CPU&rsquo;sunu tüketir</li>
+<li>Harici log yönetimi (FortiAnalyzer, Panorama, FMC) ölçekte isteğe bağlı değildir</li>
+</ul>
+<p>Basit bir boyutlandırma örneği:</p>
+<pre tabindex="0"><code>Ortam:
+  Zirve bant genişliği: 2 Gbps
+  SSL yüzdesi: %80 (1,6 Gbps HTTPS)
+  IPS + App-ID + SSL inspection: hepsi etkin
+  3 yıllık büyüme rezervi: %50
+
+Gerekli SSL inspection throughput&#39;u:
+  1,6 Gbps × 1,5 (büyüme) = 2,4 Gbps
+
+≥ 2,4 Gbps SSL inspection throughput&#39;u için derecelendirilen model seçin
+(2,4 Gbps ham throughput için değil)
+</code></pre><hr>
+<h2 id="temel-çıkarımlar">Temel Çıkarımlar</h2>
+<ul>
+<li><strong>Datasheet throughput&rsquo;u üretim throughput&rsquo;u değildir.</strong> SSL inspection, IPS ve uygulama kontrolü efektif throughput&rsquo;u önemli ölçüde azaltır. Ham rakamlar değil, tehdit koruması veya SSL inspection rakamlarına göre boyutlandırın.</li>
+<li><strong>SSL inspection kapasitesi</strong>, çoğu internet edge deployment için bağlayıcı kısıtlamadır. Trafiğin büyük çoğunluğu HTTPS&rsquo;tir ve inspect etmek maliyetlidir.</li>
+<li><strong>Fortinet</strong>, donanım hızlandırmasının önemli olduğu yüksek throughput ortamlarında üstündür. Ölçekte tam derin inspection, dikkatli model seçimi gerektirir — tüm özellikler etkinleştirildiğinde throughput önemli ölçüde düşer.</li>
+<li><strong>Palo Alto</strong>, en derin uygulama görünürlüğü ve en katı politika modelini sunar. Mimari güvenlik-olgun organizasyonlar için güçlüdür; özel güvenlik ekipleri olmayanlar için operasyonel yük ekler. Çok cihazlı yönetim için Panorama fiilen gereklidir.</li>
+<li><strong>Cisco Firepower</strong>, güçlü IPS (Talos istihbaratı) ve Cisco ekosistemi entegrasyonu sunar. Yönetim karmaşıklığı gerçektir — FMC, platformun değerini gerçekleştirmek için gereklidir.</li>
+<li><strong>Check Point</strong>, derin politika kontrolüyle olgun ve güvenlik odaklıdır. Etkili biçimde işletmek için Linux/Gaia OS aşinalığı ve disiplinli kural tabanı yönetimi gerektirir.</li>
+<li><strong>Çok firewall mimarisi</strong> — edge, dahili segmentasyon ve DC için farklı firewall&rsquo;lar — çoğunlukla her şey için tek platform yerine doğru yanıttır.</li>
+<li><strong>Kural hijyeni</strong> yalnızca ev düzeni değil, bir performans ve güvenlik sorunudur. İhmal edilen kural tabanları her ikisini de bozar.</li>
+</ul>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<ul>
+<li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değil</a> — Firewall yerleştirme için mimari bağlam</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Firewall tasarımının arkasındaki politika felsefesi</li>
+<li>🛡️ <a href="/tr/technology/ddos-koruma-stratejileri-isp-scrubbing-on-premise-bulut/">DDoS Koruma Stratejileri</a> — Firewall&rsquo;un yukarısında ne var</li>
+<li>🛡️ <a href="/tr/technology/f5-waf-asm-advanced-waf-uygulama-guvenligi/">F5 WAF Deep Dive</a> — Firewall politikasını tamamlayan Katman 7 koruması</li>
+<li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">İzleme Doğru Yapıldığında</a> — Firewall davranışını görünür kılmak</li>
+</ul>
+]]></content:encoded></item></channel></rss>

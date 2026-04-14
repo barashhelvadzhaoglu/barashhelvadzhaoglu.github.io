@@ -1,1 +1,696 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Firewall on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/firewall/</link><description>Recent content in Firewall on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>en</language><lastBuildDate>Mon, 06 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/firewall/index.xml" rel="self" type="application/rss+xml"/><item><title>Firewall Selection and Capacity Planning: What the Datasheets Don't Tell You</title><link>https://barashhelvadzhaoglu.com/en/technology/firewall-selection-capacity/</link><pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/firewall-selection-capacity/</guid><description>Enterprise firewall selection — throughput reality, SSL inspection impact, and vendor trade-offs across Fortinet, Palo Alto, Cisco, and Check Point.</description></item><item><title>OT Networks: What an IT Engineer Actually Encounters on the Factory Floor</title><link>https://barashhelvadzhaoglu.com/en/technology/ot-network-security/</link><pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/ot-network-security/</guid><description>IT engineer&amp;#39;s guide to OT security — Purdue model, Layer 2 firewall, OT signatures, patch-exempt systems, and 802.1X in industrial environments.</description></item><item><title>Network Infrastructure Product Selection: Strategic Criteria and Field Experiences</title><link>https://barashhelvadzhaoglu.com/en/architecture/network-product-selection-strategy/</link><pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/architecture/network-product-selection-strategy/</guid><description>Product selection in enterprise networks is more than a checklist. Field-tested framework for evaluating firewalls, switches, and APs beyond datasheets.</description></item><item><title>Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough</title><link>https://barashhelvadzhaoglu.com/en/architecture/core-network-is-not-a-product-list/</link><pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/architecture/core-network-is-not-a-product-list/</guid><description>Enterprise network projects fail due to fragmented architecture, not wrong products. Deep-dive into firewall, switching, AP selection, and capacity planning.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Firewall on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/firewall/</link><description>Recent content in Firewall on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>en</language><lastBuildDate>Mon, 06 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/firewall/index.xml" rel="self" type="application/rss+xml"/><item><title>Firewall Selection and Capacity Planning: What the Datasheets Don't Tell You</title><link>https://barashhelvadzhaoglu.com/en/technology/firewall-selection-capacity/</link><pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/firewall-selection-capacity/</guid><description>Enterprise firewall selection — throughput reality, SSL inspection impact, and vendor trade-offs across Fortinet, Palo Alto, Cisco, and Check Point.</description><content:encoded><![CDATA[<h1 id="firewall-selection-and-capacity-planning-what-the-datasheets-dont-tell-you">Firewall Selection and Capacity Planning: What the Datasheets Don&rsquo;t Tell You</h1>
+<p>Firewall selection conversations usually go one of two ways. Either the decision is made based on brand familiarity — &ldquo;we&rsquo;ve always used vendor X&rdquo; — or it&rsquo;s made based on datasheet throughput numbers without understanding what those numbers actually mean in production. Both approaches lead to either overpaying for capacity you won&rsquo;t use or undersizing for the traffic you&rsquo;ll actually run.</p>
+<p>After deploying hundreds of Fortinet firewalls across banking and manufacturing environments, and working extensively with Palo Alto and Cisco in production infrastructure, I want to share what the selection process actually looks like when you&rsquo;re responsible for the result — not just the recommendation.</p>
+<p>For the architectural context behind firewall placement decisions, see: <a href="/en/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough</a></p>
+<hr>
+<h2 id="the-number-that-misleads-everyone-firewall-throughput">The Number That Misleads Everyone: Firewall Throughput</h2>
+<p>Every firewall datasheet leads with a throughput number. 10 Gbps. 40 Gbps. 100 Gbps. These numbers are real — in the specific conditions under which they were measured.</p>
+<p>Those conditions are not your production environment.</p>
+<p>Datasheet throughput is typically measured with:</p>
+<ul>
+<li>Large packet sizes (1518 bytes) — real traffic mixes in much smaller packets</li>
+<li>No security features enabled — no IPS, no application control, no SSL inspection</li>
+<li>Synthetic test traffic — not the mixed, bursty, irregular traffic of a real network</li>
+</ul>
+<p>What actually consumes firewall capacity in production:</p>
+<p><strong>PPS (Packets Per Second):</strong> Small packets are more expensive than large packets. A firewall moving 1 Gbps of 64-byte packets processes roughly 20× more packets per second than 1 Gbps of 1500-byte packets. Environments with high transaction rates (banking, trading, database replication) stress PPS limits long before bandwidth limits.</p>
+<p><strong>Concurrent Sessions:</strong> Every tracked connection occupies memory in the state table. A firewall with 2 million concurrent session capacity does not mean &ldquo;2 million users&rdquo; — a single user can have dozens of sessions open simultaneously. High-concurrency environments (web servers behind the firewall, database clusters, microservices architectures) exhaust session tables faster than bandwidth.</p>
+<p><strong>New Session Rate:</strong> How many new connections per second the firewall can establish. Under SYN flood conditions or during peak traffic periods, new session rate becomes the binding constraint.</p>
+<p><strong>SSL/TLS Inspection:</strong> This is where most capacity planning goes wrong. When SSL inspection is enabled — decrypting HTTPS traffic, inspecting it, re-encrypting it — throughput drops significantly on most platforms. The degree of impact varies by vendor and model.</p>
+<hr>
+<h2 id="the-ssl-inspection-reality">The SSL Inspection Reality</h2>
+<p>The majority of enterprise traffic today is HTTPS. If your firewall is not inspecting SSL, it is not inspecting most of your traffic. But enabling SSL inspection has a direct, significant performance cost.</p>
+<p>A firewall marketed at 10 Gbps throughput might deliver 2–4 Gbps with full SSL inspection enabled, depending on the platform. This is not a bug or a vendor shortcoming — SSL decryption is computationally expensive, and hardware SSL acceleration (available on higher-end models) is what separates entry-level from mid-range platforms in practice.</p>
+<p><strong>The calculation that matters:</strong></p>
+<p>When sizing a firewall, the question is not &ldquo;how much bandwidth do I have?&rdquo; but &ldquo;how much of that bandwidth will be SSL-inspected?&rdquo; For most organizations:</p>
+<ul>
+<li>Internet-bound traffic: nearly 100% HTTPS → all SSL inspected</li>
+<li>Internal segmentation traffic: mix of encrypted and unencrypted application traffic</li>
+<li>Server-to-server traffic: increasingly TLS for compliance reasons</li>
+</ul>
+<p>If you have 2 Gbps of internet bandwidth and plan to inspect all of it, size the firewall for 2 Gbps of SSL inspection throughput — not 2 Gbps of raw throughput. These are often very different numbers.</p>
+<hr>
+<h2 id="multi-firewall-architecture-one-size-does-not-fit-all">Multi-Firewall Architecture: One Size Does Not Fit All</h2>
+<p>In many production environments, a single firewall handling all roles is a design compromise rather than a design choice. Different traffic types have different requirements:</p>
+<pre tabindex="0"><code>Internet Edge Firewall:
+  → High SSL inspection throughput (most traffic is HTTPS)
+  → VPN termination capacity
+  → IPS for internet-sourced threats
+  → Moderate session count
+
+Internal Segmentation Firewall (East-West):
+  → High PPS (internal traffic is often small packets)
+  → Very high concurrent session count
+  → Lower SSL inspection requirements (internal traffic often unencrypted)
+  → High new session rate
+
+Data Center / Server Firewall:
+  → Extreme session counts (servers have many concurrent connections)
+  → Low latency (application performance sensitive)
+  → High throughput for bulk data transfers
+  → IPS tuned for server-side exploits
+</code></pre><p>Using the same firewall model for all three roles means compromising on at least one. The internet edge firewall optimized for SSL inspection is often wrong for east-west segmentation. The high-session-count DC firewall is often over-engineered for a branch office.</p>
+<p>This is not theoretical — I&rsquo;ve seen networks where the internet edge firewall was saturating at 30% of its rated throughput because the session count limit was reached, while the DC firewall had plenty of throughput headroom but was dropping packets due to PPS limits.</p>
+<hr>
+<h2 id="vendor-field-notes">Vendor Field Notes</h2>
+<p>What follows is based on direct production experience. These are operational observations, not benchmark comparisons. Vendor capabilities evolve with software releases and new hardware generations — validate current specifications for any active project.</p>
+<h3 id="fortinet-fortigate">Fortinet FortiGate</h3>
+<p>Fortinet is where most of my production firewall experience is concentrated — across small branch deployments, banking headquarters, and large manufacturing environments.</p>
+<p><strong>Where FortiGate genuinely excels:</strong></p>
+<p>High-throughput environments with moderate security inspection requirements. Fortinet&rsquo;s custom NP (Network Processor) and CP (Content Processor) ASICs offload specific functions to hardware — packet processing, IPsec VPN, and some inspection tasks run on dedicated silicon rather than general-purpose CPUs. At high bandwidth, this hardware acceleration makes a meaningful difference.</p>
+<p>For environments needing to move large volumes of traffic — server-to-server, large file transfers, high-bandwidth branch connectivity — FortiGate delivers throughput that software-based architectures struggle to match at equivalent price points.</p>
+<p>The Fortinet Security Fabric is a genuine operational advantage for organizations running FortiGate alongside FortiSwitch, FortiAP, FortiAnalyzer, and FortiManager. Policy, logging, and management are unified in a way that reduces the integration work that multi-vendor environments require.</p>
+<p><strong>Where FortiGate has limitations:</strong></p>
+<p>Deep inspection at scale. When IPS, application control, SSL inspection, and antivirus are all enabled simultaneously on high-traffic links, throughput can drop substantially compared to the headline numbers. Fortinet publishes &ldquo;threat protection&rdquo; throughput figures that reflect this — but these numbers are still often optimistic compared to what you&rsquo;ll see with your specific traffic mix and full feature activation.</p>
+<p>For environments where the primary requirement is maximum inspection depth with minimum performance compromise — high-security environments inspecting all traffic including encrypted internal communications — the capacity math can work against FortiGate at mid-range model tiers.</p>
+<p><strong>Hardware generation update (2024–2025):</strong> Fortinet&rsquo;s newer appliance series have improved SSL inspection capacity significantly. The FortiGate 700G series, validated by Keysight in 2025, achieves up to 14 Gbps of SSL deep inspection throughput — a meaningful improvement over equivalent mid-range models from earlier generations. Cisco, Palo Alto, and others have similarly released hardware with improved SSL inspection capacity. When sizing, always use the datasheet figures for the specific model and generation you&rsquo;re evaluating, not generic estimates.</p>
+<p><strong>Practical guidance:</strong> When sizing FortiGate for full SSL inspection deployments, I use 20–30% of the SSL inspection throughput figure from the datasheet as my working estimate for production traffic. This sounds conservative, but it accounts for traffic mix, concurrent connections, and logging overhead. If the math works at that figure, you have appropriate headroom.</p>
+<hr>
+<h3 id="palo-alto-networks">Palo Alto Networks</h3>
+<p>Palo Alto&rsquo;s architecture is fundamentally different from traditional firewalls, and understanding this is essential for both appreciating its strengths and planning for its constraints.</p>
+<p><strong>The App-ID architecture:</strong></p>
+<p>Palo Alto identifies traffic by application before deciding what to do with it. Every session is analyzed to determine what application it represents — not just what port it uses. HTTP on port 80, port 8080, or a custom port is all identified as the specific application running on it.</p>
+<p>This is architecturally powerful for security: policy is based on &ldquo;allow Salesforce from the sales team&rdquo; rather than &ldquo;allow TCP 443 from subnet X.&rdquo; Unknown applications — traffic that doesn&rsquo;t match any known application signature — are treated as potentially suspicious by default. You must explicitly permit unrecognized traffic if you want it to pass.</p>
+<p><strong>The security advantage this creates:</strong></p>
+<p>In environments where the threat model requires full application visibility — financial services, regulated industries, environments with strict compliance requirements — Palo Alto&rsquo;s approach creates genuine security depth. The policy model forces explicit decisions about every traffic type. Nothing passes unexamined. For security-focused organizations with mature security teams, this is a significant advantage.</p>
+<p><strong>The operational trade-off:</strong></p>
+<p>The same architecture that makes Palo Alto powerful in security-focused environments creates friction in others. Unknown or unusual applications require investigation and explicit policy decisions. For organizations without dedicated security teams or for environments with diverse, evolving application sets, the operational overhead of maintaining an application-based policy model can be significant.</p>
+<p>For small and medium organizations, or for environments where the primary requirement is connectivity with reasonable security rather than maximum security depth, this trade-off may not be worth it. The operational model assumes a level of security maturity that not every organization has.</p>
+<p><strong>Panorama:</strong></p>
+<p>Centralized management of Palo Alto firewalls through Panorama is substantially more capable than managing individual devices. For multi-firewall environments, Panorama is effectively required to operate Palo Alto at scale. The management overhead without Panorama is disproportionate relative to the alternatives.</p>
+<p><strong>SASE leadership (2025 update):</strong> Palo Alto&rsquo;s cloud security platform (Prisma SASE) has become one of their strongest growth areas — named Gartner SASE Leader three consecutive years through 2025, with $1.3 billion ARR growing at 35% year-over-year. For organizations moving toward cloud-delivered security and hybrid workforce models, Palo Alto&rsquo;s SASE offering is among the most mature in the market. This doesn&rsquo;t change the on-premise firewall evaluation, but it&rsquo;s relevant if your organization is evaluating a broader security platform rather than just a perimeter firewall.</p>
+<hr>
+<h3 id="cisco-firepower-now-cisco-secure-firewall">Cisco Firepower (Now Cisco Secure Firewall)</h3>
+<p>Cisco&rsquo;s NGFW story has a history worth understanding. The original ASA (Adaptive Security Appliance) was a strong stateful firewall — reliable, widely deployed, but limited in next-generation capabilities. Cisco&rsquo;s response was to acquire Sourcefire, whose IPS technology (Snort-based) was and remains genuinely strong, and build the Firepower platform on top of the ASA architecture.</p>
+<p><strong>Where Firepower is strong:</strong></p>
+<p>The IPS capability is real. Sourcefire&rsquo;s threat intelligence and detection, now Cisco Talos (one of the largest threat intelligence organizations in the world), powers Firepower&rsquo;s IPS with a detection quality that is broadly respected. For environments where IPS is the primary security requirement, Cisco brings serious capability.</p>
+<p>Integration with Cisco&rsquo;s broader ecosystem — ISE, Umbrella, Stealthwatch (now Secure Network Analytics), SecureX — is increasingly coherent and has improved substantially in recent years.</p>
+<p><strong>The management challenge:</strong></p>
+<p>Cisco Firepower has historically been criticized for management complexity. Running Firepower without Firepower Management Center (FMC) means accepting significant limitations on visibility and policy management. FMC itself has a learning curve that is steeper than the alternatives. For teams without Cisco-specific expertise, the ramp-up time is real.</p>
+<p>The platform has matured significantly, and Cisco has invested heavily in improving the management experience. In 2024, Cisco rebranded Cisco Defense Orchestrator as <strong>Security Cloud Control</strong> — an AI-embedded cloud management platform that unifies FMC, ASA, and other Cisco security products under one interface. It now includes an AI Assistant for policy rule creation, AIOps insights for proactive recommendations, and cloud-delivered FMC that reduces the on-premise infrastructure burden. This is a meaningful improvement over the older FMC-only model. Teams coming from simpler firewall platforms will still face an adjustment period, but the gap has narrowed compared to a few years ago.</p>
+<p><strong>Architecture context:</strong></p>
+<p>Cisco tends to be strongest in environments already deeply invested in the Cisco ecosystem — where ISE provides identity, Catalyst provides switching, and the DNA Center / Catalyst Center provides centralized management. In those environments, Firepower fits coherently. In multi-vendor environments, the integration story is more work.</p>
+<hr>
+<h3 id="check-point">Check Point</h3>
+<p>Check Point is one of the original enterprise firewall vendors — the company that made firewall technology mainstream in the 1990s. Their architecture reflects that heritage: mature, security-focused, and built around an operating system (Gaia, based on Linux) that gives administrators significant control but requires corresponding expertise.</p>
+<p><strong>Where Check Point is strong:</strong></p>
+<p>Security policy depth and inspection quality. Check Point&rsquo;s policy model is granular, and their inspection capabilities are mature. In environments where security policy complexity is high — many rules, many exceptions, detailed logging requirements — Check Point&rsquo;s management infrastructure (SmartConsole, management server, log server separation) handles scale well.</p>
+<p>For organizations with security operations teams who know the platform, Check Point is a capable and well-regarded choice.</p>
+<p><strong>The operational reality:</strong></p>
+<p>Check Point&rsquo;s management model is different from other vendors. Management is separated from enforcement — the management server, the Security Management Server (SMS), is distinct from the enforcement gateways. Understanding and working with this separation, the policy installation process, and the underlying Gaia OS requires genuine expertise.</p>
+<p>From a network engineer&rsquo;s perspective, Check Point is not the most operationally transparent platform. Familiarity with Linux administration helps significantly. Policy management without a solid understanding of the object model and rule base structure leads to complexity that compounds over time.</p>
+<p>The security policy model can become difficult to maintain as rule bases grow without disciplined hygiene. This is true of all firewalls, but Check Point&rsquo;s complexity means the technical debt accumulates faster when rule management discipline is absent.</p>
+<hr>
+<h2 id="ha-architecture-active-standby-vs-active-active">HA Architecture: Active-Standby vs Active-Active</h2>
+<p>Enterprise firewall deployments require high availability. The two models have different characteristics:</p>
+<p><strong>Active-Standby:</strong></p>
+<ul>
+<li>One firewall handles all traffic; the standby monitors and takes over on failure</li>
+<li>Session state is synchronized to standby — failover is transparent to established connections</li>
+<li>Simpler to troubleshoot — all traffic through one device at any time</li>
+<li>Wastes 50% of hardware capacity in normal operation</li>
+<li>Standard choice for most enterprise edge deployments</li>
+</ul>
+<p><strong>Active-Active:</strong></p>
+<ul>
+<li>Both firewalls handle traffic simultaneously, typically for different traffic flows or zones</li>
+<li>More complex to configure and troubleshoot — asymmetric routing must be avoided</li>
+<li>Utilizes both devices, but complicates state synchronization</li>
+<li>More appropriate for very high throughput requirements where one device is insufficient</li>
+<li>Requires careful traffic engineering — asymmetric flows (request through FW-1, response through FW-2) cause session drops</li>
+</ul>
+<p>In practice, Active-Standby is the right choice for the majority of enterprise deployments. The throughput benefit of Active-Active doesn&rsquo;t justify the operational complexity unless you genuinely need more throughput than one device can provide with HA overhead accounted for.</p>
+<hr>
+<h2 id="policy-hygiene-the-problem-that-builds-slowly">Policy Hygiene: The Problem That Builds Slowly</h2>
+<p>Firewall capacity is not only a hardware question. Firewall performance degrades as rule base complexity increases — particularly when rule bases grow without regular cleanup.</p>
+<p>A rule base with 5,000 rules where most traffic matches in the first 50 rules performs very differently from a 5,000-rule base where traffic is distributed across hundreds of rules. Every packet traverses the rule base from top to bottom until it matches — or reaches the implicit deny.</p>
+<p><strong>What rule hygiene means in practice:</strong></p>
+<ul>
+<li>Rules that are never matched (shadow rules, obsolete rules) should be identified and removed quarterly</li>
+<li>High-traffic rules should be positioned near the top of the rule base</li>
+<li>Overly broad rules (any/any permits with logging disabled) should be documented and reviewed</li>
+<li>Application-specific rules should replace port-based rules where the platform supports it</li>
+</ul>
+<p>FortiManager, Panorama, and FMC all have rule usage statistics and shadow rule detection. Using these tools is part of responsible firewall operations — not a periodic cleanup exercise.</p>
+<hr>
+<h2 id="capacity-planning-the-practical-framework">Capacity Planning: The Practical Framework</h2>
+<p>When sizing a firewall, work through these metrics in order:</p>
+<p><strong>1. Baseline traffic characterization</strong></p>
+<ul>
+<li>What is current peak bandwidth (not average)?</li>
+<li>What percentage is SSL/HTTPS?</li>
+<li>What is the concurrent session count at peak?</li>
+<li>What is the new session rate at peak?</li>
+</ul>
+<p><strong>2. Growth projection</strong></p>
+<ul>
+<li>Add 40–50% headroom over expected peak for 3-year lifecycle</li>
+<li>Account for new applications and services that will be added</li>
+</ul>
+<p><strong>3. Feature impact</strong></p>
+<ul>
+<li>Which security features will be enabled? (IPS, SSL inspection, App-ID, AV)</li>
+<li>Use vendor &ldquo;threat protection&rdquo; throughput figures, not raw throughput</li>
+<li>For SSL inspection specifically: validate with vendor sizing tools using your estimated HTTPS percentage</li>
+</ul>
+<p><strong>4. HA overhead</strong></p>
+<ul>
+<li>Active-Standby: size each unit for 100% of traffic (standby must be able to handle full load)</li>
+<li>Do not plan to use standby capacity — it must be available for failover</li>
+</ul>
+<p><strong>5. Management and logging</strong></p>
+<ul>
+<li>High logging rates consume CPU on the firewall itself</li>
+<li>External log management (FortiAnalyzer, Panorama, FMC) is not optional at scale</li>
+</ul>
+<p>A simple sizing example:</p>
+<pre tabindex="0"><code>Environment:
+  Peak bandwidth: 2 Gbps
+  SSL percentage: 80% (1.6 Gbps HTTPS)
+  IPS + App-ID + SSL inspection: all enabled
+  3-year growth headroom: 50%
+
+Required SSL inspection throughput:
+  1.6 Gbps × 1.5 (growth) = 2.4 Gbps
+
+Select a model rated for ≥ 2.4 Gbps SSL inspection throughput
+(not 2.4 Gbps raw throughput)
+</code></pre><hr>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li><strong>Datasheet throughput is not production throughput.</strong> SSL inspection, IPS, and application control reduce effective throughput significantly. Size based on threat protection or SSL inspection figures, not raw numbers.</li>
+<li><strong>SSL inspection capacity is the binding constraint</strong> for most internet edge deployments. The majority of traffic is HTTPS, and inspecting it is expensive.</li>
+<li><strong>Fortinet</strong> excels at high-throughput environments where hardware acceleration matters. Full deep inspection at scale requires careful model selection — throughput drops substantially with all features enabled.</li>
+<li><strong>Palo Alto</strong> provides the deepest application visibility and most rigorous policy model. The architecture is powerful for security-mature organizations; it adds operational overhead for those without dedicated security teams. Panorama is effectively required for multi-device management.</li>
+<li><strong>Cisco Firepower</strong> brings strong IPS (Talos intelligence) and Cisco ecosystem integration. Management complexity is real — FMC is required to realize the platform&rsquo;s value.</li>
+<li><strong>Check Point</strong> is mature and security-focused with deep policy control. Requires Linux/Gaia OS familiarity and disciplined rule base management to operate effectively.</li>
+<li><strong>Multi-firewall architecture</strong> — different firewalls for edge, internal segmentation, and DC — is often the right answer rather than one platform for everything.</li>
+<li><strong>Rule hygiene</strong> is a performance and security issue, not just housekeeping. Neglected rule bases degrade both.</li>
+</ul>
+<hr>
+<h2 id="related-articles">Related Articles</h2>
+<ul>
+<li>🏗️ <a href="/en/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough</a> — Architectural context for firewall placement</li>
+<li>🔐 <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture</a> — Policy philosophy behind firewall design</li>
+<li>🛡️ <a href="/en/technology/ddos-protection-strategies-isp-scrubbing-on-premise-cloud/">DDoS Protection Strategies</a> — What sits upstream of the firewall</li>
+<li>🛡️ <a href="/en/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive</a> — Layer 7 protection that complements firewall policy</li>
+<li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">Monitoring Done Right</a> — Making firewall behavior visible</li>
+</ul>
+]]></content:encoded></item><item><title>OT Networks: What an IT Engineer Actually Encounters on the Factory Floor</title><link>https://barashhelvadzhaoglu.com/en/technology/ot-network-security/</link><pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/ot-network-security/</guid><description>IT engineer&amp;#39;s guide to OT security — Purdue model, Layer 2 firewall, OT signatures, patch-exempt systems, and 802.1X in industrial environments.</description><content:encoded><![CDATA[<h1 id="ot-networks-what-an-it-engineer-actually-encounters-on-the-factory-floor">OT Networks: What an IT Engineer Actually Encounters on the Factory Floor</h1>
+<p>Most network engineers spend their careers in IT infrastructure — corporate LANs, data centers, campus networks, cloud connectivity. Then one day a project lands on your desk involving a factory, a warehouse automation system, or a utilities facility. And suddenly the familiar rules don&rsquo;t quite apply.</p>
+<p>OT (Operational Technology) networks are not IT networks. The devices are different, the protocols are different, the priorities are different, and — critically — the consequences of getting something wrong are different. In IT, a misconfigured switch causes a network outage. In OT, a misconfigured network change can stop a production line, damage expensive equipment, or in critical infrastructure scenarios, create physical safety risks.</p>
+<p>This article is written from the IT engineer&rsquo;s perspective — the person who gets called in to add a firewall, segment a network, or connect an industrial system to the corporate network. Not a deep SCADA engineering guide, but a practical orientation for what you&rsquo;ll encounter and what you need to think about before touching anything.</p>
+<hr>
+<h2 id="the-core-difference-availability-over-confidentiality">The Core Difference: Availability Over Confidentiality</h2>
+<p>In IT security, the classic priority order is <strong>CIA: Confidentiality, Integrity, Availability</strong>. Confidentiality comes first — protecting data from unauthorized access is the primary concern.</p>
+<p>In OT, the priority order is essentially <strong>AIC: Availability, Integrity, Confidentiality</strong>. The production line must keep running. A 30-second network outage in an IT environment is an inconvenience. A 30-second network outage in a manufacturing facility can mean scrapped product, damaged machinery, or a safety incident.</p>
+<p>This inversion has direct consequences for every network decision in an OT environment:</p>
+<ul>
+<li><strong>You do not reboot OT devices without extensive planning.</strong> A Cisco switch in an IT environment can be rebooted in 3 minutes without drama. A switch embedded in a production line may need a scheduled maintenance window, production halt, and coordination with the plant operations team.</li>
+<li><strong>Patch management is not straightforward.</strong> In IT, you patch systems regularly. In OT, many systems cannot be patched — the vendor certifies the software version, and any change voids the certification or requires expensive re-validation.</li>
+<li><strong>Network changes require coordination.</strong> In IT, adding a VLAN is routine. In OT, the same change may need sign-off from production managers, safety engineers, and equipment vendors.</li>
+</ul>
+<p>Understanding this before you start work is not just professional courtesy — it prevents real operational incidents.</p>
+<hr>
+<h2 id="the-purdue-model-a-map-of-ot-network-architecture">The Purdue Model: A Map of OT Network Architecture</h2>
+<p>The Purdue Model (ISA-95) is the standard framework for understanding industrial network architecture. It defines levels from physical processes at the bottom to enterprise IT at the top:</p>
+<pre tabindex="0"><code>Level 4/5  — Enterprise IT Network (ERP, email, corporate LAN)
+─────────────────────────────────────────────────────────────
+             IT/OT DMZ  ← The boundary where IT engineers work
+─────────────────────────────────────────────────────────────
+Level 3    — Operations / Site Management
+             (Historian servers, engineering workstations,
+              HMI servers, batch management)
+
+Level 2    — Supervisory Control
+             (SCADA servers, HMI clients, DCS workstations)
+
+Level 1    — Basic Control
+             (PLCs, DCS controllers, RTUs)
+
+Level 0    — Physical Process
+             (Sensors, actuators, motors, valves)
+</code></pre><p><strong>Where IT engineers typically operate:</strong> The IT/OT DMZ and Level 3. This is where the connection between the corporate IT network and the OT environment is managed. It&rsquo;s where firewall projects, historian connectivity, remote access solutions, and network segmentation work happens.</p>
+<p><strong>What IT engineers rarely touch directly:</strong> Levels 0, 1, and 2 — the actual control systems, PLCs, and SCADA components. These are the domain of OT/automation engineers and equipment vendors.</p>
+<p>The DMZ between IT and OT is the most critical boundary in industrial network architecture. It must exist. Traffic should not flow freely between the corporate network and the OT environment.</p>
+<hr>
+<h2 id="ot-protocols-whats-running-on-these-networks">OT Protocols: What&rsquo;s Running on These Networks</h2>
+<p>When you connect a network analyzer to an OT network for the first time, you&rsquo;ll see protocols that don&rsquo;t appear in any IT network. Understanding what they are — even at a surface level — helps you make sensible firewall and segmentation decisions.</p>
+<h3 id="modbus">Modbus</h3>
+<p>The oldest industrial protocol, developed in 1979. Still widely deployed in manufacturing, utilities, and building automation.</p>
+<ul>
+<li><strong>Modbus RTU:</strong> Serial-based (RS-232, RS-485). Runs over physical serial connections, not Ethernet.</li>
+<li><strong>Modbus TCP:</strong> Modbus encapsulated in TCP/IP. Runs on port 502.</li>
+</ul>
+<p>Modbus has <strong>no authentication, no encryption, no authorization</strong>. Any device on the network that can reach port 502 of a Modbus-enabled controller can read sensor values or write control commands. This is not a historical oversight — Modbus was designed for isolated serial networks where physical access was the security control.</p>
+<p>When Modbus TCP is on an Ethernet network accessible from outside the OT segment, the absence of authentication is a significant risk. The firewall policy must restrict which devices can reach Modbus-enabled controllers.</p>
+<h3 id="dnp3-distributed-network-protocol">DNP3 (Distributed Network Protocol)</h3>
+<p>Common in utilities — power generation, water treatment, oil and gas. Originally designed for SCADA communication between control centers and remote field devices (substations, pumping stations).</p>
+<p>DNP3 has basic authentication extensions (Secure Authentication Version 5), but many deployed implementations still use the original unauthenticated version. Like Modbus, it was designed for isolated networks and is often deployed without the security features that exist on paper.</p>
+<h3 id="opc-ua-opc-unified-architecture">OPC-UA (OPC Unified Architecture)</h3>
+<p>The modern industrial communication standard designed specifically to address the security gaps in older protocols. OPC-UA supports:</p>
+<ul>
+<li>Certificate-based authentication</li>
+<li>Encrypted communication</li>
+<li>Fine-grained authorization (which clients can read which data points)</li>
+</ul>
+<p>OPC-UA is the protocol you&rsquo;ll encounter in newer installations and in Historian server connectivity — it&rsquo;s how Level 3 systems collect data from Level 2 controllers while maintaining a security boundary.</p>
+<h3 id="profinet">PROFINET</h3>
+<p>Siemens&rsquo; industrial Ethernet protocol, dominant in European manufacturing (automotive, food processing, pharmaceutical). PROFINET runs over standard Ethernet but uses specific EtherType values and is real-time sensitive — delays of milliseconds matter.</p>
+<p>PROFINET has almost no inherent security. It assumes a physically isolated network. In environments with PROFINET controllers, the network segmentation must be strict — PROFINET traffic should never cross outside its dedicated VLAN.</p>
+<h3 id="ethernetip">EtherNet/IP</h3>
+<p>Rockwell Automation / Allen-Bradley&rsquo;s industrial Ethernet protocol. Common in North American manufacturing. Similar security characteristics to PROFINET — designed for isolated networks, limited authentication.</p>
+<hr>
+<h2 id="what-the-it-engineer-is-actually-asked-to-do">What the IT Engineer Is Actually Asked to Do</h2>
+<p>In practice, when IT/network engineers get involved in OT projects, the request usually falls into one of these categories:</p>
+<h3 id="scenario-1-add-a-firewall-between-the-pc-and-the-machine">Scenario 1: &ldquo;Add a Firewall Between the PC and the Machine&rdquo;</h3>
+<p>The most common scenario. A Windows PC (running SCADA software or HMI) is directly connected to a PLC or production machine via Ethernet — no network device between them. The request is to add a security layer.</p>
+<pre tabindex="0"><code>Before:
+  [Windows HMI PC] ──────────────── [PLC / Machine Controller]
+
+After (typical approach):
+  [Windows HMI PC] ── [Firewall] ── [PLC / Machine Controller]
+</code></pre><p><strong>Layer 2 transparent firewall deployment:</strong></p>
+<p>The most operationally safe way to insert a firewall into this path is in <strong>Layer 2 transparent mode</strong> (also called &ldquo;bump in the wire&rdquo; or bridge mode). The firewall passes traffic transparently — neither device knows it exists, no IP addresses change, no routing changes. If the firewall fails, traffic can be restored by removing it and reconnecting directly.</p>
+<p>This is important because changing IP addresses on a PLC or industrial controller often requires reconfiguring the application software that talks to it — a process that may involve vendor support, re-certification, and production downtime.</p>
+<p>In transparent mode:</p>
+<ul>
+<li>The PLC keeps its existing IP address</li>
+<li>The HMI PC keeps its existing IP address</li>
+<li>The firewall inspects traffic and applies policy without being a routed hop</li>
+</ul>
+<p>Firewall policy in this scenario is typically:</p>
+<ul>
+<li>Allow specific OT protocol traffic (Modbus port 502, PROFINET, EtherNet/IP) from the HMI to the controller</li>
+<li>Allow only necessary management protocols</li>
+<li>Block everything else</li>
+<li>Log all traffic for visibility</li>
+</ul>
+<h3 id="scenario-2-connect-the-ot-network-to-corporate-it">Scenario 2: &ldquo;Connect the OT Network to Corporate IT&rdquo;</h3>
+<p>The production team wants to get data from the factory floor into corporate systems — production statistics into ERP, sensor data into a reporting database, remote monitoring capability.</p>
+<p>This requires a DMZ architecture:</p>
+<pre tabindex="0"><code>[Corporate IT Network]
+         │
+    [IT/OT Firewall]   ← Strict policy: only specific flows allowed
+         │
+    [OT DMZ]
+    [Historian Server]  ← Collects data from OT, serves it to IT
+         │
+    [OT Firewall]       ← Separate firewall protecting OT from DMZ
+         │
+    [OT Network — Level 2/3]
+</code></pre><p>The DMZ principle: the corporate network cannot directly reach OT devices. The Historian server in the DMZ collects data from OT systems (allowed by the OT firewall) and makes it available to corporate systems (allowed by the IT firewall). Neither the corporate network nor the OT network can initiate connections to the other directly.</p>
+<p><strong>Why two firewalls and not one?</strong> If the Historian server in the DMZ is compromised, it should not provide a path into either network. A single firewall with a DMZ segment provides less isolation than two separate firewalls.</p>
+<h3 id="scenario-3-add-network-segmentation-to-the-flat-ot-network">Scenario 3: &ldquo;Add Network Segmentation to the Flat OT Network&rdquo;</h3>
+<p>Many older OT environments have a completely flat network — all PLCs, HMIs, engineering workstations, and sometimes even corporate-connected PCs on the same Layer 2 broadcast domain. Every device can reach every other device.</p>
+<p>Segmenting this network involves:</p>
+<ul>
+<li>Adding managed switches with VLAN capability</li>
+<li>Defining VLANs per device type or function (Level 2 controllers, Level 3 supervisory, engineering workstations)</li>
+<li>Routing between VLANs through a firewall with strict inter-VLAN policy</li>
+</ul>
+<p><strong>The critical constraint:</strong> Before making any network change, document the existing communication flows exhaustively. Which devices talk to which devices? On which ports? Segmentation that breaks an undocumented communication path between a PLC and its controller will stop the production line.</p>
+<p>In IT environments, you can often discover flows by monitoring for a few days and then implementing. In OT, some communication flows only occur during specific production phases — a weekly batch process, an end-of-shift report — and won&rsquo;t appear during a short monitoring window. Work with the OT team to document all communication requirements before implementing segmentation.</p>
+<hr>
+<h2 id="ot-aware-firewalls-what-the-vendors-have-built">OT-Aware Firewalls: What the Vendors Have Built</h2>
+<p>Standard IT firewalls (even NGFWs) have limited visibility into OT protocols. They can inspect IP headers and TCP/UDP ports, but they cannot understand the content of a Modbus TCP command — they can&rsquo;t distinguish &ldquo;read sensor value&rdquo; from &ldquo;write control command to actuator.&rdquo;</p>
+<p>OT-aware firewalls add <strong>industrial protocol inspection</strong> — the ability to parse OT protocol payloads and make policy decisions based on protocol-specific content.</p>
+<h3 id="the-signature-difference">The Signature Difference</h3>
+<p>A standard NGFW might have 2,000–5,000 application signatures — predominantly IT applications (HTTP, TLS, DNS, SMB, Office 365, etc.). An OT-capable firewall license adds hundreds of additional signatures for industrial protocols:</p>
+<ul>
+<li><strong>Modbus TCP:</strong> Distinguish read requests (acceptable from HMI) from write commands (restrict to authorized systems only)</li>
+<li><strong>PROFINET:</strong> Identify and control specific PROFINET services</li>
+<li><strong>EtherNet/IP:</strong> Parse CIP (Common Industrial Protocol) commands</li>
+<li><strong>DNP3:</strong> Inspect DNP3 function codes and object types</li>
+<li><strong>OPC-DA/UA:</strong> Control OPC communication direction and data types</li>
+<li><strong>BACnet:</strong> Building automation protocol inspection</li>
+<li>Dozens more industrial and building automation protocols</li>
+</ul>
+<p><strong>Why this matters:</strong> Without OT protocol inspection, a firewall can only control &ldquo;can this IP reach that IP on this port.&rdquo; With OT inspection, it can enforce &ldquo;the HMI can read Modbus holding registers from the PLC, but cannot write to coils&rdquo; — a fundamentally different level of control.</p>
+<h3 id="vendor-landscape">Vendor Landscape</h3>
+<p><strong>Fortinet FortiGate with OT Bundle:</strong>
+Fortinet offers specific OT/ICS licensing that extends the base NGFW with industrial protocol signatures and OT-specific threat intelligence. The FortiGate can be deployed in transparent mode (Layer 2) or routed mode. In environments already running FortiGate for IT, the same platform handles both.</p>
+<p><strong>Palo Alto Networks with ICS/SCADA content:</strong>
+Palo Alto&rsquo;s App-ID engine includes industrial protocol identification. The Industrial IoT Security subscription adds OT device visibility, risk assessment, and protocol-specific policies. Zone-based architecture maps well to Purdue model segmentation.</p>
+<p><strong>Claroty, Nozomi Networks, Dragos (OT-specialized):</strong>
+These are not traditional firewalls — they are OT-specific security monitoring platforms. They connect to the OT network via SPAN port (passive monitoring) and provide deep visibility: asset discovery, protocol analysis, behavioral baseline, anomaly detection. They don&rsquo;t block traffic but give visibility that generic IT tools cannot provide. Often deployed alongside a standard firewall.</p>
+<p><strong>Cisco Industrial Network Director:</strong>
+Cisco&rsquo;s OT-focused management and security platform, integrating with Cisco industrial switches and firewalls for OT network visibility.</p>
+<h3 id="licensing-reality">Licensing Reality</h3>
+<p>OT firewall capabilities are licensed separately from standard IT NGFW features. If you&rsquo;re specifying a firewall for an OT project, the standard enterprise license is not sufficient — you need the OT/ICS bundle or equivalent. This affects both cost and the vendor selection conversation with the customer.</p>
+<hr>
+<h2 id="the-patch-problem-legacy-systems-you-cannot-touch">The Patch Problem: Legacy Systems You Cannot Touch</h2>
+<p>In IT, patching is routine. Monthly patch cycles, automated deployment, centralized management. In OT, patching is often impossible.</p>
+<p>The reasons are specific and legitimate:</p>
+<p><strong>Vendor certification:</strong> Industrial equipment manufacturers (Siemens, Rockwell, Schneider, ABB, etc.) certify their systems with specific software versions. Changing the OS version or applying an OS patch may void the equipment certification, triggering a re-validation process that can cost more than the original equipment and take months.</p>
+<p><strong>Production dependency:</strong> Patching requires downtime. In continuous process industries (chemical plants, steel mills), &ldquo;downtime&rdquo; may mean a scheduled annual maintenance window — one opportunity per year to apply patches.</p>
+<p><strong>End-of-life software:</strong> You will encounter Windows XP, Windows 2003 Server, and even older systems running critical industrial software. Microsoft has not released security patches for these systems in years. They cannot be upgraded because the industrial software running on them hasn&rsquo;t been validated on newer Windows versions.</p>
+<p><strong>What this means for network security:</strong></p>
+<p>If you cannot patch the systems, you must compensate with network controls:</p>
+<ul>
+<li><strong>Strict network segmentation:</strong> Systems that cannot be patched must not be reachable from any network that could expose them to internet-sourced threats</li>
+<li><strong>Application whitelisting:</strong> Only specifically authorized applications can run on OT endpoints (where the endpoint OS supports this)</li>
+<li><strong>Compensating controls:</strong> The firewall must do the work that patching would normally do — restricting the attack surface through network policy</li>
+<li><strong>Offline antivirus updates:</strong> AV updates pushed via USB or offline media in air-gapped environments, rather than internet connectivity</li>
+</ul>
+<p>The security conversation in OT is not &ldquo;patch your systems&rdquo; — it&rsquo;s &ldquo;how do we protect systems we cannot patch through network architecture and compensating controls.&rdquo;</p>
+<hr>
+<h2 id="8021x-and-nac-in-ot-why-standard-it-approaches-dont-transfer-directly">802.1X and NAC in OT: Why Standard IT Approaches Don&rsquo;t Transfer Directly</h2>
+<p>802.1X port-based network access control is standard in enterprise IT. In OT, it creates specific challenges:</p>
+<p><strong>PLCs and controllers don&rsquo;t have 802.1X supplicants.</strong> A Siemens S7 PLC or an Allen-Bradley ControlLogix controller does not run a standard operating system with an 802.1X client. It cannot authenticate itself to a RADIUS server using username/password or certificate. It will simply not connect to an 802.1X-enabled switch port.</p>
+<p><strong>MAC Authentication Bypass (MAB) as a workaround:</strong> The standard approach for OT devices is MAB — the device&rsquo;s MAC address is used as the authentication credential. The switch sends the MAC address to RADIUS, which checks it against an authorized device database. If the MAC is known, access is granted.</p>
+<p>MAB provides some control — unknown devices don&rsquo;t get network access — but it&rsquo;s weaker than certificate or credential-based authentication. MAC addresses can be spoofed. The value is in the visibility and in preventing unauthorized devices from connecting, not in cryptographic authentication.</p>
+<p><strong>The strict MAC address management requirement:</strong> MAB in OT requires maintaining an accurate database of all authorized device MAC addresses. In a dynamic IT environment, this is impractical. In OT, where devices rarely change and all additions go through change management, it&rsquo;s feasible — but requires discipline.</p>
+<p><strong>Profiling as an alternative:</strong> OT security platforms (Claroty, Nozomi, Cisco CyberVision) can profile devices on the network — identifying PLC models, firmware versions, and communication patterns from passive traffic analysis. This provides asset visibility without requiring the devices to authenticate. The profiling data can feed into NAC policies: &ldquo;if this device profile matches a Siemens S7 PLC, place it in the PLC VLAN.&rdquo;</p>
+<p><strong>The network change risk:</strong> Enabling 802.1X on an existing flat OT network without extremely careful planning can take down the production line. Every device must be in the authorized database before enabling enforcement. The validation process must include all production phases, not just normal operation. A missed device that drops off the network during a weekend batch run can cause a Monday morning incident.</p>
+<hr>
+<h2 id="practical-checklist-before-you-touch-an-ot-network">Practical Checklist: Before You Touch an OT Network</h2>
+<p>From field experience — things that should happen before any network change in an OT environment:</p>
+<ul>
+<li><strong>Talk to the OT team first.</strong> The automation engineers and plant operations staff know things about the network that aren&rsquo;t documented. Their input is essential before any change.</li>
+<li><strong>Document existing communication flows.</strong> Which devices talk to which, on which ports, at what frequency. Don&rsquo;t rely on short-term monitoring — ask the OT team for documentation of all known communication paths.</li>
+<li><strong>Understand the production schedule.</strong> When is the maintenance window? When does the facility have scheduled downtime? Changes should align with these windows, not be imposed on production.</li>
+<li><strong>Test in a lab or staging environment if possible.</strong> Many vendors provide lab environments or simulators for their industrial equipment.</li>
+<li><strong>Have a rollback plan.</strong> For Layer 2 firewall insertion, the rollback is removing the firewall and reconnecting directly — document this procedure so it can be executed quickly if needed.</li>
+<li><strong>Coordinate firmware/config backups.</strong> Before making any network change, ensure OT device configurations are backed up. If a PLC needs to be power-cycled, its configuration should be recoverable.</li>
+<li><strong>Define what &ldquo;working&rdquo; looks like before and after.</strong> Agree with the OT team on acceptance criteria — which systems must be reachable, which processes must be running — before declaring a change successful.</li>
+</ul>
+<hr>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li><strong>OT networks prioritize availability over confidentiality</strong> — this inverts many IT security assumptions and must inform every decision.</li>
+<li><strong>The Purdue model</strong> defines where the IT/OT boundary sits. The DMZ between Level 3 and corporate IT is where IT engineers most often operate.</li>
+<li><strong>OT protocols (Modbus, PROFINET, EtherNet/IP, DNP3)</strong> have no authentication or encryption. Network controls are the primary security mechanism.</li>
+<li><strong>Layer 2 transparent firewall deployment</strong> is the safest way to add security between OT devices — no IP address changes, no routing changes, reversible without configuration changes.</li>
+<li><strong>OT-aware firewalls</strong> understand industrial protocols and can enforce policy at the protocol level (allow reads, block writes) — a fundamentally different capability than IP/port filtering.</li>
+<li><strong>OT firewall licensing is separate</strong> from IT NGFW licensing — factor this into project scoping.</li>
+<li><strong>Unpatched legacy systems are normal in OT</strong> — compensating network controls replace what patching provides in IT.</li>
+<li><strong>802.1X doesn&rsquo;t transfer directly</strong> — PLCs can&rsquo;t authenticate. MAB and device profiling are the practical alternatives.</li>
+<li><strong>Coordinate with OT teams before touching anything</strong> — the consequences of network mistakes in production environments are significantly more serious than in IT.</li>
+</ul>
+<hr>
+<h2 id="related-articles">Related Articles</h2>
+<ul>
+<li>🔐 <a href="/en/technology/identity-based-microsegmentation-8021x/">802.1X Identity-Based Architecture in the Field</a> — How 802.1X works in IT environments, and why OT is different</li>
+<li>🔐 <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture</a> — Zero Trust principles applied to IT/OT boundary design</li>
+<li>🛡️ <a href="/en/technology/ddos-protection-strategies-isp-scrubbing-on-premise-cloud/">DDoS Protection Strategies</a> — Protecting OT-connected infrastructure from volumetric attacks</li>
+<li>🏗️ <a href="/en/architecture/it-infrastructure-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a> — Systems thinking that applies equally to OT network design</li>
+</ul>
+]]></content:encoded></item><item><title>Network Infrastructure Product Selection: Strategic Criteria and Field Experiences</title><link>https://barashhelvadzhaoglu.com/en/architecture/network-product-selection-strategy/</link><pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/architecture/network-product-selection-strategy/</guid><description>Product selection in enterprise networks is more than a checklist. Field-tested framework for evaluating firewalls, switches, and APs beyond datasheets.</description><content:encoded><![CDATA[<h1 id="network-infrastructure-product-selection-strategic-criteria-and-field-experiences">Network Infrastructure Product Selection: Strategic Criteria and Field Experiences</h1>
+<h2 id="how-to-evaluate-switch-firewall-and-ap-beyond-the-datasheet">How to evaluate Switch, Firewall, and AP beyond the datasheet</h2>
+<p>Most enterprise network projects start at the same point: product selection. And most of the time, they fail at the same point: products not working together. Because what we call a &ldquo;core network&rdquo; is not just three boxes (switch, firewall, access point) sitting side by side; it is about these three boxes carrying an identity together, generating segments together, enforcing policies together, and most importantly, sustaining operations together.</p>
+<p>What I have seen over the years is this: a company&rsquo;s network doesn&rsquo;t struggle because it&rsquo;s &ldquo;bad,&rdquo; but because the decision mechanism of the network is fragmented. You have the most expensive devices, the best licenses, the highest throughput — but when an incident occurs, no one knows which device decides with which context, where the traffic diverges, or where it is controlled. The result: you have a &ldquo;network,&rdquo; but you don&rsquo;t have &ldquo;network behavior.&rdquo;</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/network-product-selection-strategy.webp"/> <figcaption>
+            Strategic Product Selection Framework
+        </figcaption>
+</figure>
+
+<p>In this article, I will share a field-tested framework for evaluating core network products across three pillars: Firewall, Switching, and Access (Wi-Fi). But before we begin, two factors are as decisive as &ldquo;technical specifications&rdquo; — and most teams realize them too late: <strong>reports/validation</strong> and <strong>support/lifecycle</strong>.</p>
+<blockquote>
+<p>For the architectural philosophy behind this selection process, see: <a href="/en/architecture/it-infrastructure-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a></p>
+</blockquote>
+<h2 id="step-1-filtering-reports-tests-and-marketing-noise">Step 1: Filtering Reports, Tests, and Marketing Noise</h2>
+<p>One of the first references in product selection is, yes, Gartner reports. Reports like Gartner give you an idea of a product&rsquo;s market position: who is the leader, who is the visionary, who is playing in a niche. This is especially useful for convincing decision-makers; it provides a structured answer to &ldquo;why this brand?&rdquo; at the budget table.</p>
+<p>But there is a critical trap: <strong>Gartner doesn&rsquo;t tell you which product is right for your specific scenario.</strong> Gartner is a market map; your job is to draw the architectural map. Use Gartner as an initial filter — it narrows options but doesn&rsquo;t make the final decision.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/filtering-reports-tests-and-marketing-noise.webp"/> <figcaption>
+            Filtering Reports and Marketing Noise
+        </figcaption>
+</figure>
+
+<p>Beyond Gartner, performance and security tests from manufacturers or independent labs, comparative reports, and real-world benchmarks must be considered. The throughput on a datasheet is not the same as throughput in production when IPS is on, SSL decryption is active, and app-control is running. Reports serve as a second filter: you look for a non-marketing answer to &ldquo;What does this box do under this specific load?&rdquo;</p>
+<h2 id="step-2-support-and-lifecycle--the-invisible-pillars">Step 2: Support and Lifecycle — The Invisible Pillars</h2>
+<p>A product&rsquo;s technical capabilities are only half the story. Its support model and lifecycle are equally critical. Network design doesn&rsquo;t end on installation day. The real question is: <strong>what happens 3 years later?</strong></p>
+<ul>
+<li>What are the EoL / EoS dates?</li>
+<li>How fast are patches, bugfixes, and security updates?</li>
+<li>Is TAC/Support truly accessible, and how do escalations work?</li>
+<li>What is the reality of RMA processes and spare parts availability?</li>
+<li>Will the licensing model cause surprises after year one?</li>
+<li>Is the vendor&rsquo;s roadmap aligned with your strategic direction?</li>
+</ul>
+<p>The most common problem I see in the field: the team chooses a technically sound product, but because support/lifecycle was deprioritized, operations turn into a nightmare 12 months later. The device gets the blame — but the real problem was never the device.</p>
+<h2 id="step-3-evaluating-the-firewall-layer">Step 3: Evaluating the Firewall Layer</h2>
+<p>The firewall has long passed being just a &ldquo;security device at the edge.&rdquo; Positioned correctly, it is the policy brain of the architecture. Positioned incorrectly, it becomes the bottleneck where everything collapses.</p>
+<p><strong>UTM vs. NGFW — a necessary distinction:</strong></p>
+<p>The UTM approach follows the &ldquo;everything in one box&rdquo; philosophy: firewall + IPS + web filter + AV + gateway functions. Preferred in smaller environments for management simplicity and bundled licensing.</p>
+<p>NGFW is positioned around application awareness, user/identity context, and deeper policy control. In modern enterprise environments, running security on port/protocol alone is no longer sufficient — this is where NGFW becomes necessary.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/firewall-selection.webp"/> <figcaption>
+            Firewall Selection: UTM vs NGFW vs Multi-Role
+        </figcaption>
+</figure>
+
+<p><strong>Why two or three firewalls in the same organization is normal:</strong></p>
+<ul>
+<li><strong>Perimeter/Internet Edge Firewall:</strong> Internet egress, VPN, NAT, inbound/outbound policy</li>
+<li><strong>Internal Segmentation Firewall (ISFW):</strong> East-west control, internal segmentation, critical zone isolation</li>
+<li><strong>Data Center / High-performance FW:</strong> DC traffic, high session count, high PPS, low latency</li>
+<li>In some architectures: WAF or Cloud FW as additional components</li>
+</ul>
+<p>This doesn&rsquo;t mean &ldquo;buy two firewalls&rdquo; — it means &ldquo;assign two different jobs to the right tools.&rdquo;</p>
+<blockquote>
+<p>For a deeper look at firewall architecture within the broader network design: <a href="/en/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough</a></p>
+</blockquote>
+<h2 id="step-4-firewall-capacity-planning--throughput-can-lie">Step 4: Firewall Capacity Planning — Throughput Can Lie</h2>
+<p>The most dangerous mistake in firewall selection is focusing solely on Gbps throughput. In practice, firewalls rarely fail because of throughput — they fail because of:</p>
+<ul>
+<li>PPS (packets per second)</li>
+<li>Concurrent session count</li>
+<li>New session rate</li>
+<li>NAT table and state handling</li>
+<li>Performance with active IPS/AV/App-ID</li>
+<li>SSL/TLS decryption load</li>
+<li>Log generation and SIEM transport</li>
+</ul>
+<p>A real-world example: &ldquo;We bought a 10 Gbps firewall&rdquo; means nothing in isolation. That 10 Gbps is an ideal-condition measurement on most vendor datasheets. With IPS, URL filtering, app control, and decryption active, real capacity changes dramatically. The right question is always:</p>
+<blockquote>
+<p><em>&ldquo;With the security features I will enable and my specific traffic profile — how much load can this firewall actually handle?&rdquo;</em></p>
+</blockquote>
+<p>If there is no credible answer to this question, the selection is risky.</p>
+<h2 id="step-5-switch-evaluation--role-and-load-over-port-count">Step 5: Switch Evaluation — Role and Load Over Port Count</h2>
+<p>Switch selection often starts with port counts: copper ports, fiber ports, PoE requirements. These matter — but from a core network perspective, they aren&rsquo;t sufficient. A switch is not just a socket; it is a decision point determining where traffic concentrates, diverges, and is carried upward.</p>
+<p><strong>The most common access layer mistake:</strong> planning for today&rsquo;s needs only. The access layer is the fastest-changing layer in the network. A point with adequate 1G copper today may host high-bandwidth APs or edge devices tomorrow. Multi-Gig ports (2.5G/5G), per-port PoE sustainability, and real uplink capacity all become critical.</p>
+<p>Uplinks are consistently underestimated. &ldquo;2×10G uplinks are enough&rdquo; is heard often — without analyzing the actual traffic profile. As user count grows and east-west traffic patterns shift, uplinks reach saturation faster than expected. Backplane capacity and oversubscription ratios matter as much as uplink speed.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/switching-selection.webp"/> <figcaption>
+            Switch Selection: Access vs Core vs Data Center
+        </figcaption>
+</figure>
+
+<p><strong>Edge switch vs. datacenter switch:</strong> these boundaries are often blurred in projects. Edge switches optimize for port density and PoE; datacenter switches optimize for throughput, low latency, high PPS, and east-west traffic. Expecting both from a single device usually inflates cost or drops performance below expectations.</p>
+<p>When designing the core network, the question <strong>&ldquo;Where will this switch stand and what traffic will it carry?&rdquo;</strong> must come before <strong>&ldquo;How many ports does it have?&rdquo;</strong></p>
+<h2 id="step-6-wireless--uplink-and-controller-architecture">Step 6: Wireless — Uplink and Controller Architecture</h2>
+<p>When discussing wireless, focus usually shifts to Wi-Fi standards: Wi-Fi 6, 6E, 7. In practice, wireless performance is often limited not by the radio — but by the cable. No matter how powerful the AP, if the uplink cannot carry it, theoretical speeds are meaningless.</p>
+<p>Many enterprise APs cannot use their full potential on a 1 Gbps uplink. 2.5G and 5G copper uplink support is not a luxury in high-density environments — it is a design requirement. And critically: if the AP supports 2.5G but the switch port does not, the entire investment is wasted. <strong>AP and switch selection must be done together.</strong></p>
+<figure>
+    <img loading="lazy" src="/img/postimages/wifi-selection.webp"/> <figcaption>
+            Wireless Architecture: AP, Uplink, and Controller
+        </figcaption>
+</figure>
+
+<p>Controller architecture is equally critical. The number of supported APs, simultaneous client capacity, and roaming behavior determine real-world stability. A controller that &ldquo;supports 500 APs&rdquo; on paper may struggle far earlier in high-density, fast-roaming environments. Controller capacity must be evaluated across CPU, memory, session handling, and policy enforcement — not just license count.</p>
+<p>Wireless is often treated as an edge topic, but it strains the core network faster than any other layer. Small design errors at the access layer create unexpected loads at the core. AP selection is not a coverage calculation — it is a core network architectural decision.</p>
+<h2 id="step-7-vendor-evaluation--field-realities">Step 7: Vendor Evaluation — Field Realities</h2>
+<p>The following assessments are based entirely on my personal field experience. The goal is not to praise or criticize — but to honestly identify where each vendor is strong and where they struggle.</p>
+<p><strong>Cisco</strong> remains one of the strongest players in switching and routing, especially in large campus and datacenter environments. Wireless has been mature for years. On the firewall side, significant development followed acquisitions like Sourcefire.
+The caveat: a full Cisco environment is powerful but rarely simple. Integration is possible — but requires significant experience and effort.</p>
+<p><strong>HPE Aruba</strong> has grown substantially through acquisitions, most recently Juniper. Switching is widely adopted with a loyal user base. Wireless, in my personal view, is among the strongest in the industry.
+Historical routing gaps should largely close with the Juniper product family. The absence of a strong native firewall family remains a gap.</p>
+<p><strong>Fortinet</strong> offers one of the broadest portfolios under a single roof. Firewall competency is strong — it&rsquo;s their foundation. The switching family matured later but is increasingly present in the field.
+The biggest operational advantage: relative ease of integration and management. This difference is clearly felt in organizations with smaller IT teams.</p>
+<p><strong>Palo Alto Networks</strong> is a clear leader in firewalls — deliberately not entering switching or wireless. Many organizations use Palo Alto exclusively for firewalls, for very good reasons.
+Application visibility, policy depth, and SASE leadership are where they create the most differentiation.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/vendor-selection.webp"/> <figcaption>
+            Vendor Comparison: Field Reality
+        </figcaption>
+</figure>
+
+<p>In practice, organizations use all combinations: single-vendor, dual-vendor, or best-of-breed. These decisions are as organizational as they are technical.</p>
+<p>My personal view: where teams are mature enough, specialized vendors per layer tend to produce stronger technical results. Where simplicity and a single support channel matter more, a single-vendor approach is completely valid.</p>
+<p><strong>One final point:</strong> API support is no longer a bonus — it is a selection criterion. The question &ldquo;How will I automate this architecture?&rdquo; should come before choosing the switch, firewall, or AP. In my view, good core network design starts exactly here.</p>
+<h2 id="the-server-room-and-cabling-what-nobody-talks-about-but-everyone-pays-for">The Server Room and Cabling: What Nobody Talks About But Everyone Pays For</h2>
+<p>In network projects, the &ldquo;shiny&rdquo; topics dominate: which switch, which firewall, which wireless solution. But a significant portion of field problems starts at a much more basic level: server room design and cabling infrastructure.</p>
+<p>No matter how good the products or how correct the architecture — if the server room and cabling are weak, that network will eventually produce problems. These problems appear as &ldquo;network failures,&rdquo; but the root cause is almost never the network itself.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/server-room-and-cabling.webp"/> <figcaption>
+            Server Room and Cabling: The Foundation Nobody Discusses
+        </figcaption>
+</figure>
+
+<p>Server rooms are still treated as equipment closets in most organizations. Racks grow, cables pile up, temporary solutions become permanent. Eventually, an area is created that nobody wants to touch — but everyone depends on. The real risk starts there.</p>
+<p>Heat, power, airflow, accessibility, and order must be considered together. Redundant power supplies are purchased without checking whether they actually connect to separate power lines. UPS capacity is never calculated. These seem like small details — until a crisis makes the entire architecture meaningless.</p>
+<p>Cabling is the longest-lasting component of the network. Switches, firewalls, and APs change — cables stay. Planning cabling for today&rsquo;s needs is a guaranteed mistake. A 1G design hits its limit quickly when 2.5G/5G APs arrive.</p>
+<p>Physical access security to the server room is equally overlooked. Without clear controls on who enters, when, and how changes are logged, even the best logical security policies lose their meaning.</p>
+<p>In my view, the server room and cabling are not the &ldquo;lower layer&rdquo; of architecture — they are the foundation. A well-functioning network is invisible precisely because the foundation is solid. Nobody notices. And in my view, that is the greatest praise any infrastructure design can receive.</p>
+<h2 id="note">Note</h2>
+<p>This article was originally published on <strong>Substack</strong> in a shorter, narrative form.
+This version expands on the architectural foundation of the series.</p>
+<p>👉 <strong>Read the article on Substack:</strong> <a href="https://substack.com/home/post/p-183952844">Click Here</a></p>
+<hr>
+<h2 id="related-articles">Related Articles</h2>
+<p><strong>Architecture &amp; Strategy</strong></p>
+<ul>
+<li>📐 <a href="/en/architecture/it-infrastructure-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a> — The foundational article of this series</li>
+<li>🏗️ <a href="/en/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough</a> — Architecture-first core network design</li>
+<li>🛡️ <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product</a> — Security as architecture</li>
+</ul>
+<p><strong>Technical Engineering</strong></p>
+<ul>
+<li>📊 <a href="/en/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively</a> — Operational visibility</li>
+<li>🛠️ <a href="/en/posts/next-gen-console-server-terminal-server-architecture/">The Backdoor of the Network: Next-Gen Console Server Architecture</a> — Out-of-band access</li>
+<li>🛡️ <a href="/en/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Traffic visibility and security strategy</li>
+</ul>
+]]></content:encoded></item><item><title>Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough</title><link>https://barashhelvadzhaoglu.com/en/architecture/core-network-is-not-a-product-list/</link><pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/architecture/core-network-is-not-a-product-list/</guid><description>Enterprise network projects fail due to fragmented architecture, not wrong products. Deep-dive into firewall, switching, AP selection, and capacity planning.</description><content:encoded><![CDATA[<h1 id="switch-firewall-ap--why-choosing-the-right-products-is-not-enough">Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough</h1>
+<h2 id="architecture-capacity-planning-and-the-vendor-reality-no-one-talks-about">Architecture, capacity planning, and the vendor reality no one talks about</h2>
+<p>Most enterprise network projects start at the same point: product selection. And most of them break at the same point: products that do not work well together. Because what we call a &ldquo;core network&rdquo; is not three boxes (switch, firewall, access point) standing side by side; it is those three boxes carrying identity together, producing segmentation together, enforcing policy together, and most importantly, sustaining operations together.</p>
+<p>What I have observed for years is this: companies do not suffer because their network is bad, but because the network&rsquo;s decision-making mechanism is fragmented. The most expensive devices, the best licenses, the highest throughput… all are there; yet when an incident happens, who knows what, which device decides based on which context, where traffic is separated, where it is controlled—there are no clear answers. The result: &ldquo;there is a network,&rdquo; but there is no &ldquo;network behavior.&rdquo;</p>
+<p>In this article, I will examine the core network across three pillars: Firewall, Switching, and Access (Wi-Fi). But before that, I want to clearly state one thing: in the selection process, there are two factors that are just as decisive as &ldquo;technical specifications,&rdquo; and most teams realize them too late: reports/validation and support/lifecycle.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/core-network-architecture-overview.webp"/> <figcaption>
+            Core Network Architecture Overview
+        </figcaption>
+</figure>
+
+<h2 id="filtering-reports-tests-and-marketing-noise">Filtering reports, tests, and &ldquo;marketing noise&rdquo;</h2>
+<p>One of the references to look at when selecting a product is, yes, Gartner reports. Because reports like Gartner give you an idea of a product&rsquo;s &ldquo;position in the market&rdquo;: who is a leader, who is a visionary, who plays in a niche. This is especially useful for convincing decision-makers; it provides a framework for answering the question &ldquo;why this brand?&rdquo; at the budget table.</p>
+<p>But there is a critical trap here: Gartner does not tell you which product is right for your specific scenario. Gartner is a &ldquo;market map&rdquo;; your job is to draw an &ldquo;architectural map.&rdquo; That is why it is more accurate to use Gartner as an initial filter: it narrows down options but does not make the final decision.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/filtering-reports-tests-and-marketing-noise.webp"/> 
+</figure>
+
+<p>In addition to Gartner, performance and security tests conducted by vendors or independent laboratories, comparative reports, and &ldquo;real-world&rdquo; benchmarks must also be considered. Because the throughput listed on a datasheet is not the same as the throughput achieved in real life when IPS is enabled, SSL decryption is active, and application control is running. Reports serve as a second filter here: you look for a non-marketing answer to the question, &ldquo;What does this box do under this load?&rdquo;</p>
+<h2 id="support-and-lifecycle-the-invisible-column-that-keeps-the-project-standing">Support and lifecycle: the invisible column that keeps the project standing</h2>
+<p>Just as critical as a product&rsquo;s technical capabilities are its support model and lifecycle. Because network design is not limited to &ldquo;installation day.&rdquo; The real issue is what happens three years later:</p>
+<ul>
+<li>What are the EoL / EoS dates of this product?</li>
+<li>How fast are patches, bug fixes, and security updates delivered?</li>
+<li>Is TAC/Support truly accessible, and how does the escalation process work?</li>
+<li>What is the reality of RMA processes and spare parts availability?</li>
+<li>Does the licensing model create surprises after one year?</li>
+<li>Is the vendor roadmap aligned with the direction you are heading?</li>
+</ul>
+<p>I want to emphasize this because the most common problem I see in the field is this: the team selects a product that is technically close to the right choice, but due to support/lifecycle issues, operations turn into a nightmare after 12 months. Then the blame is placed on the device; whereas the real problem is not the device itself, but the lack of seriousness given to the &ldquo;support&rdquo; side of the decision.</p>
+<h2 id="firewall-utm-ngfw-or-multiple-roles">Firewall: UTM, NGFW, or multiple roles?</h2>
+<p>A firewall has long ceased to be merely a &ldquo;security device at the edge of the network.&rdquo; When positioned correctly, it becomes the policy brain; when positioned incorrectly, it turns into a bottleneck because everything collapses onto it.</p>
+<p>It is useful to clarify terminology from the start: UTM and NGFW are often mixed up in many environments.</p>
+<p>The UTM approach generally aligns with the idea of &ldquo;everything in a single box&rdquo;: basic firewall + IPS + web filtering + AV + some gateway features… Especially in small to mid-sized environments, it is preferred due to ease of management and bundled offerings.</p>
+<p>NGFW, on the other hand, is positioned around application awareness, user/identity awareness, more advanced security services, and deeper policy control. In today&rsquo;s enterprise needs, running security based solely on port and protocol is often insufficient; this is where NGFW comes into play.</p>
+<p>But the most critical point is this: a company&rsquo;s needs may not be satisfied by a single &ldquo;type of firewall.&rdquo; Because what we call a firewall can actually take on different roles at different layers for different purposes.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/firewall-selection.webp"/> 
+</figure>
+
+<h3 id="why-is-it-normal-to-have-two-or-even-three-firewalls-in-the-same-company">Why is it normal to have two (or even three) firewalls in the same company?</h3>
+<p>In many organizations, the following scenarios are very reasonable:</p>
+<ul>
+<li>Perimeter/Internet Edge Firewall: Internet access, VPN, NAT, inbound/outbound policy.</li>
+<li>Internal Segmentation Firewall (ISFW): Internal network segmentation, east-west control, critical zones.</li>
+<li>Data Center / High-performance FW: DC traffic, high session count, high PPS, low latency requirements.</li>
+<li>In some architectures, additional components such as WAF or Cloud FW.</li>
+</ul>
+<blockquote>
+<p>For a deeper look at how identity and segmentation fit into a broader security philosophy, see: <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product</a></p>
+</blockquote>
+<p>This does not mean &ldquo;buying two firewalls&rdquo;; it means &ldquo;assigning two different jobs to the right tools.&rdquo; When you pile everything into a single box, you lose either performance, manageability, or security. Usually, at least one of the three is lost.</p>
+<p>And this takes us directly to capacity planning.</p>
+<h2 id="firewall-capacity-planning-throughput-alone-can-be-misleading">Firewall capacity planning: throughput alone can be misleading</h2>
+<p>The most dangerous mistake in firewall selection is looking only at the &ldquo;Gbps throughput&rdquo; number. Because in real life, what kills a firewall is often not throughput:</p>
+<ul>
+<li>PPS (packets per second)</li>
+<li>Number of concurrent sessions</li>
+<li>New session rate</li>
+<li>NAT tables and state handling</li>
+<li>Performance with IPS/AV/App-ID enabled</li>
+<li>Heavy workloads such as SSL/TLS decryption</li>
+<li>Log generation and log transport (SIEM integration)</li>
+</ul>
+<p>A real example: the statement &ldquo;we bought a 10 Gbps firewall&rdquo; means nothing by itself. Because that 10 Gbps is measured under &ldquo;ideal conditions&rdquo; in most vendor datasheets. In your environment, if IPS, URL filtering, application control, and decryption are enabled, the actual capacity changes dramatically. That is why the right question should be:
+&ldquo;With the security features I will enable, and with my traffic characteristics, how much load can this firewall actually handle?&rdquo;</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/firewall-capacity-planning.webp"/> <figcaption>
+            Firewall Capacity Planning Metrics
+        </figcaption>
+</figure>
+
+<h2 id="switching-role-and-load-matter-more-than-port-count">Switching: role and load matter more than port count</h2>
+<p>Switch selection often starts with port count: how many copper ports, how many fiber ports, whether PoE is needed or not… These are of course important, but from a core network perspective, they are not sufficient. Because a switch is not just a power socket connecting endpoints; it is a decision point that determines where traffic concentrates, where it separates, and where it is carried upward.</p>
+<p>One of the most common mistakes on the access switch side is planning based on today&rsquo;s needs. Yet the access layer is the fastest-changing layer in the network. A location that seems fine with copper ports today may host a high-bandwidth AP, a camera, or a different edge device tomorrow. Therefore, the speed capability of copper ports (1G vs. 2.5G/5G), the sustainability of PoE budgets not only in total watts but per port, and the real capacity of uplinks become critical.</p>
+<p>The uplink topic is often underestimated. Statements like &ldquo;2×10G uplink is enough&rdquo; are frequently heard, but the traffic characteristics those uplinks will carry are rarely discussed. As user counts increase at the access layer and east-west traffic and broadcast behavior change, uplinks can reach saturation much faster than expected. At this point, it is necessary to look not only at uplink speed but also at the switch&rsquo;s backplane capacity and oversubscription ratios. Because an uplink may be 10G, but if the internal architecture of the switch cannot sustain it, the bottleneck is inevitable.</p>
+<p>The difference between edge switches and datacenter switches is also not clearly defined in many projects. Edge switches are typically optimized for user and device density: many ports, PoE, access-focused features. Datacenter switches come with architectures designed for high throughput, low latency, high PPS, and east-west traffic. Expecting both roles from the same device often either unnecessarily increases cost or delivers performance below expectations. When designing a core network, the question &ldquo;where will this switch sit and what will it carry?&rdquo; should come before &ldquo;how many ports does it have?&rdquo;</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/switching-selection.webp"/> 
+</figure>
+
+<p>Inter-VLAN routing decisions are also directly related to switch selection. If routing is to be performed on the switch, it is not enough for the switch to simply support Layer 3; route scale, TCAM capacity, policy applicability, and how these decisions integrate with the firewall must be considered. Otherwise, a design that initially appears to deliver performance gains can later turn into an unmanageable complexity.</p>
+<h2 id="access--ap">ACCESS / AP</h2>
+<h2 id="access--wi-fi-uplink-and-control-plane-are-as-much-a-part-of-the-architecture-as-the-radio">Access / Wi-Fi: uplink and control plane are as much a part of the architecture as the radio</h2>
+<p>When wireless networks are discussed, the focus usually shifts to Wi-Fi standards: Wi-Fi 6, 6E, 7… Yet in practice, wireless performance is often limited not by the air, but by the cable. No matter how powerful an access point is, if the uplink behind it cannot carry the load, theoretical speeds mean nothing.</p>
+<p>Today, many enterprise APs cannot utilize a significant portion of their potential when limited to a 1 Gbps uplink. That is why 2.5G and 5G copper uplink support is not a &ldquo;luxury&rdquo; but a direct design requirement, especially in high-density user environments. But here, too, the chain must not break: an AP may support 2.5G, but if the switch port it connects to does not, the entire investment is wasted. That is why AP and switch selection must be done together, not separately.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/wifi-selection.webp"/> 
+</figure>
+
+<p>Another critical topic on the Wi-Fi side is controller architecture. The number of APs supported by the controller, concurrent client capacity, and roaming behavior determine the real-world stability of the network. A controller that claims to &ldquo;support 500 APs&rdquo; on paper may struggle much earlier in a high-density environment requiring fast roaming. Controller capacity must be evaluated not only by license count, but together with CPU, memory, session handling, and policy enforcement capacity.</p>
+<p>Wireless networks are often thought of as &ldquo;edge,&rdquo; but in reality, they are the layer that stresses the core network the fastest. Users are mobile, connections are frequently dropped and re-established, and authentication and policy enforcement cycles are far more intensive than in wired networks. That is why a small design mistake at the access layer can create unexpected loads in the core network. AP selection is not just a coverage calculation; it is an architectural decision that directly affects core network behavior.</p>
+<h2 id="closing-vendor-selection-architectural-maturity-and-reality">Closing: Vendor Selection, Architectural Maturity, and Reality</h2>
+<p>At this point, I want to clearly state that what I describe below is entirely based on my personal field experience and observations. My intention is not to praise or criticize any vendor, but to openly state where they are strong and where they struggle. Because core network design is not done with brand fanaticism, but with real needs and operational realities.</p>
+<p>Starting with Cisco is natural. They are still one of the strongest players in switching and routing. Especially in large and complex environments, they have serious maturity in campus and datacenter switching. They have also been strong in wireless for many years, with a significant ecosystem and accumulated experience. On the firewall side, especially after expansions in Asian markets and acquisitions such as Power, they have shown serious development and are now in a more competitive position in the NGFW space.<br>
+However, it must be clearly stated: when you choose Cisco for everything, integrating these products with each other often becomes exhausting and labor-intensive for an administrator. Everything is possible, but it is rarely &ldquo;easy&rdquo;; integration requires significant effort and experience.</p>
+<p>The HPE Aruba side, which I have followed closely for nearly a decade, tells a different story. When I first entered this ecosystem, the product portfolio was quite limited. Over time, with HP&rsquo;s European acquisitions, the portfolio expanded; today, with the addition of the Juniper product family, it is growing significantly. On the switching side, the Aruba family has a wide and friendly user base. On the wireless side, influenced by its European-origin infrastructure, my personal view is that they offer one of the strongest Wi-Fi solutions in the industry.<br>
+In the past, there were gaps on the routing side; however, I believe these gaps will largely be closed with the Juniper product family. On the other hand, the lack of a strong standalone firewall product family causes them to fall somewhat short in this area.</p>
+<p>Fortinet offers a very broad product portfolio. Their ability to provide a complete solution under a &ldquo;single roof&rdquo; across firewall, switching, and wireless is a significant advantage for many organizations. Due to Fortinet&rsquo;s security-focused origins, they are known to be very strong on the firewall side. The switching product family matured later, which slowed its adoption, but in recent years it has appeared more frequently in the field.<br>
+In my view, one of the biggest advantages of the Fortinet ecosystem is ease of use and interface simplicity. Integration between products is relatively less painful, which can significantly reduce operational load. This difference is especially noticeable in organizations with limited IT teams.</p>
+<p>When it comes to Palo Alto Networks, the picture is clearer: Palo Alto is very strong in firewalls and is unquestionably one of the leading vendors in this area. However, they deliberately do not enter areas such as switching or wireless; that is simply not their focus. Many organizations choose Palo Alto solely for firewall purposes, and there are very sound reasons for this.<br>
+I believe Palo Alto creates a serious difference in application visibility, policy depth, and especially in areas such as SASE. The fact that they are one of the world&rsquo;s largest cybersecurity vendors today is no coincidence. It is entirely natural for many organizations seeking &ldquo;the best&rdquo; on the firewall side to gravitate toward Palo Alto.</p>
+<p>In real life, companies make very different choices across these three main product groups. Some organizations prefer to move forward with a single vendor: switch, wireless, and firewall from the same brand; integration and support from a single point of contact; a clear counterpart when problems arise. Others choose one vendor for firewalls and another for switching and wireless. In more mature environments, selecting each layer from different vendors is also quite common.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/vendor-selection.webp"/> 
+</figure>
+
+<p>These choices are often as organizational as they are technical. An organization&rsquo;s view of IT, team structure, and the habits and past experiences of the network team significantly influence these decisions. There is no single right answer here.<br>
+My personal view is this: there are vendors who have proven themselves more strongly in specific areas, and if the IT team is mature enough to manage this distinction, selecting different vendors for different layers can produce much stronger technical results. On the other hand, some organizations prefer to move forward with a single vendor to avoid integration issues, installation complexity, and configuration errors, and to resolve all problems through a single support channel. This is also a completely valid approach.</p>
+<p>Finally, there is one point I want to emphasize strongly: today, almost all major vendors are making serious investments in automation. At this point, API support is no longer an &ldquo;extra,&rdquo; but a direct selection criterion. What can be done via APIs, what can be automated, and how open the integration is must be on the table when selecting products.</p>
+<blockquote>
+<p>For a practical framework on building visibility into your infrastructure, see: <a href="/en/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively</a></p>
+</blockquote>
+<p>As I mentioned in my first article, in my opinion, automation processes should not be considered as a layer added later during product selection. On the contrary, automation and operational processes should be placed at the top of the pyramid, and products should be selected according to this framework. The question of which switch, which firewall, and which AP should come after the question: &ldquo;How will I manage this architecture automatically?&rdquo; In my view, correct core network design starts exactly here.</p>
+<h2 id="server-room-and-cabling-the-reality-no-one-wants-to-talk-about-but-everyone-pays-for">Server Room and Cabling: The Reality No One Wants to Talk About, but Everyone Pays For</h2>
+<p>In network projects, the most talked-about topics are usually the most &ldquo;shiny&rdquo; ones: which switch, which firewall, which wireless solution… But a significant portion of the problems experienced in the field start at a much more fundamental place than these products: server room design and cabling infrastructure.</p>
+<p>There is one reality I have seen repeatedly over the years: no matter how good the products you choose, no matter how correctly you design the architecture; if the server room and cabling infrastructure are weak, that network will eventually produce problems. And these problems often appear as &ldquo;network outages,&rdquo; but the root cause is almost never the network itself.</p>
+<p>In many organizations, the server room is still treated like a &ldquo;storage room.&rdquo; Initially, a few racks are placed in a small area; as operations grow, new devices are added to the same room, cables pile up, and temporary solutions become permanent. At some point, a space emerges that no one wants to touch, but everyone depends on. This is where the real risk begins.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/server-room-and-cabling.webp"/> 
+</figure>
+
+<p>A server room is not just a place where devices sit. It is the heart of the network. Heat, power, airflow, accessibility, and order must all be considered together. Cooling, for example, is often realized too late. Devices may seem to be working, but operating continuously at high temperatures significantly affects both performance and hardware lifespan. Sudden reboots, unexpected freezes, or &ldquo;intermittent&rdquo; issues are very often traced back to inadequate cooling.</p>
+<p>The power side is similarly underestimated. Devices with redundant power supplies are purchased, but it is not verified whether these power supplies actually connect to different power lines. There is a UPS, but capacity calculations are not done. It is unclear how long systems will remain operational during a power outage. These may seem like small details on paper, but in a crisis, they render the entire architecture meaningless.</p>
+<p>Cabling infrastructure is often thought of as something &ldquo;done once and forgotten.&rdquo; Yet cabling is the longest-lived component of the network. You change switches, firewalls, access points; but the cable remains. One of the biggest mistakes, therefore, is designing cabling based on today&rsquo;s needs. An infrastructure planned for 1G today can hit a serious limit tomorrow with APs requiring 2.5G/5G uplinks or edge devices demanding higher speeds.</p>
+<p>Deciding where to use fiber and where to use copper is also an architectural decision. Pulling fiber everywhere just because &ldquo;fiber is faster&rdquo; is not correct; there are still many cases where copper is advantageous, especially where PoE is required or distances are short. The real issue is designing cabling to allow for future expansion. Patch panel organization, cable labeling, rack-to-rack and in-rack cable management… These are not aesthetic concerns; they are operational ones.</p>
+<p>Every change in a poorly labeled cabling infrastructure is a risk. You affect the wrong device when shutting down a port, you take down another service when unplugging a cable. Then people say, &ldquo;the network went down again.&rdquo; But the problem is not the network; it is the careless cabling done years ago.</p>
+<p>Physical access security to the server room is also often overlooked. If it is not clear who can enter this room, at what times, and how changes are logged, even the best security policies lose their meaning at some point. In an environment where you cannot control physical access, discussing logical security often remains theoretical.</p>
+<p>From my perspective, the server room and cabling are not the &ldquo;lower layer&rdquo; of core network design; they are the foundation. No matter how sophisticated the solutions you place on top, if the foundation is weak, the structure will shake. That is why when designing a network, it is necessary to look not only at diagrams, but also at the physical environment where those diagrams will be realized. Rack layout, cable paths, power, and cooling plans are all part of the architecture.</p>
+<p>These topics are generally not exciting, they do not take up much space in presentations, and they are hard to put on a CV. But the truth is this: behind a well-functioning network, there is often a well-designed server room and a clean cabling infrastructure. No one notices this; because nothing goes wrong. And in my view, that is the greatest praise an infrastructure design can receive.</p>
+<h2 id="not">Not</h2>
+<p>This article was originally introduced on <strong>Substack</strong> in a shorter, narrative form.
+This version expands the architectural foundation for the series.</p>
+<p>👉 <strong>Read the article on Substack:</strong> <a href="https://substack.com/home/post/p-183952844">Click Here</a></p>
+<hr>
+<h2 id="related-articles">Related Articles</h2>
+<p>If you found this article useful, you may also be interested in these related deep-dives:</p>
+<p><strong>Architecture &amp; Security Design</strong></p>
+<ul>
+<li>📐 <a href="/en/architecture/it-infrastructure-is-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a> — The foundational article for this series</li>
+<li>🛡️ <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product</a> — Why Zero Trust is a philosophy, not a product you can buy</li>
+<li>📊 <a href="/en/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively</a> — How to build real visibility into your infrastructure</li>
+</ul>
+<p><strong>Technical Engineering</strong></p>
+<ul>
+<li>🛠️ <a href="/en/posts/next-gen-console-server-terminal-server-architecture/">The Backdoor of the Network: Next-Gen Console Server Architecture</a> — Out-of-band access when everything else fails</li>
+<li>🛡️ <a href="/en/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Advanced traffic visibility and security strategy</li>
+<li>🔐 <a href="/en/posts/unlocking-success-in-802-1x-projects-field-insights/">Unlocking Success in 802.1X Projects: Field Insights</a> — Identity-based access in enterprise networks</li>
+<li>⚙️ <a href="/en/posts/cisco-nexus-nxos-upgrade-guide/">Nexus Software Upgrade Guide</a> — Zero-downtime NX-OS upgrade walkthrough</li>
+</ul>
+]]></content:encoded></item></channel></rss>

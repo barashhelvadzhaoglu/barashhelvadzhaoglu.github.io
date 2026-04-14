@@ -1,1 +1,121 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Operasyon on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/operasyon/</link><description>Recent content in Operasyon on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Thu, 01 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/operasyon/index.xml" rel="self" type="application/rss+xml"/><item><title>IT Altyapısı Bir Ürün Koleksiyonu Değildir — Bir Sistemdir</title><link>https://barashhelvadzhaoglu.com/tr/architecture/it-infrastructure-not-a-collection-of-products/</link><pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/it-infrastructure-not-a-collection-of-products/</guid><description>IT altyapı projeleri ortam sistem haline gelemediğinde başarısız olur. Core Network serisi için mimari çerçeveyi belirleyen temel yazı.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Operasyon on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/operasyon/</link><description>Recent content in Operasyon on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Thu, 01 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/operasyon/index.xml" rel="self" type="application/rss+xml"/><item><title>IT Altyapısı Bir Ürün Koleksiyonu Değildir — Bir Sistemdir</title><link>https://barashhelvadzhaoglu.com/tr/architecture/it-infrastructure-not-a-collection-of-products/</link><pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/it-infrastructure-not-a-collection-of-products/</guid><description>IT altyapı projeleri ortam sistem haline gelemediğinde başarısız olur. Core Network serisi için mimari çerçeveyi belirleyen temel yazı.</description><content:encoded><![CDATA[<h1 id="it-altyapısı-bir-ürün-koleksiyonu-değildir--bir-sistemdir">IT Altyapısı Bir Ürün Koleksiyonu Değildir — Bir Sistemdir</h1>
+<h2 id="gerçek-altyapı-tasarımı-neden-sistemlerle-başlar-araçlarla-değil">Gerçek altyapı tasarımı neden sistemlerle başlar, araçlarla değil</h2>
+<p>Bu yazı serinin <strong>mimari temeli</strong> olarak işlev görür.
+Switch&rsquo;lerden, firewall&rsquo;lardan, kablosuz ağlardan, Zero Trust&rsquo;tan veya 802.1X&rsquo;ten konuşmadan önce bir şeyi netleştirmemiz gerekiyor:</p>
+<p><strong>IT altyapısı, satın aldığınız ürünlerin toplamı değildir.</strong>
+Sistemlerin baskı altında birlikte nasıl davrandığının sonucudur.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/it-infrastructure-not-a-collection-of-products.webp"/> <figcaption>
+            Entegre Bir Sistem Olarak IT Altyapısı
+        </figcaption>
+</figure>
+
+<hr>
+<h2 id="altyapı-projelerinin-gerçekte-nerede-başarısız-olduğu">Altyapı projelerinin gerçekte nerede başarısız olduğu</h2>
+<p>Altyapı girişimlerinin çoğu iyi niyetle başlar. Bir yenileme planlanır, bütçe onaylanır ve tartışma hızla ürün karşılaştırmalarına döner. Üreticiler değerlendirilir, özellik listeleri karşılaştırılır, veri sayfaları ayrıntılı incelenir.</p>
+<p>Ancak bu projelerin çoğu pratikte başarısız olur — seçilen ürünler kötü olduğu için değil, altyapı hiçbir zaman bir <em>sistem</em> haline gelmediği için.</p>
+<p>Yıllar içinde defalarca gördüğüm tablo şu: Her bileşen kendi başına mükemmel çalışır, ancak ortamın genel davranışı öngörülemezdir. Kimlik bir yerde yönetilir, segmentasyon başka bir yerde, politika uygulama başka bir yerde — ve operasyon elle bir araya getirilir. Bir şey bozulduğunda, hiçbir katmanın tam bağlamı yoktur.</p>
+<p>Altyapı vardır.
+Ama <strong>altyapı davranışı yoktur</strong>.</p>
+<hr>
+<h2 id="ürünler-sorun-çözer-sistemler-organizasyonları-ayakta-tutar">Ürünler sorun çözer. Sistemler organizasyonları ayakta tutar.</h2>
+<p>Bir ürün, belirli bir sorunu çözmek için tasarlanır.
+Bir altyapı, bir organizasyonu ayakta tutmak için tasarlanır.</p>
+<p>Bu ayrım ince ama kritiktir. Ürünler değiştirilebilir. Sistemler evrimleşmek zorundadır.</p>
+<p>Altyapı bir araç koleksiyonu olarak inşa edildiğinde, kararlar yerel olarak optimize edilir. Her ekip kendi alanı için en iyi olanı seçer. Zamanla bu yerel optimizasyonlar küresel bir karmaşıklığa dönüşür. Entegrasyon kırılganlaşır, sorun giderme yavaşlar ve her değişiklik risk taşır.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/products-vs-systems-thinking.webp"/> <figcaption>
+            Ürün vs Sistem Düşüncesi
+        </figcaption>
+</figure>
+
+<p>Sistem odaklı tasarım farklı çalışır. Temel sorularla başlar:</p>
+<ul>
+<li>Kimlik nereden kaynaklanır ve ne kadar ileri gider?</li>
+<li>Güven sınırları nerede tanımlanır?</li>
+<li>Hangi bileşenler politika kararları alır, hangileri yalnızca uygular?</li>
+<li>Bağlam katmanlar arasında nasıl korunur?</li>
+<li>Bir şey başarısız olduğunda operasyonel olarak ne olur?</li>
+</ul>
+<p>Bu sorulara net cevaplar olmadan, en iyi ürünler bile eninde sonunda birbirine karşı çalışacaktır.</p>
+<blockquote>
+<p>Kimliğin ve güven sınırlarının pratikte nasıl tanımlandığına dair derinlemesine bir bakış için: <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Mimari Olarak Mühendislemek</a></p>
+</blockquote>
+<hr>
+<h2 id="mimari-baskı-altında-kendini-gösterir">Mimari baskı altında kendini gösterir</h2>
+<p>Her şey çalışırken altyapı tasarımı kolaydır.
+Mimari ancak bir şeyler ters gittiğinde ortaya çıkar.</p>
+<p>Olaylar, ölçekleme sorunları, güvenlik ihlalleri ve operasyonel değişiklikler, hiçbir zaman yazılmamış tasarım varsayımlarını gün yüzüne çıkarır. Gevşek bağlantılı ürünlerden oluşan ortamlarda bu anlar yangın söndürme tatbikatlarına dönüşür. Geçici çözümler kalıcı istisnalar haline gelir. Zamanla altyapı tutarlılığını kaybeder.</p>
+<p>İyi tasarlanmış sistemler farklı davranır. Zarif biçimde bozulurlar. Sorumluluklar nettir. Arızalar sınırlıdır. Kurtarma yolları önceden bilinir. Bu tesadüf değildir — bilinçli mimari kararların sonucudur.</p>
+<hr>
+<h2 id="entegrasyon-bir-özellik-değildir">Entegrasyon bir özellik değildir</h2>
+<p>Altyapı tasarımındaki en yaygın yanılgılardan biri, entegrasyonu bir onay kutusu olarak ele almaktır. Ürünlerin aynı standartları destekledikleri veya aynı üreticiden geldikleri için entegre olduklarına inanılır.</p>
+<p>Gerçek entegrasyon uyumlulukla ilgili değildir.
+<strong>Paylaşılan bağlamla</strong> ilgilidir.</p>
+<p>Kimlik farkındalıklı uygulama, tutarlı segmentasyon, birleşik loglama, öngörülebilir politika davranışı — bunlar &ldquo;entegre&rdquo; ürünler satın alınarak garanti edilmez. Bir sistemin parçası olarak tasarlanmalı, test edilmeli ve işletilmelidir.</p>
+<p>Bunu olmadan entegrasyon yalnızca slaytlarda var olur.</p>
+<hr>
+<h2 id="operasyon-gerçek-mimariyi-tanımlar">Operasyon gerçek mimariyi tanımlar</h2>
+<p>Bir ortamın gerçek mimarisi diyagramlarda değil,
+operasyonel iş akışlarında bulunur.</p>
+<ul>
+<li>Değişiklikler nasıl devreye alınır?</li>
+<li>Olaylar nasıl teşhis edilir?</li>
+<li>İstisnalar nasıl yönetilir?</li>
+<li>Otomasyon nasıl hayata geçirilir?</li>
+<li>Sorumluluklar ekipler arasında nasıl bölünür?</li>
+</ul>
+<figure>
+    <img loading="lazy" src="/img/postimages/operations-define-architecture.webp"/> <figcaption>
+            Operasyon Gerçek Mimariyi Tanımlar
+        </figcaption>
+</figure>
+
+<p>Bu iş akışları manuel, parçalı veya belgelenmemişse, teknoloji yığını ne kadar modern görünse de altyapı bu gerçeği yansıtacaktır.</p>
+<p>Bu nedenle otomasyon, gözlemlenebilirlik ve yaşam döngüsü yönetimi isteğe bağlı ekstralar değildir. Bunlar mimari unsurlardır. Tutarlı biçimde işletilemeyecek altyapı hiçbir zaman güvenli ölçeklenemez.</p>
+<blockquote>
+<p>Altyapınızda gerçek gözlemlenebilirlik oluşturmak için pratik bir çerçeve: <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a></p>
+</blockquote>
+<hr>
+<h2 id="networkingden-konuşmadan-önce-bu-neden-önemlidir">Networking&rsquo;den konuşmadan önce bu neden önemlidir</h2>
+<p>Networking genellikle bu sorunların ilk görünür hale geldiği yerdir.
+Trafik akışları kırık güven modellerini ortaya çıkarır. Segmentasyon eksik kimliği gözler önüne serer. Performans sorunları mimari kısayolları açığa çıkarır.</p>
+<p>Ama networking kök neden değildir.
+O bir aynادır.</p>
+<p>Bu yüzden bu seri buradan başlıyor. Core network tasarımına, üretici stratejilerine, Zero Trust&rsquo;a veya 802.1X&rsquo;e dalmadan önce ortak bir anlayışa ihtiyacımız var: altyapıya bir bütçeyle oluşturulmuş alışveriş listesi olarak değil, niyetle tasarlanmış bir sistem olarak yaklaşılmalıdır.</p>
+<hr>
+<h2 id="bu-seriyi-yönlendiren-ilke">Bu seriyi yönlendiren ilke</h2>
+<p>Sonraki her makale tek bir ilke üzerine inşa edilir:</p>
+<blockquote>
+<p><strong>Önce sistemi tasarla. Sonra ürünleri seç.</strong></p>
+</blockquote>
+<p>Bu sıra tersine döndüğünde altyapı pahalı ve kırılgan hale gelir.
+Bu sıraya uyulduğunda altyapı öngörülebilir ve uyarlanabilir hale gelir.</p>
+<hr>
+<h2 id="sırada-ne-var">Sırada ne var</h2>
+<p>Bu serinin bir sonraki makalesi bu düşünceyi doğrudan core network&rsquo;e uygular:</p>
+<ul>
+<li>Core network&rsquo;ün neden switch, firewall ve access point listesi olmadığı</li>
+<li>Entegrasyon, kapasite planlaması ve operasyonel bağlamın gerçek network mimarisini nasıl tanımladığı</li>
+</ul>
+<p>Bu ilk makale temeli belirlemek için vardır.
+Diğer her şey bunun üzerine inşa edilir.</p>
+<h2 id="not">Not</h2>
+<p>Bu makale ilk olarak <strong>Substack</strong>&rsquo;te daha kısa, anlatısal bir biçimde yayınlanmıştı.
+Bu versiyon, serinin mimari temelini genişletiyor.</p>
+<p>👉 <strong>Makaleyi Substack&rsquo;te okuyun:</strong> <a href="https://substack.com/home/post/p-182765674">Burayı Tıklayın</a></p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Mimari &amp; Güvenlik Tasarımı</strong></p>
+<ul>
+<li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a> — Core network tasarımında sistem düşüncesi</li>
+<li>🛡️ <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Mimari Olarak Mühendislemek</a> — Zero Trust neden bir ürün değil, bir felsefedir</li>
+<li>📊 <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a> — Altyapınızda gerçek görünürlük nasıl inşa edilir</li>
+</ul>
+<p><strong>Teknik Mühendislik</strong></p>
+<ul>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-terminal-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Her şey kesildiğinde out-of-band erişim</li>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Gelişmiş trafik görünürlüğü ve güvenlik stratejisi</li>
+<li>🔐 <a href="/tr/posts/unlocking-success-in-802-1x-projects-field-insights/">802.1X Projelerinde Başarı: Saha Deneyimleri</a> — Kurumsal ağlarda kimlik tabanlı erişim</li>
+</ul>
+]]></content:encoded></item></channel></rss>

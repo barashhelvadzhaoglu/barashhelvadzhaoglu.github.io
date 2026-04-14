@@ -1,1 +1,66 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Web Sitesi Güvenliği on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/web-sitesi-g%C3%BCvenli%C4%9Fi/</link><description>Recent content in Web Sitesi Güvenliği on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Fri, 20 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/web-sitesi-g%C3%BCvenli%C4%9Fi/index.xml" rel="self" type="application/rss+xml"/><item><title>Web Sitenizde 'Güvenli Değil' mi Yazıyor? Müşteriler Anında Ayrılıyor — Ve SSL Sertifikaları Çok Daha Kısa Olacak</title><link>https://barashhelvadzhaoglu.com/tr/posts/ssl-websecurity/</link><pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/ssl-websecurity/</guid><description>Süresi dolmuş SSL müşteri kaybettirir ve Google sıralamasına zarar verir. Sertifikalar 47 güne düşüyor — otomatik yönetim zorunlu hale geliyor.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Web Sitesi Güvenliği on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/web-sitesi-g%C3%BCvenli%C4%9Fi/</link><description>Recent content in Web Sitesi Güvenliği on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Fri, 20 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/web-sitesi-g%C3%BCvenli%C4%9Fi/index.xml" rel="self" type="application/rss+xml"/><item><title>Web Sitenizde 'Güvenli Değil' mi Yazıyor? Müşteriler Anında Ayrılıyor — Ve SSL Sertifikaları Çok Daha Kısa Olacak</title><link>https://barashhelvadzhaoglu.com/tr/posts/ssl-websecurity/</link><pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/ssl-websecurity/</guid><description>Süresi dolmuş SSL müşteri kaybettirir ve Google sıralamasına zarar verir. Sertifikalar 47 güne düşüyor — otomatik yönetim zorunlu hale geliyor.</description><content:encoded><![CDATA[<p>Tarayıcıda bir web sitesi açıyorsunuz ve adres çubuğunda bunu görüyorsunuz: 🔴 <strong>&ldquo;Bağlantınız özel değil&rdquo;</strong></p>
+<p>Ne yaparsınız? Büyük ihtimalle geri tuşuna basarsınız.</p>
+<p>Müşterileriniz de tam olarak bunu yapıyor. Ve bunu fark etmiyor bile olabilirsiniz — çünkü süresi dolmuş bir SSL sertifikası genellikle web sitesi sahibine bildirim göndermez.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/ssl-websecurity-cover.webp"/> <figcaption>
+            SSL Sertifikası ve Web Sitesi Güvenliği — Cloudflare ile
+        </figcaption>
+</figure>
+
+<h2 id="ssl-sertifikası-nedir-ve-neden-önemlidir">SSL Sertifikası Nedir ve Neden Önemlidir?</h2>
+<p>SSL sertifikası (Secure Sockets Layer), web siteniz ile ziyaretçiler arasındaki bağlantıyı şifreleyen dijital bir belgedir. Adres çubuğundaki kilit simgesi ve &ldquo;https://&rdquo; varlığını onaylar.</p>
+<p>SSL&rsquo;in iki temel işlevi vardır:</p>
+<p><strong>1. Güvenlik:</strong> Ziyaretçinin tarayıcısı ile sunucunuz arasında akan verileri şifreler. İletişim formu dolduran bir hasta, ödeme bilgisi giren bir müşteri — bu veriler şifreli iletilir.</p>
+<p><strong>2. Güven:</strong> Ziyaretçi kilit simgesini gördüğünde sitenin meşru olduğunu bilir. &ldquo;Güvenli değil&rdquo; uyarısı tam tersini yapar.</p>
+<h2 id="süresi-dolmuş-ssl-sertifikasının-gerçek-maliyeti">Süresi Dolmuş SSL Sertifikasının Gerçek Maliyeti</h2>
+<p>Pek çok işletme SSL sertifikalarını &ldquo;bir kez kur unut&rdquo; mantığıyla ele alır. Bir ya da iki yıllık sertifika satın alır, süresi dolar, fark etmez — bazen haftalarca.</p>
+<p>Bu sürede neler olur:</p>
+<p><strong>Müşteri kaybı:</strong> &ldquo;Güvenli değil&rdquo; uyarısıyla karşılaşan ziyaretçilerin büyük çoğunluğu anında sayfadan ayrılır. İletişim formları, randevu talepleri, online siparişler — hiçbiri tamamlanmaz.</p>
+<p><strong>Google sıralamasında düşüş:</strong> Google, SSL olmayan veya süresi dolmuş sertifikalı siteleri arama sonuçlarında aşağı iter.</p>
+<p><strong>İtibar hasarı:</strong> &ldquo;Güvenli değil&rdquo; gören bir müşteri o işletme hakkında kalıcı olumsuz bir izlenim taşır.</p>
+<h2 id="büyük-değişiklik-geliyor-ssl-sertifikaları-47-güne-düşüyor">Büyük Değişiklik Geliyor: SSL Sertifikaları 47 Güne Düşüyor</h2>
+<p>Şu anda SSL sertifikaları 90 gün veya bir yıl geçerlidir. Bu değişiyor.</p>
+<p>CA/Browser Forum — sertifika kuruluşlarını ve büyük tarayıcıları bir araya getiren kurul — yeni bir gereklilik kabul etti: Önümüzdeki yıllarda SSL sertifikası geçerlilik süresi <strong>47 güne</strong> düşecek. Apple, Google ve Mozilla bu kararı destekliyor.</p>
+<p><strong>Bu ne anlama geliyor?</strong>
+Şu anda yılda bir kez yeniliyorsanız, yakında <strong>yılda 7–8 kez</strong> yenilemeniz gerekecek. Manuel takip neredeyse imkânsız hale gelir.</p>
+<p><strong>Bu karar neden alındı?</strong>
+Daha kısa geçerlilik süreleri, ele geçirilmiş sertifikaların etkisini sınırlar ve sektörü otomasyona yönlendirir — bu aslında olumlu bir gelişmedir.</p>
+<h2 id="çözüm-cloudflare-ile-otomatik-ssl-yönetimi">Çözüm: Cloudflare ile Otomatik SSL Yönetimi</h2>
+<p>Cloudflare web sitenizin DNS&rsquo;ini devraldığında SSL sertifikanızı otomatik olarak yönetir. Siz hiçbir şeyi takip etmeden süresi dolmadan yeniler. Geçerlilik 47 güne düştüğünde hiçbir fark yaratmaz — her şey arka planda otomatik halledilir.</p>
+<p>Bu özellik ücretsiz Cloudflare planında bile mevcuttur.</p>
+<h2 id="sslin-ötesinde-waf-ve-ddos-koruması">SSL&rsquo;in Ötesinde: WAF ve DDoS Koruması</h2>
+<p>SSL sadece başlangıçtır. Cloudflare&rsquo;e geçtiğinizde ayrıca şunları alırsınız:</p>
+<p><strong>WAF (Web Uygulama Güvenlik Duvarı):</strong> Web sitenizi SQL injection, XSS saldırıları ve bot trafiğinden korur.</p>
+<p><strong>DDoS Koruması:</strong> Sitenizi çökertmeye yönelik saldırı trafiği otomatik olarak tespit edilip filtrelenir.</p>
+<p><strong>Analitik:</strong> Kaç ziyaretçi geldi, nereden, kaç saldırı engellendi — aylık rapor.</p>
+<h2 id="hosting-taşıması-gerekmiyor">Hosting Taşıması Gerekmiyor</h2>
+<p>En sık duyduğum soru: &ldquo;Web sitemi taşımam mı gerekiyor?&rdquo;</p>
+<p>Hayır. Cloudflare yalnızca DNS düzeyinde çalışır. Web siteniz olduğu yerde kalır — Ionos, Strato, neredeyse. Kurulum 1–2 saat sürer ve ziyaretçileriniz hiçbir şey fark etmez.</p>
+<h2 id="aylık-güvenlik-raporu">Aylık Güvenlik Raporu</h2>
+<p>Her ay size şuna benzer bir rapor gönderirim:</p>
+<pre tabindex="0"><code>Web Sitesi Raporunuz — Mart 2026
+──────────────────────────────────
+✅ SSL Sertifikası: Geçerli (otomatik yönetiliyor)
+✅ Çalışma Süresi: %99,98
+🛡️ Engellenen Saldırılar: 94
+⚡ Savuşturulan DDoS Girişimleri: 2
+👥 Toplam Ziyaretçi: 1.203
+⚡ Ortalama Yükleme Süresi: 0,8 sn
+</code></pre><h2 id="sonuç">Sonuç</h2>
+<p>SSL sertifikası artık bir seçenek değil — temel bir gereklilik. 47 güne düşürülmesiyle birlikte manuel yönetim sürdürülebilir olmaktan çıkıyor.</p>
+<p>Web sitenizin SSL durumunu ücretsiz kontrol ediyorum. WhatsApp&rsquo;tan yazmanız yeterli.</p>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Koruma &amp; Güvenlik</strong></p>
+<ul>
+<li>💾 <a href="/tr/posts/nas-backup/">RAID&rsquo;siz NAS&rsquo;ınız Bir Zaman Bombasıdır</a> — AWS S3 ile veri yedekleme</li>
+<li>🔋 <a href="/tr/posts/ups-office/">Elektrik Kesilirse Ne Olur?</a> — Ofis ve muayenehane için UPS koruması</li>
+<li>📶 <a href="/tr/posts/wifi-mesh-solution/">Wi-Fi Sorunları? Kablo Gerektirmeyen Kalıcı Mesh Çözümü</a> — Ofis ve villalar için profesyonel Wi-Fi</li>
+</ul>
+<p><strong>Mimari &amp; Altyapı</strong></p>
+<ul>
+<li>🛡️ <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenlik Bir Mimari Olarak</a> — Güvenlik ürün değil kültür olarak</li>
+<li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Dayanıklı IT için sistem düşüncesi</li>
+</ul>
+]]></content:encoded></item></channel></rss>

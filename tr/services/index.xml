@@ -1,1 +1,700 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>IT Hizmetleri ve Danışmanlık on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/services/</link><description>Recent content in IT Hizmetleri ve Danışmanlık on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><atom:link href="https://barashhelvadzhaoglu.com/tr/services/index.xml" rel="self" type="application/rss+xml"/><item><title>Kurumsal Ağ Güvenliği ve Altyapı Danışmanlığı</title><link>https://barashhelvadzhaoglu.com/tr/services/network-security-consulting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/services/network-security-consulting/</guid><description>Münih&amp;#39;te kurumsal ağ güvenliği danışmanlığı. Firewall migrasyonu, Zero Trust mimarisi ve otomasyon. Ücretsiz teknik ön görüşme.</description></item><item><title>On-Site IT Care – İşletmeler İçin Yerinde IT Bakım Hizmeti</title><link>https://barashhelvadzhaoglu.com/tr/services/onsite-it-care/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/services/onsite-it-care/</guid><description>Münih&amp;#39;teki KOBİ&amp;#39;ler için profesyonel IT bakım hizmeti. WiFi, NAS, antivirus, kamera, UPS ve PC bakımı — tek muhatap.</description></item><item><title>Web Shield – Web Sitesi Koruma ve Yönetim Hizmeti</title><link>https://barashhelvadzhaoglu.com/tr/services/web-shield/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/services/web-shield/</guid><description>Münih&amp;#39;te profesyonel web sitesi yönetimi. SSL, WAF, DDoS koruması, ücretsiz hosting ve aylık güvenlik raporları. Tüm erişimler sizde kalır.</description></item><item><title>WLAN Pazarlama &amp; Captive Portal Münih</title><link>https://barashhelvadzhaoglu.com/tr/services/wifi-marketing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/services/wifi-marketing/</guid><description>Misafir WiFi&amp;#39;nizi pazarlama aracına dönüştürün. Otomatik e-posta ve telefon toplama, KVKK/DSGVO uyumlu — Münih kafe, otel ve restoranlar için.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>IT Hizmetleri ve Danışmanlık on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/services/</link><description>Recent content in IT Hizmetleri ve Danışmanlık on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><atom:link href="https://barashhelvadzhaoglu.com/tr/services/index.xml" rel="self" type="application/rss+xml"/><item><title>Kurumsal Ağ Güvenliği ve Altyapı Danışmanlığı</title><link>https://barashhelvadzhaoglu.com/tr/services/network-security-consulting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/services/network-security-consulting/</guid><description>Münih&amp;#39;te kurumsal ağ güvenliği danışmanlığı. Firewall migrasyonu, Zero Trust mimarisi ve otomasyon. Ücretsiz teknik ön görüşme.</description><content:encoded><![CDATA[<h1 id="kurumsal-ağ-güvenliği-ve-altyapı-danışmanlığı">Kurumsal Ağ Güvenliği ve Altyapı Danışmanlığı</h1>
+<p>Günümüzün karmaşık tehdit ortamında, ağ altyapınız sadece &ldquo;çalışıyor&rdquo; olmamalı; dayanıklı, şeffaf ve güvenli olmalıdır. <strong>Kıdemli Ağ Güvenliği Mühendisi</strong> olarak 11 yılı aşkın tecrübemle, kritik altyapınızı küresel standartlara göre modernize ediyorum.</p>
+<p>Münih merkezli olarak; bankacılık ve sanayi gibi yüksek güvenlikli sektörlerdeki uzmanlığımı doğrudan işletmenize getiriyorum.</p>
+<blockquote>
+<p>💬 <strong>Ücretsiz Teknik Ön Görüşme (30 Dakika):</strong> <a href="https://wa.me/4916098665971">WhatsApp&rsquo;tan Yazın</a> veya <a href="mailto:info@barashhelvadzhaoglu.com">E-posta Gönderin</a></p>
+</blockquote>
+<hr>
+<h2 id="temel-yetkinlikler-ve-çözümler">Temel Yetkinlikler ve Çözümler</h2>
+<h3 id="1-yeni-nesil-firewall-ngfw-yönetimi">1. Yeni Nesil Firewall (NGFW) Yönetimi</h3>
+<p>Güvenlik duvarınız, ilk savunma hattınızdır. Sadece kurulum değil, en iyi uygulama (Best-Practice) standartlarına göre optimizasyon sunuyorum:</p>
+<ul>
+<li><strong>Palo Alto &amp; Fortinet Migrasyonu:</strong> Eski sistemlerden modern NGFW platformlarına <strong>Sıfır Kesinti</strong> ile sorunsuz geçiş.</li>
+<li><strong>Kural Seti Optimizasyonu:</strong> Sistem performansını ve güvenliği artırmak için karmaşık kural yapılarının temizlenmesi.</li>
+<li><strong>SSL Inspection:</strong> Şifreli trafik içindeki gizli tehditlerin görünür hale getirilmesi.</li>
+</ul>
+<h3 id="2-zero-trust-ve-güvenli-erişim-mimarisi">2. Zero Trust ve Güvenli Erişim Mimarisi</h3>
+<p>Ağınızı &ldquo;Asla güvenme, her zaman doğrula&rdquo; prensibine göre modernize edin:</p>
+<ul>
+<li><strong>Mikro-Segmentasyon:</strong> Ağ içindeki yanal hareketleri (Lateral Movement) kısıtlayarak güvenlik açıklarının yayılmasını önleme.</li>
+<li><strong>Güvenli Uzaktan Erişim (VPN/ZTNA):</strong> Güvenli mobil çalışma için Palo Alto GlobalProtect veya Fortinet ZTNA uygulamaları.</li>
+<li><strong>Kimlik Yönetimi (Cisco ISE / Aruba ClearPass):</strong> Ağdaki her cihazın kimliğinin ve güvenlik durumunun otomatik olarak doğrulanması.</li>
+</ul>
+<h3 id="3-veri-merkezi-ve-kampüs-ağ-tasarımı">3. Veri Merkezi ve Kampüs Ağ Tasarımı</h3>
+<p>Modern gereksinimler için yüksek hızlı altyapılar:</p>
+<ul>
+<li><strong>Cisco NDFC &amp; VXLAN:</strong> Modern veri merkezleri için ölçeklenebilir ve esnek fabric mimarileri.</li>
+<li><strong>Yüksek Erişilebilirlik (HA):</strong> Donanım veya yazılım arızalarında kesintisiz çalışmayı garanti eden yedekli tasarımlar.</li>
+<li><strong>SD-WAN Kurulumu:</strong> Dünya çapındaki lokasyonlar için maliyet etkin ve akıllı geniş alan ağı yönetimi.</li>
+</ul>
+<h3 id="4-ağ-otomasyonu-netdevops">4. Ağ Otomasyonu (NetDevOps)</h3>
+<p>Manuel hataları ortadan kaldıran ve hızı artıran modern yaklaşımlar:</p>
+<ul>
+<li><strong>Python Tabanlı Otomasyon:</strong> Yüzlerce cihazda aynı anda kural değişikliği veya envanter denetimi gerçekleştirme.</li>
+<li><strong>Konfigürasyon Yedeği ve İzleme:</strong> Denetim ve uyumluluk (compliance) için altyapınızdaki her değişikliğin eksiksiz günlüğü.</li>
+</ul>
+<hr>
+<h2 id="tipik-proje-kapsamları-ve-yatırım-rehberi">Tipik Proje Kapsamları ve Yatırım Rehberi</h2>
+<p>Her işletme farklıdır; işte bir fikir vermesi için genel çerçeve:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Proje Tipi</th>
+          <th>Kapsam</th>
+          <th>Yatırım</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Firewall Denetimi ve Optimizasyonu</td>
+          <td>1-2 Gün</td>
+          <td><strong>500€&lsquo;dan başlayan</strong></td>
+      </tr>
+      <tr>
+          <td>WLAN Planlama (50 AP&rsquo;ye kadar)</td>
+          <td>3-5 Gün</td>
+          <td><strong>900€&lsquo;dan başlayan</strong></td>
+      </tr>
+      <tr>
+          <td>Firewall Migrasyonu (Palo Alto / Fortinet)</td>
+          <td>5-10 Gün</td>
+          <td><strong>2.000€&lsquo;dan başlayan</strong></td>
+      </tr>
+      <tr>
+          <td>Zero Trust Mimarisi</td>
+          <td>Proje bazlı</td>
+          <td><strong>Teklif isteyin</strong></td>
+      </tr>
+      <tr>
+          <td>Aylık Yönetilen Güvenlik İzleme</td>
+          <td>Sürekli</td>
+          <td><strong>199€/Ay&rsquo;dan başlayan</strong></td>
+      </tr>
+  </tbody>
+</table>
+<p><em>30 dakikalık ilk görüşmeden sonra ücretsiz fiyat teklifi sunulur. Gizli maliyet yoktur.</em></p>
+<hr>
+<h2 id="neden-profesyonel-danışmanlık">Neden Profesyonel Danışmanlık?</h2>
+<ul>
+<li><strong>Kıdemli Uzmanlık:</strong> Banka seviyesindeki güvenlik protokollerini kurumsal ortamınıza uyguluyorum.</li>
+<li><strong>Üreticiden Bağımsız Yaklaşım:</strong> Objektif olarak sadece gerçekten ihtiyacınız olan teknolojiyi öneriyorum (Cisco, Palo Alto, Fortinet vb.).</li>
+<li><strong>Sürdürülebilirlik:</strong> Altyapınızın şeffaf ve yönetilebilir kalması için tüm sistemlerin eksiksiz dokümantasyonunu teslim ediyorum.</li>
+<li><strong>KVKK/DSGVO Uyumu:</strong> Tüm çözümler, Avrupa veri koruma gereksinimleri dikkate alınarak uygulanır.</li>
+</ul>
+<hr>
+<h2 id="şimdi-ön-görüşme-randevusu-alın">Şimdi Ön Görüşme Randevusu Alın</h2>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<p><strong>📧 E-posta:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
+<p><em>İlk görüşme (30 dk) ücretsiz ve bağlayıcı değildir. Sonrasında şeffaf ve net bir teklif alırsınız.</em></p>
+]]></content:encoded></item><item><title>On-Site IT Care – İşletmeler İçin Yerinde IT Bakım Hizmeti</title><link>https://barashhelvadzhaoglu.com/tr/services/onsite-it-care/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/services/onsite-it-care/</guid><description>Münih&amp;#39;teki KOBİ&amp;#39;ler için profesyonel IT bakım hizmeti. WiFi, NAS, antivirus, kamera, UPS ve PC bakımı — tek muhatap.</description><content:encoded><![CDATA[<h1 id="on-site-it-care--işletmeniz-için-kapsamlı-it-bakım-hizmeti">On-Site IT Care – İşletmeniz İçin Kapsamlı IT Bakım Hizmeti</h1>
+<p>Siz işinize odaklanın — IT&rsquo;nizle ben ilgileneyim.</p>
+<p>Küçük ve orta ölçekli işletmelerin kendi IT departmanına ihtiyacı yok. Bir şey çalışmadığında gelen, bir arıza olmadan önce önlem alan ve ne yaptığını anlaşılır şekilde açıklayan güvenilir bir muhataba ihtiyaçları var.</p>
+<p><strong>11 yılı aşkın deneyime sahip Senior IT Engineer</strong> olarak tam da bunu sunuyorum: Münih ve çevresinde kişisel, profesyonel, yerinde IT desteği.</p>
+<blockquote>
+<p>💬 <strong>Ücretsiz IT analizi:</strong> <a href="https://wa.me/4916098665971">WhatsApp&rsquo;tan yazın</a> — mevcut IT durumunuzu ücretsiz değerlendiriyorum.</p>
+</blockquote>
+<hr>
+<h2 id="hizmetlerim">Hizmetlerim</h2>
+<h3 id="-wifi-optimizasyonu-ve-mesh-ağ-aruba-instant-on">📶 WiFi Optimizasyonu ve Mesh Ağ (Aruba Instant On)</h3>
+<p><strong>Problem:</strong> WiFi sürekli kopuyor, arka odada sinyal yok, müşteriler yavaş internetten şikayet ediyor.</p>
+<p><strong>Çözüm:</strong> Mekanınızı analiz ediyorum ve mevcut modeminizi değiştirmeden profesyonel <strong>Aruba Instant On Access Point&rsquo;ler</strong> kuruyorum.</p>
+<ul>
+<li><strong>Mesh teknolojisi:</strong> Access point&rsquo;ler otomatik olarak birbirine bağlanıyor — karmaşık kablo döşemeye gerek yok</li>
+<li><strong>Ayrı ağlar:</strong> Personel WiFi ve misafir WiFi net şekilde ayrılmış — GDPR uyumlu ve güvenli</li>
+<li><strong>Bulut yönetimi:</strong> Tüm cihazlar uygulama üzerinden izleniyor — bir sorun olduğunda anında görüyorum</li>
+<li><strong>Ölçeklenebilir:</strong> Daha fazla kapsama alanı gerekirse basitçe yeni bir access point ekleniyor</li>
+</ul>
+<p><strong>Uygun olduğu yerler:</strong> Kafeler, restoranlar, muayenehaneler, avukatlık büroları, küçük ofisler, oteller</p>
+<table>
+  <thead>
+      <tr>
+          <th>Hizmet</th>
+          <th>Fiyat</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Saha analizi (site survey)</td>
+          <td>Ücretsiz</td>
+      </tr>
+      <tr>
+          <td>1x Aruba AP kurulum</td>
+          <td>€99&rsquo;dan + donanım</td>
+      </tr>
+      <tr>
+          <td>2x AP mesh kurulum</td>
+          <td>€149&rsquo;dan + donanım</td>
+      </tr>
+      <tr>
+          <td>Aylık izleme</td>
+          <td>€19/ay</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h3 id="-nas-yedekleme-ve-veri-güvenliği-aws-s3">💾 NAS Yedekleme ve Veri Güvenliği (AWS S3)</h3>
+<p><strong>Problem:</strong> Birçok işletmenin RAID&rsquo;siz NAS cihazı var — tek bir disk arızasında tüm veriler kayboluyor. Ya da: NAS çalışıyor ama harici yedek yok.</p>
+<p><strong>Çözüm:</strong> NAS&rsquo;ınızdan <strong>AWS Cloud&rsquo;a (Frankfurt)</strong> otomatik, şifreli veri yedeklemesi kuruyorum.</p>
+<ul>
+<li><strong>Otomatik:</strong> Manuel müdahale olmadan günlük yedekleme</li>
+<li><strong>Şifreli:</strong> Verileriniz aktarımdan önce şifreleniyor — anahtarı yalnızca siz tutuyorsunuz</li>
+<li><strong>Sizin AWS hesabınız:</strong> Her şeyi sizin adınıza kuruyorum — veri ve hesap size ait</li>
+<li><strong>GDPR uyumlu:</strong> Frankfurt&rsquo;ta sunucular (AB), üçüncü taraflarla veri paylaşımı yok</li>
+<li><strong>Uygun fiyatlı:</strong> AWS S3&rsquo;te 100 GB ayda yaklaşık €2-3</li>
+</ul>
+<p><strong>Muayenehaneler ve avukatlık büroları için:</strong> Veri İşleme Sözleşmesi (AVV) hazırlıyorum — yasal olarak temiz ve GDPR uyumlu.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Hizmet</th>
+          <th>Fiyat</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>AWS hesabı kurulumu</td>
+          <td>€29 tek seferlik</td>
+      </tr>
+      <tr>
+          <td>Yedekleme yapılandırması (Hyper Backup)</td>
+          <td>€29 tek seferlik</td>
+      </tr>
+      <tr>
+          <td>AVV hazırlama (muayenehaneler için)</td>
+          <td>€29 tek seferlik</td>
+      </tr>
+      <tr>
+          <td>Aylık izleme ve kontrol</td>
+          <td>€19/ay</td>
+      </tr>
+  </tbody>
+</table>
+<p><em>AWS maliyetleri (~€2-5/ay) doğrudan sizin AWS hesabınızdan faturalandırılır.</em></p>
+<hr>
+<h3 id="-ups--kesintisiz-güç-kaynağı">🔋 UPS – Kesintisiz Güç Kaynağı</h3>
+<p><strong>Problem:</strong> Bir elektrik kesintisi veya voltaj dalgalanması, server&rsquo;ınıza, NAS&rsquo;ınıza veya ağ cihazlarınıza kalıcı hasar verebilir ve veri kaybına neden olabilir — çoğu zaman önceden uyarı vermeden.</p>
+<p><strong>Çözüm:</strong> Bir <strong>UPS (Kesintisiz Güç Kaynağı)</strong> cihazlarınızı güç kesintilerinden ve voltaj dalgalanmalarından korur.</p>
+<p>Nasıl çalışır:</p>
+<pre tabindex="0"><code>Elektrik kesildi
+      ↓
+UPS anında devreye giriyor (batarya)
+      ↓
+NAS kesinti sinyalini otomatik algılıyor
+      ↓
+2 dakika içinde güvenli kapanma
+      ↓
+Veri kaybı yok, hasar yok
+</code></pre><ul>
+<li><strong>Öneri:</strong> APC veya Eaton Line-Interactive UPS</li>
+<li><strong>NAS entegrasyonu:</strong> Synology NAS, UPS&rsquo;i USB üzerinden otomatik algılıyor ve güvenli kapanıyor</li>
+<li><strong>Yıllık batarya kontrolü:</strong> Batarya durumunu yılda bir kontrol ediyorum</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th>Hizmet</th>
+          <th>Fiyat</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>UPS ihtiyaç analizi</td>
+          <td>Ücretsiz</td>
+      </tr>
+      <tr>
+          <td>Kurulum ve NAS entegrasyonu</td>
+          <td>€59 işçilik</td>
+      </tr>
+      <tr>
+          <td>UPS donanımı (APC 650VA)</td>
+          <td>~€80-120 + kar marjı</td>
+      </tr>
+      <tr>
+          <td>Yıllık batarya kontrolü</td>
+          <td>€29/yıl</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h3 id="-antivirus-ve-endpoint-koruması-merkezi-yönetim">🛡️ Antivirus ve Endpoint Koruması (Merkezi Yönetim)</h3>
+<p><strong>Problem:</strong> Her PC&rsquo;de ayrı bir antivirus programı yeterli değil. Fidye yazılımı, kimlik avı ve modern saldırılar basit çözümleri kolayca aşıyor.</p>
+<p><strong>Çözüm:</strong> Tüm cihazlarınıza <strong>merkezi yönetimli EDR/antivirus çözümü</strong> kuruyorum (örn. Bitdefender GravityZone veya ESET Protect).</p>
+<ul>
+<li><strong>Merkezi yönetim:</strong> Tüm cihazların koruma durumunu tek bakışta görüyorum</li>
+<li><strong>Gerçek zamanlı koruma:</strong> Tehditler zarar vermeden önce tespit ediliyor</li>
+<li><strong>Fidye yazılımı koruması:</strong> Dosyalarınız kötü amaçlı yazılım şifrelemesinden koruyor</li>
+<li><strong>Aylık rapor:</strong> Her ay tespit edilen tehditlerin özetini alıyorsunuz</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th>Hizmet</th>
+          <th>Fiyat</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Kurulum (5 PC&rsquo;ye kadar)</td>
+          <td>€29 tek seferlik</td>
+      </tr>
+      <tr>
+          <td>Cihaz başına lisans</td>
+          <td>€3-5/ay&rsquo;dan</td>
+      </tr>
+      <tr>
+          <td>Aylık yönetim ve rapor</td>
+          <td>Pakete dahil</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h3 id="-kamera-sistemi-ve-video-gözetleme">📹 Kamera Sistemi ve Video Gözetleme</h3>
+<p><strong>Problem:</strong> Giriş, kasa veya deponuzu izlemek istiyorsunuz — ama hangi sistemin doğru olduğunu bilmiyorsunuz.</p>
+<p><strong>Çözüm:</strong> Durumunuza uygun profesyonel IP kamera sistemi kuruyorum — kullanımı kolay, güvenilir ve GDPR uyumlu.</p>
+<ul>
+<li><strong>Synology Surveillance Station:</strong> Zaten Synology NAS&rsquo;ınız varsa video kayıt cihazı olarak kullanabiliriz — 2 kamera lisansı ücretsiz dahil</li>
+<li><strong>IP kameralar:</strong> Hikvision veya Dahua — güvenilir ve uygun maliyetli</li>
+<li><strong>Uzaktan erişim:</strong> Kameralarınızı her zaman akıllı telefon uygulamasıyla izleyin</li>
+<li><strong>GDPR:</strong> Doğru işaret levhası ve gizlilik politikası konusunda yardımcı oluyorum</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th>Hizmet</th>
+          <th>Fiyat</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Danışmanlık ve planlama</td>
+          <td>Ücretsiz</td>
+      </tr>
+      <tr>
+          <td>Kamera başına kurulum</td>
+          <td>€49&rsquo;dan işçilik</td>
+      </tr>
+      <tr>
+          <td>Synology Surveillance Station kurulumu</td>
+          <td>€29 tek seferlik</td>
+      </tr>
+      <tr>
+          <td>Ek kamera lisansı (Synology)</td>
+          <td>~€50 tek seferlik</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h3 id="-pc-ve-server-bakımı">💻 PC ve Server Bakımı</h3>
+<p><strong>Problem:</strong> Yavaş bilgisayarlar her gün verimlilik kaybettiriyor. Eski sistemler güvenlik riskidir.</p>
+<p><strong>Çözüm:</strong> Düzenli bakım cihazlarınızı hızlı, güvenli ve güvenilir tutar.</p>
+<ul>
+<li><strong>Windows yeniden kurulumu:</strong> Temiz sistem, optimize edilmiş sürücüler, veri kaybı yok</li>
+<li><strong>Donanım yükseltme:</strong> SSD ve RAM — yeni PC almadan 5 kata kadar daha hızlı</li>
+<li><strong>Windows Update yönetimi:</strong> Tüm güvenlik güncellemeleri merkezi ve kontrollü</li>
+<li><strong>Server bakımı:</strong> RAM/disk değiştirme, fan temizleme, log kontrolü</li>
+<li><strong>Uzaktan destek:</strong> Basit sorunları yerinde ziyaret olmadan AnyDesk ile çözüyorum</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th>Hizmet</th>
+          <th>Fiyat</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>PC tanılama</td>
+          <td>Ücretsiz</td>
+      </tr>
+      <tr>
+          <td>Windows yeniden kurulumu</td>
+          <td>€49&rsquo;dan</td>
+      </tr>
+      <tr>
+          <td>SSD/RAM yükseltme</td>
+          <td>€49&rsquo;dan + donanım</td>
+      </tr>
+      <tr>
+          <td>Server bakımı (yerinde)</td>
+          <td>€59/saat</td>
+      </tr>
+      <tr>
+          <td>Uzaktan destek</td>
+          <td>€29/saat</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="aylık-bakım-paketleri">Aylık Bakım Paketleri</h2>
+<p>Tek seferlik işler yerine aylık bakım sözleşmeleri de sunuyorum — böylece her zaman sabit bir muhatabınız olur ve IT maliyetleriniz öngörülebilir hale gelir:</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th><strong>Basic</strong></th>
+          <th><strong>Business</strong></th>
+          <th><strong>Premium</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Antivirus (5 cihaza kadar)</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>Windows Update yönetimi</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>Uzaktan destek (saat/ay)</td>
+          <td>1 saat</td>
+          <td>2 saat</td>
+          <td>4 saat</td>
+      </tr>
+      <tr>
+          <td>NAS yedekleme izleme</td>
+          <td>–</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>WiFi izleme</td>
+          <td>–</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>Yerinde ziyaret/ay</td>
+          <td>–</td>
+          <td>1x</td>
+          <td>2x</td>
+      </tr>
+      <tr>
+          <td>UPS yıllık kontrolü</td>
+          <td>–</td>
+          <td>–</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>Aylık rapor</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>Yanıt süresi</td>
+          <td>48 saat</td>
+          <td>24 saat</td>
+          <td>4 saat</td>
+      </tr>
+      <tr>
+          <td><strong>Fiyat</strong></td>
+          <td><strong>€49/ay</strong></td>
+          <td><strong>€89/ay</strong></td>
+          <td><strong>€149/ay</strong></td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="verileriniz--her-zaman-sizin-kontrolünüzde">Verileriniz — Her Zaman Sizin Kontrolünüzde</h2>
+<p>Tüm hizmetlerimde olduğu gibi: <strong>Tüm hesaplar size aittir.</strong></p>
+<ul>
+<li>AWS hesabı sizin adınıza</li>
+<li>Antivirus lisansı sizin adınıza</li>
+<li>Tüm erişim bilgileri <strong>Bitwarden</strong>&lsquo;da (şifre yöneticisi) güvenle saklanır ve istediğinizde size teslim edilir</li>
+</ul>
+<p>Ben yalnızca yönetim için yönetici erişimi alıyorum. Tam kontrolü her zaman elinizde tutarsınız — bağımlılık yok, gizli kısıtlama yok.</p>
+<hr>
+<h2 id="on-site-it-care-kime-uygun">On-Site IT Care Kime Uygun?</h2>
+<ul>
+<li><strong>Muayenehaneler ve terapistler</strong> — GDPR uyumlu veri yedekleme, güvenilir hasta WiFi&rsquo;si</li>
+<li><strong>Avukatlık büroları</strong> — Güvenli veri depolama, şifreli yedeklemeler</li>
+<li><strong>Kafeler ve restoranlar</strong> — Stabil misafir WiFi, kamera sistemi, güvenilir kasa IT&rsquo;si</li>
+<li><strong>Oteller ve pansiyonlar</strong> — Tam kapsama WiFi, kamera gözetleme, NAS yedekleme</li>
+<li><strong>Perakendeciler</strong> — Kasa sistemi bakımı, WiFi, video gözetleme</li>
+<li><strong>Küçük ofisler (2-20 kişi)</strong> — Kendi IT departmanı olmadan tam IT desteği</li>
+</ul>
+<hr>
+<h2 id="sıkça-sorulan-sorular">Sıkça Sorulan Sorular</h2>
+<p><strong>Uzun vadeli sözleşme imzalamam gerekiyor mu?</strong>
+<em>Hayır. Bireysel hizmetler her zaman sipariş edilebilir. Aylık paketlerin 30 günlük iptal süresi vardır.</em></p>
+<p><strong>Mesai saatleri dışında da geliyor musunuz?</strong>
+<em>Evet, anlaşmaya göre akşamları veya hafta sonları da — özellikle iş akışını kesintiye uğratmamak gereken kurulumlar için.</em></p>
+<p><strong>NAS modelimi bilmiyorum — sorun olur mu?</strong>
+<em>Sorun değil. Her şeye ücretsiz bakıyorum ve mevcut durumu ile iyileştirilebilecekleri net şekilde açıklıyorum.</em></p>
+<p><strong>Mac cihazlarla da çalışıyor musunuz?</strong>
+<em>Temel görevler için evet. Karmaşık Mac sorunlarında daha uygun bir uzman varsa dürüstçe söylüyorum.</em></p>
+<p><strong>Ne kadar hızlı gelebiliyorsunuz?</strong>
+<em>Genellikle 24-48 saat içinde. Acil durumlarda aynı gün de — WhatsApp&rsquo;tan yazmanız yeterli.</em></p>
+<hr>
+<h2 id="şimdi-ücretsiz-it-kontrolü-isteyin">Şimdi Ücretsiz IT Kontrolü İsteyin</h2>
+<p>Mevcut IT durumunuza ücretsiz bakıyorum — WiFi, veri yedekleme, cihazlar, her şey. Ardından dürüst bir değerlendirme ve net bir teklif alırsınız.</p>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<p><strong>📧 E-posta:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
+<p><em>Ücretsiz kontrol. Onayınız olmadan hiçbir işlem yapılmaz. Bağımlılık yok.</em></p>
+]]></content:encoded></item><item><title>Web Shield – Web Sitesi Koruma ve Yönetim Hizmeti</title><link>https://barashhelvadzhaoglu.com/tr/services/web-shield/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/services/web-shield/</guid><description>Münih&amp;#39;te profesyonel web sitesi yönetimi. SSL, WAF, DDoS koruması, ücretsiz hosting ve aylık güvenlik raporları. Tüm erişimler sizde kalır.</description><content:encoded><![CDATA[<h1 id="web-shield--profesyonel-web-sitesi-koruma-ve-yönetim-hizmeti">Web Shield – Profesyonel Web Sitesi Koruma ve Yönetim Hizmeti</h1>
+<p>Web siteniz, potansiyel müşterilerin işletmenizle ilgili ilk izlenimini oluşturur. Bir çöküş, siber saldırı veya süresi dolmuş SSL sertifikası müşteri ve güven kaybetmenize neden olabilir — çoğu zaman fark etmeden.</p>
+<p><strong>Web Shield</strong>, işletmenizin web sitesi için aylık kapsamlı bir koruma paketidir: güvenlik, bakım, yedekleme ve izleme — tek elden, hiç uğraşmadan.</p>
+<blockquote>
+<p>💬 <strong>Ücretsiz web sitesi analizi:</strong> <a href="https://wa.me/4916098665971">WhatsApp&rsquo;tan yazın</a> — sitenizi ücretsiz olarak güvenlik açıklarına karşı kontrol ediyorum.</p>
+</blockquote>
+<hr>
+<h2 id="pakette-neler-var">Pakette Neler Var?</h2>
+<h3 id="-ssl-sertifikası--her-zaman-geçerli-asla-süresi-dolmuş">🔒 SSL Sertifikası – Her Zaman Geçerli, Asla Süresi Dolmuş</h3>
+<p>Süresi dolmuş bir SSL sertifikası, ziyaretçilerinize &ldquo;Bu site güvenli değil&rdquo; uyarısını gösterir — ve hemen sayfayı terk ederler.</p>
+<ul>
+<li>Otomatik kurulum ve yenileme</li>
+<li>Manuel müdahale gerekmez</li>
+<li>Siteniz her zaman yeşil kilit ile erişilebilir</li>
+</ul>
+<hr>
+<h3 id="-waf--web-uygulama-güvenlik-duvarı">🛡️ WAF – Web Uygulama Güvenlik Duvarı</h3>
+<p>WAF, web sitenizi en yaygın saldırılardan korur: SQL enjeksiyonu, cross-site scripting (XSS), bot saldırıları ve daha fazlası.</p>
+<ul>
+<li>OWASP güvenlik kural seti aktivasyonu</li>
+<li>Şüpheli isteklerin otomatik engellenmesi</li>
+<li>7/24 hacking girişimlerine karşı koruma</li>
+</ul>
+<hr>
+<h3 id="-ddos-koruması--siteniz-çevrimiçi-kalır">⚡ DDoS Koruması – Siteniz Çevrimiçi Kalır</h3>
+<p>DDoS saldırıları, sitenizi çökertene kadar isteklerle doldurur. Korumamızla bu saldırılar zarar vermeden önce otomatik olarak püskürtülür.</p>
+<ul>
+<li>Sınırsız DDoS koruması</li>
+<li>Otomatik tespit ve engelleme</li>
+<li>Saldırılardan kaynaklanan kesinti yok</li>
+</ul>
+<hr>
+<h3 id="-ücretsiz-hosting-uygun-siteler-için">🌐 Ücretsiz Hosting (Uygun Siteler İçin)</h3>
+<p>Ionos, Strato veya başka bir sağlayıcıya hâlâ aylık ödeme yapıyor musunuz?</p>
+<p>Birçok basit işletme web sitesi için hosting&rsquo;i tamamen <strong>Cloudflare Pages</strong>&rsquo;e taşıyabiliriz — geleneksel hostingden <strong>ücretsiz, daha hızlı ve daha güvenli</strong>.</p>
+<ul>
+<li>Artık aylık hosting maliyeti yok</li>
+<li>Global CDN — siteniz dünya genelinde hızlı yükleniyor</li>
+<li>Değişiklik yapıldığında otomatik deploy</li>
+</ul>
+<p><em>Not: Statik web siteleri ve basit işletme sayfaları için uygundur. Karmaşık WordPress veya e-ticaret sistemleri mevcut hostingde kalır — ancak yine de WAF ve DDoS koruması alır.</em></p>
+<hr>
+<h3 id="-aylık-güvenlik-raporu">📊 Aylık Güvenlik Raporu</h3>
+<p>Her ay e-posta ile düzenli bir rapor alırsınız:</p>
+<pre tabindex="0"><code>Web Sitesi Raporunuz – Mart 2026
+──────────────────────────────────
+✅ SSL Sertifikası: Geçerli (340 gün)
+✅ Erişilebilirlik: %99,98
+🛡️ Engellenen saldırı: 127
+⚡ Püskürtülen DDoS girişimi: 3
+👥 Toplam ziyaretçi: 1.847
+🌍 En çok gelen ülkeler: Almanya, Avusturya, İsviçre
+⚡ Ortalama yüklenme süresi: 0,7 sn
+</code></pre><p>Sitenizin korumalı ve performanslı olduğunu tek bakışta görürsünüz.</p>
+<hr>
+<h3 id="-erişimleriniz--her-zaman-sizin-kontrolünüzde">🔑 Erişimleriniz – Her Zaman Sizin Kontrolünüzde</h3>
+<p>Bu bizim için özellikle önemli: <strong>Tüm hesaplar size aittir.</strong></p>
+<p>Her müşteri için ayrı hesap oluşturuyoruz:</p>
+<ul>
+<li><strong>Cloudflare hesabı</strong> sizin adınıza → DNS, WAF, SSL, Hosting</li>
+<li><strong>GitHub hesabı</strong> sizin adınıza → Web sitesi dosyalarınız</li>
+<li><strong>Şifre yöneticisi</strong> (Bitwarden) → Tüm erişim bilgileri güvenle saklanır</li>
+</ul>
+<p>Ben yalnızca <strong>yönetici erişimi</strong> alıyorum — yönetimi üstlenebilmek için. Her zaman tam kontrolü elinizde tutarsınız. Hizmeti sonlandırmak isterseniz her şey size ait. Bağımlılık yok, gizli kısıtlama yok.</p>
+<hr>
+<h2 id="paketler-ve-fiyatlar">Paketler ve Fiyatlar</h2>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th><strong>Starter</strong></th>
+          <th><strong>Business</strong></th>
+          <th><strong>Premium</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>SSL Sertifikası</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>WAF Koruması</td>
+          <td>Temel</td>
+          <td>Gelişmiş</td>
+          <td>Tam</td>
+      </tr>
+      <tr>
+          <td>DDoS Koruması</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>Aylık Rapor</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>Ücretsiz Hosting</td>
+          <td>–</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>WordPress Güncellemeleri</td>
+          <td>–</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>Aylık Yedekleme</td>
+          <td>–</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>Destek Yanıt Süresi</td>
+          <td>48 saat</td>
+          <td>24 saat</td>
+          <td>4 saat</td>
+      </tr>
+      <tr>
+          <td><strong>Fiyat</strong></td>
+          <td><strong>€29/ay</strong></td>
+          <td><strong>€59/ay</strong></td>
+          <td><strong>€99/ay</strong></td>
+      </tr>
+  </tbody>
+</table>
+<p><em>Tek seferlik kurulum ücreti: €49 (yıllık sözleşmede ilk ay geçerli değildir)</em></p>
+<hr>
+<h2 id="web-shield-kime-uygun">Web Shield Kime Uygun?</h2>
+<ul>
+<li><strong>Muayenehaneler ve terapistler</strong> — Hasta iletişim formları için GDPR uyumlu koruma</li>
+<li><strong>Avukatlık büroları</strong> — Gizli müvekkil başvurularını koruma</li>
+<li><strong>Restoranlar ve kafeler</strong> — Online rezervasyonları ve menüleri güvence altına alma</li>
+<li><strong>Perakendeciler ve hizmet sağlayıcılar</strong> — IT bilgisi olmadan profesyonel çevrimiçi varlık</li>
+<li><strong>Oteller ve pansiyonlar</strong> — Rezervasyon formları ve misafir verilerini koruma</li>
+</ul>
+<hr>
+<h2 id="sıkça-sorulan-sorular">Sıkça Sorulan Sorular</h2>
+<p><strong>Web sitemini veya hosting sağlayıcımı değiştirmem gerekiyor mu?</strong>
+<em>Hayır. Sadece alan adınızın DNS ayarlarını değiştiriyoruz — web siteniz olduğu yerde kalıyor. Tüm süreç bir saatten az sürer ve ziyaretçileriniz hiçbir şey fark etmez.</em></p>
+<p><strong>Hizmeti iptal edersem ne olur?</strong>
+<em>Tüm hesaplar (Cloudflare, GitHub) size aittir. Her şeyi saklayabilir veya başka bir sağlayıcıya devredebilirsiniz. Bağımlılık yok.</em></p>
+<p><strong>Web sitem bir ajans tarafından yapıldı — bu sorun olur mu?</strong>
+<em>Hayır. Kim tarafından yapılmış olursa olsun her mevcut web sitesiyle çalışıyoruz.</em></p>
+<p><strong>Ne kadar hızlı başlayabilirim?</strong>
+<em>Kısa bir ilk görüşmeden sonra koruma genellikle 24 saat içinde aktif oluyor.</em></p>
+<p><strong>WordPress kullanıyorum — bu da çalışır mı?</strong>
+<em>Evet. WAF ve DDoS koruması her web sitesiyle çalışır. WordPress güncellemeleri ve yedeklemeler Business paketinde dahildir.</em></p>
+<hr>
+<h2 id="kurulum-süreci-nasıl-işliyor">Kurulum Süreci Nasıl İşliyor?</h2>
+<ol>
+<li><strong>Ücretsiz ilk görüşme (20 dk.)</strong> — Mevcut web sitenizi analiz ediyorum ve nelerin iyileştirilebileceğini açıklıyorum.</li>
+<li><strong>Teklif</strong> — Gizli maliyet içermeyen net bir teklif alırsınız.</li>
+<li><strong>Kurulum (24 saat)</strong> — Her şeyi ben ayarlıyorum. Sizin yapmanız gereken hiçbir şey yok.</li>
+<li><strong>İlk rapor</strong> — 30 gün sonra ilk güvenlik raporunuzu alırsınız.</li>
+</ol>
+<hr>
+<h2 id="şimdi-ücretsiz-web-sitesi-analizi-isteyin">Şimdi Ücretsiz Web Sitesi Analizi İsteyin</h2>
+<p>Web sitenize ücretsiz olarak bakıyorum ve nerede iyileştirme yapılabileceğini somut olarak gösteriyorum — taahhütsüz ve yükümlülüksüz.</p>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<p><strong>📧 E-posta:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
+<p><em>Ücretsiz analiz. Onayınız olmadan hiçbir işlem yapılmaz.</em></p>
+]]></content:encoded></item><item><title>WLAN Pazarlama &amp; Captive Portal Münih</title><link>https://barashhelvadzhaoglu.com/tr/services/wifi-marketing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/services/wifi-marketing/</guid><description>Misafir WiFi&amp;#39;nizi pazarlama aracına dönüştürün. Otomatik e-posta ve telefon toplama, KVKK/DSGVO uyumlu — Münih kafe, otel ve restoranlar için.</description><content:encoded><![CDATA[<h1 id="misafir-wifi-ağınız-artık-bir-pazarlama-aracı">Misafir WiFi Ağınız Artık Bir Pazarlama Aracı</h1>
+<p>WiFi ağınıza bağlanan her misafir, e-posta adresini veya telefon numarasını bırakır — <strong>otomatik olarak ve DSGVO (KVKK) uyumlu bir şekilde.</strong> Manuel işlem yok. İşletmeniz için ekstra iş yükü yok.</p>
+<blockquote>
+<p>💬 <strong>Ücretsiz Demo Randevusu Alın:</strong> <a href="https://wa.me/4916098665971">WhatsApp&rsquo;tan Yazın</a></p>
+</blockquote>
+<hr>
+<h2 id="nasıl-çalışır">Nasıl Çalışır?</h2>
+<p><strong>1. Misafir WiFi ağınıza bağlanır</strong>
+Logonuzun ve markanızın bulunduğu bir karşılama sayfası otomatik olarak açılır.</p>
+<p><strong>2. Misafir e-posta veya telefon bilgisini girer</strong>
+&ldquo;Kabul Et&rdquo; butonuna tek bir tıklama ile misafir internete bağlanır, siz ise iletişim bilgilerini almış olursunuz.</p>
+<p><strong>3. Müşteri listenizi oluşturun</strong>
+Tüm veriler güvenli bir şekilde panelinizde toplanır. Haftalık raporlar e-posta ile size iletilir.</p>
+<p><strong>4. Hedefli teklifler gönderin</strong>
+Toplanan kişileri bültenler, kampanyalar veya sadık müşteri indirimleri için kullanın.</p>
+<hr>
+<h2 id="bu-çözüm-kimler-için">Bu Çözüm Kimler İçin?</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Sektör</th>
+          <th>Fayda</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Kafeler &amp; Restoranlar</strong></td>
+          <td>Sadık müşteri kazanımı, kampanya duyuruları</td>
+      </tr>
+      <tr>
+          <td><strong>Oteller &amp; Pansiyonlar</strong></td>
+          <td>Müşteri bağlılığı, yorum talepleri</td>
+      </tr>
+      <tr>
+          <td><strong>Dil Okulları &amp; Kurslar</strong></td>
+          <td>Katılımcıları bilgilendirme, yeni kurs tanıtımları</td>
+      </tr>
+      <tr>
+          <td><strong>Perakende Mağazalar</strong></td>
+          <td>Dijital sadakat kartı çözümü</td>
+      </tr>
+      <tr>
+          <td><strong>Muayenehaneler &amp; Ofisler</strong></td>
+          <td>Randevu hatırlatmaları, duyurular</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="paketler--fiyatlandırma">Paketler &amp; Fiyatlandırma</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Paket</th>
+          <th>İçerik</th>
+          <th>Fiyat</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Starter</strong></td>
+          <td>Kurulum + Portal Yapılandırma + Dashboard</td>
+          <td>Tek Seferlik €79</td>
+      </tr>
+      <tr>
+          <td><strong>Basic</strong></td>
+          <td>Starter + Aylık Raporlama + Destek</td>
+          <td>€29/Ay</td>
+      </tr>
+      <tr>
+          <td><strong>Pro</strong></td>
+          <td>Basic + E-posta Kampanyaları + Özel Branding</td>
+          <td>€59/Ay</td>
+      </tr>
+  </tbody>
+</table>
+<p><em>Mevcut bir WiFi cihazınız mı var? Sorun değil — uyumluluğunu ücretsiz kontrol ediyoruz.</em></p>
+<p><em>Tüm paketler DSGVO uyumludur. Gizli maliyet yoktur.</em></p>
+<hr>
+<h2 id="sıkça-sorulan-sorular">Sıkça Sorulan Sorular</h2>
+<p><strong>Yeni donanım almam gerekiyor mu?</strong>
+<em>Genellikle hayır. Mevcut cihazınız uyumluysa, sadece küçük bir ek donanım (39 €&lsquo;dan başlayan fiyatlarla) ekliyoruz.</em></p>
+<p><strong>DSGVO / KVKK uyumlu mu?</strong>
+<em>Evet. Misafir veri toplanmasına aktif olarak onay verir. Tüm veriler Almanya&rsquo;daki sunucularda şifrelenmiş olarak saklanır.</em></p>
+<p><strong>Ne kadar müşteri verisi toplayabilirim?</strong>
+<em>Ortalama bir kafe ayda 200–500 yeni iletişim bilgisi toplamaktadır.</em></p>
+<p><strong>Verileri e-posta pazarlaması için kullanabilir miyim?</strong>
+<em>Evet, kişileri doğrudan dışa aktarabilir veya sizin için otomatik bir kampanya kurgulayabiliriz.</em></p>
+<hr>
+<h2 id="şimdi-ücretsiz-demo-randevusu-alın">Şimdi Ücretsiz Demo Randevusu Alın</h2>
+<p>Sistemin nasıl çalıştığını 20 dakika içinde canlı ve taahhütsüz olarak size göstereyim.</p>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<p><strong>📧 E-posta:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
+<p><em>Ücretsiz ilk danışmanlık. Ön fiyat teklifi olmadan onayınız alınmaz.</em></p>
+]]></content:encoded></item></channel></rss>

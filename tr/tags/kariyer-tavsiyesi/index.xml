@@ -1,1 +1,66 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Kariyer Tavsiyesi on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/kariyer-tavsiyesi/</link><description>Recent content in Kariyer Tavsiyesi on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Sun, 15 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/kariyer-tavsiyesi/index.xml" rel="self" type="application/rss+xml"/><item><title>IT'de Ürün Odaklı Tuzak: Standartlar mı, Markalar mı?</title><link>https://barashhelvadzhaoglu.com/tr/posts/it-management-standards-vs-brands/</link><pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/it-management-standards-vs-brands/</guid><description>IT işe alımındaki yanlış anlayışların analizi: Mühendislik zihniyeti ve dokümantasyon neden ürün bilgisinin önüne geçer?</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Kariyer Tavsiyesi on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/kariyer-tavsiyesi/</link><description>Recent content in Kariyer Tavsiyesi on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Sun, 15 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/kariyer-tavsiyesi/index.xml" rel="self" type="application/rss+xml"/><item><title>IT'de Ürün Odaklı Tuzak: Standartlar mı, Markalar mı?</title><link>https://barashhelvadzhaoglu.com/tr/posts/it-management-standards-vs-brands/</link><pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/it-management-standards-vs-brands/</guid><description>IT işe alımındaki yanlış anlayışların analizi: Mühendislik zihniyeti ve dokümantasyon neden ürün bilgisinin önüne geçer?</description><content:encoded><![CDATA[<p>Modern IT dünyasında iş ilanları çoğu zaman bir &ldquo;süper kahraman&rdquo; istek listesi gibi okunuyor. Adayların aynı anda Fortinet, Cisco, Palo Alto, Check Point gibi birbiriyle rekabet eden düzinelerce üründe derin uzmanlığa sahip olması bekleniyor. Oysa burada temel bir mantık boşluğu var: tüm bu alanlarda ustalaşmış bir profesyonel, neden net standartları ve süreçleri olmayan bir ortamda çalışmak istesin?</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/it-standards-vs-brands-cover.webp"/> <figcaption>
+            Ürün Odaklı Tuzak: Standartlar vs. Markalar
+        </figcaption>
+</figure>
+
+<blockquote>
+<p>Bu konunun arkasındaki mimari düşünce için: <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a></p>
+</blockquote>
+<h2 id="1-süper-kahraman-işe-alım-paradoksu">1. &ldquo;Süper Kahraman&rdquo; İşe Alım Paradoksu</h2>
+<p>Pek çok şirket, aklına gelen her teknolojiyi sıralayarak aşırı beklentilerle iş ilanları oluşturuyor. Ancak buldukları adaylar nadiren işletmenin gerçek ihtiyaçlarını karşılıyor.</p>
+<p>Asıl sorun çoğu zaman teknik yetenek eksikliği değil, <strong>iç süreçlerin yokluğudur</strong>. Her markayı bilen birini aramak yerine şirketler, kendi sistemlerinin nasıl çalıştığını tanımlamaya odaklanmalıdır.</p>
+<h2 id="2-ürün-bilgisi-vs-mühendislik-vizyonu">2. Ürün Bilgisi vs. Mühendislik Vizyonu</h2>
+<p>Güvenlik ve ağ politikaları, markalardan bağımsız bir kurumsal kültür olmalıdır. Yetkin bir mühendis için farklı arayüzler yalnızca araçtır. Core network ve güvenlik mantığına (TCP/IP, routing, politika yönetimi) hakim olan bir profesyonel, Palo Alto&rsquo;dan Fortinet&rsquo;e çok kısa sürede adapte olabilir.</p>
+<p>Bir şirket için kritik soru &ldquo;Hangi markayı biliyorsunuz?&rdquo; değil, şu sorulardır:</p>
+<ul>
+<li>&ldquo;İnternete nasıl çıkıyoruz?&rdquo;</li>
+<li>&ldquo;Firewall kuralı yazma standardımız nedir?&rdquo;</li>
+</ul>
+<p>Bu soruların cevapları belgelenmiş durumdaysa, sistem yöneticisi enerjisini her seferinde tekerleği yeniden icat etmek yerine verimliliğe harcar.</p>
+<blockquote>
+<p>Ürün seçiminin mimariye nasıl bağlandığına dair: <a href="/tr/architecture/network-product-selection-strategy/">Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler</a></p>
+</blockquote>
+<h2 id="3-planlama-ve-dokümantasyonun-gücü">3. Planlama ve Dokümantasyonun Gücü</h2>
+<p>IT projelerinde planlama çoğu zaman &ldquo;zaman kaybı&rdquo; olarak görülür. Oysa iyi planlanmış bir sistem ve detaylı dokümantasyon, <strong>kurumsal hafızanın</strong> temelidir.</p>
+<p>Bu dokümantasyon süreci yalnızca yeni işe alınanların omuzlarına yüklenen bir yük olamaz; üst yönetimin birlikte kurması gereken bir yönetim anlayışıdır.</p>
+<blockquote>
+<p>Dokümantasyonun operasyonel başarıya nasıl katkı sağladığına dair pratik bir örnek: <a href="/tr/posts/cisco-nexus-nxos-upgrade-guide/">Cisco Nexus NX-OS Yazılım Güncelleme Rehberi</a></p>
+</blockquote>
+<h2 id="4-görünürlük-ve-talep-yönetimi-itsm">4. Görünürlük ve Talep Yönetimi (ITSM)</h2>
+<p>IT ekipleri arasında en yaygın şikayet, yapılan işin &ldquo;görünmez&rdquo; olmasıdır. ITSM (IT Servis Yönetimi) araçlarının kullanılmadığı ve taleplerin kayıt altına alınmadığı kurumlarda:</p>
+<ul>
+<li>Görevlere harcanan süre raporlanamaz.</li>
+<li>Sistemde yapılan değişiklikler denetlenemez.</li>
+<li>IT çalışanının gerçek performansı ölçülemez hale gelir.</li>
+</ul>
+<p>Görünürlük olmadan IT reaktif modda çalışır — yangınları söndürerek hayatta kalmaya çalışır. ITSM araçları bürokratik bir yük değil; IT çalışmasını kurumun geri kalanına anlamlı kılan mekanizmadır.</p>
+<blockquote>
+<p>IT operasyonlarını proaktif olarak görünür kılmak için: <a href="/tr/architecture/monitoring-not-just-seeing/">Monitoring Zihniyeti: Sadece Görmek Değil, Anlamak</a></p>
+</blockquote>
+<h2 id="5-yönetimin-sorumluluğu-bütçe-zaman-ve-kaynaklar">5. Yönetimin Sorumluluğu: Bütçe, Zaman ve Kaynaklar</h2>
+<p>En kritik rol üst yönetime aittir. Yukarıdan bir direktif olmadan standardizasyon bir hayal olarak kalır. Yöneticiler şunları sağlamazsa:</p>
+<ol>
+<li><strong>Yeterli Bütçe</strong></li>
+<li><strong>Makul Zaman</strong></li>
+<li><strong>Doğru İnsan Kaynağı</strong></li>
+</ol>
+<p>Ekipler &ldquo;acil mod&quot;da çalışmaya zorlanır; standartları takip etmek yerine yalnızca günü kurtarmaya odaklanır. En iyi mühendisler bile kurumsal destek olmadan kurumsal kalite inşa edemez.</p>
+<h2 id="sonuç">Sonuç</h2>
+<p>Şirketler, güçlü bir süreç omurgası oluşturmadan yalnızca &ldquo;yıldız oyuncu&rdquo; işe alarak mucize beklememelidir. Kurumsal başarı iyi tasarlanmış bir sistemin ürünüdür — yalnızca yetenekli bireylerin değil.</p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Mimari &amp; Strateji</strong></p>
+<ul>
+<li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Ürün düşüncesi yerine sistem düşüncesi</li>
+<li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a> — Mimari öncelikli network tasarımı</li>
+<li>🎯 <a href="/tr/architecture/network-product-selection-strategy/">Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler</a> — Üreticileri stratejik değerlendirme</li>
+<li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">Monitoring Zihniyeti: Sadece Görmek Değil, Anlamak</a> — IT çalışmasını görünür kılmak</li>
+</ul>
+<p><strong>Pratik Mühendislik</strong></p>
+<ul>
+<li>📈 <a href="/tr/posts/cisco-nexus-nxos-upgrade-guide/">Cisco Nexus NX-OS Yazılım Güncelleme Rehberi</a> — Uygulamada dokümantasyon</li>
+<li>🚀 <a href="/tr/posts/career-guide-network-engineering/">Mezun Rehberi: Bir Network Mühendisi Aslında Ne Yapar?</a> — Network mühendisleri için kariyer yol haritası</li>
+</ul>
+]]></content:encoded></item></channel></rss>

@@ -1,1 +1,138 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Felderfahrung on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/felderfahrung/</link><description>Recent content in Felderfahrung on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>de</language><lastBuildDate>Fri, 02 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/felderfahrung/index.xml" rel="self" type="application/rss+xml"/><item><title>Produktauswahl in der Netzwerkinfrastruktur: Strategische Kriterien und Felderfahrungen</title><link>https://barashhelvadzhaoglu.com/de/architecture/network-product-selection-strategy/</link><pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/architecture/network-product-selection-strategy/</guid><description>Produktauswahl in Unternehmensnetzwerken ist mehr als eine Checkliste. Framework zur Bewertung von Firewalls, Switches und APs jenseits von Datenblättern.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Felderfahrung on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/felderfahrung/</link><description>Recent content in Felderfahrung on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>de</language><lastBuildDate>Fri, 02 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/felderfahrung/index.xml" rel="self" type="application/rss+xml"/><item><title>Produktauswahl in der Netzwerkinfrastruktur: Strategische Kriterien und Felderfahrungen</title><link>https://barashhelvadzhaoglu.com/de/architecture/network-product-selection-strategy/</link><pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/architecture/network-product-selection-strategy/</guid><description>Produktauswahl in Unternehmensnetzwerken ist mehr als eine Checkliste. Framework zur Bewertung von Firewalls, Switches und APs jenseits von Datenblättern.</description><content:encoded><![CDATA[<h1 id="produktauswahl-in-der-netzwerkinfrastruktur-strategische-kriterien-und-felderfahrungen">Produktauswahl in der Netzwerkinfrastruktur: Strategische Kriterien und Felderfahrungen</h1>
+<h2 id="switch-firewall-und-ap-jenseits-des-datenblatts-bewerten">Switch, Firewall und AP jenseits des Datenblatts bewerten</h2>
+<p>Die meisten Unternehmensnetzwerkprojekte beginnen am gleichen Punkt: der Produktauswahl. Und die meisten scheitern am gleichen Punkt: Produkte arbeiten nicht zusammen. Denn was wir ein &ldquo;Core-Netzwerk&rdquo; nennen, sind nicht nur drei Boxen nebeneinander; es geht darum, dass diese drei Komponenten gemeinsam Identität tragen, gemeinsam segmentieren, gemeinsam Policies durchsetzen und vor allem gemeinsam den Betrieb aufrechterhalten.</p>
+<p>Was ich über die Jahre beobachte: Ein Unternehmen kämpft nicht, weil sein Netzwerk &ldquo;schlecht&rdquo; ist, sondern weil der Entscheidungsmechanismus des Netzwerks fragmentiert ist. Die teuersten Geräte, die besten Lizenzen, der höchste Durchsatz — alles vorhanden. Aber wenn ein Incident eintritt, weiß niemand, welches Gerät mit welchem Kontext entscheidet, wo Traffic divergiert oder wo er kontrolliert wird. Das Ergebnis: Es gibt ein &ldquo;Netzwerk,&rdquo; aber kein &ldquo;Netzwerkverhalten.&rdquo;</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/network-product-selection-strategy.webp"/> <figcaption>
+            Strategisches Produktauswahl-Framework
+        </figcaption>
+</figure>
+
+<p>In diesem Artikel teile ich ein praxiserprobtes Framework zur Bewertung von Core-Network-Produkten über drei Säulen: Firewall, Switching und Access (Wi-Fi). Aber vorab: Zwei Faktoren sind genauso entscheidend wie &ldquo;technische Spezifikationen&rdquo; — und die meisten Teams erkennen das zu spät: <strong>Reports/Validierung</strong> und <strong>Support/Lifecycle</strong>.</p>
+<blockquote>
+<p>Für die architektonische Philosophie hinter diesem Auswahlprozess: <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a></p>
+</blockquote>
+<h2 id="schritt-1-reports-tests-und-marketing-rauschen-filtern">Schritt 1: Reports, Tests und Marketing-Rauschen filtern</h2>
+<p>Eine der ersten Referenzen bei der Produktauswahl sind, ja, Gartner-Reports. Sie geben eine Vorstellung von der Marktposition eines Produkts: Wer ist Leader, wer Visionär, wer spielt in einer Nische. Das ist besonders nützlich, um Entscheidungsträger zu überzeugen.</p>
+<p>Aber es gibt eine kritische Falle: <strong>Gartner sagt Ihnen nicht, welches Produkt für Ihr spezifisches Szenario richtig ist.</strong> Gartner ist eine Marktkarte; Ihre Aufgabe ist es, die Architekturkarte zu zeichnen. Nutzen Sie Gartner als ersten Filter — er grenzt Optionen ein, trifft aber keine endgültige Entscheidung.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/filtering-reports-tests-and-marketing-noise.webp"/> <figcaption>
+            Reports und Marketing-Rauschen filtern
+        </figcaption>
+</figure>
+
+<p>Zusätzlich zu Gartner müssen Performance- und Sicherheitstests von Herstellern oder unabhängigen Laboren, Vergleichsberichte und Real-World-Benchmarks berücksichtigt werden. Der Durchsatz auf einem Datenblatt ist nicht derselbe wie der Durchsatz in Produktion, wenn IPS aktiv ist, SSL-Entschlüsselung läuft und App-Control eingeschaltet ist.</p>
+<h2 id="schritt-2-support-und-lifecycle--die-unsichtbaren-säulen">Schritt 2: Support und Lifecycle — Die unsichtbaren Säulen</h2>
+<p>Die technischen Fähigkeiten eines Produkts sind nur die halbe Geschichte. Das Supportmodell und der Lifecycle sind ebenso kritisch. Netzwerkdesign endet nicht am Installationstag. Die eigentliche Frage ist: <strong>Was passiert 3 Jahre später?</strong></p>
+<ul>
+<li>Wie lauten die EoL / EoS-Daten?</li>
+<li>Wie schnell kommen Patches, Bugfixes und Security-Updates?</li>
+<li>Ist TAC/Support wirklich zugänglich?</li>
+<li>Was ist die Realität der RMA-Prozesse?</li>
+<li>Wird das Lizenzmodell nach Jahr eins Überraschungen bringen?</li>
+<li>Passt die Vendor-Roadmap zu Ihrer strategischen Richtung?</li>
+</ul>
+<p>Das häufigste Problem im Feld: Das Team wählt ein technisch solides Produkt, aber weil Support/Lifecycle deprioritisiert wurde, wird der Betrieb 12 Monate später zum Alptraum. Das Gerät bekommt die Schuld — aber das eigentliche Problem war nie das Gerät.</p>
+<h2 id="schritt-3-die-firewall-schicht-bewerten">Schritt 3: Die Firewall-Schicht bewerten</h2>
+<p>Die Firewall hat längst aufgehört, nur ein &ldquo;Sicherheitsgerät am Netzwerkrand&rdquo; zu sein. Richtig positioniert ist sie das Policy-Gehirn der Architektur. Falsch positioniert wird sie zum Bottleneck.</p>
+<p><strong>UTM vs. NGFW — eine notwendige Unterscheidung:</strong></p>
+<p>Der UTM-Ansatz folgt der &ldquo;alles in einer Box&rdquo;-Philosophie: Firewall + IPS + Web-Filter + AV + Gateway-Funktionen. In kleineren Umgebungen wegen Verwaltungseinfachheit und gebündelter Lizenzierung bevorzugt.</p>
+<p>NGFW ist um Anwendungsbewusstsein, Benutzer/Identitätskontext und tiefere Policy-Kontrolle herum positioniert. In modernen Enterprise-Umgebungen reicht die Sicherheit nur auf Port/Protokoll-Basis nicht mehr aus.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/firewall-selection.webp"/> <figcaption>
+            Firewall-Auswahl: UTM vs. NGFW vs. Multi-Rolle
+        </figcaption>
+</figure>
+
+<p><strong>Warum zwei oder drei Firewalls in derselben Organisation normal ist:</strong></p>
+<ul>
+<li><strong>Perimeter/Internet Edge Firewall:</strong> Internet-Egress, VPN, NAT, Inbound/Outbound-Policy</li>
+<li><strong>Internal Segmentation Firewall (ISFW):</strong> East-West-Kontrolle, interne Segmentierung</li>
+<li><strong>Datacenter / High-Performance FW:</strong> DC-Traffic, hohe Session-Zahlen, hohe PPS, geringe Latenz</li>
+</ul>
+<blockquote>
+<p>Für einen tieferen Blick auf Firewall-Architektur im breiteren Netzwerkdesign: <a href="/de/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Warum die richtige Produktwahl allein nicht ausreicht</a></p>
+</blockquote>
+<h2 id="schritt-4-firewall-kapazitätsplanung--durchsatz-kann-lügen">Schritt 4: Firewall-Kapazitätsplanung — Durchsatz kann lügen</h2>
+<p>Der gefährlichste Fehler bei der Firewall-Auswahl ist, sich nur auf die Gbps-Zahl zu konzentrieren. In der Praxis scheitern Firewalls selten am Durchsatz — sie scheitern an:</p>
+<ul>
+<li>PPS (Packets per Second)</li>
+<li>Anzahl gleichzeitiger Sessions</li>
+<li>New-Session-Rate</li>
+<li>NAT-Tabellen und State-Handling</li>
+<li>Performance mit aktivem IPS/AV/App-ID</li>
+<li>SSL/TLS-Entschlüsselungslast</li>
+<li>Log-Generierung und SIEM-Transport</li>
+</ul>
+<p>Die richtige Frage ist immer:</p>
+<blockquote>
+<p><em>&ldquo;Mit den Sicherheitsfunktionen, die ich aktivieren werde, und meinem spezifischen Traffic-Profil — wie viel Last kann diese Firewall tatsächlich tragen?&rdquo;</em></p>
+</blockquote>
+<p>Wenn es keine glaubwürdige Antwort auf diese Frage gibt, ist die Auswahl riskant.</p>
+<h2 id="schritt-5-switch-bewertung--rolle-und-last-statt-portanzahl">Schritt 5: Switch-Bewertung — Rolle und Last statt Portanzahl</h2>
+<p>Die Switch-Auswahl beginnt oft mit Portanzahlen. Diese sind wichtig — aber aus Core-Network-Perspektive nicht ausreichend. Ein Switch ist nicht nur eine Steckdose; er ist ein Entscheidungspunkt, der bestimmt, wo Traffic sich konzentriert, divergiert und nach oben getragen wird.</p>
+<p><strong>Der häufigste Access-Layer-Fehler:</strong> nur für den heutigen Bedarf planen. Der Access-Layer ist die sich am schnellsten verändernde Schicht. Multi-Gig-Ports (2,5G/5G), PoE-Nachhaltigkeit pro Port und echte Uplink-Kapazität werden kritisch.</p>
+<p>Uplinks werden konsequent unterschätzt. &ldquo;2×10G Uplinks reichen&rdquo; hört man oft — ohne das Traffic-Profil zu analysieren. Backplane-Kapazität und Oversubscription-Ratios sind genauso wichtig wie die Uplink-Geschwindigkeit.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/switching-selection.webp"/> <figcaption>
+            Switch-Auswahl: Access vs. Core vs. Datacenter
+        </figcaption>
+</figure>
+
+<p>Beim Entwurf des Core-Netzwerks muss die Frage <strong>&ldquo;Wo steht dieser Switch und welchen Traffic trägt er?&rdquo;</strong> vor <strong>&ldquo;Wie viele Ports hat er?&rdquo;</strong> kommen.</p>
+<h2 id="schritt-6-wireless--uplink-und-controller-architektur">Schritt 6: Wireless — Uplink und Controller-Architektur</h2>
+<p>Bei WLAN verschiebt sich der Fokus meist auf Wi-Fi-Standards: Wi-Fi 6, 6E, 7. In der Praxis wird die Wireless-Performance oft nicht durch das Radio, sondern durch das Kabel begrenzt. Viele Enterprise-APs können ihr volles Potenzial auf einem 1-Gbps-Uplink nicht ausschöpfen.</p>
+<p>2,5G und 5G Kupfer-Uplink-Unterstützung ist in High-Density-Umgebungen kein Luxus — es ist eine Designanforderung. Und kritisch: Wenn der AP 2,5G unterstützt, aber der Switch-Port nicht, ist die gesamte Investition verschwendet. <strong>AP- und Switch-Auswahl müssen zusammen erfolgen.</strong></p>
+<figure>
+    <img loading="lazy" src="/img/postimages/wifi-selection.webp"/> <figcaption>
+            Wireless-Architektur: AP, Uplink und Controller
+        </figcaption>
+</figure>
+
+<p>Controller-Architektur ist ebenso kritisch. Kapazität muss über CPU, Speicher, Session-Handling und Policy-Enforcement bewertet werden — nicht nur nach Lizenzanzahl.</p>
+<h2 id="schritt-7-herstellerbewertung--feldrealitäten">Schritt 7: Herstellerbewertung — Feldrealitäten</h2>
+<p><strong>Cisco</strong> bleibt einer der stärksten Akteure in Switching und Routing. Wireless ist seit Jahren ausgereift. Im Firewall-Bereich nach Akquisitionen wie Sourcefire deutlich wettbewerbsfähiger.
+Vorbehalt: Eine vollständige Cisco-Umgebung ist leistungsfähig, aber selten einfach.</p>
+<p><strong>HPE Aruba</strong> ist durch Akquisitionen inklusive Juniper erheblich gewachsen. Switching weit verbreitet. Wireless nach meiner persönlichen Einschätzung einer der stärksten in der Branche.
+Das Fehlen einer starken nativen Firewall-Familie bleibt eine Lücke.</p>
+<p><strong>Fortinet</strong> bietet eines der breitesten Portfolios unter einem Dach. Firewall-Kompetenz ist stark. Switching reifte später, ist aber zunehmend im Feld präsent.
+Größter operativer Vorteil: relative Einfachheit der Integration und Verwaltung.</p>
+<p><strong>Palo Alto Networks</strong> ist klarer Marktführer bei Firewalls — betritt bewusst nicht Switching oder Wireless. Anwendungssichtbarkeit, Policy-Tiefe und SASE-Führerschaft sind die stärksten Differenzierungsmerkmale.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/vendor-selection.webp"/> <figcaption>
+            Herstellervergleich: Feldrealität
+        </figcaption>
+</figure>
+
+<p><strong>Abschließender Punkt:</strong> API-Unterstützung ist kein Bonus mehr — es ist ein Auswahlkriterium. Die Frage &ldquo;Wie werde ich diese Architektur automatisiert verwalten?&rdquo; sollte vor der Wahl von Switch, Firewall oder AP kommen.</p>
+<h2 id="serverraum-und-verkabelung-was-niemand-besprechen-will-aber-jeder-bezahlt">Serverraum und Verkabelung: Was niemand besprechen will, aber jeder bezahlt</h2>
+<p>In Netzwerkprojekten dominieren die &ldquo;glänzenden&rdquo; Themen. Aber ein erheblicher Teil der Feldprobleme beginnt an einem viel grundlegenderen Ort: Serverraum-Design und Verkabelungsinfrastruktur.</p>
+<p>Egal wie gut die Produkte oder wie korrekt die Architektur — wenn Serverraum und Verkabelung schwach sind, wird das Netzwerk irgendwann Probleme produzieren. Diese Probleme erscheinen als &ldquo;Netzwerkausfälle,&rdquo; aber die Grundursache ist fast nie wirklich das Netzwerk.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/server-room-and-cabling.webp"/> <figcaption>
+            Serverraum und Verkabelung: Das Fundament, über das niemand spricht
+        </figcaption>
+</figure>
+
+<p>Wärme, Strom, Luftströmung, Zugänglichkeit und Ordnung müssen zusammen berücksichtigt werden. Redundante Netzteile werden gekauft, ohne zu prüfen, ob sie tatsächlich an separate Stromleitungen angeschlossen sind. Es heißt, es gibt eine USV, aber keine Kapazitätsberechnung wird durchgeführt.</p>
+<p>Verkabelung ist die langlebigste Komponente des Netzwerks. Switches, Firewalls und APs ändern sich — Kabel bleiben. Eine 1G-Infrastruktur stößt schnell an ihre Grenzen, wenn 2,5G/5G-APs ankommen.</p>
+<p>In meiner Sicht sind Serverraum und Verkabelung nicht die &ldquo;unterste Schicht&rdquo; der Architektur — sie sind das Fundament. Ein gut funktionierendes Netzwerk ist unsichtbar, weil das Fundament solide ist. Niemand bemerkt es. Und das ist meiner Meinung nach das größte Lob, das ein Infrastrukturdesign erhalten kann.</p>
+<h2 id="hinweis">Hinweis</h2>
+<p>Dieser Artikel wurde ursprünglich auf <strong>Substack</strong> in einer kürzeren, erzählerischen Form veröffentlicht.
+Diese Version erweitert die architektonische Grundlage der Serie.</p>
+<p>👉 <strong>Lesen Sie den Artikel auf Substack:</strong> <a href="https://substack.com/home/post/p-183952844">Hier klicken</a></p>
+<hr>
+<h2 id="verwandte-artikel">Verwandte Artikel</h2>
+<p><strong>Architektur &amp; Strategie</strong></p>
+<ul>
+<li>📐 <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Der Grundlagenartikel dieser Serie</li>
+<li>🏗️ <a href="/de/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Warum die richtige Produktwahl allein nicht ausreicht</a> — Architektur-zuerst Core-Network-Design</li>
+<li>🛡️ <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Mindset: Sicherheit als Architektur</a> — Sicherheit als Architektur</li>
+</ul>
+<p><strong>Technisches Engineering</strong></p>
+<ul>
+<li>📊 <a href="/de/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen</a> — Operative Sichtbarkeit</li>
+<li>🛠️ <a href="/de/posts/next-gen-console-server-terminal-server-architecture/">Die Hintertür des Netzwerks: Next-Gen Console Server Architektur</a> — Out-of-Band-Zugang</li>
+<li>🛡️ <a href="/de/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Traffic-Sichtbarkeit und Sicherheitsstrategie</li>
+</ul>
+]]></content:encoded></item></channel></rss>

@@ -1,1 +1,146 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Üretici Değerlendirmesi on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/%C3%BCretici-de%C4%9Ferlendirmesi/</link><description>Recent content in Üretici Değerlendirmesi on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Fri, 02 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/%C3%BCretici-de%C4%9Ferlendirmesi/index.xml" rel="self" type="application/rss+xml"/><item><title>Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler ve Saha Deneyimleri</title><link>https://barashhelvadzhaoglu.com/tr/architecture/network-product-selection-strategy/</link><pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/network-product-selection-strategy/</guid><description>Kurumsal ağlarda ürün seçimi bir kontrol listesinden fazlasıdır. Firewall, switch ve AP değerlendirmesi için saha testi yapılmış çerçeve.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Üretici Değerlendirmesi on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/%C3%BCretici-de%C4%9Ferlendirmesi/</link><description>Recent content in Üretici Değerlendirmesi on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Fri, 02 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/%C3%BCretici-de%C4%9Ferlendirmesi/index.xml" rel="self" type="application/rss+xml"/><item><title>Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler ve Saha Deneyimleri</title><link>https://barashhelvadzhaoglu.com/tr/architecture/network-product-selection-strategy/</link><pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/network-product-selection-strategy/</guid><description>Kurumsal ağlarda ürün seçimi bir kontrol listesinden fazlasıdır. Firewall, switch ve AP değerlendirmesi için saha testi yapılmış çerçeve.</description><content:encoded><![CDATA[<h1 id="ağ-altyapısında-ürün-seçimi-stratejik-kriterler-ve-saha-deneyimleri">Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler ve Saha Deneyimleri</h1>
+<h2 id="switch-firewall-ve-apyi-veri-sayfasının-ötesinde-nasıl-değerlendirirsiniz">Switch, Firewall ve AP&rsquo;yi veri sayfasının ötesinde nasıl değerlendirirsiniz</h2>
+<p>Kurumsal ağ projelerinin çoğu aynı noktada başlıyor: ürün seçimi. Ve çoğu zaman aynı noktada kırılıyor: ürünlerin birlikte çalışmaması. Çünkü &ldquo;core network&rdquo; dediğimiz şey, üç kutunun yan yana durması değil; bu üç kutunun birlikte kimlik taşıması, birlikte segment üretmesi, birlikte politika uygulatması ve en önemlisi birlikte operasyon kaldırmasıdır.</p>
+<p>Benim yıllardır gördüğüm şu: bir şirketin ağı kötü olduğu için değil, ağın karar mekanizması parçalı olduğu için problem yaşanıyor. En pahalı cihazlar, en iyi lisanslar, en yüksek throughput… Hepsi var; ama olay anında hangi cihaz hangi bağlamla karar veriyor, trafik nerede ayrışıyor, nerede kontrol ediliyor — bu soruların net cevabı yok. Sonuç: &ldquo;network var&rdquo; ama &ldquo;network davranışı&rdquo; yok.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/network-product-selection-strategy.webp"/> <figcaption>
+            Stratejik Ürün Seçim Çerçevesi
+        </figcaption>
+</figure>
+
+<p>Bu yazıda, core network ürünlerini üç bacakta değerlendirmek için sahada test edilmiş bir çerçeveyi paylaşacağım: Firewall, Switching ve Access (Wi-Fi). Ama başlamadan önce: &ldquo;teknik özellik&rdquo; kadar belirleyici olan iki faktör var ve çoğu ekip bunları geç fark ediyor — <strong>raporlar/validasyon</strong> ve <strong>support/lifecycle</strong>.</p>
+<blockquote>
+<p>Bu seçim sürecinin arkasındaki mimari felsefeyi anlamak için: <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a></p>
+</blockquote>
+<h2 id="adım-1-raporları-testleri-ve-pazarlama-gürültüsünü-filtrelemek">Adım 1: Raporları, Testleri ve Pazarlama Gürültüsünü Filtrelemek</h2>
+<p>Ürün seçerken bakılacak ilk referanslardan biri Gartner raporlarıdır. Gartner gibi raporlar bir ürünün pazar konumu hakkında fikir verir: kim lider, kim vizyoner, kim niş oynuyor. Bu özellikle karar vericileri ikna etmekte işe yarar.</p>
+<p>Ama kritik bir tuzak var: <strong>Gartner sana senin senaryonda hangisinin doğru olduğunu söylemez.</strong> Gartner bir pazar haritasıdır; senin işin mimari harita çizmek. Gartner&rsquo;ı ilk filtre olarak kullanmak daha doğru — seçenekleri daraltır ama final kararı vermez.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/filtering-reports-tests-and-marketing-noise.webp"/> <figcaption>
+            Raporları ve Pazarlama Gürültüsünü Filtrelemek
+        </figcaption>
+</figure>
+
+<p>Gartner&rsquo;a ek olarak, bağımsız laboratuvarların performans ve güvenlik testleri, karşılaştırmalı raporlar ve real-world benchmark&rsquo;lar işin içine girmeli. Veri sayfasındaki throughput ile gerçek hayatta IPS açıkken, SSL decrypt varken, app-control çalışırken alınan throughput aynı şey değildir. Raporlar burada ikinci filtre olur: &ldquo;Bu kutu bu yükte ne yapıyor?&rdquo; sorusuna pazarlama dışı bir cevap ararsın.</p>
+<h2 id="adım-2-support-ve-lifecycle--görünmez-kolon">Adım 2: Support ve Lifecycle — Görünmez Kolon</h2>
+<p>Bir ürünün teknik yetenekleri hikayenin sadece yarısıdır. Destek modeli ve yaşam döngüsü de aynı derecede kritiktir. Network tasarımı yalnızca kurulum günüyle bitmez. Asıl soru şudur: <strong>3 yıl sonra ne olacak?</strong></p>
+<ul>
+<li>Bu ürünün EoL / EoS tarihleri nedir?</li>
+<li>Patch, bugfix, security update hızı nasıldır?</li>
+<li>TAC/Support gerçekten erişilebilir mi?</li>
+<li>RMA süreçleri ve yedek parça gerçekliği nedir?</li>
+<li>Lisans modeli 1 yıl sonra sürpriz çıkarır mı?</li>
+<li>Üretici roadmap&rsquo;i senin gittiğin yöne mi gidiyor?</li>
+</ul>
+<p>Sahada en sık gördüğüm problem: ekip teknik olarak doğruya yakın bir ürün seçiyor ama support/lifecycle önceliklendirilmediği için 12 ay sonra operasyon kâbusa dönüyor. Suç cihaza kalıyor — oysa sorun hiçbir zaman cihazın kendisi değildi.</p>
+<h2 id="adım-3-firewall-katmanının-değerlendirilmesi">Adım 3: Firewall Katmanının Değerlendirilmesi</h2>
+<p>Firewall, ağın &ldquo;kenarındaki güvenlik cihazı&rdquo; olmayı çoktan geçti. Doğru konumlandırılırsa mimarinin politika beynidir. Yanlış konumlandırılırsa her şeyin üstüne yıkıldığı darboğaz olur.</p>
+<p><strong>UTM vs NGFW — gerekli bir ayrım:</strong></p>
+<p>UTM yaklaşımı &ldquo;tek kutuda her şey&rdquo; felsefesini takip eder: firewall + IPS + web filter + AV + gateway özellikleri. Daha küçük yapılarda yönetim kolaylığı ve paket lisanslama yüzünden tercih edilir.</p>
+<p>NGFW ise uygulama farkındalığı, kullanıcı/kimlik bağlamı ve daha derin politika kontrolü etrafında konumlanır. Bugünün kurumsal ihtiyacında yalnızca port/protokol üzerinden güvenlik yürütmek çoğu zaman yetmez.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/firewall-selection.webp"/> <figcaption>
+            Firewall Seçimi: UTM vs NGFW vs Çoklu Rol
+        </figcaption>
+</figure>
+
+<p><strong>Aynı organizasyonda iki veya üç firewall neden normaldir:</strong></p>
+<ul>
+<li><strong>Perimeter/Internet Edge Firewall:</strong> İnternet çıkışı, VPN, NAT, inbound/outbound policy</li>
+<li><strong>Internal Segmentation Firewall (ISFW):</strong> East-west kontrol, iç segmentasyon, kritik zon izolasyonu</li>
+<li><strong>Data Center / High-performance FW:</strong> DC trafiği, yüksek session, yüksek PPS, düşük latency</li>
+<li>Bazı yapılarda: WAF veya Cloud FW</li>
+</ul>
+<p>Bu &ldquo;iki firewall almak&rdquo; demek değildir — &ldquo;iki farklı işi doğru araca vermek&rdquo; demektir.</p>
+<blockquote>
+<p>Firewall mimarisinin daha geniş network tasarımı içindeki yerine bakış için: <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a></p>
+</blockquote>
+<h2 id="adım-4-firewall-kapasite-planlaması--throughput-yalan-söyleyebilir">Adım 4: Firewall Kapasite Planlaması — Throughput Yalan Söyleyebilir</h2>
+<p>Firewall seçiminde en tehlikeli hata yalnızca Gbps throughput rakamına odaklanmaktır. Pratikte firewall&rsquo;lar throughput yüzünden değil şunlar yüzünden başarısız olur:</p>
+<ul>
+<li>PPS (packets per second)</li>
+<li>Concurrent session sayısı</li>
+<li>New session rate</li>
+<li>NAT table ve state</li>
+<li>Aktif IPS/AV/App-ID ile performans</li>
+<li>SSL/TLS decrypt yükü</li>
+<li>Log üretimi ve SIEM taşıma</li>
+</ul>
+<p>Gerçek bir örnek: &ldquo;10 Gbps firewall aldık&rdquo; cümlesi tek başına anlam taşımaz. O 10 Gbps çoğu vendor datasheet&rsquo;inde ideal koşul ölçümüdür. IPS, URL filtering, app control ve decrypt aktifse gerçek kapasite dramatik şekilde değişir. Doğru soru her zaman şudur:</p>
+<blockquote>
+<p><em>&ldquo;Açacağım güvenlik özellikleriyle ve benim trafik karakterimde — bu firewall gerçekte ne kadar iş kaldırır?&rdquo;</em></p>
+</blockquote>
+<p>Bu sorunun güvenilir bir cevabı yoksa, seçim risklidir.</p>
+<h2 id="adım-5-switch-değerlendirmesi--port-sayısı-değil-rol-ve-yük">Adım 5: Switch Değerlendirmesi — Port Sayısı Değil Rol ve Yük</h2>
+<p>Switch seçimi çoğu zaman port sayısıyla başlar: bakır port, fiber port, PoE ihtiyacı. Bunlar önemlidir — ama core network perspektifinden yeterli değildir. Switch yalnızca uçları bağlayan bir priz değildir; trafiğin nerede yoğunlaşacağını, nerede ayrışacağını ve nerede yukarı taşınacağını belirleyen bir karar noktasıdır.</p>
+<p><strong>En yaygın access layer hatası:</strong> yalnızca bugünün ihtiyacına göre planlama yapmak. Access katmanı ağda en hızlı değişen katmandır. Bugün yeterli görünen 1G bakır bir noktada yarın yüksek bant genişliği isteyen AP veya edge cihaz konumlanabilir. Multi-Gig portlar (2.5G/5G), port başına PoE sürdürülebilirliği ve uplink&rsquo;lerin gerçek kapasitesi kritik hale gelir.</p>
+<p>Uplink&rsquo;ler sürekli hafife alınır. &ldquo;2×10G uplink yeter&rdquo; çok duyulur — trafik karakteri analiz edilmeden. Kullanıcı sayısı arttıkça ve east-west trafik değiştikçe, uplink&rsquo;ler beklenenden çok daha hızlı doygunluğa ulaşır. Backplane kapasitesi ve oversubscription oranları uplink hızı kadar önemlidir.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/switching-selection.webp"/> <figcaption>
+            Switch Seçimi: Access vs Core vs Data Center
+        </figcaption>
+</figure>
+
+<p><strong>Edge switch vs datacenter switch:</strong> bu sınır çoğu projede net çizilmez. Edge switch&rsquo;ler port yoğunluğu ve PoE için optimize edilir; datacenter switch&rsquo;leri throughput, düşük latency, yüksek PPS ve east-west trafik için gelir. Tek cihazdan her ikisini beklemek ya maliyeti gereksiz artırır ya da performansı düşürür.</p>
+<p>Core network tasarlarken <strong>&ldquo;Bu switch nerede duracak ve neyi taşıyacak?&rdquo;</strong> sorusu <strong>&ldquo;Kaç portu var?&rdquo;</strong> sorusundan önce gelmelidir.</p>
+<h2 id="adım-6-kablosuz--uplink-ve-controller-mimarisi">Adım 6: Kablosuz — Uplink ve Controller Mimarisi</h2>
+<p>Kablosuz konuşulurken odak Wi-Fi standardına kayar: Wi-Fi 6, 6E, 7. Pratikte kablosuz performansı çoğu zaman radyo değil kablo sınırlar. AP ne kadar güçlü olursa olsun, uplink bunu taşıyamıyorsa teorik hızlar anlamsızdır.</p>
+<p>Pek çok kurumsal AP, 1 Gbps uplink ile sınırlandığında potansiyelinin önemli bir kısmını kullanamaz. 2.5G ve 5G bakır uplink desteği yüksek yoğunluklu ortamlarda lüks değil, doğrudan tasarım gereksinimidir. Ve kritik nokta: AP 2.5G destekliyorsa ama bağlı olduğu switch portu desteklemiyorsa, tüm yatırım boşa gider. <strong>AP ve switch seçimi birlikte yapılmalıdır.</strong></p>
+<figure>
+    <img loading="lazy" src="/img/postimages/wifi-selection.webp"/> <figcaption>
+            Kablosuz Mimarisi: AP, Uplink ve Controller
+        </figcaption>
+</figure>
+
+<p>Controller mimarisi de kritiktir. Desteklenen AP sayısı, eş zamanlı client kapasitesi ve roaming davranışı gerçek hayat stabilitesini belirler. &ldquo;500 AP destekler&rdquo; yazan controller yüksek yoğunluklu ortamlarda çok daha erken zorlanabilir. Controller kapasitesi yalnızca lisans sayısıyla değil; CPU, bellek, session handling ve policy enforcement ile birlikte değerlendirilmelidir.</p>
+<p>Kablosuz ağlar çoğu zaman edge katmanı gibi görünür ama core network&rsquo;ü en hızlı zorlayan katmandır. AP seçimi kapsama hesabı değil — core network davranışını doğrudan etkileyen mimari bir karardır.</p>
+<h2 id="adım-7-üretici-değerlendirmesi--saha-gerçekleri">Adım 7: Üretici Değerlendirmesi — Saha Gerçekleri</h2>
+<p>Aşağıdakiler tamamen kişisel saha deneyimlerime dayanıyor. Amaç övmek veya yermek değil — her üreticinin nerede güçlü, nerede zorlandığını açıkça söylemek.</p>
+<p><strong>Cisco,</strong> switching ve routing tarafında hâlâ sektörün en güçlü oyuncularından biri. Wireless uzun yıllardır olgun. Firewall tarafında özellikle Sourcefire gibi satın almalarla ciddi gelişim gösterdiler.
+Uyarı: tüm ürünleri Cisco seçtiğinizde entegrasyon çoğu zaman yorucu olabilir. Her şey mümkün ama genellikle &ldquo;kolay&rdquo; değil.</p>
+<p><strong>HPE Aruba,</strong> Juniper dahil olmak üzere satın almalarla portföyü önemli ölçüde büyüdü. Switching yaygın ve sevilen. Wireless benim kişisel görüşüme göre sektörün en güçlülerinden biri.
+Güçlü bir native firewall ürün ailesinin olmaması bu alanda eksiklik olmaya devam ediyor.</p>
+<p><strong>Fortinet,</strong> tek çatı altında firewall, switching ve wireless sunan en geniş portföylerden birine sahip. Firewall kökenli güçleri tartışmasız. Switching daha geç olgunlaştı ama sahada giderek daha fazla görülüyor.
+En büyük operasyonel avantaj: entegrasyon ve yönetim kolaylığı. Sınırlı IT ekiplerinde bu fark çok net hissediliyor.</p>
+<p><strong>Palo Alto Networks,</strong> firewall alanında açık ara lider — switching ve wireless&rsquo;a bilinçli olarak girmiyor. Uygulama görünürlüğü, politika derinliği ve SASE liderliğinde en belirgin farkı yaratıyorlar.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/vendor-selection.webp"/> <figcaption>
+            Üretici Karşılaştırması: Saha Gerçeği
+        </figcaption>
+</figure>
+
+<p>Pratikte organizasyonlar tüm kombinasyonları kullanır: tek vendor, çift vendor veya best-of-breed. Bu kararlar teknik olduğu kadar organizasyoneldir.</p>
+<p>Kişisel görüşüm: ekip olgunsa her katman için uzmanlaşmış üreticiler teknik olarak daha güçlü sonuçlar üretir. Basitlik ve tek destek kanalı daha önemliyse tek vendor yaklaşımı tamamen geçerlidir.</p>
+<p><strong>Son nokta:</strong> API desteği artık bonus değil, seçim kriteridir. &ldquo;Bu mimariyi nasıl otomatik yöneteceğim?&rdquo; sorusu switch, firewall ve AP seçiminden önce gelmelidir. Bana göre doğru core network tasarımı tam burada başlar.</p>
+<h2 id="sistem-odası-ve-kablolama-kimsenin-konuşmak-istemediği-ama-herkesin-bedelini-ödediği-gerçek">Sistem Odası ve Kablolama: Kimsenin Konuşmak İstemediği Ama Herkesin Bedelini Ödediği Gerçek</h2>
+<p>Network projelerinde en çok konuşulan konular genelde en parlak olanlardır. Ama sahada yaşanan problemlerin önemli bir kısmı çok daha temel bir yerde başlar: sistem odası tasarımı ve kablolama altyapısı.</p>
+<p>Ne kadar iyi ürünler seçersen seç — sistem odası ve kablolama zayıfsa, o ağ eninde sonunda problem üretir. Ve bu problemler &ldquo;network arızası&rdquo; gibi görünür ama kök sebep neredeyse hiçbir zaman gerçekten network değildir.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/server-room-and-cabling.webp"/> <figcaption>
+            Sistem Odası ve Kablolama: Konuşulmayan Temel
+        </figcaption>
+</figure>
+
+<p>Sistem odası çoğu kurumda hâlâ eşya odası gibi ele alınıyor. Kablolar üst üste geliyor, geçici çözümler kalıcı hale geliyor. Kimsenin dokunmak istemediği ama herkesin bağımlı olduğu bir alan oluşuyor. Asıl risk tam burada başlıyor.</p>
+<p>Isı, enerji, hava akışı, erişilebilirlik ve düzen birlikte düşünülmelidir. Yedekli güç kaynakları satın alınır ama farklı enerji hatlarına gidip gitmediği kontrol edilmez. UPS var denir ama kapasite hesabı yapılmaz. Bunlar kağıt üzerinde küçük detay gibi görünür — kriz anında tüm mimariyi anlamsız kılar.</p>
+<p>Kablolama ağın en uzun ömürlü parçasıdır. Switch, firewall ve AP değişir — kablo kalır. Bugünkü ihtiyaca göre kablolama yapmak garantili bir hatadır. 1G altyapısı 2.5G/5G AP&rsquo;lerle hızla sınıra dayanır.</p>
+<p>Benim bakış açıma göre sistem odası ve kablolama core network tasarımının &ldquo;alt katmanı&rdquo; değil; temelidir. İyi çalışan bir network kimsenin fark etmediği şeydir — çünkü sorun çıkmaz. Ve bu, bir altyapı tasarımının alabileceği en büyük övgüdür.</p>
+<h2 id="not">Not</h2>
+<p>Bu makale ilk olarak <strong>Substack</strong>&rsquo;te daha kısa, anlatısal bir biçimde yayınlanmıştı.
+Bu versiyon, serinin mimari temelini genişletiyor.</p>
+<p>👉 <strong>Makaleyi Substack&rsquo;te okuyun:</strong> <a href="https://substack.com/home/post/p-183952844">Burayı Tıklayın</a></p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Mimari &amp; Strateji</strong></p>
+<ul>
+<li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Bu serinin temel yazısı</li>
+<li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a> — Mimari öncelikli core network tasarımı</li>
+<li>🛡️ <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Mimari olarak güvenlik</li>
+</ul>
+<p><strong>Teknik Mühendislik</strong></p>
+<ul>
+<li>📊 <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a> — Operasyonel görünürlük</li>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-terminal-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Out-of-band erişim</li>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Trafik görünürlüğü ve güvenlik stratejisi</li>
+</ul>
+]]></content:encoded></item></channel></rss>

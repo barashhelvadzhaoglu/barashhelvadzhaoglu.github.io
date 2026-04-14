@@ -1,1 +1,66 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>IT Strategy on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/categories/it-strategy/</link><description>Recent content in IT Strategy on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>en</language><lastBuildDate>Sun, 15 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/categories/it-strategy/index.xml" rel="self" type="application/rss+xml"/><item><title>The Product-Centric Trap in IT: Standards vs. Brands</title><link>https://barashhelvadzhaoglu.com/en/posts/it-management-standards-vs-brands/</link><pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/posts/it-management-standards-vs-brands/</guid><description>Why engineering mindset and documentation outweigh product knowledge in IT. Analysis of common misconceptions in IT recruitment and management.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>IT Strategy on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/categories/it-strategy/</link><description>Recent content in IT Strategy on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>en</language><lastBuildDate>Sun, 15 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/categories/it-strategy/index.xml" rel="self" type="application/rss+xml"/><item><title>The Product-Centric Trap in IT: Standards vs. Brands</title><link>https://barashhelvadzhaoglu.com/en/posts/it-management-standards-vs-brands/</link><pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/posts/it-management-standards-vs-brands/</guid><description>Why engineering mindset and documentation outweigh product knowledge in IT. Analysis of common misconceptions in IT recruitment and management.</description><content:encoded><![CDATA[<p>In the modern IT landscape, job descriptions often read like a &ldquo;superhero&rdquo; wish list. Candidates are expected to have deep expertise in dozens of competing products — Fortinet, Cisco, Palo Alto, Check Point — simultaneously. However, there is a fundamental logic gap here: why would a professional who is a master of all these domains want to work in an environment that lacks clear standards and processes?</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/it-standards-vs-brands-cover.webp"/> <figcaption>
+            The Product-Centric Trap: Standards vs. Brands
+        </figcaption>
+</figure>
+
+<blockquote>
+<p>For the architectural thinking behind this topic, see: <a href="/en/architecture/it-infrastructure-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a></p>
+</blockquote>
+<h2 id="1-the-superhero-recruitment-paradox">1. The &ldquo;Superhero&rdquo; Recruitment Paradox</h2>
+<p>Many companies create job postings with excessive expectations, listing every technology they can think of. Yet, the candidates they find rarely meet the actual needs of the business.</p>
+<p>The real issue is often not a lack of technical skill, but a lack of <strong>internal processes</strong>. Instead of looking for a person who knows every brand, companies should focus on defining how their own systems work.</p>
+<h2 id="2-product-knowledge-vs-engineering-vision">2. Product Knowledge vs. Engineering Vision</h2>
+<p>Security and network policies should be a corporate culture, independent of brands. For a competent engineer, different interfaces are just tools. A professional who masters core network and security logic (TCP/IP, routing, policy management) can adapt from Palo Alto to Fortinet in a very short time.</p>
+<p>The critical question for a company is not &ldquo;Which brand do you know?&rdquo; but rather:</p>
+<ul>
+<li>&ldquo;How do we access the internet?&rdquo;</li>
+<li>&ldquo;What is our standard for writing a firewall rule?&rdquo;</li>
+</ul>
+<p>If these answers are documented, the system administrator spends their energy on efficiency rather than reinventing the wheel every time someone new joins the team.</p>
+<blockquote>
+<p>For a deeper look at how product selection relates to architecture: <a href="/en/architecture/network-product-selection-strategy/">Network Infrastructure Product Selection: Strategic Criteria</a></p>
+</blockquote>
+<h2 id="3-the-power-of-planning-and-documentation">3. The Power of Planning and Documentation</h2>
+<p>In IT projects, planning is often dismissed as a &ldquo;waste of time.&rdquo; However, a well-planned system and detailed documentation are the foundation of <strong>institutional memory</strong>.</p>
+<p>This documentation process cannot be a burden placed solely on the shoulders of a new hire; it is a management style that senior leaders must establish together.</p>
+<blockquote>
+<p>For a practical example of how documentation aids operational success, see: <a href="/en/posts/cisco-nexus-nxos-upgrade-guide/">Cisco Nexus NX-OS Software Upgrade Guide</a></p>
+</blockquote>
+<h2 id="4-visibility-and-request-management-itsm">4. Visibility and Request Management (ITSM)</h2>
+<p>A common complaint among IT teams is that their work is &ldquo;invisible.&rdquo; In organizations where ITSM (IT Service Management) tools are not used and requests are not recorded:</p>
+<ul>
+<li>The time spent on tasks cannot be reported.</li>
+<li>Changes made on the system cannot be audited.</li>
+<li>The actual performance of the IT team becomes unmeasurable.</li>
+</ul>
+<p>Without visibility, IT operates in survival mode — reacting to fires rather than preventing them. ITSM tooling is not a bureaucratic overhead; it is the mechanism that makes IT work legible to the rest of the organization.</p>
+<blockquote>
+<p>On making IT operations proactively visible: <a href="/en/architecture/monitoring-not-just-seeing/">Monitoring Done Right: How to Build a Proactive IT Operations Culture</a></p>
+</blockquote>
+<h2 id="5-managements-responsibility-budget-time-and-resources">5. Management&rsquo;s Responsibility: Budget, Time, and Resources</h2>
+<p>The most critical role belongs to senior management. Without a mandate from the top, standardization remains a dream. If managers do not provide:</p>
+<ol>
+<li><strong>Sufficient Budget</strong></li>
+<li><strong>Reasonable Time</strong></li>
+<li><strong>Correct Human Resources</strong></li>
+</ol>
+<p>Teams will be forced to work in &ldquo;emergency mode,&rdquo; focusing only on surviving the day rather than following standards. The best engineers cannot build institutional quality without organizational support.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Companies should not expect miracles simply by hiring &ldquo;star players&rdquo; without first establishing a solid backbone of processes. Corporate success is a product of a well-designed system — not just talented individuals.</p>
+<hr>
+<h2 id="related-articles">Related Articles</h2>
+<p><strong>Architecture &amp; Strategy</strong></p>
+<ul>
+<li>📐 <a href="/en/architecture/it-infrastructure-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a> — System thinking over product thinking</li>
+<li>🏗️ <a href="/en/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough</a> — Architecture-first network design</li>
+<li>🎯 <a href="/en/architecture/network-product-selection-strategy/">Network Infrastructure Product Selection: Strategic Criteria</a> — How to evaluate vendors strategically</li>
+<li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">Monitoring Done Right: How to Build a Proactive IT Operations Culture</a> — Making IT work visible</li>
+</ul>
+<p><strong>Practical Engineering</strong></p>
+<ul>
+<li>📈 <a href="/en/posts/cisco-nexus-nxos-upgrade-guide/">Cisco Nexus NX-OS Software Upgrade Guide</a> — Documentation in action</li>
+<li>🚀 <a href="/en/posts/career-guide-network-engineering/">Graduate Guide: What Does a Network Engineer Actually Do?</a> — Career roadmap for network engineers</li>
+</ul>
+]]></content:encoded></item></channel></rss>

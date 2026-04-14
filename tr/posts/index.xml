@@ -1,1 +1,774 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Teknoloji Blogu | Ağ Güvenliği ve Otomasyon on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/posts/</link><description>Recent content in Teknoloji Blogu | Ağ Güvenliği ve Otomasyon on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Wed, 25 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Wi-Fi Sorunları mı? Kablo Gerektirmeyen Kalıcı Mesh Çözümü — Ofisler, Villalar ve Lüks Mülkler için</title><link>https://barashhelvadzhaoglu.com/tr/posts/wifi-mesh-solution/</link><pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/wifi-mesh-solution/</guid><description>Wi-Fi her odaya ulaşmıyor mu? Aruba Instant On Mesh ve ClientMatch&amp;#39;in kablo gerektirmeden kalıcı çözüm sunduğunu öğrenin.</description></item><item><title>Elektrik Kesilince Ne Olur? Bir UPS Yalnızca Bilgisayarınızı Değil — Tüm Ofisinizi Korur</title><link>https://barashhelvadzhaoglu.com/tr/posts/ups-office/</link><pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/ups-office/</guid><description>Elektrik kesintisi tüm ofis cihazlarını tehdit eder. NAS, switch, modem ve kameralarınızı doğru UPS seçimiyle koruyun.</description></item><item><title>Web Sitenizde 'Güvenli Değil' mi Yazıyor? Müşteriler Anında Ayrılıyor — Ve SSL Sertifikaları Çok Daha Kısa Olacak</title><link>https://barashhelvadzhaoglu.com/tr/posts/ssl-websecurity/</link><pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/ssl-websecurity/</guid><description>Süresi dolmuş SSL müşteri kaybettirir ve Google sıralamasına zarar verir. Sertifikalar 47 güne düşüyor — otomatik yönetim zorunlu hale geliyor.</description></item><item><title>🚀 Mezun Rehberi: Bir Network Mühendisi Aslında Ne Yapar?</title><link>https://barashhelvadzhaoglu.com/tr/posts/career-guide-network-engineering/</link><pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/career-guide-network-engineering/</guid><description>Yeni mezunlar için ağ mühendisliği kariyer rehberi. Endüstriyel altyapı, günlük operasyonlar ve profesyonelleşme yol haritası.</description></item><item><title>RAID'siz NAS'ınız Bir Zaman Bombasıdır — Ve Çözüm Ayda €1'a Mal Olur</title><link>https://barashhelvadzhaoglu.com/tr/posts/nas-backup/</link><pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/nas-backup/</guid><description>RAID olmayan NAS işletmeler için ciddi risktir. AWS S3 otomatik şifreli yedekleme nasıl çalışır ve Glacier neden ayda €1&amp;#39;a kadar düşer?</description></item><item><title>🛠️ Ağın Arka Kapısı: Next-Gen Console Server (Terminal Server) Mimarisi</title><link>https://barashhelvadzhaoglu.com/tr/posts/next-gen-console-server-architecture/</link><pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/next-gen-console-server-architecture/</guid><description>Kritik ağ altyapısına IP erişimi kesildiğinde hayatta kalma rehberi. Out-of-Band Management (OOBM), HTML5 CLI ve otomasyon destekli console server&amp;#39;lar.</description></item><item><title>🛡️ Kurumsal Ağlarda Görünürlük ve Güvenlik Stratejisi: Network Packet Broker (NPB) Masterclass</title><link>https://barashhelvadzhaoglu.com/tr/posts/network-packet-broker-masterclass/</link><pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/network-packet-broker-masterclass/</guid><description>Kurumsal ağlarda trafik yönetimi, siber güvenlik ve uçtan uca görünürlük için stratejik rehber. NPB nedir? NIAC prensipleriyle nasıl yönetilir?</description></item><item><title>IT'de Ürün Odaklı Tuzak: Standartlar mı, Markalar mı?</title><link>https://barashhelvadzhaoglu.com/tr/posts/it-management-standards-vs-brands/</link><pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/it-management-standards-vs-brands/</guid><description>IT işe alımındaki yanlış anlayışların analizi: Mühendislik zihniyeti ve dokümantasyon neden ürün bilgisinin önüne geçer?</description></item><item><title>802.1X Projelerinde Başarının Anahtarı: Saha Tecrübeleri</title><link>https://barashhelvadzhaoglu.com/tr/posts/8021x-field-deployment-teaser/</link><pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/8021x-field-deployment-teaser/</guid><description>802.1X başarısı AD, PKI ve GPO disiplinine bağlıdır. NAC dağıtımı ve kimlik tabanlı mimari üzerine saha notları.</description></item><item><title>Cisco Nexus NX-OS Yazılım Güncelleme Rehberi: Sahada Test Edilmiş Adım Adım</title><link>https://barashhelvadzhaoglu.com/tr/posts/cisco-nexus-nxos-upgrade-guide/</link><pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/cisco-nexus-nxos-upgrade-guide/</guid><description>Cisco Nexus NX-OS güncelleme rehberi — hazırlık, güncelleme yolu, dosya transferi, rollback ve ROMMON kurtarma senaryoları.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Teknoloji Blogu | Ağ Güvenliği ve Otomasyon on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/posts/</link><description>Recent content in Teknoloji Blogu | Ağ Güvenliği ve Otomasyon on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Wed, 25 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Wi-Fi Sorunları mı? Kablo Gerektirmeyen Kalıcı Mesh Çözümü — Ofisler, Villalar ve Lüks Mülkler için</title><link>https://barashhelvadzhaoglu.com/tr/posts/wifi-mesh-solution/</link><pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/wifi-mesh-solution/</guid><description>Wi-Fi her odaya ulaşmıyor mu? Aruba Instant On Mesh ve ClientMatch&amp;#39;in kablo gerektirmeden kalıcı çözüm sunduğunu öğrenin.</description><content:encoded><![CDATA[<p>Tanıdık geliyor mu? Ön ofiste veya resepsiyonda Wi-Fi mükemmel — ama toplantı odasına, mutfağa veya arka bölüme geçince bağlantı düşüyor ya da verimli çalışmayı imkânsız kılacak kadar yavaşlıyor.</p>
+<p>Ya da evde: Oturma odasında Netflix akıcı çalışıyor, ama üst katta veya bahçede bağlantı gelip gidiyor. Üç katlı bir villada veya su kenarındaki lüks bir mülkte her odada güçlü Wi-Fi bir hayal gibi görünüyor.</p>
+<p>Değil. Ve en güzel yanı: Sorun kalıcı olarak çözülebilir — <strong>tek bir metre kablo döşemeden.</strong></p>
+<figure>
+    <img loading="lazy" src="/img/postimages/wifi-mesh-cover.webp"/> <figcaption>
+            Ofis ve Villa için Wi-Fi Mesh Çözümü — Aruba Instant On
+        </figcaption>
+</figure>
+
+<h2 id="neden-tek-router-yetmiyor">Neden Tek Router Yetmiyor?</h2>
+<p>Standart bir router belki 80–100 metrekarelik bir daire için tasarlanmıştır. Birden fazla odalı ve kalın beton duvarlı bir ofiste ya da aynı anda düzinelerce cihazın bağlı olduğu büyük bir evde tek bir router yetersiz kalır.</p>
+<p>Sorun yalnızca kapsama alanı değildir. Cihazlar sinyali zayıf olsa bile mevcut erişim noktasına inatla yapışır, daha güçlü birine geçmek yerine. Bu olguya <strong>&ldquo;Yapışkan İstemci (Sticky Client)&rdquo;</strong> deniyor — ve pek çok kullanıcı bunu farkında olmadan her gün yaşıyor.</p>
+<h2 id="çözüm-mesh--ama-doğru-yapılmış">Çözüm: Mesh — Ama Doğru Yapılmış</h2>
+<p>Mesh ağlar, birden fazla erişim noktasının birbirleriyle iletişim kurmasını ve tek, kesintisiz bir ağ oluşturmasını sağlar. Ancak tüm mesh sistemleri eşit değildir.</p>
+<p>Ucuz tüketici mesh sistemleri küçük bir daire için yeterli olabilir. Ama üç katlı bir villada aynı anda 30&rsquo;dan fazla cihaz bağlıysa veya ofiste 15 çalışan çevrimiçi çalışıyorsa bu sistemler hızla sınırlarına ulaşır.</p>
+<h2 id="aruba-instant-on-ve-clientmatch-teknolojisi">Aruba Instant On ve ClientMatch Teknolojisi</h2>
+<p>Aruba, HP&rsquo;nin profesyonel ağ markasıdır. Instant On serisi, kurumsal bilgi birikimini küçük işletmelere ve premium ev kullanıcılarına erişilebilir bir fiyatla sunar.</p>
+<p>Aruba&rsquo;yı gerçekten farklı kılan özellik <strong>ClientMatch teknolojisidir</strong>:</p>
+<p>Standart bir erişim noktası cihazınızı bağlar ve sonra bırakır. Odadan odaya geçersiniz ama telefonunuz on beş metre geride kalan zayıf erişim noktasına inatla bağlı kalmaya devam eder. ClientMatch ise tüm erişim noktalarını sürekli iletişimde tutar. Sinyal kalitesi düştüğü anda sistem cihazınızı otomatik olarak en güçlü noktaya yönlendirir — kesintisiz.</p>
+<p>Bu özellikle şu senaryolarda kritiktir:</p>
+<ul>
+<li>Katlar arasında veya evden bahçeye geçişte</li>
+<li>Geniş açık ofiste hareket eden çalışanlar</li>
+<li>Video görüşmesi sırasında odalar arasında dolaşan ev sahibi</li>
+</ul>
+<h2 id="kablo-olmadan-nasıl-çalışır">Kablo Olmadan Nasıl Çalışır?</h2>
+<p>Aruba Instant On&rsquo;da erişim noktaları birbirleriyle kablosuz iletişim kurar. Biri internet ile kablolu bağlıdır, diğerleri ondan beslenir:</p>
+<pre tabindex="0"><code>İnternet → Modem/Router
+                ↓ (kablo — yalnızca bu bir tane)
+         Ana Aruba AP (zemin kat)
+                ↓ (kablosuz mesh)
+         2. Aruba AP (1. kat)
+                ↓ (kablosuz mesh)
+         3. Aruba AP (2. kat / bahçe)
+</code></pre><p>Priz olan her yere erişim noktası yerleştirilebilir. Başka bir şeye gerek yok.</p>
+<h2 id="tasarım-da-etkileyici">Tasarım da Etkileyici</h2>
+<p>Aruba Instant On cihazları yalnızca teknik açıdan değil, görsel açıdan da etkileyicidir. Minimalist beyaz tasarımlarıyla bir masaya, kitaplığa veya televizyonun yanına zahmetsizce uyum sağlarlar. Tavan montajı gerekmez.</p>
+<h2 id="yalnızca-wi-fi-değil-switchler-poe-ve-kamera-entegrasyonu">Yalnızca Wi-Fi Değil: Switch&rsquo;ler, PoE ve Kamera Entegrasyonu</h2>
+<p>Aruba Instant On ekosistemi Wi-Fi&rsquo;nin çok ötesine geçer. <strong>Mini PoE switch&rsquo;ler</strong> eklenerek çok daha kapsamlı bir altyapı kurulabilir:</p>
+<p><strong>PoE (Power over Ethernet) nedir?</strong>
+Tek bir Ethernet kablosuyla hem veri hem güç iletilir. Kamera kurulumları için bu gerçek bir devrimdir:</p>
+<pre tabindex="0"><code>Aruba PoE Switch
+      ├── Aruba AP (Wi-Fi — kablo üzerinden güç)
+      ├── IP Kamera 1 (güç + veri, tek kablo)
+      ├── IP Kamera 2 (güç + veri, tek kablo)
+      └── IP Kamera 3 (güç + veri, tek kablo)
+</code></pre><p>Kameralar için ayrı bir elektrikçiye gerek yok. Tek bir Ethernet kablosu her şeyi halleder.</p>
+<h2 id="güvenlik">Güvenlik</h2>
+<p>Aruba Instant On&rsquo;da çalışan ağı ve misafir ağı birbirinden tamamen izole edilmiştir. Misafir Wi-Fi&rsquo;sine bağlanan biri dahili sistemlere, NAS depolama alanına veya yazıcılara erişemez — hem güvenlik hem de GDPR uyumu açısından kritik.</p>
+<h2 id="pratikten-bir-hukuk-bürosu">Pratikten: Bir Hukuk Bürosu</h2>
+<p>Küçük bir hukuk bürosu, üç ofis odası. Avukatların çalıştığı arka odalarda bağlantı sürekli düşüyordu. Video görüşmeleri kesintiye uğruyordu.</p>
+<p>Çözüm: İki Aruba Instant On AP eklendi — biri koridora, biri arka ofise — kablosuz mesh ile bağlandı. Kurulum iki saat sürdü, mesai saatleri içinde, tek bir dakika kesinti olmadan.</p>
+<p>Sonuç: Ofisin her köşesinde güçlü, kararlı bağlantı. Çalışanlar ve müvekkiller için ayrı ağlar. Video görüşmeleri sorunsuz çalışıyor.</p>
+<h2 id="sonuç">Sonuç</h2>
+<p>Wi-Fi sorunlarının genellikle ilk bakışta göründüğünden daha basit bir çözümü vardır. Kablo döşemeye, duvar açmaya gerek yok. Doğru cihazlar ve ClientMatch teknolojisiyle, ofisinizin her köşesinde veya villanızın her katında kesintisiz, yüksek performanslı Wi-Fi tamamen mümkündür.</p>
+<p>Ücretsiz analiz için WhatsApp&rsquo;tan yazın — genellikle bir saat içinde yanıt veririm.</p>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Koruma &amp; Güvenlik</strong></p>
+<ul>
+<li>💾 <a href="/tr/posts/nas-backup/">RAID&rsquo;siz NAS&rsquo;ınız Bir Zaman Bombasıdır</a> — AWS S3 ile veri yedekleme</li>
+<li>🔋 <a href="/tr/posts/ups-office/">Elektrik Kesilince Ne Olur?</a> — Ofis ve muayenehane için UPS koruması</li>
+<li>🔒 <a href="/tr/posts/ssl-websecurity/">SSL Sertifikası — &ldquo;Güvenli Değil&rdquo; Uyarısı Müşteri Kaybettirir</a> — KOBİ&rsquo;ler için web sitesi güvenliği</li>
+</ul>
+<p><strong>Mimari &amp; Altyapı</strong></p>
+<ul>
+<li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a> — Mimari öncelikli ağ tasarımı</li>
+<li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Dayanıklı IT için sistem düşüncesi</li>
+</ul>
+]]></content:encoded></item><item><title>Elektrik Kesilince Ne Olur? Bir UPS Yalnızca Bilgisayarınızı Değil — Tüm Ofisinizi Korur</title><link>https://barashhelvadzhaoglu.com/tr/posts/ups-office/</link><pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/ups-office/</guid><description>Elektrik kesintisi tüm ofis cihazlarını tehdit eder. NAS, switch, modem ve kameralarınızı doğru UPS seçimiyle koruyun.</description><content:encoded><![CDATA[<p>&ldquo;UPS mu? Evet var — bilgisayarın yanında duruyor.&rdquo;</p>
+<p>Bunu sürekli duyuyorum. Ve her seferinde sormak istiyorum: Peki NAS&rsquo;ınız? Switch&rsquo;iniz? Modeminiz? Ödeme terminaliniz?</p>
+<p>Çoğu işletme UPS&rsquo;i yalnızca bilgisayarın aniden kapanmaması için bir önlem olarak görür. Oysa bir elektrik kesintisinde ofisinizdeki düzinelerce cihaz risk altındadır — ve bilgisayar bunların en az kritik olanıdır.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/ups-office-cover.webp"/> <figcaption>
+            Tüm Ofis için UPS Koruması — NAS, Switch, Kameralar
+        </figcaption>
+</figure>
+
+<blockquote>
+<p>Tam veri koruması için UPS&rsquo;i bulut yedeklemeyle tamamlayın: <a href="/tr/posts/nas-backup/">RAID&rsquo;siz NAS&rsquo;ınız Bir Zaman Bombasıdır</a></p>
+</blockquote>
+<h2 id="elektrik-kesilince-gerçekte-ne-olur">Elektrik Kesilince Gerçekte Ne Olur?</h2>
+<p>Bir muayenehane veya küçük bir ofis düşünün. Elektrik aniden kesildiğinde aşağıdaki tüm cihazlar aynı anda kapanır:</p>
+<ul>
+<li><strong>NAS cihazı</strong> — bir yazma işlemi ortasında kesiliyor, disk hasar görebilir</li>
+<li><strong>Ağ switch&rsquo;i</strong> — tüm ağ bağlantıları düşüyor</li>
+<li><strong>Modem/router</strong> — internet yok</li>
+<li><strong>IP telefon santrali</strong> — telefon hatları kesiliyor</li>
+<li><strong>Ödeme terminali</strong> — devam eden işlem iptal oluyor</li>
+<li><strong>Güvenlik kameraları</strong> — kayıt duruyor</li>
+<li><strong>Bilgisayarlar</strong> — kaydedilmemiş çalışma kayboluyor</li>
+</ul>
+<p>Her şey aynı anda kapanıyor. Elektrik geldiğinde tüm cihazlar aynı anda açılmaya çalışır — bu ani yük, zayıf elektrik tesisatında ek sorunlara yol açabilir.</p>
+<h2 id="en-büyük-risk-nasınız">En Büyük Risk: NAS&rsquo;ınız</h2>
+<p>Bu cihazlar arasında ani elektrik kesintisinden en çok etkilenen NAS&rsquo;tır. NAS sürekli veri yazar. Bir kopyalama işlemi veya zamanlanmış yedekleme sırasında elektrik kesilirse yazma işlemi yarıda kalır. Bu dosya sistemi bozulmasına yol açabilir.</p>
+<p>Synology ve QNAP NAS cihazları doğrudan bir UPS ile çalışabilir. USB kablosuyla bağlandığında NAS, elektrik kesilme anını algılar ve güvenli bir kapanma sırası başlatır:</p>
+<pre tabindex="0"><code>Elektrik kesildi
+      ↓
+UPS anında devreye giriyor (batarya)
+      ↓
+NAS, UPS&#39;ten sinyal alıyor
+      ↓
+Açık dosyalar kaydediliyor
+      ↓
+2 dakikada güvenli kapanma
+      ↓
+Veri kaybı yok, disk bozulması yok
+      ↓
+Elektrik gelince otomatik yeniden başlatma
+</code></pre><p>Bu entegrasyon olmadan bir UPS size yalnızca birkaç dakika daha satın alır — NAS yine de aniden kapanabilir.</p>
+<h2 id="ups-türleri--hangisi-size-uygun">UPS Türleri — Hangisi Size Uygun?</h2>
+<p><strong>Standby (Offline) UPS</strong>
+En uygun fiyatlı seçenek. Ev kullanımı ve basit bilgisayarlar için yeterli. Voltaj dalgalanmalarına karşı sınırlı koruma.</p>
+<p><strong>Line-Interactive UPS</strong>
+KOBİ&rsquo;ler için ideal seçim. Voltaj dalgalanmalarını sürekli düzenler ve arızada anında bataryaya geçer. NAS cihazları, switch&rsquo;ler ve kritik ofis ekipmanları için önerilen tür.</p>
+<p><strong>Online Double Conversion UPS</strong>
+En yüksek koruma sınıfı. Kritik sunucular, tıbbi cihazlar ve hiçbir kesintiye toleransı olmayan sistemler için.</p>
+<h2 id="poe-switch-kameralarınız-da-korunuyor">PoE Switch: Kameralarınız da Korunuyor</h2>
+<p>PoE switch (Power over Ethernet) kullanıyorsanız kameralarınız switch üzerinden güç alır. Switch UPS&rsquo;e bağlıysa kameralar da korunur:</p>
+<pre tabindex="0"><code>UPS
+  ↓
+PoE Switch
+  ├── Kamera 1 (switch üzerinden güç)
+  ├── Kamera 2 (switch üzerinden güç)
+  └── NAS (switch üzerinden bağlı)
+</code></pre><p>Elektrik kesildiğinde UPS devreye girer, switch çalışmaya devam eder, kameralar kayıt yapmaya devam eder — NAS güvenli kapanma işlemini tamamlarken.</p>
+<h2 id="kaç-dakika-yeterli">Kaç Dakika Yeterli?</h2>
+<p>Tipik bir ofis kurulumu için 10–15 dakika yeterlidir. Bu sürede NAS güvenli kapanma işlemini tamamlar, açık belgeler kaydedilir ve sunucular düzgün şekilde kapatılır.</p>
+<p>Çoğu KOBİ için <strong>650VA–1500VA</strong> doğru aralıktır.</p>
+<h2 id="ups-bakımı-hakkında-bir-not">UPS Bakımı Hakkında Bir Not</h2>
+<p>UPS bataryaları genellikle her 3–5 yılda bir değiştirilmelidir. APC ve Eaton gibi markalarda batarya modülerdir — vidasını açın, değiştirin, bitti. Beş dakika.</p>
+<p>Müşterilerim için yıllık UPS kontrolü yapıyorum: batarya kapasitesi test edildi, yazılım güncellemeleri kontrol edildi, NAS entegrasyonu çalışıyor mu doğrulandı.</p>
+<h2 id="nereden-başlamalı-önceliklendirme">Nereden Başlamalı: Önceliklendirme</h2>
+<ol>
+<li><strong>NAS + switch</strong> — en kritik, buradan başlayın</li>
+<li><strong>Sunucu, varsa</strong></li>
+<li><strong>Modem/router</strong> — internet sürekliliği için</li>
+<li><strong>Bilgisayarlar</strong> — en az kritik</li>
+</ol>
+<h2 id="sonuç">Sonuç</h2>
+<p>Doğru UPS, doğru yapılandırılmış ve yıllık olarak bakımı yapılmış şekilde, elektrik kesintisinden kaynaklanan veri kaybı riskini neredeyse sıfıra indirir. Ücretsiz değerlendirme için WhatsApp&rsquo;tan yazın.</p>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Koruma &amp; Güvenlik</strong></p>
+<ul>
+<li>💾 <a href="/tr/posts/nas-backup/">RAID&rsquo;siz NAS&rsquo;ınız Bir Zaman Bombasıdır</a> — AWS S3 ile veri yedekleme</li>
+<li>🔒 <a href="/tr/posts/ssl-websecurity/">SSL Sertifikası — &ldquo;Güvenli Değil&rdquo; Uyarısı Müşteri Kaybettirir</a> — KOBİ&rsquo;ler için web sitesi güvenliği</li>
+<li>📶 <a href="/tr/posts/wifi-mesh-solution/">Wi-Fi Sorunları? Kablo Gerektirmeyen Kalıcı Mesh Çözümü</a> — Ofis ve villalar için profesyonel Wi-Fi</li>
+</ul>
+<p><strong>Mimari &amp; Altyapı</strong></p>
+<ul>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server</a> — Her şey çöktüğünde out-of-band erişim</li>
+<li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Dayanıklı IT için sistem düşüncesi</li>
+</ul>
+]]></content:encoded></item><item><title>Web Sitenizde 'Güvenli Değil' mi Yazıyor? Müşteriler Anında Ayrılıyor — Ve SSL Sertifikaları Çok Daha Kısa Olacak</title><link>https://barashhelvadzhaoglu.com/tr/posts/ssl-websecurity/</link><pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/ssl-websecurity/</guid><description>Süresi dolmuş SSL müşteri kaybettirir ve Google sıralamasına zarar verir. Sertifikalar 47 güne düşüyor — otomatik yönetim zorunlu hale geliyor.</description><content:encoded><![CDATA[<p>Tarayıcıda bir web sitesi açıyorsunuz ve adres çubuğunda bunu görüyorsunuz: 🔴 <strong>&ldquo;Bağlantınız özel değil&rdquo;</strong></p>
+<p>Ne yaparsınız? Büyük ihtimalle geri tuşuna basarsınız.</p>
+<p>Müşterileriniz de tam olarak bunu yapıyor. Ve bunu fark etmiyor bile olabilirsiniz — çünkü süresi dolmuş bir SSL sertifikası genellikle web sitesi sahibine bildirim göndermez.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/ssl-websecurity-cover.webp"/> <figcaption>
+            SSL Sertifikası ve Web Sitesi Güvenliği — Cloudflare ile
+        </figcaption>
+</figure>
+
+<h2 id="ssl-sertifikası-nedir-ve-neden-önemlidir">SSL Sertifikası Nedir ve Neden Önemlidir?</h2>
+<p>SSL sertifikası (Secure Sockets Layer), web siteniz ile ziyaretçiler arasındaki bağlantıyı şifreleyen dijital bir belgedir. Adres çubuğundaki kilit simgesi ve &ldquo;https://&rdquo; varlığını onaylar.</p>
+<p>SSL&rsquo;in iki temel işlevi vardır:</p>
+<p><strong>1. Güvenlik:</strong> Ziyaretçinin tarayıcısı ile sunucunuz arasında akan verileri şifreler. İletişim formu dolduran bir hasta, ödeme bilgisi giren bir müşteri — bu veriler şifreli iletilir.</p>
+<p><strong>2. Güven:</strong> Ziyaretçi kilit simgesini gördüğünde sitenin meşru olduğunu bilir. &ldquo;Güvenli değil&rdquo; uyarısı tam tersini yapar.</p>
+<h2 id="süresi-dolmuş-ssl-sertifikasının-gerçek-maliyeti">Süresi Dolmuş SSL Sertifikasının Gerçek Maliyeti</h2>
+<p>Pek çok işletme SSL sertifikalarını &ldquo;bir kez kur unut&rdquo; mantığıyla ele alır. Bir ya da iki yıllık sertifika satın alır, süresi dolar, fark etmez — bazen haftalarca.</p>
+<p>Bu sürede neler olur:</p>
+<p><strong>Müşteri kaybı:</strong> &ldquo;Güvenli değil&rdquo; uyarısıyla karşılaşan ziyaretçilerin büyük çoğunluğu anında sayfadan ayrılır. İletişim formları, randevu talepleri, online siparişler — hiçbiri tamamlanmaz.</p>
+<p><strong>Google sıralamasında düşüş:</strong> Google, SSL olmayan veya süresi dolmuş sertifikalı siteleri arama sonuçlarında aşağı iter.</p>
+<p><strong>İtibar hasarı:</strong> &ldquo;Güvenli değil&rdquo; gören bir müşteri o işletme hakkında kalıcı olumsuz bir izlenim taşır.</p>
+<h2 id="büyük-değişiklik-geliyor-ssl-sertifikaları-47-güne-düşüyor">Büyük Değişiklik Geliyor: SSL Sertifikaları 47 Güne Düşüyor</h2>
+<p>Şu anda SSL sertifikaları 90 gün veya bir yıl geçerlidir. Bu değişiyor.</p>
+<p>CA/Browser Forum — sertifika kuruluşlarını ve büyük tarayıcıları bir araya getiren kurul — yeni bir gereklilik kabul etti: Önümüzdeki yıllarda SSL sertifikası geçerlilik süresi <strong>47 güne</strong> düşecek. Apple, Google ve Mozilla bu kararı destekliyor.</p>
+<p><strong>Bu ne anlama geliyor?</strong>
+Şu anda yılda bir kez yeniliyorsanız, yakında <strong>yılda 7–8 kez</strong> yenilemeniz gerekecek. Manuel takip neredeyse imkânsız hale gelir.</p>
+<p><strong>Bu karar neden alındı?</strong>
+Daha kısa geçerlilik süreleri, ele geçirilmiş sertifikaların etkisini sınırlar ve sektörü otomasyona yönlendirir — bu aslında olumlu bir gelişmedir.</p>
+<h2 id="çözüm-cloudflare-ile-otomatik-ssl-yönetimi">Çözüm: Cloudflare ile Otomatik SSL Yönetimi</h2>
+<p>Cloudflare web sitenizin DNS&rsquo;ini devraldığında SSL sertifikanızı otomatik olarak yönetir. Siz hiçbir şeyi takip etmeden süresi dolmadan yeniler. Geçerlilik 47 güne düştüğünde hiçbir fark yaratmaz — her şey arka planda otomatik halledilir.</p>
+<p>Bu özellik ücretsiz Cloudflare planında bile mevcuttur.</p>
+<h2 id="sslin-ötesinde-waf-ve-ddos-koruması">SSL&rsquo;in Ötesinde: WAF ve DDoS Koruması</h2>
+<p>SSL sadece başlangıçtır. Cloudflare&rsquo;e geçtiğinizde ayrıca şunları alırsınız:</p>
+<p><strong>WAF (Web Uygulama Güvenlik Duvarı):</strong> Web sitenizi SQL injection, XSS saldırıları ve bot trafiğinden korur.</p>
+<p><strong>DDoS Koruması:</strong> Sitenizi çökertmeye yönelik saldırı trafiği otomatik olarak tespit edilip filtrelenir.</p>
+<p><strong>Analitik:</strong> Kaç ziyaretçi geldi, nereden, kaç saldırı engellendi — aylık rapor.</p>
+<h2 id="hosting-taşıması-gerekmiyor">Hosting Taşıması Gerekmiyor</h2>
+<p>En sık duyduğum soru: &ldquo;Web sitemi taşımam mı gerekiyor?&rdquo;</p>
+<p>Hayır. Cloudflare yalnızca DNS düzeyinde çalışır. Web siteniz olduğu yerde kalır — Ionos, Strato, neredeyse. Kurulum 1–2 saat sürer ve ziyaretçileriniz hiçbir şey fark etmez.</p>
+<h2 id="aylık-güvenlik-raporu">Aylık Güvenlik Raporu</h2>
+<p>Her ay size şuna benzer bir rapor gönderirim:</p>
+<pre tabindex="0"><code>Web Sitesi Raporunuz — Mart 2026
+──────────────────────────────────
+✅ SSL Sertifikası: Geçerli (otomatik yönetiliyor)
+✅ Çalışma Süresi: %99,98
+🛡️ Engellenen Saldırılar: 94
+⚡ Savuşturulan DDoS Girişimleri: 2
+👥 Toplam Ziyaretçi: 1.203
+⚡ Ortalama Yükleme Süresi: 0,8 sn
+</code></pre><h2 id="sonuç">Sonuç</h2>
+<p>SSL sertifikası artık bir seçenek değil — temel bir gereklilik. 47 güne düşürülmesiyle birlikte manuel yönetim sürdürülebilir olmaktan çıkıyor.</p>
+<p>Web sitenizin SSL durumunu ücretsiz kontrol ediyorum. WhatsApp&rsquo;tan yazmanız yeterli.</p>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Koruma &amp; Güvenlik</strong></p>
+<ul>
+<li>💾 <a href="/tr/posts/nas-backup/">RAID&rsquo;siz NAS&rsquo;ınız Bir Zaman Bombasıdır</a> — AWS S3 ile veri yedekleme</li>
+<li>🔋 <a href="/tr/posts/ups-office/">Elektrik Kesilirse Ne Olur?</a> — Ofis ve muayenehane için UPS koruması</li>
+<li>📶 <a href="/tr/posts/wifi-mesh-solution/">Wi-Fi Sorunları? Kablo Gerektirmeyen Kalıcı Mesh Çözümü</a> — Ofis ve villalar için profesyonel Wi-Fi</li>
+</ul>
+<p><strong>Mimari &amp; Altyapı</strong></p>
+<ul>
+<li>🛡️ <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenlik Bir Mimari Olarak</a> — Güvenlik ürün değil kültür olarak</li>
+<li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Dayanıklı IT için sistem düşüncesi</li>
+</ul>
+]]></content:encoded></item><item><title>🚀 Mezun Rehberi: Bir Network Mühendisi Aslında Ne Yapar?</title><link>https://barashhelvadzhaoglu.com/tr/posts/career-guide-network-engineering/</link><pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/career-guide-network-engineering/</guid><description>Yeni mezunlar için ağ mühendisliği kariyer rehberi. Endüstriyel altyapı, günlük operasyonlar ve profesyonelleşme yol haritası.</description><content:encoded><![CDATA[<p>Merhaba arkadaşlar! Yeni mezun oldunuz, diplomanız elinizde, önünüzde uçsuz bucaksız bir IT dünyası var. &ldquo;Hangi yolu seçmeliyim?&rdquo; diye düşünürken <strong>Network Mühendisliği</strong> ile karşılaştınız. Peki bu insanlar sadece kablo mu takıyor, yoksa sahnede görünmeyen büyük bir zeka mı var? Gelin dijital dünyanın bu görünmez kahramanlığına derinlemesine dalalım.</p>
+<h3 id="-network-nedir-dijital-otoyolda-bir-yolculuk">🕸️ Network Nedir? (Dijital Otoyolda Bir Yolculuk)</h3>
+<p>En basit tanımıyla network, sistemlerin birbirleriyle iletişim kurmasını sağlayan bir taşıma aracıdır. Bilgisayarların bağımsız adalar olarak değil, birbiriyle bağlantılı büyük bir kıta olarak çalışmasını mümkün kılar.</p>
+<p><strong>Neden USB Yeterli Değil?</strong>
+Evde bir Excel dosyasını veya videoyu yan odadaki bilgisayara aktarmak için USB kullanabilirsiniz. Ancak profesyonel dünyada işler böyle yürümüyor. 50 kişinin aynı dosya üzerinde çalıştığı bir ofiste olduğunuzu ya da başka bir şehirdeki veya ülkedeki bir meslektaşınıza veri göndermeniz gerektiğini hayal edin. Manuel aktarım için mesafenin çok uzak veya kitlenin çok büyük olduğu her senaryoda <strong>Network</strong> — dijital otoyol — devreye girer.</p>
+<h3 id="-fabrika-örneği-sistemin-kalbi-olarak-sunucu-odası">🏭 Fabrika Örneği: Sistemin Kalbi Olarak &ldquo;Sunucu Odası&rdquo;</h3>
+<p>Bir fabrikada olduğunuzu hayal edin. Fabrikanın tüm hafızası sistem odasındaki bir sunucuda saklanıyor: müşteri listeleri, faturalar, üretim stokları ve çalışan verileri. Fabrikada 100 kişi olduğunu varsayalım. Bu 100 kişinin her biri, kendi masasından bu sunucuya eş zamanlı, hatasız ve yüksek hızda erişebilmek zorunda.</p>
+<p><strong>Network Mühendisi</strong>, bu 100 kişi ile o sunucu arasındaki yolu inşa eden, trafiğin tıkanmamasını sağlayan ve bu yolu güvence altına alan kişidir. Bu yalnızca &ldquo;üç beş kutuyu yan yana koymak&rdquo; değil — <strong>operasyonel bütünlük</strong> tasarlamaktır. Günümüzde bu yapı yalnızca fiziksel kablolarla değil, <strong>SD-WAN</strong> ve <strong>Cloud</strong> entegrasyonları gibi akıllı yazılım katmanlarıyla da yönetilir.</p>
+<h3 id="-ev-modemi-vs-endüstriyel-altyapı">🏠 Ev Modemi vs. Endüstriyel Altyapı</h3>
+<p>Çoğumuzun evinde bir modem var ve tek yaptığımız onu takıp internete bağlanmak. Ancak kurumsal dünyada (hastaneler, oteller, plazalar) ev tipi cihazlar oyuncak gibi kalır:</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/career-guide-network-engineering.webp"/> <figcaption>
+            Network Mühendisliği Kariyer Rehberi
+        </figcaption>
+</figure>
+
+<ul>
+<li><strong>Endüstriyel Ürün Seçimi:</strong> Ev tipi bir modem 100 kişiyi aynı anda internete bağlamaya çalıştığında aşırı ısınır, kilitlenir ve çöker. Bu yüzden profesyonel dünyada <strong>Cisco, Arista, HPE (Aruba) veya Juniper</strong> gibi global devlerin &ldquo;Endüstriyel Switch&quot;lerini kullanırız.</li>
+<li><strong>Port ve Bağlantı:</strong> Bu cihazların genellikle 24 veya 48 portu vardır. 100 kişilik ofis derken yalnızca dizüstü bilgisayarları saymayın; güvenlik kameraları, yazıcılar, parmak izi okuyucular, IP telefonlar ve Access Point&rsquo;ler de bu switch&rsquo;lere bağlanır. Bu demek oluyor ki 100 kişilik bir ofis, sizin için aslında 150-200 farklı kablo ucu ve bağlantı demektir.</li>
+</ul>
+<h3 id="-kablosuz-dünya-ve-roaming">📶 Kablosuz Dünya ve Roaming</h3>
+<p>Evde modem yakınında internet iyi çalışıyor ama arka odada kesiliyor. Bir fabrikada veya 10 katlı bir otelde bunu tek bir cihazla çözemezsiniz.</p>
+<ul>
+<li><strong>Access Point Ordusu:</strong> Tavanlara, depolara ve ofislere düzinelerce, bazen yüzlerce Access Point kurulur.</li>
+<li><strong>Kesintisiz Geçiş (Roaming):</strong> Bir fabrikanın bir ucundan diğerine yürürken dizüstü bilgisayarınızla görüşme yaptığınızı hayal edin. İnternet tek saniye bile kopmamalıdır. Uzmanlığınız, cihazınızın sizi fark ettirmeden bir AP&rsquo;den diğerine geçmesine olanak tanıyan o akıllı yapıyı (<strong>Wireless Controller</strong>) kurmak ve yönetmekten geçer.</li>
+</ul>
+<figure>
+    <img loading="lazy" src="/img/postimages/career-guide-network-engineering2.webp"/> <figcaption>
+            Network Mühendisliği Kariyer Rehberi 2
+        </figcaption>
+</figure>
+
+<h3 id="-internetin-bekçisi-firewall-ve-kiralık-hatlar">🛡️ İnternetin Bekçisi: Firewall ve Kiralık Hatlar</h3>
+<p>Kurumsal internet, ev internetinden çok farklı kurallarla işler:</p>
+<ul>
+<li><strong>Metro Ethernet (Dedicated):</strong> Evde akşamları internet yavaşlar çünkü hattı komşularınızla paylaşırsınız. Şirketlerde &ldquo;Dedicated&rdquo; (yalnızca size ait) hatlar kullanılır. Hızınız her zaman sabittir ve en önemlisi <strong>Upload</strong> hızınız çok yüksektir.</li>
+<li><strong>Firewall:</strong> Bu değerli internet hattının girişine bir nöbetçi yerleştiririz. <strong>Palo Alto, Fortinet veya Check Point</strong> gibi markalarla kimin hangi siteye erişebileceğini, dış siber saldırıların nasıl engelleneceğini ve <strong>Zero Trust</strong> felsefesini hayata geçirirsiniz.</li>
+</ul>
+<blockquote>
+<p>Zero Trust&rsquo;ı mimari bir perspektiften anlamak ister misiniz? <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a></p>
+</blockquote>
+<h3 id="-madalyonun-öbür-yüzü-vardiyalar-ve-sorumluluk">🌙 Madalyonun Öbür Yüzü: Vardiyalar ve Sorumluluk</h3>
+<p>Network mühendisi olmak istiyorsanız şu gerçeği kabul etmelisiniz: <strong>&ldquo;Herkes çalışırken sistem kapatılmaz.&rdquo;</strong></p>
+<ul>
+<li><strong>Bakım Pencereleri:</strong> Bir switch&rsquo;in yazılımını güncelleyecekseniz veya kabloların yerini değiştirecekseniz bunu herkes ofisteyken yapamazsınız. Bu yüzden çalışmalar genellikle geç gece saatlerinde, hafta sonlarında veya resmi tatillerde yapılır.</li>
+<li><strong>Uykusuz Geceler ve Haklar:</strong> Sistem çökerse saat 03:00&rsquo;te telefonunuz çalabilir. Ancak profesyonel dünyada bu bir fedakarlıktır; şirketler genellikle fazla mesai ücreti veya hafta içi &ldquo;servis süresi&rdquo; (ekstra izin) vererek bunu dengeler.</li>
+</ul>
+<h3 id="-yol-haritası-network-mühendisi-nasıl-olunur">🎓 Yol Haritası: Network Mühendisi Nasıl Olunur?</h3>
+<figure>
+    <img loading="lazy" src="/img/postimages/career-guide-roadmap.webp"/> <figcaption>
+            Network Mühendisliği Kariyer Yol Haritası
+        </figcaption>
+</figure>
+
+<p>Bu meslek yalnızca okuyarak değil, yaparak ve küresel çapta tanınan yolları takip ederek öğrenilir:</p>
+<ol>
+<li>
+<p><strong>Sertifikasyonun Temeli: CCNA</strong>
+Bu, network dünyasının &ldquo;ehliyet&quot;idir. <strong>Cisco Certified Network Associate (CCNA)</strong> eğitimi, işin alfabesini (IP, Routing, Switching) öğrenmenizi sağlar.</p>
+</li>
+<li>
+<p><strong>Resmi Eğitim Portalları (Hazine!)</strong>
+Üreticiler cihazlarını öğrenmeniz için harika kaynaklar sunar:</p>
+<ul>
+<li><strong>Cisco Networking Academy (Skills for All):</strong> <a href="https://skillsforall.com/">skillsforall.com</a></li>
+<li><strong>Palo Alto Networks Education:</strong> <a href="https://learning.paloaltonetworks.com/">learning.paloaltonetworks.com</a></li>
+<li><strong>Fortinet Training Institute:</strong> <a href="https://training.fortinet.com/">training.fortinet.com</a></li>
+<li><strong>Aruba (HPE) Learning Center:</strong> <a href="https://learn.hpe.com/aruba">learn.hpe.com/aruba</a></li>
+<li><strong>Juniper Learning Portal:</strong> <a href="https://learningportal.juniper.net/">learningportal.juniper.net</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Online ve Kendi Kendine Öğrenme</strong></p>
+<ul>
+<li><strong>Udemy:</strong> Birçok dilde çok uygun fiyatlı CCNA kursları bulabilirsiniz.</li>
+<li><strong>CBT Nuggets:</strong> Video açıklamaları çok yüksek kalitededir.</li>
+<li><strong>Simülasyon Araçları:</strong> Yalnızca kitap okumayın! Bilgisayarınıza <strong>Cisco Packet Tracer</strong> yükleyin. Daha ileri düzeyler için <strong>GNS3</strong> veya <strong>EVE-NG</strong> kullanarak profesyonel cihaz yazılımlarını deneyimleyin.</li>
+</ul>
+</li>
+</ol>
+<h3 id="sonuç">Sonuç</h3>
+<p>Ağ iletişimi, bilgisayar biliminin temelidir. İster geliştirici ister siber güvenlik uzmanı olun, bir paketin A noktasından B noktasına nasıl geçtiğini bilmeden gerçek bir profesyonel olamazsınız. Karmaşık bulmacaları çözmeyi ve dijital dünyaların altyapısını inşa etmeyi seviyorsanız, Network Mühendisliği her zaman talep gören prestijli ve heyecan verici bir kariyer yoludur.</p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Mimariye Derinlemesine Bakış</strong></p>
+<ul>
+<li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Doğru zihniyetin doğru üründen daha önemli olduğu yerde</li>
+<li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a> — Mimari öncelikli network tasarımı</li>
+<li>🛡️ <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Çevre ötesinde güvenlik</li>
+<li>🎯 <a href="/tr/architecture/network-product-selection-strategy/">Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler</a> — Üreticileri profesyonel gözle değerlendirmek</li>
+</ul>
+<p><strong>Pratik Mühendislik</strong></p>
+<ul>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Her şey çöktüğünde out-of-band erişim</li>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Trafik görünürlüğü ve güvenlik stratejisi</li>
+<li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Saha Deployment Rehberi</a> — Kimlik tabanlı ağ erişim kontrolü</li>
+</ul>
+]]></content:encoded></item><item><title>RAID'siz NAS'ınız Bir Zaman Bombasıdır — Ve Çözüm Ayda €1'a Mal Olur</title><link>https://barashhelvadzhaoglu.com/tr/posts/nas-backup/</link><pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/nas-backup/</guid><description>RAID olmayan NAS işletmeler için ciddi risktir. AWS S3 otomatik şifreli yedekleme nasıl çalışır ve Glacier neden ayda €1&amp;#39;a kadar düşer?</description><content:encoded><![CDATA[<p>Bir doktor muayenehanesi düşünün. Sekiz yıllık hasta kayıtları, faturalar, raporlar. Hepsi ofisteki küçük bir NAS cihazında. Bir sabah cihaz açılmıyor. Sabit disk arızası. Bir veri kurtarma şirketi arıyorsunuz — &ldquo;deneyeceğiz, €800–2000, garanti yok.&rdquo;</p>
+<p>Bu senaryo her gün yaşanıyor. Ve önlemek sadece ayda birkaç euroya mal oluyor.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/nas-backup-cover.webp"/> <figcaption>
+            NAS Yedekleme AWS S3 ile — KOBİ&#39;ler için Veri Güvenliği
+        </figcaption>
+</figure>
+
+<h2 id="yanılgı-nasım-var-yani-yedekleme-yapıyorum">Yanılgı: &ldquo;NAS&rsquo;ım Var, Yani Yedekleme Yapıyorum&rdquo;</h2>
+<p>NAS (Network Attached Storage) mükemmel bir cihazdır — merkezi depolama, ağdaki her bilgisayardan erişilebilir. Ancak küçük işletmelerdeki NAS cihazlarının çoğu tek bir sabit diskle çalışır. RAID yok.</p>
+<p><strong>RAID nedir?</strong>
+RAID verileri aynı anda birden fazla diske yazar. En basit haliyle RAID 1, aynı verileri aynı anda iki diske yazar. Biri arızalanırsa diğeri devralır. Veri kaybı olmaz.</p>
+<p>RAID olmayan tek diskli bir NAS&rsquo;ta, disk arızalandığı an her şey gider. Uyarı yok, kurtarma yok.</p>
+<p><strong>&ldquo;Ama benim NAS&rsquo;ımda RAID var&rdquo;</strong> — güzel, ama yeterli değil. RAID disk arızasına karşı korur. Yangın, su hasarı, hırsızlık, fidye yazılımı veya yanlışlıkla silme işlemine karşı korumaz. Harici yedekleme şarttır.</p>
+<h2 id="çözüm-aws-s3-bulut-yedekleme">Çözüm: AWS S3 Bulut Yedekleme</h2>
+<p>AWS S3 (Simple Storage Service), Amazon&rsquo;un bulut depolama hizmetidir. Büyük şirketlere ait bir şey gibi geliyor — ama küçük işletmeler bunu ayda sadece birkaç euroya kullanabilir.</p>
+<p><strong>Nasıl çalışır:</strong></p>
+<pre tabindex="0"><code>NAS cihazı (Synology/QNAP)
+        ↓ (otomatik, gecelik)
+Hyper Backup yazılımı
+        ↓ (şifreli)
+AWS S3 — Frankfurt (eu-central-1)
+        ↓
+Verileriniz: güvenli, şifreli, yedekli
+</code></pre><p>Synology NAS cihazlarında yerleşik &ldquo;Hyper Backup&rdquo; uygulaması bulunur. Bir kez yapılandırırsınız ve her gece değişen dosyaları otomatik olarak S3&rsquo;e gönderir. Siz uyurken yedeklemeniz çalışır.</p>
+<h2 id="aws-s3-depolama-katmanları--hangisi-size-uygun">AWS S3 Depolama Katmanları — Hangisi Size Uygun?</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Katman</th>
+          <th>En iyi kullanım</th>
+          <th>Erişim</th>
+          <th>Maliyet</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>S3 Standard</strong></td>
+          <td>Sık erişilen veriler</td>
+          <td>Anında</td>
+          <td>~€23/TB/ay</td>
+      </tr>
+      <tr>
+          <td><strong>S3 Infrequent Access</strong></td>
+          <td>Ayda birkaç kez</td>
+          <td>Anında</td>
+          <td>~€12/TB/ay</td>
+      </tr>
+      <tr>
+          <td><strong>S3 Glacier Instant</strong></td>
+          <td>Nadiren erişilen arşivler</td>
+          <td>Milisaniye</td>
+          <td>~€4/TB/ay</td>
+      </tr>
+      <tr>
+          <td><strong>S3 Glacier Deep Archive</strong></td>
+          <td>Uzun süreli arşivleme</td>
+          <td>12 saat</td>
+          <td>~€1/TB/ay</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>KOBİ&rsquo;ler için öneri:</strong>
+Aktif iş verileri: <strong>S3 Infrequent Access</strong> — uygun fiyat, gerektiğinde anında erişim.
+Eski kayıtlar ve arşiv dosyaları: <strong>S3 Glacier Instant</strong> — çok düşük maliyet, yine de anında erişilebilir.</p>
+<p>Bir muayenehane için tipik senaryo: aktif hasta verileri S3 IA&rsquo;da (<del>€5–8/ay), eski arşiv yılları Glacier&rsquo;da (</del>€1–2/ay). <strong>Aylık toplam: €6–10.</strong></p>
+<h2 id="gdpr-ve-hukuki-boyut">GDPR ve Hukuki Boyut</h2>
+<p>Hasta, müvekkil veya müşteri verisi işliyorsanız GDPR&rsquo;a tabissiniz. Bulut yedekleme için iki şey kritik:</p>
+<p><strong>1. Frankfurt bölgesi (eu-central-1) zorunludur</strong> — verileriniz AB sınırları içinde kalmalıdır.</p>
+<p><strong>2. Şifreleme zorunludur</strong> — Hyper Backup, verilerinizi S3&rsquo;e göndermeden önce şifreler. Şifreleme anahtarı sizde kalır — AWS bile içeriği göremez.</p>
+<p><strong>3. Hesap sizin adınıza açılır</strong> — Her müşteri için ayrı bir AWS hesabı açıyorum, sizin adınıza. Veriler ve hesap tamamen size aittir.</p>
+<p>Muayenehaneler ve hukuk büroları için ayrıca <strong>Veri İşleme Sözleşmesi (DPA)</strong> hazırlıyorum — GDPR kapsamında zorunludur.</p>
+<h2 id="kurulum-nasıl-işler">Kurulum Nasıl İşler?</h2>
+<ol>
+<li>AWS hesabı sizin adınıza açılır</li>
+<li>Doğru katman ve yaşam döngüsü politikalarıyla S3 bucket oluşturulur</li>
+<li>NAS&rsquo;ınıza Hyper Backup kurulur</li>
+<li>İlk tam yedekleme oluşturulur</li>
+<li>Ertesi günden itibaren yalnızca değişen dosyalar gönderilir</li>
+<li>Aylık durum raporu e-posta ile iletilir</li>
+</ol>
+<p><strong>Kurulumdan sonra yapmanız gereken:</strong> Hiçbir şey. Her şey otomatik çalışır.</p>
+<h2 id="nasım-yoksa-ne-olur">NAS&rsquo;ım Yoksa Ne Olur?</h2>
+<p>S3 yedekleme NAS olmadan da mümkündür. PC&rsquo;lerinize küçük bir yedekleme ajanı kuruyoruz (Duplicati — ücretsiz) ve seçilen klasörler otomatik olarak S3&rsquo;e gönderilir.</p>
+<h2 id="sonuç">Sonuç</h2>
+<p>Tek diskli bir NAS uyarısız herhangi bir anda arızalanabilir. RAID&rsquo;li bir NAS bile fidye yazılımına veya fiziksel hasara karşı korumaz. AWS S3 ile verileriniz ayda sadece birkaç euro karşılığında şifreli, yedekli ve güvende olur.</p>
+<p>Hesap sizin, veriler sizin, şifreleme anahtarı sizin.</p>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Koruma &amp; Güvenlik</strong></p>
+<ul>
+<li>🔋 <a href="/tr/posts/ups-office/">Elektrik Kesilirse Ne Olur? Ofisiniz için UPS Koruması</a> — NAS ve ağ cihazlarını elektrik kesintisinden koruma</li>
+<li>🔒 <a href="/tr/posts/ssl-websecurity/">SSL Sertifikası — &ldquo;Güvenli Değil&rdquo; Uyarısı Müşteri Kaybettirir</a> — KOBİ&rsquo;ler için web sitesi güvenliği</li>
+<li>📶 <a href="/tr/posts/wifi-mesh-solution/">Wi-Fi Sorunları? Kablo Gerektirmeyen Kalıcı Mesh Çözümü</a> — Ofis ve villalar için profesyonel Wi-Fi</li>
+</ul>
+<p><strong>Mimari &amp; Altyapı</strong></p>
+<ul>
+<li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Dayanıklı altyapı için sistem düşüncesi</li>
+<li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">Monitoring Zihniyeti: Sadece Görmek Değil, Anlamak</a> — IT sorunlarını tırmanmadan önce yakalamak</li>
+</ul>
+]]></content:encoded></item><item><title>🛠️ Ağın Arka Kapısı: Next-Gen Console Server (Terminal Server) Mimarisi</title><link>https://barashhelvadzhaoglu.com/tr/posts/next-gen-console-server-architecture/</link><pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/next-gen-console-server-architecture/</guid><description>Kritik ağ altyapısına IP erişimi kesildiğinde hayatta kalma rehberi. Out-of-Band Management (OOBM), HTML5 CLI ve otomasyon destekli console server&amp;#39;lar.</description><content:encoded><![CDATA[<p>Bir network mühendisinin en büyük kabusu, uzak bir konumdaki kritik cihaza IP erişiminin tamamen kesilmesidir. Yanlış bir <code>switchport</code> komutu, hatalı bir ACL veya cihaz donması&hellip; Bu durumlarda yönetim IP&rsquo;sine ulaşamadığınızda saatlerce &ldquo;yerinde müdahale&rdquo; için yolculuk yapmak ya da birini göndermek zorunda kalırsınız. İşte tam bu noktada ağın &ldquo;sigortası&rdquo; olan <strong>Console Server (Terminal Server)</strong> devreye girer.</p>
+<p>Ancak bugün bu cihazlar, basit bir seri port çoklayıcısından çok daha fazlasını sunan güvenlik ve otomasyon odaklı profesyonel yönetim platformlarına dönüşmüştür.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/next-gen-console-server-architecture.webp"/> <figcaption>
+            Next-Gen Console Server Mimarisi
+        </figcaption>
+</figure>
+
+<blockquote>
+<p>Bu yazı, dayanıklı network tasarımı üzerine daha geniş bir serinin parçasıdır. Mimari temel için: <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a></p>
+</blockquote>
+<h3 id="1-neden-48-portlu-bir-yönetim-devine-ihtiyacımız-var">1. Neden 48 Portlu Bir Yönetim Devine İhtiyacımız Var?</h3>
+<p>Kurumsal düzeydeki veri merkezlerinde aynı kabinde düzinelerce switch, router, firewall ve sunucu bulunur. 48 portlu bir console cihazı, tek bir IP üzerinden tüm kabini yönetmenize olanak tanır; fiziksel alanı optimize eder ve kablo kaosuna son verir.</p>
+<ul>
+<li><strong>Alan Tasarrufu:</strong> Tek bir U (ünite) alanında 48 cihazın console kontrolünü almak, kabin içi mimariyi basitleştirir.</li>
+<li><strong>Merkezi Giriş:</strong> Tüm cihazlara tek bir portal üzerinden erişim sağlayarak yönetim karmaşıklığını minimize edersiniz.</li>
+</ul>
+<h3 id="2-akıllı-portlar-her-cihaz-için-yazılımla-seçilebilir-pinout">2. Akıllı Portlar: Her Cihaz İçin Yazılımla Seçilebilir Pinout</h3>
+<p>Her üretici (Cisco, Juniper, HP, Palo Alto vb.) farklı console standartlarına ve pinout&rsquo;larına sahiptir. Eskiden her marka için farklı adaptörler veya özel yapım kablolar taşımak zorundaydık. Modern console server&rsquo;ların en büyük gücü <strong>Software-Selectable Pinout</strong> özelliğidir:</p>
+<ul>
+<li><strong>Yazılım Esnekliği:</strong> Farklı Baud Rate, Data Bits ve en önemlisi <strong>Pinout</strong> ayarları her port için bağımsız olarak tanımlanabilir.</li>
+<li><strong>Adaptörsüz Bağlantı:</strong> Yazılım pinout sayesinde karmaşık dönüştürücü adaptörlere ihtiyaç duymadan standart CAT6 kablo ile herhangi bir markaya bağlanabilirsiniz. Bu, &ldquo;kablo çorbası&rdquo; kaosunun nihai ve en zarif çözümüdür.</li>
+</ul>
+<h3 id="3-esnek-erişim-html5-web-cli-ve-yazılım-entegrasyonu">3. Esnek Erişim: HTML5 Web CLI ve Yazılım Entegrasyonu</h3>
+<p>Erişim yöntemlerindeki çeşitlilik, mühendislere kriz anlarında muazzam bir çeviklik sağlar:</p>
+<ul>
+<li><strong>Java&rsquo;dan Bağımsız HTML5 Desteği:</strong> Eski nesil cihazların en büyük sorunu olan hantal Java uygulamalarına elveda deyin. Artık herhangi bir uygulama yüklemeden modern web tarayıcıları üzerinden doğrudan güvenli ve yüksek hızlı CLI oturumları açabilirsiniz.</li>
+<li><strong>SecureCRT ve SuperPutty Entegrasyonu:</strong> Favori CLI yazılımınızla tam uyumludur. Alıştığınız terminal emülatörleri üzerinden tek tıkla SSH tünelleri üzerinden cihazlara bağlanabilir, oturumlarınızı profesyonelce yönetebilirsiniz. Bu entegrasyon, karmaşık komut setlerini toplu yapıştırmak için hayati önem taşır.</li>
+</ul>
+<figure>
+    <img loading="lazy" src="/img/postimages/next-gen-console-server-architecture2.webp"/> <figcaption>
+            HTML5 Console Erişimi ve SecureCRT Entegrasyonu
+        </figcaption>
+</figure>
+
+<h3 id="4-güvenlik-ve-rol-tabanlı-erişim-kontrolü-rbac--tacacs">4. Güvenlik ve Rol Tabanlı Erişim Kontrolü (RBAC &amp; TACACS+)</h3>
+<p>Console portu bir cihazın &ldquo;arka kapısı&quot;dır ve bu kapı en üst düzeyde korunmalıdır. IP üzerinden ulaşılamayan bir cihaza console üzerinden bağlanan kişi, cihazın tam kalbine dokunuyor demektir.</p>
+<ul>
+<li><strong>Merkezi Yetkilendirme:</strong> TACACS+, RADIUS veya LDAP entegrasyonu üzerinden merkezi yönetim sağlanır. Kimin hangi porta, hangi saatte, ne kadar süre girdiğini saniye saniye takip edebilirsiniz.</li>
+<li><strong>Rol Tabanlı Erişim (RBAC):</strong> Her kullanıcının sorumlu olduğu portlar için yalnızca gerekli izinleri tanımlayın. Örneğin güvenlik ekibi yalnızca Firewall console&rsquo;larını görürken, sistem ekibi yalnızca sunucu console&rsquo;larına erişebilir.</li>
+<li><strong>Gelişmiş API Desteği:</strong> API üzerinden cihazlara toplu komutlar gönderilebilir veya anlık koşullara göre konfigürasyonlar otomatikleştirilebilir.</li>
+</ul>
+<h3 id="5-otomasyon-ve-izlenebilirlik-cli-logging--config-backup">5. Otomasyon ve İzlenebilirlik: CLI Logging &amp; Config Backup</h3>
+<p>Console server artık yalnızca bir köprü değil; kayıt ve post-mortem analiz merkezidir:</p>
+<ul>
+<li><strong>Otomatik CLI Çıktı Loglama:</strong> Console ekranında akan tüm CLI çıktıları otomatik olarak kaydedilir. Bir cihaz çöktüğünde veya <strong>Kernel Panic</strong> verdiğinde, cihazın IP erişimi olmadığı için o anki logları göremezsiniz. Ancak console server bu akışı kaydettiğinden, cihazın çökmeden önceki son &ldquo;çığlıklarını&rdquo; analiz edip kök nedeni saniyeler içinde bulabilirsiniz.</li>
+<li><strong>Otomatik Konfigürasyon Yedekleme:</strong> Hem console cihazının kendi ayarları hem de yönettiği cihazların kritik konfigürasyonları periyodik olarak yedeklenir. Bu, <strong>Network Infrastructure as Code (NIAC)</strong> vizyonunun bir parçasıdır.</li>
+</ul>
+<h3 id="6-kesintisiz-erişim-dual-wan-ve-out-of-band-oobm-mimarisi">6. Kesintisiz Erişim: Dual WAN ve Out-of-Band (OOBM) Mimarisi</h3>
+<figure>
+    <img loading="lazy" src="/img/postimages/oobm-cellular-failover.webp"/> <figcaption>
+            OOBM ve 4G/5G Cellular Failover Mimarisi
+        </figcaption>
+</figure>
+
+<p>Ağ tamamen çökmüşse console server&rsquo;a nasıl ulaşacaksınız? İşte gerçek &ldquo;mühendislik&rdquo; burada başlar:</p>
+<ul>
+<li><strong>Dual WAN &amp; Cellular Desteği:</strong> İki bağımsız internet girişi veya dahili 4G/5G LTE modülleri sayesinde ana internet hattınız kesilse bile hücresel ağ üzerinden cihazlara erişmeye devam edersiniz.</li>
+<li><strong>Out-of-Band Management (OOBM):</strong> Ana veri trafiğinden tamamen bağımsız, farklı bir servis sağlayıcı üzerinden kurulan bu izole yol; ana ağ tamamen &ldquo;down&rdquo; olduğunda bile müdahale şansı veren tek can simididir.</li>
+</ul>
+<h3 id="7-pazar-liderleri">7. Pazar Liderleri</h3>
+<p>Aşağıdaki markalar yüksek port yoğunluğu, akıllı otomasyon özellikleri ve HTML5 desteğinde pazar standartlarını belirlemektedir:</p>
+<ul>
+<li><strong>Opengear:</strong> Akıllı OOBM ve yüksek güvenlik özellikleriyle zirvededir.</li>
+<li><strong>Lantronix:</strong> Esnek port yapıları ve yönetim kolaylığıyla tanınır.</li>
+<li><strong>Avocent (Vertiv) &amp; Perle:</strong> Stabil donanımlarıyla profesyonel veri merkezleri için vazgeçilmezdir.</li>
+</ul>
+<h3 id="sonuç">Sonuç</h3>
+<p>Console server, karmaşık bir altyapının görünmez koruyucusudur. SecureCRT entegrasyonundan otomatik CLI loglama&rsquo;ya, adaptörsüz bağlantıdan Java&rsquo;dan bağımsız HTML5 desteğine kadar uzanan bu özellikler, kriz anlarını yönetilebilir operasyonlara dönüştürür.</p>
+<p>Unutmayın: en iyi ağ, her zaman bir <strong>&ldquo;Plan B&rdquo;</strong> si olan ağdır.</p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Mimari &amp; Strateji</strong></p>
+<ul>
+<li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Dayanıklı altyapı için sistem düşüncesi</li>
+<li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a> — Mimari öncelikli core network tasarımı</li>
+<li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">Monitoring Zihniyeti: Sadece Görmek Değil, Anlamak</a> — Sorunları kullanıcıdan önce yakalamak</li>
+<li>🎯 <a href="/tr/architecture/network-product-selection-strategy/">Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler</a> — Üreticileri stratejik değerlendirme</li>
+</ul>
+<p><strong>Pratik Mühendislik</strong></p>
+<ul>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Trafik görünürlüğü ve güvenlik stratejisi</li>
+<li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Saha Deployment Rehberi</a> — Kimlik tabanlı erişim kontrolü</li>
+<li>📈 <a href="/tr/posts/cisco-nexus-nxos-upgrade-guide/">Cisco Nexus NX-OS Yükseltme Rehberi</a> — Güvenli yazılım yükseltme prosedürleri</li>
+</ul>
+]]></content:encoded></item><item><title>🛡️ Kurumsal Ağlarda Görünürlük ve Güvenlik Stratejisi: Network Packet Broker (NPB) Masterclass</title><link>https://barashhelvadzhaoglu.com/tr/posts/network-packet-broker-masterclass/</link><pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/network-packet-broker-masterclass/</guid><description>Kurumsal ağlarda trafik yönetimi, siber güvenlik ve uçtan uca görünürlük için stratejik rehber. NPB nedir? NIAC prensipleriyle nasıl yönetilir?</description><content:encoded><![CDATA[<p>Günümüz kurumsal ağ mimarilerinde <strong>&ldquo;hız&rdquo;</strong> artık tek başarı kriteri değil. Asıl zorluk, saniyede onlarca gigabit veri trafiğinin içinde neyin aktığını bilmek, güvenliği sağlamak ve performansı uçtan uca izlemektir. Modern ağların &ldquo;akıllı trafik yöneticisi&rdquo; olan <strong>Network Packet Broker (NPB)</strong>, siber güvenlikten iş sürekliliğine kadar her şey için stratejik bir zorunluluk haline geldi.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/network-packet-broker-arcitechture.webp"/> <figcaption>
+            Network Packet Broker Mimarisine Genel Bakış
+        </figcaption>
+</figure>
+
+<blockquote>
+<p>Görünürlük stratejisinin arkasındaki daha geniş mimari bağlam için: <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a></p>
+</blockquote>
+<h3 id="1-mikro-saniye-hassasiyeti-paket-kaybının-sonu-buffering--time-stamping">1. Mikro-Saniye Hassasiyeti: Paket Kaybının Sonu (Buffering &amp; Time-Stamping)</h3>
+<p>Ağ trafiği her zaman doğrusal akmaz; anlık patlama noktaları oluşur. Pek çok standart switch bu patlamalar sırasında paketleri düşürürken, profesyonel bir NPB bu sorunu donanım seviyesinde çözer:</p>
+<ul>
+<li><strong>500 ms Buffer Belleği:</strong> NPB, trafiği kısa süreliğine belleğinde tutar; analiz araçlarınızın (DLP, IDS, Sniffer) hıza yetişemediği anlarda paket kaybını %0&rsquo;a indirir. Bu, adli analiz ve hata ayıklama süreçleri için hayati önem taşır.</li>
+<li><strong>Donanım Time-Stamping:</strong> Gecikme analizi yaparken &ldquo;yaklaşık bir saat&rdquo; profesyonel bir cevap değildir. NPB&rsquo;lerin sunduğu donanım Time-Stamping özelliği sayesinde sisteme giren her paketi mikro-saniye hassasiyetiyle damgalayabilirsiniz. Bu damgalar özellikle adli analiz süreçlerinde hayat kurtarıcıdır.</li>
+</ul>
+<h3 id="2-akıllı-filtreleme-ve-protokol-ustalığı-l2-l4">2. Akıllı Filtreleme ve Protokol Ustalığı (L2-L4)</h3>
+<p>L2-4 filtreleme (MAC, IP, Port) birçok cihazda bulunsa da NPB ile fark, bu işlemi paket bütünlüğünden ödün vermeden &ldquo;wire-speed&rdquo; hızında ve eşsiz esneklikle yapmasıdır:</p>
+<ul>
+<li><strong>Flow Aggregation &amp; Deduplication:</strong> Devasa 100 GB girişlerden gelen binlerce akışı analiz eder, yinelenen paketleri temizler (<strong>Deduplication</strong>) ve tüm bu kaosу analiz cihazları için tek optimize edilmiş akışa dönüştürür. Yinelenen paketlerin temizlenmesi, analiz cihazlarınızın CPU yükünü %30-50 oranında azaltır.</li>
+<li><strong>Packet Slicing (Yükü Hafifletme):</strong> Her zaman paketin tamamına ihtiyaç duymazsınız. Analiz aracınız yalnızca başlık bilgisine ihtiyaç duyuyorsa NPB üzerinde <strong>Packet Slicing</strong> yaparak payload&rsquo;ı kırpın. Bu sayede analiz cihazlarınızın disk ve işlemcilerini gereksiz verilerle boğmazsınız, %100 verimlilik elde edersiniz.</li>
+</ul>
+<h3 id="3-esnek-dağıtım-yöntemleri-trafiği-hedefe-ulaştırmak">3. Esnek Dağıtım Yöntemleri: Trafiği Hedefe Ulaştırmak</h3>
+<p>NPB, filtrelenmiş trafiği analiz cihazına iletmek için zengin bir &ldquo;paketleme&rdquo; menüsü sunar:</p>
+<ul>
+<li><strong>ERSPAN &amp; VXLAN/GRE Tünelleme:</strong> Trafiği Layer 3 ağlar üzerinden kapsüller, uzak veri merkezlerine veya bulut tabanlı analiz merkezlerine taşır.</li>
+<li><strong>VLAN Tagging / Stripping:</strong> Analiz cihazının trafiği tanıması için etiket ekler veya cihazın yükünü hafifletmek için bu etiketleri temizler.</li>
+<li><strong>Yük Dengeleme:</strong> Yoğun 100G trafiğini <strong>&ldquo;session stickiness&rdquo;</strong> (oturum bütünlüğü) bozmadan 10G kapasiteli analiz cihazlarına eşit şekilde dağıtır.</li>
+</ul>
+<figure>
+    <img loading="lazy" src="/img/postimages/network-packet-broker-arcitechture2.webp"/> <figcaption>
+            NPB Trafik Dağıtımı ve Yük Dengeleme
+        </figcaption>
+</figure>
+
+<h3 id="4-api-desteği-otomasyon-ve-niac-vizyonu">4. API Desteği, Otomasyon ve NIAC Vizyonu</h3>
+<p>Manuel müdahale, modern IT operasyonlarında bir risktir. NPB&rsquo;nin sunduğu otomasyon yetenekleri ekiplere çeviklik sağlar. Ancak süreci yalnızca basit bir &ldquo;yedekleme&rdquo; olarak görmeyin; <strong>Rest-API</strong> desteği sayesinde bu cihazları <strong>Network Infrastructure as Code (NIAC)</strong> prensiplerine entegre ederiz.</p>
+<ul>
+<li><strong>NIAC &amp; Felaket Kurtarma (DR):</strong> Cihazdaki tüm kritik filtreleme kuralları ve port konfigürasyonları NIAC prensipleriyle yönetilmelidir. Donanım arızası durumunda, manuel konfigürasyon yerine otomasyon scriptleri kullanarak tüm mimariyi saniyeler içinde yeni bir cihaza taşıyabiliriz.</li>
+<li><strong>ITSM ve SIEM Entegrasyonu:</strong> Siber olay sırasında SIEM araçları aracılığıyla otomatik olarak filtreler oluşturulabilir veya anlık duruma göre mevcut filtreler API üzerinden düzenlenebilir.</li>
+</ul>
+<h3 id="5-performans-ve-güvenlik-riverbed-dlp--ssl-offloading">5. Performans ve Güvenlik (Riverbed, DLP &amp; SSL Offloading)</h3>
+<figure>
+    <img loading="lazy" src="/img/postimages/npb-ssl-offloading.webp"/> <figcaption>
+            NPB Üzerinde SSL/TLS Offloading Mimarisi
+        </figcaption>
+</figure>
+
+<p>NPB, ağdaki her türlü analiz cihazını besleyen merkezi bir &ldquo;Veri Hub&rsquo;ı&rdquo; gibi çalışır:</p>
+<ul>
+<li><strong>Network TAP (Inline Veri Toplama):</strong> Yalnızca switch portlarından değil, doğrudan sunuculara giden kablolardan (Network TAP) trafik alabilir. Bu, ana trafiği etkilemeden &ldquo;en saf&rdquo; veriye ulaşmanızı sağlar.</li>
+<li><strong>SSL/TLS Offloading:</strong> Firewall veya IPS cihazlarınızın CPU&rsquo;larını şifre çözme işlemiyle yorma. Bu yükü NPB&rsquo;de üstlenin ve analiz cihazlarına &ldquo;temiz&rdquo; ve şifresiz trafik gönderin. Güvenlik cihazlarınız asıl işini yapsın; ağır şifre çözme işini NPB üstlensin.</li>
+<li><strong>Riverbed Entegrasyonu:</strong> Riverbed gibi NPM cihazlarını en doğru verilerle besleyerek uygulama gecikmelerini ve darboğazları tespit eder.</li>
+<li><strong>Çağrı Merkezleri (VoIP):</strong> Ses trafiğini paralel olarak işler; bir kopyası kayıt sistemine giderken kullanıcı hiçbir gecikme olmadan görüşmeye devam eder.</li>
+</ul>
+<h3 id="6-şifreli-trafik-ve-veri-merkezi-dc-stratejisi">6. Şifreli Trafik ve Veri Merkezi (DC) Stratejisi</h3>
+<p>İnternet trafiği şifreli olsa da performans nedeniyle veri merkezi içinde şifrelenmemiş akan &ldquo;East-West&rdquo; trafiği hâlâ en büyük fırsattır. NPB&rsquo;yi trafiğin şeffaf olduğu bu stratejik noktalarda kullanmak ve veriyi yansıtmak, şifre çözme maliyetine katlanmadan %100 görünürlük sağlar.</p>
+<h3 id="7-pazar-liderleri">7. Pazar Liderleri</h3>
+<p><strong>Keysight (Ixia)</strong> ve <strong>Gigamon</strong> yüksek performanslı çözümlerde standartları belirlerken; <strong>Arista</strong>, <strong>Garland Technology</strong> ve <strong>Profitap</strong> esnek port yapıları ve yenilikçi dağıtım yöntemleriyle kurumsal ağlar için vazgeçilmezdir.</p>
+<h3 id="sonuç">Sonuç</h3>
+<p>Trafik yansıtma ve analiz akışlarının kusursuz orkestrasyonu, karmaşık bir ağ operasyonunun nasıl kontrol edilebilir hale getirileceğinin nihai kanıtıdır. NIAC ve güçlü API entegrasyonları sayesinde bu mimari, statik bir donanım kurulumundan dinamik, &ldquo;yaşayan&rdquo; bir güvenlik platformuna dönüşür.</p>
+<p>Bu çerçeve, kritik verilerin güvenlik araçlarına sıfır kayıpla ve maksimum optimizasyonla ulaşmasını sağlar; operasyon ekiplerine ağ üzerinde tam görünürlük ve kontrol gücü verir.</p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Mimari &amp; Strateji</strong></p>
+<ul>
+<li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Görünürlük stratejisinin arkasındaki sistem düşüncesi</li>
+<li>🛡️ <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Ürün değil mimari olarak güvenlik</li>
+<li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">Monitoring Zihniyeti: Sadece Görmek Değil, Anlamak</a> — Dashboard&rsquo;ların ötesinde operasyonel görünürlük</li>
+<li>🎯 <a href="/tr/architecture/network-product-selection-strategy/">Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler</a> — Güvenlik üreticilerini stratejik değerlendirme</li>
+</ul>
+<p><strong>Pratik Mühendislik</strong></p>
+<ul>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Her şey çöktüğünde out-of-band erişim</li>
+<li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Saha Deployment Rehberi</a> — Ağ kenarında kimlik tabanlı erişim kontrolü</li>
+</ul>
+]]></content:encoded></item><item><title>IT'de Ürün Odaklı Tuzak: Standartlar mı, Markalar mı?</title><link>https://barashhelvadzhaoglu.com/tr/posts/it-management-standards-vs-brands/</link><pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/it-management-standards-vs-brands/</guid><description>IT işe alımındaki yanlış anlayışların analizi: Mühendislik zihniyeti ve dokümantasyon neden ürün bilgisinin önüne geçer?</description><content:encoded><![CDATA[<p>Modern IT dünyasında iş ilanları çoğu zaman bir &ldquo;süper kahraman&rdquo; istek listesi gibi okunuyor. Adayların aynı anda Fortinet, Cisco, Palo Alto, Check Point gibi birbiriyle rekabet eden düzinelerce üründe derin uzmanlığa sahip olması bekleniyor. Oysa burada temel bir mantık boşluğu var: tüm bu alanlarda ustalaşmış bir profesyonel, neden net standartları ve süreçleri olmayan bir ortamda çalışmak istesin?</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/it-standards-vs-brands-cover.webp"/> <figcaption>
+            Ürün Odaklı Tuzak: Standartlar vs. Markalar
+        </figcaption>
+</figure>
+
+<blockquote>
+<p>Bu konunun arkasındaki mimari düşünce için: <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a></p>
+</blockquote>
+<h2 id="1-süper-kahraman-işe-alım-paradoksu">1. &ldquo;Süper Kahraman&rdquo; İşe Alım Paradoksu</h2>
+<p>Pek çok şirket, aklına gelen her teknolojiyi sıralayarak aşırı beklentilerle iş ilanları oluşturuyor. Ancak buldukları adaylar nadiren işletmenin gerçek ihtiyaçlarını karşılıyor.</p>
+<p>Asıl sorun çoğu zaman teknik yetenek eksikliği değil, <strong>iç süreçlerin yokluğudur</strong>. Her markayı bilen birini aramak yerine şirketler, kendi sistemlerinin nasıl çalıştığını tanımlamaya odaklanmalıdır.</p>
+<h2 id="2-ürün-bilgisi-vs-mühendislik-vizyonu">2. Ürün Bilgisi vs. Mühendislik Vizyonu</h2>
+<p>Güvenlik ve ağ politikaları, markalardan bağımsız bir kurumsal kültür olmalıdır. Yetkin bir mühendis için farklı arayüzler yalnızca araçtır. Core network ve güvenlik mantığına (TCP/IP, routing, politika yönetimi) hakim olan bir profesyonel, Palo Alto&rsquo;dan Fortinet&rsquo;e çok kısa sürede adapte olabilir.</p>
+<p>Bir şirket için kritik soru &ldquo;Hangi markayı biliyorsunuz?&rdquo; değil, şu sorulardır:</p>
+<ul>
+<li>&ldquo;İnternete nasıl çıkıyoruz?&rdquo;</li>
+<li>&ldquo;Firewall kuralı yazma standardımız nedir?&rdquo;</li>
+</ul>
+<p>Bu soruların cevapları belgelenmiş durumdaysa, sistem yöneticisi enerjisini her seferinde tekerleği yeniden icat etmek yerine verimliliğe harcar.</p>
+<blockquote>
+<p>Ürün seçiminin mimariye nasıl bağlandığına dair: <a href="/tr/architecture/network-product-selection-strategy/">Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler</a></p>
+</blockquote>
+<h2 id="3-planlama-ve-dokümantasyonun-gücü">3. Planlama ve Dokümantasyonun Gücü</h2>
+<p>IT projelerinde planlama çoğu zaman &ldquo;zaman kaybı&rdquo; olarak görülür. Oysa iyi planlanmış bir sistem ve detaylı dokümantasyon, <strong>kurumsal hafızanın</strong> temelidir.</p>
+<p>Bu dokümantasyon süreci yalnızca yeni işe alınanların omuzlarına yüklenen bir yük olamaz; üst yönetimin birlikte kurması gereken bir yönetim anlayışıdır.</p>
+<blockquote>
+<p>Dokümantasyonun operasyonel başarıya nasıl katkı sağladığına dair pratik bir örnek: <a href="/tr/posts/cisco-nexus-nxos-upgrade-guide/">Cisco Nexus NX-OS Yazılım Güncelleme Rehberi</a></p>
+</blockquote>
+<h2 id="4-görünürlük-ve-talep-yönetimi-itsm">4. Görünürlük ve Talep Yönetimi (ITSM)</h2>
+<p>IT ekipleri arasında en yaygın şikayet, yapılan işin &ldquo;görünmez&rdquo; olmasıdır. ITSM (IT Servis Yönetimi) araçlarının kullanılmadığı ve taleplerin kayıt altına alınmadığı kurumlarda:</p>
+<ul>
+<li>Görevlere harcanan süre raporlanamaz.</li>
+<li>Sistemde yapılan değişiklikler denetlenemez.</li>
+<li>IT çalışanının gerçek performansı ölçülemez hale gelir.</li>
+</ul>
+<p>Görünürlük olmadan IT reaktif modda çalışır — yangınları söndürerek hayatta kalmaya çalışır. ITSM araçları bürokratik bir yük değil; IT çalışmasını kurumun geri kalanına anlamlı kılan mekanizmadır.</p>
+<blockquote>
+<p>IT operasyonlarını proaktif olarak görünür kılmak için: <a href="/tr/architecture/monitoring-not-just-seeing/">Monitoring Zihniyeti: Sadece Görmek Değil, Anlamak</a></p>
+</blockquote>
+<h2 id="5-yönetimin-sorumluluğu-bütçe-zaman-ve-kaynaklar">5. Yönetimin Sorumluluğu: Bütçe, Zaman ve Kaynaklar</h2>
+<p>En kritik rol üst yönetime aittir. Yukarıdan bir direktif olmadan standardizasyon bir hayal olarak kalır. Yöneticiler şunları sağlamazsa:</p>
+<ol>
+<li><strong>Yeterli Bütçe</strong></li>
+<li><strong>Makul Zaman</strong></li>
+<li><strong>Doğru İnsan Kaynağı</strong></li>
+</ol>
+<p>Ekipler &ldquo;acil mod&quot;da çalışmaya zorlanır; standartları takip etmek yerine yalnızca günü kurtarmaya odaklanır. En iyi mühendisler bile kurumsal destek olmadan kurumsal kalite inşa edemez.</p>
+<h2 id="sonuç">Sonuç</h2>
+<p>Şirketler, güçlü bir süreç omurgası oluşturmadan yalnızca &ldquo;yıldız oyuncu&rdquo; işe alarak mucize beklememelidir. Kurumsal başarı iyi tasarlanmış bir sistemin ürünüdür — yalnızca yetenekli bireylerin değil.</p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Mimari &amp; Strateji</strong></p>
+<ul>
+<li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Ürün düşüncesi yerine sistem düşüncesi</li>
+<li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a> — Mimari öncelikli network tasarımı</li>
+<li>🎯 <a href="/tr/architecture/network-product-selection-strategy/">Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler</a> — Üreticileri stratejik değerlendirme</li>
+<li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">Monitoring Zihniyeti: Sadece Görmek Değil, Anlamak</a> — IT çalışmasını görünür kılmak</li>
+</ul>
+<p><strong>Pratik Mühendislik</strong></p>
+<ul>
+<li>📈 <a href="/tr/posts/cisco-nexus-nxos-upgrade-guide/">Cisco Nexus NX-OS Yazılım Güncelleme Rehberi</a> — Uygulamada dokümantasyon</li>
+<li>🚀 <a href="/tr/posts/career-guide-network-engineering/">Mezun Rehberi: Bir Network Mühendisi Aslında Ne Yapar?</a> — Network mühendisleri için kariyer yol haritası</li>
+</ul>
+]]></content:encoded></item><item><title>802.1X Projelerinde Başarının Anahtarı: Saha Tecrübeleri</title><link>https://barashhelvadzhaoglu.com/tr/posts/8021x-field-deployment-teaser/</link><pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/8021x-field-deployment-teaser/</guid><description>802.1X başarısı AD, PKI ve GPO disiplinine bağlıdır. NAC dağıtımı ve kimlik tabanlı mimari üzerine saha notları.</description><content:encoded><![CDATA[<p>802.1X projeleri networkten ziyade <strong>Active Directory</strong>, <strong>PKI</strong> ve <strong>GPO</strong> disiplinine bağlıdır. Sadece switch konfigürasyonu yaparak bu projeleri başarıyla tamamlamak zordur.</p>
+<p>Sahada edindiğimiz tecrübelerle; kimlik mimarisinden posture analizine kadar tüm detayları kapsayan derinlemesine dökümanımızı inceleyebilirsiniz.</p>
+<p><strong>Detaylı Rehber:</strong> <a href="https://barashhelvadzhaoglu.com/tr/technology/identity-based-microsegmentation-8021x/">802.1X Projeleri: Kimliği Ağa Taşıyan Mimari</a></p>
+]]></content:encoded></item><item><title>Cisco Nexus NX-OS Yazılım Güncelleme Rehberi: Sahada Test Edilmiş Adım Adım</title><link>https://barashhelvadzhaoglu.com/tr/posts/cisco-nexus-nxos-upgrade-guide/</link><pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/cisco-nexus-nxos-upgrade-guide/</guid><description>Cisco Nexus NX-OS güncelleme rehberi — hazırlık, güncelleme yolu, dosya transferi, rollback ve ROMMON kurtarma senaryoları.</description><content:encoded><![CDATA[<p>Bu rehber, Cisco Nexus switch&rsquo;lerde yazılım (NX-OS) güncelleme sürecini <strong>sahada uygulanabilir</strong>, <strong>adım adım</strong> ve <strong>geri dönüş senaryoları dahil</strong> olacak şekilde ele alır. Amaç; güncelleme sırasında servis kesintisi riskini azaltmak ve olası bir hatada cihazı hızlıca ayağa kaldırabilmektir.</p>
+<p>Yaşanan upgrade problemlerinin büyük bölümü güncellemenin kendisinden değil — hazırlık adımlarının atlanmasından kaynaklanır. Bu rehber hazırlığı, uygulama kadar ciddiye alır.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/nexus-nxos-upgrade-cover.webp"/> <figcaption>
+            Cisco Nexus NX-OS Upgrade Süreci
+        </figcaption>
+</figure>
+
+<blockquote>
+<p>Upgrade hatalarında out-of-band erişim için: <a href="/tr/posts/next-gen-console-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a></p>
+</blockquote>
+<h2 id="1-çalışma-öncesi-kontroller">1. Çalışma Öncesi Kontroller</h2>
+<p>Yazılım güncelleme işlemine başlamadan önce aşağıdaki hazırlık adımlarını mutlaka tamamlayın. Bu aşama en çok atlanan — ve en çok problem üretendir.</p>
+<h3 id="konfigürasyon-yedeği">Konfigürasyon Yedeği</h3>
+<ul>
+<li>Cihazınızın <strong>mevcut konfigürasyon yedeğini</strong> her şeyden önce alın.</li>
+<li>Yedeği switch üzerinde değil; kendi bilgisayarınızda veya FTP/SFTP gibi <strong>harici bir konumda</strong> saklayın.</li>
+<li>Upgrade başarısız olursa veya rollback gerekirse bu yedek hayati önem taşır.</li>
+</ul>
+<h3 id="switch-modeli-ve-mevcut-yazılım-sürümü-kontrolü">Switch Modeli ve Mevcut Yazılım Sürümü Kontrolü</h3>
+<p>Switch&rsquo;in modelini ve çalışan NX-OS sürümünü kontrol etmek için:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>show version
+</span></span><span style="display:flex;"><span>show module
+</span></span><span style="display:flex;"><span>show inventory
+</span></span></code></pre></div><p>Bu çıktılar; doğru NX-OS imajını seçmek, upgrade path&rsquo;i belirlemek ve donanım uyumluluğunu kontrol etmek için gereklidir.</p>
+<h2 id="2-yazılım-dosyasını-indirme">2. Yazılım Dosyasını İndirme</h2>
+<ul>
+<li>Switch modelinize uygun NX-OS imajını Cisco&rsquo;nun resmi portalından indirin:
+<a href="https://software.cisco.com/download/home">https://software.cisco.com/download/home</a></li>
+<li>İndirme için geçerli bir <strong>Cisco hesabı ve gerekli yetkiler</strong> gerekmektedir.</li>
+<li>İndirme tamamlandıktan sonra <strong>MD5 hash değerini mutlaka not alın</strong> — transfer sonrası doğrulama için kullanacaksınız.</li>
+</ul>
+<blockquote>
+<p>MD5 doğrulaması, dosyanın indirme sırasında bozulmadığını doğrular. Bu adım isteğe bağlı değildir.</p>
+</blockquote>
+<h2 id="3-upgrade-path-kontrolü">3. Upgrade Path Kontrolü</h2>
+<p>Mevcut NX-OS sürümünüzden hedef sürüme <strong>doğrudan geçiş her zaman desteklenmeyebilir</strong>. Bazı sürüm kombinasyonları ara adımlar gerektirir.</p>
+<p>Cisco&rsquo;nun resmi araçlarını kullanarak kontrol edin:</p>
+<ul>
+<li><strong>Nexus Upgrade Matrix Tools</strong></li>
+<li>Nexus 9000 / 3000 Series</li>
+<li>Nexus 7000 Series</li>
+</ul>
+<blockquote>
+<p>Birden fazla geçiş adımı gerekiyorsa, işleme başlamadan <strong>tüm ara sürüm imajlarını</strong> önceden indirin.</p>
+</blockquote>
+<h2 id="4-yazılım-dosyasını-switche-kopyalama">4. Yazılım Dosyasını Switch&rsquo;e Kopyalama</h2>
+<h3 id="seçenek-a-ftp-ile-transfer">Seçenek A: FTP ile Transfer</h3>
+<p>FTP en yaygın kullanılan yöntemlerden biridir. NX-OS imajları 2 GB&rsquo;a yaklaşabileceğinden transfer süresi ağ hızına bağlıdır.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>copy ftp://user1:Qazwsx@10.10.10.5/nxos.9.3.10.bin bootflash:
+</span></span></code></pre></div><p>Nexus&rsquo;ta birden fazla VRF tanımı varsa transfer için hangi VRF kullanılacağı sorulur. Management interface genellikle management VRF kullandığından bu örnekte management VRF seçilir.</p>
+<h3 id="seçenek-b-usb-ile-transfer-önerilen">Seçenek B: USB ile Transfer (Önerilen)</h3>
+<p>USB transfer benim tercih ettiğim yöntemdir:</p>
+<ul>
+<li>FTP server hazır değilse</li>
+<li>Zaman kısıtı varsa</li>
+<li>Network üzerinden transfer riski almak istemiyorsanız</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>copy usb1:nxos.9.3.10.bin bootflash:
+</span></span></code></pre></div><p>Devam etmeden önce USB dosya sisteminin Nexus tarafından desteklendiğinden emin olun.</p>
+<h3 id="md5-hash-doğrulaması">MD5 Hash Doğrulaması</h3>
+<p>Transfer tamamlandıktan sonra dosya bütünlüğünü doğrulayın:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>show file bootflash:nxos.9.3.10.bin md5sum
+</span></span></code></pre></div><p>Çıktı, Cisco indirme portalındaki MD5 hash değeriyle birebir aynı olmalıdır.</p>
+<h2 id="5-güncelleme-işlemi">5. Güncelleme İşlemi</h2>
+<p>Tüm kontroller tamamlandıktan sonra güncellemeyi başlatın:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>install all nxos bootflash:nxos.9.3.10.bin
+</span></span></code></pre></div><ul>
+<li>Switch, yükleme öncesinde mevcut konfigürasyonu otomatik olarak kaydeder.</li>
+<li>Reboot öncesinde onay ister.</li>
+<li>Onay verildikten sonra cihaz yeniden başlar ve upgrade işlemi başlar.</li>
+</ul>
+<p>Upgrade süresi cihaz modeline ve yazılım boyutuna göre değişir.</p>
+<h2 id="6-rollback-ve-kurtarma-senaryoları">6. Rollback ve Kurtarma Senaryoları</h2>
+<figure>
+    <img loading="lazy" src="/img/postimages/nexus-upgrade-rollback.webp"/> <figcaption>
+            Nexus Upgrade Rollback ve Kurtarma Yolu
+        </figcaption>
+</figure>
+
+<h3 id="rommon-moduna-geçiş">ROMMON Moduna Geçiş</h3>
+<p>Yükleme başarısız olursa veya cihaz açılmazsa:</p>
+<ul>
+<li>Cihaz açılışı sırasında console bağlantısı üzerinden <strong>CTRL + L</strong> veya <strong>CTRL + C</strong> tuşlarına basarak <strong>ROMMON moduna</strong> geçin.</li>
+</ul>
+<h3 id="rommondan-tftp-ile-boot">ROMMON&rsquo;dan TFTP ile Boot</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>set ip 10.10.10.2 255.255.255.0
+</span></span><span style="display:flex;"><span>set gw 10.10.10.1
+</span></span><span style="display:flex;"><span>cmdline recoverymode<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>boot tftp://10.10.10.2/tftpboot/nxos.9.3.10.bin
+</span></span><span style="display:flex;"><span>init system
+</span></span><span style="display:flex;"><span>reload-nxos
+</span></span></code></pre></div><h3 id="rommondan-usb-ile-boot">ROMMON&rsquo;dan USB ile Boot</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>boot usb1:nxos.9.3.10.bin bootflash:
+</span></span><span style="display:flex;"><span>set ip 10.10.10.2 255.255.255.0
+</span></span><span style="display:flex;"><span>set gw 10.10.10.1
+</span></span><span style="display:flex;"><span>cmdline recoverymode<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>boot usb1:nxos.9.3.10.bin
+</span></span><span style="display:flex;"><span>init system
+</span></span><span style="display:flex;"><span>reload-nxos
+</span></span></code></pre></div><p>TFTP veya USB ile boot ettikten sonra boot ayarlarını doğrulayın ve düzeltin:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>show boot
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>configure terminal
+</span></span><span style="display:flex;"><span>  boot nxos bootflash:/nxos.9.3.10.bin
+</span></span></code></pre></div><h2 id="kritik-uyarı">Kritik Uyarı</h2>
+<p>Yazılım güncellemesi sırasında:</p>
+<ul>
+<li><strong>Ağ bağlantısını kesmeyin</strong></li>
+<li><strong>Güç kaynağını kesmeyin</strong></li>
+</ul>
+<p>Her iki durum da cihazı fiziksel müdahale olmaksızın kurtarılamaz hale getirebilir.</p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Mimari &amp; Operasyonlar</strong></p>
+<ul>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — IP yönetimi kesildiğinde out-of-band erişim</li>
+<li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">Monitoring Zihniyeti: Sadece Görmek Değil, Anlamak</a> — Sorunları tırmanmadan önce yakalamak</li>
+<li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a> — Mimari öncelikli core network tasarımı</li>
+<li>🎯 <a href="/tr/architecture/network-product-selection-strategy/">Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler</a> — Üreticileri stratejik değerlendirme</li>
+</ul>
+<p><strong>Pratik Mühendislik</strong></p>
+<ul>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Trafik görünürlüğü ve güvenlik stratejisi</li>
+<li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Saha Deployment Rehberi</a> — Kimlik tabanlı ağ erişim kontrolü</li>
+</ul>
+]]></content:encoded></item></channel></rss>

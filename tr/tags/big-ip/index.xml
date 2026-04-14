@@ -1,1 +1,441 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>BIG-IP on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/big-ip/</link><description>Recent content in BIG-IP on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Wed, 08 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/big-ip/index.xml" rel="self" type="application/rss+xml"/><item><title>F5 LTM Deep Dive: Virtual Server'lar, iRule'lar, SSL Offloading ve HA</title><link>https://barashhelvadzhaoglu.com/tr/technology/f5-ltm-deep-dive/</link><pubDate>Wed, 08 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/f5-ltm-deep-dive/</guid><description>F5 BIG-IP LTM teknik inceleme — full-proxy mimari, virtual server, pool yapılandırması, iRule, SSL offloading ve sıfır downtime migrasyon rehberi.</description></item><item><title>F5 BIG-IP Bir Load Balancer Değil — Uygulama Teslim Platformudur</title><link>https://barashhelvadzhaoglu.com/tr/technology/f5-master/</link><pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/f5-master/</guid><description>F5 BIG-IP bir load balancer&amp;#39;dan çok daha fazlasıdır. LTM, GTM, WAF, APM, AFM ve BGP routing&amp;#39;i kapsayan master rehber.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>BIG-IP on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/big-ip/</link><description>Recent content in BIG-IP on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Wed, 08 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/big-ip/index.xml" rel="self" type="application/rss+xml"/><item><title>F5 LTM Deep Dive: Virtual Server'lar, iRule'lar, SSL Offloading ve HA</title><link>https://barashhelvadzhaoglu.com/tr/technology/f5-ltm-deep-dive/</link><pubDate>Wed, 08 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/f5-ltm-deep-dive/</guid><description>F5 BIG-IP LTM teknik inceleme — full-proxy mimari, virtual server, pool yapılandırması, iRule, SSL offloading ve sıfır downtime migrasyon rehberi.</description><content:encoded><![CDATA[<h1 id="f5-ltm-deep-dive-virtual-serverlar-irulelar-ssl-offloading-ve-ha">F5 LTM Deep Dive: Virtual Server&rsquo;lar, iRule&rsquo;lar, SSL Offloading ve HA</h1>
+<p>Bu yazı F5 BIG-IP serisinin bir parçasıdır.</p>
+<blockquote>
+<p><strong>F5&rsquo;e yeni misiniz?</strong> Önce platform genel bakışıyla başlayın: <a href="/tr/technology/f5-bigip-application-delivery-platform-overview/">F5 BIG-IP Bir Load Balancer Değil — Uygulama Teslim Platformudur</a></p>
+</blockquote>
+<p>Büyük resmi zaten biliyorsanız ve LTM&rsquo;e derinlemesine inmek istiyorsanız — yapılandırma, iRule&rsquo;lar, migrasyon saha notları — doğru yerdesiniz.</p>
+<hr>
+<h2 id="full-proxy-mimarisi-neden-her-şeyi-değiştirir">Full-Proxy Mimarisi: Neden Her Şeyi Değiştirir</h2>
+<p>LTM hakkında anlaşılması gereken en önemli şey, bunun bir <strong>full-proxy</strong> olduğudur. Bu bir pazarlama terimi değildir — LTM&rsquo;yi her türlü daha basit load balancer&rsquo;dan ayıran doğrudan operasyonel sonuçları vardır.</p>
+<p>Bir istemci F5 LTM üzerinden bağlandığında, iki tamamen ayrı TCP bağlantısı oluşur:</p>
+<pre tabindex="0"><code>İstemci ──[TCP bağlantı 1]──→ F5 LTM ──[TCP bağlantı 2]──→ Backend Sunucu
+          (Virtual Server IP)            (Pool Member IP)
+</code></pre><p>F5 istemci bağlantısını tamamen sonlandırır, inceler, tüm yönlendirme ve politika kararlarını verir, ardından backend&rsquo;e yeni bir bağlantı açar. İstemci ve backend sunucusu hiçbir zaman doğrudan iletişim kurmaz.</p>
+<p>Bu, pass-through load balancer&rsquo;ların sağlayamadığı yetenekler sunar:</p>
+<ul>
+<li>İstek ve yanıtın her baytına tam görünürlük</li>
+<li>Trafiğin herhangi bir bölümünü yeniden yazabilme — başlıklar, URI&rsquo;ler, çerezler, yanıt gövdeleri</li>
+<li>Backend&rsquo;ler adına SSL sonlandırma — backend&rsquo;ler düz HTTP görür</li>
+<li>İstemci taraflı ve sunucu taraflı bağlantılar için bağımsız TCP ayarı</li>
+<li>Bağlantı çoğullaması ve HTTP pipelining optimizasyonları</li>
+</ul>
+<p>Pratikte, full-proxy konumu, yukarı akış sorunlarının (istemci tarafı) ve aşağı akış sorunlarının (sunucu tarafı) tamamen izole edildiği anlamına gelir. Bu, üretim olaylarında sorun gidermeyi önemli ölçüde basitleştirir.</p>
+<hr>
+<h2 id="virtual-serverlar-giriş-noktası">Virtual Server&rsquo;lar: Giriş Noktası</h2>
+<p><strong>Virtual Server</strong>, istemcilerin bağlandığı IP adresi ve port kombinasyonudur. LTM&rsquo;deki birincil nesnedir ve tüm trafik politikasının kapsayıcısıdır:</p>
+<pre tabindex="0"><code>Virtual Server: vs_webapp_443
+  Hedef IP:           10.10.1.100
+  Port:               443
+  Protokol:           TCP
+  HTTP Profili:       http_profile_xforward
+  SSL İstemci Profili: clientssl_webapp
+  SSL Sunucu Profili: serverssl_backend
+  Varsayılan Pool:    pool_webapp_8080
+  Persistence:        cookie_persistence
+  iRule:              /Common/rule_uri_routing
+</code></pre><p><strong>Bir VIP, birden fazla uygulama:</strong> Tek bir virtual server IP&rsquo;si, HTTP Host başlığına veya URI yoluna göre yönlendirme yapmak için iRule&rsquo;lar kullanarak birden fazla uygulamaya hizmet verebilir. Bu, IP tüketimini azaltır ve yukarı akış firewall kurallarını basitleştirir.</p>
+<p><strong>Virtual server durumu pool sağlığından bağımsızdır:</strong> Bir virtual server devre dışı bırakılırsa, pool member&rsquo;ların sağlıklı olup olmadığına bakılmaksızın hiçbir trafik pool&rsquo;a ulaşmaz. Virtual server kullanılabilirliğini, pool member kullanılabilirliğinden ayrı olarak her zaman izleyin.</p>
+<p><strong>Üç virtual server türü:</strong></p>
+<ul>
+<li><strong>Standard</strong> — full proxy, en yaygın tür</li>
+<li><strong>Performance Layer 4</strong> — L7 incelemesinin gerekmediği yüksek verimli senaryolar için proxy&rsquo;yi atlar</li>
+<li><strong>Forwarding</strong> — proxy davranışı olmadan pass-through yönlendirme, şeffaf deployment&rsquo;larda kullanılır</li>
+</ul>
+<hr>
+<h2 id="poollar-ve-load-balancing-yöntemleri">Pool&rsquo;lar ve Load Balancing Yöntemleri</h2>
+<p><strong>Pool</strong>, virtual server&rsquo;ın trafiği dağıttığı backend sunucuları grubudur:</p>
+<pre tabindex="0"><code>Pool: pool_webapp_8080
+  Load Balancing Yöntemi: Least Connections (member)
+  Slow Ramp Time:         30 saniye
+  Monitor:                http_monitor_webapp
+  Member&#39;lar:
+    192.168.10.11:8080   Öncelik Grubu: 1
+    192.168.10.12:8080   Öncelik Grubu: 1
+    192.168.10.13:8080   Öncelik Grubu: 2  ← yedek, yalnızca grup 1 başarısız olursa etkinleşir
+</code></pre><p><strong>Load balancing yöntemleri karşılaştırması:</strong></p>
+<ul>
+<li><strong>Round Robin</strong> — sıralı dağılım. Durumsuz, tekdüze iş yükleri için çalışır. Bağlantı süreleri önemli ölçüde farklılaştığında kötü seçimdir.</li>
+<li><strong>Least Connections (member)</strong> — en az aktif bağlantıya sahip member&rsquo;a gönderir. Değişken oturum süreleri olan uygulamalar için en iyisi. Çoğu üretim ortamında standart seçim.</li>
+<li><strong>Least Connections (node)</strong> — yalnızca bu pool değil, bir sunucu IP&rsquo;sine tüm pool&rsquo;lardaki bağlantıları sayar. Bir sunucu birden fazla pool&rsquo;a katıldığında kullanın.</li>
+<li><strong>Ratio</strong> — ağırlıklı dağılım. A member&rsquo;ı, B member&rsquo;ından 3× daha fazla bağlantı alır. Farklı kapasitelere sahip sunucular için.</li>
+<li><strong>Fastest</strong> — en son yanıt veren member&rsquo;a gönderir. Sıcak nokta oluşturabilir; daha fazla kararlılık için bunun yerine Observed kullanın.</li>
+</ul>
+<p><strong>Slow Ramp Time</strong> az kullanılır ama önemlidir. Bir pool member başarısızlıktan kurtulduğunda hemen kullanılabilir hale gelir — ancak tam olarak hazır olmayabilir (JVM, cache&rsquo;ler, veritabanı bağlantı havuzları). Slow Ramp Time, yeni kullanılabilir bir member&rsquo;ın ağırlığını belirtilen saniyeler boyunca kademeli olarak artırır ve soğuk bir sunucunun anında aşırı yüklenmesini önler.</p>
+<p><strong>Öncelik Grupları</strong>, tek bir pool içinde aktif ve yedek member setlerine olanak tanır. Grup 1 member&rsquo;ları, minimum aktif member eşiğinin üzerindeyken tüm trafiği alır. Grup 2 member&rsquo;ları, Grup 1 eşiğin altına düştüğünde otomatik olarak etkinleşir.</p>
+<hr>
+<h2 id="health-monitorlar-load-balancing-yönteminden-daha-önemli">Health Monitor&rsquo;lar: Load Balancing Yönteminden Daha Önemli</h2>
+<p>Bir pool member, TCP erişilebilir ve uygulama düzeyinde tamamen bozuk olabilir. Her istekte HTTP 500 döndüren bir ödeme işleme sunucusu hâlâ TCP erişilebilirdir — temel bir TCP monitor sorunu hiçbir zaman tespit etmez.</p>
+<p>Bu, üretim ortamlarında gördüğüm en yaygın başarısızlık senaryosudur ve ekiplerin en sık yetersiz yatırım yaptığı yerdir.</p>
+<h3 id="tcp-monitor-gerekli-ama-yetersiz">TCP Monitor: Gerekli ama Yetersiz</h3>
+<pre tabindex="0"><code>Monitor: tcp_monitor_basic
+  Tür:      TCP
+  Interval:  5 saniye
+  Timeout:   16 saniye
+</code></pre><p>Tespit eder: ağ bağlantı kaybı, sunucu çöküşleri, port dinlenmiyor.</p>
+<p>Tespit etmez: uygulama hataları, veritabanı bağlantı başarısızlıkları, bellek tükenmesi, kısmen başlatılmış uygulama durumları.</p>
+<h3 id="http-monitor-üretim-standardı">HTTP Monitor: Üretim Standardı</h3>
+<pre tabindex="0"><code>Monitor: http_monitor_webapp
+  Tür:            HTTP
+  Send String:    GET /health HTTP/1.1\r\nHost: webapp.internal\r\nConnection: close\r\n\r\n
+  Receive String: &#34;status&#34;:&#34;healthy&#34;
+  Interval:       5 saniye
+  Timeout:        16 saniye
+</code></pre><p>LTM, yalnızca yanıt gövdesi tam olarak beklenen dizeyi içerdiğinde member&rsquo;ı UP olarak işaretler. Uygulama, yalnızca portun açık olduğunu değil, sağlıklı olduğunu aktif olarak onaylamalıdır.</p>
+<p>İyi bir <code>/health</code> endpoint&rsquo;i şunları kontrol eder: veritabanı bağlantısı, cache kullanılabilirliği, kilit bağımlılık durumu ve ilgiliyse disk alanı. <code>{&quot;status&quot;:&quot;degraded&quot;}</code> ile HTTP 200 döndüren bir uygulama, monitor kontrolünü başarısız kılmalıdır.</p>
+<h3 id="şifreli-backendler-için-https-monitor">Şifreli Backend&rsquo;ler için HTTPS Monitor</h3>
+<pre tabindex="0"><code>Monitor: https_monitor_webapp
+  Tür:         HTTPS
+  SSL Profili:  serverssl_monitor (dahili olarak öz imzalı sertifikaları kabul edecek şekilde yapılandırın)
+  Send String:  GET /health HTTP/1.1\r\nHost: webapp.internal\r\n\r\n
+  Receive String: &#34;status&#34;:&#34;healthy&#34;
+</code></pre><h3 id="timeout-formülü">Timeout Formülü</h3>
+<p>Sık yapılan bir yanlış yapılandırma: timeout değerini interval&rsquo;e eşit veya daha küçük ayarlamak. Doğru formül:</p>
+<pre tabindex="0"><code>Timeout = (Interval × yeniden deneme sayısı) + 1
+</code></pre><p>Interval=5 ve 3 yeniden denemeyle: Timeout = 16. Bu, geçici ağ dalgalanmalarından kaynaklanan yanlış pozitifleri önlemek için LTM&rsquo;ye member&rsquo;ı düşürmeden önce yeniden deneme zamanı verir.</p>
+<hr>
+<h2 id="ssl-offloading-ve-ssl-bridging">SSL Offloading ve SSL Bridging</h2>
+<h3 id="ssl-offload-yalnızca-istemci-ssl">SSL Offload (Yalnızca İstemci SSL)</h3>
+<pre tabindex="0"><code>İstemci ──(HTTPS/TLS 1.3)──→ F5 LTM ──(HTTP)──→ Backend
+</code></pre><p>F5, istemciden TLS&rsquo;yi sonlandırır ve şifrelenmemiş HTTP&rsquo;yi backend&rsquo;lere iletir. Maksimum backend CPU tasarrufu. Virtual server&rsquo;da bir <strong>İstemci SSL Profili</strong> gerektirir:</p>
+<pre tabindex="0"><code>İstemci SSL Profili: clientssl_webapp
+  Sertifika:   /Common/webapp_cert
+  Anahtar:     /Common/webapp_key
+  Zincir:      /Common/intermediate_ca
+  Şifreler:    TLSv1.2:TLSv1.3
+  Seçenekler:  TLSv1 Yok, TLSv1.1 Yok
+</code></pre><h3 id="ssl-bridging-istemci--sunucu-ssl">SSL Bridging (İstemci + Sunucu SSL)</h3>
+<pre tabindex="0"><code>İstemci ──(HTTPS/TLS 1.3)──→ F5 LTM ──(HTTPS/TLS)──→ Backend
+</code></pre><p>F5 şifresini çözer, inceler, ardından backend için yeniden şifreler. Uyumluluk gereksinimlerinin uçtan uca şifrelemeyi zorunlu kıldığı düzenlenmiş ortamlarda (bankacılık, sağlık) gereklidir. Bağlantı başına iki TLS el sıkışması nedeniyle biraz gecikme ekler — ancak tam uyumluluk ve görünürlük sağlar.</p>
+<p>Bankacılık ortamında, tüm üretim virtual server&rsquo;ları SSL bridging çalıştırıyordu. Her bağlantı şifresi çözülüyor, WAF tarafından inceleniyor ve backend&rsquo;e yeniden şifreleniyordu.</p>
+<h3 id="sertifika-yönetimi">Sertifika Yönetimi</h3>
+<p>Temel operasyonel noktalar:</p>
+<ul>
+<li>F5, sertifikalar sona erme tarihine yaklaştığında varsayılan olarak uyarı vermez. Virtual server&rsquo;lardaki sertifika süresini kontrol etmek için harici izleme (SolarWinds, Zabbix) kurun.</li>
+<li>Sertifika değiştirme sıfır downtime ile yapılır: sertifika nesnesini güncelleyin, profil buna otomatik olarak referans verir.</li>
+<li><strong>SNI</strong>, tek bir VIP&rsquo;nin farklı sertifikalara sahip birden fazla uygulamaya hizmet vermesine olanak tanır.</li>
+</ul>
+<hr>
+<h2 id="session-persistence">Session Persistence</h2>
+<h3 id="cookie-persistence-önerilen">Cookie Persistence (Önerilen)</h3>
+<p>F5, HTTP yanıtına pool member&rsquo;ı tanımlayan bir çerez ekler:</p>
+<pre tabindex="0"><code>Persistence Profili: cookie_persistence
+  Yöntem:      Insert
+  Çerez Adı:   BIGipServer_webapp
+  Son Kullanma: Session
+  Şifrele:     Etkin
+</code></pre><p>Sonraki isteklerde, tarayıcı bu çerezi gönderir. F5, mevcut yük dağılımından bağımsız olarak doğru member&rsquo;a yönlendirir. Uygulamaya şeffaf, NAT üzerinden çalışır, istemci IP değişikliklerine dayanır.</p>
+<h3 id="kaynak-adres-persistence">Kaynak Adres Persistence</h3>
+<p>Aynı istemci IP&rsquo;sinden gelen tüm trafiği aynı member&rsquo;a yönlendirir:</p>
+<pre tabindex="0"><code>Persistence Profili: source_addr_persistence
+  Timeout: 3600 saniye
+</code></pre><p>Basit, ancak birçok kullanıcı bir NAT IP&rsquo;yi paylaştığında sorunlu — aynı NAT arkasındaki tüm kullanıcılar aynı backend sunucusuna gider, yük dağılımını bozar.</p>
+<h3 id="irule-tabanlı-evrensel-persistence">iRule Tabanlı Evrensel Persistence</h3>
+<p>Özel oturum tanımlayıcıları için (standart dışı çerezler, URL parametreleri, özel başlıklar):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span>when HTTP_REQUEST <span style="color:#66d9ef">{</span>
+</span></span><span style="display:flex;"><span>  persist uie <span style="color:#66d9ef">[</span>HTTP<span style="color:#f92672">::</span>header <span style="color:#e6db74">&#34;X-Session-Token&#34;</span><span style="color:#66d9ef">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">}</span>
+</span></span></code></pre></div><p>Özel bir başlık değerine göre kalıcı hale getirir — hiçbir standart profilin desteklemediği bir şey.</p>
+<hr>
+<h2 id="irulelar-programlanabilir-trafik-katmanı">iRule&rsquo;lar: Programlanabilir Trafik Katmanı</h2>
+<p>iRule&rsquo;lar, TMOS veri düzleminde hat hızında çalışan Tcl tabanlı betiklerdir. En güçlü LTM farklılaştırıcısıdır — aksi takdirde uygulama kodu değişikliği gerektiren trafik mantığı.</p>
+<h3 id="olay-modeli">Olay Modeli</h3>
+<p>iRule&rsquo;lar, trafik yaşam döngüsündeki olaylarda çalışır:</p>
+<ul>
+<li><code>HTTP_REQUEST</code> — istemciden tam HTTP isteği alındı</li>
+<li><code>HTTP_RESPONSE</code> — backend&rsquo;den yanıt alındı</li>
+<li><code>CLIENT_ACCEPTED</code> — istemciden TCP bağlantısı kuruldu</li>
+<li><code>SERVER_CONNECTED</code> — F5 backend&rsquo;e bağlandı</li>
+<li><code>SSL_HANDSHAKE_START</code> — TLS müzakeresi sırasında</li>
+</ul>
+<h3 id="üretim-irule-örnekleri">Üretim iRule Örnekleri</h3>
+<p><strong>Backend&rsquo;e istemci IP iletimi:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span>when HTTP_REQUEST <span style="color:#66d9ef">{</span>
+</span></span><span style="display:flex;"><span>  HTTP<span style="color:#f92672">::</span>header insert <span style="color:#e6db74">&#34;X-Forwarded-For&#34;</span>   <span style="color:#66d9ef">[</span>IP<span style="color:#f92672">::</span>client_addr<span style="color:#66d9ef">]</span>
+</span></span><span style="display:flex;"><span>  HTTP<span style="color:#f92672">::</span>header insert <span style="color:#e6db74">&#34;X-Real-IP&#34;</span>         <span style="color:#66d9ef">[</span>IP<span style="color:#f92672">::</span>client_addr<span style="color:#66d9ef">]</span>
+</span></span><span style="display:flex;"><span>  HTTP<span style="color:#f92672">::</span>header insert <span style="color:#e6db74">&#34;X-Forwarded-Proto&#34;</span> <span style="color:#e6db74">&#34;https&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">}</span>
+</span></span></code></pre></div><p><strong>URI tabanlı pool yönlendirmesi:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span>when HTTP_REQUEST <span style="color:#66d9ef">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">{</span> <span style="color:#66d9ef">[</span>HTTP<span style="color:#f92672">::</span>uri<span style="color:#66d9ef">]</span> starts_with <span style="color:#e6db74">&#34;/api/v2/&#34;</span> <span style="color:#66d9ef">}</span> <span style="color:#66d9ef">{</span>
+</span></span><span style="display:flex;"><span>    pool pool_api_v2_servers
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">}</span> <span style="color:#66d9ef">elseif</span> <span style="color:#66d9ef">{</span> <span style="color:#66d9ef">[</span>HTTP<span style="color:#f92672">::</span>uri<span style="color:#66d9ef">]</span> starts_with <span style="color:#e6db74">&#34;/api/&#34;</span> <span style="color:#66d9ef">}</span> <span style="color:#66d9ef">{</span>
+</span></span><span style="display:flex;"><span>    pool pool_api_v1_servers
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">}</span> <span style="color:#66d9ef">elseif</span> <span style="color:#66d9ef">{</span> <span style="color:#66d9ef">[</span>HTTP<span style="color:#f92672">::</span>uri<span style="color:#66d9ef">]</span> starts_with <span style="color:#e6db74">&#34;/admin/&#34;</span> <span style="color:#66d9ef">}</span> <span style="color:#66d9ef">{</span>
+</span></span><span style="display:flex;"><span>    pool pool_admin_servers
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">{</span>
+</span></span><span style="display:flex;"><span>    pool pool_web_servers
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">}</span>
+</span></span></code></pre></div><p><strong>Pool boşken bakım yönlendirmesi:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span>when HTTP_REQUEST <span style="color:#66d9ef">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">{</span> <span style="color:#66d9ef">[</span>active_members pool_webapp_8080<span style="color:#66d9ef">]</span> <span style="color:#f92672">&lt;</span> 1 <span style="color:#66d9ef">}</span> <span style="color:#66d9ef">{</span>
+</span></span><span style="display:flex;"><span>    HTTP<span style="color:#f92672">::</span>redirect <span style="color:#e6db74">&#34;https://status.sirket.com/bakim&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">}</span>
+</span></span></code></pre></div><p><strong>Host başlığı tabanlı yönlendirme — bir VIP&rsquo;de birden fazla uygulama:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span>when HTTP_REQUEST <span style="color:#66d9ef">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">switch</span> <span style="color:#66d9ef">[</span>HTTP<span style="color:#f92672">::</span>host<span style="color:#66d9ef">]</span> <span style="color:#66d9ef">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;uygulama1.sirket.com&#34;</span> <span style="color:#66d9ef">{</span> pool pool_app1 <span style="color:#66d9ef">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;uygulama2.sirket.com&#34;</span> <span style="color:#66d9ef">{</span> pool pool_app2 <span style="color:#66d9ef">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;api.sirket.com&#34;</span>       <span style="color:#66d9ef">{</span> pool pool_api  <span style="color:#66d9ef">}</span>
+</span></span><span style="display:flex;"><span>    default                <span style="color:#66d9ef">{</span> pool pool_default <span style="color:#66d9ef">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">}</span>
+</span></span></code></pre></div><p><strong>İstemci IP&rsquo;ye göre bağlantı hızı sınırlaması:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span>when CLIENT_ACCEPTED <span style="color:#66d9ef">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">set</span> conn_limit <span style="color:#ae81ff">50</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">{</span> <span style="color:#66d9ef">[</span>table lookup <span style="color:#f92672">-</span>notouch <span style="color:#66d9ef">[</span>IP<span style="color:#f92672">::</span>client_addr<span style="color:#66d9ef">]]</span> <span style="color:#f92672">&gt;</span> $conn_limit <span style="color:#66d9ef">}</span> <span style="color:#66d9ef">{</span>
+</span></span><span style="display:flex;"><span>    reject
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">{</span>
+</span></span><span style="display:flex;"><span>    table incr <span style="color:#66d9ef">[</span>IP<span style="color:#f92672">::</span>client_addr<span style="color:#66d9ef">]</span>
+</span></span><span style="display:flex;"><span>    table timeout <span style="color:#66d9ef">[</span>IP<span style="color:#f92672">::</span>client_addr<span style="color:#66d9ef">]</span> <span style="color:#ae81ff">60</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">}</span>
+</span></span></code></pre></div><h3 id="irule-performans-notları">iRule Performans Notları</h3>
+<p>iRule&rsquo;lar, virtual server üzerinden her bağlantı veya istek için çalışır. Yönergeler:</p>
+<ul>
+<li>Yüksek trafikli iRule&rsquo;larda karmaşık dize işlemlerinden kaçının — hesaplanan değerleri önbelleğe almak için <code>table</code> kullanın</li>
+<li>Sözdizimi hatası tüm iRule&rsquo;u sessizce devre dışı bırakır — önce staging ortamında test edin</li>
+<li>Üretimde <code>log local0.debug</code> kullanımını sınırlayın — aşırı loglama performansı etkiler</li>
+<li><code>RULE_INIT</code> olayı başlangıçta bir kez çalışır ve paylaşılan veri yapılarını başlatmak için idealdir</li>
+</ul>
+<hr>
+<h2 id="high-availability-üretimde-aktif-yedek">High Availability: Üretimde Aktif-Yedek</h2>
+<h3 id="cihaz-grupları-ve-trafik-grupları">Cihaz Grupları ve Trafik Grupları</h3>
+<p>F5 HA, <strong>Cihaz Güveni</strong> (eşler arasında karşılıklı kimlik doğrulama) ve <strong>Cihaz Grupları</strong> (sync-failover yapılandırması) kullanır:</p>
+<pre tabindex="0"><code>Cihaz Grubu: dg_production
+  Tür:     sync-failover
+  Member&#39;lar: bigip-01 (Aktif), bigip-02 (Yedek)
+
+Trafik Grubu: traffic-group-1
+  Floating IP&#39;ler: 10.10.1.100 (VIP), 10.10.1.1 (self IP)
+  Aktif on:        bigip-01
+</code></pre><p>Trafik Grupları, failover sırasında cihazlar arasında geçiş yapan floating IP&rsquo;leri içerir. bigip-01 başarısız olduğunda, bigip-02 traffic-group-1&rsquo;in sahipliğini alır ve gratuitous ARP aracılığıyla VIP&rsquo;yi duyurur.</p>
+<h3 id="özel-heartbeat-vlan-zorunlu">Özel Heartbeat VLAN: Zorunlu</h3>
+<p>F5 HA, ağ failover kullanır — cihazlar arasındaki heartbeat paketleri eş başarısızlığını tespit eder. Kritik kural:</p>
+<p><strong>Üretim ve yönetim ağlarından ayrı, her zaman özel bir failover VLAN kullanın.</strong></p>
+<p>Heartbeat için üretim arayüzünü paylaşmak, ağ tıkanıklığı sırasında yanlış failover olayları oluşturur. Her iki cihaz da diğerinin başarısız olduğuna inanır ve her ikisi de aynı anda aktif hale gelir — split-brain. Trafik çoğaltılır, oturumlar bozulur ve olaydan kurtulmak zahmetlidir.</p>
+<pre tabindex="0"><code>Failover VLAN: vlan_ha_heartbeat
+  Arayüz:            1.3 (özel)
+  bigip-01 self IP:  192.168.100.1/24
+  bigip-02 self IP:  192.168.100.2/24
+</code></pre><h3 id="config-sync-manuel---otomatik">Config Sync: Manuel - Otomatik</h3>
+<p><strong>Otomatik sync</strong> — aktif cihazda yapılan değişiklikler anında yedek cihaza yayılır. Risk: kısmi veya yanlış bir yapılandırma değişikliği inceleyemeden önce yayılır.</p>
+<p><strong>Manuel sync</strong> — yönetici değişiklikleri doğruladıktan sonra sync&rsquo;i açıkça tetikler. Üretim için daha güvenli. Düzenlenmiş ortamlarda standart seçim.</p>
+<h3 id="bağlantı-yansıtma">Bağlantı Yansıtma</h3>
+<p>Varsayılan olarak, failover tüm mevcut bağlantıları düşürür — istemcilerin yeniden bağlanması gerekir. Çoğu web uygulaması için bu kabul edilebilirdir.</p>
+<p>Uzun süreli bağlantılar için (kalıcı WebSocket&rsquo;ler, büyük dosya transferleri, veritabanı bağlantıları), <strong>bağlantı yansıtma</strong> yedek cihazda oturum durumunu korur. Failover bu bağlantıları minimum kesinti ile sürdürür.</p>
+<p>Bağlantı yansıtmayı seçici olarak etkinleştirin — her iki cihazda da bellek ve CPU tüketir. Her virtual server buna ihtiyaç duymaz.</p>
+<hr>
+<h2 id="saha-notları-2000--5000-migrasyonu">Saha Notları: 2000 → 5000 Migrasyonu</h2>
+<h3 id="neden-migrasyon-yaptık">Neden Migrasyon Yaptık</h3>
+<p>BIG-IP 2000 serisi, bankacılık yoğun saatlerinde SSL offloading tavanına ulaşmıştı. TMOS 13.x destek sonuna yaklaşıyordu. 5000 serisi, donanım SSL hızlandırması, 6× verim iyileştirmesi ve TMOS 15.x aracılığıyla TLS 1.3 desteği sunuyordu.</p>
+<h3 id="sıfır-downtime-yaklaşımı-30-cihaz-0-kesinti">Sıfır Downtime Yaklaşımı: 30+ Cihaz, 0 Kesinti</h3>
+<p><strong>Faz 1 — Paralel deployment</strong>
+5000 serisi donanımı mevcut 2000 serisi yanına kurun. Yeni cihazlarda özdeş virtual server&rsquo;lar, pool&rsquo;lar, profiller ve iRule&rsquo;lar yapılandırın. Henüz sıfır trafik.</p>
+<p><strong>Faz 2 — Kritik olmayan virtual server üzerinde doğrulama</strong>
+Tek bir dahili uygulamayı yeni cihaza yönlendirin. 72 saat izleyin: bağlantı oranları, SSL el sıkışma gecikmesi, health monitor davranışı, iRule yürütme logları, sentetik yük altında HA failover testi.</p>
+<p><strong>Faz 3 — İş riski bazında kademeli migrasyon</strong>
+Virtual server&rsquo;ları gruplara göre taşıyın — önce dahili araçlar, sonra genel uygulamalar, en son ödeme işleme. Her grup için:</p>
+<ul>
+<li>Yeni cihaza işaret etmek üzere yukarı akış yönlendirme / SNAT&rsquo;ı güncelleyin</li>
+<li>48 saat izleyin</li>
+<li>Grup başına 72 saat eski cihazı geri alma seçeneği olarak tutun</li>
+</ul>
+<p><strong>Faz 4 — HA çifti tamamlama</strong>
+Yeni aktif cihazda tüm virtual server&rsquo;lar doğrulandıktan sonra:</p>
+<ol>
+<li>Önce yedek (eski cihaz) değiştirin</li>
+<li>Yeni yedeğin aktiften yapılandırmayı senkronize ettiğini doğrulayın</li>
+<li>Zorla failover yapın — yeni yediği üretim yükü altında test edin</li>
+<li>Eski aktifi devre dışı bırakın</li>
+</ol>
+<p><strong>İşe yaratan kural: her iki HA cihazını aynı anda hiçbir zaman değiştirmeyin.</strong> Trafiği üstlenen her zaman tam doğrulanmış, üretimde test edilmiş bir cihaz olmalıdır.</p>
+<h3 id="tmos-uyumluluk-denetimi-başlamadan-önce-yapın">TMOS Uyumluluk Denetimi: Başlamadan Önce Yapın</h3>
+<p>TMOS 13.x için yazılmış iRule&rsquo;lar her zaman 15.x&rsquo;te aynı şekilde davranmaz. Migrasyondan önce tüm iRule&rsquo;ları şunlar için denetleyin:</p>
+<ul>
+<li><code>HTTP::</code> komutları — HTTP/2 senaryolarında davranış değişiklikleri</li>
+<li><code>SSL::</code> olayları — TLS 1.3&rsquo;te yeni olaylar ve değişen zamanlama</li>
+<li><code>RULE_INIT</code> yürütmesi — başlangıçta zamanlama farklılıkları</li>
+</ul>
+<p>Cutover öncesinde değişiklik gerektiren 3 iRule bulduk. Bunları staging ortamında bulmak, üretim olay yanıtında saatler kurtardı.</p>
+<hr>
+<h2 id="temel-çıkarımlar">Temel Çıkarımlar</h2>
+<ul>
+<li>LTM bir <strong>full-proxy</strong>&lsquo;dir — pass-through değil. Bu ayrım tüm yeteneklerini ve sorun giderme yaklaşımlarını yönlendirir.</li>
+<li><strong>Health monitor&rsquo;lar</strong>, load balancing yönteminden daha önemlidir. Uygulama yanıtlarını kontrol eden HTTP monitor&rsquo;lar her zaman TCP monitor&rsquo;lardan daha iyidir.</li>
+<li><strong>iRule&rsquo;lar</strong>, uygulama kodu değişiklikleri olmadan hat hızında trafik mantığı sağlar — en güçlü LTM farklılaştırıcısı.</li>
+<li><strong>SSL offloading</strong>, şifreleme yükünü backend&rsquo;lerden kaldırır. Düzenlenmiş ortamlarda SSL bridging gereklidir.</li>
+<li>HA için her zaman <strong>özel bir heartbeat VLAN</strong> kullanın. Paylaşılan arayüzler split-brain&rsquo;e neden olur.</li>
+<li>Migrasyonlarda: <strong>önce yedek, sonra aktif</strong>. Aynı anda asla.</li>
+</ul>
+<hr>
+<h2 id="bu-seri">Bu Seri</h2>
+<ul>
+<li>📖 <a href="/tr/technology/f5-bigip-application-delivery-platform-overview/">F5 BIG-IP Platform Genel Bakış — Tüm Modüller</a> ← F5&rsquo;e yeniyseniz buradan başlayın</li>
+<li>🌐 <a href="/tr/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM ve GSLB Deep Dive</a></li>
+<li>🛡️ <a href="/tr/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive</a></li>
+</ul>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<ul>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-architecture/">Ağın Arka Kapısı: Yeni Nesil Console Server Mimarisi</a> — F5 bakım pencereleri sırasında out-of-band erişim</li>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — ADC ile birlikte trafik görünürlüğü</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti</a> — LTM&rsquo;nin Zero Trust mimarisindeki yeri</li>
+</ul>
+]]></content:encoded></item><item><title>F5 BIG-IP Bir Load Balancer Değil — Uygulama Teslim Platformudur</title><link>https://barashhelvadzhaoglu.com/tr/technology/f5-master/</link><pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/f5-master/</guid><description>F5 BIG-IP bir load balancer&amp;#39;dan çok daha fazlasıdır. LTM, GTM, WAF, APM, AFM ve BGP routing&amp;#39;i kapsayan master rehber.</description><content:encoded><![CDATA[<h1 id="f5-big-ip-bir-uygulama-teslim-platformudur">F5 BIG-IP: Bir Uygulama Teslim Platformudur</h1>
+<p>Kurumsal bir ortamda F5&rsquo;e en yaygın giriş şöyle gerçekleşir: biri <em>&ldquo;load balancer çöktü&rdquo;</em> yazan bir ticket açar ve F5&rsquo;i işaret eder. Sorun zaten o cümlede gizlidir.</p>
+<p>F5 BIG-IP bir load balancer değildir. Ona öyle demek, bir veri merkezine sunucu odası demek gibidir — teknik olarak yanlış değil, ama konuyu tamamen kaçırıyor.</p>
+<p>F5 BIG-IP bir <strong>Uygulama Teslim Controller&rsquo;ı (ADC)</strong>&lsquo;dır: uygulamaları yerel ve global altyapıda yöneten, güvence altına alan, optimize eden ve yüksek erişilebilir kılan full-proxy bir platformdur. Load balancing, yaptığı belki düzine şeyden yalnızca biridir.</p>
+<hr>
+<h2 id="bu-seriyi-nasıl-okuyalım">Bu Seriyi Nasıl Okuyalım</h2>
+<p>Bu yazı size <strong>büyük resmi</strong> verir — F5&rsquo;in ne olduğu, nerede durduğu, her modülün ne yaptığı ve alternatiflere göre ne zaman mantıklı olduğu.</p>
+<p><strong>Ağ veya güvenlik mühendisiyseniz</strong> ve yapılandırma, iRule&rsquo;lar, migrasyon saha notları ve mimari detaylara derinlemesine inmek istiyorsanız — doğrudan ilgilendiğiniz modüle atlayın:</p>
+<ul>
+<li>🔧 <strong><a href="/tr/technology/f5-ltm-virtual-server-irule-ssl-offloading-ha/">F5 LTM Deep Dive</a></strong> — Virtual server&rsquo;lar, pool&rsquo;lar, iRule&rsquo;lar, SSL offloading, HA ve 30 cihazlık migrasyon rehberi</li>
+<li>🌐 <strong><a href="/tr/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM ve GSLB Deep Dive</a></strong> — iQuery, Wide IP&rsquo;ler, topoloji routing, DNS TTL stratejisi, çok DC failover tasarımı</li>
+<li>🛡️ <strong><a href="/tr/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive</a></strong> — ASM ve Advanced WAF, OWASP Top 10, bot savunması, şeffaftan engellemeye deployment stratejisi</li>
+</ul>
+<p><strong>Mimar veya karar vericiyseniz</strong> ve F5&rsquo;in altyapınıza uyup uymadığını değerlendiriyorsanız — okumaya burada devam edin. Bu yazı, iRule sözdizimini anlamanızı gerektirmeden o soruyu yanıtlıyor.</p>
+<hr>
+<h2 id="f5-kurumsal-mimaride-nerede-durur">F5 Kurumsal Mimaride Nerede Durur?</h2>
+<p>F5 BIG-IP, firewall ile uygulama sunucuları arasında çalışır:</p>
+<pre tabindex="0"><code>İnternet
+    │
+[DDoS Scrubbing / ISP]
+    │
+[NGFW — Palo Alto / Fortinet]   ← L3/L4: routing, IP filtreleme, VPN, stateful inspection
+    │
+[F5 BIG-IP]                     ← L4–L7: uygulama teslimi, SSL, sağlık, routing mantığı
+    │
+[Backend Sunucular / Uygulama Kümeleri]
+</code></pre><p>Firewall, ağ düzeyindeki kararları alır. F5, bunun üzerindeki her şeyi yönetir — SSL sonlandırma, sağlık bilincine sahip load balancing, session persistence, trafik manipülasyonu ve Katman 7 güvenliği.</p>
+<p>Bu ayrım önemlidir çünkü bir firewall F5&rsquo;in yaptığını yapmak üzere tasarlanmamıştır. Saniyede binlerce SSL oturumunu verimli biçimde sonlandıramaz, sağlık izleme için HTTP yanıt gövdelerini inceleyemez, uygulama başlıklarını anında yeniden yazamaz ya da URI yolları, çerezler veya kullanıcı kimliğine dayalı routing kararları veremez.</p>
+<p>İki veri merkezi tasarımında mimari genişler:</p>
+<pre tabindex="0"><code>               [F5 GTM]        ← DNS düzeyi: istemcileri doğru DC&#39;ye yönlendirir
+              /         \
+         [DC-1]         [DC-2]
+       [F5 LTM]       [F5 LTM] ← Yerel: her DC içinde trafiği dağıtır
+           │               │
+      Uygulama Sunucuları  Uygulama Sunucuları
+</code></pre><p>GTM her iki LTM&rsquo;nin üzerinde oturur ve DNS sorgularını yanıtlar — istemcileri sağlık, yük ve coğrafyaya göre uygun veri merkezine yönlendirir. Bu, çok DC failover&rsquo;ını manuel yerine otomatik yapan şeydir.</p>
+<hr>
+<h2 id="tam-modül-haritası">Tam Modül Haritası</h2>
+<p>TMOS (Traffic Management Operating System) temeldir. Her F5 modülü onun üzerinde çalışır. Hangi modülün hangi sorunu çözdüğünü anlamak, hem mimari tasarım hem de lisanslama görüşmeleri için anahtardır.</p>
+<h3 id="ltm--local-traffic-manager">LTM — Local Traffic Manager</h3>
+<p>Temel modül. Neredeyse her F5 deployment&rsquo;ı buradan başlar.</p>
+<p>LTM, bir <strong>full-proxy ADC</strong>&lsquo;dir: her istemci bağlantısını sonlandırır, inceler, routing ve politika kararları alır ve backend&rsquo;e yeni bir bağlantı açar. Bu full-proxy konumu, uygulama trafiği üzerinde tam görünürlük ve kontrol sağlar.</p>
+<p>LTM&rsquo;nin sunduğu özellikler:</p>
+<ul>
+<li>Backend sunucu pool&rsquo;larında load balancing — yalnızca TCP erişilebilirliğini değil, uygulama yanıtlarını anlayan sağlık izleme ile</li>
+<li>SSL/TLS offloading — backend&rsquo;ler adına HTTPS sonlandırma, şifreleme yüklerini kaldırma</li>
+<li>Session persistence — kullanıcıları istekler genelinde aynı backend sunucusuna bağlı tutma</li>
+<li>iRule&rsquo;lar — trafik düzeyinde hat hızında çalışan programlanabilir bir betik katmanı: başlık yeniden yazma, URI&rsquo;ye göre yönlendirme, içerik ekleme, hız sınırı uygulama</li>
+<li>Yüksek erişilebilirlik — saniye altı failover ile Aktif-Yedek veya Aktif-Aktif kümeleme</li>
+</ul>
+<p>→ <strong><a href="/tr/technology/f5-ltm-virtual-server-irule-ssl-offloading-ha/">F5 LTM Deep Dive: Virtual Server&rsquo;lar, iRule&rsquo;lar, SSL Offloading ve HA</a></strong></p>
+<hr>
+<h3 id="gtm--dns--global-traffic-manager">GTM / DNS — Global Traffic Manager</h3>
+<p>LTM trafiği tek bir veri merkezi içinde yönetir. GTM trafiği veri merkezleri <strong>arasında</strong> yönetir — DNS düzeyinde.</p>
+<p>Bir istemci <code>webapp.sirket.com</code>&lsquo;u çözümlediğinde, GTM DNS sorgusunu yanıtlar. Yanıtı, hangi veri merkezinin sağlıklı olduğuna, mevcut yüke ve istemcinin coğrafi olarak nerede bulunduğuna bağlıdır.</p>
+<p>GTM&rsquo;nin temel özelliği <strong>iQuery</strong>&lsquo;dir — doğrudan LTM&rsquo;den gerçek zamanlı uygulama sağlık verisi sağlayan özel bir protokol. Bir backend uygulaması başarısız olduğunda ve LTM pool&rsquo;unu down olarak işaretlediğinde, GTM bunu anında bilir ve DNS TTL süresinin dolmasını beklemeden yeni istemcileri o veri merkezine yönlendirmeyi durdurur.</p>
+<p>GTM&rsquo;nin sunduğu özellikler:</p>
+<ul>
+<li>Birden fazla veri merkezinde Global Server Load Balancing (GSLB)</li>
+<li>Bir DC çevrimdışı olduğunda otomatik DNS düzeyinde failover</li>
+<li>Topoloji tabanlı routing — Avrupalı kullanıcılar AB veri merkezlerine, Orta Doğulu kullanıcılar bölgesel DC&rsquo;lere</li>
+<li>Esnek politikalar: her zaman birincil tercih et (Global Availability), eşit dağılım (Round Robin) veya bağlantı bilincine sahip (Least Connections)</li>
+</ul>
+<p>→ <strong><a href="/tr/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM ve GSLB Deep Dive: Global Trafik Yönetimi ve DNS Failover</a></strong></p>
+<hr>
+<h3 id="waf--web-application-firewall-asm--advanced-waf">WAF — Web Application Firewall (ASM / Advanced WAF)</h3>
+<p>Bir ağ firewall&rsquo;u L3/L4&rsquo;te çalışır. Bir POST isteği gövdesinin SQL injection payload içerip içermediğini inceleyemez. WAF inceleyebilir.</p>
+<p>F5 WAF, SSL sonlandırmasından sonra HTTP/HTTPS uygulama trafiğini inceleyerek LTM virtual server&rsquo;ında inline çalışır. Bu konumlama, şifresi çözülmüş içeriğe tam görünürlük sağlar.</p>
+<p>F5 iki WAF katmanı sunar:</p>
+<ul>
+<li><strong>ASM</strong> — bilinen saldırılara karşı imza tabanlı koruma, OWASP Top 10 kapsamı, parametre ve çerez zorunluluğu</li>
+<li><strong>Advanced WAF</strong> — davranışsal bot savunması, credential stuffing koruması, JavaScript challenge&rsquo;ları ve L7 DoS azaltmayı ekler</li>
+</ul>
+<p>WAF&rsquo;ın koruduğu şeyler: SQL injection, XSS, CSRF, parametre tampering, çerez zehirlenmesi, zorla gezinme, bot trafiği ve uygulama katmanı DoS.</p>
+<p>→ <strong><a href="/tr/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive: ASM ve Advanced WAF ile Uygulama Güvenliği</a></strong></p>
+<hr>
+<h3 id="apm--access-policy-manager">APM — Access Policy Manager</h3>
+<p>APM, F5&rsquo;in kimlik ve erişim modülüdür — F5&rsquo;in trafik tesliminin ötesine geçerek <strong>erişim kontrolüne</strong> girdiği yer.</p>
+<ul>
+<li><strong>SSL VPN</strong> — BIG-IP Edge Client aracılığıyla tam ağ düzeyinde uzak erişim, Cisco AnyConnect veya Fortinet SSL VPN ile karşılaştırılabilir</li>
+<li><strong>Zero Trust Network Access (ZTNA)</strong> — tam ağı açığa çıkarmadan kimlik bilincine sahip, uygulama başına erişim</li>
+<li><strong>SSO</strong> — uygulamalar genelinde sorunsuz kimlik doğrulama için Kerberos, SAML, OAuth entegrasyonu</li>
+<li><strong>MFA entegrasyonu</strong> — RADIUS, LDAP, Active Directory, RSA SecurID</li>
+<li><strong>Endpoint inspection</strong> — erişim vermeden önce cihaz sağlığını doğrulama (AV durumu, yama seviyesi, domain üyeliği)</li>
+</ul>
+<p>APM&rsquo;nin bağımsız VPN çözümlerine göre avantajı: LTM ile aynı donanım ve yönetim düzlemini paylaşır. Hem uygulama teslimi hem de uzak erişim için tek platform.</p>
+<hr>
+<h3 id="afm--advanced-firewall-manager">AFM — Advanced Firewall Manager</h3>
+<p>AFM, F5 platformuna ağ düzeyinde firewall özellikleri ekler:</p>
+<ul>
+<li>L3/L4 stateful paket incelemesi — ADC üzerinde inline çalışan geleneksel bir ağ firewall&rsquo;una benzer</li>
+<li><strong>DoS ve DDoS koruması</strong> — donanım hızlarında hız sınırlama, protokol anomali tespiti, TCP SYN flood azaltma</li>
+<li><strong>IP intelligence</strong> — F5&rsquo;in tehdit istihbaratı beslemeleri aracılığıyla bilinen kötü IP&rsquo;leri, Tor çıkış node&rsquo;larını, botnet C2 adreslerini engelleme</li>
+<li>Ağ Adresi Çevirisi (NAT) politikaları</li>
+</ul>
+<p>AFM, organizasyonların firewall ve ADC işlevlerini tek bir platformda birleştirmek istediğinde veya ADC&rsquo;nin kendisine özel bir koruma katmanı ihtiyaç duyulduğunda kullanılır.</p>
+<hr>
+<h3 id="bgp-ve-dinamik-routing">BGP ve Dinamik Routing</h3>
+<p>F5&rsquo;in en az bilinen özelliklerinden biri: <strong>BIG-IP tam bir routing yığını çalıştırır</strong>.</p>
+<p>TMOS, BGP, OSPF, route domain&rsquo;li statik rotalar (VRF eşdeğeri) ve ECMP destekler. Pratikte BGP en ilgili olanıdır:</p>
+<ul>
+<li>F5, BGP routing&rsquo;e katılabilir ve Virtual IP adreslerini BGP rotaları olarak duyurabilir</li>
+<li>Büyük kurumsal ve servis sağlayıcı ortamlarında, BGP aracılığıyla <strong>anycast VIP duyurusu</strong>, aynı VIP IP&rsquo;nin birden fazla veri merkezinden duyurulmasına olanak tanır — routing doğal olarak istemcileri en yakın sağlıklı siteye yönlendirir</li>
+<li>Planlı bakım pencerelerinde BGP çekilmesi, manuel DNS değişikliklerine gerek kalmadan trafiği otomatik olarak DR sitelerine kaydırır</li>
+</ul>
+<p>Çalıştığım bankacılık ortamında, planlı bakım sırasında VIP duyurularını dinamik olarak çekmek için F5 ile çekirdek routing katmanı arasında BGP kullandık — temiz, otomatik, DNS değişikliği gerektirmiyor.</p>
+<hr>
+<h3 id="link-controller">Link Controller</h3>
+<p>Link Controller, birden fazla ISP bağlantısında giden internet bağlantısını yönetir:</p>
+<ul>
+<li>Birden fazla upstream ISP bağlantısında load balancing</li>
+<li>Maliyet tabanlı routing — daha ucuz bağlantıları tercih et, gerektiğinde premium bağlantılara geç</li>
+<li>Bağlantı arızasında otomatik yeniden yönlendirme ile ISP sağlık izleme</li>
+</ul>
+<p>Basit aktif-yedek yerine akıllı dağılım isteyen çok ISP bağlantısı olan organizasyonlar için en ilgili modüldür.</p>
+<hr>
+<h3 id="irulelar-ve-irules-lx">iRule&rsquo;lar ve iRules LX</h3>
+<p>iRule&rsquo;lar, F5&rsquo;in programlanabilir trafik katmanıdır — TMOS veri düzleminde hat hızında çalışan Tcl tabanlı betikler. Modüller genelinde uygulanır ve trafiğin herhangi bir yönünü manipüle edebilir: başlıklar, URI&rsquo;ler, çerezler, routing kararları, SSL özellikleri.</p>
+<p>iRules LX, daha karmaşık mantık ve harici API entegrasyonları için bunu bir Node.js çalışma zamanıyla genişletir.</p>
+<p>iRule&rsquo;lar, standart dışı uygulama gereksinimleri olan organizasyonlar için F5&rsquo;i benzersiz biçimde esnek kılan şeydir — hiçbir profil veya politika kullanım senaryosunu karşılamadığında, bir iRule genellikle karşılar.</p>
+<hr>
+<h2 id="f5-ne-zaman-mantıklıdır--ne-zaman-değil">F5 Ne Zaman Mantıklıdır — Ne Zaman Değil?</h2>
+<p>F5 BIG-IP güçlü, operasyonel açıdan olgun ve pahalıdır. Onu kullanma kararı yalnızca itibara değil, belirli gereksinimlere dayanmalıdır.</p>
+<p><strong>F5 doğru seçimdir:</strong></p>
+<ul>
+<li>SSL/TLS sonlandırma hacmi yüksek olduğunda — fiziksel cihazlardaki donanım hızlandırması, yazılım çözümlerinin ekonomik olarak karşılayamadığı saniyede binlerce oturumu yönetir</li>
+<li>Uygulamalar, daha basit proxy&rsquo;lerin uygulama kodu değişiklikleri olmadan ifade edemeyeceği karmaşık trafik mantığı (iRule&rsquo;lar) gerektirdiğinde</li>
+<li>Birden fazla veri merkezi otomatik DNS düzeyinde failover (GTM) gerektirdiğinde</li>
+<li>Düzenleyici gereklilikler ayrıntılı denetim loguyla WAF zorunlu kıldığında</li>
+<li>Uygulama teslimi, VPN ve L7 güvenliği için tek bir platforma ihtiyaç duyulduğunda — operasyonel karmaşıklığı azaltmak</li>
+<li>Görev-kritik uygulamalar bağlantı durumu yansıtma ile saniye altı HA failover gerektirdiğinde</li>
+</ul>
+<p><strong>Alternatifleri değerlendirin:</strong></p>
+<ul>
+<li>Altyapınız tamamen cloud-native olduğunda — AWS ALB, Azure Load Balancer veya GCP Load Balancing çoğu kullanım senaryosunu şirket içi donanım gerektirmeden karşılar</li>
+<li>Trafik hacimleri ılımlı ve Nginx Plus veya HAProxy gereksinimlerinizi çok daha düşük maliyetle karşıladığında</li>
+<li>Uygulamalar durumsuz ve session persistence gerekli olmadığında</li>
+<li>TCO birincil kısıt ve açık kaynak çözümler ekibiniz için operasyonel olarak uygulanabilir olduğunda</li>
+</ul>
+<p>Dürüst özet: şirket içi altyapıya ve görev-kritik uygulama gereksinimlerine sahip bankacılık, telekom ve büyük kurumlarda F5 baskın platform olmayı sürdürüyor. Cloud-native veya maliyet kısıtlı ortamlarda, F5 lisanslamaya bağlanmadan önce alternatifleri ciddiye alın.</p>
+<hr>
+<h2 id="bu-seri">Bu Seri</h2>
+<p>Bu yazı başlangıç noktasıdır. Her modülün özel bir deep dive&rsquo;ı vardır:</p>
+<ul>
+<li>🔧 <strong><a href="/tr/technology/f5-ltm-virtual-server-irule-ssl-offloading-ha/">F5 LTM Deep Dive: Virtual Server&rsquo;lar, iRule&rsquo;lar, SSL Offloading ve HA</a></strong> — Full-proxy mimarisi, pool yapılandırması, health monitor&rsquo;lar, iRule örnekleri, session persistence, HA kümeleme ve sıfır downtime 30 cihaz migrasyon rehberi</li>
+<li>🌐 <strong><a href="/tr/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM ve GSLB Deep Dive: Global Trafik Yönetimi ve DNS Failover</a></strong> — Wide IP&rsquo;ler, iQuery, topoloji routing, TTL stratejisi, aktif-aktif ve aktif-yedek DC desenleri</li>
+<li>🛡️ <strong><a href="/tr/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive: ASM ve Advanced WAF ile Uygulama Güvenliği</a></strong> — Güvenlik politikası modelleri, OWASP Top 10 kapsamı, bot savunması, L7 DoS koruması ve şeffaftan engellemeye deployment stratejisi</li>
+</ul>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<ul>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Tam yığın genelinde trafik görünürlüğü</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — APM ve WAF&rsquo;ın Zero Trust&rsquo;ta yeri</li>
+<li>🏗️ <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Ürünler Koleksiyonu Değildir</a> — ADC yerleşiminin arkasındaki sistem düşüncesi</li>
+<li>🎯 <a href="/tr/architecture/network-product-selection-strategy/">Ağ Altyapısı Ürün Seçimi: Stratejik Kriterler</a> — ADC satıcılarını nesnel olarak nasıl değerlendirirsiniz</li>
+</ul>
+]]></content:encoded></item></channel></rss>

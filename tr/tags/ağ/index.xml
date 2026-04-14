@@ -1,1 +1,71 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ağ on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/a%C4%9F/</link><description>Recent content in Ağ on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Wed, 25 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/a%C4%9F/index.xml" rel="self" type="application/rss+xml"/><item><title>Wi-Fi Sorunları mı? Kablo Gerektirmeyen Kalıcı Mesh Çözümü — Ofisler, Villalar ve Lüks Mülkler için</title><link>https://barashhelvadzhaoglu.com/tr/posts/wifi-mesh-solution/</link><pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/wifi-mesh-solution/</guid><description>Wi-Fi her odaya ulaşmıyor mu? Aruba Instant On Mesh ve ClientMatch&amp;#39;in kablo gerektirmeden kalıcı çözüm sunduğunu öğrenin.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ağ on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/a%C4%9F/</link><description>Recent content in Ağ on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Wed, 25 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/a%C4%9F/index.xml" rel="self" type="application/rss+xml"/><item><title>Wi-Fi Sorunları mı? Kablo Gerektirmeyen Kalıcı Mesh Çözümü — Ofisler, Villalar ve Lüks Mülkler için</title><link>https://barashhelvadzhaoglu.com/tr/posts/wifi-mesh-solution/</link><pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/wifi-mesh-solution/</guid><description>Wi-Fi her odaya ulaşmıyor mu? Aruba Instant On Mesh ve ClientMatch&amp;#39;in kablo gerektirmeden kalıcı çözüm sunduğunu öğrenin.</description><content:encoded><![CDATA[<p>Tanıdık geliyor mu? Ön ofiste veya resepsiyonda Wi-Fi mükemmel — ama toplantı odasına, mutfağa veya arka bölüme geçince bağlantı düşüyor ya da verimli çalışmayı imkânsız kılacak kadar yavaşlıyor.</p>
+<p>Ya da evde: Oturma odasında Netflix akıcı çalışıyor, ama üst katta veya bahçede bağlantı gelip gidiyor. Üç katlı bir villada veya su kenarındaki lüks bir mülkte her odada güçlü Wi-Fi bir hayal gibi görünüyor.</p>
+<p>Değil. Ve en güzel yanı: Sorun kalıcı olarak çözülebilir — <strong>tek bir metre kablo döşemeden.</strong></p>
+<figure>
+    <img loading="lazy" src="/img/postimages/wifi-mesh-cover.webp"/> <figcaption>
+            Ofis ve Villa için Wi-Fi Mesh Çözümü — Aruba Instant On
+        </figcaption>
+</figure>
+
+<h2 id="neden-tek-router-yetmiyor">Neden Tek Router Yetmiyor?</h2>
+<p>Standart bir router belki 80–100 metrekarelik bir daire için tasarlanmıştır. Birden fazla odalı ve kalın beton duvarlı bir ofiste ya da aynı anda düzinelerce cihazın bağlı olduğu büyük bir evde tek bir router yetersiz kalır.</p>
+<p>Sorun yalnızca kapsama alanı değildir. Cihazlar sinyali zayıf olsa bile mevcut erişim noktasına inatla yapışır, daha güçlü birine geçmek yerine. Bu olguya <strong>&ldquo;Yapışkan İstemci (Sticky Client)&rdquo;</strong> deniyor — ve pek çok kullanıcı bunu farkında olmadan her gün yaşıyor.</p>
+<h2 id="çözüm-mesh--ama-doğru-yapılmış">Çözüm: Mesh — Ama Doğru Yapılmış</h2>
+<p>Mesh ağlar, birden fazla erişim noktasının birbirleriyle iletişim kurmasını ve tek, kesintisiz bir ağ oluşturmasını sağlar. Ancak tüm mesh sistemleri eşit değildir.</p>
+<p>Ucuz tüketici mesh sistemleri küçük bir daire için yeterli olabilir. Ama üç katlı bir villada aynı anda 30&rsquo;dan fazla cihaz bağlıysa veya ofiste 15 çalışan çevrimiçi çalışıyorsa bu sistemler hızla sınırlarına ulaşır.</p>
+<h2 id="aruba-instant-on-ve-clientmatch-teknolojisi">Aruba Instant On ve ClientMatch Teknolojisi</h2>
+<p>Aruba, HP&rsquo;nin profesyonel ağ markasıdır. Instant On serisi, kurumsal bilgi birikimini küçük işletmelere ve premium ev kullanıcılarına erişilebilir bir fiyatla sunar.</p>
+<p>Aruba&rsquo;yı gerçekten farklı kılan özellik <strong>ClientMatch teknolojisidir</strong>:</p>
+<p>Standart bir erişim noktası cihazınızı bağlar ve sonra bırakır. Odadan odaya geçersiniz ama telefonunuz on beş metre geride kalan zayıf erişim noktasına inatla bağlı kalmaya devam eder. ClientMatch ise tüm erişim noktalarını sürekli iletişimde tutar. Sinyal kalitesi düştüğü anda sistem cihazınızı otomatik olarak en güçlü noktaya yönlendirir — kesintisiz.</p>
+<p>Bu özellikle şu senaryolarda kritiktir:</p>
+<ul>
+<li>Katlar arasında veya evden bahçeye geçişte</li>
+<li>Geniş açık ofiste hareket eden çalışanlar</li>
+<li>Video görüşmesi sırasında odalar arasında dolaşan ev sahibi</li>
+</ul>
+<h2 id="kablo-olmadan-nasıl-çalışır">Kablo Olmadan Nasıl Çalışır?</h2>
+<p>Aruba Instant On&rsquo;da erişim noktaları birbirleriyle kablosuz iletişim kurar. Biri internet ile kablolu bağlıdır, diğerleri ondan beslenir:</p>
+<pre tabindex="0"><code>İnternet → Modem/Router
+                ↓ (kablo — yalnızca bu bir tane)
+         Ana Aruba AP (zemin kat)
+                ↓ (kablosuz mesh)
+         2. Aruba AP (1. kat)
+                ↓ (kablosuz mesh)
+         3. Aruba AP (2. kat / bahçe)
+</code></pre><p>Priz olan her yere erişim noktası yerleştirilebilir. Başka bir şeye gerek yok.</p>
+<h2 id="tasarım-da-etkileyici">Tasarım da Etkileyici</h2>
+<p>Aruba Instant On cihazları yalnızca teknik açıdan değil, görsel açıdan da etkileyicidir. Minimalist beyaz tasarımlarıyla bir masaya, kitaplığa veya televizyonun yanına zahmetsizce uyum sağlarlar. Tavan montajı gerekmez.</p>
+<h2 id="yalnızca-wi-fi-değil-switchler-poe-ve-kamera-entegrasyonu">Yalnızca Wi-Fi Değil: Switch&rsquo;ler, PoE ve Kamera Entegrasyonu</h2>
+<p>Aruba Instant On ekosistemi Wi-Fi&rsquo;nin çok ötesine geçer. <strong>Mini PoE switch&rsquo;ler</strong> eklenerek çok daha kapsamlı bir altyapı kurulabilir:</p>
+<p><strong>PoE (Power over Ethernet) nedir?</strong>
+Tek bir Ethernet kablosuyla hem veri hem güç iletilir. Kamera kurulumları için bu gerçek bir devrimdir:</p>
+<pre tabindex="0"><code>Aruba PoE Switch
+      ├── Aruba AP (Wi-Fi — kablo üzerinden güç)
+      ├── IP Kamera 1 (güç + veri, tek kablo)
+      ├── IP Kamera 2 (güç + veri, tek kablo)
+      └── IP Kamera 3 (güç + veri, tek kablo)
+</code></pre><p>Kameralar için ayrı bir elektrikçiye gerek yok. Tek bir Ethernet kablosu her şeyi halleder.</p>
+<h2 id="güvenlik">Güvenlik</h2>
+<p>Aruba Instant On&rsquo;da çalışan ağı ve misafir ağı birbirinden tamamen izole edilmiştir. Misafir Wi-Fi&rsquo;sine bağlanan biri dahili sistemlere, NAS depolama alanına veya yazıcılara erişemez — hem güvenlik hem de GDPR uyumu açısından kritik.</p>
+<h2 id="pratikten-bir-hukuk-bürosu">Pratikten: Bir Hukuk Bürosu</h2>
+<p>Küçük bir hukuk bürosu, üç ofis odası. Avukatların çalıştığı arka odalarda bağlantı sürekli düşüyordu. Video görüşmeleri kesintiye uğruyordu.</p>
+<p>Çözüm: İki Aruba Instant On AP eklendi — biri koridora, biri arka ofise — kablosuz mesh ile bağlandı. Kurulum iki saat sürdü, mesai saatleri içinde, tek bir dakika kesinti olmadan.</p>
+<p>Sonuç: Ofisin her köşesinde güçlü, kararlı bağlantı. Çalışanlar ve müvekkiller için ayrı ağlar. Video görüşmeleri sorunsuz çalışıyor.</p>
+<h2 id="sonuç">Sonuç</h2>
+<p>Wi-Fi sorunlarının genellikle ilk bakışta göründüğünden daha basit bir çözümü vardır. Kablo döşemeye, duvar açmaya gerek yok. Doğru cihazlar ve ClientMatch teknolojisiyle, ofisinizin her köşesinde veya villanızın her katında kesintisiz, yüksek performanslı Wi-Fi tamamen mümkündür.</p>
+<p>Ücretsiz analiz için WhatsApp&rsquo;tan yazın — genellikle bir saat içinde yanıt veririm.</p>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Koruma &amp; Güvenlik</strong></p>
+<ul>
+<li>💾 <a href="/tr/posts/nas-backup/">RAID&rsquo;siz NAS&rsquo;ınız Bir Zaman Bombasıdır</a> — AWS S3 ile veri yedekleme</li>
+<li>🔋 <a href="/tr/posts/ups-office/">Elektrik Kesilince Ne Olur?</a> — Ofis ve muayenehane için UPS koruması</li>
+<li>🔒 <a href="/tr/posts/ssl-websecurity/">SSL Sertifikası — &ldquo;Güvenli Değil&rdquo; Uyarısı Müşteri Kaybettirir</a> — KOBİ&rsquo;ler için web sitesi güvenliği</li>
+</ul>
+<p><strong>Mimari &amp; Altyapı</strong></p>
+<ul>
+<li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a> — Mimari öncelikli ağ tasarımı</li>
+<li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Dayanıklı IT için sistem düşüncesi</li>
+</ul>
+]]></content:encoded></item></channel></rss>

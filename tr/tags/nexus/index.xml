@@ -1,1 +1,126 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Nexus on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/nexus/</link><description>Recent content in Nexus on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Tue, 30 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/nexus/index.xml" rel="self" type="application/rss+xml"/><item><title>Cisco Nexus NX-OS Yazılım Güncelleme Rehberi: Sahada Test Edilmiş Adım Adım</title><link>https://barashhelvadzhaoglu.com/tr/posts/cisco-nexus-nxos-upgrade-guide/</link><pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/cisco-nexus-nxos-upgrade-guide/</guid><description>Cisco Nexus NX-OS güncelleme rehberi — hazırlık, güncelleme yolu, dosya transferi, rollback ve ROMMON kurtarma senaryoları.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Nexus on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/nexus/</link><description>Recent content in Nexus on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Tue, 30 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/nexus/index.xml" rel="self" type="application/rss+xml"/><item><title>Cisco Nexus NX-OS Yazılım Güncelleme Rehberi: Sahada Test Edilmiş Adım Adım</title><link>https://barashhelvadzhaoglu.com/tr/posts/cisco-nexus-nxos-upgrade-guide/</link><pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/cisco-nexus-nxos-upgrade-guide/</guid><description>Cisco Nexus NX-OS güncelleme rehberi — hazırlık, güncelleme yolu, dosya transferi, rollback ve ROMMON kurtarma senaryoları.</description><content:encoded><![CDATA[<p>Bu rehber, Cisco Nexus switch&rsquo;lerde yazılım (NX-OS) güncelleme sürecini <strong>sahada uygulanabilir</strong>, <strong>adım adım</strong> ve <strong>geri dönüş senaryoları dahil</strong> olacak şekilde ele alır. Amaç; güncelleme sırasında servis kesintisi riskini azaltmak ve olası bir hatada cihazı hızlıca ayağa kaldırabilmektir.</p>
+<p>Yaşanan upgrade problemlerinin büyük bölümü güncellemenin kendisinden değil — hazırlık adımlarının atlanmasından kaynaklanır. Bu rehber hazırlığı, uygulama kadar ciddiye alır.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/nexus-nxos-upgrade-cover.webp"/> <figcaption>
+            Cisco Nexus NX-OS Upgrade Süreci
+        </figcaption>
+</figure>
+
+<blockquote>
+<p>Upgrade hatalarında out-of-band erişim için: <a href="/tr/posts/next-gen-console-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a></p>
+</blockquote>
+<h2 id="1-çalışma-öncesi-kontroller">1. Çalışma Öncesi Kontroller</h2>
+<p>Yazılım güncelleme işlemine başlamadan önce aşağıdaki hazırlık adımlarını mutlaka tamamlayın. Bu aşama en çok atlanan — ve en çok problem üretendir.</p>
+<h3 id="konfigürasyon-yedeği">Konfigürasyon Yedeği</h3>
+<ul>
+<li>Cihazınızın <strong>mevcut konfigürasyon yedeğini</strong> her şeyden önce alın.</li>
+<li>Yedeği switch üzerinde değil; kendi bilgisayarınızda veya FTP/SFTP gibi <strong>harici bir konumda</strong> saklayın.</li>
+<li>Upgrade başarısız olursa veya rollback gerekirse bu yedek hayati önem taşır.</li>
+</ul>
+<h3 id="switch-modeli-ve-mevcut-yazılım-sürümü-kontrolü">Switch Modeli ve Mevcut Yazılım Sürümü Kontrolü</h3>
+<p>Switch&rsquo;in modelini ve çalışan NX-OS sürümünü kontrol etmek için:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>show version
+</span></span><span style="display:flex;"><span>show module
+</span></span><span style="display:flex;"><span>show inventory
+</span></span></code></pre></div><p>Bu çıktılar; doğru NX-OS imajını seçmek, upgrade path&rsquo;i belirlemek ve donanım uyumluluğunu kontrol etmek için gereklidir.</p>
+<h2 id="2-yazılım-dosyasını-indirme">2. Yazılım Dosyasını İndirme</h2>
+<ul>
+<li>Switch modelinize uygun NX-OS imajını Cisco&rsquo;nun resmi portalından indirin:
+<a href="https://software.cisco.com/download/home">https://software.cisco.com/download/home</a></li>
+<li>İndirme için geçerli bir <strong>Cisco hesabı ve gerekli yetkiler</strong> gerekmektedir.</li>
+<li>İndirme tamamlandıktan sonra <strong>MD5 hash değerini mutlaka not alın</strong> — transfer sonrası doğrulama için kullanacaksınız.</li>
+</ul>
+<blockquote>
+<p>MD5 doğrulaması, dosyanın indirme sırasında bozulmadığını doğrular. Bu adım isteğe bağlı değildir.</p>
+</blockquote>
+<h2 id="3-upgrade-path-kontrolü">3. Upgrade Path Kontrolü</h2>
+<p>Mevcut NX-OS sürümünüzden hedef sürüme <strong>doğrudan geçiş her zaman desteklenmeyebilir</strong>. Bazı sürüm kombinasyonları ara adımlar gerektirir.</p>
+<p>Cisco&rsquo;nun resmi araçlarını kullanarak kontrol edin:</p>
+<ul>
+<li><strong>Nexus Upgrade Matrix Tools</strong></li>
+<li>Nexus 9000 / 3000 Series</li>
+<li>Nexus 7000 Series</li>
+</ul>
+<blockquote>
+<p>Birden fazla geçiş adımı gerekiyorsa, işleme başlamadan <strong>tüm ara sürüm imajlarını</strong> önceden indirin.</p>
+</blockquote>
+<h2 id="4-yazılım-dosyasını-switche-kopyalama">4. Yazılım Dosyasını Switch&rsquo;e Kopyalama</h2>
+<h3 id="seçenek-a-ftp-ile-transfer">Seçenek A: FTP ile Transfer</h3>
+<p>FTP en yaygın kullanılan yöntemlerden biridir. NX-OS imajları 2 GB&rsquo;a yaklaşabileceğinden transfer süresi ağ hızına bağlıdır.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>copy ftp://user1:Qazwsx@10.10.10.5/nxos.9.3.10.bin bootflash:
+</span></span></code></pre></div><p>Nexus&rsquo;ta birden fazla VRF tanımı varsa transfer için hangi VRF kullanılacağı sorulur. Management interface genellikle management VRF kullandığından bu örnekte management VRF seçilir.</p>
+<h3 id="seçenek-b-usb-ile-transfer-önerilen">Seçenek B: USB ile Transfer (Önerilen)</h3>
+<p>USB transfer benim tercih ettiğim yöntemdir:</p>
+<ul>
+<li>FTP server hazır değilse</li>
+<li>Zaman kısıtı varsa</li>
+<li>Network üzerinden transfer riski almak istemiyorsanız</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>copy usb1:nxos.9.3.10.bin bootflash:
+</span></span></code></pre></div><p>Devam etmeden önce USB dosya sisteminin Nexus tarafından desteklendiğinden emin olun.</p>
+<h3 id="md5-hash-doğrulaması">MD5 Hash Doğrulaması</h3>
+<p>Transfer tamamlandıktan sonra dosya bütünlüğünü doğrulayın:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>show file bootflash:nxos.9.3.10.bin md5sum
+</span></span></code></pre></div><p>Çıktı, Cisco indirme portalındaki MD5 hash değeriyle birebir aynı olmalıdır.</p>
+<h2 id="5-güncelleme-işlemi">5. Güncelleme İşlemi</h2>
+<p>Tüm kontroller tamamlandıktan sonra güncellemeyi başlatın:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>install all nxos bootflash:nxos.9.3.10.bin
+</span></span></code></pre></div><ul>
+<li>Switch, yükleme öncesinde mevcut konfigürasyonu otomatik olarak kaydeder.</li>
+<li>Reboot öncesinde onay ister.</li>
+<li>Onay verildikten sonra cihaz yeniden başlar ve upgrade işlemi başlar.</li>
+</ul>
+<p>Upgrade süresi cihaz modeline ve yazılım boyutuna göre değişir.</p>
+<h2 id="6-rollback-ve-kurtarma-senaryoları">6. Rollback ve Kurtarma Senaryoları</h2>
+<figure>
+    <img loading="lazy" src="/img/postimages/nexus-upgrade-rollback.webp"/> <figcaption>
+            Nexus Upgrade Rollback ve Kurtarma Yolu
+        </figcaption>
+</figure>
+
+<h3 id="rommon-moduna-geçiş">ROMMON Moduna Geçiş</h3>
+<p>Yükleme başarısız olursa veya cihaz açılmazsa:</p>
+<ul>
+<li>Cihaz açılışı sırasında console bağlantısı üzerinden <strong>CTRL + L</strong> veya <strong>CTRL + C</strong> tuşlarına basarak <strong>ROMMON moduna</strong> geçin.</li>
+</ul>
+<h3 id="rommondan-tftp-ile-boot">ROMMON&rsquo;dan TFTP ile Boot</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>set ip 10.10.10.2 255.255.255.0
+</span></span><span style="display:flex;"><span>set gw 10.10.10.1
+</span></span><span style="display:flex;"><span>cmdline recoverymode<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>boot tftp://10.10.10.2/tftpboot/nxos.9.3.10.bin
+</span></span><span style="display:flex;"><span>init system
+</span></span><span style="display:flex;"><span>reload-nxos
+</span></span></code></pre></div><h3 id="rommondan-usb-ile-boot">ROMMON&rsquo;dan USB ile Boot</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>boot usb1:nxos.9.3.10.bin bootflash:
+</span></span><span style="display:flex;"><span>set ip 10.10.10.2 255.255.255.0
+</span></span><span style="display:flex;"><span>set gw 10.10.10.1
+</span></span><span style="display:flex;"><span>cmdline recoverymode<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>boot usb1:nxos.9.3.10.bin
+</span></span><span style="display:flex;"><span>init system
+</span></span><span style="display:flex;"><span>reload-nxos
+</span></span></code></pre></div><p>TFTP veya USB ile boot ettikten sonra boot ayarlarını doğrulayın ve düzeltin:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>show boot
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>configure terminal
+</span></span><span style="display:flex;"><span>  boot nxos bootflash:/nxos.9.3.10.bin
+</span></span></code></pre></div><h2 id="kritik-uyarı">Kritik Uyarı</h2>
+<p>Yazılım güncellemesi sırasında:</p>
+<ul>
+<li><strong>Ağ bağlantısını kesmeyin</strong></li>
+<li><strong>Güç kaynağını kesmeyin</strong></li>
+</ul>
+<p>Her iki durum da cihazı fiziksel müdahale olmaksızın kurtarılamaz hale getirebilir.</p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Mimari &amp; Operasyonlar</strong></p>
+<ul>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — IP yönetimi kesildiğinde out-of-band erişim</li>
+<li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">Monitoring Zihniyeti: Sadece Görmek Değil, Anlamak</a> — Sorunları tırmanmadan önce yakalamak</li>
+<li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a> — Mimari öncelikli core network tasarımı</li>
+<li>🎯 <a href="/tr/architecture/network-product-selection-strategy/">Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler</a> — Üreticileri stratejik değerlendirme</li>
+</ul>
+<p><strong>Pratik Mühendislik</strong></p>
+<ul>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Trafik görünürlüğü ve güvenlik stratejisi</li>
+<li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Saha Deployment Rehberi</a> — Kimlik tabanlı ağ erişim kontrolü</li>
+</ul>
+]]></content:encoded></item></channel></rss>

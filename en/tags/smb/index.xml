@@ -1,1 +1,258 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>SMB on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/smb/</link><description>Recent content in SMB on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>en</language><lastBuildDate>Wed, 25 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/smb/index.xml" rel="self" type="application/rss+xml"/><item><title>Wi-Fi Problems? A Permanent Mesh Solution Without Cables — For Offices, Villas, and Luxury Properties</title><link>https://barashhelvadzhaoglu.com/en/posts/wifi-mesh-solution/</link><pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/posts/wifi-mesh-solution/</guid><description>Does your Wi-Fi not reach every room in the office or at home? Learn how Aruba Instant On Mesh and ClientMatch help permanently — without any cable work.</description></item><item><title>What Happens When the Power Goes Out? A UPS Protects Not Just Your PC — But Your Entire Office</title><link>https://barashhelvadzhaoglu.com/en/posts/ups-office/</link><pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/posts/ups-office/</guid><description>A power outage threatens not just the computer but every device in your practice or office. Protect your NAS, switch, modem, and cameras with the right UPS.</description></item><item><title>Your NAS Without RAID Is a Ticking Time Bomb — And the Fix Costs €1 a Month</title><link>https://barashhelvadzhaoglu.com/en/posts/nas-backup/</link><pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/posts/nas-backup/</guid><description>NAS without RAID is a serious business risk. How AWS S3 automatic encrypted backup works and why Glacier costs as little as €1 per month.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>SMB on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/smb/</link><description>Recent content in SMB on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>en</language><lastBuildDate>Wed, 25 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/smb/index.xml" rel="self" type="application/rss+xml"/><item><title>Wi-Fi Problems? A Permanent Mesh Solution Without Cables — For Offices, Villas, and Luxury Properties</title><link>https://barashhelvadzhaoglu.com/en/posts/wifi-mesh-solution/</link><pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/posts/wifi-mesh-solution/</guid><description>Does your Wi-Fi not reach every room in the office or at home? Learn how Aruba Instant On Mesh and ClientMatch help permanently — without any cable work.</description><content:encoded><![CDATA[<p>You know the feeling? In the front office or at reception the Wi-Fi is perfect — but the moment you step into the meeting room, the kitchen, or the back area, the connection drops or becomes too slow for productive work.</p>
+<p>Or at home: Netflix runs smoothly in the living room, but on the upper floor or in the garden the connection comes and goes. In a three-story villa or a luxury property on the water, strong Wi-Fi in every room seems like a dream.</p>
+<p>It isn&rsquo;t. And the best part: the problem can be solved permanently — <strong>without laying a single meter of cable.</strong></p>
+<figure>
+    <img loading="lazy" src="/img/postimages/wifi-mesh-cover.webp"/> <figcaption>
+            Wi-Fi Mesh Solution for Office and Villa — Aruba Instant On
+        </figcaption>
+</figure>
+
+<h2 id="why-isnt-one-router-enough">Why Isn&rsquo;t One Router Enough?</h2>
+<p>A standard router was designed for a flat of maybe 80–100 square meters. In an office with multiple rooms and thick concrete walls, or in a large house where dozens of devices connect simultaneously, a single router simply cannot cope.</p>
+<p>The problem is not just range. Devices stubbornly cling to their current access point even when the signal is weak, instead of switching to a stronger one. This phenomenon is called the <strong>&ldquo;Sticky Client&rdquo;</strong> problem — and many users deal with it daily without knowing it.</p>
+<h2 id="the-solution-mesh--done-right">The Solution: Mesh — Done Right</h2>
+<p>Mesh networks allow multiple access points to communicate with each other and form a single seamless network. But not all mesh systems are equal.</p>
+<p>Cheap consumer mesh systems may be sufficient for a small flat. But when 30+ devices connect simultaneously in a three-story villa, or 15 employees work online in an office, these systems quickly hit their limits.</p>
+<h2 id="aruba-instant-on-and-clientmatch-technology">Aruba Instant On and ClientMatch Technology</h2>
+<p>Aruba is HP&rsquo;s professional networking brand. The Instant On series brings enterprise know-how to small businesses and premium home users at an accessible price.</p>
+<p>The feature that truly sets Aruba apart is <strong>ClientMatch technology</strong>:</p>
+<p>A standard access point connects your device and then leaves it alone. You walk from room to room, but your phone stubbornly holds onto the weak access point fifteen meters behind you. ClientMatch keeps all access points in constant communication. The moment signal quality drops, the system automatically directs your device to the strongest available point — seamlessly, without interruption.</p>
+<p>This is especially important in scenarios like:</p>
+<ul>
+<li>Moving between floors or from the house to the garden</li>
+<li>Employees moving around a large open-plan office</li>
+<li>The homeowner walking between rooms during a video call</li>
+</ul>
+<h2 id="how-does-it-work-without-cables">How Does It Work Without Cables?</h2>
+<p>With Aruba Instant On, access points communicate wirelessly with each other. One is connected to the internet via cable; the others are fed by it:</p>
+<pre tabindex="0"><code>Internet → Modem/Router
+                ↓ (cable — just this one)
+         Main Aruba AP (ground floor)
+                ↓ (wireless mesh)
+         2nd Aruba AP (1st floor)
+                ↓ (wireless mesh)
+         3rd Aruba AP (2nd floor / garden)
+</code></pre><p>Wherever there is a power outlet, an access point can be placed. Nothing more is needed.</p>
+<h2 id="the-design-works-too">The Design Works Too</h2>
+<p>Aruba Instant On devices impress not just technically but visually. Their minimalist white design fits effortlessly on a desk, a bookshelf, or next to the TV. Ceiling mounting is not required.</p>
+<h2 id="beyond-wi-fi-switches-poe-and-camera-integration">Beyond Wi-Fi: Switches, PoE, and Camera Integration</h2>
+<p>The Aruba Instant On ecosystem goes far beyond Wi-Fi. By adding <strong>mini PoE switches</strong>, a much more comprehensive infrastructure can be built:</p>
+<p><strong>What is PoE (Power over Ethernet)?</strong>
+Data and power are transmitted over a single Ethernet cable. For camera installations, this is a real game-changer:</p>
+<pre tabindex="0"><code>Aruba PoE Switch
+      ├── Aruba AP (Wi-Fi — powered via cable)
+      ├── IP Camera 1 (power + data, one cable)
+      ├── IP Camera 2 (power + data, one cable)
+      └── IP Camera 3 (power + data, one cable)
+</code></pre><p>No separate electrician needed for the cameras. A single Ethernet cable handles everything.</p>
+<h2 id="security">Security</h2>
+<p>With Aruba Instant On, the employee network and guest network are completely isolated from each other. Anyone connected to the guest Wi-Fi cannot access internal systems, NAS storage, or printers — critical for both security and GDPR compliance.</p>
+<h2 id="from-practice-a-law-firm">From Practice: A Law Firm</h2>
+<p>A small law firm, three office rooms. In the two back rooms where the lawyers work, the connection kept dropping. Video calls were interrupted.</p>
+<p>The solution: two Aruba Instant On APs added — one in the corridor, one in the back office — connected via wireless mesh. Installation took two hours, during business hours, without a single minute of downtime.</p>
+<p>The result: strong, stable connection in every corner. Separate networks for staff and clients. Video calls run smoothly.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Wi-Fi problems usually have a simpler solution than they first appear. No cables to lay, no walls to open up. With the right devices and ClientMatch technology, seamless, high-performance Wi-Fi is completely achievable in every corner of your office or every floor of your villa.</p>
+<p>Message me on WhatsApp for a free analysis — I usually respond within an hour.</p>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<hr>
+<h2 id="related-articles">Related Articles</h2>
+<p><strong>Protection &amp; Security</strong></p>
+<ul>
+<li>💾 <a href="/en/posts/nas-backup/">Your NAS Without RAID Is a Ticking Time Bomb</a> — Data backup with AWS S3</li>
+<li>🔋 <a href="/en/posts/ups-office/">What Happens When the Power Goes Out?</a> — UPS protection for offices and practices</li>
+<li>🔒 <a href="/en/posts/ssl-websecurity/">SSL Certificate — Why &ldquo;Not Secure&rdquo; Costs You Customers</a> — Website security for SMBs</li>
+</ul>
+<p><strong>Architecture &amp; Infrastructure</strong></p>
+<ul>
+<li>🏗️ <a href="/en/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough</a> — Architecture-first network design</li>
+<li>📐 <a href="/en/architecture/it-infrastructure-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a> — System thinking for resilient IT</li>
+</ul>
+]]></content:encoded></item><item><title>What Happens When the Power Goes Out? A UPS Protects Not Just Your PC — But Your Entire Office</title><link>https://barashhelvadzhaoglu.com/en/posts/ups-office/</link><pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/posts/ups-office/</guid><description>A power outage threatens not just the computer but every device in your practice or office. Protect your NAS, switch, modem, and cameras with the right UPS.</description><content:encoded><![CDATA[<p>&ldquo;UPS? Yes, we have one — it&rsquo;s sitting next to the computer.&rdquo;</p>
+<p>I hear this constantly. And every time I want to ask: What about your NAS? Your switch? Your modem? Your payment terminal?</p>
+<p>Most businesses see a UPS purely as protection against the computer shutting down unexpectedly. But during a power outage, dozens of devices in your office are at risk — and the computer is the least critical of them.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/ups-office-cover.webp"/> <figcaption>
+            UPS Protection for the Entire Office — NAS, Switch, Cameras
+        </figcaption>
+</figure>
+
+<blockquote>
+<p>For complete data protection, pair your UPS with cloud backup: <a href="/en/posts/nas-backup/">Your NAS Without RAID Is a Ticking Time Bomb</a></p>
+</blockquote>
+<h2 id="what-really-happens-when-the-power-goes-out">What Really Happens When the Power Goes Out?</h2>
+<p>Imagine a medical practice or a small office. When the power suddenly cuts out, all of the following go down simultaneously:</p>
+<ul>
+<li><strong>NAS device</strong> — a write operation is interrupted mid-process; the drive can be damaged</li>
+<li><strong>Network switch</strong> — all network connections drop</li>
+<li><strong>Modem/router</strong> — no internet</li>
+<li><strong>IP phone system</strong> — phone lines interrupted</li>
+<li><strong>Payment terminal</strong> — ongoing transaction aborted</li>
+<li><strong>Security cameras</strong> — recording stops</li>
+<li><strong>PCs</strong> — unsaved work lost</li>
+</ul>
+<p>Everything goes down at once. When power returns, all devices try to boot simultaneously — this sudden load can cause further problems with weak electrical installations.</p>
+<h2 id="the-biggest-risk-your-nas">The Biggest Risk: Your NAS</h2>
+<p>Of all these devices, the NAS suffers most from a sudden power outage. A NAS is constantly writing data. If power cuts during a copy operation or scheduled backup, the write is interrupted mid-process. This can lead to filesystem corruption.</p>
+<p>Synology and QNAP NAS devices can work directly with a UPS. Connected via USB cable, the NAS detects the moment of power loss and initiates a safe shutdown sequence:</p>
+<pre tabindex="0"><code>Power cuts out
+      ↓
+UPS switches to battery immediately
+      ↓
+NAS receives signal from the UPS
+      ↓
+Open files are saved
+      ↓
+Safe shutdown in 2 minutes
+      ↓
+No data loss, no filesystem corruption
+      ↓
+Automatic restart when power returns
+</code></pre><p>Without this integration, a UPS only buys you a few extra minutes — the NAS can still shut down abruptly.</p>
+<h2 id="ups-types--which-one-is-right-for-you">UPS Types — Which One Is Right for You?</h2>
+<p><strong>Standby (Offline) UPS</strong>
+The most affordable option. Sufficient for home use and simple PCs. Limited protection against voltage fluctuations.</p>
+<p><strong>Line-Interactive UPS</strong>
+The ideal choice for SMBs. Continuously regulates voltage fluctuations and switches to battery instantly on failure. Recommended type for NAS devices, switches, and critical office equipment.</p>
+<p><strong>Online Double Conversion UPS</strong>
+Highest protection class. For critical servers, medical devices, and systems that cannot tolerate any interruption.</p>
+<h2 id="poe-switch-your-cameras-are-protected-too">PoE Switch: Your Cameras Are Protected Too</h2>
+<p>If you use a PoE switch (Power over Ethernet), your cameras draw power through the switch. If the switch is on the UPS, the cameras are protected too:</p>
+<pre tabindex="0"><code>UPS
+  ↓
+PoE Switch
+  ├── Camera 1 (power via switch)
+  ├── Camera 2 (power via switch)
+  └── NAS (connected via switch)
+</code></pre><p>When power cuts, the UPS kicks in, the switch keeps running, cameras keep recording — while the NAS completes its safe shutdown.</p>
+<h2 id="how-many-minutes-are-enough">How Many Minutes Are Enough?</h2>
+<p>For a typical office setup, 10–15 minutes is sufficient. In that time the NAS completes its safe shutdown, open documents are saved, and servers are properly shut down.</p>
+<p>For most SMBs, <strong>650VA–1500VA</strong> is the right range.</p>
+<h2 id="a-note-on-ups-maintenance">A Note on UPS Maintenance</h2>
+<p>UPS batteries typically need replacing every 3–5 years. With brands like APC and Eaton, the battery is modular — unscrew, swap, done. Five minutes.</p>
+<p>I run an annual UPS check for my customers: battery capacity tested, software updates verified, NAS integration confirmed working.</p>
+<h2 id="where-to-start-prioritization">Where to Start: Prioritization</h2>
+<ol>
+<li><strong>NAS + switch</strong> — most critical, start here</li>
+<li><strong>Server, if present</strong></li>
+<li><strong>Modem/router</strong> — for internet continuity</li>
+<li><strong>PCs</strong> — least critical</li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>The right UPS, properly configured and annually maintained, brings the risk of data loss from a power outage to nearly zero. Message me on WhatsApp for a free assessment.</p>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<hr>
+<h2 id="related-articles">Related Articles</h2>
+<p><strong>Protection &amp; Security</strong></p>
+<ul>
+<li>💾 <a href="/en/posts/nas-backup/">Your NAS Without RAID Is a Ticking Time Bomb</a> — Data backup with AWS S3</li>
+<li>🔒 <a href="/en/posts/ssl-websecurity/">SSL Certificate — Why &ldquo;Not Secure&rdquo; Costs You Customers</a> — Website security for SMBs</li>
+<li>📶 <a href="/en/posts/wifi-mesh-solution/">Wi-Fi Problems? Permanent Mesh Solution Without Cables</a> — Professional Wi-Fi for offices and villas</li>
+</ul>
+<p><strong>Architecture &amp; Infrastructure</strong></p>
+<ul>
+<li>🛠️ <a href="/en/posts/next-gen-console-server-architecture/">The Backdoor of the Network: Next-Gen Console Server</a> — Out-of-band access when everything goes down</li>
+<li>📐 <a href="/en/architecture/it-infrastructure-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a> — System thinking for resilient IT</li>
+</ul>
+]]></content:encoded></item><item><title>Your NAS Without RAID Is a Ticking Time Bomb — And the Fix Costs €1 a Month</title><link>https://barashhelvadzhaoglu.com/en/posts/nas-backup/</link><pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/posts/nas-backup/</guid><description>NAS without RAID is a serious business risk. How AWS S3 automatic encrypted backup works and why Glacier costs as little as €1 per month.</description><content:encoded><![CDATA[<p>Imagine a medical practice. Eight years of patient records, invoices, reports. All on a small NAS device in the office. One morning the device doesn&rsquo;t start. Hard drive failure. You call a data recovery company — &ldquo;we&rsquo;ll try, €800–2000, no guarantee.&rdquo;</p>
+<p>This scenario happens every day. And preventing it costs just a few euros a month.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/nas-backup-cover.webp"/> <figcaption>
+            NAS Backup with AWS S3 — Data Security for SMBs
+        </figcaption>
+</figure>
+
+<h2 id="the-misconception-i-have-a-nas-so-i-have-a-backup">The Misconception: &ldquo;I Have a NAS, So I Have a Backup&rdquo;</h2>
+<p>A NAS (Network Attached Storage) is an excellent device — central storage, accessible from every computer on the network. But most NAS devices in small businesses run with a single hard drive. No RAID.</p>
+<p><strong>What is RAID?</strong>
+RAID writes data to multiple drives simultaneously. In its simplest form, RAID 1 writes the same data to two drives at once. If one fails, the other takes over. No data loss.</p>
+<p>With a NAS running a single drive without RAID, the moment that drive fails, everything is gone. No warning, no recovery.</p>
+<p><strong>&ldquo;But my NAS has RAID&rdquo;</strong> — good, but not enough. RAID protects against drive failure. It does not protect against fire, water damage, theft, ransomware, or accidental deletion. An external backup is essential.</p>
+<h2 id="the-solution-aws-s3-cloud-backup">The Solution: AWS S3 Cloud Backup</h2>
+<p>AWS S3 (Simple Storage Service) is Amazon&rsquo;s cloud storage service. It sounds like something for large corporations — but small businesses can use it for just a few euros a month.</p>
+<p><strong>How it works:</strong></p>
+<pre tabindex="0"><code>NAS device (Synology/QNAP)
+        ↓ (automatic, nightly)
+Hyper Backup software
+        ↓ (encrypted)
+AWS S3 — Frankfurt (eu-central-1)
+        ↓
+Your data: secure, encrypted, redundant
+</code></pre><p>Synology NAS devices have a built-in &ldquo;Hyper Backup&rdquo; application. You configure it once, and every night it automatically sends changed files to S3. Your backup runs while you sleep.</p>
+<h2 id="aws-s3-storage-tiers--which-one-is-right-for-you">AWS S3 Storage Tiers — Which One Is Right for You?</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Tier</th>
+          <th>Best for</th>
+          <th>Access</th>
+          <th>Cost</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>S3 Standard</strong></td>
+          <td>Frequently accessed data</td>
+          <td>Instant</td>
+          <td>~€23/TB/month</td>
+      </tr>
+      <tr>
+          <td><strong>S3 Infrequent Access</strong></td>
+          <td>A few times per month</td>
+          <td>Instant</td>
+          <td>~€12/TB/month</td>
+      </tr>
+      <tr>
+          <td><strong>S3 Glacier Instant</strong></td>
+          <td>Rarely accessed archives</td>
+          <td>Milliseconds</td>
+          <td>~€4/TB/month</td>
+      </tr>
+      <tr>
+          <td><strong>S3 Glacier Deep Archive</strong></td>
+          <td>Long-term archiving</td>
+          <td>12 hours</td>
+          <td>~€1/TB/month</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Recommendation for SMBs:</strong>
+Active business data: <strong>S3 Infrequent Access</strong> — affordable, instant access when needed.
+Older records and archive files: <strong>S3 Glacier Instant</strong> — very low cost, still instantly retrievable.</p>
+<p>A typical scenario for a medical practice: active patient data in S3 IA (<del>€5–8/month), older archive years in Glacier (</del>€1–2/month). <strong>Total monthly cost: €6–10.</strong></p>
+<h2 id="gdpr-and-legal-aspects">GDPR and Legal Aspects</h2>
+<p>If you process patient, client, or customer data, you are subject to GDPR. Two things are critical for cloud backups:</p>
+<p><strong>1. Frankfurt region (eu-central-1) is mandatory</strong> — your data must remain within EU borders.</p>
+<p><strong>2. Encryption is mandatory</strong> — Hyper Backup encrypts your data before sending it to S3. The encryption key stays with you — not even AWS can view the contents.</p>
+<p><strong>3. The account is in your name</strong> — I open a separate AWS account for each customer in your name. The data and the account belong entirely to you.</p>
+<p>For medical practices and law firms I also prepare a <strong>Data Processing Agreement (DPA)</strong> — required under GDPR.</p>
+<h2 id="how-does-the-setup-work">How Does the Setup Work?</h2>
+<ol>
+<li>AWS account opened in your name</li>
+<li>S3 bucket created with correct tier and lifecycle policies</li>
+<li>Hyper Backup installed on your NAS</li>
+<li>First full backup created</li>
+<li>From the next day, only changed files are sent</li>
+<li>Monthly status report by email</li>
+</ol>
+<p><strong>What you need to do after setup:</strong> Nothing. Everything runs automatically.</p>
+<h2 id="what-if-i-dont-have-a-nas">What If I Don&rsquo;t Have a NAS?</h2>
+<p>S3 backup is also possible without a NAS. We install a small backup agent on your PCs (Duplicati — free), and selected folders are automatically sent to S3.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>A NAS with a single drive can fail at any time without warning. Even a RAID NAS does not protect against ransomware or physical damage. With AWS S3, your data is encrypted, redundant, and safe for just a few euros a month.</p>
+<p>The account is yours, the data is yours, the encryption key is yours.</p>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<hr>
+<h2 id="related-articles">Related Articles</h2>
+<p><strong>Protection &amp; Security</strong></p>
+<ul>
+<li>🔋 <a href="/en/posts/ups-office/">What Happens When the Power Goes Out? UPS Protection for Your Office</a> — Protecting NAS and network devices from power failure</li>
+<li>🔒 <a href="/en/posts/ssl-websecurity/">SSL Certificate — Why &ldquo;Not Secure&rdquo; Costs You Customers</a> — Website security for SMBs</li>
+<li>📶 <a href="/en/posts/wifi-mesh-solution/">Wi-Fi Problems? Permanent Mesh Solution Without Cables</a> — Professional Wi-Fi for offices and villas</li>
+</ul>
+<p><strong>Architecture &amp; Infrastructure</strong></p>
+<ul>
+<li>📐 <a href="/en/architecture/it-infrastructure-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a> — System thinking for resilient infrastructure</li>
+<li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">Monitoring Done Right</a> — Detecting IT problems before they escalate</li>
+</ul>
+]]></content:encoded></item></channel></rss>

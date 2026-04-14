@@ -1,1 +1,163 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Collaboration on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/collaboration/</link><description>Recent content in Collaboration on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>en</language><lastBuildDate>Fri, 10 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/collaboration/index.xml" rel="self" type="application/rss+xml"/><item><title>Enterprise Collaboration Infrastructure: From IP Phones to the Cloud Era</title><link>https://barashhelvadzhaoglu.com/en/technology/collaboration-evolution/</link><pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/collaboration-evolution/</guid><description>Enterprise collaboration evolution — from Cisco CUCM and on-premise telephony to cloud-native Webex, Teams, and Zoom. A field engineer&amp;#39;s perspective.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Collaboration on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/collaboration/</link><description>Recent content in Collaboration on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>en</language><lastBuildDate>Fri, 10 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/collaboration/index.xml" rel="self" type="application/rss+xml"/><item><title>Enterprise Collaboration Infrastructure: From IP Phones to the Cloud Era</title><link>https://barashhelvadzhaoglu.com/en/technology/collaboration-evolution/</link><pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/collaboration-evolution/</guid><description>Enterprise collaboration evolution — from Cisco CUCM and on-premise telephony to cloud-native Webex, Teams, and Zoom. A field engineer&amp;#39;s perspective.</description><content:encoded><![CDATA[<h1 id="enterprise-collaboration-infrastructure-from-ip-phones-to-the-cloud-era">Enterprise Collaboration Infrastructure: From IP Phones to the Cloud Era</h1>
+<p>There is a useful thought experiment for anyone who works in enterprise IT: think back to what it took to connect a conference room in one city to a conference room in another city in 2010. Now compare that to what it takes today.</p>
+<p>In 2010, you needed a dedicated codec device at each end, a qualified video conferencing engineer to configure the call settings, a provisioned ISDN line or carefully configured IP infrastructure, and significant lead time to test the connection before the meeting. If the codec firmware versions didn&rsquo;t match, if the firewall ports weren&rsquo;t exactly right, or if the far-end IT team had done their configuration differently, the call wouldn&rsquo;t connect.</p>
+<p>Today, someone creates a Webex or Teams link, shares it in a calendar invite, and everyone joins from wherever they are — laptop, phone, dedicated room system — with one click. The room hardware knows what to do automatically.</p>
+<p>What happened between those two points is one of the most significant architectural transformations in enterprise IT over the past two decades. This article traces that transformation.</p>
+<hr>
+<h2 id="chapter-1-the-ip-telephony-era--when-the-phone-became-a-network-device">Chapter 1: The IP Telephony Era — When the Phone Became a Network Device</h2>
+<h3 id="the-shift-from-analog-to-ip">The Shift from Analog to IP</h3>
+<p>Before IP telephony, enterprise phone systems ran on PBX (Private Branch Exchange) infrastructure — purpose-built hardware completely separate from the data network. The IT team managed the data network; the facilities or telephony team managed the PBX. These were parallel worlds.</p>
+<p>IP telephony changed this fundamentally. The phone became a network endpoint — just another device with an IP address, connecting to the data network instead of a dedicated voice circuit. The PBX was replaced by a call processing server running on standard hardware.</p>
+<p>For Cisco, this meant <strong>Cisco Unified Communications Manager (CUCM)</strong> — a software platform running on dedicated servers (later on UCS hardware) that handled all call routing, dial plan management, voicemail integration, and phone provisioning. A Cisco IP phone would boot, receive its configuration from CUCM via TFTP, register with CUCM via SCCP or SIP, and be ready to make calls — entirely over the data network.</p>
+<h3 id="what-cucm-looked-like-in-practice">What CUCM Looked Like in Practice</h3>
+<p>A typical mid-sized enterprise CUCM deployment:</p>
+<pre tabindex="0"><code>CUCM Publisher (primary)
+CUCM Subscriber x2 (for redundancy)
+CUCM IM &amp; Presence (instant messaging)
+Unity Connection (voicemail)
+Cisco Emergency Responder
+Cisco IP Phones (7900 series, 8800 series)
+</code></pre><p>The dial plan — the set of rules determining how calls were routed, which numbers were internal, which required trunk access, how calls to other sites were handled — lived entirely in CUCM configuration. This was powerful but required significant expertise. A dial plan for a company with 10 offices across 3 countries could involve hundreds of route patterns, translation patterns, hunt groups, and call forwarding rules.</p>
+<p><strong>CUCM upgrades</strong> were a project in themselves. Each major version required careful pre-upgrade testing, a maintenance window, and often a rollback plan. The Cisco CUCM upgrade process — verifying versions, running the upgrade wizard, waiting for subscriber nodes to sync, verifying all phones re-register — could take hours for a large cluster. I&rsquo;ve been through enough of these to know that skipping the preparation steps is where the problems start.</p>
+<h3 id="mpls-and-vpn-making-multi-site-voice-free">MPLS and VPN: Making Multi-Site Voice Free</h3>
+<p>One of IP telephony&rsquo;s most compelling early business cases was inter-site calling. Previously, a call from the Istanbul office to the Ankara office went out through the PSTN — paid per minute, like any other call.</p>
+<p>With IP telephony over a corporate WAN, that same call stayed inside the network entirely. The call went: Istanbul phone → Istanbul CUCM → MPLS/VPN connection → Ankara CUCM → Ankara phone. Zero PSTN cost. For companies with dozens of offices and hundreds of daily inter-site calls, this alone justified the IP telephony migration.</p>
+<p><strong>MPLS</strong> was the dominant WAN technology for this — private, low-latency, predictable. MPLS connected sites in a hub-and-spoke or full-mesh topology, and voice traffic was quality-of-service (QoS) prioritized to ensure call quality.</p>
+<p><strong>IPsec VPN</strong> served smaller sites where MPLS was too expensive — a branch office might connect back to headquarters via IPsec over the internet, with CUCM at headquarters serving phones at the branch.</p>
+<p>The configuration required for this was non-trivial. QoS policies had to be consistent across every network segment the voice traffic traversed. Codec selection (G.711 vs. G.729) had to balance call quality against bandwidth consumption. Call Admission Control had to prevent too many simultaneous calls from saturating a WAN link. All of this was configured, managed, and troubleshot manually.</p>
+<hr>
+<h2 id="chapter-2-video-enters-the-picture--and-brings-complexity-with-it">Chapter 2: Video Enters the Picture — And Brings Complexity With It</h2>
+<h3 id="the-hardware-video-conferencing-era">The Hardware Video Conferencing Era</h3>
+<p>Video conferencing in enterprises didn&rsquo;t start with software. It started with dedicated hardware — purpose-built codec devices that handled video encoding/decoding, connected to large screens, and communicated over ISDN or IP using the H.323 or SIP video protocols.</p>
+<p>The dominant vendors were Cisco (TelePresence), Polycom, and Tandberg (which Cisco acquired in 2010, absorbing their technology into the TelePresence product line).</p>
+<p>A Cisco TelePresence IX5000 room system — the high end of the product line — was an immersive three-screen setup designed to create the feeling of sitting across the table from remote participants. It was impressive engineering. It was also extremely expensive: the hardware alone ran hundreds of thousands of dollars per room, plus dedicated network infrastructure and IT support contracts.</p>
+<p>More commonly deployed were mid-range systems — a Cisco SX80, a Polycom Group Series, a Tandberg C-series endpoint. These were still dedicated hardware: a codec unit, one or two screens, a camera, and a microphone array. Each room had its own device, its own IP address, its own registration to the video infrastructure.</p>
+<h3 id="the-infrastructure-behind-video">The Infrastructure Behind Video</h3>
+<p>Making video calls work in an enterprise required more than just the endpoint hardware. You needed:</p>
+<p><strong>Cisco VCS (Video Communication Server):</strong> The call control platform for video — the equivalent of CUCM but for video endpoints. VCS Expressway handled business-to-business calls and external video connectivity. VCS Control handled internal endpoints.</p>
+<p><strong>MCU (Multipoint Control Unit):</strong> When more than two endpoints needed to be in the same video call, you needed an MCU to mix the audio and video streams. The Cisco Codian MCU, later the MSE 8000 series, handled this. Each MCU had a license for a certain number of simultaneous ports — and running out of MCU capacity meant no more conference bridges available.</p>
+<p><strong>Infrastructure for external connectivity:</strong> Calling someone outside your organization&rsquo;s video infrastructure required traversal servers, firewall traversal configuration, and often federation agreements between organizations. Two companies from different vendors — one on Cisco, one on Polycom — couldn&rsquo;t always call each other without a gateway or protocol translation.</p>
+<p><strong>The configuration complexity:</strong> To schedule a video conference room call in 2012, you might need to: reserve the MCU conference bridge, configure the dial string for each endpoint, test the connectivity the day before, verify codec compatibility, and have an IT person standing by during the call in case something didn&rsquo;t work.</p>
+<p>This wasn&rsquo;t because the engineers didn&rsquo;t know what they were doing — it was because the system&rsquo;s complexity genuinely required it.</p>
+<h3 id="the-quality-problem">The Quality Problem</h3>
+<p>Internet video calling existed during this period too — Skype for consumers, various early enterprise tools. But enterprise organizations with real quality requirements didn&rsquo;t trust the public internet for video. They used their private MPLS networks for inter-site calls and ISDN for external calls. Internet quality was unpredictable, latency was variable, and packet loss made video calls unwatchable.</p>
+<p>This created a two-tier reality: high-quality, expensive, infrastructure-dependent video for formal meetings; and unreliable consumer tools for informal use. Neither was satisfying.</p>
+<hr>
+<h2 id="chapter-3-the-cloud-shift--why-everything-moved">Chapter 3: The Cloud Shift — Why Everything Moved</h2>
+<h3 id="the-trigger-internet-got-good">The Trigger: Internet Got Good</h3>
+<p>The migration of collaboration infrastructure to the cloud wasn&rsquo;t driven by a single decision or technology breakthrough. It was driven by a gradual shift in what the public internet could reliably deliver.</p>
+<p>As internet connections became faster, more reliable, and more consistent — both in enterprises (100 Mbps to 1 Gbps WAN connections becoming standard) and for remote workers — the quality gap between private network video and internet-based video narrowed. Software clients on laptops got better at adapting to variable network conditions. Video codecs (H.264, then VP9, then H.265) became more efficient.</p>
+<p>When internet video quality became genuinely acceptable for business use, the calculus changed. The expensive on-premise infrastructure — CUCM clusters, VCS servers, MCU bridges — started to look like overhead rather than necessity.</p>
+<h3 id="the-economic-argument">The Economic Argument</h3>
+<p>On-premise unified communications infrastructure had significant ongoing costs:</p>
+<ul>
+<li>Server hardware refresh cycles (every 4–5 years)</li>
+<li>Software licensing (CUCM licenses per user, per device)</li>
+<li>Support contracts with Cisco (SmartNet)</li>
+<li>IT staff to manage, upgrade, and troubleshoot the system</li>
+<li>Data center space, power, and cooling for the servers</li>
+</ul>
+<p>Cloud-based collaboration shifted this to a per-user monthly subscription. No hardware refresh. No upgrade projects. Automatic feature updates. Reduced IT operational overhead.</p>
+<p>For a company adding 500 employees, the traditional model meant buying more CUCM server capacity, more licenses, more phones. The cloud model meant adding 500 licenses to the subscription.</p>
+<h3 id="webexs-transformation">Webex&rsquo;s Transformation</h3>
+<p>Cisco&rsquo;s Webex started as a web conferencing product — screen sharing and audio for online meetings. It was separate from the IP telephony world entirely.</p>
+<p>Over several years, Cisco systematically merged these worlds:</p>
+<ul>
+<li>Webex Meetings + CUCM integration: users could launch video calls from their Cisco IP phones</li>
+<li>Webex Teams (now Webex App): team messaging and calling combined</li>
+<li>Webex Calling: a cloud-based calling service that replaced on-premise CUCM for many organizations — dial plans, voicemail, extensions, all managed in the cloud</li>
+<li>Unified Webex App: a single application for calling, meetings, messaging, and file sharing</li>
+</ul>
+<p>The result: a company that previously had CUCM on-premise, VCS for video, and Unity Connection for voicemail could migrate to Webex Calling and have all three replaced by one cloud service — managed through a web portal, no servers to maintain.</p>
+<hr>
+<h2 id="chapter-4-the-multi-platform-reality--teams-zoom-and-everything-else">Chapter 4: The Multi-Platform Reality — Teams, Zoom, and Everything Else</h2>
+<h3 id="microsoft-teams-the-challenger">Microsoft Teams: The Challenger</h3>
+<p>Microsoft Teams launched in 2017 as a Slack competitor. Within three years it became the dominant enterprise collaboration platform — not because it was technically superior in every dimension, but because it was already there. Organizations running Microsoft 365 for email and Office applications got Teams included. No separate procurement, no new vendor relationship, no additional IT infrastructure.</p>
+<p>Teams added PSTN calling capability (Teams Phone, formerly Phone System) — allowing organizations to replace their PBX with Teams, making and receiving regular phone calls through the Microsoft cloud. For organizations already deeply invested in Microsoft&rsquo;s ecosystem, this made the collaboration consolidation story compelling.</p>
+<p><strong>The interoperability question:</strong> A Webex user and a Teams user in different organizations want to have a video meeting. Both have their platform. How do they connect?</p>
+<p>Initially, the answer was &ldquo;one platform invites the other as a guest&rdquo; — which worked but wasn&rsquo;t seamless. This has evolved significantly. Cisco and Microsoft have developed direct interoperability between Webex and Teams. A Cisco room system can join a Teams meeting natively. A Teams user can join a Webex meeting without installing anything. The walled garden approach has given way to practical interoperability — largely because customers demanded it.</p>
+<h3 id="zoom-the-simplicity-play">Zoom: The Simplicity Play</h3>
+<p>Zoom entered enterprise awareness significantly during 2020. Its technical strengths — genuinely reliable video quality across variable internet connections, simple join experience requiring no account for guests — made it attractive for organizations whose existing tools were struggling.</p>
+<p>What Zoom demonstrated was that ease of use matters as much as feature depth. The &ldquo;just click the link&rdquo; experience it pioneered has become the standard expectation for all collaboration tools. Tools that require configuration, plugin installation, or account creation before joining a meeting are increasingly at a competitive disadvantage.</p>
+<p>Zoom Phone has extended into PSTN calling, following the same trajectory as Teams.</p>
+<h3 id="avaya-3cx-and-the-mid-market">Avaya, 3CX, and the Mid-Market</h3>
+<p>Not every organization needed Cisco or Microsoft scale. The mid-market has its own players:</p>
+<p><strong>Avaya</strong> has been a major enterprise telephony vendor for decades — their Aura platform rivals CUCM in enterprise deployment scale. Avaya went through significant financial difficulties in recent years (multiple bankruptcy filings), which created uncertainty for customers on their platform. Avaya Cloud Office (built on RingCentral) represents their cloud transition path.</p>
+<p><strong>3CX</strong> became popular in SMB and mid-market as a software-based PBX — Windows or Linux deployable, lower cost than CUCM, reasonable feature set. It handles SIP trunking, IP phones, softphone clients, and basic video. For organizations that need more than a consumer system but can&rsquo;t justify CUCM licensing, 3CX fills a useful niche.</p>
+<p><strong>RingCentral, 8x8, Vonage (now Ericsson):</strong> Cloud-native UCaaS providers that built their platforms in the cloud from the start, without the legacy on-premise heritage. Strong for SMB and mid-market organizations that want cloud benefits without managing a migration from on-premise systems.</p>
+<hr>
+<h2 id="chapter-5-the-modern-meeting-room">Chapter 5: The Modern Meeting Room</h2>
+<h3 id="what-changed-most">What Changed Most</h3>
+<p>The meeting room is where the transformation is most visible. Compare:</p>
+<p><strong>2012 meeting room:</strong></p>
+<ul>
+<li>Dedicated codec (Cisco SX80 or Polycom Group): $15,000–$50,000</li>
+<li>Large display(s) mounted to wall</li>
+<li>Pan-tilt-zoom camera, ceiling or tabletop microphone array</li>
+<li>IT-managed infrastructure registration</li>
+<li>Joining an external call: look up the dial string, enter it manually, hope the far-end answers correctly</li>
+<li>Joining a Webex or Skype meeting: possible but required specific configuration and often didn&rsquo;t work reliably</li>
+</ul>
+<p><strong>2024 meeting room:</strong></p>
+<ul>
+<li>Room system (Cisco Room Bar, Webex Board, Logitech Rally Bar, Poly Studio): $1,500–$8,000</li>
+<li>One-touch join: the room screen shows upcoming calendar meetings; touch to join</li>
+<li>Works with Webex, Teams, Zoom — often all three with a firmware setting</li>
+<li>No IT intervention required to join a meeting</li>
+<li>Wireless content sharing from any laptop</li>
+<li>AI features: noise cancellation, background blur, automatic framing that follows the active speaker</li>
+</ul>
+<p>The cost reduction is significant. The operational simplicity improvement is transformational.</p>
+<h3 id="webex-board-and-smart-whiteboard-features">Webex Board and Smart Whiteboard Features</h3>
+<p>Cisco&rsquo;s Webex Board (now part of the Webex Desk and Room product line) added a capability that standalone video conferencing never had: <strong>digital whiteboard</strong>.</p>
+<p>A Webex Board is simultaneously a touch screen, a video conferencing system, and a whiteboard. In a meeting, participants can draw on the board surface directly. Remote participants see the whiteboard in real time. Content written on the board during a meeting is saved automatically and shared as a file after the meeting — no one needs to photograph the whiteboard before someone erases it.</p>
+<p>The whiteboard content persists between sessions on the same board. A team working on a design can pick up where they left off. Multiple people can edit the same whiteboard from different devices and locations simultaneously.</p>
+<p>This sounds simple. The reason it&rsquo;s notable is that it required genuinely rethinking what a meeting room device is — not just a video endpoint, but a collaborative workspace surface.</p>
+<h3 id="logitechs-impact">Logitech&rsquo;s Impact</h3>
+<p>Logitech entered the enterprise meeting room market from the consumer peripherals side and has become a serious player. Their Rally Bar and Rally Bar Mini systems combine a camera with integrated speaker and microphone in a bar form factor — designed to sit on top of or below a display.</p>
+<p>The significance: enterprise-grade meeting room capability at consumer-grade pricing. A Logitech Rally Bar certified for Microsoft Teams or Zoom Rooms costs a fraction of a Cisco or Poly room system. For organizations equipping dozens of small meeting rooms — huddle spaces, phone booths, small conference rooms — this price point makes equipping every room economically feasible where it previously wasn&rsquo;t.</p>
+<p>The hardware quality is genuinely good. AI-powered camera tracking, beamforming microphones, echo cancellation — features that were premium add-ons in dedicated room systems are now built into a $3,000 bar that any IT staff member can install.</p>
+<hr>
+<h2 id="chapter-6-cucm-upgrades--a-practical-note">Chapter 6: CUCM Upgrades — A Practical Note</h2>
+<p>For organizations still running Cisco CUCM on-premise, upgrades remain a significant operational event. Having been through multiple major version upgrades, a few observations:</p>
+<p><strong>The preparation is the work.</strong> A CUCM upgrade that goes wrong is almost always traceable to a preparation step that was skipped. Before any upgrade:</p>
+<ul>
+<li>Verify all endpoints are running supported firmware for the target CUCM version</li>
+<li>Document all custom configurations (CTI route points, hunt groups, translation patterns)</li>
+<li>Test dial plan functionality after upgrade in a lab environment if possible</li>
+<li>Verify backup is complete and restorable before starting</li>
+<li>Confirm the upgrade path — going from 10.x to 14.x may require intermediate version stops</li>
+</ul>
+<p><strong>Publisher first, then subscribers.</strong> The upgrade sequence matters. The CUCM Publisher is upgraded first. Subscribers remain on the old version until the Publisher is fully upgraded and healthy, then each Subscriber is upgraded in sequence. Phones remain registered to the old Subscribers during this process and fail over to newly upgraded ones as they come online.</p>
+<p><strong>Post-upgrade verification.</strong> After every subscriber upgrade: verify all phones re-register, test inbound and outbound PSTN calls, test inter-site calls, verify voicemail integration, verify Jabber/Webex client registration. Don&rsquo;t declare success until all call paths are verified.</p>
+<p><strong>The migration path:</strong> Many Cisco customers on older CUCM versions are being guided toward Webex Calling — Cisco&rsquo;s cloud replacement for on-premise CUCM. The migration involves porting phone numbers, replicating dial plan logic in the cloud, deploying Webex App as the softphone client, and optionally deploying Cisco IP phones registered to Webex Calling instead of CUCM. For organizations ready to move, it eliminates the upgrade cycle entirely.</p>
+<hr>
+<h2 id="where-things-stand-now">Where Things Stand Now</h2>
+<p>The enterprise collaboration market has converged on a few things that would have seemed unlikely a decade ago:</p>
+<p><strong>Software-first:</strong> The primary interface for most users is a software client — Webex App, Teams, Zoom — not a physical phone. Physical phones still exist and are preferred by some users, but they&rsquo;re no longer the default assumption.</p>
+<p><strong>Cloud-native operations:</strong> New deployments are overwhelmingly cloud-based. On-premise CUCM is maintained by organizations that have it, but new deployments rarely choose it over UCaaS alternatives.</p>
+<p><strong>Interoperability as baseline:</strong> The expectation that your collaboration system can communicate with other organizations&rsquo; systems — regardless of platform — is now standard. The days of &ldquo;sorry, we can only do Cisco-to-Cisco video&rdquo; are effectively over for well-implemented modern platforms.</p>
+<p><strong>Room systems as approachable technology:</strong> Meeting room systems have become simpler to deploy, use, and maintain than at any previous point. One-touch join, automatic content sharing, AI-powered camera and audio — the technology recedes into the background and the meeting becomes the focus.</p>
+<p>The infrastructure that required a specialized Cisco collaboration engineer to configure and maintain has largely been replaced by managed cloud services that a generalist IT administrator can operate. That&rsquo;s not a criticism of the old infrastructure — it was genuinely sophisticated engineering for its time. It&rsquo;s an observation about how much the underlying complexity has been abstracted away.</p>
+<p>For engineers who built their careers on CUCM, Expressway, TelePresence, and the full Cisco collaboration stack: that knowledge didn&rsquo;t become worthless. The architectural thinking — how dial plans work, how call routing logic is structured, what QoS means for voice quality, why codec selection matters — transfers directly to understanding the cloud platforms that replaced the on-premise infrastructure. The implementation details changed. The principles didn&rsquo;t.</p>
+<hr>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li><strong>IP telephony&rsquo;s original business case</strong> was cost reduction on inter-site calls via MPLS/VPN — this alone justified many enterprise migrations from PBX.</li>
+<li><strong>Hardware video conferencing</strong> delivered quality but at enormous infrastructure cost and operational complexity — the bottleneck for widespread adoption.</li>
+<li><strong>Cloud collaboration</strong> became viable when internet quality improved sufficiently and the economic comparison to on-premise infrastructure shifted decisively.</li>
+<li><strong>Webex evolved</strong> from a meeting tool to a full UCaaS platform replacing CUCM, VCS, and Unity Connection in a single cloud service.</li>
+<li><strong>Teams disrupted</strong> the market through distribution advantage — already deployed in organizations running Microsoft 365, not through pure technical superiority.</li>
+<li><strong>Meeting room hardware</strong> transformed from $30,000+ specialized systems to $3,000 accessible bars that any organization can deploy at scale.</li>
+<li><strong>CUCM upgrades</strong> remain significant operational events for organizations still on-premise — preparation and sequence matter more than the upgrade itself.</li>
+<li><strong>Interoperability</strong> between platforms is now expected, not exceptional — Webex rooms join Teams meetings, Teams users join Webex meetings.</li>
+</ul>
+<hr>
+<h2 id="related-articles">Related Articles</h2>
+<ul>
+<li>🔐 <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture</a> — Security architecture for cloud collaboration environments</li>
+<li>🏗️ <a href="/en/architecture/it-infrastructure-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a> — Systems thinking that applies equally to collaboration platforms</li>
+<li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">Monitoring Done Right</a> — Monitoring collaboration infrastructure proactively</li>
+<li>🔧 <a href="/en/technology/securecrt-superputty-network-engineer-guide/">SecureCRT and SuperPutty: Terminal Tools Every Network Engineer Should Know</a> — Tools for managing the on-premise infrastructure that collaboration runs on</li>
+</ul>
+]]></content:encoded></item></channel></rss>

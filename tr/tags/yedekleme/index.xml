@@ -1,1 +1,102 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Yedekleme on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/yedekleme/</link><description>Recent content in Yedekleme on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Mon, 02 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/yedekleme/index.xml" rel="self" type="application/rss+xml"/><item><title>RAID'siz NAS'ınız Bir Zaman Bombasıdır — Ve Çözüm Ayda €1'a Mal Olur</title><link>https://barashhelvadzhaoglu.com/tr/posts/nas-backup/</link><pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/nas-backup/</guid><description>RAID olmayan NAS işletmeler için ciddi risktir. AWS S3 otomatik şifreli yedekleme nasıl çalışır ve Glacier neden ayda €1&amp;#39;a kadar düşer?</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Yedekleme on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/yedekleme/</link><description>Recent content in Yedekleme on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Mon, 02 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/yedekleme/index.xml" rel="self" type="application/rss+xml"/><item><title>RAID'siz NAS'ınız Bir Zaman Bombasıdır — Ve Çözüm Ayda €1'a Mal Olur</title><link>https://barashhelvadzhaoglu.com/tr/posts/nas-backup/</link><pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/nas-backup/</guid><description>RAID olmayan NAS işletmeler için ciddi risktir. AWS S3 otomatik şifreli yedekleme nasıl çalışır ve Glacier neden ayda €1&amp;#39;a kadar düşer?</description><content:encoded><![CDATA[<p>Bir doktor muayenehanesi düşünün. Sekiz yıllık hasta kayıtları, faturalar, raporlar. Hepsi ofisteki küçük bir NAS cihazında. Bir sabah cihaz açılmıyor. Sabit disk arızası. Bir veri kurtarma şirketi arıyorsunuz — &ldquo;deneyeceğiz, €800–2000, garanti yok.&rdquo;</p>
+<p>Bu senaryo her gün yaşanıyor. Ve önlemek sadece ayda birkaç euroya mal oluyor.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/nas-backup-cover.webp"/> <figcaption>
+            NAS Yedekleme AWS S3 ile — KOBİ&#39;ler için Veri Güvenliği
+        </figcaption>
+</figure>
+
+<h2 id="yanılgı-nasım-var-yani-yedekleme-yapıyorum">Yanılgı: &ldquo;NAS&rsquo;ım Var, Yani Yedekleme Yapıyorum&rdquo;</h2>
+<p>NAS (Network Attached Storage) mükemmel bir cihazdır — merkezi depolama, ağdaki her bilgisayardan erişilebilir. Ancak küçük işletmelerdeki NAS cihazlarının çoğu tek bir sabit diskle çalışır. RAID yok.</p>
+<p><strong>RAID nedir?</strong>
+RAID verileri aynı anda birden fazla diske yazar. En basit haliyle RAID 1, aynı verileri aynı anda iki diske yazar. Biri arızalanırsa diğeri devralır. Veri kaybı olmaz.</p>
+<p>RAID olmayan tek diskli bir NAS&rsquo;ta, disk arızalandığı an her şey gider. Uyarı yok, kurtarma yok.</p>
+<p><strong>&ldquo;Ama benim NAS&rsquo;ımda RAID var&rdquo;</strong> — güzel, ama yeterli değil. RAID disk arızasına karşı korur. Yangın, su hasarı, hırsızlık, fidye yazılımı veya yanlışlıkla silme işlemine karşı korumaz. Harici yedekleme şarttır.</p>
+<h2 id="çözüm-aws-s3-bulut-yedekleme">Çözüm: AWS S3 Bulut Yedekleme</h2>
+<p>AWS S3 (Simple Storage Service), Amazon&rsquo;un bulut depolama hizmetidir. Büyük şirketlere ait bir şey gibi geliyor — ama küçük işletmeler bunu ayda sadece birkaç euroya kullanabilir.</p>
+<p><strong>Nasıl çalışır:</strong></p>
+<pre tabindex="0"><code>NAS cihazı (Synology/QNAP)
+        ↓ (otomatik, gecelik)
+Hyper Backup yazılımı
+        ↓ (şifreli)
+AWS S3 — Frankfurt (eu-central-1)
+        ↓
+Verileriniz: güvenli, şifreli, yedekli
+</code></pre><p>Synology NAS cihazlarında yerleşik &ldquo;Hyper Backup&rdquo; uygulaması bulunur. Bir kez yapılandırırsınız ve her gece değişen dosyaları otomatik olarak S3&rsquo;e gönderir. Siz uyurken yedeklemeniz çalışır.</p>
+<h2 id="aws-s3-depolama-katmanları--hangisi-size-uygun">AWS S3 Depolama Katmanları — Hangisi Size Uygun?</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Katman</th>
+          <th>En iyi kullanım</th>
+          <th>Erişim</th>
+          <th>Maliyet</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>S3 Standard</strong></td>
+          <td>Sık erişilen veriler</td>
+          <td>Anında</td>
+          <td>~€23/TB/ay</td>
+      </tr>
+      <tr>
+          <td><strong>S3 Infrequent Access</strong></td>
+          <td>Ayda birkaç kez</td>
+          <td>Anında</td>
+          <td>~€12/TB/ay</td>
+      </tr>
+      <tr>
+          <td><strong>S3 Glacier Instant</strong></td>
+          <td>Nadiren erişilen arşivler</td>
+          <td>Milisaniye</td>
+          <td>~€4/TB/ay</td>
+      </tr>
+      <tr>
+          <td><strong>S3 Glacier Deep Archive</strong></td>
+          <td>Uzun süreli arşivleme</td>
+          <td>12 saat</td>
+          <td>~€1/TB/ay</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>KOBİ&rsquo;ler için öneri:</strong>
+Aktif iş verileri: <strong>S3 Infrequent Access</strong> — uygun fiyat, gerektiğinde anında erişim.
+Eski kayıtlar ve arşiv dosyaları: <strong>S3 Glacier Instant</strong> — çok düşük maliyet, yine de anında erişilebilir.</p>
+<p>Bir muayenehane için tipik senaryo: aktif hasta verileri S3 IA&rsquo;da (<del>€5–8/ay), eski arşiv yılları Glacier&rsquo;da (</del>€1–2/ay). <strong>Aylık toplam: €6–10.</strong></p>
+<h2 id="gdpr-ve-hukuki-boyut">GDPR ve Hukuki Boyut</h2>
+<p>Hasta, müvekkil veya müşteri verisi işliyorsanız GDPR&rsquo;a tabissiniz. Bulut yedekleme için iki şey kritik:</p>
+<p><strong>1. Frankfurt bölgesi (eu-central-1) zorunludur</strong> — verileriniz AB sınırları içinde kalmalıdır.</p>
+<p><strong>2. Şifreleme zorunludur</strong> — Hyper Backup, verilerinizi S3&rsquo;e göndermeden önce şifreler. Şifreleme anahtarı sizde kalır — AWS bile içeriği göremez.</p>
+<p><strong>3. Hesap sizin adınıza açılır</strong> — Her müşteri için ayrı bir AWS hesabı açıyorum, sizin adınıza. Veriler ve hesap tamamen size aittir.</p>
+<p>Muayenehaneler ve hukuk büroları için ayrıca <strong>Veri İşleme Sözleşmesi (DPA)</strong> hazırlıyorum — GDPR kapsamında zorunludur.</p>
+<h2 id="kurulum-nasıl-işler">Kurulum Nasıl İşler?</h2>
+<ol>
+<li>AWS hesabı sizin adınıza açılır</li>
+<li>Doğru katman ve yaşam döngüsü politikalarıyla S3 bucket oluşturulur</li>
+<li>NAS&rsquo;ınıza Hyper Backup kurulur</li>
+<li>İlk tam yedekleme oluşturulur</li>
+<li>Ertesi günden itibaren yalnızca değişen dosyalar gönderilir</li>
+<li>Aylık durum raporu e-posta ile iletilir</li>
+</ol>
+<p><strong>Kurulumdan sonra yapmanız gereken:</strong> Hiçbir şey. Her şey otomatik çalışır.</p>
+<h2 id="nasım-yoksa-ne-olur">NAS&rsquo;ım Yoksa Ne Olur?</h2>
+<p>S3 yedekleme NAS olmadan da mümkündür. PC&rsquo;lerinize küçük bir yedekleme ajanı kuruyoruz (Duplicati — ücretsiz) ve seçilen klasörler otomatik olarak S3&rsquo;e gönderilir.</p>
+<h2 id="sonuç">Sonuç</h2>
+<p>Tek diskli bir NAS uyarısız herhangi bir anda arızalanabilir. RAID&rsquo;li bir NAS bile fidye yazılımına veya fiziksel hasara karşı korumaz. AWS S3 ile verileriniz ayda sadece birkaç euro karşılığında şifreli, yedekli ve güvende olur.</p>
+<p>Hesap sizin, veriler sizin, şifreleme anahtarı sizin.</p>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Koruma &amp; Güvenlik</strong></p>
+<ul>
+<li>🔋 <a href="/tr/posts/ups-office/">Elektrik Kesilirse Ne Olur? Ofisiniz için UPS Koruması</a> — NAS ve ağ cihazlarını elektrik kesintisinden koruma</li>
+<li>🔒 <a href="/tr/posts/ssl-websecurity/">SSL Sertifikası — &ldquo;Güvenli Değil&rdquo; Uyarısı Müşteri Kaybettirir</a> — KOBİ&rsquo;ler için web sitesi güvenliği</li>
+<li>📶 <a href="/tr/posts/wifi-mesh-solution/">Wi-Fi Sorunları? Kablo Gerektirmeyen Kalıcı Mesh Çözümü</a> — Ofis ve villalar için profesyonel Wi-Fi</li>
+</ul>
+<p><strong>Mimari &amp; Altyapı</strong></p>
+<ul>
+<li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Dayanıklı altyapı için sistem düşüncesi</li>
+<li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">Monitoring Zihniyeti: Sadece Görmek Değil, Anlamak</a> — IT sorunlarını tırmanmadan önce yakalamak</li>
+</ul>
+]]></content:encoded></item></channel></rss>

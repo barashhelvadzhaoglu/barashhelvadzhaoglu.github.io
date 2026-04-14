@@ -1,1 +1,77 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ixia on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/ixia/</link><description>Recent content in Ixia on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Sat, 21 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/ixia/index.xml" rel="self" type="application/rss+xml"/><item><title>🛡️ Kurumsal Ağlarda Görünürlük ve Güvenlik Stratejisi: Network Packet Broker (NPB) Masterclass</title><link>https://barashhelvadzhaoglu.com/tr/posts/network-packet-broker-masterclass/</link><pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/network-packet-broker-masterclass/</guid><description>Kurumsal ağlarda trafik yönetimi, siber güvenlik ve uçtan uca görünürlük için stratejik rehber. NPB nedir? NIAC prensipleriyle nasıl yönetilir?</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ixia on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/ixia/</link><description>Recent content in Ixia on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Sat, 21 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/ixia/index.xml" rel="self" type="application/rss+xml"/><item><title>🛡️ Kurumsal Ağlarda Görünürlük ve Güvenlik Stratejisi: Network Packet Broker (NPB) Masterclass</title><link>https://barashhelvadzhaoglu.com/tr/posts/network-packet-broker-masterclass/</link><pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/network-packet-broker-masterclass/</guid><description>Kurumsal ağlarda trafik yönetimi, siber güvenlik ve uçtan uca görünürlük için stratejik rehber. NPB nedir? NIAC prensipleriyle nasıl yönetilir?</description><content:encoded><![CDATA[<p>Günümüz kurumsal ağ mimarilerinde <strong>&ldquo;hız&rdquo;</strong> artık tek başarı kriteri değil. Asıl zorluk, saniyede onlarca gigabit veri trafiğinin içinde neyin aktığını bilmek, güvenliği sağlamak ve performansı uçtan uca izlemektir. Modern ağların &ldquo;akıllı trafik yöneticisi&rdquo; olan <strong>Network Packet Broker (NPB)</strong>, siber güvenlikten iş sürekliliğine kadar her şey için stratejik bir zorunluluk haline geldi.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/network-packet-broker-arcitechture.webp"/> <figcaption>
+            Network Packet Broker Mimarisine Genel Bakış
+        </figcaption>
+</figure>
+
+<blockquote>
+<p>Görünürlük stratejisinin arkasındaki daha geniş mimari bağlam için: <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a></p>
+</blockquote>
+<h3 id="1-mikro-saniye-hassasiyeti-paket-kaybının-sonu-buffering--time-stamping">1. Mikro-Saniye Hassasiyeti: Paket Kaybının Sonu (Buffering &amp; Time-Stamping)</h3>
+<p>Ağ trafiği her zaman doğrusal akmaz; anlık patlama noktaları oluşur. Pek çok standart switch bu patlamalar sırasında paketleri düşürürken, profesyonel bir NPB bu sorunu donanım seviyesinde çözer:</p>
+<ul>
+<li><strong>500 ms Buffer Belleği:</strong> NPB, trafiği kısa süreliğine belleğinde tutar; analiz araçlarınızın (DLP, IDS, Sniffer) hıza yetişemediği anlarda paket kaybını %0&rsquo;a indirir. Bu, adli analiz ve hata ayıklama süreçleri için hayati önem taşır.</li>
+<li><strong>Donanım Time-Stamping:</strong> Gecikme analizi yaparken &ldquo;yaklaşık bir saat&rdquo; profesyonel bir cevap değildir. NPB&rsquo;lerin sunduğu donanım Time-Stamping özelliği sayesinde sisteme giren her paketi mikro-saniye hassasiyetiyle damgalayabilirsiniz. Bu damgalar özellikle adli analiz süreçlerinde hayat kurtarıcıdır.</li>
+</ul>
+<h3 id="2-akıllı-filtreleme-ve-protokol-ustalığı-l2-l4">2. Akıllı Filtreleme ve Protokol Ustalığı (L2-L4)</h3>
+<p>L2-4 filtreleme (MAC, IP, Port) birçok cihazda bulunsa da NPB ile fark, bu işlemi paket bütünlüğünden ödün vermeden &ldquo;wire-speed&rdquo; hızında ve eşsiz esneklikle yapmasıdır:</p>
+<ul>
+<li><strong>Flow Aggregation &amp; Deduplication:</strong> Devasa 100 GB girişlerden gelen binlerce akışı analiz eder, yinelenen paketleri temizler (<strong>Deduplication</strong>) ve tüm bu kaosу analiz cihazları için tek optimize edilmiş akışa dönüştürür. Yinelenen paketlerin temizlenmesi, analiz cihazlarınızın CPU yükünü %30-50 oranında azaltır.</li>
+<li><strong>Packet Slicing (Yükü Hafifletme):</strong> Her zaman paketin tamamına ihtiyaç duymazsınız. Analiz aracınız yalnızca başlık bilgisine ihtiyaç duyuyorsa NPB üzerinde <strong>Packet Slicing</strong> yaparak payload&rsquo;ı kırpın. Bu sayede analiz cihazlarınızın disk ve işlemcilerini gereksiz verilerle boğmazsınız, %100 verimlilik elde edersiniz.</li>
+</ul>
+<h3 id="3-esnek-dağıtım-yöntemleri-trafiği-hedefe-ulaştırmak">3. Esnek Dağıtım Yöntemleri: Trafiği Hedefe Ulaştırmak</h3>
+<p>NPB, filtrelenmiş trafiği analiz cihazına iletmek için zengin bir &ldquo;paketleme&rdquo; menüsü sunar:</p>
+<ul>
+<li><strong>ERSPAN &amp; VXLAN/GRE Tünelleme:</strong> Trafiği Layer 3 ağlar üzerinden kapsüller, uzak veri merkezlerine veya bulut tabanlı analiz merkezlerine taşır.</li>
+<li><strong>VLAN Tagging / Stripping:</strong> Analiz cihazının trafiği tanıması için etiket ekler veya cihazın yükünü hafifletmek için bu etiketleri temizler.</li>
+<li><strong>Yük Dengeleme:</strong> Yoğun 100G trafiğini <strong>&ldquo;session stickiness&rdquo;</strong> (oturum bütünlüğü) bozmadan 10G kapasiteli analiz cihazlarına eşit şekilde dağıtır.</li>
+</ul>
+<figure>
+    <img loading="lazy" src="/img/postimages/network-packet-broker-arcitechture2.webp"/> <figcaption>
+            NPB Trafik Dağıtımı ve Yük Dengeleme
+        </figcaption>
+</figure>
+
+<h3 id="4-api-desteği-otomasyon-ve-niac-vizyonu">4. API Desteği, Otomasyon ve NIAC Vizyonu</h3>
+<p>Manuel müdahale, modern IT operasyonlarında bir risktir. NPB&rsquo;nin sunduğu otomasyon yetenekleri ekiplere çeviklik sağlar. Ancak süreci yalnızca basit bir &ldquo;yedekleme&rdquo; olarak görmeyin; <strong>Rest-API</strong> desteği sayesinde bu cihazları <strong>Network Infrastructure as Code (NIAC)</strong> prensiplerine entegre ederiz.</p>
+<ul>
+<li><strong>NIAC &amp; Felaket Kurtarma (DR):</strong> Cihazdaki tüm kritik filtreleme kuralları ve port konfigürasyonları NIAC prensipleriyle yönetilmelidir. Donanım arızası durumunda, manuel konfigürasyon yerine otomasyon scriptleri kullanarak tüm mimariyi saniyeler içinde yeni bir cihaza taşıyabiliriz.</li>
+<li><strong>ITSM ve SIEM Entegrasyonu:</strong> Siber olay sırasında SIEM araçları aracılığıyla otomatik olarak filtreler oluşturulabilir veya anlık duruma göre mevcut filtreler API üzerinden düzenlenebilir.</li>
+</ul>
+<h3 id="5-performans-ve-güvenlik-riverbed-dlp--ssl-offloading">5. Performans ve Güvenlik (Riverbed, DLP &amp; SSL Offloading)</h3>
+<figure>
+    <img loading="lazy" src="/img/postimages/npb-ssl-offloading.webp"/> <figcaption>
+            NPB Üzerinde SSL/TLS Offloading Mimarisi
+        </figcaption>
+</figure>
+
+<p>NPB, ağdaki her türlü analiz cihazını besleyen merkezi bir &ldquo;Veri Hub&rsquo;ı&rdquo; gibi çalışır:</p>
+<ul>
+<li><strong>Network TAP (Inline Veri Toplama):</strong> Yalnızca switch portlarından değil, doğrudan sunuculara giden kablolardan (Network TAP) trafik alabilir. Bu, ana trafiği etkilemeden &ldquo;en saf&rdquo; veriye ulaşmanızı sağlar.</li>
+<li><strong>SSL/TLS Offloading:</strong> Firewall veya IPS cihazlarınızın CPU&rsquo;larını şifre çözme işlemiyle yorma. Bu yükü NPB&rsquo;de üstlenin ve analiz cihazlarına &ldquo;temiz&rdquo; ve şifresiz trafik gönderin. Güvenlik cihazlarınız asıl işini yapsın; ağır şifre çözme işini NPB üstlensin.</li>
+<li><strong>Riverbed Entegrasyonu:</strong> Riverbed gibi NPM cihazlarını en doğru verilerle besleyerek uygulama gecikmelerini ve darboğazları tespit eder.</li>
+<li><strong>Çağrı Merkezleri (VoIP):</strong> Ses trafiğini paralel olarak işler; bir kopyası kayıt sistemine giderken kullanıcı hiçbir gecikme olmadan görüşmeye devam eder.</li>
+</ul>
+<h3 id="6-şifreli-trafik-ve-veri-merkezi-dc-stratejisi">6. Şifreli Trafik ve Veri Merkezi (DC) Stratejisi</h3>
+<p>İnternet trafiği şifreli olsa da performans nedeniyle veri merkezi içinde şifrelenmemiş akan &ldquo;East-West&rdquo; trafiği hâlâ en büyük fırsattır. NPB&rsquo;yi trafiğin şeffaf olduğu bu stratejik noktalarda kullanmak ve veriyi yansıtmak, şifre çözme maliyetine katlanmadan %100 görünürlük sağlar.</p>
+<h3 id="7-pazar-liderleri">7. Pazar Liderleri</h3>
+<p><strong>Keysight (Ixia)</strong> ve <strong>Gigamon</strong> yüksek performanslı çözümlerde standartları belirlerken; <strong>Arista</strong>, <strong>Garland Technology</strong> ve <strong>Profitap</strong> esnek port yapıları ve yenilikçi dağıtım yöntemleriyle kurumsal ağlar için vazgeçilmezdir.</p>
+<h3 id="sonuç">Sonuç</h3>
+<p>Trafik yansıtma ve analiz akışlarının kusursuz orkestrasyonu, karmaşık bir ağ operasyonunun nasıl kontrol edilebilir hale getirileceğinin nihai kanıtıdır. NIAC ve güçlü API entegrasyonları sayesinde bu mimari, statik bir donanım kurulumundan dinamik, &ldquo;yaşayan&rdquo; bir güvenlik platformuna dönüşür.</p>
+<p>Bu çerçeve, kritik verilerin güvenlik araçlarına sıfır kayıpla ve maksimum optimizasyonla ulaşmasını sağlar; operasyon ekiplerine ağ üzerinde tam görünürlük ve kontrol gücü verir.</p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Mimari &amp; Strateji</strong></p>
+<ul>
+<li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Görünürlük stratejisinin arkasındaki sistem düşüncesi</li>
+<li>🛡️ <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Ürün değil mimari olarak güvenlik</li>
+<li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">Monitoring Zihniyeti: Sadece Görmek Değil, Anlamak</a> — Dashboard&rsquo;ların ötesinde operasyonel görünürlük</li>
+<li>🎯 <a href="/tr/architecture/network-product-selection-strategy/">Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler</a> — Güvenlik üreticilerini stratejik değerlendirme</li>
+</ul>
+<p><strong>Pratik Mühendislik</strong></p>
+<ul>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Her şey çöktüğünde out-of-band erişim</li>
+<li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Saha Deployment Rehberi</a> — Ağ kenarında kimlik tabanlı erişim kontrolü</li>
+</ul>
+]]></content:encoded></item></channel></rss>

@@ -1,1 +1,158 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Unified Communications on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/unified-communications/</link><description>Recent content in Unified Communications on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Fri, 10 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/unified-communications/index.xml" rel="self" type="application/rss+xml"/><item><title>Kurumsal İş Birliği Altyapısı: IP Telefonlardan Bulut Çağına</title><link>https://barashhelvadzhaoglu.com/tr/technology/collaboration-evolution/</link><pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/collaboration-evolution/</guid><description>Kurumsal iş birliğinin evrimi — Cisco CUCM ve IP telefoniden Webex, Teams ve Zoom&amp;#39;a. Bir saha mühendisinin perspektifinden.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Unified Communications on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/unified-communications/</link><description>Recent content in Unified Communications on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Fri, 10 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/unified-communications/index.xml" rel="self" type="application/rss+xml"/><item><title>Kurumsal İş Birliği Altyapısı: IP Telefonlardan Bulut Çağına</title><link>https://barashhelvadzhaoglu.com/tr/technology/collaboration-evolution/</link><pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/collaboration-evolution/</guid><description>Kurumsal iş birliğinin evrimi — Cisco CUCM ve IP telefoniden Webex, Teams ve Zoom&amp;#39;a. Bir saha mühendisinin perspektifinden.</description><content:encoded><![CDATA[<h1 id="kurumsal-iş-birliği-altyapısı-ip-telefonlardan-bulut-çağına">Kurumsal İş Birliği Altyapısı: IP Telefonlardan Bulut Çağına</h1>
+<p>Kurumsal IT alanında çalışan herkes için yararlı bir düşünce deneyi: 2010 yılında bir şehirdeki konferans odasını başka bir şehirdeki konferans odasına bağlamak için ne gerekiyordu? Şimdi bugün ne gerektiğiyle karşılaştırın.</p>
+<p>2010&rsquo;da her iki uçta da özel bir codec cihazı, çağrı ayarlarını yapılandırmak için nitelikli bir video konferans mühendisi, sağlanmış bir ISDN hattı veya dikkatle yapılandırılmış IP altyapısı ve toplantıdan önce bağlantıyı test etmek için önemli bir hazırlık süresi gerekiyordu. Codec yazılım sürümleri uyuşmadıysa, firewall portları tam olarak doğru değilse veya karşı taraftaki IT ekibi yapılandırmasını farklı yapmışsa çağrı bağlanmıyordu.</p>
+<p>Bugün, biri bir Webex veya Teams linki oluşturuyor, bunu bir takvim davetine ekliyor ve herkes bulunduğu yerden — dizüstü bilgisayar, telefon, özel toplantı odası sistemi — tek tıklamayla katılıyor. Toplantı odası donanımı otomatik olarak ne yapacağını biliyor.</p>
+<p>Bu iki nokta arasında yaşananlar, son yirmi yılda kurumsal IT&rsquo;deki en önemli mimari dönüşümlerden birini oluşturuyor. Bu yazı o dönüşümü izliyor.</p>
+<hr>
+<h2 id="bölüm-1-ip-telefon-dönemi--telefon-bir-ağ-cihazına-dönüştüğünde">Bölüm 1: IP Telefon Dönemi — Telefon Bir Ağ Cihazına Dönüştüğünde</h2>
+<h3 id="analogdan-ipye-geçiş">Analogdan IP&rsquo;ye Geçiş</h3>
+<p>IP telefondan önce, kurumsal telefon sistemleri PBX (Private Branch Exchange — Özel Şube Santrali) altyapısı üzerinde çalışıyordu — veri ağından tamamen ayrı, özel amaçlı donanım. IT ekibi veri ağını yönetiyordu; tesisler veya telefon ekibi PBX&rsquo;i yönetiyordu. Bunlar paralel dünyalardı.</p>
+<p>IP telefon bunu köklü biçimde değiştirdi. Telefon bir ağ uç noktasına dönüştü — özel bir ses devresine değil, veri ağına bağlanan IP adresi olan başka bir cihaz. PBX&rsquo;in yerini standart donanım üzerinde çalışan bir çağrı işleme sunucusu aldı.</p>
+<p>Cisco için bu, tüm çağrı yönlendirmeyi, çevirme planı yönetimini, sesli posta entegrasyonunu ve telefon sağlamayı yöneten <strong>Cisco Unified Communications Manager (CUCM)</strong> anlamına geliyordu. Bir Cisco IP telefonu açılıyor, TFTP aracılığıyla CUCM&rsquo;den yapılandırmasını alıyor, SCCP veya SIP aracılığıyla CUCM&rsquo;e kaydoluyor ve çağrı yapmaya hazır hale geliyordu — tamamen veri ağı üzerinden.</p>
+<h3 id="pratikte-cucm-nasıl-görünüyordu">Pratikte CUCM Nasıl Görünüyordu</h3>
+<p>Tipik bir orta ölçekli kurumsal CUCM deployment&rsquo;ı:</p>
+<pre tabindex="0"><code>CUCM Publisher (birincil)
+CUCM Subscriber x2 (yedeklilik için)
+CUCM IM &amp; Presence (anlık mesajlaşma)
+Unity Connection (sesli posta)
+Cisco Emergency Responder
+Cisco IP Telefonlar (7900 serisi, 8800 serisi)
+</code></pre><p>Çevirme planı — çağrıların nasıl yönlendirildiğini, hangi numaraların dahili olduğunu, hangilerinin trunk erişimi gerektirdiğini, diğer sitelere yapılan çağrıların nasıl işlendiğini belirleyen kurallar bütünü — tamamen CUCM yapılandırmasında yaşıyordu. Bu güçlüydü ama önemli bir uzmanlık gerektiriyordu. 3 ülkede 10 ofisi olan bir şirket için çevirme planı yüzlerce rota deseni, çeviri deseni, arama grubu ve çağrı yönlendirme kuralı içerebiliyordu.</p>
+<p><strong>CUCM yükseltmeleri</strong> başlı başına bir proje niteliğindeydi. Her büyük sürüm dikkatli yükseltme öncesi testler, bir bakım penceresi ve çoğunlukla bir geri alma planı gerektiriyordu. Cisco CUCM yükseltme süreci — sürümleri doğrulama, yükseltme sihirbazını çalıştırma, abone node&rsquo;ların senkronize olmasını bekleme, tüm telefonların yeniden kaydolduğunu doğrulama — büyük bir küme için saatler alabiliyordu. Hazırlık adımlarını atlamanın sorunların başladığı yer olduğunu yeterince deneyimledim.</p>
+<h3 id="mpls-ve-vpn-çok-siteli-sesi-ücretsiz-kılmak">MPLS ve VPN: Çok Siteli Sesi Ücretsiz Kılmak</h3>
+<p>IP telefonun en zorlayıcı erken iş gerekçelerinden biri siteler arası aramayı oldu. Daha önce İstanbul ofisinden Ankara ofisine yapılan bir çağrı PSTN üzerinden gidiyordu — diğer çağrılar gibi dakika başına ücretlendiriliyordu.</p>
+<p>Kurumsal WAN üzerinden IP telefonla aynı çağrı tamamen ağın içinde kalıyordu: İstanbul telefonu → İstanbul CUCM → MPLS/VPN bağlantısı → Ankara CUCM → Ankara telefonu. Sıfır PSTN maliyeti. Düzinelerce ofisi ve günlük yüzlerce siteler arası araması olan şirketler için bu tek başına IP telefon geçişini haklı kılıyordu.</p>
+<p><strong>MPLS</strong> bu dönemde baskın WAN teknolojisiydi — özel, düşük gecikmeli, öngörülebilir. MPLS siteleri hub-and-spoke veya tam örgü topolojisinde birbirine bağlıyor, ses trafiği kaliteli hizmet (QoS) açısından önceliklendiriliyordu.</p>
+<p><strong>IPsec VPN</strong>, MPLS&rsquo;in çok pahalı olduğu küçük siteler için kullanılıyordu — bir şube ofisi genel merkezine internet üzerinden IPsec aracılığıyla bağlanabilir, merkezdeki CUCM şubedeki telefonlara hizmet verebilirdi.</p>
+<p>Bunun için gereken yapılandırma küçümsenmeyecek boyuttaydı. QoS politikaları, ses trafiğinin geçtiği her ağ segmentinde tutarlı olmak zorundaydı. Codec seçimi (G.711 - G.729) çağrı kalitesini bant genişliği tüketimiyle dengelemek zorundaydı. Çağrı Kabul Kontrolü, çok fazla eş zamanlı aramanın bir WAN bağlantısını doyurmasını engellemek zorundaydı. Bunların tümü manuel olarak yapılandırılıyor, yönetilip gideriliyordu.</p>
+<hr>
+<h2 id="bölüm-2-video-sahneye-giriyor--ve-beraberinde-karmaşıklık-getiriyor">Bölüm 2: Video Sahneye Giriyor — Ve Beraberinde Karmaşıklık Getiriyor</h2>
+<h3 id="donanım-video-konferans-dönemi">Donanım Video Konferans Dönemi</h3>
+<p>Kurumlarda video konferans yazılımla başlamadı. Özel amaçlı codec cihazlarıyla başladı — video kodlama/kod çözmeyi yöneten, büyük ekranlara bağlanan ve H.323 veya SIP video protokollerini kullanan ISDN veya IP üzerinden iletişim kuran, özel amaçlı donanım.</p>
+<p>Baskın satıcılar Cisco (TelePresence), Polycom ve Tandberg&rsquo;di (Cisco 2010&rsquo;da satın alarak teknolojisini TelePresence ürün hattına entegre etti).</p>
+<p>Ürün hattının üst ucundaki Cisco TelePresence IX5000 toplantı odası sistemi, uzaktaki katılımcıların karşısında oturma hissini yaratmak için tasarlanmış üç ekranlı sürükleyici bir kurulumdu. Etkileyici bir mühendislikti. Aynı zamanda son derece pahalıydı: donanım tek başına oda başına yüz binlerce dolara çıkıyor, üstüne özel ağ altyapısı ve IT destek sözleşmeleri geliyordu.</p>
+<p>Daha yaygın kullanılan orta segment sistemlerdi — Cisco SX80, Polycom Group Series, Tandberg C serisi uç nokta. Bunlar hâlâ özel donanımdı: bir codec birimi, bir veya iki ekran, bir kamera ve bir mikrofon dizisi. Her odanın kendi cihazı, kendi IP adresi, video altyapısına kendi kaydı vardı.</p>
+<h3 id="videonun-arkasındaki-altyapı">Videonun Arkasındaki Altyapı</h3>
+<p>Kurumsal video aramalarının çalışması için uç nokta donanımından daha fazlası gerekiyordu:</p>
+<p><strong>Cisco VCS (Video Communication Server):</strong> Video için çağrı kontrolü platformu — CUCM&rsquo;nin video uç noktalar için eşdeğeri. VCS Expressway işletmeden işletmeye aramaları ve harici video bağlantısını yönetiyordu. VCS Control dahili uç noktaları yönetiyordu.</p>
+<p><strong>MCU (Multipoint Control Unit):</strong> İkiden fazla uç noktanın aynı video aramasında olması gerektiğinde, ses ve video akışlarını karıştırmak için MCU gerekiyordu. Cisco Codian MCU, daha sonra MSE 8000 serisi bunu yönetiyordu. Her MCU&rsquo;nun belirli sayıda eş zamanlı port için lisansı vardı — MCU kapasitesinin tükenmesi daha fazla konferans köprüsü olmadığı anlamına geliyordu.</p>
+<p><strong>Harici bağlantı altyapısı:</strong> Kuruluşunuzun video altyapısının dışındaki birine arama yapmak, geçiş sunucuları, firewall geçiş yapılandırması ve çoğunlukla kuruluşlar arasında federasyon anlaşmaları gerektiriyordu.</p>
+<p><strong>Yapılandırma karmaşıklığı:</strong> 2012&rsquo;de bir video konferans odası araması planlamak için şunları yapmanız gerekebilirdi: MCU konferans köprüsünü rezerve etmek, her uç nokta için çevirme dizisini yapılandırmak, önceki gün bağlantıyı test etmek, codec uyumluluğunu doğrulamak ve bir şeyler ters gittiğinde arama sırasında hazır bekleyen bir IT personeli bulundurmak.</p>
+<p>Bu mühendislerin ne yaptıklarını bilmemesinden değildi — sistemin karmaşıklığı gerçekten bunu gerektiriyordu.</p>
+<h3 id="kalite-sorunu">Kalite Sorunu</h3>
+<p>Bu dönemde internet üzerinden video görüşme de vardı — tüketiciler için Skype, çeşitli erken kurumsal araçlar. Ancak gerçek kalite gereksinimlerine sahip kurumsal organizasyonlar video için halka açık internete güvenmiyordu. Siteler arası aramalar için özel MPLS ağlarını ve harici aramalar için ISDN kullanıyorlardı. İnternet kalitesi öngörülemezdi, gecikme değişkendi ve paket kaybı video aramalarını izlenemez hale getiriyordu.</p>
+<p>Bu iki katmanlı bir gerçeklik yarattı: resmi toplantılar için yüksek kaliteli, pahalı, altyapıya bağımlı video; gayri resmi kullanım için güvenilmez tüketici araçları. İkisi de tatmin edici değildi.</p>
+<hr>
+<h2 id="bölüm-3-bulut-geçişi--her-şey-neden-taşındı">Bölüm 3: Bulut Geçişi — Her Şey Neden Taşındı</h2>
+<h3 id="tetikleyici-internet-iyileşti">Tetikleyici: İnternet İyileşti</h3>
+<p>İş birliği altyapısının buluta göçü tek bir kararla veya teknoloji atılımıyla gerçekleşmedi. Halka açık internetin güvenilir biçimde sunabildiği şeylerdeki kademeli bir değişimle gerçekleşti.</p>
+<p>İnternet bağlantıları hem kurumlarda (standart hale gelen 100 Mbps ile 1 Gbps WAN bağlantıları) hem de uzak çalışanlar için daha hızlı, güvenilir ve tutarlı hale geldikçe, özel ağ videosu ile internet tabanlı video arasındaki kalite farkı azaldı. Dizüstü bilgisayarlardaki yazılım istemcileri değişken ağ koşullarına uyum sağlamada daha iyi hale geldi. Video codec&rsquo;leri (H.264, ardından VP9, ardından H.265) daha verimli oldu.</p>
+<p>İnternet video kalitesi iş kullanımı için gerçekten kabul edilebilir hale geldiğinde hesap değişti. Pahalı şirket içi altyapı — CUCM kümeleri, VCS sunucuları, MCU köprüleri — zorunluluk yerine yük gibi görünmeye başladı.</p>
+<h3 id="ekonomik-argüman">Ekonomik Argüman</h3>
+<p>Şirket içi unified communications altyapısının önemli süregelen maliyetleri vardı:</p>
+<ul>
+<li>Sunucu donanımı yenileme döngüleri (her 4–5 yılda bir)</li>
+<li>Yazılım lisanslaması (kullanıcı başına, cihaz başına CUCM lisansları)</li>
+<li>Cisco ile destek sözleşmeleri (SmartNet)</li>
+<li>Sistemi yönetmek, yükseltmek ve sorunları gidermek için IT personeli</li>
+<li>Sunucular için veri merkezi alanı, güç ve soğutma</li>
+</ul>
+<p>Bulut tabanlı iş birliği bunu kullanıcı başına aylık aboneliğe dönüştürdü. Donanım yenileme yok. Yükseltme projeleri yok. Otomatik özellik güncellemeleri. Azaltılmış IT operasyonel yükü.</p>
+<p>500 çalışan ekleyen bir şirket için geleneksel model daha fazla CUCM sunucu kapasitesi, daha fazla lisans, daha fazla telefon satın almak anlamına geliyordu. Bulut modeli aboneliğe 500 lisans eklemek anlamına geliyordu.</p>
+<h3 id="webexin-dönüşümü">Webex&rsquo;in Dönüşümü</h3>
+<p>Cisco&rsquo;nun Webex&rsquo;i web konferans ürünü olarak başladı — çevrimiçi toplantılar için ekran paylaşımı ve ses. IP telefon dünyasından tamamen ayrıydı.</p>
+<p>Cisco birkaç yıl içinde bu dünyaları sistematik olarak birleştirdi:</p>
+<ul>
+<li>Webex Meetings + CUCM entegrasyonu: kullanıcılar Cisco IP telefonlarından video aramalar başlatabiliyordu</li>
+<li>Webex Teams (şimdi Webex App): ekip mesajlaşması ve arama birleşti</li>
+<li>Webex Calling: birçok organizasyon için şirket içi CUCM&rsquo;nin yerini alan bulut tabanlı arama hizmeti — çevirme planları, sesli posta, dahili numaralar, tümü bulutta yönetiliyor</li>
+<li>Birleşik Webex App: arama, toplantılar, mesajlaşma ve dosya paylaşımı için tek uygulama</li>
+</ul>
+<p>Sonuç: Daha önce şirket içinde CUCM, video için VCS ve sesli posta için Unity Connection&rsquo;a sahip bir şirket, Webex Calling&rsquo;e geçerek üçünün de yerine geçen tek bir bulut hizmeti kullanabiliyordu — web portalı üzerinden yönetilen, bakım yapılacak sunucu yok.</p>
+<hr>
+<h2 id="bölüm-4-çok-platformlu-gerçeklik--teams-zoom-ve-diğerleri">Bölüm 4: Çok Platformlu Gerçeklik — Teams, Zoom ve Diğerleri</h2>
+<h3 id="microsoft-teams-rakip">Microsoft Teams: Rakip</h3>
+<p>Microsoft Teams 2017&rsquo;de bir Slack rakibi olarak piyasaya çıktı. Üç yıl içinde baskın kurumsal iş birliği platformu haline geldi — her boyutuyla teknik açıdan üstün olduğu için değil, zaten orada olduğu için. E-posta ve Office uygulamaları için Microsoft 365 kullanan organizasyonlar Teams&rsquo;i dahil olarak aldı. Ayrı tedarik, yeni satıcı ilişkisi, ek IT altyapısı gerektirmiyordu.</p>
+<p>Teams, PSTN arama özelliği ekledi (Teams Phone, eski adıyla Phone System) — organizasyonların PBX&rsquo;lerini Teams ile değiştirmesine, Microsoft bulutu aracılığıyla normal telefon aramaları yapıp almasına olanak tanıdı.</p>
+<p><strong>Birlikte çalışabilirlik sorusu:</strong> Farklı organizasyonlardan bir Webex kullanıcısı ve bir Teams kullanıcısı video toplantısı yapmak istiyor. Her ikisi de kendi platformuna sahip. Nasıl bağlanırlar?</p>
+<p>Başlangıçta yanıt &ldquo;bir platform diğerini misafir olarak davet eder&quot;di — işe yarıyordu ama sorunsuz değildi. Bu durum önemli ölçüde gelişti. Cisco ve Microsoft, Webex ile Teams arasında doğrudan birlikte çalışabilirlik geliştirdi. Bir Cisco toplantı odası sistemi Teams toplantısına yerel olarak katılabilir. Teams kullanıcısı herhangi bir şey yüklemeden Webex toplantısına katılabilir.</p>
+<h3 id="zoom-sadelik-hamlesi">Zoom: Sadelik Hamlesi</h3>
+<p>Zoom, 2020 yılında kurumsal farkındalığa önemli ölçüde girdi. Teknik güçleri — değişken internet bağlantıları üzerinde gerçekten güvenilir video kalitesi, misafirler için hesap gerektirmeyen basit katılım deneyimi — mevcut araçları yetersiz kalan organizasyonlar için çekici hale getirdi.</p>
+<p>Zoom&rsquo;un gösterdiği şey, kullanım kolaylığının özellik derinliği kadar önemli olduğuydu. &ldquo;Sadece linke tıkla&rdquo; deneyimi, tüm iş birliği araçları için standart beklenti haline geldi.</p>
+<h3 id="avaya-3cx-ve-orta-pazar">Avaya, 3CX ve Orta Pazar</h3>
+<p>Her organizasyon Cisco veya Microsoft ölçeğine ihtiyaç duymuyordu. Orta pazarın kendi oyuncuları var:</p>
+<p><strong>Avaya</strong> on yıllardır önemli bir kurumsal telefon satıcısı olmuştur — Aura platformu kurumsal deployment ölçeğinde CUCM ile rekabet eder. Avaya son yıllarda önemli finansal zorluklardan geçti (birden fazla iflas başvurusu), bu da platformundaki müşteriler için belirsizlik yarattı.</p>
+<p><strong>3CX</strong>, yazılım tabanlı bir PBX olarak KOBİ ve orta pazarda popüler hale geldi — Windows veya Linux&rsquo;a kurulabilir, CUCM lisanslamasından düşük maliyetli, makul özellik seti.</p>
+<p><strong>RingCentral, 8x8, Vonage (şimdi Ericsson):</strong> Platformlarını başından beri bulutta inşa etmiş, şirket içi miras olmayan bulut tabanlı UCaaS sağlayıcıları.</p>
+<hr>
+<h2 id="bölüm-5-modern-toplantı-odası">Bölüm 5: Modern Toplantı Odası</h2>
+<h3 id="en-çok-ne-değişti">En Çok Ne Değişti</h3>
+<p>Toplantı odası, dönüşümün en görünür olduğu yerdir. Karşılaştırın:</p>
+<p><strong>2012 toplantı odası:</strong></p>
+<ul>
+<li>Özel codec (Cisco SX80 veya Polycom Group): 15.000–50.000 dolar</li>
+<li>Duvara monte büyük ekran(lar)</li>
+<li>Pan-tilt-zoom kamera, tavan veya masa üstü mikrofon dizisi</li>
+<li>IT tarafından yönetilen altyapı kaydı</li>
+<li>Harici aramaya katılmak: çevirme dizisini araştırın, manuel girin, karşı tarafın doğru cevap vermesini umun</li>
+<li>Webex veya Skype toplantısına katılmak: mümkün ama belirli yapılandırma gerektiriyordu ve çoğunlukla güvenilir biçimde çalışmıyordu</li>
+</ul>
+<p><strong>2024 toplantı odası:</strong></p>
+<ul>
+<li>Toplantı odası sistemi (Cisco Room Bar, Webex Board, Logitech Rally Bar, Poly Studio): 1.500–8.000 dolar</li>
+<li>Tek dokunuşla katılım: toplantı odası ekranı yaklaşan takvim toplantılarını gösteriyor; katılmak için dokunun</li>
+<li>Webex, Teams, Zoom ile çalışıyor — çoğunlukla bir yazılım ayarıyla üçü birden</li>
+<li>Toplantıya katılmak için IT müdahalesi gerekmiyor</li>
+<li>Herhangi bir dizüstü bilgisayardan kablosuz içerik paylaşımı</li>
+<li>AI özellikleri: gürültü engelleme, arka plan bulanıklaştırma, aktif konuşmacıyı takip eden otomatik çerçeveleme</li>
+</ul>
+<p>Maliyet azalması önemlidir. Operasyonel sadelik iyileşmesi dönüştürücüdür.</p>
+<h3 id="webex-board-ve-akıllı-tahta-özellikleri">Webex Board ve Akıllı Tahta Özellikleri</h3>
+<p>Cisco&rsquo;nun Webex Board&rsquo;u (şimdi Webex Desk ve Room ürün hattının bir parçası), bağımsız video konferansın hiçbir zaman sahip olmadığı bir özellik ekledi: <strong>dijital tahta</strong>.</p>
+<p>Webex Board aynı anda dokunmatik ekran, video konferans sistemi ve tahta. Bir toplantıda katılımcılar doğrudan tahta yüzeyine çizebilir. Uzak katılımcılar tahtayı gerçek zamanlı görür. Toplantı sırasında tahtaya yazılan içerik otomatik olarak kaydedilir ve toplantı sonrasında dosya olarak paylaşılır.</p>
+<h3 id="logitechin-etkisi">Logitech&rsquo;in Etkisi</h3>
+<p>Logitech, kurumsal toplantı odası pazarına tüketici çevre birimi tarafından girdi ve ciddi bir oyuncu haline geldi. Rally Bar ve Rally Bar Mini sistemleri, kamerayı entegre hoparlör ve mikrofonla birleştiren bar biçimli sistemler — bir ekranın üstüne veya altına yerleştirilmek üzere tasarlandı.</p>
+<p>Önem: kurumsal düzeyde toplantı odası özelliği, tüketici düzeyinde fiyatlandırmayla. Microsoft Teams veya Zoom Rooms sertifikalı bir Logitech Rally Bar, Cisco veya Poly toplantı odası sisteminin çok altında bir fiyata mal oluyor. Onlarca küçük toplantı odası donatmak isteyen organizasyonlar için bu fiyat noktası, daha önce ekonomik olmayan her odayı donatmayı mümkün kılıyor.</p>
+<hr>
+<h2 id="bölüm-6-cucm-yükseltmeleri--pratik-bir-not">Bölüm 6: CUCM Yükseltmeleri — Pratik Bir Not</h2>
+<p>Şirket içinde Cisco CUCM çalıştıran organizasyonlar için yükseltmeler hâlâ önemli bir operasyonel olaydır. Birden fazla büyük sürüm yükseltmesinden geçmiş biri olarak birkaç gözlem:</p>
+<p><strong>Hazırlık, asıl işin kendisidir.</strong> Yanlış giden bir CUCM yükseltmesi neredeyse her zaman atlanan bir hazırlık adımına kadar izlenebilir. Her yükseltmeden önce:</p>
+<ul>
+<li>Tüm uç noktaların hedef CUCM sürümü için desteklenen yazılımı çalıştırdığını doğrulayın</li>
+<li>Tüm özel yapılandırmaları belgeleyin (CTI yol noktaları, arama grupları, çeviri desenleri)</li>
+<li>Mümkünse lab ortamında yükseltme sonrasında çevirme planı işlevini test edin</li>
+<li>Yedeklemenin tamamlandığını ve geri yüklenebilir olduğunu doğrulayın</li>
+</ul>
+<p><strong>Önce Publisher, sonra subscriber&rsquo;lar.</strong> Yükseltme sırası önemlidir. CUCM Publisher önce yükseltilir. Subscriber&rsquo;lar Publisher tam olarak yükseltilip sağlıklı olana kadar eski sürümde kalır, ardından her Subscriber sırayla yükseltilir.</p>
+<p><strong>Yükseltme sonrası doğrulama.</strong> Her subscriber yükseltmesinden sonra: tüm telefonların yeniden kayıt olduğunu doğrulayın, gelen ve giden PSTN aramalarını test edin, siteler arası aramaları test edin, sesli posta entegrasyonunu doğrulayın. Tüm çağrı yolları doğrulanana kadar başarı ilan etmeyin.</p>
+<p><strong>Geçiş yolu:</strong> Eski CUCM sürümlerindeki pek çok Cisco müşterisi, Cisco&rsquo;nun şirket içi CUCM&rsquo;nin bulut yedeği olan Webex Calling&rsquo;e yönlendiriliyor. Geçiş, telefon numaralarını taşımayı, çevirme planı mantığını bulutta yeniden oluşturmayı ve Webex App&rsquo;i softphone istemcisi olarak kullanıma almayı içeriyor.</p>
+<hr>
+<h2 id="bugünkü-durum">Bugünkü Durum</h2>
+<p>Kurumsal iş birliği pazarı, on yıl önce olası görünmeyecek birkaç şeyde birleşti:</p>
+<p><strong>Önce yazılım:</strong> Çoğu kullanıcı için birincil arayüz fiziksel bir telefon değil, Webex App, Teams, Zoom gibi bir yazılım istemcisi.</p>
+<p><strong>Bulut tabanlı operasyonlar:</strong> Yeni deployment&rsquo;lar büyük ölçüde bulut tabanlı. Şirket içi CUCM buna sahip organizasyonlar tarafından sürdürülüyor, ancak yeni deployment&rsquo;lar artık nadiren UCaaS alternatiflerinden önce bunu tercih ediyor.</p>
+<p><strong>Temel olarak birlikte çalışabilirlik:</strong> İş birliği sisteminizin diğer organizasyonların sistemleriyle — platform ne olursa olsun — iletişim kurabilmesi beklentisi artık standart.</p>
+<p><strong>Toplantı odası sistemleri erişilebilir teknoloji olarak:</strong> Toplantı odası sistemleri, herhangi bir önceki noktadan daha basit şekilde kullanıma alınır, kullanılır ve bakımı yapılır hale geldi.</p>
+<p>Özelleşmiş bir Cisco iş birliği mühendisinin yapılandırıp bakımını yaptığı altyapının yerini büyük ölçüde genel amaçlı bir IT yöneticisinin işletebileceği yönetilen bulut hizmetleri aldı. Bu eski altyapının eleştirisi değil — zamanında gerçekten gelişmiş bir mühendisliğin ürünüydü. Altta yatan karmaşıklığın ne kadar soyutlandığının gözlemidir.</p>
+<p>CUCM, Expressway, TelePresence ve tam Cisco iş birliği yığını üzerine kariyer inşa eden mühendisler için: o bilgi değersiz hale gelmedi. Mimari düşünme — çevirme planlarının nasıl çalıştığı, çağrı yönlendirme mantığının nasıl yapılandırıldığı, QoS&rsquo;un ses kalitesi için ne anlama geldiği, codec seçiminin neden önemli olduğu — doğrudan şirket içi altyapının yerini alan bulut platformlarını anlamaya aktarılır. Uygulama detayları değişti. Prensipler değişmedi.</p>
+<hr>
+<h2 id="temel-çıkarımlar">Temel Çıkarımlar</h2>
+<ul>
+<li><strong>IP telefonun orijinal iş gerekçesi</strong>, MPLS/VPN aracılığıyla siteler arası aramalarda maliyet azaltmaktı — bu tek başına pek çok kurumsal PBX&rsquo;ten IP telefona geçişi haklı kıldı.</li>
+<li><strong>Donanım video konferans</strong> kalite sundu ancak muazzam altyapı maliyeti ve operasyonel karmaşıklıkla — yaygın benimsemenin önündeki darboğaz.</li>
+<li><strong>Bulut iş birliği</strong>, internet kalitesi yeterince iyileştiğinde ve şirket içi altyapıyla ekonomik karşılaştırma kesin olarak değiştiğinde uygulanabilir hale geldi.</li>
+<li><strong>Webex</strong>, bir toplantı aracından CUCM, VCS ve Unity Connection&rsquo;ın tek bir bulut hizmetinde yerini alan tam bir UCaaS platformuna dönüştü.</li>
+<li><strong>Teams</strong>, saf teknik üstünlük değil dağıtım avantajıyla pazarı dönüştürdü — Microsoft 365 çalıştıran organizasyonlarda zaten deploy edilmişti.</li>
+<li><strong>Toplantı odası donanımı</strong>, herhangi bir organizasyonun ölçekte kullanıma alabileceği 3.000 dolarlık erişilebilir barlara dönüşerek 30.000 dolar+ özel sistemlerden çıktı.</li>
+<li><strong>CUCM yükseltmeleri</strong>, hâlâ şirket içinde bulunan organizasyonlar için önemli operasyonel olaylar olmaya devam ediyor — hazırlık ve sıra, yükseltmenin kendisinden daha önemli.</li>
+<li><strong>Platformlar arası birlikte çalışabilirlik</strong> artık beklenen, istisnai değil — Webex odaları Teams toplantılarına katılıyor, Teams kullanıcıları Webex toplantılarına katılıyor.</li>
+</ul>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<ul>
+<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Bulut iş birliği ortamları için güvenlik mimarisi</li>
+<li>🏗️ <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Ürünler Koleksiyonu Değildir</a> — İş birliği platformları için de geçerli sistem düşüncesi</li>
+<li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">İzleme Doğru Yapıldığında</a> — İş birliği altyapısını proaktif olarak izleme</li>
+<li>🔧 <a href="/tr/technology/securecrt-superputty-network-engineer-guide/">SecureCRT ve SuperPutty</a> — İş birliğinin üzerinde çalıştığı şirket içi altyapıyı yönetmek için araçlar</li>
+</ul>
+]]></content:encoded></item></channel></rss>

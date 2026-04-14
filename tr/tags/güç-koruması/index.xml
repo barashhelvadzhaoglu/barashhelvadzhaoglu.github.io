@@ -1,1 +1,87 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Güç Koruması on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/g%C3%BC%C3%A7-korumas%C4%B1/</link><description>Recent content in Güç Koruması on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Mon, 23 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/g%C3%BC%C3%A7-korumas%C4%B1/index.xml" rel="self" type="application/rss+xml"/><item><title>Elektrik Kesilince Ne Olur? Bir UPS Yalnızca Bilgisayarınızı Değil — Tüm Ofisinizi Korur</title><link>https://barashhelvadzhaoglu.com/tr/posts/ups-office/</link><pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/ups-office/</guid><description>Elektrik kesintisi tüm ofis cihazlarını tehdit eder. NAS, switch, modem ve kameralarınızı doğru UPS seçimiyle koruyun.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Güç Koruması on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/g%C3%BC%C3%A7-korumas%C4%B1/</link><description>Recent content in Güç Koruması on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Mon, 23 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/g%C3%BC%C3%A7-korumas%C4%B1/index.xml" rel="self" type="application/rss+xml"/><item><title>Elektrik Kesilince Ne Olur? Bir UPS Yalnızca Bilgisayarınızı Değil — Tüm Ofisinizi Korur</title><link>https://barashhelvadzhaoglu.com/tr/posts/ups-office/</link><pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/ups-office/</guid><description>Elektrik kesintisi tüm ofis cihazlarını tehdit eder. NAS, switch, modem ve kameralarınızı doğru UPS seçimiyle koruyun.</description><content:encoded><![CDATA[<p>&ldquo;UPS mu? Evet var — bilgisayarın yanında duruyor.&rdquo;</p>
+<p>Bunu sürekli duyuyorum. Ve her seferinde sormak istiyorum: Peki NAS&rsquo;ınız? Switch&rsquo;iniz? Modeminiz? Ödeme terminaliniz?</p>
+<p>Çoğu işletme UPS&rsquo;i yalnızca bilgisayarın aniden kapanmaması için bir önlem olarak görür. Oysa bir elektrik kesintisinde ofisinizdeki düzinelerce cihaz risk altındadır — ve bilgisayar bunların en az kritik olanıdır.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/ups-office-cover.webp"/> <figcaption>
+            Tüm Ofis için UPS Koruması — NAS, Switch, Kameralar
+        </figcaption>
+</figure>
+
+<blockquote>
+<p>Tam veri koruması için UPS&rsquo;i bulut yedeklemeyle tamamlayın: <a href="/tr/posts/nas-backup/">RAID&rsquo;siz NAS&rsquo;ınız Bir Zaman Bombasıdır</a></p>
+</blockquote>
+<h2 id="elektrik-kesilince-gerçekte-ne-olur">Elektrik Kesilince Gerçekte Ne Olur?</h2>
+<p>Bir muayenehane veya küçük bir ofis düşünün. Elektrik aniden kesildiğinde aşağıdaki tüm cihazlar aynı anda kapanır:</p>
+<ul>
+<li><strong>NAS cihazı</strong> — bir yazma işlemi ortasında kesiliyor, disk hasar görebilir</li>
+<li><strong>Ağ switch&rsquo;i</strong> — tüm ağ bağlantıları düşüyor</li>
+<li><strong>Modem/router</strong> — internet yok</li>
+<li><strong>IP telefon santrali</strong> — telefon hatları kesiliyor</li>
+<li><strong>Ödeme terminali</strong> — devam eden işlem iptal oluyor</li>
+<li><strong>Güvenlik kameraları</strong> — kayıt duruyor</li>
+<li><strong>Bilgisayarlar</strong> — kaydedilmemiş çalışma kayboluyor</li>
+</ul>
+<p>Her şey aynı anda kapanıyor. Elektrik geldiğinde tüm cihazlar aynı anda açılmaya çalışır — bu ani yük, zayıf elektrik tesisatında ek sorunlara yol açabilir.</p>
+<h2 id="en-büyük-risk-nasınız">En Büyük Risk: NAS&rsquo;ınız</h2>
+<p>Bu cihazlar arasında ani elektrik kesintisinden en çok etkilenen NAS&rsquo;tır. NAS sürekli veri yazar. Bir kopyalama işlemi veya zamanlanmış yedekleme sırasında elektrik kesilirse yazma işlemi yarıda kalır. Bu dosya sistemi bozulmasına yol açabilir.</p>
+<p>Synology ve QNAP NAS cihazları doğrudan bir UPS ile çalışabilir. USB kablosuyla bağlandığında NAS, elektrik kesilme anını algılar ve güvenli bir kapanma sırası başlatır:</p>
+<pre tabindex="0"><code>Elektrik kesildi
+      ↓
+UPS anında devreye giriyor (batarya)
+      ↓
+NAS, UPS&#39;ten sinyal alıyor
+      ↓
+Açık dosyalar kaydediliyor
+      ↓
+2 dakikada güvenli kapanma
+      ↓
+Veri kaybı yok, disk bozulması yok
+      ↓
+Elektrik gelince otomatik yeniden başlatma
+</code></pre><p>Bu entegrasyon olmadan bir UPS size yalnızca birkaç dakika daha satın alır — NAS yine de aniden kapanabilir.</p>
+<h2 id="ups-türleri--hangisi-size-uygun">UPS Türleri — Hangisi Size Uygun?</h2>
+<p><strong>Standby (Offline) UPS</strong>
+En uygun fiyatlı seçenek. Ev kullanımı ve basit bilgisayarlar için yeterli. Voltaj dalgalanmalarına karşı sınırlı koruma.</p>
+<p><strong>Line-Interactive UPS</strong>
+KOBİ&rsquo;ler için ideal seçim. Voltaj dalgalanmalarını sürekli düzenler ve arızada anında bataryaya geçer. NAS cihazları, switch&rsquo;ler ve kritik ofis ekipmanları için önerilen tür.</p>
+<p><strong>Online Double Conversion UPS</strong>
+En yüksek koruma sınıfı. Kritik sunucular, tıbbi cihazlar ve hiçbir kesintiye toleransı olmayan sistemler için.</p>
+<h2 id="poe-switch-kameralarınız-da-korunuyor">PoE Switch: Kameralarınız da Korunuyor</h2>
+<p>PoE switch (Power over Ethernet) kullanıyorsanız kameralarınız switch üzerinden güç alır. Switch UPS&rsquo;e bağlıysa kameralar da korunur:</p>
+<pre tabindex="0"><code>UPS
+  ↓
+PoE Switch
+  ├── Kamera 1 (switch üzerinden güç)
+  ├── Kamera 2 (switch üzerinden güç)
+  └── NAS (switch üzerinden bağlı)
+</code></pre><p>Elektrik kesildiğinde UPS devreye girer, switch çalışmaya devam eder, kameralar kayıt yapmaya devam eder — NAS güvenli kapanma işlemini tamamlarken.</p>
+<h2 id="kaç-dakika-yeterli">Kaç Dakika Yeterli?</h2>
+<p>Tipik bir ofis kurulumu için 10–15 dakika yeterlidir. Bu sürede NAS güvenli kapanma işlemini tamamlar, açık belgeler kaydedilir ve sunucular düzgün şekilde kapatılır.</p>
+<p>Çoğu KOBİ için <strong>650VA–1500VA</strong> doğru aralıktır.</p>
+<h2 id="ups-bakımı-hakkında-bir-not">UPS Bakımı Hakkında Bir Not</h2>
+<p>UPS bataryaları genellikle her 3–5 yılda bir değiştirilmelidir. APC ve Eaton gibi markalarda batarya modülerdir — vidasını açın, değiştirin, bitti. Beş dakika.</p>
+<p>Müşterilerim için yıllık UPS kontrolü yapıyorum: batarya kapasitesi test edildi, yazılım güncellemeleri kontrol edildi, NAS entegrasyonu çalışıyor mu doğrulandı.</p>
+<h2 id="nereden-başlamalı-önceliklendirme">Nereden Başlamalı: Önceliklendirme</h2>
+<ol>
+<li><strong>NAS + switch</strong> — en kritik, buradan başlayın</li>
+<li><strong>Sunucu, varsa</strong></li>
+<li><strong>Modem/router</strong> — internet sürekliliği için</li>
+<li><strong>Bilgisayarlar</strong> — en az kritik</li>
+</ol>
+<h2 id="sonuç">Sonuç</h2>
+<p>Doğru UPS, doğru yapılandırılmış ve yıllık olarak bakımı yapılmış şekilde, elektrik kesintisinden kaynaklanan veri kaybı riskini neredeyse sıfıra indirir. Ücretsiz değerlendirme için WhatsApp&rsquo;tan yazın.</p>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Koruma &amp; Güvenlik</strong></p>
+<ul>
+<li>💾 <a href="/tr/posts/nas-backup/">RAID&rsquo;siz NAS&rsquo;ınız Bir Zaman Bombasıdır</a> — AWS S3 ile veri yedekleme</li>
+<li>🔒 <a href="/tr/posts/ssl-websecurity/">SSL Sertifikası — &ldquo;Güvenli Değil&rdquo; Uyarısı Müşteri Kaybettirir</a> — KOBİ&rsquo;ler için web sitesi güvenliği</li>
+<li>📶 <a href="/tr/posts/wifi-mesh-solution/">Wi-Fi Sorunları? Kablo Gerektirmeyen Kalıcı Mesh Çözümü</a> — Ofis ve villalar için profesyonel Wi-Fi</li>
+</ul>
+<p><strong>Mimari &amp; Altyapı</strong></p>
+<ul>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server</a> — Her şey çöktüğünde out-of-band erişim</li>
+<li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Dayanıklı IT için sistem düşüncesi</li>
+</ul>
+]]></content:encoded></item></channel></rss>

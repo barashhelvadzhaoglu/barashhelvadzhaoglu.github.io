@@ -1,1 +1,622 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Cisco on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/cisco/</link><description>Recent content in Cisco on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Fri, 10 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/cisco/index.xml" rel="self" type="application/rss+xml"/><item><title>Kurumsal İş Birliği Altyapısı: IP Telefonlardan Bulut Çağına</title><link>https://barashhelvadzhaoglu.com/tr/technology/collaboration-evolution/</link><pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/collaboration-evolution/</guid><description>Kurumsal iş birliğinin evrimi — Cisco CUCM ve IP telefoniden Webex, Teams ve Zoom&amp;#39;a. Bir saha mühendisinin perspektifinden.</description></item><item><title>Kurumsal WiFi Mimarisi: Standartlardan Deployment'a — Kapsamlı Rehber</title><link>https://barashhelvadzhaoglu.com/tr/technology/wifi-master/</link><pubDate>Wed, 01 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/wifi-master/</guid><description>Kurumsal kablosuz ağ master rehberi — 802.11 standartları, controller mimarileri, KOBİ ve otel tasarımı, roaming, güvenlik ve site survey.</description></item><item><title>🚀 Mezun Rehberi: Bir Network Mühendisi Aslında Ne Yapar?</title><link>https://barashhelvadzhaoglu.com/tr/posts/career-guide-network-engineering/</link><pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/career-guide-network-engineering/</guid><description>Yeni mezunlar için ağ mühendisliği kariyer rehberi. Endüstriyel altyapı, günlük operasyonlar ve profesyonelleşme yol haritası.</description></item><item><title>Cisco Nexus NX-OS Yazılım Güncelleme Rehberi: Sahada Test Edilmiş Adım Adım</title><link>https://barashhelvadzhaoglu.com/tr/posts/cisco-nexus-nxos-upgrade-guide/</link><pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/cisco-nexus-nxos-upgrade-guide/</guid><description>Cisco Nexus NX-OS güncelleme rehberi — hazırlık, güncelleme yolu, dosya transferi, rollback ve ROMMON kurtarma senaryoları.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Cisco on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/cisco/</link><description>Recent content in Cisco on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Fri, 10 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/cisco/index.xml" rel="self" type="application/rss+xml"/><item><title>Kurumsal İş Birliği Altyapısı: IP Telefonlardan Bulut Çağına</title><link>https://barashhelvadzhaoglu.com/tr/technology/collaboration-evolution/</link><pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/collaboration-evolution/</guid><description>Kurumsal iş birliğinin evrimi — Cisco CUCM ve IP telefoniden Webex, Teams ve Zoom&amp;#39;a. Bir saha mühendisinin perspektifinden.</description><content:encoded><![CDATA[<h1 id="kurumsal-iş-birliği-altyapısı-ip-telefonlardan-bulut-çağına">Kurumsal İş Birliği Altyapısı: IP Telefonlardan Bulut Çağına</h1>
+<p>Kurumsal IT alanında çalışan herkes için yararlı bir düşünce deneyi: 2010 yılında bir şehirdeki konferans odasını başka bir şehirdeki konferans odasına bağlamak için ne gerekiyordu? Şimdi bugün ne gerektiğiyle karşılaştırın.</p>
+<p>2010&rsquo;da her iki uçta da özel bir codec cihazı, çağrı ayarlarını yapılandırmak için nitelikli bir video konferans mühendisi, sağlanmış bir ISDN hattı veya dikkatle yapılandırılmış IP altyapısı ve toplantıdan önce bağlantıyı test etmek için önemli bir hazırlık süresi gerekiyordu. Codec yazılım sürümleri uyuşmadıysa, firewall portları tam olarak doğru değilse veya karşı taraftaki IT ekibi yapılandırmasını farklı yapmışsa çağrı bağlanmıyordu.</p>
+<p>Bugün, biri bir Webex veya Teams linki oluşturuyor, bunu bir takvim davetine ekliyor ve herkes bulunduğu yerden — dizüstü bilgisayar, telefon, özel toplantı odası sistemi — tek tıklamayla katılıyor. Toplantı odası donanımı otomatik olarak ne yapacağını biliyor.</p>
+<p>Bu iki nokta arasında yaşananlar, son yirmi yılda kurumsal IT&rsquo;deki en önemli mimari dönüşümlerden birini oluşturuyor. Bu yazı o dönüşümü izliyor.</p>
+<hr>
+<h2 id="bölüm-1-ip-telefon-dönemi--telefon-bir-ağ-cihazına-dönüştüğünde">Bölüm 1: IP Telefon Dönemi — Telefon Bir Ağ Cihazına Dönüştüğünde</h2>
+<h3 id="analogdan-ipye-geçiş">Analogdan IP&rsquo;ye Geçiş</h3>
+<p>IP telefondan önce, kurumsal telefon sistemleri PBX (Private Branch Exchange — Özel Şube Santrali) altyapısı üzerinde çalışıyordu — veri ağından tamamen ayrı, özel amaçlı donanım. IT ekibi veri ağını yönetiyordu; tesisler veya telefon ekibi PBX&rsquo;i yönetiyordu. Bunlar paralel dünyalardı.</p>
+<p>IP telefon bunu köklü biçimde değiştirdi. Telefon bir ağ uç noktasına dönüştü — özel bir ses devresine değil, veri ağına bağlanan IP adresi olan başka bir cihaz. PBX&rsquo;in yerini standart donanım üzerinde çalışan bir çağrı işleme sunucusu aldı.</p>
+<p>Cisco için bu, tüm çağrı yönlendirmeyi, çevirme planı yönetimini, sesli posta entegrasyonunu ve telefon sağlamayı yöneten <strong>Cisco Unified Communications Manager (CUCM)</strong> anlamına geliyordu. Bir Cisco IP telefonu açılıyor, TFTP aracılığıyla CUCM&rsquo;den yapılandırmasını alıyor, SCCP veya SIP aracılığıyla CUCM&rsquo;e kaydoluyor ve çağrı yapmaya hazır hale geliyordu — tamamen veri ağı üzerinden.</p>
+<h3 id="pratikte-cucm-nasıl-görünüyordu">Pratikte CUCM Nasıl Görünüyordu</h3>
+<p>Tipik bir orta ölçekli kurumsal CUCM deployment&rsquo;ı:</p>
+<pre tabindex="0"><code>CUCM Publisher (birincil)
+CUCM Subscriber x2 (yedeklilik için)
+CUCM IM &amp; Presence (anlık mesajlaşma)
+Unity Connection (sesli posta)
+Cisco Emergency Responder
+Cisco IP Telefonlar (7900 serisi, 8800 serisi)
+</code></pre><p>Çevirme planı — çağrıların nasıl yönlendirildiğini, hangi numaraların dahili olduğunu, hangilerinin trunk erişimi gerektirdiğini, diğer sitelere yapılan çağrıların nasıl işlendiğini belirleyen kurallar bütünü — tamamen CUCM yapılandırmasında yaşıyordu. Bu güçlüydü ama önemli bir uzmanlık gerektiriyordu. 3 ülkede 10 ofisi olan bir şirket için çevirme planı yüzlerce rota deseni, çeviri deseni, arama grubu ve çağrı yönlendirme kuralı içerebiliyordu.</p>
+<p><strong>CUCM yükseltmeleri</strong> başlı başına bir proje niteliğindeydi. Her büyük sürüm dikkatli yükseltme öncesi testler, bir bakım penceresi ve çoğunlukla bir geri alma planı gerektiriyordu. Cisco CUCM yükseltme süreci — sürümleri doğrulama, yükseltme sihirbazını çalıştırma, abone node&rsquo;ların senkronize olmasını bekleme, tüm telefonların yeniden kaydolduğunu doğrulama — büyük bir küme için saatler alabiliyordu. Hazırlık adımlarını atlamanın sorunların başladığı yer olduğunu yeterince deneyimledim.</p>
+<h3 id="mpls-ve-vpn-çok-siteli-sesi-ücretsiz-kılmak">MPLS ve VPN: Çok Siteli Sesi Ücretsiz Kılmak</h3>
+<p>IP telefonun en zorlayıcı erken iş gerekçelerinden biri siteler arası aramayı oldu. Daha önce İstanbul ofisinden Ankara ofisine yapılan bir çağrı PSTN üzerinden gidiyordu — diğer çağrılar gibi dakika başına ücretlendiriliyordu.</p>
+<p>Kurumsal WAN üzerinden IP telefonla aynı çağrı tamamen ağın içinde kalıyordu: İstanbul telefonu → İstanbul CUCM → MPLS/VPN bağlantısı → Ankara CUCM → Ankara telefonu. Sıfır PSTN maliyeti. Düzinelerce ofisi ve günlük yüzlerce siteler arası araması olan şirketler için bu tek başına IP telefon geçişini haklı kılıyordu.</p>
+<p><strong>MPLS</strong> bu dönemde baskın WAN teknolojisiydi — özel, düşük gecikmeli, öngörülebilir. MPLS siteleri hub-and-spoke veya tam örgü topolojisinde birbirine bağlıyor, ses trafiği kaliteli hizmet (QoS) açısından önceliklendiriliyordu.</p>
+<p><strong>IPsec VPN</strong>, MPLS&rsquo;in çok pahalı olduğu küçük siteler için kullanılıyordu — bir şube ofisi genel merkezine internet üzerinden IPsec aracılığıyla bağlanabilir, merkezdeki CUCM şubedeki telefonlara hizmet verebilirdi.</p>
+<p>Bunun için gereken yapılandırma küçümsenmeyecek boyuttaydı. QoS politikaları, ses trafiğinin geçtiği her ağ segmentinde tutarlı olmak zorundaydı. Codec seçimi (G.711 - G.729) çağrı kalitesini bant genişliği tüketimiyle dengelemek zorundaydı. Çağrı Kabul Kontrolü, çok fazla eş zamanlı aramanın bir WAN bağlantısını doyurmasını engellemek zorundaydı. Bunların tümü manuel olarak yapılandırılıyor, yönetilip gideriliyordu.</p>
+<hr>
+<h2 id="bölüm-2-video-sahneye-giriyor--ve-beraberinde-karmaşıklık-getiriyor">Bölüm 2: Video Sahneye Giriyor — Ve Beraberinde Karmaşıklık Getiriyor</h2>
+<h3 id="donanım-video-konferans-dönemi">Donanım Video Konferans Dönemi</h3>
+<p>Kurumlarda video konferans yazılımla başlamadı. Özel amaçlı codec cihazlarıyla başladı — video kodlama/kod çözmeyi yöneten, büyük ekranlara bağlanan ve H.323 veya SIP video protokollerini kullanan ISDN veya IP üzerinden iletişim kuran, özel amaçlı donanım.</p>
+<p>Baskın satıcılar Cisco (TelePresence), Polycom ve Tandberg&rsquo;di (Cisco 2010&rsquo;da satın alarak teknolojisini TelePresence ürün hattına entegre etti).</p>
+<p>Ürün hattının üst ucundaki Cisco TelePresence IX5000 toplantı odası sistemi, uzaktaki katılımcıların karşısında oturma hissini yaratmak için tasarlanmış üç ekranlı sürükleyici bir kurulumdu. Etkileyici bir mühendislikti. Aynı zamanda son derece pahalıydı: donanım tek başına oda başına yüz binlerce dolara çıkıyor, üstüne özel ağ altyapısı ve IT destek sözleşmeleri geliyordu.</p>
+<p>Daha yaygın kullanılan orta segment sistemlerdi — Cisco SX80, Polycom Group Series, Tandberg C serisi uç nokta. Bunlar hâlâ özel donanımdı: bir codec birimi, bir veya iki ekran, bir kamera ve bir mikrofon dizisi. Her odanın kendi cihazı, kendi IP adresi, video altyapısına kendi kaydı vardı.</p>
+<h3 id="videonun-arkasındaki-altyapı">Videonun Arkasındaki Altyapı</h3>
+<p>Kurumsal video aramalarının çalışması için uç nokta donanımından daha fazlası gerekiyordu:</p>
+<p><strong>Cisco VCS (Video Communication Server):</strong> Video için çağrı kontrolü platformu — CUCM&rsquo;nin video uç noktalar için eşdeğeri. VCS Expressway işletmeden işletmeye aramaları ve harici video bağlantısını yönetiyordu. VCS Control dahili uç noktaları yönetiyordu.</p>
+<p><strong>MCU (Multipoint Control Unit):</strong> İkiden fazla uç noktanın aynı video aramasında olması gerektiğinde, ses ve video akışlarını karıştırmak için MCU gerekiyordu. Cisco Codian MCU, daha sonra MSE 8000 serisi bunu yönetiyordu. Her MCU&rsquo;nun belirli sayıda eş zamanlı port için lisansı vardı — MCU kapasitesinin tükenmesi daha fazla konferans köprüsü olmadığı anlamına geliyordu.</p>
+<p><strong>Harici bağlantı altyapısı:</strong> Kuruluşunuzun video altyapısının dışındaki birine arama yapmak, geçiş sunucuları, firewall geçiş yapılandırması ve çoğunlukla kuruluşlar arasında federasyon anlaşmaları gerektiriyordu.</p>
+<p><strong>Yapılandırma karmaşıklığı:</strong> 2012&rsquo;de bir video konferans odası araması planlamak için şunları yapmanız gerekebilirdi: MCU konferans köprüsünü rezerve etmek, her uç nokta için çevirme dizisini yapılandırmak, önceki gün bağlantıyı test etmek, codec uyumluluğunu doğrulamak ve bir şeyler ters gittiğinde arama sırasında hazır bekleyen bir IT personeli bulundurmak.</p>
+<p>Bu mühendislerin ne yaptıklarını bilmemesinden değildi — sistemin karmaşıklığı gerçekten bunu gerektiriyordu.</p>
+<h3 id="kalite-sorunu">Kalite Sorunu</h3>
+<p>Bu dönemde internet üzerinden video görüşme de vardı — tüketiciler için Skype, çeşitli erken kurumsal araçlar. Ancak gerçek kalite gereksinimlerine sahip kurumsal organizasyonlar video için halka açık internete güvenmiyordu. Siteler arası aramalar için özel MPLS ağlarını ve harici aramalar için ISDN kullanıyorlardı. İnternet kalitesi öngörülemezdi, gecikme değişkendi ve paket kaybı video aramalarını izlenemez hale getiriyordu.</p>
+<p>Bu iki katmanlı bir gerçeklik yarattı: resmi toplantılar için yüksek kaliteli, pahalı, altyapıya bağımlı video; gayri resmi kullanım için güvenilmez tüketici araçları. İkisi de tatmin edici değildi.</p>
+<hr>
+<h2 id="bölüm-3-bulut-geçişi--her-şey-neden-taşındı">Bölüm 3: Bulut Geçişi — Her Şey Neden Taşındı</h2>
+<h3 id="tetikleyici-internet-iyileşti">Tetikleyici: İnternet İyileşti</h3>
+<p>İş birliği altyapısının buluta göçü tek bir kararla veya teknoloji atılımıyla gerçekleşmedi. Halka açık internetin güvenilir biçimde sunabildiği şeylerdeki kademeli bir değişimle gerçekleşti.</p>
+<p>İnternet bağlantıları hem kurumlarda (standart hale gelen 100 Mbps ile 1 Gbps WAN bağlantıları) hem de uzak çalışanlar için daha hızlı, güvenilir ve tutarlı hale geldikçe, özel ağ videosu ile internet tabanlı video arasındaki kalite farkı azaldı. Dizüstü bilgisayarlardaki yazılım istemcileri değişken ağ koşullarına uyum sağlamada daha iyi hale geldi. Video codec&rsquo;leri (H.264, ardından VP9, ardından H.265) daha verimli oldu.</p>
+<p>İnternet video kalitesi iş kullanımı için gerçekten kabul edilebilir hale geldiğinde hesap değişti. Pahalı şirket içi altyapı — CUCM kümeleri, VCS sunucuları, MCU köprüleri — zorunluluk yerine yük gibi görünmeye başladı.</p>
+<h3 id="ekonomik-argüman">Ekonomik Argüman</h3>
+<p>Şirket içi unified communications altyapısının önemli süregelen maliyetleri vardı:</p>
+<ul>
+<li>Sunucu donanımı yenileme döngüleri (her 4–5 yılda bir)</li>
+<li>Yazılım lisanslaması (kullanıcı başına, cihaz başına CUCM lisansları)</li>
+<li>Cisco ile destek sözleşmeleri (SmartNet)</li>
+<li>Sistemi yönetmek, yükseltmek ve sorunları gidermek için IT personeli</li>
+<li>Sunucular için veri merkezi alanı, güç ve soğutma</li>
+</ul>
+<p>Bulut tabanlı iş birliği bunu kullanıcı başına aylık aboneliğe dönüştürdü. Donanım yenileme yok. Yükseltme projeleri yok. Otomatik özellik güncellemeleri. Azaltılmış IT operasyonel yükü.</p>
+<p>500 çalışan ekleyen bir şirket için geleneksel model daha fazla CUCM sunucu kapasitesi, daha fazla lisans, daha fazla telefon satın almak anlamına geliyordu. Bulut modeli aboneliğe 500 lisans eklemek anlamına geliyordu.</p>
+<h3 id="webexin-dönüşümü">Webex&rsquo;in Dönüşümü</h3>
+<p>Cisco&rsquo;nun Webex&rsquo;i web konferans ürünü olarak başladı — çevrimiçi toplantılar için ekran paylaşımı ve ses. IP telefon dünyasından tamamen ayrıydı.</p>
+<p>Cisco birkaç yıl içinde bu dünyaları sistematik olarak birleştirdi:</p>
+<ul>
+<li>Webex Meetings + CUCM entegrasyonu: kullanıcılar Cisco IP telefonlarından video aramalar başlatabiliyordu</li>
+<li>Webex Teams (şimdi Webex App): ekip mesajlaşması ve arama birleşti</li>
+<li>Webex Calling: birçok organizasyon için şirket içi CUCM&rsquo;nin yerini alan bulut tabanlı arama hizmeti — çevirme planları, sesli posta, dahili numaralar, tümü bulutta yönetiliyor</li>
+<li>Birleşik Webex App: arama, toplantılar, mesajlaşma ve dosya paylaşımı için tek uygulama</li>
+</ul>
+<p>Sonuç: Daha önce şirket içinde CUCM, video için VCS ve sesli posta için Unity Connection&rsquo;a sahip bir şirket, Webex Calling&rsquo;e geçerek üçünün de yerine geçen tek bir bulut hizmeti kullanabiliyordu — web portalı üzerinden yönetilen, bakım yapılacak sunucu yok.</p>
+<hr>
+<h2 id="bölüm-4-çok-platformlu-gerçeklik--teams-zoom-ve-diğerleri">Bölüm 4: Çok Platformlu Gerçeklik — Teams, Zoom ve Diğerleri</h2>
+<h3 id="microsoft-teams-rakip">Microsoft Teams: Rakip</h3>
+<p>Microsoft Teams 2017&rsquo;de bir Slack rakibi olarak piyasaya çıktı. Üç yıl içinde baskın kurumsal iş birliği platformu haline geldi — her boyutuyla teknik açıdan üstün olduğu için değil, zaten orada olduğu için. E-posta ve Office uygulamaları için Microsoft 365 kullanan organizasyonlar Teams&rsquo;i dahil olarak aldı. Ayrı tedarik, yeni satıcı ilişkisi, ek IT altyapısı gerektirmiyordu.</p>
+<p>Teams, PSTN arama özelliği ekledi (Teams Phone, eski adıyla Phone System) — organizasyonların PBX&rsquo;lerini Teams ile değiştirmesine, Microsoft bulutu aracılığıyla normal telefon aramaları yapıp almasına olanak tanıdı.</p>
+<p><strong>Birlikte çalışabilirlik sorusu:</strong> Farklı organizasyonlardan bir Webex kullanıcısı ve bir Teams kullanıcısı video toplantısı yapmak istiyor. Her ikisi de kendi platformuna sahip. Nasıl bağlanırlar?</p>
+<p>Başlangıçta yanıt &ldquo;bir platform diğerini misafir olarak davet eder&quot;di — işe yarıyordu ama sorunsuz değildi. Bu durum önemli ölçüde gelişti. Cisco ve Microsoft, Webex ile Teams arasında doğrudan birlikte çalışabilirlik geliştirdi. Bir Cisco toplantı odası sistemi Teams toplantısına yerel olarak katılabilir. Teams kullanıcısı herhangi bir şey yüklemeden Webex toplantısına katılabilir.</p>
+<h3 id="zoom-sadelik-hamlesi">Zoom: Sadelik Hamlesi</h3>
+<p>Zoom, 2020 yılında kurumsal farkındalığa önemli ölçüde girdi. Teknik güçleri — değişken internet bağlantıları üzerinde gerçekten güvenilir video kalitesi, misafirler için hesap gerektirmeyen basit katılım deneyimi — mevcut araçları yetersiz kalan organizasyonlar için çekici hale getirdi.</p>
+<p>Zoom&rsquo;un gösterdiği şey, kullanım kolaylığının özellik derinliği kadar önemli olduğuydu. &ldquo;Sadece linke tıkla&rdquo; deneyimi, tüm iş birliği araçları için standart beklenti haline geldi.</p>
+<h3 id="avaya-3cx-ve-orta-pazar">Avaya, 3CX ve Orta Pazar</h3>
+<p>Her organizasyon Cisco veya Microsoft ölçeğine ihtiyaç duymuyordu. Orta pazarın kendi oyuncuları var:</p>
+<p><strong>Avaya</strong> on yıllardır önemli bir kurumsal telefon satıcısı olmuştur — Aura platformu kurumsal deployment ölçeğinde CUCM ile rekabet eder. Avaya son yıllarda önemli finansal zorluklardan geçti (birden fazla iflas başvurusu), bu da platformundaki müşteriler için belirsizlik yarattı.</p>
+<p><strong>3CX</strong>, yazılım tabanlı bir PBX olarak KOBİ ve orta pazarda popüler hale geldi — Windows veya Linux&rsquo;a kurulabilir, CUCM lisanslamasından düşük maliyetli, makul özellik seti.</p>
+<p><strong>RingCentral, 8x8, Vonage (şimdi Ericsson):</strong> Platformlarını başından beri bulutta inşa etmiş, şirket içi miras olmayan bulut tabanlı UCaaS sağlayıcıları.</p>
+<hr>
+<h2 id="bölüm-5-modern-toplantı-odası">Bölüm 5: Modern Toplantı Odası</h2>
+<h3 id="en-çok-ne-değişti">En Çok Ne Değişti</h3>
+<p>Toplantı odası, dönüşümün en görünür olduğu yerdir. Karşılaştırın:</p>
+<p><strong>2012 toplantı odası:</strong></p>
+<ul>
+<li>Özel codec (Cisco SX80 veya Polycom Group): 15.000–50.000 dolar</li>
+<li>Duvara monte büyük ekran(lar)</li>
+<li>Pan-tilt-zoom kamera, tavan veya masa üstü mikrofon dizisi</li>
+<li>IT tarafından yönetilen altyapı kaydı</li>
+<li>Harici aramaya katılmak: çevirme dizisini araştırın, manuel girin, karşı tarafın doğru cevap vermesini umun</li>
+<li>Webex veya Skype toplantısına katılmak: mümkün ama belirli yapılandırma gerektiriyordu ve çoğunlukla güvenilir biçimde çalışmıyordu</li>
+</ul>
+<p><strong>2024 toplantı odası:</strong></p>
+<ul>
+<li>Toplantı odası sistemi (Cisco Room Bar, Webex Board, Logitech Rally Bar, Poly Studio): 1.500–8.000 dolar</li>
+<li>Tek dokunuşla katılım: toplantı odası ekranı yaklaşan takvim toplantılarını gösteriyor; katılmak için dokunun</li>
+<li>Webex, Teams, Zoom ile çalışıyor — çoğunlukla bir yazılım ayarıyla üçü birden</li>
+<li>Toplantıya katılmak için IT müdahalesi gerekmiyor</li>
+<li>Herhangi bir dizüstü bilgisayardan kablosuz içerik paylaşımı</li>
+<li>AI özellikleri: gürültü engelleme, arka plan bulanıklaştırma, aktif konuşmacıyı takip eden otomatik çerçeveleme</li>
+</ul>
+<p>Maliyet azalması önemlidir. Operasyonel sadelik iyileşmesi dönüştürücüdür.</p>
+<h3 id="webex-board-ve-akıllı-tahta-özellikleri">Webex Board ve Akıllı Tahta Özellikleri</h3>
+<p>Cisco&rsquo;nun Webex Board&rsquo;u (şimdi Webex Desk ve Room ürün hattının bir parçası), bağımsız video konferansın hiçbir zaman sahip olmadığı bir özellik ekledi: <strong>dijital tahta</strong>.</p>
+<p>Webex Board aynı anda dokunmatik ekran, video konferans sistemi ve tahta. Bir toplantıda katılımcılar doğrudan tahta yüzeyine çizebilir. Uzak katılımcılar tahtayı gerçek zamanlı görür. Toplantı sırasında tahtaya yazılan içerik otomatik olarak kaydedilir ve toplantı sonrasında dosya olarak paylaşılır.</p>
+<h3 id="logitechin-etkisi">Logitech&rsquo;in Etkisi</h3>
+<p>Logitech, kurumsal toplantı odası pazarına tüketici çevre birimi tarafından girdi ve ciddi bir oyuncu haline geldi. Rally Bar ve Rally Bar Mini sistemleri, kamerayı entegre hoparlör ve mikrofonla birleştiren bar biçimli sistemler — bir ekranın üstüne veya altına yerleştirilmek üzere tasarlandı.</p>
+<p>Önem: kurumsal düzeyde toplantı odası özelliği, tüketici düzeyinde fiyatlandırmayla. Microsoft Teams veya Zoom Rooms sertifikalı bir Logitech Rally Bar, Cisco veya Poly toplantı odası sisteminin çok altında bir fiyata mal oluyor. Onlarca küçük toplantı odası donatmak isteyen organizasyonlar için bu fiyat noktası, daha önce ekonomik olmayan her odayı donatmayı mümkün kılıyor.</p>
+<hr>
+<h2 id="bölüm-6-cucm-yükseltmeleri--pratik-bir-not">Bölüm 6: CUCM Yükseltmeleri — Pratik Bir Not</h2>
+<p>Şirket içinde Cisco CUCM çalıştıran organizasyonlar için yükseltmeler hâlâ önemli bir operasyonel olaydır. Birden fazla büyük sürüm yükseltmesinden geçmiş biri olarak birkaç gözlem:</p>
+<p><strong>Hazırlık, asıl işin kendisidir.</strong> Yanlış giden bir CUCM yükseltmesi neredeyse her zaman atlanan bir hazırlık adımına kadar izlenebilir. Her yükseltmeden önce:</p>
+<ul>
+<li>Tüm uç noktaların hedef CUCM sürümü için desteklenen yazılımı çalıştırdığını doğrulayın</li>
+<li>Tüm özel yapılandırmaları belgeleyin (CTI yol noktaları, arama grupları, çeviri desenleri)</li>
+<li>Mümkünse lab ortamında yükseltme sonrasında çevirme planı işlevini test edin</li>
+<li>Yedeklemenin tamamlandığını ve geri yüklenebilir olduğunu doğrulayın</li>
+</ul>
+<p><strong>Önce Publisher, sonra subscriber&rsquo;lar.</strong> Yükseltme sırası önemlidir. CUCM Publisher önce yükseltilir. Subscriber&rsquo;lar Publisher tam olarak yükseltilip sağlıklı olana kadar eski sürümde kalır, ardından her Subscriber sırayla yükseltilir.</p>
+<p><strong>Yükseltme sonrası doğrulama.</strong> Her subscriber yükseltmesinden sonra: tüm telefonların yeniden kayıt olduğunu doğrulayın, gelen ve giden PSTN aramalarını test edin, siteler arası aramaları test edin, sesli posta entegrasyonunu doğrulayın. Tüm çağrı yolları doğrulanana kadar başarı ilan etmeyin.</p>
+<p><strong>Geçiş yolu:</strong> Eski CUCM sürümlerindeki pek çok Cisco müşterisi, Cisco&rsquo;nun şirket içi CUCM&rsquo;nin bulut yedeği olan Webex Calling&rsquo;e yönlendiriliyor. Geçiş, telefon numaralarını taşımayı, çevirme planı mantığını bulutta yeniden oluşturmayı ve Webex App&rsquo;i softphone istemcisi olarak kullanıma almayı içeriyor.</p>
+<hr>
+<h2 id="bugünkü-durum">Bugünkü Durum</h2>
+<p>Kurumsal iş birliği pazarı, on yıl önce olası görünmeyecek birkaç şeyde birleşti:</p>
+<p><strong>Önce yazılım:</strong> Çoğu kullanıcı için birincil arayüz fiziksel bir telefon değil, Webex App, Teams, Zoom gibi bir yazılım istemcisi.</p>
+<p><strong>Bulut tabanlı operasyonlar:</strong> Yeni deployment&rsquo;lar büyük ölçüde bulut tabanlı. Şirket içi CUCM buna sahip organizasyonlar tarafından sürdürülüyor, ancak yeni deployment&rsquo;lar artık nadiren UCaaS alternatiflerinden önce bunu tercih ediyor.</p>
+<p><strong>Temel olarak birlikte çalışabilirlik:</strong> İş birliği sisteminizin diğer organizasyonların sistemleriyle — platform ne olursa olsun — iletişim kurabilmesi beklentisi artık standart.</p>
+<p><strong>Toplantı odası sistemleri erişilebilir teknoloji olarak:</strong> Toplantı odası sistemleri, herhangi bir önceki noktadan daha basit şekilde kullanıma alınır, kullanılır ve bakımı yapılır hale geldi.</p>
+<p>Özelleşmiş bir Cisco iş birliği mühendisinin yapılandırıp bakımını yaptığı altyapının yerini büyük ölçüde genel amaçlı bir IT yöneticisinin işletebileceği yönetilen bulut hizmetleri aldı. Bu eski altyapının eleştirisi değil — zamanında gerçekten gelişmiş bir mühendisliğin ürünüydü. Altta yatan karmaşıklığın ne kadar soyutlandığının gözlemidir.</p>
+<p>CUCM, Expressway, TelePresence ve tam Cisco iş birliği yığını üzerine kariyer inşa eden mühendisler için: o bilgi değersiz hale gelmedi. Mimari düşünme — çevirme planlarının nasıl çalıştığı, çağrı yönlendirme mantığının nasıl yapılandırıldığı, QoS&rsquo;un ses kalitesi için ne anlama geldiği, codec seçiminin neden önemli olduğu — doğrudan şirket içi altyapının yerini alan bulut platformlarını anlamaya aktarılır. Uygulama detayları değişti. Prensipler değişmedi.</p>
+<hr>
+<h2 id="temel-çıkarımlar">Temel Çıkarımlar</h2>
+<ul>
+<li><strong>IP telefonun orijinal iş gerekçesi</strong>, MPLS/VPN aracılığıyla siteler arası aramalarda maliyet azaltmaktı — bu tek başına pek çok kurumsal PBX&rsquo;ten IP telefona geçişi haklı kıldı.</li>
+<li><strong>Donanım video konferans</strong> kalite sundu ancak muazzam altyapı maliyeti ve operasyonel karmaşıklıkla — yaygın benimsemenin önündeki darboğaz.</li>
+<li><strong>Bulut iş birliği</strong>, internet kalitesi yeterince iyileştiğinde ve şirket içi altyapıyla ekonomik karşılaştırma kesin olarak değiştiğinde uygulanabilir hale geldi.</li>
+<li><strong>Webex</strong>, bir toplantı aracından CUCM, VCS ve Unity Connection&rsquo;ın tek bir bulut hizmetinde yerini alan tam bir UCaaS platformuna dönüştü.</li>
+<li><strong>Teams</strong>, saf teknik üstünlük değil dağıtım avantajıyla pazarı dönüştürdü — Microsoft 365 çalıştıran organizasyonlarda zaten deploy edilmişti.</li>
+<li><strong>Toplantı odası donanımı</strong>, herhangi bir organizasyonun ölçekte kullanıma alabileceği 3.000 dolarlık erişilebilir barlara dönüşerek 30.000 dolar+ özel sistemlerden çıktı.</li>
+<li><strong>CUCM yükseltmeleri</strong>, hâlâ şirket içinde bulunan organizasyonlar için önemli operasyonel olaylar olmaya devam ediyor — hazırlık ve sıra, yükseltmenin kendisinden daha önemli.</li>
+<li><strong>Platformlar arası birlikte çalışabilirlik</strong> artık beklenen, istisnai değil — Webex odaları Teams toplantılarına katılıyor, Teams kullanıcıları Webex toplantılarına katılıyor.</li>
+</ul>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<ul>
+<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Bulut iş birliği ortamları için güvenlik mimarisi</li>
+<li>🏗️ <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Ürünler Koleksiyonu Değildir</a> — İş birliği platformları için de geçerli sistem düşüncesi</li>
+<li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">İzleme Doğru Yapıldığında</a> — İş birliği altyapısını proaktif olarak izleme</li>
+<li>🔧 <a href="/tr/technology/securecrt-superputty-network-engineer-guide/">SecureCRT ve SuperPutty</a> — İş birliğinin üzerinde çalıştığı şirket içi altyapıyı yönetmek için araçlar</li>
+</ul>
+]]></content:encoded></item><item><title>Kurumsal WiFi Mimarisi: Standartlardan Deployment'a — Kapsamlı Rehber</title><link>https://barashhelvadzhaoglu.com/tr/technology/wifi-master/</link><pubDate>Wed, 01 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/wifi-master/</guid><description>Kurumsal kablosuz ağ master rehberi — 802.11 standartları, controller mimarileri, KOBİ ve otel tasarımı, roaming, güvenlik ve site survey.</description><content:encoded><![CDATA[<h1 id="kurumsal-wifi-mimarisi-standartlardan-deploymenta">Kurumsal WiFi Mimarisi: Standartlardan Deployment&rsquo;a</h1>
+<p>WiFi, herhangi bir ağın en görünür parçasıdır. Çalıştığında kimse söylemez. Çalışmadığında ise — dakikalar içinde IT ekibi binanın her köşesinden duyar.</p>
+<p>Ancak kablosuz ağ oluşturma aldatıcı biçimde karmaşıktır. Bir kullanıcıya &ldquo;sadece WiFi&rdquo; gibi görünen şey, birbirleriyle etkileşen kararların bir yığınıdır: hangi 802.11 standardı, hangi frekans bandı, kaç erişim noktası, hangi controller mimarisi, kimlik doğrulamanın nasıl yönetileceği, roaming&rsquo;in nasıl davranacağı, RF ortamının nasıl yönetileceği. Bunlardan herhangi birini yanlış yaparsanız, kağıt üzerinde iyi görünen ağ üretimde başarısız olur.</p>
+<p>Aruba, Cisco Meraki ve Cisco kurumsal platformları kullanarak bankacılık genel merkezleri, üretim tesisleri, oteller, lojistik depoları ve muayenehanelerde kablosuz ağlar tasarladım ve deploy ettim. Bu seri, bu senaryoların her birinde gerçekte önemli olan şeyleri belgeliyor.</p>
+<hr>
+<h2 id="bu-seriyi-nasıl-okuyalım">Bu Seriyi Nasıl Okuyalım</h2>
+<p>Bu yazı size <strong>büyük resmi</strong> verir — kurumsal kablosuz mimarisinin neyi içerdiğini, temel kararların neler olduğunu ve her deep dive&rsquo;ın nereye gittiğini.</p>
+<p><strong>Mühendisseniz</strong> ve belirli bir konuya derinlemesine inmek istiyorsanız — kullanım senaryonuzu kapsayan yazıya atlayın:</p>
+<ul>
+<li>📡 <strong><a href="/tr/technology/wifi-80211-standartlari-wifi4-wifi5-wifi6/">802.11 Standartları Deep Dive: WiFi 4, 5, 6, 6E ve Gerçekte Ne Değişti</a></strong> — ax, ac, n ve be&rsquo;nin kapasite, kapsama alanı ve deployment kararları için gerçekte ne anlama geldiği</li>
+<li>🏢 <strong><a href="/tr/technology/kurumsal-wifi-controller-mimarisi-cisco-aruba/">Kurumsal Controller Mimarisi: Cisco ve Aruba WLAN Tasarımı</a></strong> — Merkezi ve dağıtık kontrol, mobilite alanları, WLC ve bulut yönetimi karşılaştırması</li>
+<li>🏨 <strong><a href="/tr/technology/wifi-tasarimi-kobi-otel-saglik/">KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı</a></strong> — Yoğunluk planlaması, misafir segmentasyonu ve beklenti yönetimi üzerine pratik saha notları</li>
+<li>🔐 <strong><a href="/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/">WiFi Güvenliği: WPA3, 802.1X, Sahte AP Tespiti ve Site Survey</a></strong> — Kimlik doğrulama, şifreleme, saldırı tespiti ve Ekahau survey metodolojisi</li>
+</ul>
+<p><strong>Mimar veya karar vericiyseniz</strong> ve kablosuz çözümleri değerlendiriyorsanız — burada okumaya devam edin. Bu yazı, RF uzmanlığı gerektirmeden stratejik soruları yanıtlar.</p>
+<hr>
+<h2 id="wifi-mimarisinin-erişim-noktası-sayısından-daha-fazlasını-neden-önemlidir">WiFi Mimarisinin Erişim Noktası Sayısından Daha Fazlasını Neden Önemlidir</h2>
+<p>WiFi deployment&rsquo;larındaki en yaygın hata: kablosuzu bir miktar problemi olarak ele almak. &ldquo;Daha iyi WiFi&rsquo;ye ihtiyacımız var — daha fazla erişim noktası ekleyelim.&rdquo;</p>
+<p>Kötü tasarlanmış bir ağa erişim noktası eklemek onu daha da kötüleştirir. Aynı alanda daha fazla AP, daha fazla girişim, daha fazla kanal çakışması, daha fazla roaming olayı ve daha fazla karmaşıklık demektir — kullanıcı deneyiminde orantılı bir iyileşme olmadan.</p>
+<p>Kurumsal kablosuz tasarımı erişim noktası yoğunluğu ile ilgili değildir. Şunlarla ilgilidir:</p>
+<ul>
+<li><strong>Kapasite planlaması:</strong> Kaç eş zamanlı istemci, hangi veri hızlarına ihtiyaç duyarlar, hangi uygulamaları çalıştırıyorlar?</li>
+<li><strong>RF tasarımı:</strong> Hangi kanallar, hangi güç seviyeleri, hangi band yönlendirme politikaları oluşturmak yerine girişimi önler?</li>
+<li><strong>Controller mimarisi:</strong> Ağ kararları nasıl verir? Kimlik doğrulama nerede gerçekleşir? Roaming nasıl yönetilir?</li>
+<li><strong>Güvenlik:</strong> Ağa kim, hangi kimlikle ve ne düzeyde erişimle izin verilir?</li>
+<li><strong>Operasyonel model:</strong> Kim yönetir, nasıl izlenir, sorunlar nasıl teşhis edilir?</li>
+</ul>
+<p>Bunları doğru yaparsanız erişim noktası sayısı bir başlangıç noktası değil, türetilmiş bir hesaplama olur.</p>
+<hr>
+<h2 id="80211-standartları-gerçekte-ne-değişti">802.11 Standartları: Gerçekte Ne Değişti</h2>
+<p>IEEE 802.11 standardı, her biri pazarlama amacıyla farklı biçimde markalanmış birden fazla nesil geçirdi:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Standart</th>
+          <th>Pazarlama Adı</th>
+          <th>Maks Teorik Hız</th>
+          <th>Temel İyileştirme</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>802.11n</td>
+          <td>WiFi 4</td>
+          <td>600 Mbps</td>
+          <td>MIMO, 5 GHz desteği</td>
+      </tr>
+      <tr>
+          <td>802.11ac</td>
+          <td>WiFi 5</td>
+          <td>3,5 Gbps</td>
+          <td>MU-MIMO, daha geniş kanallar (80/160 MHz)</td>
+      </tr>
+      <tr>
+          <td>802.11ax</td>
+          <td>WiFi 6</td>
+          <td>9,6 Gbps</td>
+          <td>OFDMA, BSS Boyama, TWT, yüksek yoğunluk</td>
+      </tr>
+      <tr>
+          <td>802.11ax (6 GHz)</td>
+          <td>WiFi 6E</td>
+          <td>9,6 Gbps</td>
+          <td>Yeni 6 GHz bandı, daha az tıkanıklık</td>
+      </tr>
+      <tr>
+          <td>802.11be</td>
+          <td>WiFi 7</td>
+          <td>46 Gbps</td>
+          <td>Çok Bağlantılı Çalışma, 320 MHz kanallar</td>
+      </tr>
+  </tbody>
+</table>
+<p>Pazarlama materyallerindeki teorik hızlar pratikte hiçbir zaman ulaşılmaz. Gerçek deployment&rsquo;larda önemli olan her nesil için farklıdır:</p>
+<p><strong>WiFi 6 (802.11ax)</strong>, yoğun ortamlarda gerçekten önemli iki yetenek getirdi:</p>
+<ul>
+<li><strong>OFDMA (Orthogonal Frequency Division Multiple Access):</strong> Bir AP&rsquo;nin bölünmüş frekans kaynakları üzerinde aynı anda birden fazla istemciye hizmet vermesini sağlar — bir seferde bir istemci iletim yapmak yerine, birden fazla istemci kanalı verimli biçimde paylaşır. Çok sayıda IoT cihazı, telefon ve tablet bulunan ortamlar için kritik.</li>
+<li><strong>BSS Boyama:</strong> Örtüşen hücreler arasında aynı kanal girişimini azaltan bir mekanizma. Komşu AP&rsquo;ler iletimlerini &ldquo;boyar&rdquo;, bu da cihazların &ldquo;benim AP&rsquo;m&rdquo; ile &ldquo;yan odadaki AP&rdquo; arasındaki ayrımı daha verimli yapmasını sağlar.</li>
+</ul>
+<p><strong>WiFi 6E</strong>, 6 GHz bandını ekledi — komşu ağlardan ve eski cihazlardan gelen girişimi ortadan kaldıran büyük ölçüde tıkanmamış bir spektrum. Yoğun kentsel ortamlarda önemli avantaj.</p>
+<p><strong>WiFi 7</strong> ortaya çıkıyor ve Çok Bağlantılı Çalışma (MLO) sayesinde tek bir cihazın aynı anda birden fazla bant ve kanalı kullanması — verimi iyileştiriyor ve gecikmeyi azaltıyor. 2026 itibarıyla hâlâ erken kurumsal deployment aşamasında.</p>
+<p>→ <strong><a href="/tr/technology/wifi-80211-standartlari-wifi4-wifi5-wifi6/">802.11 Standartları Deep Dive</a></strong></p>
+<hr>
+<h2 id="controller-mimarisi-zekanın-nerede-yaşadığı">Controller Mimarisi: Zekanın Nerede Yaşadığı</h2>
+<p>Kurumsal kablosuz ağlarda iki temel mimari model vardır:</p>
+<h3 id="merkezi-controller-geleneksel-kurumsal">Merkezi Controller (Geleneksel Kurumsal)</h3>
+<p>Tüm erişim noktaları &ldquo;ince&quot;dir — RF iletimini yönetirler ancak tüm trafiği ve tüm kontrol kararlarını merkezi bir Kablosuz LAN Controller&rsquo;a (WLC) gönderirler:</p>
+<pre tabindex="0"><code>[AP] ──CAPWAP tüneli──→ [WLC] → Çekirdek Ağ
+[AP] ──CAPWAP tüneli──→ [WLC]
+[AP] ──CAPWAP tüneli──→ [WLC]
+</code></pre><p>WLC, kimlik doğrulamayı, roaming kararlarını, RF yönetimini, güvenlik politikasını ve trafik iletimini yönetir. AP&rsquo;ler birbirinin yerine geçebilir — birini kaldırın ve yerine başkasını takın; WLC yapılandırmayı yönetir.</p>
+<p><strong>Güçlü yönler:</strong> Merkezi görünürlük, tutarlı politika uygulaması, controller alanı içinde kesintisiz roaming.</p>
+<p><strong>Zayıf yönler:</strong> WLC tek hata noktasıdır (HA çiftleriyle hafifletilir). Trafik, yerel iletişim için bile WLC üzerinden geçer. Ölçeklendirme WLC kapasitesi eklemeyi gerektirir.</p>
+<p>Cisco&rsquo;nun kampüs kablosuz platformu ve Aruba&rsquo;nın Mobility Master/Controller mimarisi baskın örneklerdir.</p>
+<h3 id="bulut-yönetimli-modern-yaklaşım">Bulut Yönetimli (Modern Yaklaşım)</h3>
+<p>Erişim noktalarının daha fazla zekası vardır. Yönetim, yapılandırma ve görünürlük buluttadır; veri düzlemi trafiği doğrudan ağa gider:</p>
+<pre tabindex="0"><code>[AP] ──veri──→ Çekirdek Ağ (doğrudan, hairpin yok)
+[AP] ──yönetim tüneli──→ Bulut Panosu
+</code></pre><p><strong>Güçlü yönler:</strong> Şirket içi controller donanımı yok. Dağıtık siteler arasında daha kolay yönetim. Yerleşik izleme ve analitik. Daha düşük operasyonel karmaşıklık.</p>
+<p><strong>Zayıf yönler:</strong> Yönetim için bulut bağlantısına bağımlı (AP&rsquo;ler buluta ulaşılamazsa çalışmaya devam eder). Karmaşık kurumsal politikalar için daha az esnek.</p>
+<p>Cisco Meraki ve Aruba Central, önde gelen bulut yönetimli platformlardır.</p>
+<h3 id="dağıtık--kampüs-fabric">Dağıtık / Kampüs Fabric</h3>
+<p>Modern büyük kampüs deployment&rsquo;ları çoğunlukla kablosuzu daha geniş ağ fabric&rsquo;ine entegre eder — AP&rsquo;ler, cihaz kablo veya kablosuz bağlansın tutarlı erişim kontrolüyle kimlik tabanlı VLAN atamasıyla kablolu portlarla aynı politika ve segmentasyon modeline katılır.</p>
+<p>SD-Access ile Cisco DNA Center ve Central ile Aruba CX bu yaklaşımın örnekleridir.</p>
+<p>→ <strong><a href="/tr/technology/kurumsal-wifi-controller-mimarisi-cisco-aruba/">Kurumsal Controller Mimarisi Deep Dive</a></strong></p>
+<hr>
+<h2 id="kobi-otel-ve-muayenehane-tasarım-prensipleri">KOBİ, Otel ve Muayenehane: Tasarım Prensipleri</h2>
+<p>Tüketici WiFi ekipmanı, profesyonel ortamlarda düşük kalite nedeniyle değil — yoğunluk, yönetim gereksinimleri veya bu ortamların güvenlik beklentileri için tasarlanmadığı için başarısız olur.</p>
+<h3 id="kobi-küçük-ve-orta-ölçekli-işletme">KOBİ (Küçük ve Orta Ölçekli İşletme)</h3>
+<p>Tipik KOBİ zorluğu: arka ofiste veya toplantı odasında WiFi&rsquo;nin yavaş olduğundan şikayet eden personel — resepsiyonda tam sinyal olmasına rağmen. Kök nedenler neredeyse her zaman şunlardır:</p>
+<ul>
+<li>RF kapsamı yerine kablolama kolaylığına göre yerleştirilen AP&rsquo;ler</li>
+<li>Kullanılabilir veri hızlarında fiziksel olarak kapsaması imkânsız bir katı kapsama almaya çalışan tek AP</li>
+<li>Band yönlendirme yok — yeni cihazlar beklerken eski cihazlar 2,4 GHz&rsquo;i monopolleştiriyor</li>
+<li>QoS yok — video görüşmeleri dosya yedeklemeleriyle eşit rekabet ediyor</li>
+</ul>
+<p>KOBİ kablosuz tasarım prensipleri:</p>
+<ul>
+<li>Ofis ortamlarında <strong>150–200 m² başına bir AP</strong> planlayın (evrensel kural değil, tipik yükler için gerçekçi bir başlangıç noktası)</li>
+<li>Her zaman misafir ve kurumsal trafiği ayırın (farklı SSID&rsquo;ler, farklı VLAN&rsquo;lar, aralarında firewall politikası)</li>
+<li>Operasyonel sadelik için bulut yönetimli AP&rsquo;ler kullanın (Aruba Instant On, Meraki Go, Cisco Business)</li>
+</ul>
+<h3 id="otel-wifisi">Otel WiFi&rsquo;si</h3>
+<p>Oteller belirli bir zorluk sunar: odalarda yüksek istemci yoğunluğu (her misafir 3–5 cihaz getirir), günün saatine göre son derece değişken talep ve &ldquo;WiFi&quot;nin sıcak su gibi bir hizmet olduğu beklentisi — her zaman mevcut, hiçbir zaman düşünülmeyen.</p>
+<p>Temel otel WiFi tasarım kararları:</p>
+<ul>
+<li><strong>AP yerleşimi:</strong> Odaları kapsayan koridor AP&rsquo;leri ve oda içi AP&rsquo;ler karşılaştırması. Oda içi AP&rsquo;ler odalar arasında daha iyi sinyal izolasyonu sağlar (daha az girişim) ancak daha yüksek deployment maliyeti ve bakım karmaşıklığı.</li>
+<li><strong>Bant genişliği yönetimi:</strong> Kullanıcı başına hız sınırlama, tek misafirin paylaşılan uplink&rsquo;i doyurmasını önler. Tek bir 4K video akışının düzinelerce diğer kullanıcıyı etkileyebildiği ortamlarda gerekli.</li>
+<li><strong>Misafir portalı:</strong> Kimlik doğrulama, şartlar kabul, potansiyel olarak oda numarası doğrulama. Otomatik sağlama için PMS (Otel Yönetim Sistemi) ile entegrasyon.</li>
+<li><strong>Personel ve misafir ağı:</strong> Tamamen ayrı — personel ağına hiçbir koşulda misafir ağından erişilememeli.</li>
+</ul>
+<p>→ <strong><a href="/tr/technology/wifi-tasarimi-kobi-otel-saglik/">KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı Deep Dive</a></strong></p>
+<hr>
+<h2 id="roaming-ve-band-yönlendirme">Roaming ve Band Yönlendirme</h2>
+<h3 id="roaming-göründüğünden-neden-daha-zordur">Roaming: Göründüğünden Neden Daha Zordur</h3>
+<p>Roaming — bir istemcinin bir AP&rsquo;den diğerine geçişi — pek çok kablosuz deployment&rsquo;ın sessizce başarısız olduğu yerdir. Belirtiler &ldquo;WiFi sorunları&rdquo; gibi görünür ama kök neden roaming davranışıdır.</p>
+<p><strong>Yapışkan istemci sorunu:</strong> Bir istemci cihaz, AP değil, ne zaman dolaşacağına kendisi karar verir. 30 metre ötedeki AP-1&rsquo;e güçlü bağlantısı olan bir dizüstü bilgisayar, 5 metre ötedeki AP-2&rsquo;ye dolaşmayı reddedebilir, çünkü AP-1&rsquo;e bağlantısı teknik olarak hâlâ işlevseldir. AP, istemciyi dolaşmaya zorlayamaz (istemci yönlendirme mekanizmaları kullanmadan).</p>
+<p><strong>Hızlı roaming protokolleri:</strong></p>
+<ul>
+<li><strong>802.11r (Fast BSS Transition):</strong> İstemcinin mevcut AP&rsquo;den tam olarak bağlantısını kesmeden önce hedef AP ile önceden kimlik doğrulama yaparak roaming süresini azaltır. Bağlantı kesintilerinin görüşme düşmelerine neden olduğu ses ve video uygulamaları için gerekli.</li>
+<li><strong>802.11k (Komşu Raporları):</strong> AP, istemciye yakındaki AP&rsquo;lerin ve sinyal güçlerinin listesini sağlar, istemcilerin daha iyi roaming kararları vermesine yardımcı olur.</li>
+<li><strong>802.11v (BSS Geçiş Yönetimi):</strong> AP&rsquo;lerin bir istemcinin farklı bir AP&rsquo;ye dolaşmasını önermesine veya talep etmesine olanak tanır — ağa istemci roaming davranışı üzerinde biraz etki verir.</li>
+</ul>
+<p>Kurumsal deployment&rsquo;larda, en iyi roaming davranışı için üç protokolün (topluca 802.11r/k/v olarak adlandırılır) birlikte etkinleştirilmesi gerekir.</p>
+<h3 id="band-yönlendirme">Band Yönlendirme</h3>
+<p>Çift bantlı AP&rsquo;ler hem 2,4 GHz hem de 5 GHz üzerinde yayın yapar. Kendi tercihlerine bırakıldığında, birçok istemci 2,4 GHz&rsquo;i seçer — daha uzun menzili vardır ve tanıdıktır. Ancak 2,4 GHz&rsquo;in (çoğu bölgede) yalnızca 3 örtüşmeyen kanalı vardır, komşu ağlar ve IoT cihazları tarafından yoğun biçimde kullanılır ve daha düşük verim sağlar.</p>
+<p>Band yönlendirme, yetenekli istemcileri 5 GHz&rsquo;e (veya WiFi 6E deployment&rsquo;larında 6 GHz&rsquo;e) iter:</p>
+<ul>
+<li>2,4 GHz probe yanıtlarını geciktir — yanıt bekleyen istemciler 5 GHz&rsquo;i dener</li>
+<li>Aktif yönlendirme — controller 5 GHz&rsquo;e yetenekli istemcileri tanımlar ve 2,4 GHz ilişkisini reddeder</li>
+</ul>
+<p>Tüm istemciler agresif band yönlendirmeye iyi yanıt vermez. Eski veya daha az yetenekli cihazlar için yönlendirme ile bağlantı arasındaki dengeyi bulun.</p>
+<hr>
+<h2 id="wifi-güvenliği-çoğu-ekibin-yanlış-yaptığı-katman">WiFi Güvenliği: Çoğu Ekibin Yanlış Yaptığı Katman</h2>
+<p>WiFi güvenliği yalnızca SSID&rsquo;deki bir şifre değildir. Kurumsal ortamlarda kimlik doğrulama mimarisini, şifreleme standartlarını, ağ segmentasyonunu ve sahte altyapıyı izlemeyi içerir.</p>
+<h3 id="kimlik-doğrulama-pskdan-8021xe">Kimlik Doğrulama: PSK&rsquo;dan 802.1X&rsquo;e</h3>
+<p><strong>WPA2-PSK / WPA3-SAE (Önceden Paylaşılan Anahtar):</strong> Tüm kullanıcılar için tek şifre. Basit, ancak kritik zayıflıkları var: bir sızdırılan şifre tüm kullanıcıları tehlikeye atar, bireysel hesap verebilirlik yoktur ve iptal her yerde şifreyi değiştirmeyi gerektirir.</p>
+<p><strong>WPA2/WPA3-Enterprise (802.1X):</strong> Her kullanıcı, bireysel kimlik bilgileriyle (kullanıcı adı/şifre, sertifika veya akıllı kart) bir RADIUS sunucusuna (Windows NPS, Cisco ISE, Aruba ClearPass) karşı kimlik doğrular. Faydaları:</p>
+<ul>
+<li>Bireysel hesap verebilirlik — tam olarak hangi kullanıcının bağlı olduğunu bilirsiniz</li>
+<li>Ayrıntılı iptal — diğerlerini etkilemeden tek kullanıcıyı devre dışı bırakın</li>
+<li>Dinamik VLAN ataması — kimlik, departman veya cihaz türüne göre kullanıcıları farklı VLAN&rsquo;lara yerleştirin</li>
+<li>Grup üyeliğine dayalı otomatik erişim için Active Directory ile entegrasyon</li>
+</ul>
+<p>Hassas veriler işleyen herhangi bir kurumsal ortam için 802.1X isteğe bağlı değildir — taban çizgisidir.</p>
+<h3 id="şifreleme-wpa3-ve-neden-önemlidir">Şifreleme: WPA3 ve Neden Önemlidir</h3>
+<p>WPA3, WPA2&rsquo;nin PSK el sıkışmasının yerini alan <strong>SAE (Simultaneous Authentication of Equals)</strong> getirdi. Kritik iyileştirme: SAE <strong>ileri gizlilik</strong> sağlar — el sıkışmayı yakalamak ve daha sonra şifreyi elde etmek, daha önce yakalanan trafiğin şifresini çözmeye izin vermez.</p>
+<p>WPA2 (PMKID saldırılarıyla), yakalanan el sıkışmalarının çevrimdışı kaba kuvvet kırılmasına olanak tanıyordu. WPA3 bu saldırı vektörünü ortadan kaldırır.</p>
+<p>802.1X kullanan kurumsal deployment&rsquo;lar için, 192 bit güvenlik modundaki WPA3-Enterprise mevcut en güçlü kablosuz şifrelemeyi sağlar.</p>
+<h3 id="sahte-ap-tespiti">Sahte AP Tespiti</h3>
+<p>Sahte AP, ağınıza bağlı yetkisiz bir erişim noktasıdır — kötü niyetle yerleştirilen veya ofise ev yönlendiricisi getiren iyi niyetli bir çalışan.</p>
+<p>Kurumsal kablosuz controller&rsquo;lar RF ortamını sürekli olarak AP&rsquo;ler için tarar. Kablolu ağınızın BSSID&rsquo;si veya SSID&rsquo;siyle eşleşen bir AP tespit edildiğinde, sahte olarak işaretlenir ve — çoğu platformda — otomatik olarak çevrelenebilir (controller, sahte AP&rsquo;ye bağlanan istemcilere kimlik doğrulama iptali çerçeveleri gönderir).</p>
+<p>→ <strong><a href="/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/">WiFi Güvenliği Deep Dive: WPA3, 802.1X, Sahte AP Tespiti ve Site Survey</a></strong></p>
+<hr>
+<h2 id="site-survey-çoğu-projenin-atladığı-adım">Site Survey: Çoğu Projenin Atladığı Adım</h2>
+<p>Site survey, AP deployment öncesinde ve sonrasında RF ortamının sistematik olarak ölçülmesidir. Bu adımı atlamak, &ldquo;WiFi deployment yaptık ama düzgün çalışmıyor&rdquo; durumlarının en yaygın nedenidir.</p>
+<p><strong>Tahmine dayalı survey (deployment öncesi):</strong> Beklenen kapsama alanını modellemek için bir kat planı ve duvar malzemeleriyle RF simülasyon yazılımı (Ekahau Site Survey sektör standardıdır) kullanın. Herhangi bir şey kurmadan AP yerleşimini, kanal atamalarını ve güç seviyelerini belirleyin.</p>
+<p><strong>Doğrulama surveyi (deployment sonrası):</strong> Ekahau çalıştıran bir dizüstü bilgisayarla alanı yürüyerek gerçek sinyal gücünü, gürültü tabanını, kanal kullanımını ve roaming davranışını ölçün. Tahmine dayalı modelle karşılaştırın ve gerektiğinde AP yerleşimini veya ayarlarını düzenleyin.</p>
+<p>Site survey&rsquo;in ortaya koyduğu şeyler:</p>
+<ul>
+<li>Tahmine dayalı modelin öngörmediği kapsama boşlukları (beklenmedik girişim kaynakları, beklenenden daha fazla zayıflatan duvar malzemeleri)</li>
+<li>Komşu ağlardan kanal tıkanıklığı</li>
+<li>Kendi AP&rsquo;leriniz arasındaki aynı kanal girişimi</li>
+<li>İstemcilerin AP&rsquo;ler arasında bağlantıyı kaybettiği roaming ölü noktaları</li>
+</ul>
+<p>Uygun bir site survey&rsquo;in maliyeti, kurulumdan sonra önemli yeniden çalışma gerektiren kablosuz deployment maliyetiyle karşılaştırıldığında küçüktür.</p>
+<p>→ <strong><a href="/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/">WiFi Güvenliği Deep Dive, Site Survey metodolojisini içerir</a></strong></p>
+<hr>
+<h2 id="doğru-platformu-seçme">Doğru Platformu Seçme</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Senaryo</th>
+          <th>Önerilen Platform</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Küçük ofis, basit yönetim</td>
+          <td>Aruba Instant On, Cisco Business, Meraki Go</td>
+      </tr>
+      <tr>
+          <td>IT personeli olan KOBİ</td>
+          <td>Cisco Meraki, Aruba Central (bulut yönetimli)</td>
+      </tr>
+      <tr>
+          <td>Kurumsal kampüs, karmaşık politika</td>
+          <td>Aruba Mobility Master, Cisco DNA Center</td>
+      </tr>
+      <tr>
+          <td>Otel / konaklama</td>
+          <td>Aruba, Cisco Meraki (PMS entegrasyonu ile)</td>
+      </tr>
+      <tr>
+          <td>Sağlık / düzenlenmiş ortam</td>
+          <td>Aruba ClearPass + Mobility Master, Cisco ISE + WLC</td>
+      </tr>
+      <tr>
+          <td>Yüksek yoğunluklu mekanlar</td>
+          <td>Cisco (Catalyst Center), Aruba (AOS 10)</td>
+      </tr>
+      <tr>
+          <td>Çok siteli, merkezi yönetim</td>
+          <td>Cisco Meraki, Aruba Central</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="bu-seri">Bu Seri</h2>
+<ul>
+<li>📡 <strong><a href="/tr/technology/wifi-80211-standartlari-wifi4-wifi5-wifi6/">802.11 Standartları Deep Dive</a></strong> — WiFi 4, 5, 6, 6E ve 7: ne değişti, pratikte ne önemli</li>
+<li>🏢 <strong><a href="/tr/technology/kurumsal-wifi-controller-mimarisi-cisco-aruba/">Kurumsal Controller Mimarisi</a></strong> — Cisco ve Aruba mimarileri, merkezi ve bulut karşılaştırması, mobilite alanları</li>
+<li>🏨 <strong><a href="/tr/technology/wifi-tasarimi-kobi-otel-saglik/">KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı</a></strong> — Gerçek dünya deployment senaryolarında pratik saha notları</li>
+<li>🔐 <strong><a href="/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/">WiFi Güvenliği: WPA3, 802.1X, Sahte AP, Site Survey</a></strong> — Kimlik doğrulama, şifreleme, saldırı tespiti, Ekahau metodolojisi</li>
+</ul>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<ul>
+<li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Kimlik Tabanlı Mimari Sahada</a> — Kurumsal WiFi güvenliğini işlevsel kılan kimlik katmanı</li>
+<li>🏗️ <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Ürünler Koleksiyonu Değildir</a> — Kablosuz tasarımın arkasındaki sistem düşüncesi</li>
+<li>🎯 <a href="/tr/architecture/network-product-selection-strategy/">Ağ Altyapısı Ürün Seçimi: Stratejik Kriterler</a> — Kablosuz satıcıları nesnel olarak nasıl değerlendirirsiniz</li>
+</ul>
+]]></content:encoded></item><item><title>🚀 Mezun Rehberi: Bir Network Mühendisi Aslında Ne Yapar?</title><link>https://barashhelvadzhaoglu.com/tr/posts/career-guide-network-engineering/</link><pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/career-guide-network-engineering/</guid><description>Yeni mezunlar için ağ mühendisliği kariyer rehberi. Endüstriyel altyapı, günlük operasyonlar ve profesyonelleşme yol haritası.</description><content:encoded><![CDATA[<p>Merhaba arkadaşlar! Yeni mezun oldunuz, diplomanız elinizde, önünüzde uçsuz bucaksız bir IT dünyası var. &ldquo;Hangi yolu seçmeliyim?&rdquo; diye düşünürken <strong>Network Mühendisliği</strong> ile karşılaştınız. Peki bu insanlar sadece kablo mu takıyor, yoksa sahnede görünmeyen büyük bir zeka mı var? Gelin dijital dünyanın bu görünmez kahramanlığına derinlemesine dalalım.</p>
+<h3 id="-network-nedir-dijital-otoyolda-bir-yolculuk">🕸️ Network Nedir? (Dijital Otoyolda Bir Yolculuk)</h3>
+<p>En basit tanımıyla network, sistemlerin birbirleriyle iletişim kurmasını sağlayan bir taşıma aracıdır. Bilgisayarların bağımsız adalar olarak değil, birbiriyle bağlantılı büyük bir kıta olarak çalışmasını mümkün kılar.</p>
+<p><strong>Neden USB Yeterli Değil?</strong>
+Evde bir Excel dosyasını veya videoyu yan odadaki bilgisayara aktarmak için USB kullanabilirsiniz. Ancak profesyonel dünyada işler böyle yürümüyor. 50 kişinin aynı dosya üzerinde çalıştığı bir ofiste olduğunuzu ya da başka bir şehirdeki veya ülkedeki bir meslektaşınıza veri göndermeniz gerektiğini hayal edin. Manuel aktarım için mesafenin çok uzak veya kitlenin çok büyük olduğu her senaryoda <strong>Network</strong> — dijital otoyol — devreye girer.</p>
+<h3 id="-fabrika-örneği-sistemin-kalbi-olarak-sunucu-odası">🏭 Fabrika Örneği: Sistemin Kalbi Olarak &ldquo;Sunucu Odası&rdquo;</h3>
+<p>Bir fabrikada olduğunuzu hayal edin. Fabrikanın tüm hafızası sistem odasındaki bir sunucuda saklanıyor: müşteri listeleri, faturalar, üretim stokları ve çalışan verileri. Fabrikada 100 kişi olduğunu varsayalım. Bu 100 kişinin her biri, kendi masasından bu sunucuya eş zamanlı, hatasız ve yüksek hızda erişebilmek zorunda.</p>
+<p><strong>Network Mühendisi</strong>, bu 100 kişi ile o sunucu arasındaki yolu inşa eden, trafiğin tıkanmamasını sağlayan ve bu yolu güvence altına alan kişidir. Bu yalnızca &ldquo;üç beş kutuyu yan yana koymak&rdquo; değil — <strong>operasyonel bütünlük</strong> tasarlamaktır. Günümüzde bu yapı yalnızca fiziksel kablolarla değil, <strong>SD-WAN</strong> ve <strong>Cloud</strong> entegrasyonları gibi akıllı yazılım katmanlarıyla da yönetilir.</p>
+<h3 id="-ev-modemi-vs-endüstriyel-altyapı">🏠 Ev Modemi vs. Endüstriyel Altyapı</h3>
+<p>Çoğumuzun evinde bir modem var ve tek yaptığımız onu takıp internete bağlanmak. Ancak kurumsal dünyada (hastaneler, oteller, plazalar) ev tipi cihazlar oyuncak gibi kalır:</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/career-guide-network-engineering.webp"/> <figcaption>
+            Network Mühendisliği Kariyer Rehberi
+        </figcaption>
+</figure>
+
+<ul>
+<li><strong>Endüstriyel Ürün Seçimi:</strong> Ev tipi bir modem 100 kişiyi aynı anda internete bağlamaya çalıştığında aşırı ısınır, kilitlenir ve çöker. Bu yüzden profesyonel dünyada <strong>Cisco, Arista, HPE (Aruba) veya Juniper</strong> gibi global devlerin &ldquo;Endüstriyel Switch&quot;lerini kullanırız.</li>
+<li><strong>Port ve Bağlantı:</strong> Bu cihazların genellikle 24 veya 48 portu vardır. 100 kişilik ofis derken yalnızca dizüstü bilgisayarları saymayın; güvenlik kameraları, yazıcılar, parmak izi okuyucular, IP telefonlar ve Access Point&rsquo;ler de bu switch&rsquo;lere bağlanır. Bu demek oluyor ki 100 kişilik bir ofis, sizin için aslında 150-200 farklı kablo ucu ve bağlantı demektir.</li>
+</ul>
+<h3 id="-kablosuz-dünya-ve-roaming">📶 Kablosuz Dünya ve Roaming</h3>
+<p>Evde modem yakınında internet iyi çalışıyor ama arka odada kesiliyor. Bir fabrikada veya 10 katlı bir otelde bunu tek bir cihazla çözemezsiniz.</p>
+<ul>
+<li><strong>Access Point Ordusu:</strong> Tavanlara, depolara ve ofislere düzinelerce, bazen yüzlerce Access Point kurulur.</li>
+<li><strong>Kesintisiz Geçiş (Roaming):</strong> Bir fabrikanın bir ucundan diğerine yürürken dizüstü bilgisayarınızla görüşme yaptığınızı hayal edin. İnternet tek saniye bile kopmamalıdır. Uzmanlığınız, cihazınızın sizi fark ettirmeden bir AP&rsquo;den diğerine geçmesine olanak tanıyan o akıllı yapıyı (<strong>Wireless Controller</strong>) kurmak ve yönetmekten geçer.</li>
+</ul>
+<figure>
+    <img loading="lazy" src="/img/postimages/career-guide-network-engineering2.webp"/> <figcaption>
+            Network Mühendisliği Kariyer Rehberi 2
+        </figcaption>
+</figure>
+
+<h3 id="-internetin-bekçisi-firewall-ve-kiralık-hatlar">🛡️ İnternetin Bekçisi: Firewall ve Kiralık Hatlar</h3>
+<p>Kurumsal internet, ev internetinden çok farklı kurallarla işler:</p>
+<ul>
+<li><strong>Metro Ethernet (Dedicated):</strong> Evde akşamları internet yavaşlar çünkü hattı komşularınızla paylaşırsınız. Şirketlerde &ldquo;Dedicated&rdquo; (yalnızca size ait) hatlar kullanılır. Hızınız her zaman sabittir ve en önemlisi <strong>Upload</strong> hızınız çok yüksektir.</li>
+<li><strong>Firewall:</strong> Bu değerli internet hattının girişine bir nöbetçi yerleştiririz. <strong>Palo Alto, Fortinet veya Check Point</strong> gibi markalarla kimin hangi siteye erişebileceğini, dış siber saldırıların nasıl engelleneceğini ve <strong>Zero Trust</strong> felsefesini hayata geçirirsiniz.</li>
+</ul>
+<blockquote>
+<p>Zero Trust&rsquo;ı mimari bir perspektiften anlamak ister misiniz? <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a></p>
+</blockquote>
+<h3 id="-madalyonun-öbür-yüzü-vardiyalar-ve-sorumluluk">🌙 Madalyonun Öbür Yüzü: Vardiyalar ve Sorumluluk</h3>
+<p>Network mühendisi olmak istiyorsanız şu gerçeği kabul etmelisiniz: <strong>&ldquo;Herkes çalışırken sistem kapatılmaz.&rdquo;</strong></p>
+<ul>
+<li><strong>Bakım Pencereleri:</strong> Bir switch&rsquo;in yazılımını güncelleyecekseniz veya kabloların yerini değiştirecekseniz bunu herkes ofisteyken yapamazsınız. Bu yüzden çalışmalar genellikle geç gece saatlerinde, hafta sonlarında veya resmi tatillerde yapılır.</li>
+<li><strong>Uykusuz Geceler ve Haklar:</strong> Sistem çökerse saat 03:00&rsquo;te telefonunuz çalabilir. Ancak profesyonel dünyada bu bir fedakarlıktır; şirketler genellikle fazla mesai ücreti veya hafta içi &ldquo;servis süresi&rdquo; (ekstra izin) vererek bunu dengeler.</li>
+</ul>
+<h3 id="-yol-haritası-network-mühendisi-nasıl-olunur">🎓 Yol Haritası: Network Mühendisi Nasıl Olunur?</h3>
+<figure>
+    <img loading="lazy" src="/img/postimages/career-guide-roadmap.webp"/> <figcaption>
+            Network Mühendisliği Kariyer Yol Haritası
+        </figcaption>
+</figure>
+
+<p>Bu meslek yalnızca okuyarak değil, yaparak ve küresel çapta tanınan yolları takip ederek öğrenilir:</p>
+<ol>
+<li>
+<p><strong>Sertifikasyonun Temeli: CCNA</strong>
+Bu, network dünyasının &ldquo;ehliyet&quot;idir. <strong>Cisco Certified Network Associate (CCNA)</strong> eğitimi, işin alfabesini (IP, Routing, Switching) öğrenmenizi sağlar.</p>
+</li>
+<li>
+<p><strong>Resmi Eğitim Portalları (Hazine!)</strong>
+Üreticiler cihazlarını öğrenmeniz için harika kaynaklar sunar:</p>
+<ul>
+<li><strong>Cisco Networking Academy (Skills for All):</strong> <a href="https://skillsforall.com/">skillsforall.com</a></li>
+<li><strong>Palo Alto Networks Education:</strong> <a href="https://learning.paloaltonetworks.com/">learning.paloaltonetworks.com</a></li>
+<li><strong>Fortinet Training Institute:</strong> <a href="https://training.fortinet.com/">training.fortinet.com</a></li>
+<li><strong>Aruba (HPE) Learning Center:</strong> <a href="https://learn.hpe.com/aruba">learn.hpe.com/aruba</a></li>
+<li><strong>Juniper Learning Portal:</strong> <a href="https://learningportal.juniper.net/">learningportal.juniper.net</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Online ve Kendi Kendine Öğrenme</strong></p>
+<ul>
+<li><strong>Udemy:</strong> Birçok dilde çok uygun fiyatlı CCNA kursları bulabilirsiniz.</li>
+<li><strong>CBT Nuggets:</strong> Video açıklamaları çok yüksek kalitededir.</li>
+<li><strong>Simülasyon Araçları:</strong> Yalnızca kitap okumayın! Bilgisayarınıza <strong>Cisco Packet Tracer</strong> yükleyin. Daha ileri düzeyler için <strong>GNS3</strong> veya <strong>EVE-NG</strong> kullanarak profesyonel cihaz yazılımlarını deneyimleyin.</li>
+</ul>
+</li>
+</ol>
+<h3 id="sonuç">Sonuç</h3>
+<p>Ağ iletişimi, bilgisayar biliminin temelidir. İster geliştirici ister siber güvenlik uzmanı olun, bir paketin A noktasından B noktasına nasıl geçtiğini bilmeden gerçek bir profesyonel olamazsınız. Karmaşık bulmacaları çözmeyi ve dijital dünyaların altyapısını inşa etmeyi seviyorsanız, Network Mühendisliği her zaman talep gören prestijli ve heyecan verici bir kariyer yoludur.</p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Mimariye Derinlemesine Bakış</strong></p>
+<ul>
+<li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Doğru zihniyetin doğru üründen daha önemli olduğu yerde</li>
+<li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a> — Mimari öncelikli network tasarımı</li>
+<li>🛡️ <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Çevre ötesinde güvenlik</li>
+<li>🎯 <a href="/tr/architecture/network-product-selection-strategy/">Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler</a> — Üreticileri profesyonel gözle değerlendirmek</li>
+</ul>
+<p><strong>Pratik Mühendislik</strong></p>
+<ul>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Her şey çöktüğünde out-of-band erişim</li>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Trafik görünürlüğü ve güvenlik stratejisi</li>
+<li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Saha Deployment Rehberi</a> — Kimlik tabanlı ağ erişim kontrolü</li>
+</ul>
+]]></content:encoded></item><item><title>Cisco Nexus NX-OS Yazılım Güncelleme Rehberi: Sahada Test Edilmiş Adım Adım</title><link>https://barashhelvadzhaoglu.com/tr/posts/cisco-nexus-nxos-upgrade-guide/</link><pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/cisco-nexus-nxos-upgrade-guide/</guid><description>Cisco Nexus NX-OS güncelleme rehberi — hazırlık, güncelleme yolu, dosya transferi, rollback ve ROMMON kurtarma senaryoları.</description><content:encoded><![CDATA[<p>Bu rehber, Cisco Nexus switch&rsquo;lerde yazılım (NX-OS) güncelleme sürecini <strong>sahada uygulanabilir</strong>, <strong>adım adım</strong> ve <strong>geri dönüş senaryoları dahil</strong> olacak şekilde ele alır. Amaç; güncelleme sırasında servis kesintisi riskini azaltmak ve olası bir hatada cihazı hızlıca ayağa kaldırabilmektir.</p>
+<p>Yaşanan upgrade problemlerinin büyük bölümü güncellemenin kendisinden değil — hazırlık adımlarının atlanmasından kaynaklanır. Bu rehber hazırlığı, uygulama kadar ciddiye alır.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/nexus-nxos-upgrade-cover.webp"/> <figcaption>
+            Cisco Nexus NX-OS Upgrade Süreci
+        </figcaption>
+</figure>
+
+<blockquote>
+<p>Upgrade hatalarında out-of-band erişim için: <a href="/tr/posts/next-gen-console-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a></p>
+</blockquote>
+<h2 id="1-çalışma-öncesi-kontroller">1. Çalışma Öncesi Kontroller</h2>
+<p>Yazılım güncelleme işlemine başlamadan önce aşağıdaki hazırlık adımlarını mutlaka tamamlayın. Bu aşama en çok atlanan — ve en çok problem üretendir.</p>
+<h3 id="konfigürasyon-yedeği">Konfigürasyon Yedeği</h3>
+<ul>
+<li>Cihazınızın <strong>mevcut konfigürasyon yedeğini</strong> her şeyden önce alın.</li>
+<li>Yedeği switch üzerinde değil; kendi bilgisayarınızda veya FTP/SFTP gibi <strong>harici bir konumda</strong> saklayın.</li>
+<li>Upgrade başarısız olursa veya rollback gerekirse bu yedek hayati önem taşır.</li>
+</ul>
+<h3 id="switch-modeli-ve-mevcut-yazılım-sürümü-kontrolü">Switch Modeli ve Mevcut Yazılım Sürümü Kontrolü</h3>
+<p>Switch&rsquo;in modelini ve çalışan NX-OS sürümünü kontrol etmek için:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>show version
+</span></span><span style="display:flex;"><span>show module
+</span></span><span style="display:flex;"><span>show inventory
+</span></span></code></pre></div><p>Bu çıktılar; doğru NX-OS imajını seçmek, upgrade path&rsquo;i belirlemek ve donanım uyumluluğunu kontrol etmek için gereklidir.</p>
+<h2 id="2-yazılım-dosyasını-indirme">2. Yazılım Dosyasını İndirme</h2>
+<ul>
+<li>Switch modelinize uygun NX-OS imajını Cisco&rsquo;nun resmi portalından indirin:
+<a href="https://software.cisco.com/download/home">https://software.cisco.com/download/home</a></li>
+<li>İndirme için geçerli bir <strong>Cisco hesabı ve gerekli yetkiler</strong> gerekmektedir.</li>
+<li>İndirme tamamlandıktan sonra <strong>MD5 hash değerini mutlaka not alın</strong> — transfer sonrası doğrulama için kullanacaksınız.</li>
+</ul>
+<blockquote>
+<p>MD5 doğrulaması, dosyanın indirme sırasında bozulmadığını doğrular. Bu adım isteğe bağlı değildir.</p>
+</blockquote>
+<h2 id="3-upgrade-path-kontrolü">3. Upgrade Path Kontrolü</h2>
+<p>Mevcut NX-OS sürümünüzden hedef sürüme <strong>doğrudan geçiş her zaman desteklenmeyebilir</strong>. Bazı sürüm kombinasyonları ara adımlar gerektirir.</p>
+<p>Cisco&rsquo;nun resmi araçlarını kullanarak kontrol edin:</p>
+<ul>
+<li><strong>Nexus Upgrade Matrix Tools</strong></li>
+<li>Nexus 9000 / 3000 Series</li>
+<li>Nexus 7000 Series</li>
+</ul>
+<blockquote>
+<p>Birden fazla geçiş adımı gerekiyorsa, işleme başlamadan <strong>tüm ara sürüm imajlarını</strong> önceden indirin.</p>
+</blockquote>
+<h2 id="4-yazılım-dosyasını-switche-kopyalama">4. Yazılım Dosyasını Switch&rsquo;e Kopyalama</h2>
+<h3 id="seçenek-a-ftp-ile-transfer">Seçenek A: FTP ile Transfer</h3>
+<p>FTP en yaygın kullanılan yöntemlerden biridir. NX-OS imajları 2 GB&rsquo;a yaklaşabileceğinden transfer süresi ağ hızına bağlıdır.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>copy ftp://user1:Qazwsx@10.10.10.5/nxos.9.3.10.bin bootflash:
+</span></span></code></pre></div><p>Nexus&rsquo;ta birden fazla VRF tanımı varsa transfer için hangi VRF kullanılacağı sorulur. Management interface genellikle management VRF kullandığından bu örnekte management VRF seçilir.</p>
+<h3 id="seçenek-b-usb-ile-transfer-önerilen">Seçenek B: USB ile Transfer (Önerilen)</h3>
+<p>USB transfer benim tercih ettiğim yöntemdir:</p>
+<ul>
+<li>FTP server hazır değilse</li>
+<li>Zaman kısıtı varsa</li>
+<li>Network üzerinden transfer riski almak istemiyorsanız</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>copy usb1:nxos.9.3.10.bin bootflash:
+</span></span></code></pre></div><p>Devam etmeden önce USB dosya sisteminin Nexus tarafından desteklendiğinden emin olun.</p>
+<h3 id="md5-hash-doğrulaması">MD5 Hash Doğrulaması</h3>
+<p>Transfer tamamlandıktan sonra dosya bütünlüğünü doğrulayın:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>show file bootflash:nxos.9.3.10.bin md5sum
+</span></span></code></pre></div><p>Çıktı, Cisco indirme portalındaki MD5 hash değeriyle birebir aynı olmalıdır.</p>
+<h2 id="5-güncelleme-işlemi">5. Güncelleme İşlemi</h2>
+<p>Tüm kontroller tamamlandıktan sonra güncellemeyi başlatın:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>install all nxos bootflash:nxos.9.3.10.bin
+</span></span></code></pre></div><ul>
+<li>Switch, yükleme öncesinde mevcut konfigürasyonu otomatik olarak kaydeder.</li>
+<li>Reboot öncesinde onay ister.</li>
+<li>Onay verildikten sonra cihaz yeniden başlar ve upgrade işlemi başlar.</li>
+</ul>
+<p>Upgrade süresi cihaz modeline ve yazılım boyutuna göre değişir.</p>
+<h2 id="6-rollback-ve-kurtarma-senaryoları">6. Rollback ve Kurtarma Senaryoları</h2>
+<figure>
+    <img loading="lazy" src="/img/postimages/nexus-upgrade-rollback.webp"/> <figcaption>
+            Nexus Upgrade Rollback ve Kurtarma Yolu
+        </figcaption>
+</figure>
+
+<h3 id="rommon-moduna-geçiş">ROMMON Moduna Geçiş</h3>
+<p>Yükleme başarısız olursa veya cihaz açılmazsa:</p>
+<ul>
+<li>Cihaz açılışı sırasında console bağlantısı üzerinden <strong>CTRL + L</strong> veya <strong>CTRL + C</strong> tuşlarına basarak <strong>ROMMON moduna</strong> geçin.</li>
+</ul>
+<h3 id="rommondan-tftp-ile-boot">ROMMON&rsquo;dan TFTP ile Boot</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>set ip 10.10.10.2 255.255.255.0
+</span></span><span style="display:flex;"><span>set gw 10.10.10.1
+</span></span><span style="display:flex;"><span>cmdline recoverymode<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>boot tftp://10.10.10.2/tftpboot/nxos.9.3.10.bin
+</span></span><span style="display:flex;"><span>init system
+</span></span><span style="display:flex;"><span>reload-nxos
+</span></span></code></pre></div><h3 id="rommondan-usb-ile-boot">ROMMON&rsquo;dan USB ile Boot</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>boot usb1:nxos.9.3.10.bin bootflash:
+</span></span><span style="display:flex;"><span>set ip 10.10.10.2 255.255.255.0
+</span></span><span style="display:flex;"><span>set gw 10.10.10.1
+</span></span><span style="display:flex;"><span>cmdline recoverymode<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>boot usb1:nxos.9.3.10.bin
+</span></span><span style="display:flex;"><span>init system
+</span></span><span style="display:flex;"><span>reload-nxos
+</span></span></code></pre></div><p>TFTP veya USB ile boot ettikten sonra boot ayarlarını doğrulayın ve düzeltin:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>show boot
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>configure terminal
+</span></span><span style="display:flex;"><span>  boot nxos bootflash:/nxos.9.3.10.bin
+</span></span></code></pre></div><h2 id="kritik-uyarı">Kritik Uyarı</h2>
+<p>Yazılım güncellemesi sırasında:</p>
+<ul>
+<li><strong>Ağ bağlantısını kesmeyin</strong></li>
+<li><strong>Güç kaynağını kesmeyin</strong></li>
+</ul>
+<p>Her iki durum da cihazı fiziksel müdahale olmaksızın kurtarılamaz hale getirebilir.</p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Mimari &amp; Operasyonlar</strong></p>
+<ul>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — IP yönetimi kesildiğinde out-of-band erişim</li>
+<li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">Monitoring Zihniyeti: Sadece Görmek Değil, Anlamak</a> — Sorunları tırmanmadan önce yakalamak</li>
+<li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a> — Mimari öncelikli core network tasarımı</li>
+<li>🎯 <a href="/tr/architecture/network-product-selection-strategy/">Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler</a> — Üreticileri stratejik değerlendirme</li>
+</ul>
+<p><strong>Pratik Mühendislik</strong></p>
+<ul>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Trafik görünürlüğü ve güvenlik stratejisi</li>
+<li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Saha Deployment Rehberi</a> — Kimlik tabanlı ağ erişim kontrolü</li>
+</ul>
+]]></content:encoded></item></channel></rss>

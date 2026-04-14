@@ -1,1 +1,103 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Datensicherheit on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/datensicherheit/</link><description>Recent content in Datensicherheit on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>de</language><lastBuildDate>Mon, 02 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/datensicherheit/index.xml" rel="self" type="application/rss+xml"/><item><title>Ihr NAS ohne RAID ist eine Zeitbombe — und die Lösung kostet €1 im Monat</title><link>https://barashhelvadzhaoglu.com/de/posts/nas-backup/</link><pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/posts/nas-backup/</guid><description>NAS ohne RAID ist ein ernstes Unternehmensrisiko. AWS S3 automatisches Backup und warum Glacier bis zu €1 im Monat kostet.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Datensicherheit on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/datensicherheit/</link><description>Recent content in Datensicherheit on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>de</language><lastBuildDate>Mon, 02 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/datensicherheit/index.xml" rel="self" type="application/rss+xml"/><item><title>Ihr NAS ohne RAID ist eine Zeitbombe — und die Lösung kostet €1 im Monat</title><link>https://barashhelvadzhaoglu.com/de/posts/nas-backup/</link><pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/posts/nas-backup/</guid><description>NAS ohne RAID ist ein ernstes Unternehmensrisiko. AWS S3 automatisches Backup und warum Glacier bis zu €1 im Monat kostet.</description><content:encoded><![CDATA[<p>Stellen Sie sich eine Arztpraxis vor. Acht Jahre Patientendaten, Rechnungen, Befunde. Alles auf einem kleinen NAS-Gerät im Büro. Eines Morgens startet das Gerät nicht mehr. Festplattenausfall. Man ruft ein Datenrettungsunternehmen an — &ldquo;wir versuchen es, €800-2000, ohne Garantie.&rdquo;</p>
+<p>Dieses Szenario passiert jeden Tag. Und es zu verhindern kostet nur ein paar Euro im Monat.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/nas-backup-cover.webp"/> <figcaption>
+            NAS Backup mit AWS S3 — Datensicherheit für KMU
+        </figcaption>
+</figure>
+
+<h2 id="der-irrglaube-ich-habe-ein-nas-also-habe-ich-ein-backup">Der Irrglaube: &ldquo;Ich habe ein NAS, also habe ich ein Backup&rdquo;</h2>
+<p>Ein NAS (Network Attached Storage) ist ein hervorragendes Gerät — zentraler Speicher, von jedem Computer im Netzwerk erreichbar. Aber die meisten NAS-Geräte in kleinen Unternehmen laufen mit einer einzigen Festplatte. Kein RAID.</p>
+<p><strong>Was ist RAID?</strong>
+RAID schreibt Daten gleichzeitig auf mehrere Festplatten. In seiner einfachsten Form schreibt RAID 1 dieselben Daten auf zwei Platten gleichzeitig. Fällt eine aus, übernimmt die andere. Kein Datenverlust.</p>
+<p>Bei einem NAS mit einer einzigen Festplatte ohne RAID ist in dem Moment, in dem die Platte ausfällt, alles verloren. Keine Vorwarnung, keine Wiederherstellung.</p>
+<p><strong>&ldquo;Aber mein NAS hat RAID&rdquo;</strong> — gut, aber nicht genug. RAID schützt vor Festplattenausfall. Vor Feuer, Wasserschaden, Diebstahl, Ransomware oder versehentlichem Löschen schützt es nicht. Ein externes Backup ist unerlässlich.</p>
+<h2 id="die-lösung-aws-s3-cloud-backup">Die Lösung: AWS S3 Cloud-Backup</h2>
+<p>AWS S3 (Simple Storage Service) ist Amazons Cloud-Speicherdienst. Das klingt nach etwas für Großkonzerne — aber kleine Unternehmen können es für nur wenige Euro im Monat nutzen.</p>
+<p><strong>So funktioniert es:</strong></p>
+<pre tabindex="0"><code>NAS-Gerät (Synology/QNAP)
+        ↓ (automatisch, nächtlich)
+Hyper Backup Software
+        ↓ (verschlüsselt)
+AWS S3 — Frankfurt (eu-central-1)
+        ↓
+Ihre Daten: sicher, verschlüsselt, redundant
+</code></pre><p>Synology-NAS-Geräte haben eine eingebaute &ldquo;Hyper Backup&rdquo;-Anwendung. Sie konfigurieren sie einmal, und jede Nacht sendet sie automatisch geänderte Dateien an S3. Ihr Backup läuft, während Sie schlafen.</p>
+<h2 id="aws-s3-storage-tiers--was-passt-zu-ihnen">AWS S3 Storage-Tiers — Was passt zu Ihnen?</h2>
+<p>AWS S3 bietet verschiedene Speicherebenen mit unterschiedlichen Preisen und Zugriffszeiten:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Tier</th>
+          <th>Am besten für</th>
+          <th>Zugriff</th>
+          <th>Kosten</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>S3 Standard</strong></td>
+          <td>Häufig abgerufene Daten</td>
+          <td>Sofort</td>
+          <td>~€23/TB/Monat</td>
+      </tr>
+      <tr>
+          <td><strong>S3 Infrequent Access</strong></td>
+          <td>Einige Male pro Monat</td>
+          <td>Sofort</td>
+          <td>~€12/TB/Monat</td>
+      </tr>
+      <tr>
+          <td><strong>S3 Glacier Instant</strong></td>
+          <td>Selten abgerufene Archive</td>
+          <td>Millisekunden</td>
+          <td>~€4/TB/Monat</td>
+      </tr>
+      <tr>
+          <td><strong>S3 Glacier Deep Archive</strong></td>
+          <td>Langzeitarchivierung</td>
+          <td>12 Stunden</td>
+          <td>~€1/TB/Monat</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Empfehlung für KMU:</strong>
+Aktive Geschäftsdaten: <strong>S3 Infrequent Access</strong> — günstiger Preis, sofortiger Zugriff bei Bedarf.
+Ältere Unterlagen und Archivdateien: <strong>S3 Glacier Instant</strong> — sehr geringe Kosten, trotzdem sofort abrufbar.</p>
+<p>Ein typisches Szenario für eine Arztpraxis: aktive Patientendaten in S3 IA (<del>€5-8/Monat), ältere Archivjahre in Glacier (</del>€1-2/Monat). <strong>Gesamtkosten pro Monat: €6-10.</strong></p>
+<h2 id="dsgvo-und-rechtliche-aspekte">DSGVO und rechtliche Aspekte</h2>
+<p>Wenn Sie Patienten-, Mandanten- oder Kundendaten verarbeiten, unterliegen Sie der DSGVO. Für Cloud-Backups sind zwei Dinge entscheidend:</p>
+<p><strong>1. Frankfurt Region (eu-central-1) ist Pflicht</strong> — Ihre Daten müssen innerhalb der EU-Grenzen bleiben.</p>
+<p><strong>2. Verschlüsselung ist Pflicht</strong> — Hyper Backup verschlüsselt Ihre Daten, bevor sie an S3 gesendet werden. Der Verschlüsselungsschlüssel verbleibt bei Ihnen — nicht einmal AWS kann den Inhalt einsehen.</p>
+<p><strong>3. Das Konto ist auf Ihren Namen</strong> — Ich eröffne für jeden Kunden ein separates AWS-Konto auf Ihren Namen. Die Daten und das Konto gehören vollständig Ihnen.</p>
+<p>Für Arztpraxen und Kanzleien erstelle ich außerdem einen <strong>AVV (Auftragsverarbeitungsvertrag)</strong> — nach DSGVO vorgeschrieben.</p>
+<h2 id="wie-läuft-die-einrichtung-ab">Wie läuft die Einrichtung ab?</h2>
+<ol>
+<li>AWS-Konto wird auf Ihren Namen eröffnet</li>
+<li>S3-Bucket mit korrektem Tier und Lifecycle-Richtlinien erstellt</li>
+<li>Hyper Backup auf Ihrem NAS installiert</li>
+<li>Erstes vollständiges Backup erstellt</li>
+<li>Ab dem nächsten Tag werden nur geänderte Dateien gesendet</li>
+<li>Monatlicher Kontrollbericht per E-Mail</li>
+</ol>
+<p><strong>Was Sie nach der Einrichtung tun müssen:</strong> Nichts. Alles läuft automatisch.</p>
+<h2 id="was-wenn-ich-kein-nas-habe">Was, wenn ich kein NAS habe?</h2>
+<p>S3-Backup ist auch ohne NAS möglich. Wir installieren einen kleinen Backup-Agent auf Ihren PCs (Duplicati — kostenlos), und ausgewählte Ordner werden automatisch an S3 gesendet.</p>
+<h2 id="fazit">Fazit</h2>
+<p>Ein NAS mit einer einzigen Festplatte kann jederzeit ohne Vorwarnung ausfallen. Selbst ein RAID-NAS schützt nicht vor Ransomware oder physischen Schäden. Mit AWS S3 sind Ihre Daten für nur wenige Euro im Monat verschlüsselt, redundant und sicher.</p>
+<p>Das Konto gehört Ihnen, die Daten gehören Ihnen, der Verschlüsselungsschlüssel gehört Ihnen.</p>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<hr>
+<h2 id="verwandte-artikel">Verwandte Artikel</h2>
+<p><strong>Schutz &amp; Sicherheit</strong></p>
+<ul>
+<li>🔋 <a href="/de/posts/ups-office/">Was passiert, wenn der Strom ausfällt? USV-Schutz für Ihr Büro</a> — NAS und Netzwerkgeräte vor Stromausfall schützen</li>
+<li>🔒 <a href="/de/posts/ssl-websecurity/">SSL-Zertifikat — Warum &ldquo;Nicht sicher&rdquo; Kunden kostet</a> — Website-Sicherheit für KMU</li>
+<li>📶 <a href="/de/posts/wifi-mesh-solution/">WLAN-Probleme? Dauerhafte Mesh-Lösung ohne Kabel</a> — Professionelles WLAN für Büro und Villa</li>
+</ul>
+<p><strong>Architektur &amp; Infrastruktur</strong></p>
+<ul>
+<li>📐 <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Systemdenken für resiliente Infrastruktur</li>
+<li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Monitoring richtig gemacht</a> — IT-Probleme erkennen bevor sie eskalieren</li>
+</ul>
+]]></content:encoded></item></channel></rss>

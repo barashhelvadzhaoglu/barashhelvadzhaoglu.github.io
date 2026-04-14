@@ -1,1 +1,66 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>SSL on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/ssl/</link><description>Recent content in SSL on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>en</language><lastBuildDate>Fri, 20 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/ssl/index.xml" rel="self" type="application/rss+xml"/><item><title>Does Your Website Say 'Not Secure'? Customers Leave Immediately — And SSL Certificates Are Getting Much Shorter</title><link>https://barashhelvadzhaoglu.com/en/posts/ssl-websecurity/</link><pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/posts/ssl-websecurity/</guid><description>Expired SSL certificates cost you customers and hurt rankings. With certs shortening to 47 days, automatic SSL management is becoming essential.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>SSL on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/ssl/</link><description>Recent content in SSL on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>en</language><lastBuildDate>Fri, 20 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/ssl/index.xml" rel="self" type="application/rss+xml"/><item><title>Does Your Website Say 'Not Secure'? Customers Leave Immediately — And SSL Certificates Are Getting Much Shorter</title><link>https://barashhelvadzhaoglu.com/en/posts/ssl-websecurity/</link><pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/posts/ssl-websecurity/</guid><description>Expired SSL certificates cost you customers and hurt rankings. With certs shortening to 47 days, automatic SSL management is becoming essential.</description><content:encoded><![CDATA[<p>You open a website in your browser and see this in the address bar: 🔴 <strong>&ldquo;Your connection is not private&rdquo;</strong></p>
+<p>What do you do? Most likely you hit the back button.</p>
+<p>That&rsquo;s exactly what your customers do too. And you may not even notice — because an expired SSL certificate usually doesn&rsquo;t notify the website owner.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/ssl-websecurity-cover.webp"/> <figcaption>
+            SSL Certificate and Website Security with Cloudflare
+        </figcaption>
+</figure>
+
+<h2 id="what-is-an-ssl-certificate-and-why-does-it-matter">What Is an SSL Certificate and Why Does It Matter?</h2>
+<p>An SSL certificate (Secure Sockets Layer) is a digital document that encrypts the connection between your website and visitors. The padlock symbol in the address bar and &ldquo;https://&rdquo; confirm its presence.</p>
+<p>SSL has two core functions:</p>
+<p><strong>1. Security:</strong> Encrypts data flowing between the visitor&rsquo;s browser and your server. A patient filling out a contact form, a customer entering payment details — this data travels encrypted.</p>
+<p><strong>2. Trust:</strong> When a visitor sees the padlock, they know the site is legitimate. The &ldquo;not secure&rdquo; warning does the opposite.</p>
+<h2 id="the-true-cost-of-an-expired-ssl-certificate">The True Cost of an Expired SSL Certificate</h2>
+<p>Many businesses treat SSL certificates as &ldquo;set it and forget it.&rdquo; They buy a one- or two-year certificate, it expires, they don&rsquo;t notice — sometimes for weeks.</p>
+<p>What happens during that time:</p>
+<p><strong>Customer loss:</strong> The vast majority of visitors who encounter a &ldquo;not secure&rdquo; warning leave immediately. Contact forms, appointment requests, online orders — none of it gets completed.</p>
+<p><strong>Google ranking drop:</strong> Google pushes sites without SSL or with expired certificates down in search results. Organic traffic built up over months can erode quickly.</p>
+<p><strong>Reputation damage:</strong> A customer who sees &ldquo;not secure&rdquo; carries a lasting negative impression of that business.</p>
+<h2 id="the-big-change-coming-ssl-certificates-dropping-to-47-days">The Big Change Coming: SSL Certificates Dropping to 47 Days</h2>
+<p>Currently SSL certificates are valid for 90 days or one year. That is changing.</p>
+<p>The CA/Browser Forum — the body that brings together certificate authorities and major browsers — has passed a new requirement: in the coming years, SSL certificate validity will drop to <strong>47 days</strong>. Apple, Google, and Mozilla all support this decision.</p>
+<p><strong>What does this mean?</strong>
+If you currently renew once a year, you will soon need to renew <strong>7–8 times per year</strong>. Manual tracking becomes nearly impossible.</p>
+<p><strong>Why was this decided?</strong>
+Shorter validity periods limit the impact of compromised certificates and push the industry toward automation — which is actually a positive development.</p>
+<h2 id="the-solution-automatic-ssl-management-with-cloudflare">The Solution: Automatic SSL Management with Cloudflare</h2>
+<p>When Cloudflare takes over your website&rsquo;s DNS, it manages your SSL certificate automatically. It renews before expiry without you needing to track anything. When validity drops to 47 days, it makes no difference — everything is handled in the background.</p>
+<p>This feature is available even on the free Cloudflare plan.</p>
+<h2 id="beyond-ssl-waf-and-ddos-protection">Beyond SSL: WAF and DDoS Protection</h2>
+<p>SSL is just the beginning. When you switch to Cloudflare, you also get:</p>
+<p><strong>WAF (Web Application Firewall):</strong> Protects your website from SQL injection, XSS attacks, and bot traffic. Malicious requests are blocked before they reach your website.</p>
+<p><strong>DDoS Protection:</strong> Attack traffic aimed at taking your website down is automatically detected and filtered.</p>
+<p><strong>Analytics:</strong> How many visitors came, from where, how many attacks were blocked — monthly report.</p>
+<h2 id="no-hosting-migration-needed">No Hosting Migration Needed</h2>
+<p>The most common question: &ldquo;Do I need to move my website?&rdquo;</p>
+<p>No. Cloudflare only operates at the DNS level. Your website stays where it is — Ionos, Strato, wherever. We simply move your domain&rsquo;s DNS records to Cloudflare. Setup takes 1–2 hours, and your visitors notice nothing.</p>
+<h2 id="monthly-security-report">Monthly Security Report</h2>
+<p>Every month I send you a report like this:</p>
+<pre tabindex="0"><code>Your Website Report — March 2026
+──────────────────────────────────
+✅ SSL Certificate: Valid (automatically managed)
+✅ Uptime: 99.98%
+🛡️ Attacks blocked: 94
+⚡ DDoS attempts deflected: 2
+👥 Total visitors: 1,203
+⚡ Average load time: 0.8 sec
+</code></pre><h2 id="conclusion">Conclusion</h2>
+<p>An SSL certificate is no longer optional — it is a basic requirement. With the upcoming reduction to 47 days, manual management is no longer viable.</p>
+<p>I check your website&rsquo;s SSL status for free. Just message me on WhatsApp.</p>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<hr>
+<h2 id="related-articles">Related Articles</h2>
+<p><strong>Protection &amp; Security</strong></p>
+<ul>
+<li>💾 <a href="/en/posts/nas-backup/">Your NAS Without RAID Is a Ticking Time Bomb</a> — Data backup with AWS S3</li>
+<li>🔋 <a href="/en/posts/ups-office/">What Happens When the Power Goes Out?</a> — UPS protection for offices and practices</li>
+<li>📶 <a href="/en/posts/wifi-mesh-solution/">Wi-Fi Problems? Permanent Mesh Solution Without Cables</a> — Professional Wi-Fi for offices and villas</li>
+</ul>
+<p><strong>Architecture &amp; Infrastructure</strong></p>
+<ul>
+<li>🛡️ <a href="/en/architecture/zero-trust-architecture-behaviors/">Zero Trust Mindset: Security as Architecture</a> — Security as culture, not a product</li>
+<li>📐 <a href="/en/architecture/it-infrastructure-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a> — System thinking for resilient IT</li>
+</ul>
+]]></content:encoded></item></channel></rss>

@@ -1,1 +1,259 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Network Mühendisliği on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/network-m%C3%BChendisli%C4%9Fi/</link><description>Recent content in Network Mühendisliği on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Wed, 18 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/network-m%C3%BChendisli%C4%9Fi/index.xml" rel="self" type="application/rss+xml"/><item><title>🚀 Mezun Rehberi: Bir Network Mühendisi Aslında Ne Yapar?</title><link>https://barashhelvadzhaoglu.com/tr/posts/career-guide-network-engineering/</link><pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/career-guide-network-engineering/</guid><description>Yeni mezunlar için ağ mühendisliği kariyer rehberi. Endüstriyel altyapı, günlük operasyonlar ve profesyonelleşme yol haritası.</description></item><item><title>🛠️ Ağın Arka Kapısı: Next-Gen Console Server (Terminal Server) Mimarisi</title><link>https://barashhelvadzhaoglu.com/tr/posts/next-gen-console-server-architecture/</link><pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/next-gen-console-server-architecture/</guid><description>Kritik ağ altyapısına IP erişimi kesildiğinde hayatta kalma rehberi. Out-of-Band Management (OOBM), HTML5 CLI ve otomasyon destekli console server&amp;#39;lar.</description></item><item><title>🛡️ Kurumsal Ağlarda Görünürlük ve Güvenlik Stratejisi: Network Packet Broker (NPB) Masterclass</title><link>https://barashhelvadzhaoglu.com/tr/posts/network-packet-broker-masterclass/</link><pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/network-packet-broker-masterclass/</guid><description>Kurumsal ağlarda trafik yönetimi, siber güvenlik ve uçtan uca görünürlük için stratejik rehber. NPB nedir? NIAC prensipleriyle nasıl yönetilir?</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Network Mühendisliği on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/network-m%C3%BChendisli%C4%9Fi/</link><description>Recent content in Network Mühendisliği on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Wed, 18 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/network-m%C3%BChendisli%C4%9Fi/index.xml" rel="self" type="application/rss+xml"/><item><title>🚀 Mezun Rehberi: Bir Network Mühendisi Aslında Ne Yapar?</title><link>https://barashhelvadzhaoglu.com/tr/posts/career-guide-network-engineering/</link><pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/career-guide-network-engineering/</guid><description>Yeni mezunlar için ağ mühendisliği kariyer rehberi. Endüstriyel altyapı, günlük operasyonlar ve profesyonelleşme yol haritası.</description><content:encoded><![CDATA[<p>Merhaba arkadaşlar! Yeni mezun oldunuz, diplomanız elinizde, önünüzde uçsuz bucaksız bir IT dünyası var. &ldquo;Hangi yolu seçmeliyim?&rdquo; diye düşünürken <strong>Network Mühendisliği</strong> ile karşılaştınız. Peki bu insanlar sadece kablo mu takıyor, yoksa sahnede görünmeyen büyük bir zeka mı var? Gelin dijital dünyanın bu görünmez kahramanlığına derinlemesine dalalım.</p>
+<h3 id="-network-nedir-dijital-otoyolda-bir-yolculuk">🕸️ Network Nedir? (Dijital Otoyolda Bir Yolculuk)</h3>
+<p>En basit tanımıyla network, sistemlerin birbirleriyle iletişim kurmasını sağlayan bir taşıma aracıdır. Bilgisayarların bağımsız adalar olarak değil, birbiriyle bağlantılı büyük bir kıta olarak çalışmasını mümkün kılar.</p>
+<p><strong>Neden USB Yeterli Değil?</strong>
+Evde bir Excel dosyasını veya videoyu yan odadaki bilgisayara aktarmak için USB kullanabilirsiniz. Ancak profesyonel dünyada işler böyle yürümüyor. 50 kişinin aynı dosya üzerinde çalıştığı bir ofiste olduğunuzu ya da başka bir şehirdeki veya ülkedeki bir meslektaşınıza veri göndermeniz gerektiğini hayal edin. Manuel aktarım için mesafenin çok uzak veya kitlenin çok büyük olduğu her senaryoda <strong>Network</strong> — dijital otoyol — devreye girer.</p>
+<h3 id="-fabrika-örneği-sistemin-kalbi-olarak-sunucu-odası">🏭 Fabrika Örneği: Sistemin Kalbi Olarak &ldquo;Sunucu Odası&rdquo;</h3>
+<p>Bir fabrikada olduğunuzu hayal edin. Fabrikanın tüm hafızası sistem odasındaki bir sunucuda saklanıyor: müşteri listeleri, faturalar, üretim stokları ve çalışan verileri. Fabrikada 100 kişi olduğunu varsayalım. Bu 100 kişinin her biri, kendi masasından bu sunucuya eş zamanlı, hatasız ve yüksek hızda erişebilmek zorunda.</p>
+<p><strong>Network Mühendisi</strong>, bu 100 kişi ile o sunucu arasındaki yolu inşa eden, trafiğin tıkanmamasını sağlayan ve bu yolu güvence altına alan kişidir. Bu yalnızca &ldquo;üç beş kutuyu yan yana koymak&rdquo; değil — <strong>operasyonel bütünlük</strong> tasarlamaktır. Günümüzde bu yapı yalnızca fiziksel kablolarla değil, <strong>SD-WAN</strong> ve <strong>Cloud</strong> entegrasyonları gibi akıllı yazılım katmanlarıyla da yönetilir.</p>
+<h3 id="-ev-modemi-vs-endüstriyel-altyapı">🏠 Ev Modemi vs. Endüstriyel Altyapı</h3>
+<p>Çoğumuzun evinde bir modem var ve tek yaptığımız onu takıp internete bağlanmak. Ancak kurumsal dünyada (hastaneler, oteller, plazalar) ev tipi cihazlar oyuncak gibi kalır:</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/career-guide-network-engineering.webp"/> <figcaption>
+            Network Mühendisliği Kariyer Rehberi
+        </figcaption>
+</figure>
+
+<ul>
+<li><strong>Endüstriyel Ürün Seçimi:</strong> Ev tipi bir modem 100 kişiyi aynı anda internete bağlamaya çalıştığında aşırı ısınır, kilitlenir ve çöker. Bu yüzden profesyonel dünyada <strong>Cisco, Arista, HPE (Aruba) veya Juniper</strong> gibi global devlerin &ldquo;Endüstriyel Switch&quot;lerini kullanırız.</li>
+<li><strong>Port ve Bağlantı:</strong> Bu cihazların genellikle 24 veya 48 portu vardır. 100 kişilik ofis derken yalnızca dizüstü bilgisayarları saymayın; güvenlik kameraları, yazıcılar, parmak izi okuyucular, IP telefonlar ve Access Point&rsquo;ler de bu switch&rsquo;lere bağlanır. Bu demek oluyor ki 100 kişilik bir ofis, sizin için aslında 150-200 farklı kablo ucu ve bağlantı demektir.</li>
+</ul>
+<h3 id="-kablosuz-dünya-ve-roaming">📶 Kablosuz Dünya ve Roaming</h3>
+<p>Evde modem yakınında internet iyi çalışıyor ama arka odada kesiliyor. Bir fabrikada veya 10 katlı bir otelde bunu tek bir cihazla çözemezsiniz.</p>
+<ul>
+<li><strong>Access Point Ordusu:</strong> Tavanlara, depolara ve ofislere düzinelerce, bazen yüzlerce Access Point kurulur.</li>
+<li><strong>Kesintisiz Geçiş (Roaming):</strong> Bir fabrikanın bir ucundan diğerine yürürken dizüstü bilgisayarınızla görüşme yaptığınızı hayal edin. İnternet tek saniye bile kopmamalıdır. Uzmanlığınız, cihazınızın sizi fark ettirmeden bir AP&rsquo;den diğerine geçmesine olanak tanıyan o akıllı yapıyı (<strong>Wireless Controller</strong>) kurmak ve yönetmekten geçer.</li>
+</ul>
+<figure>
+    <img loading="lazy" src="/img/postimages/career-guide-network-engineering2.webp"/> <figcaption>
+            Network Mühendisliği Kariyer Rehberi 2
+        </figcaption>
+</figure>
+
+<h3 id="-internetin-bekçisi-firewall-ve-kiralık-hatlar">🛡️ İnternetin Bekçisi: Firewall ve Kiralık Hatlar</h3>
+<p>Kurumsal internet, ev internetinden çok farklı kurallarla işler:</p>
+<ul>
+<li><strong>Metro Ethernet (Dedicated):</strong> Evde akşamları internet yavaşlar çünkü hattı komşularınızla paylaşırsınız. Şirketlerde &ldquo;Dedicated&rdquo; (yalnızca size ait) hatlar kullanılır. Hızınız her zaman sabittir ve en önemlisi <strong>Upload</strong> hızınız çok yüksektir.</li>
+<li><strong>Firewall:</strong> Bu değerli internet hattının girişine bir nöbetçi yerleştiririz. <strong>Palo Alto, Fortinet veya Check Point</strong> gibi markalarla kimin hangi siteye erişebileceğini, dış siber saldırıların nasıl engelleneceğini ve <strong>Zero Trust</strong> felsefesini hayata geçirirsiniz.</li>
+</ul>
+<blockquote>
+<p>Zero Trust&rsquo;ı mimari bir perspektiften anlamak ister misiniz? <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a></p>
+</blockquote>
+<h3 id="-madalyonun-öbür-yüzü-vardiyalar-ve-sorumluluk">🌙 Madalyonun Öbür Yüzü: Vardiyalar ve Sorumluluk</h3>
+<p>Network mühendisi olmak istiyorsanız şu gerçeği kabul etmelisiniz: <strong>&ldquo;Herkes çalışırken sistem kapatılmaz.&rdquo;</strong></p>
+<ul>
+<li><strong>Bakım Pencereleri:</strong> Bir switch&rsquo;in yazılımını güncelleyecekseniz veya kabloların yerini değiştirecekseniz bunu herkes ofisteyken yapamazsınız. Bu yüzden çalışmalar genellikle geç gece saatlerinde, hafta sonlarında veya resmi tatillerde yapılır.</li>
+<li><strong>Uykusuz Geceler ve Haklar:</strong> Sistem çökerse saat 03:00&rsquo;te telefonunuz çalabilir. Ancak profesyonel dünyada bu bir fedakarlıktır; şirketler genellikle fazla mesai ücreti veya hafta içi &ldquo;servis süresi&rdquo; (ekstra izin) vererek bunu dengeler.</li>
+</ul>
+<h3 id="-yol-haritası-network-mühendisi-nasıl-olunur">🎓 Yol Haritası: Network Mühendisi Nasıl Olunur?</h3>
+<figure>
+    <img loading="lazy" src="/img/postimages/career-guide-roadmap.webp"/> <figcaption>
+            Network Mühendisliği Kariyer Yol Haritası
+        </figcaption>
+</figure>
+
+<p>Bu meslek yalnızca okuyarak değil, yaparak ve küresel çapta tanınan yolları takip ederek öğrenilir:</p>
+<ol>
+<li>
+<p><strong>Sertifikasyonun Temeli: CCNA</strong>
+Bu, network dünyasının &ldquo;ehliyet&quot;idir. <strong>Cisco Certified Network Associate (CCNA)</strong> eğitimi, işin alfabesini (IP, Routing, Switching) öğrenmenizi sağlar.</p>
+</li>
+<li>
+<p><strong>Resmi Eğitim Portalları (Hazine!)</strong>
+Üreticiler cihazlarını öğrenmeniz için harika kaynaklar sunar:</p>
+<ul>
+<li><strong>Cisco Networking Academy (Skills for All):</strong> <a href="https://skillsforall.com/">skillsforall.com</a></li>
+<li><strong>Palo Alto Networks Education:</strong> <a href="https://learning.paloaltonetworks.com/">learning.paloaltonetworks.com</a></li>
+<li><strong>Fortinet Training Institute:</strong> <a href="https://training.fortinet.com/">training.fortinet.com</a></li>
+<li><strong>Aruba (HPE) Learning Center:</strong> <a href="https://learn.hpe.com/aruba">learn.hpe.com/aruba</a></li>
+<li><strong>Juniper Learning Portal:</strong> <a href="https://learningportal.juniper.net/">learningportal.juniper.net</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Online ve Kendi Kendine Öğrenme</strong></p>
+<ul>
+<li><strong>Udemy:</strong> Birçok dilde çok uygun fiyatlı CCNA kursları bulabilirsiniz.</li>
+<li><strong>CBT Nuggets:</strong> Video açıklamaları çok yüksek kalitededir.</li>
+<li><strong>Simülasyon Araçları:</strong> Yalnızca kitap okumayın! Bilgisayarınıza <strong>Cisco Packet Tracer</strong> yükleyin. Daha ileri düzeyler için <strong>GNS3</strong> veya <strong>EVE-NG</strong> kullanarak profesyonel cihaz yazılımlarını deneyimleyin.</li>
+</ul>
+</li>
+</ol>
+<h3 id="sonuç">Sonuç</h3>
+<p>Ağ iletişimi, bilgisayar biliminin temelidir. İster geliştirici ister siber güvenlik uzmanı olun, bir paketin A noktasından B noktasına nasıl geçtiğini bilmeden gerçek bir profesyonel olamazsınız. Karmaşık bulmacaları çözmeyi ve dijital dünyaların altyapısını inşa etmeyi seviyorsanız, Network Mühendisliği her zaman talep gören prestijli ve heyecan verici bir kariyer yoludur.</p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Mimariye Derinlemesine Bakış</strong></p>
+<ul>
+<li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Doğru zihniyetin doğru üründen daha önemli olduğu yerde</li>
+<li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a> — Mimari öncelikli network tasarımı</li>
+<li>🛡️ <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Çevre ötesinde güvenlik</li>
+<li>🎯 <a href="/tr/architecture/network-product-selection-strategy/">Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler</a> — Üreticileri profesyonel gözle değerlendirmek</li>
+</ul>
+<p><strong>Pratik Mühendislik</strong></p>
+<ul>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Her şey çöktüğünde out-of-band erişim</li>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Trafik görünürlüğü ve güvenlik stratejisi</li>
+<li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Saha Deployment Rehberi</a> — Kimlik tabanlı ağ erişim kontrolü</li>
+</ul>
+]]></content:encoded></item><item><title>🛠️ Ağın Arka Kapısı: Next-Gen Console Server (Terminal Server) Mimarisi</title><link>https://barashhelvadzhaoglu.com/tr/posts/next-gen-console-server-architecture/</link><pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/next-gen-console-server-architecture/</guid><description>Kritik ağ altyapısına IP erişimi kesildiğinde hayatta kalma rehberi. Out-of-Band Management (OOBM), HTML5 CLI ve otomasyon destekli console server&amp;#39;lar.</description><content:encoded><![CDATA[<p>Bir network mühendisinin en büyük kabusu, uzak bir konumdaki kritik cihaza IP erişiminin tamamen kesilmesidir. Yanlış bir <code>switchport</code> komutu, hatalı bir ACL veya cihaz donması&hellip; Bu durumlarda yönetim IP&rsquo;sine ulaşamadığınızda saatlerce &ldquo;yerinde müdahale&rdquo; için yolculuk yapmak ya da birini göndermek zorunda kalırsınız. İşte tam bu noktada ağın &ldquo;sigortası&rdquo; olan <strong>Console Server (Terminal Server)</strong> devreye girer.</p>
+<p>Ancak bugün bu cihazlar, basit bir seri port çoklayıcısından çok daha fazlasını sunan güvenlik ve otomasyon odaklı profesyonel yönetim platformlarına dönüşmüştür.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/next-gen-console-server-architecture.webp"/> <figcaption>
+            Next-Gen Console Server Mimarisi
+        </figcaption>
+</figure>
+
+<blockquote>
+<p>Bu yazı, dayanıklı network tasarımı üzerine daha geniş bir serinin parçasıdır. Mimari temel için: <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a></p>
+</blockquote>
+<h3 id="1-neden-48-portlu-bir-yönetim-devine-ihtiyacımız-var">1. Neden 48 Portlu Bir Yönetim Devine İhtiyacımız Var?</h3>
+<p>Kurumsal düzeydeki veri merkezlerinde aynı kabinde düzinelerce switch, router, firewall ve sunucu bulunur. 48 portlu bir console cihazı, tek bir IP üzerinden tüm kabini yönetmenize olanak tanır; fiziksel alanı optimize eder ve kablo kaosuna son verir.</p>
+<ul>
+<li><strong>Alan Tasarrufu:</strong> Tek bir U (ünite) alanında 48 cihazın console kontrolünü almak, kabin içi mimariyi basitleştirir.</li>
+<li><strong>Merkezi Giriş:</strong> Tüm cihazlara tek bir portal üzerinden erişim sağlayarak yönetim karmaşıklığını minimize edersiniz.</li>
+</ul>
+<h3 id="2-akıllı-portlar-her-cihaz-için-yazılımla-seçilebilir-pinout">2. Akıllı Portlar: Her Cihaz İçin Yazılımla Seçilebilir Pinout</h3>
+<p>Her üretici (Cisco, Juniper, HP, Palo Alto vb.) farklı console standartlarına ve pinout&rsquo;larına sahiptir. Eskiden her marka için farklı adaptörler veya özel yapım kablolar taşımak zorundaydık. Modern console server&rsquo;ların en büyük gücü <strong>Software-Selectable Pinout</strong> özelliğidir:</p>
+<ul>
+<li><strong>Yazılım Esnekliği:</strong> Farklı Baud Rate, Data Bits ve en önemlisi <strong>Pinout</strong> ayarları her port için bağımsız olarak tanımlanabilir.</li>
+<li><strong>Adaptörsüz Bağlantı:</strong> Yazılım pinout sayesinde karmaşık dönüştürücü adaptörlere ihtiyaç duymadan standart CAT6 kablo ile herhangi bir markaya bağlanabilirsiniz. Bu, &ldquo;kablo çorbası&rdquo; kaosunun nihai ve en zarif çözümüdür.</li>
+</ul>
+<h3 id="3-esnek-erişim-html5-web-cli-ve-yazılım-entegrasyonu">3. Esnek Erişim: HTML5 Web CLI ve Yazılım Entegrasyonu</h3>
+<p>Erişim yöntemlerindeki çeşitlilik, mühendislere kriz anlarında muazzam bir çeviklik sağlar:</p>
+<ul>
+<li><strong>Java&rsquo;dan Bağımsız HTML5 Desteği:</strong> Eski nesil cihazların en büyük sorunu olan hantal Java uygulamalarına elveda deyin. Artık herhangi bir uygulama yüklemeden modern web tarayıcıları üzerinden doğrudan güvenli ve yüksek hızlı CLI oturumları açabilirsiniz.</li>
+<li><strong>SecureCRT ve SuperPutty Entegrasyonu:</strong> Favori CLI yazılımınızla tam uyumludur. Alıştığınız terminal emülatörleri üzerinden tek tıkla SSH tünelleri üzerinden cihazlara bağlanabilir, oturumlarınızı profesyonelce yönetebilirsiniz. Bu entegrasyon, karmaşık komut setlerini toplu yapıştırmak için hayati önem taşır.</li>
+</ul>
+<figure>
+    <img loading="lazy" src="/img/postimages/next-gen-console-server-architecture2.webp"/> <figcaption>
+            HTML5 Console Erişimi ve SecureCRT Entegrasyonu
+        </figcaption>
+</figure>
+
+<h3 id="4-güvenlik-ve-rol-tabanlı-erişim-kontrolü-rbac--tacacs">4. Güvenlik ve Rol Tabanlı Erişim Kontrolü (RBAC &amp; TACACS+)</h3>
+<p>Console portu bir cihazın &ldquo;arka kapısı&quot;dır ve bu kapı en üst düzeyde korunmalıdır. IP üzerinden ulaşılamayan bir cihaza console üzerinden bağlanan kişi, cihazın tam kalbine dokunuyor demektir.</p>
+<ul>
+<li><strong>Merkezi Yetkilendirme:</strong> TACACS+, RADIUS veya LDAP entegrasyonu üzerinden merkezi yönetim sağlanır. Kimin hangi porta, hangi saatte, ne kadar süre girdiğini saniye saniye takip edebilirsiniz.</li>
+<li><strong>Rol Tabanlı Erişim (RBAC):</strong> Her kullanıcının sorumlu olduğu portlar için yalnızca gerekli izinleri tanımlayın. Örneğin güvenlik ekibi yalnızca Firewall console&rsquo;larını görürken, sistem ekibi yalnızca sunucu console&rsquo;larına erişebilir.</li>
+<li><strong>Gelişmiş API Desteği:</strong> API üzerinden cihazlara toplu komutlar gönderilebilir veya anlık koşullara göre konfigürasyonlar otomatikleştirilebilir.</li>
+</ul>
+<h3 id="5-otomasyon-ve-izlenebilirlik-cli-logging--config-backup">5. Otomasyon ve İzlenebilirlik: CLI Logging &amp; Config Backup</h3>
+<p>Console server artık yalnızca bir köprü değil; kayıt ve post-mortem analiz merkezidir:</p>
+<ul>
+<li><strong>Otomatik CLI Çıktı Loglama:</strong> Console ekranında akan tüm CLI çıktıları otomatik olarak kaydedilir. Bir cihaz çöktüğünde veya <strong>Kernel Panic</strong> verdiğinde, cihazın IP erişimi olmadığı için o anki logları göremezsiniz. Ancak console server bu akışı kaydettiğinden, cihazın çökmeden önceki son &ldquo;çığlıklarını&rdquo; analiz edip kök nedeni saniyeler içinde bulabilirsiniz.</li>
+<li><strong>Otomatik Konfigürasyon Yedekleme:</strong> Hem console cihazının kendi ayarları hem de yönettiği cihazların kritik konfigürasyonları periyodik olarak yedeklenir. Bu, <strong>Network Infrastructure as Code (NIAC)</strong> vizyonunun bir parçasıdır.</li>
+</ul>
+<h3 id="6-kesintisiz-erişim-dual-wan-ve-out-of-band-oobm-mimarisi">6. Kesintisiz Erişim: Dual WAN ve Out-of-Band (OOBM) Mimarisi</h3>
+<figure>
+    <img loading="lazy" src="/img/postimages/oobm-cellular-failover.webp"/> <figcaption>
+            OOBM ve 4G/5G Cellular Failover Mimarisi
+        </figcaption>
+</figure>
+
+<p>Ağ tamamen çökmüşse console server&rsquo;a nasıl ulaşacaksınız? İşte gerçek &ldquo;mühendislik&rdquo; burada başlar:</p>
+<ul>
+<li><strong>Dual WAN &amp; Cellular Desteği:</strong> İki bağımsız internet girişi veya dahili 4G/5G LTE modülleri sayesinde ana internet hattınız kesilse bile hücresel ağ üzerinden cihazlara erişmeye devam edersiniz.</li>
+<li><strong>Out-of-Band Management (OOBM):</strong> Ana veri trafiğinden tamamen bağımsız, farklı bir servis sağlayıcı üzerinden kurulan bu izole yol; ana ağ tamamen &ldquo;down&rdquo; olduğunda bile müdahale şansı veren tek can simididir.</li>
+</ul>
+<h3 id="7-pazar-liderleri">7. Pazar Liderleri</h3>
+<p>Aşağıdaki markalar yüksek port yoğunluğu, akıllı otomasyon özellikleri ve HTML5 desteğinde pazar standartlarını belirlemektedir:</p>
+<ul>
+<li><strong>Opengear:</strong> Akıllı OOBM ve yüksek güvenlik özellikleriyle zirvededir.</li>
+<li><strong>Lantronix:</strong> Esnek port yapıları ve yönetim kolaylığıyla tanınır.</li>
+<li><strong>Avocent (Vertiv) &amp; Perle:</strong> Stabil donanımlarıyla profesyonel veri merkezleri için vazgeçilmezdir.</li>
+</ul>
+<h3 id="sonuç">Sonuç</h3>
+<p>Console server, karmaşık bir altyapının görünmez koruyucusudur. SecureCRT entegrasyonundan otomatik CLI loglama&rsquo;ya, adaptörsüz bağlantıdan Java&rsquo;dan bağımsız HTML5 desteğine kadar uzanan bu özellikler, kriz anlarını yönetilebilir operasyonlara dönüştürür.</p>
+<p>Unutmayın: en iyi ağ, her zaman bir <strong>&ldquo;Plan B&rdquo;</strong> si olan ağdır.</p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Mimari &amp; Strateji</strong></p>
+<ul>
+<li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Dayanıklı altyapı için sistem düşüncesi</li>
+<li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a> — Mimari öncelikli core network tasarımı</li>
+<li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">Monitoring Zihniyeti: Sadece Görmek Değil, Anlamak</a> — Sorunları kullanıcıdan önce yakalamak</li>
+<li>🎯 <a href="/tr/architecture/network-product-selection-strategy/">Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler</a> — Üreticileri stratejik değerlendirme</li>
+</ul>
+<p><strong>Pratik Mühendislik</strong></p>
+<ul>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Trafik görünürlüğü ve güvenlik stratejisi</li>
+<li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Saha Deployment Rehberi</a> — Kimlik tabanlı erişim kontrolü</li>
+<li>📈 <a href="/tr/posts/cisco-nexus-nxos-upgrade-guide/">Cisco Nexus NX-OS Yükseltme Rehberi</a> — Güvenli yazılım yükseltme prosedürleri</li>
+</ul>
+]]></content:encoded></item><item><title>🛡️ Kurumsal Ağlarda Görünürlük ve Güvenlik Stratejisi: Network Packet Broker (NPB) Masterclass</title><link>https://barashhelvadzhaoglu.com/tr/posts/network-packet-broker-masterclass/</link><pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/network-packet-broker-masterclass/</guid><description>Kurumsal ağlarda trafik yönetimi, siber güvenlik ve uçtan uca görünürlük için stratejik rehber. NPB nedir? NIAC prensipleriyle nasıl yönetilir?</description><content:encoded><![CDATA[<p>Günümüz kurumsal ağ mimarilerinde <strong>&ldquo;hız&rdquo;</strong> artık tek başarı kriteri değil. Asıl zorluk, saniyede onlarca gigabit veri trafiğinin içinde neyin aktığını bilmek, güvenliği sağlamak ve performansı uçtan uca izlemektir. Modern ağların &ldquo;akıllı trafik yöneticisi&rdquo; olan <strong>Network Packet Broker (NPB)</strong>, siber güvenlikten iş sürekliliğine kadar her şey için stratejik bir zorunluluk haline geldi.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/network-packet-broker-arcitechture.webp"/> <figcaption>
+            Network Packet Broker Mimarisine Genel Bakış
+        </figcaption>
+</figure>
+
+<blockquote>
+<p>Görünürlük stratejisinin arkasındaki daha geniş mimari bağlam için: <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a></p>
+</blockquote>
+<h3 id="1-mikro-saniye-hassasiyeti-paket-kaybının-sonu-buffering--time-stamping">1. Mikro-Saniye Hassasiyeti: Paket Kaybının Sonu (Buffering &amp; Time-Stamping)</h3>
+<p>Ağ trafiği her zaman doğrusal akmaz; anlık patlama noktaları oluşur. Pek çok standart switch bu patlamalar sırasında paketleri düşürürken, profesyonel bir NPB bu sorunu donanım seviyesinde çözer:</p>
+<ul>
+<li><strong>500 ms Buffer Belleği:</strong> NPB, trafiği kısa süreliğine belleğinde tutar; analiz araçlarınızın (DLP, IDS, Sniffer) hıza yetişemediği anlarda paket kaybını %0&rsquo;a indirir. Bu, adli analiz ve hata ayıklama süreçleri için hayati önem taşır.</li>
+<li><strong>Donanım Time-Stamping:</strong> Gecikme analizi yaparken &ldquo;yaklaşık bir saat&rdquo; profesyonel bir cevap değildir. NPB&rsquo;lerin sunduğu donanım Time-Stamping özelliği sayesinde sisteme giren her paketi mikro-saniye hassasiyetiyle damgalayabilirsiniz. Bu damgalar özellikle adli analiz süreçlerinde hayat kurtarıcıdır.</li>
+</ul>
+<h3 id="2-akıllı-filtreleme-ve-protokol-ustalığı-l2-l4">2. Akıllı Filtreleme ve Protokol Ustalığı (L2-L4)</h3>
+<p>L2-4 filtreleme (MAC, IP, Port) birçok cihazda bulunsa da NPB ile fark, bu işlemi paket bütünlüğünden ödün vermeden &ldquo;wire-speed&rdquo; hızında ve eşsiz esneklikle yapmasıdır:</p>
+<ul>
+<li><strong>Flow Aggregation &amp; Deduplication:</strong> Devasa 100 GB girişlerden gelen binlerce akışı analiz eder, yinelenen paketleri temizler (<strong>Deduplication</strong>) ve tüm bu kaosу analiz cihazları için tek optimize edilmiş akışa dönüştürür. Yinelenen paketlerin temizlenmesi, analiz cihazlarınızın CPU yükünü %30-50 oranında azaltır.</li>
+<li><strong>Packet Slicing (Yükü Hafifletme):</strong> Her zaman paketin tamamına ihtiyaç duymazsınız. Analiz aracınız yalnızca başlık bilgisine ihtiyaç duyuyorsa NPB üzerinde <strong>Packet Slicing</strong> yaparak payload&rsquo;ı kırpın. Bu sayede analiz cihazlarınızın disk ve işlemcilerini gereksiz verilerle boğmazsınız, %100 verimlilik elde edersiniz.</li>
+</ul>
+<h3 id="3-esnek-dağıtım-yöntemleri-trafiği-hedefe-ulaştırmak">3. Esnek Dağıtım Yöntemleri: Trafiği Hedefe Ulaştırmak</h3>
+<p>NPB, filtrelenmiş trafiği analiz cihazına iletmek için zengin bir &ldquo;paketleme&rdquo; menüsü sunar:</p>
+<ul>
+<li><strong>ERSPAN &amp; VXLAN/GRE Tünelleme:</strong> Trafiği Layer 3 ağlar üzerinden kapsüller, uzak veri merkezlerine veya bulut tabanlı analiz merkezlerine taşır.</li>
+<li><strong>VLAN Tagging / Stripping:</strong> Analiz cihazının trafiği tanıması için etiket ekler veya cihazın yükünü hafifletmek için bu etiketleri temizler.</li>
+<li><strong>Yük Dengeleme:</strong> Yoğun 100G trafiğini <strong>&ldquo;session stickiness&rdquo;</strong> (oturum bütünlüğü) bozmadan 10G kapasiteli analiz cihazlarına eşit şekilde dağıtır.</li>
+</ul>
+<figure>
+    <img loading="lazy" src="/img/postimages/network-packet-broker-arcitechture2.webp"/> <figcaption>
+            NPB Trafik Dağıtımı ve Yük Dengeleme
+        </figcaption>
+</figure>
+
+<h3 id="4-api-desteği-otomasyon-ve-niac-vizyonu">4. API Desteği, Otomasyon ve NIAC Vizyonu</h3>
+<p>Manuel müdahale, modern IT operasyonlarında bir risktir. NPB&rsquo;nin sunduğu otomasyon yetenekleri ekiplere çeviklik sağlar. Ancak süreci yalnızca basit bir &ldquo;yedekleme&rdquo; olarak görmeyin; <strong>Rest-API</strong> desteği sayesinde bu cihazları <strong>Network Infrastructure as Code (NIAC)</strong> prensiplerine entegre ederiz.</p>
+<ul>
+<li><strong>NIAC &amp; Felaket Kurtarma (DR):</strong> Cihazdaki tüm kritik filtreleme kuralları ve port konfigürasyonları NIAC prensipleriyle yönetilmelidir. Donanım arızası durumunda, manuel konfigürasyon yerine otomasyon scriptleri kullanarak tüm mimariyi saniyeler içinde yeni bir cihaza taşıyabiliriz.</li>
+<li><strong>ITSM ve SIEM Entegrasyonu:</strong> Siber olay sırasında SIEM araçları aracılığıyla otomatik olarak filtreler oluşturulabilir veya anlık duruma göre mevcut filtreler API üzerinden düzenlenebilir.</li>
+</ul>
+<h3 id="5-performans-ve-güvenlik-riverbed-dlp--ssl-offloading">5. Performans ve Güvenlik (Riverbed, DLP &amp; SSL Offloading)</h3>
+<figure>
+    <img loading="lazy" src="/img/postimages/npb-ssl-offloading.webp"/> <figcaption>
+            NPB Üzerinde SSL/TLS Offloading Mimarisi
+        </figcaption>
+</figure>
+
+<p>NPB, ağdaki her türlü analiz cihazını besleyen merkezi bir &ldquo;Veri Hub&rsquo;ı&rdquo; gibi çalışır:</p>
+<ul>
+<li><strong>Network TAP (Inline Veri Toplama):</strong> Yalnızca switch portlarından değil, doğrudan sunuculara giden kablolardan (Network TAP) trafik alabilir. Bu, ana trafiği etkilemeden &ldquo;en saf&rdquo; veriye ulaşmanızı sağlar.</li>
+<li><strong>SSL/TLS Offloading:</strong> Firewall veya IPS cihazlarınızın CPU&rsquo;larını şifre çözme işlemiyle yorma. Bu yükü NPB&rsquo;de üstlenin ve analiz cihazlarına &ldquo;temiz&rdquo; ve şifresiz trafik gönderin. Güvenlik cihazlarınız asıl işini yapsın; ağır şifre çözme işini NPB üstlensin.</li>
+<li><strong>Riverbed Entegrasyonu:</strong> Riverbed gibi NPM cihazlarını en doğru verilerle besleyerek uygulama gecikmelerini ve darboğazları tespit eder.</li>
+<li><strong>Çağrı Merkezleri (VoIP):</strong> Ses trafiğini paralel olarak işler; bir kopyası kayıt sistemine giderken kullanıcı hiçbir gecikme olmadan görüşmeye devam eder.</li>
+</ul>
+<h3 id="6-şifreli-trafik-ve-veri-merkezi-dc-stratejisi">6. Şifreli Trafik ve Veri Merkezi (DC) Stratejisi</h3>
+<p>İnternet trafiği şifreli olsa da performans nedeniyle veri merkezi içinde şifrelenmemiş akan &ldquo;East-West&rdquo; trafiği hâlâ en büyük fırsattır. NPB&rsquo;yi trafiğin şeffaf olduğu bu stratejik noktalarda kullanmak ve veriyi yansıtmak, şifre çözme maliyetine katlanmadan %100 görünürlük sağlar.</p>
+<h3 id="7-pazar-liderleri">7. Pazar Liderleri</h3>
+<p><strong>Keysight (Ixia)</strong> ve <strong>Gigamon</strong> yüksek performanslı çözümlerde standartları belirlerken; <strong>Arista</strong>, <strong>Garland Technology</strong> ve <strong>Profitap</strong> esnek port yapıları ve yenilikçi dağıtım yöntemleriyle kurumsal ağlar için vazgeçilmezdir.</p>
+<h3 id="sonuç">Sonuç</h3>
+<p>Trafik yansıtma ve analiz akışlarının kusursuz orkestrasyonu, karmaşık bir ağ operasyonunun nasıl kontrol edilebilir hale getirileceğinin nihai kanıtıdır. NIAC ve güçlü API entegrasyonları sayesinde bu mimari, statik bir donanım kurulumundan dinamik, &ldquo;yaşayan&rdquo; bir güvenlik platformuna dönüşür.</p>
+<p>Bu çerçeve, kritik verilerin güvenlik araçlarına sıfır kayıpla ve maksimum optimizasyonla ulaşmasını sağlar; operasyon ekiplerine ağ üzerinde tam görünürlük ve kontrol gücü verir.</p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Mimari &amp; Strateji</strong></p>
+<ul>
+<li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Görünürlük stratejisinin arkasındaki sistem düşüncesi</li>
+<li>🛡️ <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Ürün değil mimari olarak güvenlik</li>
+<li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">Monitoring Zihniyeti: Sadece Görmek Değil, Anlamak</a> — Dashboard&rsquo;ların ötesinde operasyonel görünürlük</li>
+<li>🎯 <a href="/tr/architecture/network-product-selection-strategy/">Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler</a> — Güvenlik üreticilerini stratejik değerlendirme</li>
+</ul>
+<p><strong>Pratik Mühendislik</strong></p>
+<ul>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Her şey çöktüğünde out-of-band erişim</li>
+<li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Saha Deployment Rehberi</a> — Ağ kenarında kimlik tabanlı erişim kontrolü</li>
+</ul>
+]]></content:encoded></item></channel></rss>

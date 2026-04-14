@@ -1,1 +1,259 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>ISP Scrubbing on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/isp-scrubbing/</link><description>Recent content in ISP Scrubbing on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Mon, 30 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/isp-scrubbing/index.xml" rel="self" type="application/rss+xml"/><item><title>DDoS Koruma Stratejileri: ISP Scrubbing, On-Premise Cihazlar ve Bulut Servisleri</title><link>https://barashhelvadzhaoglu.com/tr/technology/ddos-protection-strategies/</link><pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/ddos-protection-strategies/</guid><description>DDoS koruması rehberi — saldırı türleri, ISP scrubbing, on-premise cihazlar, bulut servisleri ve organizasyonunuz için doğru kombinasyon.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>ISP Scrubbing on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/isp-scrubbing/</link><description>Recent content in ISP Scrubbing on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Mon, 30 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/isp-scrubbing/index.xml" rel="self" type="application/rss+xml"/><item><title>DDoS Koruma Stratejileri: ISP Scrubbing, On-Premise Cihazlar ve Bulut Servisleri</title><link>https://barashhelvadzhaoglu.com/tr/technology/ddos-protection-strategies/</link><pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/ddos-protection-strategies/</guid><description>DDoS koruması rehberi — saldırı türleri, ISP scrubbing, on-premise cihazlar, bulut servisleri ve organizasyonunuz için doğru kombinasyon.</description><content:encoded><![CDATA[<h1 id="ddos-koruma-stratejileri-isp-scrubbing-on-premise-cihazlar-ve-bulut-servisleri">DDoS Koruma Stratejileri: ISP Scrubbing, On-Premise Cihazlar ve Bulut Servisleri</h1>
+<p>Bir DDoS (Dağıtılmış Hizmet Reddi) saldırısı sistemlerinizi ele geçirmek zorunda değildir. Sadece erişilemez hale getirmesi yeterlidir. Ve diğer güvenlik tehditlerinin aksine, hasar anlık ve tamamen görünürdür — uygulamanız çalışmayı durdurur, müşteriler size ulaşamaz ve gelir durur.</p>
+<p>DDoS&rsquo;u benzersiz biçimde zorlaştıran şey, saldırı trafiğinin paket düzeyinde meşru görünmesidir. Milyonlarca geçerli TCP SYN paketi, milyonlarca geçerli DNS sorgusu, milyonlarca geçerli HTTP isteği — hepsi mükemmel biçimlendirilmiş, hepsi tamamen kasıtlı. Ağınız bunları gerçek trafikle aynı şekilde işler, ve bu tam olarak sorunun ta kendisidir.</p>
+<p>DDoS korumasının yasal bir gereklilik olduğu — sadece en iyi uygulama değil — bankacılık altyapısında çalışmış biri olarak, organizasyonların kendilerini gerçekte nasıl koruduğunu aktarmak istiyorum: üç ana yaklaşımın ne olduğu, her birinin ne yapıp yapamadığı ve pratikte nasıl bir araya geldikleri.</p>
+<hr>
+<h2 id="saldırı-yüzeyini-anlamak">Saldırı Yüzeyini Anlamak</h2>
+<p>Koruma stratejisi seçmeden önce, neye karşı korunduğunuzu net olarak belirlemek faydalıdır. DDoS saldırıları üç kategoriye ayrılır ve temelden farklı azaltma yaklaşımları gerektirirler.</p>
+<h3 id="volumetrik-saldırılar-katman-34">Volumetrik Saldırılar (Katman 3/4)</h3>
+<p>En görünür tür. Amaç basittir: internet bağlantınızı taşıyabileceğinden daha fazla trafikle doyurmak.</p>
+<p>Yaygın teknikler:</p>
+<ul>
+<li><strong>UDP flood</strong> — rastgele portlara büyük hacimde UDP paketi göndermek. Hedef her birine &ldquo;port erişilemez&rdquo; ICMP yanıtı gönderir, hem gelen hem giden bant genişliğini tüketir.</li>
+<li><strong>ICMP flood (Ping flood)</strong> — ping istekleriyle bunaltmak.</li>
+<li><strong>Amplifikasyon saldırıları</strong> — en tehlikeli varyant. Saldırgan, kaynak olarak IP&rsquo;nizi kullanarak yanlış yapılandırılmış üçüncü taraf sunucularına (DNS çözücüler, NTP sunucuları, memcached örnekleri) küçük istekler gönderir. Bu sunucular size büyük yanıtlar gönderir. DNS amplifikasyonu 50–70× amplifikasyon sağlayabilir; memcached amplifikasyonu 51.000×&lsquo;e ulaşmıştır.</li>
+</ul>
+<p><strong>Ölçek:</strong> Modern volumetrik saldırılar rutin olarak 1 Tbps&rsquo;yi aşar. 10 Gbps&rsquo;lik bir internet bağlantısı buna karşı anlamsızdır — firewall&rsquo;unuza tek bir paket ulaşmadan doyuma ulaşırsınız.</p>
+<p><strong>Temel içgörü:</strong> ISP uplink&rsquo;inizi aşan saldırı hacminde volumetrik saldırıları kendi tesislerinizde azaltamazsınız. Trafik bağlantınıza ulaşmadan önce yukarı akışta — ISP veya bulut seviyesinde — filtrelenmelidir.</p>
+<h3 id="protokol-saldırıları-katman-34">Protokol Saldırıları (Katman 3/4)</h3>
+<p>Bant genişliği yerine ağ cihazı kaynaklarını tüketir.</p>
+<ul>
+<li><strong>SYN flood</strong> — el sıkışmayı tamamlamadan milyonlarca TCP SYN paketi göndermek. Hedef her yarı açık bağlantı için bellek ayırır, bağlantı tablosu dolana ve meşru bağlantılar reddedilene kadar.</li>
+<li><strong>Parçalanmış paket saldırıları</strong> — yeniden birleştirme tamponlarını bunaltan hatalı biçimlendirilmiş veya üst üste binen IP parçaları göndermek.</li>
+<li><strong>Smurf saldırısı</strong> — sahte kaynak IP&rsquo;ler kullanan ICMP broadcast amplifikasyonu.</li>
+</ul>
+<p><strong>Ölçek:</strong> Bant genişliğiyle değil, saniyedeki paket sayısıyla (Mpps) ölçülür. Küçük paket boyutlarında 100 Mbps&rsquo;lik bir SYN flood, orta düzey bir firewall&rsquo;un bağlantı tablo kapasitesini aşabilir.</p>
+<p><strong>Temel içgörü:</strong> Protokol saldırıları, FPGA tabanlı paket işleme ile özel DDoS donanımı tarafından on-premise azaltılabilir — ancak yalnızca hacim uplink&rsquo;inizi önceden doyurmadıysa.</p>
+<h3 id="uygulama-katmanı-saldırıları-katman-7">Uygulama Katmanı Saldırıları (Katman 7)</h3>
+<p>Tespit ve azaltması en zor olanlar. Trafik meşru HTTP/HTTPS&rsquo;tir — kötü niyetli olan niyet.</p>
+<ul>
+<li><strong>HTTP flood</strong> — kaynak yoğun uç noktalara (arama, giriş, rapor oluşturma) milyonlarca HTTP GET veya POST isteği göndermek.</li>
+<li><strong>Slowloris</strong> — çok sayıda bağlantı açmak ve HTTP başlıklarını çok yavaş göndermek, istekleri tamamlamadan bağlantıları açık tutmak. Sunucunun bağlantı havuzunu tüketir.</li>
+<li><strong>RUDY (R-U-Dead-Yet)</strong> — Slowloris&rsquo;e benzer ama POST gövdeleri için. Veriyi bir seferde bir bayt gönderir.</li>
+<li><strong>SSL tüketimi</strong> — TLS el sıkışmalarını başlatmak ama hiçbir zaman tamamlamamak veya el sıkışmaları tamamlayıp hemen yeniden müzakere etmek. Donanım SSL hızlandırması olmayan sunucular için CPU yoğun.</li>
+</ul>
+<p><strong>Ölçek:</strong> Düşük trafik hacimlerinde yıkıcı biçimde etkili olabilir — milyonlarca normal isteği işleyen bir web sunucusunu saniyede birkaç bin istek hedefleyerek çökertebilir.</p>
+<p><strong>Temel içgörü:</strong> Katman 7 saldırıları uygulama destekli azaltma gerektirir. Volumetrik bir scrubbing servisi kötü niyetli bir HTTP flood&rsquo;u meşru trafikten ayırt edemez.</p>
+<hr>
+<h2 id="üç-koruma-yaklaşımı">Üç Koruma Yaklaşımı</h2>
+<p>Hiçbir tek koruma yaklaşımı tüm ölçeklerdeki tüm saldırı türlerini kapsamaz. Ciddi DDoS maruziyeti olan organizasyonlar tipik olarak bu katmanlardan ikisini veya üçünü birleştirir.</p>
+<hr>
+<h2 id="1-isp-tabanlı-scrubbing-servisleri">1. ISP Tabanlı Scrubbing Servisleri</h2>
+<h3 id="nasıl-çalışır">Nasıl Çalışır</h3>
+<p>ISP&rsquo;niz (veya yukarı akış ağ anlaşmalarına sahip uzman bir scrubbing sağlayıcısı), bir saldırı sırasında trafiğinizi bir <strong>scrubbing merkezine</strong> yönlendirir. Scrubbing merkezinde saldırı trafiği filtrelenir ve yalnızca temiz trafik ağınıza iletilir:</p>
+<pre tabindex="0"><code>Normal işlem:
+  İnternet → ISP → Ağınız
+
+Saldırı sırasında:
+  İnternet → ISP → Scrubbing Merkezi → Temiz trafik → Ağınız
+                          │
+                   Saldırı trafiği düşürülür
+</code></pre><p>Trafik yönlendirmesi tipik olarak iki şekilde tetiklenir:</p>
+<ul>
+<li><strong>İstek üzerine:</strong> Saldırı tespit edildiğinde ISP ile iletişime geçersiniz. Manuel süreç, yanıt süresi sağlayıcıya bağlıdır.</li>
+<li><strong>Her zaman açık:</strong> Trafik sürekli olarak scrubbing üzerinden yönlendirilir. Tespit gecikmesi yoktur, ancak gecikme ekler.</li>
+</ul>
+<h3 id="isp-scrubbingin-koruduğu-şeyler">ISP Scrubbing&rsquo;in Koruduğu Şeyler</h3>
+<p>ISP scrubbing özellikle <strong>volumetrik saldırılar</strong> için tasarlanmıştır. Altyapınızın yukarı akışında, ağ katmanında çalışır. 10 Gbps bağlantınızı doyuracak bir saldırı, sağlayıcının 10 Tbps+ kapasitesi tarafından size ulaşmadan emilir.</p>
+<h3 id="isp-scrubbingin-yapamadıkları">ISP Scrubbing&rsquo;in Yapamadıkları</h3>
+<ul>
+<li><strong>Katman 7 koruması:</strong> ISP scrubbing L3/L4&rsquo;te çalışır. HTTP istek içeriğini analiz edemez.</li>
+<li><strong>Yavaş ve düşük hacimli saldırılar:</strong> Slowloris, RUDY ve SSL tüketimi volumetrik değildir.</li>
+<li><strong>Anlık yanıt:</strong> İstek üzerine scrubbing, trafik yönlendirilirken tipik olarak 15–30 dakikalık bir aktivasyon gecikmesine sahiptir.</li>
+</ul>
+<h3 id="isp-scrubbing-ne-zaman-mantıklıdır">ISP Scrubbing Ne Zaman Mantıklıdır</h3>
+<ul>
+<li>Birincil tehdidiniz volumetrik saldırılardır (altyapıyı hedef alan en yaygın tür)</li>
+<li>ISP bağlantınız 10 Gbps veya daha azdır</li>
+<li>Donanım maliyetlerini haklı kılamazsınız ama DDoS koruması için düzenleyici gereklilikleriniz vardır</li>
+<li>Maliyet etkin bir temel koruma katmanı istiyorsunuz</li>
+</ul>
+<hr>
+<h2 id="2-on-premise-ddos-cihazları">2. On-Premise DDoS Cihazları</h2>
+<h3 id="nasıl-çalışır-1">Nasıl Çalışır</h3>
+<p>Özel bir donanım cihazı (veya sanal cihaz), firewall&rsquo;unuzun yukarısında, ağınızda inline konumlanır:</p>
+<pre tabindex="0"><code>İnternet → [ISP Router] → [DDoS Cihazı] → [NGFW] → İç Ağ
+</code></pre><p>Cihaz tüm trafiği gerçek zamanlı olarak analiz eder ve saldırı paketlerini firewall&rsquo;unuza veya sunucularınıza ulaşmadan düşürür. Yazılım tabanlı çözümlerin aksine, özel amaçlı DDoS cihazları paket işleme için <strong>FPGA (Alan Programlanabilir Kapı Dizisi)</strong> donanımı kullanır.</p>
+<h3 id="önde-gelen-on-premise-çözümler">Önde Gelen On-Premise Çözümler</h3>
+<p><strong>NETSCOUT Arbor (Peakflow / Sightline / TMS)</strong>
+Özellikle bankacılık ve telekom sektöründe baskın kurumsal çözüm. Arbor, on-premise DDoS koruması için sektör standardı olarak yaygın biçimde kabul görür. Platform şunları birleştirir:</p>
+<ul>
+<li><strong>Sightline:</strong> Akış verileri (NetFlow, sFlow, IPFIX) ve BGP kullanarak trafik analizi ve saldırı tespiti</li>
+<li><strong>Threat Mitigation System (TMS):</strong> Inline veya out-of-band kullanılan donanım tabanlı scrubbing cihazı</li>
+<li>Arbor&rsquo;un küresel tehdit istihbaratı ağıyla (ATLAS) entegrasyon</li>
+</ul>
+<p><strong>Radware DefensePro</strong>
+Finansal hizmetlerde güçlü. Normal trafiğin dinamik bir temelini oluşturan ve anomalileri tespit eden davranış tabanlı tespit özelliği — bilinen imzalarla eşleşmeyen sıfır-gün DDoS saldırılarına karşı etkili.</p>
+<p><strong>Fortinet FortiDDoS</strong>
+Fortinet ekosistemiyle entegre. Tutarlı yönetim için FortiGate firewall&rsquo;ları zaten çalıştıran organizasyonlar için uygundur.</p>
+<p><strong>F5 BIG-IP AFM (Advanced Firewall Manager)</strong>
+F5 serisinde ele alındığı gibi — AFM, BIG-IP platformunun parçası olarak DDoS azaltma özellikleri sağlar. Uygulama teslimi için zaten F5 çalıştıran ve mevcut donanıma DDoS koruması eklemenin maliyet etkin olduğu ortamlara en uygunudur.</p>
+<h3 id="on-premise-cihazların-koruduğu-şeyler">On-Premise Cihazların Koruduğu Şeyler</h3>
+<ul>
+<li><strong>Protokol saldırıları:</strong> SYN flood&rsquo;lar, parçalanmış paketler, hatalı biçimlendirilmiş başlıklar — firewall&rsquo;a ulaşmadan donanım hızında işlenir</li>
+<li><strong>Uygulama katmanı saldırıları:</strong> Davranışsal analizle gelişmiş cihazlar HTTP flood&rsquo;larını, Slowloris&rsquo;i ve SSL tüketimini tespit edip azaltabilir</li>
+<li><strong>Sıfır-gün davranışsal saldırılar:</strong> Hız tabanlı ve davranışsal tespit, bilinen imzalar gerektirmeden saldırı kalıplarını tanımlar</li>
+</ul>
+<h3 id="on-premisein-yapamadıkları">On-Premise&rsquo;in Yapamadıkları</h3>
+<p><strong>ISP bağlantınızı aşan volumetrik saldırılar:</strong> Veri merkezinizdeki bir on-premise cihaz, 500 Gbps&rsquo;lik saldırı trafiği 10 Gbps&rsquo;lik internet bağlantınızı doldurduğunda yardım edemez. Bu temel sınırlamadır.</p>
+<p>Bu nedenle on-premise cihazlar ve ISP scrubbing <strong>tamamlayıcıdır, rekabetçi değil</strong>.</p>
+<hr>
+<h2 id="3-bulut-ddos-koruma-servisleri">3. Bulut DDoS Koruma Servisleri</h2>
+<h3 id="nasıl-çalışır-2">Nasıl Çalışır</h3>
+<p>Bulut DDoS koruması tüm trafiğinizi sağlayıcının küresel dağıtık ağı üzerinden yönlendirir. Temiz trafik kaynak sunucularınıza teslim edilir; saldırı trafiği kenarda düşürülür:</p>
+<pre tabindex="0"><code>Bulut koruması olmadan:
+  Kullanıcı → İnternet → Sunucunuz
+
+Bulut korumasıyla:
+  Kullanıcı → [Cloudflare / Akamai / AWS kenar] → Sunucunuz
+                          │
+                   Saldırı trafiği ağ kenarında düşürülür
+</code></pre><h3 id="önde-gelen-bulut-çözümleri">Önde Gelen Bulut Çözümleri</h3>
+<p><strong>Cloudflare</strong>
+En yaygın bilinen bulut DDoS sağlayıcısı. Cloudflare, dünyanın en büyük anycast ağlarından birini işletiyor — küresel 300+ PoP, 230 Tbps&rsquo;yi aşan toplam kapasiteyle. Temel özellikler:</p>
+<ul>
+<li>Manuel müdahale olmadan otomatik DDoS azaltma</li>
+<li>Tek bir platformda Katman 3, 4 ve 7 koruması</li>
+<li>WAF entegrasyonu — uygulama güvenliği ve DDoS azaltma aynı sağlayıcıdan</li>
+<li>Altyapı düzeyi koruma için Magic Transit (BGP tabanlı, yalnızca HTTP değil)</li>
+<li>Ölçüsüz DDoS azaltma — saldırılar sırasında GB başına ücret yok</li>
+</ul>
+<p><strong>AWS Shield</strong></p>
+<ul>
+<li><strong>Shield Standard:</strong> Tüm AWS kaynakları için otomatik olarak dahildir. Yaygın L3/L4 saldırılara karşı korur.</li>
+<li><strong>Shield Advanced:</strong> L7 koruması, 7/24 DDoS Yanıt Ekibi erişimi ve AWS WAF ile entegrasyon içeren ücretli katman.</li>
+<li>Önemli AWS altyapısına sahip organizasyonlar için en uygunudur.</li>
+</ul>
+<p><strong>Akamai Prolexic</strong>
+Kurumsal odaklı bulut scrubbing platformu. 20+ küresel dağıtık scrubbing merkezi işletiyor. Finansal hizmetler ve medyada güçlü referanslar.</p>
+<p><strong>Azure DDoS Protection</strong>
+Azure barındırmalı kaynaklar için Microsoft&rsquo;un teklifi. Azure&rsquo;da önemli iş yükleri çalıştıran organizasyonlar için en uygunudur.</p>
+<h3 id="bulut-korumanın-dezavantajları">Bulut Korumanın Dezavantajları</h3>
+<ul>
+<li><strong>Gecikme:</strong> Tüm trafik sağlayıcının ağından geçer. Çoğu web uygulaması için kenar PoP&rsquo;larının eklediği gecikme ihmal edilebilir veya negatiftir. Gecikmeye duyarlı uygulamalar için dikkatli değerlendirin.</li>
+<li><strong>Gizlilik/uyumluluk:</strong> SSL ile şifresi çözülmüş içerik dahil tüm trafik sağlayıcının altyapısından geçer. Düzenlenmiş sektörlerde dikkatli inceleme gerektirir.</li>
+<li><strong>DNS bağımlılığı:</strong> DNS tabanlı bulut koruması, saldırganlar kaynak IP&rsquo;nizi keşfederse atlatılabilir. Kaynak IP&rsquo;leri yalnızca bulut sağlayıcısının IP aralıklarına izin verecek şekilde firewall düzeyinde koruyun.</li>
+</ul>
+<hr>
+<h2 id="üç-yaklaşımın-karşılaştırması">Üç Yaklaşımın Karşılaştırması</h2>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>ISP Scrubbing</th>
+          <th>On-Premise Cihaz</th>
+          <th>Bulut Servisi</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Volumetrik koruma</td>
+          <td>✅</td>
+          <td>❌ (bağlantıyla sınırlı)</td>
+          <td>✅✅</td>
+      </tr>
+      <tr>
+          <td>Protokol saldırısı koruması</td>
+          <td>✅</td>
+          <td>✅✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>Uygulama katmanı (L7)</td>
+          <td>❌</td>
+          <td>✅ (gelişmiş modeller)</td>
+          <td>✅✅</td>
+      </tr>
+      <tr>
+          <td>Aktivasyon süresi</td>
+          <td>Dakikalar (istek üzerine)</td>
+          <td>Anında</td>
+          <td>Anında</td>
+      </tr>
+      <tr>
+          <td>Trafik görünürlüğü</td>
+          <td>Sınırlı</td>
+          <td>Tam</td>
+          <td>Sağlayıcıya bağlı</td>
+      </tr>
+      <tr>
+          <td>Uyumluluk / veri yerelliği</td>
+          <td>✅</td>
+          <td>✅✅</td>
+          <td>İnceleme gerektirir</td>
+      </tr>
+      <tr>
+          <td>CapEx</td>
+          <td>Düşük</td>
+          <td>Yüksek</td>
+          <td>Yok</td>
+      </tr>
+      <tr>
+          <td>OpEx</td>
+          <td>Orta</td>
+          <td>Orta</td>
+          <td>Orta–Yüksek</td>
+      </tr>
+      <tr>
+          <td>Ölçeklenebilirlik</td>
+          <td>ISP kapasitesi</td>
+          <td>Sabit donanım</td>
+          <td>Neredeyse sınırsız</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="hibrit-model-ciddi-organizasyonlar-üçünü-nasıl-birleştirir">Hibrit Model: Ciddi Organizasyonlar Üçünü Nasıl Birleştirir</h2>
+<p>Yüksek riskli ortamlarda — bankacılık, ödeme işlemcileri, devlet altyapısı, büyük e-ticaret — tek bir koruma katmanı hiçbir zaman yeterli değildir. Standart mimari üçünü birleştirir:</p>
+<pre tabindex="0"><code>Saldırı trafiği
+      │
+      ▼
+[Bulut / ISP Scrubbing]    ← Volumetrik taşmaları size ulaşmadan emer
+      │
+  Temizlenmiş trafik
+      │
+      ▼
+[On-Premise Cihaz]         ← Protokol saldırılarını ve L7 anomalileri yakalar
+      │
+      ▼
+[NGFW + WAF]               ← Uygulama güvenliği ve politika uygulaması
+      │
+      ▼
+[Uygulama Sunucuları]
+</code></pre><p>Her katman diğerlerinin yapamadıklarını halleder. Kombinasyon, DDoS saldırı türlerinin tüm yelpazesine karşı dayanıklı derinlemesine savunma oluşturur.</p>
+<h3 id="gerçek-dünya-örneği-bankacılık-sektörü">Gerçek Dünya Örneği: Bankacılık Sektörü</h3>
+<p>Çalıştığım bankacılık ortamında DDoS koruma yığını şöyleydi:</p>
+<ul>
+<li><strong>Arbor TMS</strong> on-premise — protokol saldırıları için inline scrubbing, anomali tespiti için gerçek zamanlı akış analizi, otomatik trafik yönlendirmesi için BGP ile entegrasyon</li>
+<li><strong>ISP scrubbing sözleşmesi</strong> — Arbor, uplink&rsquo;i doyuracak volumetrik saldırı imzaları tespit ettiğinde etkinleştirildi</li>
+<li><strong>Cloudflare Magic Transit</strong> — WAF entegrasyonuyla always-on bulut düzeyi koruma sağlayan halka açık web uygulamaları için</li>
+<li><strong>F5 AFM</strong> — uygulama teslim katmanında ek L4 koruması</li>
+</ul>
+<p>Bu gereksiz yere yedeklilik değildi — her katman diğerlerinin yapamadıklarını halletti.</p>
+<hr>
+<h2 id="ddos-yanıt-planlaması-teknik-olmayan-kısım">DDoS Yanıt Planlaması: Teknik Olmayan Kısım</h2>
+<p>Teknoloji, DDoS hazırlığının yalnızca bir parçasıdır. Diğer kısım organizasyoneldir:</p>
+<p><strong>Runbook&rsquo;lar:</strong> Bir saldırı başladığında tam olarak ne yapılacağını belgeleyin. Kim bildirilecek? Kim ISP scrubbing&rsquo;i etkinleştirecek? Yükseltme yolu ne? Saldırı altında bunu çözmek için doğru zaman değildir.</p>
+<p><strong>İletişim listeleri:</strong> ISP scrubbing etkinleştirme, bulut sağlayıcı desteği, yukarı akış router erişimi, nöbetçi ağ mühendisleri. Hepsi güncel, hepsi test edilmiş.</p>
+<p><strong>Eşikler ve otomasyon:</strong> Otomatik azaltmanın ne zaman devreye gireceğini ve insan incelemesinin ne zaman gerekli olduğunu tanımlayın. Tam manuel yanıtlar modern saldırı oranları için çok yavaştır.</p>
+<p><strong>Düzenli test:</strong> Hiç test edilmemiş bir DDoS koruma yığını, gerçekte güvenmediğiniz bir DDoS koruma yığınıdır. ISP&rsquo;niz ve bulut sağlayıcınızla periyodik testler planlayın.</p>
+<p><strong>Olay sonrası inceleme:</strong> Her önemli saldırının ardından, neyin işe yaradığını, neyin yaramadığını ve saldırı trafiğinin neye benzediğini gözden geçirin. DDoS taktikleri evrilir — koruma stratejiniz de öyle olmalıdır.</p>
+<hr>
+<h2 id="temel-çıkarımlar">Temel Çıkarımlar</h2>
+<ul>
+<li>DDoS saldırıları üç temel olarak farklı türde gelir — volumetrik, protokol ve uygulama katmanı — ve her biri farklı azaltma gerektirir.</li>
+<li><strong>Hiçbir tek koruma katmanı tüm saldırı türlerini kapsamaz.</strong> Volumetrik saldırılar yukarı akış scrubbing kapasitesi gerektirir; protokol saldırıları donanım hızında paket işleme gerektirir; L7 saldırıları uygulama destekli analiz gerektirir.</li>
+<li><strong>ISP scrubbing</strong>, çok büyük volumetrik saldırılar için tek seçenektir — saldırı bağlantınıza ulaşmadan emilmelidir.</li>
+<li><strong>On-premise cihazlar</strong> (Arbor, Radware, F5 AFM) ayrıntılı görünürlük, uyumluluk dostu şirket içi işleme ve etkili protokol/L7 koruması sağlar — ancak ISP bağlantı kapasitesini aşan saldırıları kaldıramaz.</li>
+<li><strong>Bulut servisleri</strong> (Cloudflare, AWS Shield, Akamai) büyük ölçek, küresel dağılım ve donanım yatırımı olmadan always-on koruma sunar — ancak trafik yönlendirmesini üçüncü taraf altyapıdan geçirir.</li>
+<li>Yüksek riskli ortamlarda, üç katman birlikte çalışır. Bu aşırı mühendislik değildir — ciddiye alınan organizasyonların pratikte kullandığı mimaridir.</li>
+</ul>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<ul>
+<li>🛡️ <a href="/tr/technology/f5-bigip-application-delivery-platform-overview/">F5 BIG-IP Platform Genel Bakış</a> — DDoS savunmanın derinliğinin bir parçası olarak F5 AFM</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Zero Trust çerçevesinde DDoS koruması</li>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — DDoS adli analizi için gerekli trafik görünürlüğü</li>
+<li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">İzleme Doğru Yapıldığında</a> — Proaktif izleme yoluyla DDoS&rsquo;u erken tespit etmek</li>
+</ul>
+]]></content:encoded></item></channel></rss>

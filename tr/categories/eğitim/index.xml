@@ -1,1 +1,98 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Eğitim on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/categories/e%C4%9Fitim/</link><description>Recent content in Eğitim on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Wed, 18 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/categories/e%C4%9Fitim/index.xml" rel="self" type="application/rss+xml"/><item><title>🚀 Mezun Rehberi: Bir Network Mühendisi Aslında Ne Yapar?</title><link>https://barashhelvadzhaoglu.com/tr/posts/career-guide-network-engineering/</link><pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/career-guide-network-engineering/</guid><description>Yeni mezunlar için ağ mühendisliği kariyer rehberi. Endüstriyel altyapı, günlük operasyonlar ve profesyonelleşme yol haritası.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Eğitim on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/categories/e%C4%9Fitim/</link><description>Recent content in Eğitim on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Wed, 18 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/categories/e%C4%9Fitim/index.xml" rel="self" type="application/rss+xml"/><item><title>🚀 Mezun Rehberi: Bir Network Mühendisi Aslında Ne Yapar?</title><link>https://barashhelvadzhaoglu.com/tr/posts/career-guide-network-engineering/</link><pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/career-guide-network-engineering/</guid><description>Yeni mezunlar için ağ mühendisliği kariyer rehberi. Endüstriyel altyapı, günlük operasyonlar ve profesyonelleşme yol haritası.</description><content:encoded><![CDATA[<p>Merhaba arkadaşlar! Yeni mezun oldunuz, diplomanız elinizde, önünüzde uçsuz bucaksız bir IT dünyası var. &ldquo;Hangi yolu seçmeliyim?&rdquo; diye düşünürken <strong>Network Mühendisliği</strong> ile karşılaştınız. Peki bu insanlar sadece kablo mu takıyor, yoksa sahnede görünmeyen büyük bir zeka mı var? Gelin dijital dünyanın bu görünmez kahramanlığına derinlemesine dalalım.</p>
+<h3 id="-network-nedir-dijital-otoyolda-bir-yolculuk">🕸️ Network Nedir? (Dijital Otoyolda Bir Yolculuk)</h3>
+<p>En basit tanımıyla network, sistemlerin birbirleriyle iletişim kurmasını sağlayan bir taşıma aracıdır. Bilgisayarların bağımsız adalar olarak değil, birbiriyle bağlantılı büyük bir kıta olarak çalışmasını mümkün kılar.</p>
+<p><strong>Neden USB Yeterli Değil?</strong>
+Evde bir Excel dosyasını veya videoyu yan odadaki bilgisayara aktarmak için USB kullanabilirsiniz. Ancak profesyonel dünyada işler böyle yürümüyor. 50 kişinin aynı dosya üzerinde çalıştığı bir ofiste olduğunuzu ya da başka bir şehirdeki veya ülkedeki bir meslektaşınıza veri göndermeniz gerektiğini hayal edin. Manuel aktarım için mesafenin çok uzak veya kitlenin çok büyük olduğu her senaryoda <strong>Network</strong> — dijital otoyol — devreye girer.</p>
+<h3 id="-fabrika-örneği-sistemin-kalbi-olarak-sunucu-odası">🏭 Fabrika Örneği: Sistemin Kalbi Olarak &ldquo;Sunucu Odası&rdquo;</h3>
+<p>Bir fabrikada olduğunuzu hayal edin. Fabrikanın tüm hafızası sistem odasındaki bir sunucuda saklanıyor: müşteri listeleri, faturalar, üretim stokları ve çalışan verileri. Fabrikada 100 kişi olduğunu varsayalım. Bu 100 kişinin her biri, kendi masasından bu sunucuya eş zamanlı, hatasız ve yüksek hızda erişebilmek zorunda.</p>
+<p><strong>Network Mühendisi</strong>, bu 100 kişi ile o sunucu arasındaki yolu inşa eden, trafiğin tıkanmamasını sağlayan ve bu yolu güvence altına alan kişidir. Bu yalnızca &ldquo;üç beş kutuyu yan yana koymak&rdquo; değil — <strong>operasyonel bütünlük</strong> tasarlamaktır. Günümüzde bu yapı yalnızca fiziksel kablolarla değil, <strong>SD-WAN</strong> ve <strong>Cloud</strong> entegrasyonları gibi akıllı yazılım katmanlarıyla da yönetilir.</p>
+<h3 id="-ev-modemi-vs-endüstriyel-altyapı">🏠 Ev Modemi vs. Endüstriyel Altyapı</h3>
+<p>Çoğumuzun evinde bir modem var ve tek yaptığımız onu takıp internete bağlanmak. Ancak kurumsal dünyada (hastaneler, oteller, plazalar) ev tipi cihazlar oyuncak gibi kalır:</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/career-guide-network-engineering.webp"/> <figcaption>
+            Network Mühendisliği Kariyer Rehberi
+        </figcaption>
+</figure>
+
+<ul>
+<li><strong>Endüstriyel Ürün Seçimi:</strong> Ev tipi bir modem 100 kişiyi aynı anda internete bağlamaya çalıştığında aşırı ısınır, kilitlenir ve çöker. Bu yüzden profesyonel dünyada <strong>Cisco, Arista, HPE (Aruba) veya Juniper</strong> gibi global devlerin &ldquo;Endüstriyel Switch&quot;lerini kullanırız.</li>
+<li><strong>Port ve Bağlantı:</strong> Bu cihazların genellikle 24 veya 48 portu vardır. 100 kişilik ofis derken yalnızca dizüstü bilgisayarları saymayın; güvenlik kameraları, yazıcılar, parmak izi okuyucular, IP telefonlar ve Access Point&rsquo;ler de bu switch&rsquo;lere bağlanır. Bu demek oluyor ki 100 kişilik bir ofis, sizin için aslında 150-200 farklı kablo ucu ve bağlantı demektir.</li>
+</ul>
+<h3 id="-kablosuz-dünya-ve-roaming">📶 Kablosuz Dünya ve Roaming</h3>
+<p>Evde modem yakınında internet iyi çalışıyor ama arka odada kesiliyor. Bir fabrikada veya 10 katlı bir otelde bunu tek bir cihazla çözemezsiniz.</p>
+<ul>
+<li><strong>Access Point Ordusu:</strong> Tavanlara, depolara ve ofislere düzinelerce, bazen yüzlerce Access Point kurulur.</li>
+<li><strong>Kesintisiz Geçiş (Roaming):</strong> Bir fabrikanın bir ucundan diğerine yürürken dizüstü bilgisayarınızla görüşme yaptığınızı hayal edin. İnternet tek saniye bile kopmamalıdır. Uzmanlığınız, cihazınızın sizi fark ettirmeden bir AP&rsquo;den diğerine geçmesine olanak tanıyan o akıllı yapıyı (<strong>Wireless Controller</strong>) kurmak ve yönetmekten geçer.</li>
+</ul>
+<figure>
+    <img loading="lazy" src="/img/postimages/career-guide-network-engineering2.webp"/> <figcaption>
+            Network Mühendisliği Kariyer Rehberi 2
+        </figcaption>
+</figure>
+
+<h3 id="-internetin-bekçisi-firewall-ve-kiralık-hatlar">🛡️ İnternetin Bekçisi: Firewall ve Kiralık Hatlar</h3>
+<p>Kurumsal internet, ev internetinden çok farklı kurallarla işler:</p>
+<ul>
+<li><strong>Metro Ethernet (Dedicated):</strong> Evde akşamları internet yavaşlar çünkü hattı komşularınızla paylaşırsınız. Şirketlerde &ldquo;Dedicated&rdquo; (yalnızca size ait) hatlar kullanılır. Hızınız her zaman sabittir ve en önemlisi <strong>Upload</strong> hızınız çok yüksektir.</li>
+<li><strong>Firewall:</strong> Bu değerli internet hattının girişine bir nöbetçi yerleştiririz. <strong>Palo Alto, Fortinet veya Check Point</strong> gibi markalarla kimin hangi siteye erişebileceğini, dış siber saldırıların nasıl engelleneceğini ve <strong>Zero Trust</strong> felsefesini hayata geçirirsiniz.</li>
+</ul>
+<blockquote>
+<p>Zero Trust&rsquo;ı mimari bir perspektiften anlamak ister misiniz? <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a></p>
+</blockquote>
+<h3 id="-madalyonun-öbür-yüzü-vardiyalar-ve-sorumluluk">🌙 Madalyonun Öbür Yüzü: Vardiyalar ve Sorumluluk</h3>
+<p>Network mühendisi olmak istiyorsanız şu gerçeği kabul etmelisiniz: <strong>&ldquo;Herkes çalışırken sistem kapatılmaz.&rdquo;</strong></p>
+<ul>
+<li><strong>Bakım Pencereleri:</strong> Bir switch&rsquo;in yazılımını güncelleyecekseniz veya kabloların yerini değiştirecekseniz bunu herkes ofisteyken yapamazsınız. Bu yüzden çalışmalar genellikle geç gece saatlerinde, hafta sonlarında veya resmi tatillerde yapılır.</li>
+<li><strong>Uykusuz Geceler ve Haklar:</strong> Sistem çökerse saat 03:00&rsquo;te telefonunuz çalabilir. Ancak profesyonel dünyada bu bir fedakarlıktır; şirketler genellikle fazla mesai ücreti veya hafta içi &ldquo;servis süresi&rdquo; (ekstra izin) vererek bunu dengeler.</li>
+</ul>
+<h3 id="-yol-haritası-network-mühendisi-nasıl-olunur">🎓 Yol Haritası: Network Mühendisi Nasıl Olunur?</h3>
+<figure>
+    <img loading="lazy" src="/img/postimages/career-guide-roadmap.webp"/> <figcaption>
+            Network Mühendisliği Kariyer Yol Haritası
+        </figcaption>
+</figure>
+
+<p>Bu meslek yalnızca okuyarak değil, yaparak ve küresel çapta tanınan yolları takip ederek öğrenilir:</p>
+<ol>
+<li>
+<p><strong>Sertifikasyonun Temeli: CCNA</strong>
+Bu, network dünyasının &ldquo;ehliyet&quot;idir. <strong>Cisco Certified Network Associate (CCNA)</strong> eğitimi, işin alfabesini (IP, Routing, Switching) öğrenmenizi sağlar.</p>
+</li>
+<li>
+<p><strong>Resmi Eğitim Portalları (Hazine!)</strong>
+Üreticiler cihazlarını öğrenmeniz için harika kaynaklar sunar:</p>
+<ul>
+<li><strong>Cisco Networking Academy (Skills for All):</strong> <a href="https://skillsforall.com/">skillsforall.com</a></li>
+<li><strong>Palo Alto Networks Education:</strong> <a href="https://learning.paloaltonetworks.com/">learning.paloaltonetworks.com</a></li>
+<li><strong>Fortinet Training Institute:</strong> <a href="https://training.fortinet.com/">training.fortinet.com</a></li>
+<li><strong>Aruba (HPE) Learning Center:</strong> <a href="https://learn.hpe.com/aruba">learn.hpe.com/aruba</a></li>
+<li><strong>Juniper Learning Portal:</strong> <a href="https://learningportal.juniper.net/">learningportal.juniper.net</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Online ve Kendi Kendine Öğrenme</strong></p>
+<ul>
+<li><strong>Udemy:</strong> Birçok dilde çok uygun fiyatlı CCNA kursları bulabilirsiniz.</li>
+<li><strong>CBT Nuggets:</strong> Video açıklamaları çok yüksek kalitededir.</li>
+<li><strong>Simülasyon Araçları:</strong> Yalnızca kitap okumayın! Bilgisayarınıza <strong>Cisco Packet Tracer</strong> yükleyin. Daha ileri düzeyler için <strong>GNS3</strong> veya <strong>EVE-NG</strong> kullanarak profesyonel cihaz yazılımlarını deneyimleyin.</li>
+</ul>
+</li>
+</ol>
+<h3 id="sonuç">Sonuç</h3>
+<p>Ağ iletişimi, bilgisayar biliminin temelidir. İster geliştirici ister siber güvenlik uzmanı olun, bir paketin A noktasından B noktasına nasıl geçtiğini bilmeden gerçek bir profesyonel olamazsınız. Karmaşık bulmacaları çözmeyi ve dijital dünyaların altyapısını inşa etmeyi seviyorsanız, Network Mühendisliği her zaman talep gören prestijli ve heyecan verici bir kariyer yoludur.</p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Mimariye Derinlemesine Bakış</strong></p>
+<ul>
+<li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Doğru zihniyetin doğru üründen daha önemli olduğu yerde</li>
+<li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a> — Mimari öncelikli network tasarımı</li>
+<li>🛡️ <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Çevre ötesinde güvenlik</li>
+<li>🎯 <a href="/tr/architecture/network-product-selection-strategy/">Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler</a> — Üreticileri profesyonel gözle değerlendirmek</li>
+</ul>
+<p><strong>Pratik Mühendislik</strong></p>
+<ul>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Her şey çöktüğünde out-of-band erişim</li>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Trafik görünürlüğü ve güvenlik stratejisi</li>
+<li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Saha Deployment Rehberi</a> — Kimlik tabanlı ağ erişim kontrolü</li>
+</ul>
+]]></content:encoded></item></channel></rss>

@@ -1,1 +1,288 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Zero Trust on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/zero-trust/</link><description>Recent content in Zero Trust on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Wed, 14 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/zero-trust/index.xml" rel="self" type="application/rss+xml"/><item><title>802.1X Projeleri: Kimliği Ağa Taşıyan Mimariyi Sahada Kurmak</title><link>https://barashhelvadzhaoglu.com/tr/technology/identity-based-microsegmentation-8021x/</link><pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/identity-based-microsegmentation-8021x/</guid><description>802.1X projelerinin networkten ziyade AD, PKI ve GPO disiplinine bağlı başarısını ele alan saha tecrübesi dökümanı.</description></item><item><title>Zero Trust Zihniyeti: Güvenliği Bir Ürün Değil, Bir Mimari Olarak Mühendislemek</title><link>https://barashhelvadzhaoglu.com/tr/architecture/zero-trust-architecture-behaviors/</link><pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/zero-trust-architecture-behaviors/</guid><description>Zero Trust bir ürün değil mimari yaklaşımdır. Kullanıcı doğrulama, sürekli erişim kontrolü ve VPN ötesinde modern güvenlik nasıl çalışır.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Zero Trust on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/zero-trust/</link><description>Recent content in Zero Trust on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Wed, 14 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/zero-trust/index.xml" rel="self" type="application/rss+xml"/><item><title>802.1X Projeleri: Kimliği Ağa Taşıyan Mimariyi Sahada Kurmak</title><link>https://barashhelvadzhaoglu.com/tr/technology/identity-based-microsegmentation-8021x/</link><pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/identity-based-microsegmentation-8021x/</guid><description>802.1X projelerinin networkten ziyade AD, PKI ve GPO disiplinine bağlı başarısını ele alan saha tecrübesi dökümanı.</description><content:encoded><![CDATA[<h1 id="8021x-projeleri-kimliği-ağa-taşıyan-mimariyi-sahada-kurmak">802.1X Projeleri: Kimliği Ağa Taşıyan Mimariyi Sahada Kurmak</h1>
+<p>802.1X projeleri dışarıdan bakınca <strong>network işi</strong> gibi görünür; çünkü dokunulan yer switch portlarıdır, SSID&rsquo;lerdir, RADIUS&rsquo;tur. Ama gerçek hayatta 802.1X&rsquo;in başarısı çoğu zaman network cihazlarının üzerinde değil; <strong>Active Directory düzeninde</strong>, <strong>sertifika altyapısında (PKI)</strong> ve <strong>uç cihaz yönetiminde</strong> belirlenir. Bunun nedeni basit: 802.1X, portun VLAN&rsquo;ını değil, kurumun <strong>&ldquo;kimlik modelini&rdquo;</strong> konuşmaya zorlar. Yani &ldquo;hangi port hangi VLAN&quot;dan, <strong>&ldquo;hangi kimlik hangi yetkiyle ağa girer&rdquo;</strong> düzenine geçersin.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/8021x-nac-architecture-overview.webp"/> <figcaption>
+            802.1X NAC Mimarisine Genel Bakış
+        </figcaption>
+</figure>
+
+<p>Bu geçiş, bir kurumun alışkanlıklarını değiştirir. Çünkü 802.1X devreye girdiğinde network, artık <strong>&ldquo;kablo takınca çalışan&rdquo;</strong> bir şey olmaktan çıkar; doğrulama geçemeyen cihaz için <strong>karantina</strong>, misafir için <strong>portal</strong>, yanlış OU&rsquo;da duran bilgisayar için <strong>yanlış VLAN</strong> gibi sonuçlar üretir. Bu yüzden ben 802.1X&rsquo;i bir özellik olarak değil, <strong>kurumsal bir yetkinlik</strong> olarak görüyorum: kimlik, envanter, politika ve operasyonun aynı masaya oturduğu bir yetkinlik.</p>
+<p><strong>Özet (sadece kilit):</strong></p>
+<ul>
+<li>802.1X port güvenliği değil, <strong>kimlik mimarisidir.</strong></li>
+<li>Başarı network&rsquo;ten çok <strong>AD/PKI/endpoint disiplinine</strong> bağlıdır.</li>
+</ul>
+<blockquote>
+<p>Kimlik tabanlı erişimin arkasındaki Zero Trust zihniyeti için: <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Ürün Değil Mimari Olarak Tasarlamak</a></p>
+</blockquote>
+<h3 id="1-planlama-vlan-planı-yoksa-8021x-kural-motoru-değil-kaos-motoru-olur">1) Planlama: VLAN planı yoksa 802.1X &ldquo;kural motoru&rdquo; değil &ldquo;kaos motoru&rdquo; olur</h3>
+<p>802.1X&rsquo;e geçerken herkesin ilk refleksi şudur: &ldquo;RADIUS kurarız, switch&rsquo;e yazarız, biter.&rdquo; Sahada bunun bittiği yer genelde ilk <strong>pilot kullanıcıdır.</strong> Çünkü pilot kullanıcı bağlanır ve bir anda şu soru çıkar: &ldquo;Bu kullanıcı hangi VLAN&rsquo;a gidecek?&rdquo; İşte 802.1X&rsquo;in seni zorladığı yer burasıdır.</p>
+<p>Eğer kurumda anlamlı bir <strong>VLAN/segmentasyon planı</strong> yoksa, 802.1X devreye alındığında bütün eksikler görünür hale gelir. Muhasebe ile üretim aynı segmentteyse, kamera ile kullanıcı laptop&rsquo;u aynı ağdaysa, printer VLAN&rsquo;ı diye bir kavram hiç yoksa; 802.1X bu yapıyı <strong>&ldquo;otomatikleştiremez&rdquo;</strong>, sadece <strong>&ldquo;otomatik şekilde yanlış&rdquo;</strong> yapar.</p>
+<p>Bu yüzden proje başlamadan önce kullanıcı ve cihazları <strong>&ldquo;sınıflara&rdquo;</strong> ayırmak gerekir: departmanlar (<strong>muhasebe, finans, HR…</strong>), cihaz tipleri (<strong>printer, IP phone, camera, badge reader…</strong>), sunucu segmentleri (<strong>AD/DC, file, mail, web/DMZ</strong>), misafir segmenti, karantina segmenti. Bu segmentler yalnızca IP planı değildir; aynı zamanda <strong>erişim politikasının zeminidir.</strong> Bunlar 802.1X&rsquo;ten sonra <strong>&ldquo;sonradan düşünülürse&rdquo;</strong>, proje bitmez.</p>
+<p><strong>Özet:</strong></p>
+<ul>
+<li><strong>VLAN planı = politika planı.</strong></li>
+<li>802.1X, segmentasyon kararını <strong>&ldquo;ertelenemez&rdquo;</strong> hale getirir.</li>
+</ul>
+<h3 id="2-network-hazırlığı-8021x-devreye-girmeden-önce-her-vlan-manuel-çalışmalı">2) Network hazırlığı: 802.1X devreye girmeden önce her VLAN manuel çalışmalı</h3>
+<p>802.1X&rsquo;e geçmeden önce VLAN&rsquo;ların switch ve firewall üzerinde tanımlı olması yetmez; <strong>manuel test edilmesi</strong> gerekir. Çünkü 802.1X devreye girdiğinde sorun çıktığında kök nedeni ayırmak zorlaşır: VLAN mı yanlış, firewall kuralı mı eksik, RADIUS mu yanlış, sertifika mı bozuk?</p>
+<p>Benim sahada en çok önerdiğim akış şu: VLAN&rsquo;ları oluştur, routing ve firewall kurallarını oturt, sonra bir test portunu <strong>statik VLAN&rsquo;a</strong> al ve bir kullanıcıyla <strong>&ldquo;olması gereken erişim&rdquo;</strong> testlerini yap. Bu manuel test geçmeden 802.1X&rsquo;e geçmek, gözü kapalı araç kullanmak gibi.</p>
+<p>Bu aşamada ayrıca <strong>management network</strong> konusu kritik. Switch&rsquo;lerin, WLC&rsquo;nin, AP&rsquo;lerin yönetim IP&rsquo;leri ayrı bir <strong>management VLAN&rsquo;da</strong> olmalı. <strong>&ldquo;Management VLAN&rdquo;</strong> yoksa, 802.1X pilotu sırasında bile cihaz yönetim erişimini kaybedip çok gereksiz kriz yaşanıyor.</p>
+<p><strong>Özet:</strong></p>
+<ul>
+<li>802.1X&rsquo;ten önce <strong>VLAN + FW kuralları manuel test edilmeden</strong> ilerlenmez.</li>
+<li><strong>Management network</strong> ayrı değilse, proje gereksiz risk taşır.</li>
+</ul>
+<h3 id="3-ad-tarafı-ou-düzeni-olmayan-yerde-8021x-hep-istisna-yönetimine-döner">3) AD tarafı: OU düzeni olmayan yerde 802.1X hep &ldquo;istisna yönetimi&quot;ne döner</h3>
+<p>802.1X projelerinde en kritik noktalardan biri, kullanıcıyı ve bilgisayarı sınıflandırma işinin <strong>&ldquo;nerede&rdquo;</strong> yapıldığıdır. Çoğu kurumda kullanıcılar Users altında, bilgisayarlar Computers altında durur; departman ayrımı ya hiç yoktur ya da <strong>&ldquo;görsel düzen&rdquo;</strong> seviyesindedir. 802.1X devreye girdiğinde bu yapı yetmez.</p>
+<p>Benim sahada <strong>&ldquo;best practice&rdquo;</strong> diye gördüğüm yapı şudur: her departman için bir <strong>OU yapısı</strong> oluşturmak ve kullanıcıyı da bilgisayarı da o OU&rsquo;nun altında tutmak. Kullanıcı <strong>OU=Finance</strong> altında ama bilgisayar dağınıksa, <strong>GPO dağıtımı</strong> bozulur, <strong>sertifika auto-enrollment</strong> bozulur, 802.1X policy eşleştirme bozulur.</p>
+<p>Benim önerdiğim yöntem: önce tek bir departmandan tek bir pilot kullanıcı ve pilot cihaz seç. OU taşımayı yap. <strong>1 hafta–10 gün gözlemle.</strong> Sorun çıkarsa OU/GPO düzeltmelerini yaparsın, sonra genişlersin.</p>
+<p><strong>Özet:</strong></p>
+<ul>
+<li><strong>OU düzeni</strong>, 802.1X&rsquo;in görünmeyen omurgasıdır.</li>
+<li>OU taşıma kontrollü yapılmazsa <strong>GPO/erişim</strong> yan etkileri doğar.</li>
+</ul>
+<h3 id="4-group-policy-8021x-projelerinde-tek-tek-elle-ayar-ölçeklenmez">4) Group Policy: 802.1X projelerinde &ldquo;tek tek elle ayar&rdquo; ölçeklenmez</h3>
+<p>802.1X&rsquo;i pilotta elle kurarsın; üretime geçince <strong>GPO&rsquo;suz</strong> yürüyemezsin. <strong>Wired AutoConfig</strong>, <strong>WLAN AutoConfig</strong>, EAP ayarları, sertifika seçimi, authentication öncelikleri&hellip; Bunları tek tek elle yönetmek hem hataya açık hem sürdürülemez.</p>
+<p>GPO tarafında genelde üç şey yapılır: kablolu 802.1X profillerinin dağıtımı, kablosuz 802.1X profilleri ve <strong>sertifika auto-enrollment</strong>. Ayrıca <strong>&ldquo;kullanıcı bazlı 802.1X&rdquo;</strong> ile <strong>&ldquo;bilgisayar bazlı 802.1X&rdquo;</strong> aynı anda devredeyken Windows&rsquo;un hangi sırayla deneyeceği önemlidir. Çoğu tasarımda <strong>&ldquo;önce bilgisayar auth, sonra kullanıcı auth&rdquo;</strong> modeli istenir.</p>
+<p><strong>Özet:</strong></p>
+<ul>
+<li>GPO olmadan 802.1X üretime taşınmaz.</li>
+<li><strong>Auth sırası (machine vs user)</strong> sahada fark yaratır.</li>
+</ul>
+<h3 id="5-radius--nps--nac-konuşuyor-yetmez-hangi-cevabı-verdiği-önemlidir">5) RADIUS / NPS / NAC: &ldquo;Konuşuyor&rdquo; yetmez; hangi cevabı verdiği önemlidir</h3>
+<p>RADIUS tarafı çoğu ekipte &ldquo;Switch&rsquo;i tanıttık, secret verdik, oldu&rdquo; gibi görülür. Bu sadece iletişimin başladığı yerdir. Asıl konu: RADIUS, switch&rsquo;e hangi <strong>VLAN / hangi ACL / hangi policy</strong> cevabını veriyor?</p>
+<ul>
+<li>Basit dünyada RADIUS sadece <strong>&ldquo;accept/reject&rdquo;</strong> döner, VLAN statik kalır.</li>
+<li>Olgun dünyada RADIUS <strong>&ldquo;accept&rdquo;</strong> ile birlikte <strong>dinamik VLAN</strong> atar, <strong>dACL/ACL</strong> iter.</li>
+</ul>
+<p>Sahada sık yapılan hata: network cihazlarını RADIUS client olarak tanımlarken <strong>management IP</strong> yerine farklı IP&rsquo;ler kullanmak, yanlış <strong>VRF/route</strong> yüzünden RADIUS&rsquo;a erişememek, <strong>source-interface</strong> yanlışlığı… Ben her projede önce en basit testle başlarım: switch&rsquo;ten RADIUS&rsquo;a reachability, RADIUS&rsquo;ta log, sonra bir test port.</p>
+<p><strong>Özet:</strong></p>
+<ul>
+<li>RADIUS &ldquo;iletişim kurdu&rdquo; diye proje bitmez; <strong>&ldquo;hangi policy cevabı dönüyor&rdquo;</strong> önemlidir.</li>
+<li><strong>Reachability/source-interface/VRF</strong> hataları en klasik kök nedendir.</li>
+</ul>
+<figure>
+    <img loading="lazy" src="/img/postimages/8021x-nac-posture-vlan-workflow.webp"/> <figcaption>
+            NAC Posture Assessment ve VLAN Atama Akışı
+        </figcaption>
+</figure>
+
+<h3 id="6-eap-yöntemleri-peap-mi-eap-tls-mi-computer-mı-user-mı">6) EAP yöntemleri: PEAP mi, EAP-TLS mi, Computer mı User mı?</h3>
+<p><strong>PEAP (kullanıcı adı/şifre) neden pratik ama riskli:</strong> PEAP kolaydır ama kullanıcı kişisel laptop&rsquo;undan veya telefonundan da aynı kullanıcı adı/şifreyle ağa girebilir. <strong>Zero Trust</strong> mantığında hedef, sadece kullanıcıyı değil cihazı da doğrulamaktır.</p>
+<p><strong>Computer authentication neden iyi ama bazı organizasyonlarda can yakar:</strong> Bilgisayar doğrulaması kişisel cihazları engeller. Ancak ortak bilgisayar kullanılan yerlerde kullanıcı bazlı segmentasyon istiyorsan tek başına yeterli olmaz.</p>
+<p><strong>EAP-TLS (sertifika) neden &ldquo;en doğru&rdquo; ama neden disiplin ister:</strong> EAP-TLS&rsquo;de <strong>şifre sızsa bile sertifika yoksa erişim yoktur.</strong> Ancak <strong>PKI&rsquo;nın</strong> ayakta durması, template&rsquo;lerin doğru olması, auto-enrollment&rsquo;ın doğru işlemesi şarttır.</p>
+<p><strong>Özet:</strong></p>
+<ul>
+<li>PEAP pratik ama <strong>&ldquo;kurumsal cihaz&rdquo;</strong> güveni zayıf kalır.</li>
+<li><strong>Computer auth</strong> güçlü ama ortak PC senaryolarında sınırlıdır.</li>
+<li><strong>EAP-TLS</strong> en güvenlisi; <strong>PKI disiplini</strong> şarttır.</li>
+</ul>
+<h3 id="7-pki-ve-certificate-templateler-8021xin-sessiz-kırılma-noktası">7) PKI ve Certificate Template&rsquo;ler: 802.1X&rsquo;in sessiz kırılma noktası</h3>
+<p>EAP-TLS tasarlıyorsan, <strong>Windows Certificate Services (AD CS)</strong> üzerinde en az iki şey düşünmek zorundasın:</p>
+<ol>
+<li><strong>İstemci sertifikaları:</strong> (User certificate, Computer certificate)</li>
+<li><strong>RADIUS server&rsquo;ın</strong> sunacağı server certificate</li>
+</ol>
+<p>İstemci sertifikalarının dağıtımı çoğu yapıda <strong>auto-enrollment</strong> ile yapılır. Sahada en sık görülen hata: template hazırlanır ama güvenlik izinleri yanlış olduğu için kullanıcı/cihaz sertifika alamaz; ya da alır ama yanlış <strong>EKU/KeyUsage</strong> yüzünden EAP-TLS&rsquo;de kullanılamaz.</p>
+<p><strong>NPS (veya NAC)</strong> istemciye bir server certificate sunar. İstemci bu sertifikaya güvenmezse <strong>&ldquo;man-in-the-middle&rdquo;</strong> gibi algılar ve bağlanmaz. Bu yüzden RADIUS server sertifikasının zinciri (CA) istemciye güvenilir olarak dağıtılmalıdır — bunun pratik yolu <strong>Root CA</strong> ve intermediate CA&rsquo;ları GPO ile <strong>&ldquo;Trusted Root Certification Authorities&rdquo;</strong> alanına basmaktır.</p>
+<p>Ayrıca NPS, istemcinin sunduğu sertifikayı doğrularken <strong>CRL kontrolü</strong> yapmak isteyebilir. CRL erişimi bozuksa, doğrulama gecikir veya fail olur. Bu detay sahada <strong>&ldquo;arada bağlanmıyor&rdquo;</strong> gibi sinir bozucu problemlerin klasik sebebidir.</p>
+<p><strong>Özet:</strong></p>
+<ul>
+<li><strong>Template izinleri/amaçları</strong> yanlışsa TLS biter.</li>
+<li><strong>Auto-enrollment + CA trust</strong> dağıtımı GPO ile standardize edilmelidir.</li>
+<li><strong>CRL erişimi</strong> bir gün patlayınca herkes &ldquo;802.1X bozuldu&rdquo; sanır.</li>
+</ul>
+<h3 id="8-switch-portunda-dot1x-ve-mab-birlikte-sıranın-doğru-yazılması-gerçek-hayatı-kurtarır">8) Switch portunda Dot1X ve MAB birlikte: sıranın doğru yazılması gerçek hayatı kurtarır</h3>
+<p>Sahada en yaygın ve en mantıklı model: <strong>önce dot1x dene; dot1x fail olursa MAB&rsquo;a düş.</strong> Çünkü laptop gibi akıllı uçlar 802.1X yapabilsin; printer/kamera gibi akıllı olmayanlar MAB ile yürüsün.</p>
+<p><strong>MAB&rsquo;ı yanlış önceliklendirdiğinde</strong>, domain&rsquo;e bağlı laptop bile MAB ile bağlanıp yanlış VLAN&rsquo;a düşebilir. <strong>&ldquo;Tek tek port bazlı ilerlemek&rdquo;</strong> yaklaşımı kritik: <strong>departman departman ilerlemek</strong>; her departmanda önce 1–2 pilot kullanıcı, 1 hafta gözlem, sonra genişleme.</p>
+<p><strong>Özet:</strong></p>
+<ul>
+<li><strong>Dot1X → fail olursa MAB</strong> sırası çoğu ortam için en sağlıklısıdır.</li>
+<li><strong>Port bazlı kontrollü rollout</strong>, &ldquo;bir günde geçiş&quot;ten daha hızlı bitirir.</li>
+</ul>
+<h3 id="9-profiling-sadece-mac-dönemi-bitti">9) Profiling: &ldquo;Sadece MAC&rdquo; dönemi bitti</h3>
+<p><strong>MAC authentication</strong>, tek başına artık yeterli güvenlik değildir. Bu yüzden gelişmiş NAC çözümleri <strong>profiling</strong> yapar: <strong>OUI kontrolü</strong>, <strong>DHCP fingerprint</strong>, <strong>CDP/LLDP</strong>, cihaz açıklaması birlikte değerlendirilir. Böylece sahte cihazın <strong>&ldquo;ben printerım&rdquo;</strong> diyerek MAB üzerinden VLAN alması zorlaşır.</p>
+<p><strong>Özet:</strong></p>
+<ul>
+<li><strong>MAC tek başına kimlik değildir</strong>; profiling kimliğe yaklaşır.</li>
+<li>Birden fazla sinyal kullanmak sahadaki suistimali azaltır.</li>
+</ul>
+<h3 id="10-quarantine-vlan-ve-guest-vlan-ikisi-aynı-şey-değil">10) Quarantine VLAN ve Guest VLAN: İkisi aynı şey değil</h3>
+<p><strong>Quarantine:</strong> şirketin cihazı/hesabı var ama doğrulamadan geçemiyor. <strong>Karantina VLAN&rsquo;ın amacı</strong> cihazı tamamen kesmek değil; problemi çözebileceği <strong>minimum erişimi</strong> vermektir — AD&rsquo;ye/CA&rsquo;ya erişsin, şifre değiştirsin.</p>
+<p><strong>Guest:</strong> şirketin cihazı değil. Burada genelde sadece <strong>internete</strong> izin verirsin; AD/kerberos/LDAP gibi iç kaynaklara erişim hiç gereksizdir.</p>
+<p><strong>Özet:</strong></p>
+<ul>
+<li><strong>Quarantine &ldquo;bizim ama sorunlu&rdquo;</strong>; <strong>Guest &ldquo;bizden değil&rdquo;</strong>.</li>
+<li>İkisini aynı VLAN&rsquo;a koymak pratikte güvenlik ve operasyonu bozar.</li>
+</ul>
+<h3 id="11-guest-portal-sponsor-login-sms-sosyal-login-ve-mac-randomization-gerçeği">11) Guest portal: Sponsor login, SMS, sosyal login ve MAC randomization gerçeği</h3>
+<p><strong>Sponsor login</strong> yaklaşımı kurumsal yapılarda çok işe yarar: misafir &ldquo;kimi ziyaret ediyorum&rdquo; der; sistem AD&rsquo;den o kişiyi bulur; onay maili/push gider; onaylanınca misafir internete çıkar.</p>
+<p>Modern telefonlar Wi-Fi&rsquo;de <strong>MAC randomization</strong> yaptığında, kullanıcı Wi-Fi&rsquo;yi kapatıp açınca cihaz &ldquo;yeni cihaz&rdquo; gibi görünebilir ve tekrar doğrulama ister. Bu kullanıcı deneyimini bozar — helpdesk&rsquo;e <strong>&ldquo;internet gitti&rdquo;</strong> çağrısı yağar.</p>
+<p><strong>Özet:</strong></p>
+<ul>
+<li>Portal modeli güvenlik kadar <strong>UX tasarımıdır.</strong></li>
+<li><strong>MAC randomization</strong> misafir akışını bozabilir; buna göre tasarlanmalıdır.</li>
+</ul>
+<h3 id="12-posture-8021xin-son-kalesi-ama-yanlış-kurarsan-operasyonu-yorar">12) Posture: 802.1X&rsquo;in &ldquo;son kalesi&rdquo; ama yanlış kurarsan operasyonu yorar</h3>
+<p><strong>Posture</strong>, kullanıcı/cihaz kimliği doğru olsa bile, cihazın güvenlik durumu uygun değilse erişimi sınırlamaktır. Posture kontrolünde tipik olarak şunlar sorgulanır: <strong>OS versiyonu, patch seviyesi, disk encryption durumu, AV var mı ve güncel mi, EDR agent çalışıyor mu.</strong></p>
+<p>Posture&rsquo;un bir bedeli var: çoğu zaman endpoint üzerinde <strong>agent</strong> gerekir. Bu yüzden mümkünse <strong>&ldquo;yeni agent&rdquo; eklemek yerine, zaten kurulu olan ajanları reuse etmek</strong> akıllıcadır. <strong>Cisco</strong> ortamında <strong>AnyConnect</strong>, <strong>Fortinet</strong> tarafında <strong>FortiClient</strong>, bazı yapılarda <strong>Trellix</strong> gibi EDR/AV ajanları kullanılabilir.</p>
+<p>Posture tasarımında en çok önerdiğim pratik yaklaşım: posture&rsquo;u ilk aşamada <strong>&ldquo;deny&rdquo;</strong> mekanizması olarak değil, <strong>&ldquo;gözlem ve raporlama&rdquo;</strong> mekanizması olarak başlat. <strong>Posture, bir günde değil, bir süreçte olgunlaşır.</strong></p>
+<p><strong>Özet:</strong></p>
+<ul>
+<li><strong>Posture &ldquo;kimlik + sağlık&rdquo; kontrolüdür</strong>; drift&rsquo;i yakalar.</li>
+<li>Yeni agent maliyetlidir; mevcut agent&rsquo;ları <strong>reuse etmek</strong> akıllıcadır.</li>
+<li>İlk gün deny değil; <strong>önce ölç, sonra sıkılaştır.</strong></li>
+</ul>
+<h3 id="13-temel-8021x--profilingportal--posture-olgunluk-seviyeleri">13) Temel 802.1X → Profiling/Portal → Posture: Olgunluk seviyeleri</h3>
+<ul>
+<li><strong>Seviye 1:</strong> Dot1X + MAB — Windows NPS ile olur. Düşük maliyet, sınırlı yetenek.</li>
+<li><strong>Seviye 2:</strong> Profiling + Guest Portal — <strong>Cisco ISE, Aruba ClearPass</strong> devreye girer. İş &ldquo;cihazı tanıma ve misafiri yönetme&quot;ye döner.</li>
+<li><strong>Seviye 3:</strong> Posture — En çok güvenlik getirisi, en yüksek operasyonel maliyet. Organizasyonun <strong>endpoint yönetim kabiliyeti, agent stratejisi ve helpdesk kapasitesi</strong> gerçekçi değerlendirilmelidir.</li>
+</ul>
+<h3 id="kapanış-8021x-kurulum-değil-kurum-içi-sözleşmedir">Kapanış: 802.1X &ldquo;kurulum&rdquo; değil, kurum içi sözleşmedir</h3>
+<p>802.1X projeleri teknik olarak switch&rsquo;te birkaç komut, RADIUS&rsquo;ta birkaç policy gibi görünebilir. Ama gerçekte 802.1X, kurum içinde şu sözleşmeyi zorunlu kılar: <strong>&ldquo;Kimlik nasıl taşınır, cihaz nasıl tanınır, misafir nasıl yönetilir, sorunlu cihaz nereye düşer, güvenlik hangi noktada başlar?&rdquo;</strong></p>
+<p>802.1X&rsquo;in başarısı cihazların gücünden çok, <strong>AD düzeninin, GPO disiplininin, PKI yönetiminin ve kademeli rollout</strong> kültürünün toplamıdır. 802.1X&rsquo;i böyle ele aldığında, sadece güvenliği artırmazsın; <strong>operasyonu da merkezileştirirsin.</strong></p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Mimari &amp; Güvenlik</strong></p>
+<ul>
+<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Ürün Değil Mimari Olarak Tasarlamak</a> — Kimlik tabanlı erişimin mimari temeli</li>
+<li>🏗️ <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Sistem düşüncesi ve ürün seçimi</li>
+<li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">Monitoring Zihniyeti: Sadece Görmek Değil, Anlamak</a> — Policy ihlallerini tırmanmadan yakalamak</li>
+</ul>
+<p><strong>Pratik Mühendislik</strong></p>
+<ul>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Trafik görünürlüğü ve güvenlik stratejisi</li>
+<li>🎯 <a href="/tr/architecture/network-product-selection-strategy/">Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler</a> — NAC vendor değerlendirmesi</li>
+</ul>
+]]></content:encoded></item><item><title>Zero Trust Zihniyeti: Güvenliği Bir Ürün Değil, Bir Mimari Olarak Mühendislemek</title><link>https://barashhelvadzhaoglu.com/tr/architecture/zero-trust-architecture-behaviors/</link><pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/zero-trust-architecture-behaviors/</guid><description>Zero Trust bir ürün değil mimari yaklaşımdır. Kullanıcı doğrulama, sürekli erişim kontrolü ve VPN ötesinde modern güvenlik nasıl çalışır.</description><content:encoded><![CDATA[<h1 id="zero-trust-zihniyeti-güvenliği-bir-ürün-değil-bir-mimari-olarak-mühendislemek">Zero Trust Zihniyeti: Güvenliği Bir Ürün Değil, Bir Mimari Olarak Mühendislemek</h1>
+<p>Zero Trust bugün neredeyse her güvenlik sunumunda geçen bir kavram. Ancak sahada karşılığına baktığımızda, çoğu zaman yanlış yerde, yanlış beklentiyle ve yanlış araçlarla ele alındığını görüyoruz. Bunun temel sebebi, Zero Trust&rsquo;ın bir teknoloji ya da satın alınabilir bir ürün gibi konumlandırılması. Oysa Zero Trust; lisanslanan, kutulanan ya da tek bir vendor&rsquo;dan alınan bir çözüm değildir. Zero Trust, bir mimari bakış açısıdır ve daha da önemlisi, bir davranış biçimidir.</p>
+<p>Zero Trust&rsquo;ın özü son derece nettir: <strong>Never trust, always verify.</strong> Hiçbir kullanıcıya, hiçbir cihaza, hiçbir bağlantıya varsayılan olarak güvenme. Güven, sürekli olarak yeniden kazanılan bir durumdur. Bu yaklaşım, klasik &ldquo;içerisi güvenlidir, dışarısı tehlikelidir&rdquo; varsayımını tamamen ortadan kaldırır. Çünkü modern IT dünyasında içerisi ve dışarısı artık net sınırlarla ayrılmış değildir.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/zero-trust-layered-architecture.webp"/> <figcaption>
+            Zero Trust: Katmanlı Bir Mimari
+        </figcaption>
+</figure>
+
+<p><strong>Özetle:</strong></p>
+<ul>
+<li>Zero Trust bir ürün değil, mimari yaklaşımdır</li>
+<li>Varsayılan güven kavramını reddeder</li>
+<li>Sürekli doğrulama esasına dayanır</li>
+</ul>
+<blockquote>
+<p>Bu yazı, IT altyapısını sistem olarak ele alan serinin bir parçasıdır. Başlangıç noktası için: <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a></p>
+</blockquote>
+<h2 id="zero-trust-hiçbir-üreticinin-malı-değildir">Zero Trust Hiçbir Üreticinin Malı Değildir</h2>
+<p>Zero Trust kavramı pratikte ilk olarak güvenlik üreticilerinin vizyonlarıyla şekillenmeye başladı. Ancak burada önemli bir ayrım yapmak gerekir: Zero Trust herhangi bir üreticinin &ldquo;sahip olduğu&rdquo; bir konsept değildir. Tek bir teknolojiyle temsil edilemez.</p>
+<p>Bunun sebebi şudur: Zero Trust, aynı anda birden fazla katmanın birlikte ve tutarlı şekilde çalışmasını zorunlu kılar. Network, güvenlik, kimlik, kullanıcı, cihaz ve uygulama katmanları birbirinden kopuk çalışıyorsa, Zero Trust yalnızca bir söylem olarak kalır. Mimari olarak karşılığı yoktur.</p>
+<p><strong>Bu bölümün özü:</strong></p>
+<ul>
+<li>Zero Trust vendor&rsquo;a ait değildir</li>
+<li>Tek bir teknolojiyle kurulamaz</li>
+<li>Katmanlar arası tutarlılık gerektirir</li>
+</ul>
+<h2 id="kullanıcı-ve-cihaz-doğrulaması-mimarinin-başladığı-yer">Kullanıcı ve Cihaz Doğrulaması: Mimarinin Başladığı Yer</h2>
+<p>Zero Trust mimarisi pratikte çok temel bir soruyla başlar:</p>
+<blockquote>
+<p>&ldquo;Bu kullanıcı ve bu cihaz, şu anda erişmek istediği kaynağa gerçekten erişmeli mi?&rdquo;</p>
+</blockquote>
+<p>Bu soruya anlamlı bir cevap verebilmek için ilk adım, network&rsquo;e dahil olan kullanıcıların ve cihazların doğrulanmasıdır. Active Directory, LDAP veya modern identity provider&rsquo;lar bu yapının merkezinde yer alır. Kullanıcıya hangi kaynaklara erişebileceği sadece kimliğine değil, rolüne ve risk durumuna göre belirlenir.</p>
+<p>Ancak Zero Trust açısından önemli olan yalnızca kullanıcının kim olduğu değildir; cihazın durumu, kurumsal envantere ait olup olmadığı ve güvenlik politikalarına uygunluğu da bu kararın bir parçasıdır.</p>
+<p><strong>Hatırlanması gerekenler:</strong></p>
+<ul>
+<li>Kullanıcı doğrulaması tek başına yeterli değildir</li>
+<li>Cihaz kimliği ve durumu da değerlendirilir</li>
+<li>Erişim kararı bağlama göre verilir</li>
+</ul>
+<h2 id="vpn--zero-trust-uzaktan-erişimin-doğru-çerçevesi">VPN ≠ Zero Trust: Uzaktan Erişimin Doğru Çerçevesi</h2>
+<p>Uzaktan çalışma artık istisna değil, standarttır. Ancak birçok organizasyonda hâlâ klasik VPN mantığıyla hareket edilir: kullanıcı VPN&rsquo;e bağlanır ve bir anda tüm lokal network&rsquo;ün parçası haline gelir. <strong>Bu yaklaşım Zero Trust değildir.</strong> Bu yalnızca uzaktan erişimdir.</p>
+<p>Zero Trust mimarisinde uzaktan erişim, &ldquo;her yere erişim&rdquo; anlamına gelmez. Kullanıcı yalnızca yetkili olduğu uygulamalara veya kaynaklara erişir. Amaç her zaman aynıdır: erişimi minimumda tutmak ve sürekli kontrol etmek.</p>
+<p><strong>Bu bölümün kilidi:</strong></p>
+<ul>
+<li>VPN ≠ Zero Trust</li>
+<li>Erişim tüm network&rsquo;e değil, kaynağa olmalıdır</li>
+<li>Yetki sürekli kontrol edilir</li>
+</ul>
+<h2 id="sürekli-doğrulama-ve-mfa">Sürekli Doğrulama ve MFA</h2>
+<p>Zero Trust&rsquo;ı klasik güvenlik yaklaşımlarından ayıran en önemli nokta, doğrulamanın tek seferlik kabul edilmemesidir. Kullanıcı ve cihaz davranışı değiştikçe, erişim sürekli olarak yeniden değerlendirilir.</p>
+<p>Bu noktada <strong>çok faktörlü kimlik doğrulama (MFA)</strong> devreye girer. SMS, mobil uygulama bildirimi, donanımsal token veya biyometrik doğrulama gibi ek katmanlar kullanılır. Özellikle mail server, finans sistemleri veya ERP gibi kritik uygulamalara erişimde, kullanıcıdan belirli aralıklarla kendini yeniden doğrulaması istenir.</p>
+<p><strong>Özetle:</strong></p>
+<ul>
+<li>Doğrulama süreklidir</li>
+<li>MFA Zero Trust&rsquo;ın temel bileşenidir</li>
+<li>Kritik kaynaklarda periyotlar kısaltılır</li>
+</ul>
+<h2 id="firewall-politika-karar-noktası">Firewall: Politika Karar Noktası</h2>
+<p>Firewall katmanı, Zero Trust mimarisinde merkezi bir rol oynar. Ancak bu rol, klasik anlamda &ldquo;internet çıkışını kontrol eden cihaz&rdquo; olmaktan çok daha fazlasıdır. Zero Trust yaklaşımında firewall, kimlik ve bağlam farkındalığı olan bir karar noktasıdır.</p>
+<p>Firewall üzerinde tanımlanan kurallar yalnızca IP veya port bazlı olmamalıdır. Kullanıcı, grup ve uygulama bazlı kurallar yazılabildiğinde Zero Trust gerçek anlamda uygulanabilir hale gelir.</p>
+<blockquote>
+<p>Switch, firewall ve AP&rsquo;nin birlikte nasıl çalıştığını anlamak için: <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a></p>
+</blockquote>
+<p><strong>Bu katmanın özeti:</strong></p>
+<ul>
+<li>Firewall politika karar noktasıdır</li>
+<li>Kimlik ve uygulama farkındalığı şarttır</li>
+<li>Port bazlı kurallar yeterli değildir</li>
+</ul>
+<h2 id="access-katmanı-zero-trust-buradan-başlar">Access Katmanı: Zero Trust Buradan Başlar</h2>
+<p>Zero Trust yalnızca firewall ve VPN katmanında uygulanmaz. Mimarinin başladığı yer access katmanıdır. 802.1X ve NAC çözümleri bu noktada devreye girer. Tüm switch portları ve wireless erişimler merkezi bir sistem tarafından kontrol edilir. Kullanıcı veya cihaz network&rsquo;e bağlanmadan önce doğrulanır ve bu doğrulama sonucuna göre dinamik olarak VLAN atanır veya politika uygulanır.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/zero-trust-access-layer-802-1x.webp"/> <figcaption>
+            802.1X Erişim Kontrolü: Ağ Kenarında Zero Trust
+        </figcaption>
+</figure>
+
+<p><strong>Bu bölümün özü:</strong></p>
+<ul>
+<li>Zero Trust access katmanında başlar</li>
+<li>802.1X merkezi kontrol sağlar</li>
+<li>Statik VLAN / SSID yapıları ölçeklenmez</li>
+</ul>
+<h2 id="cihaz-profilleme-ve-iot">Cihaz Profilleme ve IoT</h2>
+<p>Modern Zero Trust mimarilerinde yalnızca kullanıcı cihazları değil, network&rsquo;e bağlanan tüm uçlar kontrol altına alınır. Yazıcılar, kameralar, IP telefonlar, kart okuyucular gibi cihazlar da doğrulama sürecine dahil edilir.</p>
+<p>Yeni nesil NAC çözümleri DHCP fingerprint, CDP/LLDP bilgileri ve cihaz üretici bilgileri gibi birçok parametreyi birleştirerek cihaz profillemesi yapar. Cihazın güncel olup olmadığı, güvenlik durumu veya kurumsal standartlara uygunluğu da değerlendirilir.</p>
+<p><strong>Kilit noktalar:</strong></p>
+<ul>
+<li>Cihaz profilleme kritik önemdedir</li>
+<li>MAC adresi tek başına yeterli değildir</li>
+<li>Envanter entegrasyonu şarttır</li>
+</ul>
+<h2 id="misafir-erişimi-güven-varsayılmaz">Misafir Erişimi: Güven Varsayılmaz</h2>
+<p>Zero Trust mimarisinde misafir erişimleri bile kontrol altındadır. Guest portal&rsquo;lar aracılığıyla misafir kullanıcılar doğrulamadan geçirilir ve yalnızca belirli süre ve yetkilerle erişim sağlanır. Misafirler genellikle sadece internete çıkabilir; şirket kaynaklarına erişimleri sınırlıdır.</p>
+<p><strong>Bu bölümün özeti:</strong></p>
+<ul>
+<li>Misafir erişimi sınırsız değildir</li>
+<li>Süre ve yetki bazlı kontrol uygulanır</li>
+<li>Güven varsayılmaz</li>
+</ul>
+<h2 id="sürekli-izleme-mimarinin-en-kritik-parçası">Sürekli İzleme: Mimarinin En Kritik Parçası</h2>
+<p>Her katmanda erişim ve davranışlar izlenir ve kaydedilir. Anormal bir durum veya riskli hareket tespit edilirse, sistem otomatik olarak erişimi sınırlar veya ek doğrulama ister.</p>
+<blockquote>
+<p>Altyapıda gerçek görünürlük nasıl kurulur: <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a></p>
+</blockquote>
+<h2 id="sonuç">Sonuç</h2>
+<p>Zero Trust bir ürün değildir.
+Tek bir cihazla kurulmaz.
+&ldquo;Kurduk, bitti&rdquo; denilemez.</p>
+<p>Zero Trust; firewall, switch ve wireless altyapılarının; kullanıcı ve cihaz bilgilerini merkezi bir noktadan alarak birlikte çalıştığı, erişimin her aşamada yeniden sorgulandığı yaşayan bir mimaridir. Bu yüzden Zero Trust&rsquo;ı satın alınacak bir teknoloji değil, tasarlanacak ve işletilecek bir yetkinlik olarak görmek gerekir.</p>
+<h2 id="not">Not</h2>
+<p>Bu makale ilk olarak <strong>Substack</strong>&rsquo;te daha kısa, anlatısal bir biçimde yayınlanmıştı.
+Bu versiyon, serinin mimari temelini genişletiyor.</p>
+<p>👉 <strong>Makaleyi Substack&rsquo;te okuyun:</strong> <a href="https://substack.com/home/post/p-183954997">Burayı Tıklayın</a></p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Mimari &amp; Güvenlik Tasarımı</strong></p>
+<ul>
+<li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Bu serinin temel yazısı</li>
+<li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a> — Core network tasarımında sistem düşüncesi</li>
+<li>📊 <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a> — Altyapıda gerçek görünürlük</li>
+</ul>
+<p><strong>Teknik Mühendislik</strong></p>
+<ul>
+<li>🔐 <a href="/tr/posts/unlocking-success-in-802-1x-projects-field-insights/">802.1X Projelerinde Başarı: Saha Deneyimleri</a> — Kimlik tabanlı erişimin sahada uygulanması</li>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Gelişmiş trafik görünürlüğü ve güvenlik stratejisi</li>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-terminal-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Her şey kesildiğinde out-of-band erişim</li>
+</ul>
+]]></content:encoded></item></channel></rss>

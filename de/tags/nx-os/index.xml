@@ -1,1 +1,126 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>NX-OS on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/nx-os/</link><description>Recent content in NX-OS on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>de</language><lastBuildDate>Tue, 30 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/nx-os/index.xml" rel="self" type="application/rss+xml"/><item><title>Cisco Nexus NX-OS Software-Upgrade-Leitfaden: Praxiserprobter Schritt-für-Schritt</title><link>https://barashhelvadzhaoglu.com/de/posts/cisco-nexus-nxos-upgrade-guide/</link><pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/posts/cisco-nexus-nxos-upgrade-guide/</guid><description>Praxisleitfaden für Cisco Nexus NX-OS Upgrades — Vorbereitung, Upgrade-Pfad, Dateiübertragung, Rollback und ROMMON-Wiederherstellung.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>NX-OS on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/nx-os/</link><description>Recent content in NX-OS on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>de</language><lastBuildDate>Tue, 30 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/nx-os/index.xml" rel="self" type="application/rss+xml"/><item><title>Cisco Nexus NX-OS Software-Upgrade-Leitfaden: Praxiserprobter Schritt-für-Schritt</title><link>https://barashhelvadzhaoglu.com/de/posts/cisco-nexus-nxos-upgrade-guide/</link><pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/posts/cisco-nexus-nxos-upgrade-guide/</guid><description>Praxisleitfaden für Cisco Nexus NX-OS Upgrades — Vorbereitung, Upgrade-Pfad, Dateiübertragung, Rollback und ROMMON-Wiederherstellung.</description><content:encoded><![CDATA[<p>Dieser Leitfaden behandelt den <strong>Cisco Nexus NX-OS Software-Upgrade-Prozess</strong> auf praktische, schrittweise Weise — einschließlich <strong>Rollback- und Wiederherstellungsszenarien</strong>. Das Ziel ist es, Serviceunterbrechungen zu minimieren und sicherzustellen, dass das Gerät im Fehlerfall immer wiederhergestellt werden kann.</p>
+<p>Die meisten Upgrade-Fehler werden nicht durch das Upgrade selbst verursacht — sie entstehen durch das Überspringen von Vorbereitungsschritten. Dieser Leitfaden behandelt die Vorbereitung genauso ernst wie die Ausführung.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/nexus-nxos-upgrade-cover.webp"/> <figcaption>
+            Cisco Nexus NX-OS Upgrade-Prozess
+        </figcaption>
+</figure>
+
+<blockquote>
+<p>Für Out-of-Band-Zugang bei Upgrade-Fehlern: <a href="/de/posts/next-gen-console-server-architecture/">Die Hintertür des Netzwerks: Next-Gen Console Server Architektur</a></p>
+</blockquote>
+<h2 id="1-vorbereitungschecks">1. Vorbereitungschecks</h2>
+<p>Bevor Sie mit dem Software-Upgrade beginnen, müssen Sie die folgenden Vorbereitungsschritte abschließen. Diese Phase wird am häufigsten übersprungen — und ist die häufigste Problemquelle.</p>
+<h3 id="konfigurationssicherung">Konfigurationssicherung</h3>
+<ul>
+<li>Erstellen Sie zunächst eine <strong>Sicherung der aktuellen Konfiguration</strong>.</li>
+<li>Speichern Sie die Sicherung auf Ihrem eigenen Computer oder an einem <strong>externen Ort</strong> wie FTP/SFTP — nicht auf dem Switch selbst.</li>
+<li>Wenn das Upgrade fehlschlägt oder ein Rollback erforderlich ist, ist diese Sicherung kritisch.</li>
+</ul>
+<h3 id="switch-modell-und-aktuelle-software-version-prüfen">Switch-Modell und aktuelle Software-Version prüfen</h3>
+<p>Überprüfen Sie das Switch-Modell und die laufende NX-OS-Version mit diesen Befehlen:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>show version
+</span></span><span style="display:flex;"><span>show module
+</span></span><span style="display:flex;"><span>show inventory
+</span></span></code></pre></div><p>Diese Ausgaben sind erforderlich, um das richtige NX-OS-Image auszuwählen, den Upgrade-Pfad zu bestimmen und die Hardware-Kompatibilität zu überprüfen.</p>
+<h2 id="2-software-image-herunterladen">2. Software-Image herunterladen</h2>
+<ul>
+<li>Laden Sie das korrekte NX-OS-Image für Ihr Switch-Modell vom offiziellen Cisco-Portal herunter:
+<a href="https://software.cisco.com/download/home">https://software.cisco.com/download/home</a></li>
+<li>Ein gültiger <strong>Cisco-Account mit den entsprechenden Berechtigungen</strong> ist erforderlich.</li>
+<li>Notieren Sie nach dem Download den <strong>MD5-Hash-Wert</strong> — Sie benötigen ihn zur Überprüfung der Dateiintegrität nach der Übertragung.</li>
+</ul>
+<blockquote>
+<p>Die MD5-Überprüfung bestätigt, dass die Datei während des Downloads nicht beschädigt wurde. Dieser Schritt ist nicht optional.</p>
+</blockquote>
+<h2 id="3-upgrade-pfad-überprüfen">3. Upgrade-Pfad überprüfen</h2>
+<p>Ein direktes Upgrade von Ihrer aktuellen NX-OS-Version auf die Zielversion ist <strong>nicht immer unterstützt</strong>. Einige Versionskombinationen erfordern Zwischenschritte.</p>
+<p>Verwenden Sie Ciscos offizielle Tools zur Überprüfung:</p>
+<ul>
+<li><strong>Nexus Upgrade Matrix Tools</strong></li>
+<li>Nexus 9000 / 3000 Series</li>
+<li>Nexus 7000 Series</li>
+</ul>
+<blockquote>
+<p>Wenn mehrere Upgrade-Schritte erforderlich sind, laden Sie <strong>alle Zwischen-Images</strong> herunter, bevor Sie beginnen.</p>
+</blockquote>
+<h2 id="4-software-datei-auf-den-switch-kopieren">4. Software-Datei auf den Switch kopieren</h2>
+<h3 id="option-a-ftp-transfer">Option A: FTP-Transfer</h3>
+<p>FTP ist eine der gebräuchlichsten Methoden. Beachten Sie, dass NX-OS-Images bis zu 2 GB groß sein können.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>copy ftp://user1:Qazwsx@10.10.10.5/nxos.9.3.10.bin bootflash:
+</span></span></code></pre></div><p>Wenn mehrere VRFs auf dem Nexus konfiguriert sind, werden Sie gefragt, welches VRF für die Übertragung verwendet werden soll. Da die Management-Schnittstelle typischerweise das Management-VRF verwendet, wählen Sie Management-VRF.</p>
+<h3 id="option-b-usb-transfer-empfohlen">Option B: USB-Transfer (Empfohlen)</h3>
+<p>USB-Transfer ist meine bevorzugte Methode, wenn:</p>
+<ul>
+<li>Kein FTP-Server verfügbar ist</li>
+<li>Zeitdruck besteht</li>
+<li>Kein Netzwerk-Transferrisiko eingegangen werden soll</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>copy usb1:nxos.9.3.10.bin bootflash:
+</span></span></code></pre></div><p>Stellen Sie sicher, dass das USB-Dateisystemformat vom Nexus-Gerät unterstützt wird.</p>
+<h3 id="md5-hash-überprüfung">MD5-Hash-Überprüfung</h3>
+<p>Überprüfen Sie nach der Übertragung die Dateiintegrität:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>show file bootflash:nxos.9.3.10.bin md5sum
+</span></span></code></pre></div><p>Die Ausgabe muss exakt mit dem MD5-Hash vom Cisco-Download-Portal übereinstimmen.</p>
+<h2 id="5-upgrade-durchführen">5. Upgrade durchführen</h2>
+<p>Sobald alle Checks abgeschlossen sind, starten Sie das Upgrade:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>install all nxos bootflash:nxos.9.3.10.bin
+</span></span></code></pre></div><ul>
+<li>Der Switch speichert die aktuelle Konfiguration automatisch vor der Installation.</li>
+<li>Sie werden vor dem Neustart zur Bestätigung aufgefordert.</li>
+<li>Nach der Bestätigung startet das Gerät neu und das Upgrade beginnt.</li>
+</ul>
+<p>Die Upgrade-Dauer variiert je nach Gerätemodell und Software-Größe.</p>
+<h2 id="6-rollback-und-wiederherstellungsszenarien">6. Rollback und Wiederherstellungsszenarien</h2>
+<figure>
+    <img loading="lazy" src="/img/postimages/nexus-upgrade-rollback.webp"/> <figcaption>
+            Nexus Upgrade Rollback und Wiederherstellungspfad
+        </figcaption>
+</figure>
+
+<h3 id="rommon-modus-betreten">ROMMON-Modus betreten</h3>
+<p>Wenn die Installation fehlschlägt oder das Gerät nicht startet:</p>
+<ul>
+<li>Drücken Sie während des Gerätestarts über die Console-Verbindung <strong>CTRL + L</strong> oder <strong>CTRL + C</strong>, um den <strong>ROMMON-Modus</strong> aufzurufen.</li>
+</ul>
+<h3 id="boot-via-tftp-aus-rommon">Boot via TFTP aus ROMMON</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>set ip 10.10.10.2 255.255.255.0
+</span></span><span style="display:flex;"><span>set gw 10.10.10.1
+</span></span><span style="display:flex;"><span>cmdline recoverymode<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>boot tftp://10.10.10.2/tftpboot/nxos.9.3.10.bin
+</span></span><span style="display:flex;"><span>init system
+</span></span><span style="display:flex;"><span>reload-nxos
+</span></span></code></pre></div><h3 id="boot-via-usb-aus-rommon">Boot via USB aus ROMMON</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>boot usb1:nxos.9.3.10.bin bootflash:
+</span></span><span style="display:flex;"><span>set ip 10.10.10.2 255.255.255.0
+</span></span><span style="display:flex;"><span>set gw 10.10.10.1
+</span></span><span style="display:flex;"><span>cmdline recoverymode<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>boot usb1:nxos.9.3.10.bin
+</span></span><span style="display:flex;"><span>init system
+</span></span><span style="display:flex;"><span>reload-nxos
+</span></span></code></pre></div><p>Nach dem Booten via TFTP oder USB überprüfen und korrigieren Sie die Boot-Einstellungen:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>show boot
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>configure terminal
+</span></span><span style="display:flex;"><span>  boot nxos bootflash:/nxos.9.3.10.bin
+</span></span></code></pre></div><h2 id="kritische-warnung">Kritische Warnung</h2>
+<p>Während des Software-Upgrades:</p>
+<ul>
+<li><strong>Unterbrechen Sie nicht die Netzwerkverbindung</strong></li>
+<li><strong>Unterbrechen Sie nicht die Stromversorgung</strong></li>
+</ul>
+<p>Beides kann das Gerät ohne physische Intervention unwiederherstellbar machen.</p>
+<hr>
+<h2 id="verwandte-artikel">Verwandte Artikel</h2>
+<p><strong>Architektur &amp; Betrieb</strong></p>
+<ul>
+<li>🛠️ <a href="/de/posts/next-gen-console-server-architecture/">Die Hintertür des Netzwerks: Next-Gen Console Server Architektur</a> — Out-of-Band-Zugang wenn IP-Management verloren geht</li>
+<li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Monitoring richtig gemacht</a> — Probleme erkennen bevor sie eskalieren</li>
+<li>🏗️ <a href="/de/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Warum die richtige Produktwahl allein nicht ausreicht</a> — Architektur-zuerst Core-Network-Design</li>
+<li>🎯 <a href="/de/architecture/network-product-selection-strategy/">Produktauswahl in der Netzwerkinfrastruktur: Strategische Kriterien</a> — Hersteller strategisch bewerten</li>
+</ul>
+<p><strong>Praktisches Engineering</strong></p>
+<ul>
+<li>🛡️ <a href="/de/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Traffic-Sichtbarkeit und Sicherheitsstrategie</li>
+<li>🔐 <a href="/de/technology/identity-based-microsegmentation-8021x/">802.1X Feldbereitstellungsguide</a> — Identitätsbasierte Netzwerkzugangskontrolle</li>
+</ul>
+]]></content:encoded></item></channel></rss>

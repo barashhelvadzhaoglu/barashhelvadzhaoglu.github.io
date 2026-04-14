@@ -1,1 +1,308 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Network Tools on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/network-tools/</link><description>Recent content in Network Tools on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>en</language><lastBuildDate>Mon, 13 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/network-tools/index.xml" rel="self" type="application/rss+xml"/><item><title>SecureCRT and SuperPutty: Terminal Tools Every Network Engineer Should Know</title><link>https://barashhelvadzhaoglu.com/en/technology/securecrt-superputty/</link><pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/securecrt-superputty/</guid><description>Field guide to SecureCRT and SuperPutty — session logging, portability, credential management, scripting, and why SuperPutty beats PuTTY.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Network Tools on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/network-tools/</link><description>Recent content in Network Tools on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>en</language><lastBuildDate>Mon, 13 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/network-tools/index.xml" rel="self" type="application/rss+xml"/><item><title>SecureCRT and SuperPutty: Terminal Tools Every Network Engineer Should Know</title><link>https://barashhelvadzhaoglu.com/en/technology/securecrt-superputty/</link><pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/securecrt-superputty/</guid><description>Field guide to SecureCRT and SuperPutty — session logging, portability, credential management, scripting, and why SuperPutty beats PuTTY.</description><content:encoded><![CDATA[<h1 id="securecrt-and-superputty-terminal-tools-every-network-engineer-should-know">SecureCRT and SuperPutty: Terminal Tools Every Network Engineer Should Know</h1>
+<p>If you&rsquo;ve been doing network engineering for more than a few years, you&rsquo;ve probably spent thousands of hours inside a terminal client. SSH into a switch, run some show commands, make a change, move to the next device. It&rsquo;s the most repetitive workflow in the job — and the right tool makes it significantly less painful.</p>
+<p>Most engineers start with PuTTY. It works, it&rsquo;s free, and it does what it says. But there are two tools that take the terminal workflow from functional to genuinely efficient: <strong>SecureCRT</strong> (the professional standard) and <strong>SuperPutty</strong> (the free upgrade that PuTTY users don&rsquo;t know they need).</p>
+<p>This article covers both — what they actually do, the features that matter in daily network work, and when each one makes sense.</p>
+<hr>
+<h2 id="why-plain-putty-eventually-isnt-enough">Why Plain PuTTY Eventually Isn&rsquo;t Enough</h2>
+<p>PuTTY is a solid tool. For occasional connections, it&rsquo;s perfectly adequate. But in daily network engineering work — managing dozens of devices, troubleshooting across multiple sessions simultaneously, needing records of what commands were run and when — plain PuTTY creates friction:</p>
+<ul>
+<li><strong>No tabs:</strong> Every connection is a separate window. Managing 15 devices simultaneously means 15 windows on the taskbar, constantly hunting for the right one.</li>
+<li><strong>No automatic logging:</strong> If something goes wrong and you need to know what commands ran 20 minutes ago, PuTTY doesn&rsquo;t keep that record unless you manually configured logging before the session. Under incident pressure, this is rarely done.</li>
+<li><strong>No session portability:</strong> PuTTY sessions are stored in the Windows Registry. Moving to a new laptop means manually recreating every saved session, or exporting registry keys and hoping nothing breaks.</li>
+<li><strong>No credential storage per session:</strong> You can save a hostname and port, but not credentials. Every session requires typing (or pasting) the username and password.</li>
+</ul>
+<p>These limitations are manageable when you&rsquo;re managing five devices. When you&rsquo;re managing hundreds, they compound into real overhead.</p>
+<hr>
+<h2 id="securecrt-the-professional-standard">SecureCRT: The Professional Standard</h2>
+<p>SecureCRT is a commercial terminal client made by VanDyke Software. It&rsquo;s been the go-to tool in professional network engineering environments for decades. The reason isn&rsquo;t the interface — it&rsquo;s the operational features that matter in real engineering work.</p>
+<h3 id="automatic-session-logging">Automatic Session Logging</h3>
+<p>This is the feature that changes daily workflow the most.</p>
+<p>SecureCRT can be configured to automatically create a log file for every session — named after the device, timestamped, stored in a folder structure of your choice. You don&rsquo;t need to think about it. You connect to a device, and SecureCRT is already writing everything to disk:</p>
+<pre tabindex="0"><code>Logs/
+  2026-03/
+    core-sw-01_20260314_143022.log
+    fw-dc1_20260314_151437.log
+    router-edge-01_20260314_162005.log
+</code></pre><p><strong>Why this matters in practice:</strong></p>
+<p>During a network incident, you need to know exactly what commands were run, in what order, and what the device responded with. Manual memory is unreliable under pressure. Automatic logs give you a complete, timestamped record of every session — no extra steps required.</p>
+<p>For change management in regulated environments (banking, healthcare), session logs are often a compliance requirement. SecureCRT handles this automatically rather than relying on engineers remembering to enable logging.</p>
+<p>For troubleshooting &ldquo;what changed on this device last Thursday&rdquo; — grep through your log folder.</p>
+<p><strong>Configuring automatic logging in SecureCRT:</strong></p>
+<p><code>Options → Global Options → Log File</code> — set a log file name pattern using variables:</p>
+<pre tabindex="0"><code>%D\%H_%Y%M%D_%h%m%s.log
+</code></pre><p>Where <code>%H</code> is hostname, <code>%Y%M%D</code> is date, <code>%h%m%s</code> is time. SecureCRT creates directories automatically if they don&rsquo;t exist.</p>
+<p>You can also configure logging per-session or per-session-group — useful if you want different log locations for different customer environments.</p>
+<hr>
+<h3 id="session-management-and-portability">Session Management and Portability</h3>
+<p>SecureCRT stores all sessions in a portable file-based format, not the Windows Registry. This is a fundamental difference from PuTTY.</p>
+<p><strong>Session folders and organization:</strong></p>
+<p>Sessions are organized in a tree structure — exactly like a file explorer. A typical organization for a network engineer managing multiple customers or environments:</p>
+<pre tabindex="0"><code>Sessions/
+  Customer-A/
+    Core/
+      core-sw-01
+      core-sw-02
+    Distribution/
+      dist-sw-floor1
+      dist-sw-floor2
+    Firewalls/
+      fw-primary
+      fw-secondary
+  Customer-B/
+    ...
+  Lab/
+    ...
+</code></pre><p>Each session stores: hostname/IP, port, protocol, username, connection settings, and optionally the password (encrypted). When you open a session folder, you see all your devices organized exactly as your network is structured.</p>
+<p><strong>Portability — moving to a new machine:</strong></p>
+<p>Because sessions are file-based, moving to a new laptop is straightforward:</p>
+<ol>
+<li>Copy the SecureCRT sessions folder to the new machine (or sync it via cloud storage / network share)</li>
+<li>Point SecureCRT to the folder</li>
+<li>All sessions, organization, and settings are immediately available</li>
+</ol>
+<p>In environments with multiple engineers, a shared network drive can hold a common session database — everyone accesses the same device list, and additions by one engineer are immediately visible to others.</p>
+<p><strong>Export and backup:</strong></p>
+<p><code>File → Export Settings</code> exports the entire session database to a single file. For engineers who want a personal backup before a laptop refresh, this takes 30 seconds.</p>
+<hr>
+<h3 id="credential-storage-and-automatic-login">Credential Storage and Automatic Login</h3>
+<p>SecureCRT supports storing usernames and passwords per session, with passwords encrypted using your chosen algorithm (AES-256).</p>
+<p><strong>Automatic login sequence:</strong></p>
+<p>Beyond storing credentials, SecureCRT supports login automation using <strong>login scripts</strong> or <strong>auto-login</strong> patterns. For devices with a standard login sequence (username prompt → password prompt → optional enable password prompt), you configure:</p>
+<pre tabindex="0"><code>Session Properties → Connection → SSH2:
+  Username: admin
+  Password: [stored, encrypted]
+
+Session Properties → Terminal → Emulation → Expect Scripts:
+  Send username on &#34;Username:&#34; prompt
+  Send password on &#34;Password:&#34; prompt
+  Send enable password on &#34;&gt;&#34; prompt
+</code></pre><p>Once configured, opening a session connects and logs in automatically. For a network engineer managing hundreds of devices, the time saved from not typing credentials repeatedly is significant — but more importantly, it eliminates the risk of typing credentials in the wrong window.</p>
+<p><strong>A note on credential security:</strong></p>
+<p>SecureCRT&rsquo;s password storage uses a master password (or Windows credential store integration) to encrypt stored passwords. The encrypted password file is not useful to an attacker without the master password. For environments with strict credential management policies, SecureCRT also integrates with SSH key-based authentication — which is preferable to stored passwords in high-security environments.</p>
+<hr>
+<h3 id="tabbed-interface-and-multi-session-management">Tabbed Interface and Multi-Session Management</h3>
+<p>SecureCRT displays multiple sessions as tabs within a single window. This seems like a small thing until you&rsquo;re managing 20 simultaneous sessions during a network migration:</p>
+<pre tabindex="0"><code>[core-sw-01] [core-sw-02] [dist-sw-01] [fw-primary] [router-edge] [+]
+</code></pre><p>Features that matter for multi-session work:</p>
+<p><strong>Session tiling:</strong> Split the window to display multiple sessions simultaneously. During a failover test, you might want one pane showing the active device and another showing the standby — watching both at the same time.</p>
+<p><strong>Connect in tab:</strong> Right-click any saved session → &ldquo;Connect in Tab.&rdquo; Open as many sessions as needed without new windows.</p>
+<p><strong>Send commands to multiple sessions:</strong> SecureCRT&rsquo;s &ldquo;Chat Window&rdquo; and &ldquo;Send to All Tabs&rdquo; feature allows sending the same command to multiple sessions simultaneously. For applying a consistent change across a group of switches, this eliminates the need to retype the same command 10 times.</p>
+<hr>
+<h3 id="scripting-and-automation">Scripting and Automation</h3>
+<p>SecureCRT includes a built-in scripting engine supporting VBScript, JScript, and Python. Scripts interact with the terminal session programmatically — sending commands, reading output, making decisions based on responses.</p>
+<p><strong>What scripting enables:</strong></p>
+<ul>
+<li>Automated configuration backups: connect to a list of devices, run <code>show running-config</code>, save output to a file per device</li>
+<li>Bulk configuration changes: apply the same change across a group of devices, logging the output of each</li>
+<li>Data collection: gather interface statistics, routing table entries, or VLAN information from multiple devices and compile into a report</li>
+<li>Interactive automation: scripts that wait for specific output before sending the next command</li>
+</ul>
+<p><strong>Simple Python example — collecting show version from a device list:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># SecureCRT Python script</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> time
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+</span></span><span style="display:flex;"><span>    tab <span style="color:#f92672">=</span> crt<span style="color:#f92672">.</span>GetScriptTab()
+</span></span><span style="display:flex;"><span>    devices <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;10.0.0.1&#34;</span>, <span style="color:#e6db74">&#34;10.0.0.2&#34;</span>, <span style="color:#e6db74">&#34;10.0.0.3&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> device <span style="color:#f92672">in</span> devices:
+</span></span><span style="display:flex;"><span>        crt<span style="color:#f92672">.</span>Session<span style="color:#f92672">.</span>Connect(<span style="color:#e6db74">&#34;/SSH2 /L admin /PASSWORD pass &#34;</span> <span style="color:#f92672">+</span> device)
+</span></span><span style="display:flex;"><span>        tab<span style="color:#f92672">.</span>Screen<span style="color:#f92672">.</span>WaitForString(<span style="color:#e6db74">&#34;#&#34;</span>)
+</span></span><span style="display:flex;"><span>        tab<span style="color:#f92672">.</span>Screen<span style="color:#f92672">.</span>Send(<span style="color:#e6db74">&#34;terminal length 0</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>        tab<span style="color:#f92672">.</span>Screen<span style="color:#f92672">.</span>WaitForString(<span style="color:#e6db74">&#34;#&#34;</span>)
+</span></span><span style="display:flex;"><span>        tab<span style="color:#f92672">.</span>Screen<span style="color:#f92672">.</span>Send(<span style="color:#e6db74">&#34;show version</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>        tab<span style="color:#f92672">.</span>Screen<span style="color:#f92672">.</span>WaitForString(<span style="color:#e6db74">&#34;#&#34;</span>)
+</span></span><span style="display:flex;"><span>        output <span style="color:#f92672">=</span> tab<span style="color:#f92672">.</span>Screen<span style="color:#f92672">.</span>ReadString(<span style="color:#e6db74">&#34;#&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;C:</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">logs</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">{</span>device<span style="color:#e6db74">}</span><span style="color:#e6db74">_version.txt&#34;</span>, <span style="color:#e6db74">&#34;w&#34;</span>) <span style="color:#66d9ef">as</span> f:
+</span></span><span style="display:flex;"><span>            f<span style="color:#f92672">.</span>write(output)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        crt<span style="color:#f92672">.</span>Session<span style="color:#f92672">.</span>Disconnect()
+</span></span><span style="display:flex;"><span>        time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>main()
+</span></span></code></pre></div><p>For more complex automation (full network inventory, configuration compliance checking, bulk VLAN changes), SecureCRT scripting combined with Python gives you a capable automation platform without needing a full Ansible or Netmiko setup.</p>
+<hr>
+<h3 id="securefx-integration">SecureFX Integration</h3>
+<p>SecureFX is VanDyke&rsquo;s SFTP/FTP client — sold separately but tightly integrated with SecureCRT. The integration is useful for:</p>
+<ul>
+<li>Transferring configuration backups from network devices to a local server</li>
+<li>Uploading firmware images to devices</li>
+<li>Moving log files from network devices to a central repository</li>
+</ul>
+<p>From within SecureCRT, you can launch SecureFX using the same session credentials — no separate login required. For Cisco IOS devices, the combination of SecureCRT (for CLI interaction) and SecureFX (for file transfer) covers the full operational workflow.</p>
+<hr>
+<h3 id="protocol-support">Protocol Support</h3>
+<p>SecureCRT supports all protocols a network engineer regularly uses:</p>
+<ul>
+<li><strong>SSH1 / SSH2</strong> — primary protocol for modern network devices</li>
+<li><strong>Telnet</strong> — legacy devices, lab environments</li>
+<li><strong>Serial (COM port)</strong> — console cable connections for initial device setup or recovery</li>
+<li><strong>RDP</strong> — Remote Desktop connections, useful for managing Windows servers alongside network devices in the same session manager</li>
+<li><strong>SFTP / FTP</strong> (via SecureFX integration)</li>
+</ul>
+<p>The serial connection support is particularly valuable for network engineers. Connecting to a device via console cable uses the same session manager interface as SSH — you can have a console session and multiple SSH sessions to the same device open simultaneously, all in the same window.</p>
+<hr>
+<h2 id="superputty-the-free-upgrade-putty-users-dont-know-about">SuperPutty: The Free Upgrade PuTTY Users Don&rsquo;t Know About</h2>
+<p>If you use PuTTY daily, there&rsquo;s a good chance you&rsquo;ve never heard of SuperPutty. It&rsquo;s not well-marketed, it doesn&rsquo;t have a major company behind it, and it looks — at first glance — like just another PuTTY window. But it solves PuTTY&rsquo;s biggest daily-use limitations without replacing PuTTY itself.</p>
+<h3 id="what-superputty-actually-is">What SuperPutty Actually Is</h3>
+<p>SuperPutty is a <strong>session manager and tabbed interface wrapper for PuTTY</strong>. It doesn&rsquo;t replace PuTTY — PuTTY must be installed for SuperPutty to work. What SuperPutty adds is everything PuTTY lacks for serious multi-session work:</p>
+<ul>
+<li>Tabbed interface with multiple PuTTY sessions in one window</li>
+<li>Persistent session library with folder organization</li>
+<li>Import of existing PuTTY sessions — your existing configuration is not lost</li>
+<li>Tiled layout — multiple sessions visible simultaneously</li>
+<li>Quick connect bar</li>
+<li>Session search</li>
+</ul>
+<p><strong>It&rsquo;s completely free and open source.</strong></p>
+<hr>
+<h3 id="importing-your-putty-sessions">Importing Your PuTTY Sessions</h3>
+<p>The first thing to do after installing SuperPutty: import your existing PuTTY sessions.</p>
+<p><code>Tools → Import Sessions → From PuTTY Settings</code></p>
+<p>SuperPutty reads the PuTTY session data from the Windows Registry and creates corresponding sessions in its own session database. All your saved hostnames, port settings, and connection preferences are imported automatically. You don&rsquo;t start from scratch.</p>
+<p>After import, your PuTTY sessions appear in SuperPutty&rsquo;s session tree — ready to use immediately. PuTTY itself continues to work normally; SuperPutty and PuTTY coexist.</p>
+<hr>
+<h3 id="tabbed-interface-and-session-organization">Tabbed Interface and Session Organization</h3>
+<p>Once sessions are imported (or created directly in SuperPutty), connecting to a device opens it as a tab:</p>
+<pre tabindex="0"><code>[core-sw-01] [fw-primary] [router-edge] [dist-sw-02] [+]
+</code></pre><p>Sessions can be organized in folders — the same structure you&rsquo;d use in SecureCRT, just without the commercial license cost.</p>
+<p><strong>Tiled layout:</strong> SuperPutty supports splitting the window into a grid of session panes. Useful during maintenance windows where you&rsquo;re watching multiple devices simultaneously.</p>
+<p><strong>Auto-reconnect:</strong> SuperPutty can automatically reconnect sessions that drop — useful for long-running monitoring sessions where connection timeouts are common.</p>
+<hr>
+<h3 id="what-superputty-does-not-have">What SuperPutty Does Not Have</h3>
+<p>To be direct about limitations:</p>
+<ul>
+<li><strong>No automatic logging:</strong> SuperPutty does not log sessions automatically. You can configure PuTTY&rsquo;s built-in logging for each session, but there&rsquo;s no global &ldquo;log everything automatically&rdquo; equivalent to SecureCRT&rsquo;s feature.</li>
+<li><strong>No built-in scripting engine:</strong> SuperPutty has no equivalent to SecureCRT&rsquo;s VBScript/Python scripting. For automation, you&rsquo;d use separate tools (Netmiko, Paramiko, Ansible).</li>
+<li><strong>No credential encryption:</strong> SuperPutty stores passwords in its session database without the encryption options SecureCRT provides. For production environments with strict credential management, this is a consideration.</li>
+<li><strong>Less polished:</strong> SuperPutty is an open-source project maintained by volunteers. It works well but lacks the polish and active development of a commercial product.</li>
+</ul>
+<hr>
+<h2 id="securecrt-vs-superputty-when-to-use-which">SecureCRT vs. SuperPutty: When to Use Which</h2>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>SecureCRT</th>
+          <th>SuperPutty</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Cost</td>
+          <td>Commercial license (~$99–150/seat)</td>
+          <td>Free</td>
+      </tr>
+      <tr>
+          <td>Automatic session logging</td>
+          <td>✅ Built-in, global</td>
+          <td>❌ Per-session PuTTY logging only</td>
+      </tr>
+      <tr>
+          <td>Session portability</td>
+          <td>✅ File-based, easy export</td>
+          <td>✅ XML-based, importable</td>
+      </tr>
+      <tr>
+          <td>PuTTY session import</td>
+          <td>❌ Not applicable</td>
+          <td>✅ Direct import from Registry</td>
+      </tr>
+      <tr>
+          <td>Tabbed interface</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>Tiled sessions</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>Scripting (Python/VBScript)</td>
+          <td>✅ Built-in engine</td>
+          <td>❌</td>
+      </tr>
+      <tr>
+          <td>Credential storage (encrypted)</td>
+          <td>✅ AES-256</td>
+          <td>⚠️ Basic only</td>
+      </tr>
+      <tr>
+          <td>Serial/console support</td>
+          <td>✅</td>
+          <td>✅ (via PuTTY)</td>
+      </tr>
+      <tr>
+          <td>RDP support</td>
+          <td>✅</td>
+          <td>✅ (via PuTTY/mRemoteNG)</td>
+      </tr>
+      <tr>
+          <td>SecureFX integration</td>
+          <td>✅</td>
+          <td>❌</td>
+      </tr>
+      <tr>
+          <td>Active commercial support</td>
+          <td>✅</td>
+          <td>Community only</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Use SecureCRT when:</strong></p>
+<ul>
+<li>Automatic session logging is required (compliance, incident response)</li>
+<li>You run scripts for automation or bulk operations</li>
+<li>You manage hundreds of devices and need a robust, reliable session manager</li>
+<li>Your organization requires encrypted credential storage</li>
+<li>You work in a regulated environment where session records are mandatory</li>
+</ul>
+<p><strong>Use SuperPutty when:</strong></p>
+<ul>
+<li>You&rsquo;re already a PuTTY user and want tabbed sessions without changing tools</li>
+<li>Cost is a constraint (individual use, small team)</li>
+<li>Your automation needs are handled by separate tools (Ansible, Netmiko)</li>
+<li>You want to evaluate whether a session manager improves your workflow before committing to a commercial tool</li>
+</ul>
+<p><strong>The honest take:</strong> If you&rsquo;re a working network engineer managing production infrastructure daily, SecureCRT&rsquo;s automatic logging alone justifies the license cost. The number of times session logs have provided the exact record needed during an incident or post-change review is not small. SuperPutty is a genuine upgrade over plain PuTTY and costs nothing — but it doesn&rsquo;t replace SecureCRT for engineers who rely on logging and scripting.</p>
+<hr>
+<h2 id="practical-setup-securecrt-configuration-for-daily-use">Practical Setup: SecureCRT Configuration for Daily Use</h2>
+<p>A few configuration recommendations from daily use:</p>
+<p><strong>Global logging setup:</strong>
+<code>Options → Global Options → Log File</code></p>
+<pre tabindex="0"><code>Log file name: C:\NetworkLogs\%H_%Y%M%D_%h%m%s.log
+On connect:    Start log
+Log data:      All session data including timestamps
+</code></pre><p><strong>Session folder structure:</strong>
+Organize by customer or environment at the top level, then by device role. Consistent naming (core, distribution, access, firewall, router) makes navigation fast even with hundreds of sessions.</p>
+<p><strong>Color schemes per session group:</strong>
+SecureCRT supports different terminal color schemes per session or folder. Using a distinct color for production vs. lab environments prevents the wrong-window mistake — accidentally running a command on a production device when you thought you were in the lab.</p>
+<p><strong>SSH key authentication:</strong>
+For production environments, configure SSH key authentication instead of stored passwords:
+<code>Session Properties → Connection → SSH2 → PublicKey</code>
+Point to your private key file. The key is used automatically on connection — no password prompt, no stored password.</p>
+<p><strong>Keyword highlighting:</strong>
+<code>Options → Global Options → Advanced → Keyword Sets</code>
+Configure keywords like <code>%Error</code>, <code>down</code>, <code>FAIL</code>, <code>alarm</code> to appear in red. Critical error messages stand out immediately in a dense output stream.</p>
+<hr>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li><strong>Plain PuTTY is functional but has real limitations</strong> for daily professional use — no tabs, no automatic logging, no session portability.</li>
+<li><strong>SecureCRT&rsquo;s automatic logging</strong> is its most operationally valuable feature — every session, every command, every response, timestamped and stored automatically without any extra steps.</li>
+<li><strong>Session portability</strong> in SecureCRT means moving to a new laptop is a copy operation, not a rebuild. Shared session databases enable team consistency.</li>
+<li><strong>Credential storage with automatic login</strong> eliminates repetitive typing but should be combined with master password or key-based authentication in sensitive environments.</li>
+<li><strong>SecureCRT scripting</strong> enables automation that would otherwise require a separate tool — useful for bulk operations and configuration collection.</li>
+<li><strong>SuperPutty is the right answer</strong> for engineers who know PuTTY and want tabbed sessions, session organization, and PuTTY session import — at zero cost.</li>
+<li>If you currently use plain PuTTY and have never tried SuperPutty: install it today. Import your existing sessions in two minutes. The tab interface alone will change your workflow.</li>
+</ul>
+<hr>
+<h2 id="related-articles">Related Articles</h2>
+<ul>
+<li>🛠️ <a href="/en/posts/next-gen-console-server-architecture/">The Backdoor of the Network: Next-Gen Console Server Architecture</a> — Out-of-band access when SSH fails</li>
+<li>🔐 <a href="/en/technology/identity-based-microsegmentation-8021x/">802.1X Identity-Based Architecture in the Field</a> — The authentication framework behind SSH access control</li>
+<li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">Monitoring Done Right</a> — Complementing manual CLI work with proactive monitoring</li>
+<li>🐍 <a href="/en/posts/">Network Automation with Python</a> — Taking SecureCRT scripting further with dedicated automation frameworks</li>
+</ul>
+]]></content:encoded></item></channel></rss>

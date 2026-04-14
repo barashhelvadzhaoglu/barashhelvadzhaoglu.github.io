@@ -1,1 +1,130 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Cybersecurity on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/categories/cybersecurity/</link><description>Recent content in Cybersecurity on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>en</language><lastBuildDate>Sat, 03 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/categories/cybersecurity/index.xml" rel="self" type="application/rss+xml"/><item><title>The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product</title><link>https://barashhelvadzhaoglu.com/en/architecture/zero-trust-architecture-behaviors/</link><pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/architecture/zero-trust-architecture-behaviors/</guid><description>Zero Trust is an architectural approach, not a product. How user and device verification, continuous access control, and modern security work beyond VPN.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Cybersecurity on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/categories/cybersecurity/</link><description>Recent content in Cybersecurity on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>en</language><lastBuildDate>Sat, 03 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/categories/cybersecurity/index.xml" rel="self" type="application/rss+xml"/><item><title>The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product</title><link>https://barashhelvadzhaoglu.com/en/architecture/zero-trust-architecture-behaviors/</link><pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/architecture/zero-trust-architecture-behaviors/</guid><description>Zero Trust is an architectural approach, not a product. How user and device verification, continuous access control, and modern security work beyond VPN.</description><content:encoded><![CDATA[<h1 id="the-zero-trust-mindset-engineering-security-as-an-architecture-not-a-product">The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product</h1>
+<p>Zero Trust is a concept mentioned in almost every security presentation today. However, when we look at its implementation in the field, we often see it applied in the wrong place, with wrong expectations, and using the wrong tools. The main reason for this is that Zero Trust is positioned as a technology or a purchasable product. In reality, Zero Trust is not a licensed, boxed, or vendor-specific solution. It is an architectural perspective and, more importantly, a mindset.</p>
+<p>The essence of Zero Trust is clear: <strong>Never trust, always verify.</strong> Do not implicitly trust any user, any device, or any connection. Trust is a state that must be continuously re-earned. This approach completely eliminates the classic &ldquo;inside is safe, outside is dangerous&rdquo; assumption. Because in the modern IT world, inside and outside are no longer separated by clear boundaries.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/zero-trust-layered-architecture.webp"/> <figcaption>
+            Zero Trust: A Layered Architecture
+        </figcaption>
+</figure>
+
+<p><strong>In summary:</strong></p>
+<ul>
+<li>Zero Trust is an architectural approach, not a product</li>
+<li>It rejects the concept of implicit trust</li>
+<li>It is based on continuous verification</li>
+</ul>
+<blockquote>
+<p>This article is part of a series that treats IT infrastructure as a system. For the starting point: <a href="/en/architecture/it-infrastructure-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a></p>
+</blockquote>
+<h2 id="zero-trust-belongs-to-no-vendor">Zero Trust Belongs to No Vendor</h2>
+<p>Zero Trust began taking shape through the visions of security vendors. However, an important distinction must be made: Zero Trust is not a concept &ldquo;owned&rdquo; by any vendor. It cannot be represented by a single technology.</p>
+<p>The reason is this: Zero Trust requires multiple layers to work together consistently and simultaneously. If network, security, identity, user, device, and application layers operate in silos, Zero Trust remains only a narrative. It has no architectural counterpart.</p>
+<p><strong>Key points:</strong></p>
+<ul>
+<li>Zero Trust does not belong to any vendor</li>
+<li>It cannot be built with a single technology</li>
+<li>Cross-layer consistency is required</li>
+</ul>
+<h2 id="user-and-device-verification-where-the-architecture-begins">User and Device Verification: Where the Architecture Begins</h2>
+<p>Zero Trust architecture starts with a fundamental question:</p>
+<blockquote>
+<p>&ldquo;Should this user and this device actually have access to the resource they are trying to reach right now?&rdquo;</p>
+</blockquote>
+<p>To provide a meaningful answer, the first step is verifying the users and devices joining the network. Active Directory, LDAP, or modern identity providers sit at the center of this structure. What resources a user can access is determined not only by their identity but also by their role and risk posture.</p>
+<p>But from a Zero Trust perspective, it is not only about who the user is — the device&rsquo;s status, whether it belongs to the corporate inventory, and its compliance with security policies are all part of this decision.</p>
+<p><strong>Key takeaways:</strong></p>
+<ul>
+<li>User verification alone is not sufficient</li>
+<li>Device identity and posture are also evaluated</li>
+<li>Access decisions are context-driven</li>
+</ul>
+<h2 id="vpn--zero-trust-the-right-framework-for-remote-access">VPN ≠ Zero Trust: The Right Framework for Remote Access</h2>
+<p>Remote work is no longer the exception — it is the standard. Yet many organizations still operate with classic VPN logic: the user connects to VPN and instantly becomes part of the entire local network. <strong>This is not Zero Trust.</strong> This is simply remote access.</p>
+<p>In a Zero Trust architecture, remote access does not mean &ldquo;access to everything.&rdquo; The user only accesses the applications or resources they are authorized for. The goal is always the same: minimize access and continuously verify it.</p>
+<p><strong>Key points:</strong></p>
+<ul>
+<li>VPN ≠ Zero Trust</li>
+<li>Access should be to the resource, not the entire network</li>
+<li>Authorization is continuously verified</li>
+</ul>
+<h2 id="continuous-verification-and-mfa">Continuous Verification and MFA</h2>
+<p>What distinguishes Zero Trust from classic security approaches is that authentication is not treated as a one-time event. As user and device behavior changes, access is continuously re-evaluated.</p>
+<p>This is where <strong>Multi-Factor Authentication (MFA)</strong> comes in. Additional layers such as SMS, mobile app notifications, hardware tokens, or biometric verification are used. Especially for critical applications like mail servers, financial systems, or ERP, users are required to re-verify themselves at regular intervals.</p>
+<p><strong>In summary:</strong></p>
+<ul>
+<li>Verification is continuous</li>
+<li>MFA is a core component of Zero Trust</li>
+<li>Intervals are shortened for critical resources</li>
+</ul>
+<h2 id="firewall-the-policy-decision-point">Firewall: The Policy Decision Point</h2>
+<p>The firewall layer plays a central role in Zero Trust architecture. But this role goes far beyond the classic &ldquo;device that controls internet egress.&rdquo; In the Zero Trust approach, the firewall is a decision point with identity and context awareness.</p>
+<p>Rules defined on the firewall should not be based solely on IP or port. When user-, group-, and application-based rules can be written, Zero Trust becomes truly implementable.</p>
+<blockquote>
+<p>To understand how switches, firewalls, and APs work together: <a href="/en/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough</a></p>
+</blockquote>
+<p><strong>This layer in summary:</strong></p>
+<ul>
+<li>Firewall is the policy decision point</li>
+<li>Identity and application awareness are essential</li>
+<li>Port-based rules are not sufficient</li>
+</ul>
+<h2 id="the-access-layer-where-zero-trust-starts">The Access Layer: Where Zero Trust Starts</h2>
+<p>Zero Trust is not only applied at the firewall and VPN layers. The access layer is where the architecture begins. 802.1X and NAC solutions come into play here. All switch ports and wireless access are controlled by a central system. Users or devices are verified before joining the network, and based on this verification, VLANs are dynamically assigned or policies are applied.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/zero-trust-access-layer-802-1x.webp"/> <figcaption>
+            802.1X Access Control: Zero Trust at the Network Edge
+        </figcaption>
+</figure>
+
+<p><strong>Key points:</strong></p>
+<ul>
+<li>Zero Trust starts at the access layer</li>
+<li>802.1X provides centralized control</li>
+<li>Static VLAN / SSID structures do not scale</li>
+</ul>
+<h2 id="device-profiling-and-iot">Device Profiling and IoT</h2>
+<p>In modern Zero Trust architectures, not only user devices but all endpoints connecting to the network are brought under control. Printers, cameras, IP phones, card readers — all are included in the verification process.</p>
+<p>Next-generation NAC solutions combine multiple parameters such as DHCP fingerprint, CDP/LLDP information, and device manufacturer data to perform device profiling. Whether the device is up to date, its security posture, and compliance with corporate standards are all evaluated.</p>
+<p><strong>Key points:</strong></p>
+<ul>
+<li>Device profiling is critically important</li>
+<li>MAC address alone is not sufficient</li>
+<li>Inventory integration is essential</li>
+</ul>
+<h2 id="guest-access-trust-is-never-assumed">Guest Access: Trust Is Never Assumed</h2>
+<p>Even guest access is controlled in Zero Trust architecture. Guest users are verified through guest portals and are granted access only for a specific duration and with specific permissions. Guests can typically only access the internet; their access to company resources is restricted.</p>
+<p><strong>In summary:</strong></p>
+<ul>
+<li>Guest access is not unlimited</li>
+<li>Time- and permission-based controls are applied</li>
+<li>Trust is never assumed</li>
+</ul>
+<h2 id="continuous-monitoring-the-most-critical-part-of-the-architecture">Continuous Monitoring: The Most Critical Part of the Architecture</h2>
+<p>Access and behavior are monitored and logged at every layer. If an anomaly or risky activity is detected, the system automatically restricts access or requests additional verification.</p>
+<blockquote>
+<p>For building real visibility into your infrastructure: <a href="/en/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively</a></p>
+</blockquote>
+<h2 id="conclusion">Conclusion</h2>
+<p>Zero Trust is not a product.
+It cannot be built with a single device.
+You cannot say &ldquo;we implemented it, we&rsquo;re done.&rdquo;</p>
+<p>Zero Trust is a living architecture in which firewall, switch, and wireless infrastructure work together by drawing user and device information from a central point, with access being re-questioned at every stage. That is why Zero Trust should be seen not as a technology to be purchased, but as a capability to be designed and operated.</p>
+<h2 id="note">Note</h2>
+<p>This article was originally introduced on <strong>Substack</strong> in a shorter, narrative form.
+This version expands the architectural foundation for the series.</p>
+<p>👉 <strong>Read the article on Substack:</strong> <a href="https://substack.com/home/post/p-183954997">Click Here</a></p>
+<hr>
+<h2 id="related-articles">Related Articles</h2>
+<p><strong>Architecture &amp; Security Design</strong></p>
+<ul>
+<li>📐 <a href="/en/architecture/it-infrastructure-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a> — The foundational article of this series</li>
+<li>🏗️ <a href="/en/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough</a> — Systems thinking in core network design</li>
+<li>📊 <a href="/en/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively</a> — Building real visibility into your infrastructure</li>
+</ul>
+<p><strong>Technical Engineering</strong></p>
+<ul>
+<li>🔐 <a href="/en/posts/unlocking-success-in-802-1x-projects-field-insights/">Unlocking Success in 802.1X Projects: Field Insights</a> — Identity-based access in enterprise networks</li>
+<li>🛡️ <a href="/en/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Advanced traffic visibility and security strategy</li>
+<li>🛠️ <a href="/en/posts/next-gen-console-server-terminal-server-architecture/">The Backdoor of the Network: Next-Gen Console Server Architecture</a> — Out-of-band access when everything else fails</li>
+</ul>
+]]></content:encoded></item></channel></rss>

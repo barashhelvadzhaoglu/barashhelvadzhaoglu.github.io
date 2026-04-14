@@ -1,1 +1,77 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Cyber Security on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/categories/cyber-security/</link><description>Recent content in Cyber Security on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>en</language><lastBuildDate>Sat, 21 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/categories/cyber-security/index.xml" rel="self" type="application/rss+xml"/><item><title>🛡️ Visibility and Security Strategy in Enterprise Networks: Network Packet Broker (NPB) Masterclass</title><link>https://barashhelvadzhaoglu.com/en/posts/network-packet-broker-masterclass/</link><pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/posts/network-packet-broker-masterclass/</guid><description>Strategic guide for traffic management, cybersecurity, and end-to-end visibility in enterprise networks. What is NPB? How to manage it with NIAC principles?</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Cyber Security on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/categories/cyber-security/</link><description>Recent content in Cyber Security on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>en</language><lastBuildDate>Sat, 21 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/categories/cyber-security/index.xml" rel="self" type="application/rss+xml"/><item><title>🛡️ Visibility and Security Strategy in Enterprise Networks: Network Packet Broker (NPB) Masterclass</title><link>https://barashhelvadzhaoglu.com/en/posts/network-packet-broker-masterclass/</link><pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/posts/network-packet-broker-masterclass/</guid><description>Strategic guide for traffic management, cybersecurity, and end-to-end visibility in enterprise networks. What is NPB? How to manage it with NIAC principles?</description><content:encoded><![CDATA[<p>In today&rsquo;s enterprise network architectures, <strong>&ldquo;speed&rdquo;</strong> is no longer the sole criterion for success. The real challenge is knowing what flows within tens of gigabits of data traffic per second, ensuring security, and monitoring performance end-to-end. As the &ldquo;intelligent traffic conductor&rdquo; of modern networks, the <strong>Network Packet Broker (NPB)</strong> has become a strategic necessity for everything from cybersecurity to business continuity.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/network-packet-broker-arcitechture.webp"/> <figcaption>
+            Network Packet Broker Architecture Overview
+        </figcaption>
+</figure>
+
+<blockquote>
+<p>For the broader architecture context behind visibility strategy, see: <a href="/en/architecture/it-infrastructure-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a></p>
+</blockquote>
+<h3 id="1-micro-second-precision-end-of-packet-loss-buffering--time-stamping">1. Micro-Second Precision: End of Packet Loss (Buffering &amp; Time-Stamping)</h3>
+<p>Network traffic does not always flow linearly; instantaneous bursts occur. While many standard switches drop packets during these bursts, a professional NPB solves this problem at the hardware level:</p>
+<ul>
+<li><strong>500 ms Buffer Memory:</strong> NPB holds traffic momentarily in its memory, reducing packet loss to 0% during times when your analysis tools (DLP, IDS, Sniffer) cannot keep up with the speed. This is vital for forensics and debugging processes.</li>
+<li><strong>Hardware Time-Stamping:</strong> When performing latency analysis, &ldquo;about an hour&rdquo; is not a professional answer. With the hardware Time-Stamping feature offered by NPBs, you can stamp every packet with micro-second precision the moment it enters the system. These stamps are life-savers, especially in forensic analysis processes.</li>
+</ul>
+<h3 id="2-intelligent-filtering-and-protocol-mastery-l2-l4">2. Intelligent Filtering and Protocol Mastery (L2-L4)</h3>
+<p>While L2-4 filtering (MAC, IP, Port) exists in many devices, the difference with an NPB is that it performs this process at &ldquo;wire-speed&rdquo; without compromising packet integrity and with unparalleled flexibility:</p>
+<ul>
+<li><strong>Flow Aggregation &amp; Deduplication:</strong> It analyzes thousands of flows coming from massive 100 GB inputs, cleans duplicate packets (<strong>Deduplication</strong>), and converts all this chaos into a single optimized flow for analysis devices. Cleaning duplicate packets reduces the CPU load of your analysis devices by 30-50%.</li>
+<li><strong>Packet Slicing (Lighten the Load):</strong> You don&rsquo;t always need to be in love with the entire packet. If your analysis tool only needs header information, perform <strong>Packet Slicing</strong> on the NPB to trim the payload. This way, you don&rsquo;t overwhelm the disks and processors of your analysis devices with unnecessary data, gaining 100% efficiency.</li>
+</ul>
+<h3 id="3-flexible-delivery-methods-getting-traffic-to-the-target">3. Flexible Delivery Methods: Getting Traffic to the Target</h3>
+<p>NPB offers a rich &ldquo;packaging&rdquo; menu to deliver your filtered traffic to the analysis device:</p>
+<ul>
+<li><strong>ERSPAN &amp; VXLAN/GRE Tunneling:</strong> It carries traffic to remote data centers or cloud-based analysis centers by encapsulating it over Layer 3 networks.</li>
+<li><strong>VLAN Tagging / Stripping:</strong> It adds tags for the analysis device to recognize the traffic or cleans these tags to lighten the load on the device.</li>
+<li><strong>Load Balancing:</strong> It distributes dense 100G traffic equally to 10G capacity analysis devices without breaking <strong>&ldquo;session stickiness&rdquo;</strong> (session integrity).</li>
+</ul>
+<figure>
+    <img loading="lazy" src="/img/postimages/network-packet-broker-arcitechture2.webp"/> <figcaption>
+            NPB Traffic Delivery and Load Balancing
+        </figcaption>
+</figure>
+
+<h3 id="4-api-support-automation-and-the-niac-vision">4. API Support, Automation, and the NIAC Vision</h3>
+<p>Manual intervention is a risk in modern IT operations. The automation capabilities offered by NPB provide agility to teams. However, do not view the process as just a simple &ldquo;backup&rdquo;; we integrate these devices into <strong>Network Infrastructure as Code (NIAC)</strong> principles thanks to <strong>Rest-API</strong> support.</p>
+<ul>
+<li><strong>NIAC &amp; Disaster Recovery (DR):</strong> All critical filtering rules and port configurations on the device should be managed with NIAC principles. In the event of a hardware failure, we can migrate the entire architecture to a new device in seconds using automation scripts rather than manual configuration.</li>
+<li><strong>ITSM and SIEM Integration:</strong> During a cyber incident, filters can be automatically created via SIEM tools, or existing filters can be edited via API according to the instantaneous situation.</li>
+</ul>
+<h3 id="5-performance-and-security-riverbed-dlp--ssl-offloading">5. Performance and Security (Riverbed, DLP &amp; SSL Offloading)</h3>
+<figure>
+    <img loading="lazy" src="/img/postimages/npb-ssl-offloading.webp"/> <figcaption>
+            SSL/TLS Offloading Architecture on NPB
+        </figcaption>
+</figure>
+
+<p>NPB is like a central &ldquo;Data Hub&rdquo; feeding all kinds of analysis devices on the network:</p>
+<ul>
+<li><strong>Network TAP (Inline Data Collection):</strong> It can receive traffic directly from cables going to servers (Network TAP), not just switch ports. This allows you to reach the &ldquo;purest&rdquo; data without affecting main traffic.</li>
+<li><strong>SSL/TLS Offloading:</strong> Don&rsquo;t exhaust the CPUs of your Firewall or IPS devices with decryption. Handle this load on the NPB and send &ldquo;clean&rdquo; and unencrypted traffic to analysis devices. Let your security devices do their actual job; let the NPB handle the heavy lifting of decryption.</li>
+<li><strong>Riverbed Integration:</strong> By feeding NPM devices like Riverbed with the most accurate data, it detects application latencies and bottlenecks.</li>
+<li><strong>Call Centers (VoIP):</strong> It processes voice traffic in parallel; while one copy goes to the recording system, the user continues the conversation without any delay.</li>
+</ul>
+<h3 id="6-encrypted-traffic-and-data-center-dc-strategy">6. Encrypted Traffic and Data Center (DC) Strategy</h3>
+<p>Although internet traffic is encrypted, &ldquo;East-West&rdquo; traffic flowing unencrypted within the data center for performance reasons is still the biggest opportunity. Using NPB at these strategic points where traffic is transparent and mirroring the data provides 100% visibility without incurring decryption costs.</p>
+<h3 id="7-market-leaders">7. Market Leaders</h3>
+<p>While <strong>Keysight (Ixia)</strong> and <strong>Gigamon</strong> set the standards for high-performance solutions; brands like <strong>Arista</strong>, <strong>Garland Technology</strong>, and <strong>Profitap</strong> are indispensable for enterprise networks with their flexible port structures and innovative delivery methods.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>The seamless orchestration of traffic mirroring and analysis flows is the definitive proof of how a complex network operation can be rendered controllable. By leveraging NIAC (Network Infrastructure as Code) and robust API integrations, this architecture transforms from a static hardware setup into a dynamic, &ldquo;living&rdquo; security platform.</p>
+<p>Such a framework ensures that critical data reaches security tools with zero loss and maximum optimization, granting operational teams full visibility and command over the network.</p>
+<hr>
+<h2 id="related-articles">Related Articles</h2>
+<p><strong>Architecture &amp; Strategy</strong></p>
+<ul>
+<li>📐 <a href="/en/architecture/it-infrastructure-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a> — The system thinking behind visibility</li>
+<li>🛡️ <a href="/en/architecture/zero-trust-architecture-behaviors/">The Zero Trust Mindset: Engineering Security as an Architecture</a> — Security as architecture, not a product</li>
+<li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">Monitoring Done Right: How to Build a Proactive IT Operations Culture</a> — Operational visibility beyond dashboards</li>
+<li>🎯 <a href="/en/architecture/network-product-selection-strategy/">Network Infrastructure Product Selection: Strategic Criteria</a> — Evaluating security vendors strategically</li>
+</ul>
+<p><strong>Practical Engineering</strong></p>
+<ul>
+<li>🛠️ <a href="/en/posts/next-gen-console-server-architecture/">The Backdoor of the Network: Next-Gen Console Server Architecture</a> — Out-of-band access when everything fails</li>
+<li>🔐 <a href="/en/technology/identity-based-microsegmentation-8021x/">802.1X Field Deployment Guide</a> — Identity-based access control at the network edge</li>
+</ul>
+]]></content:encoded></item></channel></rss>

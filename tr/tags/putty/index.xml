@@ -1,1 +1,307 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>PuTTY on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/putty/</link><description>Recent content in PuTTY on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Mon, 13 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/putty/index.xml" rel="self" type="application/rss+xml"/><item><title>SecureCRT ve SuperPutty: Her Ağ Mühendisinin Bilmesi Gereken Terminal Araçları</title><link>https://barashhelvadzhaoglu.com/tr/technology/securecrt-superputty/</link><pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/securecrt-superputty/</guid><description>SecureCRT ve SuperPutty saha rehberi — oturum loglama, taşınabilirlik, kimlik yönetimi, scripting ve SuperPutty&amp;#39;nin PuTTY&amp;#39;ya göre avantajları.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>PuTTY on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/putty/</link><description>Recent content in PuTTY on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Mon, 13 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/putty/index.xml" rel="self" type="application/rss+xml"/><item><title>SecureCRT ve SuperPutty: Her Ağ Mühendisinin Bilmesi Gereken Terminal Araçları</title><link>https://barashhelvadzhaoglu.com/tr/technology/securecrt-superputty/</link><pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/securecrt-superputty/</guid><description>SecureCRT ve SuperPutty saha rehberi — oturum loglama, taşınabilirlik, kimlik yönetimi, scripting ve SuperPutty&amp;#39;nin PuTTY&amp;#39;ya göre avantajları.</description><content:encoded><![CDATA[<h1 id="securecrt-ve-superputty-her-ağ-mühendisinin-bilmesi-gereken-terminal-araçları">SecureCRT ve SuperPutty: Her Ağ Mühendisinin Bilmesi Gereken Terminal Araçları</h1>
+<p>Birkaç yıldan fazla ağ mühendisliği yapıyorsanız, muhtemelen terminal istemcisinin içinde binlerce saat geçirmişsinizdir. Bir switch&rsquo;e SSH, birkaç show komutu, değişiklik yap, sonraki cihaza geç. İşin en tekrar eden iş akışı — ve doğru araç bunu önemli ölçüde daha az acı verici kılar.</p>
+<p>Çoğu mühendis PuTTY ile başlar. Çalışır, ücretsizdir ve söylediğini yapar. Ancak terminal iş akışını işlevsel olmaktan gerçekten verimli olmaya taşıyan iki araç vardır: <strong>SecureCRT</strong> (profesyonel standart) ve <strong>SuperPutty</strong> (PuTTY kullanıcılarının ihtiyaç duyduğunu bilmediği ücretsiz yükseltme).</p>
+<p>Bu yazı her ikisini de kapsar — gerçekte ne yaptıklarını, günlük ağ çalışmasında önemli olan özellikleri ve her birinin ne zaman mantıklı olduğunu.</p>
+<hr>
+<h2 id="neden-düz-putty-sonunda-yetmez">Neden Düz PuTTY Sonunda Yetmez</h2>
+<p>PuTTY sağlam bir araçtır. Ara sıra bağlantılar için mükemmel biçimde yeterlidir. Ancak günlük ağ mühendisliği çalışmasında — düzinelerce cihazı yönetmek, birden fazla oturumda aynı anda sorun gidermek, hangi komutların ne zaman çalıştırıldığının kayıtlarına ihtiyaç duymak — düz PuTTY sürtünme yaratır:</p>
+<ul>
+<li><strong>Sekme yok:</strong> Her bağlantı ayrı bir penceredir. 15 cihazı aynı anda yönetmek, görev çubuğunda 15 pencere ve sürekli doğru olanı aramak demektir.</li>
+<li><strong>Otomatik loglama yok:</strong> Bir şeyler ters giderse ve 20 dakika önce hangi komutların çalıştırıldığını bilmeniz gerekiyorsa, oturumdan önce loglama&rsquo;yı manuel olarak yapılandırmadıysanız PuTTY bu kaydı tutmaz. Olay baskısı altında bu nadiren yapılır.</li>
+<li><strong>Oturum taşınabilirliği yok:</strong> PuTTY oturumları Windows Registry&rsquo;de saklanır. Yeni bir dizüstü bilgisayara geçmek, kaydedilmiş her oturumu manuel olarak yeniden oluşturmak veya registry anahtarlarını dışa aktarıp hiçbir şeyin bozulmamasını ummak demektir.</li>
+<li><strong>Oturum başına kimlik bilgisi depolama yok:</strong> Bir ana bilgisayar adı ve port kaydedebilirsiniz, ancak kimlik bilgilerini değil. Her oturum kullanıcı adı ve şifre yazmayı (veya yapıştırmayı) gerektirir.</li>
+</ul>
+<p>Bu sınırlamalar beş cihaz yönetirken yönetilebilirdir. Yüzlerce cihaz yönetirken, gerçek ek yüke dönüşürler.</p>
+<hr>
+<h2 id="securecrt-profesyonel-standart">SecureCRT: Profesyonel Standart</h2>
+<p>SecureCRT, VanDyke Software tarafından yapılan ticari bir terminal istemcisidir. On yıllardır profesyonel ağ mühendisliği ortamlarında tercih edilen araç olmuştur. Bunun nedeni arayüz değildir — gerçek mühendislik çalışmasında önemli olan operasyonel özelliklerdir.</p>
+<h3 id="otomatik-oturum-loglama">Otomatik Oturum Loglama</h3>
+<p>Bu, günlük iş akışını en çok değiştiren özelliktir.</p>
+<p>SecureCRT, her oturum için otomatik olarak bir log dosyası oluşturacak şekilde yapılandırılabilir — cihaza göre adlandırılmış, zaman damgalı, seçtiğiniz bir klasör yapısında saklanmış. Bunu düşünmenize gerek yok. Bir cihaza bağlanırsınız ve SecureCRT her şeyi zaten diske yazıyordur:</p>
+<pre tabindex="0"><code>Logs/
+  2026-03/
+    core-sw-01_20260314_143022.log
+    fw-dc1_20260314_151437.log
+    router-edge-01_20260314_162005.log
+</code></pre><p><strong>Pratikte neden önemlidir:</strong></p>
+<p>Bir ağ olayı sırasında, tam olarak hangi komutların çalıştırıldığını, hangi sırayla ve cihazın ne yanıt verdiğini bilmeniz gerekir. Baskı altında manuel bellek güvenilmezdir. Otomatik loglar, ekstra adım gerektirmeden her oturumun eksiksiz, zaman damgalı kaydını verir.</p>
+<p>Düzenlenmiş ortamlarda (bankacılık, sağlık hizmetleri) değişiklik yönetimi için, oturum logları çoğunlukla bir uyumluluk gereksinimidir. SecureCRT bunu mühendislerin logulamayı etkinleştirmeyi hatırlamasına güvenmek yerine otomatik olarak yönetir.</p>
+<p>&ldquo;Geçen Perşembe bu cihazda ne değişti&rdquo; sorunun yanıtı için — log klasörünüzde grep yapın.</p>
+<p><strong>SecureCRT&rsquo;de otomatik loglamayı yapılandırma:</strong></p>
+<p><code>Options → Global Options → Log File</code> — değişkenler kullanarak log dosya adı deseni ayarlayın:</p>
+<pre tabindex="0"><code>%D\%H_%Y%M%D_%h%m%s.log
+</code></pre><p><code>%H</code> ana bilgisayar adı, <code>%Y%M%D</code> tarih, <code>%h%m%s</code> saattir. SecureCRT dizinler mevcut değilse otomatik olarak oluşturur.</p>
+<p>Loglama&rsquo;yı oturum başına veya oturum grubu başına da yapılandırabilirsiniz — farklı müşteri ortamları için farklı log konumları istiyorsanız kullanışlıdır.</p>
+<hr>
+<h3 id="oturum-yönetimi-ve-taşınabilirlik">Oturum Yönetimi ve Taşınabilirlik</h3>
+<p>SecureCRT tüm oturumları, Windows Registry değil, taşınabilir dosya tabanlı bir formatta saklar. Bu, PuTTY&rsquo;den temel bir farktır.</p>
+<p><strong>Oturum klasörleri ve organizasyonu:</strong></p>
+<p>Oturumlar bir ağaç yapısında düzenlenir — tıpkı dosya gezgini gibi. Birden fazla müşteri veya ortam yöneten bir ağ mühendisi için tipik organizasyon:</p>
+<pre tabindex="0"><code>Oturumlar/
+  Müşteri-A/
+    Çekirdek/
+      core-sw-01
+      core-sw-02
+    Dağıtım/
+      dist-sw-zemin1
+      dist-sw-zemin2
+    Firewall&#39;lar/
+      fw-birincil
+      fw-ikincil
+  Müşteri-B/
+    ...
+  Lab/
+    ...
+</code></pre><p>Her oturum şunları saklar: ana bilgisayar adı/IP, port, protokol, kullanıcı adı, bağlantı ayarları ve isteğe bağlı olarak şifre (şifreli). Bir oturum klasörü açtığınızda, tüm cihazlarınızı ağınızın yapılandırıldığı gibi organize edilmiş görürsünüz.</p>
+<p><strong>Taşınabilirlik — yeni makineye geçiş:</strong></p>
+<p>Oturumlar dosya tabanlı olduğundan, yeni bir dizüstü bilgisayara geçmek basittir:</p>
+<ol>
+<li>SecureCRT oturumlar klasörünü yeni makineye kopyalayın (veya bulut depolama / ağ paylaşımı aracılığıyla senkronize edin)</li>
+<li>SecureCRT&rsquo;yi klasöre yönlendirin</li>
+<li>Tüm oturumlar, organizasyon ve ayarlar hemen kullanılabilir</li>
+</ol>
+<p>Birden fazla mühendisli ortamlarda, ortak bir ağ sürücüsü ortak bir oturum veritabanını tutabilir — herkes aynı cihaz listesine erişir ve bir mühendis tarafından yapılan eklemeler hemen diğerlerine görünür.</p>
+<p><strong>Dışa aktarma ve yedekleme:</strong></p>
+<p><code>File → Export Settings</code> tüm oturum veritabanını tek bir dosyaya dışa aktarır. Dizüstü bilgisayar yenilemesinden önce kişisel yedek isteyen mühendisler için bu 30 saniye alır.</p>
+<hr>
+<h3 id="kimlik-bilgisi-depolama-ve-otomatik-giriş">Kimlik Bilgisi Depolama ve Otomatik Giriş</h3>
+<p>SecureCRT, oturum başına kullanıcı adları ve şifreler depolamayı, şifreleri seçtiğiniz algoritmayla (AES-256) şifrelenmiş olarak destekler.</p>
+<p><strong>Otomatik giriş dizisi:</strong></p>
+<p>Kimlik bilgileri saklamanın ötesinde, SecureCRT <strong>giriş scriptleri</strong> veya <strong>otomatik giriş</strong> desenleri kullanarak giriş otomasyonunu destekler. Standart giriş dizisi olan cihazlar için (kullanıcı adı istemi → şifre istemi → isteğe bağlı etkinleştirme şifresi istemi), şunları yapılandırırsınız:</p>
+<pre tabindex="0"><code>Oturum Özellikleri → Bağlantı → SSH2:
+  Kullanıcı Adı: admin
+  Şifre: [saklanmış, şifreli]
+
+Oturum Özellikleri → Terminal → Emülasyon → Expect Scriptleri:
+  &#34;Username:&#34; isteminde kullanıcı adı gönder
+  &#34;Password:&#34; isteminde şifre gönder
+  &#34;&gt;&#34; isteminde etkinleştirme şifresi gönder
+</code></pre><p>Yapılandırıldıktan sonra, bir oturum açmak otomatik olarak bağlanır ve giriş yapar. Yüzlerce cihaz yöneten bir ağ mühendisi için, kimlik bilgilerini tekrar tekrar yazmaktan kurtarılan zaman önemlidir — ancak daha da önemlisi, yanlış pencereye kimlik bilgisi yazma riskini ortadan kaldırır.</p>
+<p><strong>Kimlik bilgisi güvenliği hakkında bir not:</strong></p>
+<p>SecureCRT&rsquo;nin şifre depolama özelliği, saklanan şifreleri şifrelemek için bir ana şifre (veya Windows kimlik bilgisi deposu entegrasyonu) kullanır. Şifreli şifre dosyası, ana şifre olmadan bir saldırgan için kullanışlı değildir. Katı kimlik bilgisi yönetimi politikalarına sahip ortamlar için SecureCRT, SSH anahtar tabanlı kimlik doğrulamayla da entegre olur — bu, yüksek güvenlikli ortamlarda saklanan şifrelerden tercih edilir.</p>
+<hr>
+<h3 id="sekmeli-arayüz-ve-çok-oturum-yönetimi">Sekmeli Arayüz ve Çok Oturum Yönetimi</h3>
+<p>SecureCRT birden fazla oturumu tek bir pencere içinde sekmeler olarak görüntüler. Ağ geçişi sırasında 20 eş zamanlı oturumu yönetene kadar bu küçük bir şeymiş gibi görünür:</p>
+<pre tabindex="0"><code>[core-sw-01] [core-sw-02] [dist-sw-01] [fw-birincil] [router-edge] [+]
+</code></pre><p>Çok oturumlu çalışma için önemli özellikler:</p>
+<p><strong>Oturum döşemesi:</strong> Pencereyi birden fazla oturumu aynı anda görüntülemek için bölün. Bir yük devretme testi sırasında, biri aktif cihazı ve diğeri yedeği gösteren iki bölme isteyebilirsiniz — ikisini aynı anda izlemek.</p>
+<p><strong>Sekmede bağlan:</strong> Kaydedilmiş herhangi bir oturuma sağ tıklayın → &ldquo;Sekmede Bağlan.&rdquo; Yeni pencereler olmadan ihtiyaç duyduğunuz kadar oturum açın.</p>
+<p><strong>Birden fazla oturuma komut gönder:</strong> SecureCRT&rsquo;nin &ldquo;Sohbet Penceresi&rdquo; ve &ldquo;Tüm Sekmelere Gönder&rdquo; özelliği, birden fazla oturuma aynı anda aynı komutu göndermeyi sağlar. Bir grup switch genelinde tutarlı bir değişiklik uygulamak için aynı komutu 10 kez yeniden yazmaya gerek yoktur.</p>
+<hr>
+<h3 id="scripting-ve-otomasyon">Scripting ve Otomasyon</h3>
+<p>SecureCRT, VBScript, JScript ve Python destekli yerleşik bir scripting motoru içerir. Scriptler, terminal oturumuyla programatik olarak etkileşime girer — komutlar gönderir, çıktı okur, yanıtlara dayalı kararlar verir.</p>
+<p><strong>Scripting&rsquo;in sağladıkları:</strong></p>
+<ul>
+<li>Otomatik konfigürasyon yedekleme: cihaz listesine bağlanın, <code>show running-config</code> çalıştırın, çıktıyı cihaz başına bir dosyaya kaydedin</li>
+<li>Toplu konfigürasyon değişiklikleri: bir grup cihaz genelinde aynı değişikliği uygulayın, her birinin çıktısını loglayın</li>
+<li>Veri toplama: birden fazla cihazdan arayüz istatistikleri, yönlendirme tablosu girdileri veya VLAN bilgisi toplayın ve bir raporda derleyin</li>
+<li>Etkileşimli otomasyon: bir sonraki komutu göndermeden önce belirli çıktıyı bekleyen scriptler</li>
+</ul>
+<p><strong>Basit Python örneği — cihaz listesinden show version toplama:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># SecureCRT Python scripti</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> time
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+</span></span><span style="display:flex;"><span>    tab <span style="color:#f92672">=</span> crt<span style="color:#f92672">.</span>GetScriptTab()
+</span></span><span style="display:flex;"><span>    devices <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;10.0.0.1&#34;</span>, <span style="color:#e6db74">&#34;10.0.0.2&#34;</span>, <span style="color:#e6db74">&#34;10.0.0.3&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> device <span style="color:#f92672">in</span> devices:
+</span></span><span style="display:flex;"><span>        crt<span style="color:#f92672">.</span>Session<span style="color:#f92672">.</span>Connect(<span style="color:#e6db74">&#34;/SSH2 /L admin /PASSWORD pass &#34;</span> <span style="color:#f92672">+</span> device)
+</span></span><span style="display:flex;"><span>        tab<span style="color:#f92672">.</span>Screen<span style="color:#f92672">.</span>WaitForString(<span style="color:#e6db74">&#34;#&#34;</span>)
+</span></span><span style="display:flex;"><span>        tab<span style="color:#f92672">.</span>Screen<span style="color:#f92672">.</span>Send(<span style="color:#e6db74">&#34;terminal length 0</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>        tab<span style="color:#f92672">.</span>Screen<span style="color:#f92672">.</span>WaitForString(<span style="color:#e6db74">&#34;#&#34;</span>)
+</span></span><span style="display:flex;"><span>        tab<span style="color:#f92672">.</span>Screen<span style="color:#f92672">.</span>Send(<span style="color:#e6db74">&#34;show version</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>        tab<span style="color:#f92672">.</span>Screen<span style="color:#f92672">.</span>WaitForString(<span style="color:#e6db74">&#34;#&#34;</span>)
+</span></span><span style="display:flex;"><span>        output <span style="color:#f92672">=</span> tab<span style="color:#f92672">.</span>Screen<span style="color:#f92672">.</span>ReadString(<span style="color:#e6db74">&#34;#&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;C:</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">logs</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">{</span>device<span style="color:#e6db74">}</span><span style="color:#e6db74">_version.txt&#34;</span>, <span style="color:#e6db74">&#34;w&#34;</span>) <span style="color:#66d9ef">as</span> f:
+</span></span><span style="display:flex;"><span>            f<span style="color:#f92672">.</span>write(output)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        crt<span style="color:#f92672">.</span>Session<span style="color:#f92672">.</span>Disconnect()
+</span></span><span style="display:flex;"><span>        time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>main()
+</span></span></code></pre></div><p>Daha karmaşık otomasyon için (tam ağ envanteri, konfigürasyon uyumluluk kontrolü, toplu VLAN değişiklikleri), Python ile birleştirilmiş SecureCRT scripting, tam bir Ansible veya Netmiko kurulumuna gerek kalmadan yetenekli bir otomasyon platformu sunar.</p>
+<hr>
+<h3 id="securefx-entegrasyonu">SecureFX Entegrasyonu</h3>
+<p>SecureFX, VanDyke&rsquo;ın SFTP/FTP istemcisidir — ayrı satılır ancak SecureCRT ile sıkıca entegre edilmiştir. Entegrasyon şunlar için kullanışlıdır:</p>
+<ul>
+<li>Ağ cihazlarından yerel sunucuya konfigürasyon yedekleri aktarma</li>
+<li>Cihazlara yazılım yükleme</li>
+<li>Ağ cihazlarından merkezi bir depoya log dosyaları taşıma</li>
+</ul>
+<p>SecureCRT içinden, aynı oturum kimlik bilgilerini kullanarak SecureFX&rsquo;i başlatabilirsiniz — ayrı giriş gerekmez. Cisco IOS cihazları için, SecureCRT (CLI etkileşimi için) ve SecureFX (dosya aktarımı için) kombinasyonu tam operasyonel iş akışını kapsar.</p>
+<hr>
+<h3 id="protokol-desteği">Protokol Desteği</h3>
+<p>SecureCRT, bir ağ mühendisinin düzenli olarak kullandığı tüm protokolleri destekler:</p>
+<ul>
+<li><strong>SSH1 / SSH2</strong> — modern ağ cihazları için birincil protokol</li>
+<li><strong>Telnet</strong> — eski cihazlar, lab ortamları</li>
+<li><strong>Seri (COM portu)</strong> — ilk cihaz kurulumu veya kurtarma için konsol kablosu bağlantıları</li>
+<li><strong>RDP</strong> — Uzak Masaüstü bağlantıları, Windows sunucularını aynı oturum yöneticisinde ağ cihazlarıyla birlikte yönetmek için kullanışlı</li>
+<li><strong>SFTP / FTP</strong> (SecureFX entegrasyonu aracılığıyla)</li>
+</ul>
+<p>Seri bağlantı desteği, ağ mühendisleri için özellikle değerlidir. Konsol kablosuyla bir cihaza bağlanmak, SSH ile aynı oturum yöneticisi arayüzünü kullanır — bir konsol oturumunu ve aynı cihaza birden fazla SSH oturumunu aynı anda açabilirsiniz, hepsi aynı pencerede.</p>
+<hr>
+<h2 id="superputty-putty-kullanıcılarının-bilmediği-ücretsiz-yükseltme">SuperPutty: PuTTY Kullanıcılarının Bilmediği Ücretsiz Yükseltme</h2>
+<p>PuTTY&rsquo;yi günlük kullanıyorsanız, SuperPutty&rsquo;yi hiç duymamış olma ihtimaliniz yüksektir. Yeterince pazarlanmaz, arkasında büyük bir şirket yoktur ve ilk bakışta — başka bir PuTTY penceresi gibi görünür. Ancak PuTTY&rsquo;nin kendisini değiştirmeden PuTTY&rsquo;nin en büyük günlük kullanım sınırlılıklarını çözer.</p>
+<h3 id="superputty-gerçekte-nedir">SuperPutty Gerçekte Nedir</h3>
+<p>SuperPutty, <strong>PuTTY için bir oturum yöneticisi ve sekmeli arayüz sarmalayıcısıdır</strong>. PuTTY&rsquo;nin yerini almaz — SuperPutty&rsquo;nin çalışması için PuTTY kurulu olmalıdır. SuperPutty&rsquo;nin eklediği şey, PuTTY&rsquo;nin ciddi çok oturumlu çalışma için eksik olan her şeydir:</p>
+<ul>
+<li>Tek pencerede birden fazla PuTTY oturumuyla sekmeli arayüz</li>
+<li>Klasör organizasyonuyla kalıcı oturum kitaplığı</li>
+<li>Mevcut PuTTY oturumlarının içe aktarılması — mevcut yapılandırmanız kaybolmaz</li>
+<li>Döşenmiş düzen — birden fazla oturum aynı anda görünür</li>
+<li>Hızlı bağlantı çubuğu</li>
+<li>Oturum arama</li>
+</ul>
+<p><strong>Tamamen ücretsiz ve açık kaynaklıdır.</strong></p>
+<hr>
+<h3 id="putty-oturumlarınızı-içe-aktarma">PuTTY Oturumlarınızı İçe Aktarma</h3>
+<p>SuperPutty kurulduktan sonra yapılacak ilk şey: mevcut PuTTY oturumlarınızı içe aktarın.</p>
+<p><code>Tools → Import Sessions → From PuTTY Settings</code></p>
+<p>SuperPutty, Windows Registry&rsquo;den PuTTY oturum verilerini okur ve kendi oturum veritabanında ilgili oturumları oluşturur. Kaydedilmiş tüm ana bilgisayar adları, port ayarları ve bağlantı tercihleri otomatik olarak içe aktarılır. Sıfırdan başlamazsınız.</p>
+<p>İçe aktarmadan sonra PuTTY oturumlarınız SuperPutty&rsquo;nin oturum ağacında görünür — hemen kullanıma hazır. PuTTY kendisi normal şekilde çalışmaya devam eder; SuperPutty ve PuTTY bir arada bulunur.</p>
+<hr>
+<h3 id="sekmeli-arayüz-ve-oturum-organizasyonu">Sekmeli Arayüz ve Oturum Organizasyonu</h3>
+<p>Oturumlar içe aktarıldıktan (veya doğrudan SuperPutty&rsquo;de oluşturulduktan) sonra, bir cihaza bağlanmak onu sekme olarak açar:</p>
+<pre tabindex="0"><code>[core-sw-01] [fw-birincil] [router-edge] [dist-sw-02] [+]
+</code></pre><p>Oturumlar klasörlerde düzenlenebilir — SecureCRT&rsquo;de kullandığınız aynı yapı, yalnızca ticari lisans maliyeti olmadan.</p>
+<p><strong>Döşenmiş düzen:</strong> SuperPutty pencereyi bir oturum bölmesi ızgarasına bölmeyi destekler. Birden fazla cihazı aynı anda izlediğiniz bakım pencereleri sırasında kullanışlıdır.</p>
+<p><strong>Otomatik yeniden bağlanma:</strong> SuperPutty, düşen oturumları otomatik olarak yeniden bağlayabilir — bağlantı zaman aşımlarının yaygın olduğu uzun süreli izleme oturumları için kullanışlıdır.</p>
+<hr>
+<h3 id="superputtynin-sahip-olmadığı-şeyler">SuperPutty&rsquo;nin Sahip Olmadığı Şeyler</h3>
+<p>Sınırlılıklar hakkında doğrudan olmak için:</p>
+<ul>
+<li><strong>Otomatik loglama yok:</strong> SuperPutty oturumları otomatik olarak loglamaz. Her oturum için PuTTY&rsquo;nin yerleşik loglamasını yapılandırabilirsiniz, ancak SecureCRT&rsquo;nin özelliğine eşdeğer küresel &ldquo;her şeyi otomatik logla&rdquo; yoktur.</li>
+<li><strong>Yerleşik scripting motoru yok:</strong> SuperPutty&rsquo;nin SecureCRT&rsquo;nin VBScript/Python scripting&rsquo;ine eşdeğeri yoktur. Otomasyon için ayrı araçlar kullanırsınız (Netmiko, Paramiko, Ansible).</li>
+<li><strong>Kimlik bilgisi şifrelemesi yok:</strong> SuperPutty, şifreleri SecureCRT&rsquo;nin sağladığı şifreleme seçenekleri olmadan oturum veritabanında saklar. Katı kimlik bilgisi yönetimine sahip üretim ortamları için bu bir değerlendirmedir.</li>
+<li><strong>Daha az cilalı:</strong> SuperPutty, gönüllüler tarafından sürdürülen bir açık kaynak projesidir. İyi çalışır, ancak ticari bir ürünün cilasından ve aktif geliştirmesinden yoksundur.</li>
+</ul>
+<hr>
+<h2 id="securecrt-vs-superputty-ne-zaman-hangisi">SecureCRT vs. SuperPutty: Ne Zaman Hangisi</h2>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>SecureCRT</th>
+          <th>SuperPutty</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Maliyet</td>
+          <td>Ticari lisans (~99–150 $/koltuk)</td>
+          <td>Ücretsiz</td>
+      </tr>
+      <tr>
+          <td>Otomatik oturum loglama</td>
+          <td>✅ Yerleşik, küresel</td>
+          <td>❌ Yalnızca oturum başına PuTTY loglaması</td>
+      </tr>
+      <tr>
+          <td>Oturum taşınabilirliği</td>
+          <td>✅ Dosya tabanlı, kolay dışa aktarma</td>
+          <td>✅ XML tabanlı, içe aktarılabilir</td>
+      </tr>
+      <tr>
+          <td>PuTTY oturum içe aktarma</td>
+          <td>❌ Geçerli değil</td>
+          <td>✅ Registry&rsquo;den doğrudan içe aktarma</td>
+      </tr>
+      <tr>
+          <td>Sekmeli arayüz</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>Döşenmiş oturumlar</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>Scripting (Python/VBScript)</td>
+          <td>✅ Yerleşik motor</td>
+          <td>❌</td>
+      </tr>
+      <tr>
+          <td>Kimlik bilgisi depolama (şifreli)</td>
+          <td>✅ AES-256</td>
+          <td>⚠️ Yalnızca temel</td>
+      </tr>
+      <tr>
+          <td>Seri/konsol desteği</td>
+          <td>✅</td>
+          <td>✅ (PuTTY aracılığıyla)</td>
+      </tr>
+      <tr>
+          <td>RDP desteği</td>
+          <td>✅</td>
+          <td>✅ (PuTTY/mRemoteNG aracılığıyla)</td>
+      </tr>
+      <tr>
+          <td>SecureFX entegrasyonu</td>
+          <td>✅</td>
+          <td>❌</td>
+      </tr>
+      <tr>
+          <td>Aktif ticari destek</td>
+          <td>✅</td>
+          <td>Yalnızca topluluk</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>SecureCRT kullanın:</strong></p>
+<ul>
+<li>Otomatik oturum loglaması gerektiğinde (uyumluluk, olay müdahalesi)</li>
+<li>Otomasyon veya toplu işlemler için script çalıştırdığınızda</li>
+<li>Yüzlerce cihaz yönetiyor ve sağlam, güvenilir bir oturum yöneticisine ihtiyaç duyuyorsanız</li>
+<li>Organizasyonunuz şifreli kimlik bilgisi depolama gerektirdiğinde</li>
+<li>Oturum kayıtlarının zorunlu olduğu düzenlenmiş ortamlarda çalışıyorsanız</li>
+</ul>
+<p><strong>SuperPutty kullanın:</strong></p>
+<ul>
+<li>Zaten PuTTY kullanıcısıysanız ve araçları değiştirmeden sekmeli oturumlar istiyorsanız</li>
+<li>Maliyet bir kısıtsa (bireysel kullanım, küçük ekip)</li>
+<li>Otomasyon ihtiyaçlarınız ayrı araçlar (Ansible, Netmiko) tarafından karşılanıyorsa</li>
+<li>Ticari bir araça bağlanmadan önce oturum yöneticisinin iş akışınızı iyileştirip iyileştirmediğini değerlendirmek istiyorsanız</li>
+</ul>
+<p><strong>Dürüst değerlendirme:</strong> Günlük üretim altyapısını yöneten çalışan bir ağ mühendisiyseniz, SecureCRT&rsquo;nin otomatik loglaması tek başına lisans maliyetini haklı kılar. Oturum loglarının bir olay veya değişiklik sonrası inceleme sırasında tam olarak ihtiyaç duyulan kaydı sağladığı zamanların sayısı küçük değildir. SuperPutty, düz PuTTY üzerinde gerçek bir yükseltmedir ve hiçbir şeye mal olmaz — ancak loglama ve scripting&rsquo;e güvenen mühendisler için SecureCRT&rsquo;nin yerini tutmaz.</p>
+<hr>
+<h2 id="pratik-kurulum-günlük-kullanım-için-securecrt-yapılandırması">Pratik Kurulum: Günlük Kullanım için SecureCRT Yapılandırması</h2>
+<p>Günlük kullanımdan birkaç yapılandırma önerisi:</p>
+<p><strong>Küresel loglama kurulumu:</strong>
+<code>Options → Global Options → Log File</code></p>
+<pre tabindex="0"><code>Log dosya adı: C:\NetworkLogs\%H_%Y%M%D_%h%m%s.log
+Bağlantıda:    Logu başlat
+Log verisi:    Zaman damgaları dahil tüm oturum verisi
+</code></pre><p><strong>Oturum klasörü yapısı:</strong>
+En üst düzeyde müşteri veya ortama göre düzenleyin, ardından cihaz rolüne göre. Tutarlı adlandırma (çekirdek, dağıtım, erişim, firewall, router), yüzlerce oturum olsa bile gezinmeyi hızlı kılar.</p>
+<p><strong>Oturum grubu başına renk şemaları:</strong>
+SecureCRT, oturum veya klasör başına farklı terminal renk şemalarını destekler. Üretim ve lab ortamları için farklı bir renk kullanmak, yanlış pencere hatasını önler — lab&rsquo;da olduğunuzu sanırken yanlışlıkla üretim cihazında komut çalıştırmak.</p>
+<p><strong>SSH anahtar kimlik doğrulaması:</strong>
+Üretim ortamları için, saklanan şifreler yerine SSH anahtar kimlik doğrulamasını yapılandırın:
+<code>Oturum Özellikleri → Bağlantı → SSH2 → PublicKey</code>
+Özel anahtar dosyanıza işaret edin. Anahtar bağlantıda otomatik olarak kullanılır — şifre istemi yok, saklanan şifre yok.</p>
+<p><strong>Anahtar sözcük vurgulama:</strong>
+<code>Options → Global Options → Advanced → Keyword Sets</code>
+<code>%Error</code>, <code>down</code>, <code>FAIL</code>, <code>alarm</code> gibi anahtar sözcükleri kırmızı görünecek şekilde yapılandırın. Kritik hata mesajları yoğun bir çıktı akışında hemen göze çarpar.</p>
+<hr>
+<h2 id="temel-çıkarımlar">Temel Çıkarımlar</h2>
+<ul>
+<li><strong>Düz PuTTY işlevseldir ancak gerçek sınırlılıkları vardır</strong> — sekme yok, otomatik loglama yok, oturum taşınabilirliği yok.</li>
+<li><strong>SecureCRT&rsquo;nin otomatik loglaması</strong>, en operasyonel açıdan değerli özelliğidir — her oturum, her komut, her yanıt, ekstra adım gerektirmeden otomatik olarak zaman damgalı ve saklanmış.</li>
+<li><strong>SecureCRT&rsquo;de oturum taşınabilirliği</strong>, yeni bir dizüstü bilgisayara geçişin yeniden yapılandırma değil kopyalama işlemi olduğu anlamına gelir. Paylaşılan oturum veritabanları ekip tutarlılığı sağlar.</li>
+<li><strong>Otomatik girişle kimlik bilgisi depolama</strong>, tekrarlayan yazmayı ortadan kaldırır ancak hassas ortamlarda ana şifre veya anahtar tabanlı kimlik doğrulamayla birleştirilmelidir.</li>
+<li><strong>SecureCRT scripting&rsquo;i</strong>, aksi takdirde ayrı bir araç gerektiren otomasyona olanak tanır — toplu işlemler ve konfigürasyon toplama için kullanışlı.</li>
+<li><strong>SuperPutty doğru yanıttır</strong> — PuTTY&rsquo;yi bilen ve sekmeli oturumlar, oturum organizasyonu ve PuTTY oturum içe aktarma isteyen mühendisler için — sıfır maliyetle.</li>
+<li>Şu an düz PuTTY kullanıyorsanız ve SuperPutty&rsquo;yi hiç denemediyseniz: bugün kurun. Mevcut oturumlarınızı iki dakikada içe aktarın. Sekme arayüzü tek başına iş akışınızı değiştirecek.</li>
+</ul>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<ul>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-architecture/">Ağın Arka Kapısı: Yeni Nesil Console Server Mimarisi</a> — SSH başarısız olduğunda bant dışı erişim</li>
+<li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Kimlik Tabanlı Mimari Sahada</a> — SSH erişim kontrolünün arkasındaki kimlik doğrulama çerçevesi</li>
+<li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">İzleme Doğru Yapıldığında</a> — Manuel CLI çalışmasını proaktif izlemeyle tamamlamak</li>
+</ul>
+]]></content:encoded></item></channel></rss>

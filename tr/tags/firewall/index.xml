@@ -1,1 +1,680 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Firewall on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/firewall/</link><description>Recent content in Firewall on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Mon, 06 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/firewall/index.xml" rel="self" type="application/rss+xml"/><item><title>Firewall Seçimi ve Kapasite Planlaması: Datasheet'lerin Söylemediği Şeyler</title><link>https://barashhelvadzhaoglu.com/tr/technology/firewall-selection-capacity/</link><pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/firewall-selection-capacity/</guid><description>Kurumsal firewall seçimi — gerçek throughput, SSL inspection etkisi, Fortinet, Palo Alto, Cisco ve Check Point karşılaştırması.</description></item><item><title>OT Ağları: Bir IT Mühendisinin Fabrika Zemininde Gerçekte Karşılaştıkları</title><link>https://barashhelvadzhaoglu.com/tr/technology/ot-network-security/</link><pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/ot-network-security/</guid><description>IT mühendisi için OT güvenlik rehberi — Purdue modeli, Katman 2 firewall, OT imzaları, yama yapılamayan sistemler ve endüstriyel 802.1X.</description></item><item><title>Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler ve Saha Deneyimleri</title><link>https://barashhelvadzhaoglu.com/tr/architecture/network-product-selection-strategy/</link><pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/network-product-selection-strategy/</guid><description>Kurumsal ağlarda ürün seçimi bir kontrol listesinden fazlasıdır. Firewall, switch ve AP değerlendirmesi için saha testi yapılmış çerçeve.</description></item><item><title>Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</title><link>https://barashhelvadzhaoglu.com/tr/architecture/core-network-is-not-a-product-list/</link><pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/core-network-is-not-a-product-list/</guid><description>Kurumsal ağlar parçalı mimari yüzünden başarısız olur. Firewall, switching, AP seçimi ve kapasite planlaması üzerine saha incelemesi.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Firewall on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/firewall/</link><description>Recent content in Firewall on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Mon, 06 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/firewall/index.xml" rel="self" type="application/rss+xml"/><item><title>Firewall Seçimi ve Kapasite Planlaması: Datasheet'lerin Söylemediği Şeyler</title><link>https://barashhelvadzhaoglu.com/tr/technology/firewall-selection-capacity/</link><pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/firewall-selection-capacity/</guid><description>Kurumsal firewall seçimi — gerçek throughput, SSL inspection etkisi, Fortinet, Palo Alto, Cisco ve Check Point karşılaştırması.</description><content:encoded><![CDATA[<h1 id="firewall-seçimi-ve-kapasite-planlaması-datasheetlerin-söylemediği-şeyler">Firewall Seçimi ve Kapasite Planlaması: Datasheet&rsquo;lerin Söylemediği Şeyler</h1>
+<p>Firewall seçim görüşmeleri genellikle iki şekilde ilerler. Ya karar marka tanıdıklığına dayanır — &ldquo;her zaman X satıcısını kullandık&rdquo; — ya da üretimde bu sayıların gerçekte ne anlama geldiğini anlamadan datasheet throughput rakamlarına dayanır. Her iki yaklaşım da ya kullanmayacağınız kapasite için fazla ödemeye ya da gerçekte çalıştıracağınız trafik için yetersiz boyutlandırmaya yol açar.</p>
+<p>Bankacılık ve üretim ortamlarında yüzlerce Fortinet firewall deploy ettikten ve Palo Alto ile Cisco&rsquo;yu üretim altyapısında yoğun biçimde kullandıktan sonra, seçim sürecinin yalnızca öneriyi değil sonucu da üstlendiğinizde gerçekte nasıl göründüğünü paylaşmak istiyorum.</p>
+<p>Firewall yerleştirme kararlarının arkasındaki mimari bağlam için bakınız: <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değil</a></p>
+<hr>
+<h2 id="herkesi-yanıltan-sayı-firewall-throughputu">Herkesi Yanıltan Sayı: Firewall Throughput&rsquo;u</h2>
+<p>Her firewall datasheet&rsquo;i bir throughput rakamıyla başlar. 10 Gbps. 40 Gbps. 100 Gbps. Bu rakamlar gerçektir — ölçüldükleri spesifik koşullarda.</p>
+<p>Bu koşullar, sizin üretim ortamınız değildir.</p>
+<p>Datasheet throughput&rsquo;u tipik olarak şunlarla ölçülür:</p>
+<ul>
+<li>Büyük paket boyutları (1518 bayt) — gerçek trafik çok daha küçük paketler içerir</li>
+<li>Güvenlik özellikleri etkin değil — IPS yok, uygulama kontrolü yok, SSL inspection yok</li>
+<li>Sentetik test trafiği — gerçek bir ağın karışık, patlamalı, düzensiz trafiği değil</li>
+</ul>
+<p>Üretimde firewall kapasitesini tüketen şeyler:</p>
+<p><strong>PPS (Saniyedeki Paket Sayısı):</strong> Küçük paketler büyük paketlerden daha maliyetlidir. 64 baytlık paketlerden oluşan 1 Gbps&rsquo;lik trafiği taşıyan bir firewall, 1500 baytlık paketlerden oluşan 1 Gbps&rsquo;den yaklaşık 20× daha fazla paket işler. Yüksek işlem hızına sahip ortamlar (bankacılık, ticaret, veritabanı replikasyonu), bant genişliği sınırlarından çok önce PPS sınırlarına ulaşır.</p>
+<p><strong>Eş Zamanlı Oturumlar:</strong> İzlenen her bağlantı, durum tablosunda bellek işgal eder. 2 milyon eş zamanlı oturum kapasiteli bir firewall &ldquo;2 milyon kullanıcı&rdquo; anlamına gelmez — tek bir kullanıcı aynı anda düzinelerce açık oturuma sahip olabilir. Yüksek eşzamanlılık ortamları (firewall arkasındaki web sunucuları, veritabanı kümeleri, mikro-servis mimarileri) oturum tablolarını bant genişliğinden daha hızlı tüketir.</p>
+<p><strong>Yeni Oturum Hızı:</strong> Firewall&rsquo;un saniyede kaç yeni bağlantı kurabileceği. SYN flood koşullarında veya yoğun trafik dönemlerinde, yeni oturum hızı bağlayıcı kısıtlama haline gelir.</p>
+<p><strong>SSL/TLS Inspection:</strong> Kapasite planlamasının en çok yanlış yapıldığı yer burasıdır. SSL inspection etkinleştirildiğinde — HTTPS trafiğini şifre çözme, inceleme, yeniden şifreleme — çoğu platformda throughput önemli ölçüde düşer. Etkinin derecesi satıcıya ve modele göre değişir.</p>
+<hr>
+<h2 id="ssl-inspection-gerçeği">SSL Inspection Gerçeği</h2>
+<p>Bugün kurumsal trafiğin büyük çoğunluğu HTTPS&rsquo;tir. Firewall&rsquo;unuz SSL&rsquo;i inspect etmiyorsa, trafiğinizin büyük bölümünü inspect etmiyorsunuz demektir. Ancak SSL inspection&rsquo;ı etkinleştirmenin doğrudan ve önemli bir performans maliyeti vardır.</p>
+<p>10 Gbps throughput ile pazarlanan bir firewall, platforma bağlı olarak tam SSL inspection etkinken 2–4 Gbps sunabilir. Bu bir hata veya satıcı eksikliği değildir — SSL şifre çözme hesaplamsal olarak maliyetlidir ve donanım SSL hızlandırması (üst düzey modellerde mevcut), pratikte giriş seviyesi ile orta segment platformları birbirinden ayıran şeydir.</p>
+<p><strong>Önemli olan hesaplama:</strong></p>
+<p>Bir firewall boyutlandırırken soru &ldquo;ne kadar bant genişliğim var?&rdquo; değil, &ldquo;bu bant genişliğinin ne kadarı SSL inspect edilecek?&rdquo; olmalıdır. Çoğu organizasyon için:</p>
+<ul>
+<li>İnternete giden trafik: neredeyse %100 HTTPS → tümü SSL inspect edilir</li>
+<li>Dahili segmentasyon trafiği: şifreli ve şifresiz uygulama trafiğinin karışımı</li>
+<li>Sunucudan sunucuya trafik: uyumluluk nedeniyle giderek artan oranda TLS</li>
+</ul>
+<p>2 Gbps&rsquo;lik internet bant genişliğiniz varsa ve tamamını inspect etmeyi planlıyorsanız, firewall&rsquo;u 2 Gbps ham throughput için değil, 2 Gbps SSL inspection throughput&rsquo;u için boyutlandırın. Bunlar çoğunlukla çok farklı sayılardır.</p>
+<hr>
+<h2 id="çok-firewall-mimarisi-tek-beden-herkese-uymaz">Çok Firewall Mimarisi: Tek Beden Herkese Uymaz</h2>
+<p>Birçok üretim ortamında, tüm rolleri üstlenen tek bir firewall, bilinçli bir tasarım seçimi değil, bir tasarım uzlaşısıdır. Farklı trafik türlerinin farklı gereksinimleri vardır:</p>
+<pre tabindex="0"><code>İnternet Edge Firewall:
+  → Yüksek SSL inspection throughput&#39;u (trafiğin çoğu HTTPS)
+  → VPN sonlandırma kapasitesi
+  → İnternetten gelen tehditler için IPS
+  → Orta oturum sayısı
+
+Dahili Segmentasyon Firewall&#39;u (Doğu-Batı):
+  → Yüksek PPS (dahili trafik genellikle küçük paketlerdir)
+  → Çok yüksek eş zamanlı oturum sayısı
+  → Daha düşük SSL inspection gereksinimleri (dahili trafik genellikle şifresiz)
+  → Yüksek yeni oturum hızı
+
+Veri Merkezi / Sunucu Firewall&#39;u:
+  → Aşırı oturum sayıları (sunucular çok sayıda eş zamanlı bağlantıya sahiptir)
+  → Düşük gecikme (uygulama performansına duyarlı)
+  → Toplu veri transferleri için yüksek throughput
+  → Sunucu tarafı exploit&#39;ler için ayarlanmış IPS
+</code></pre><p>Üç rol için de aynı firewall modelini kullanmak, en azından birinde uzlaşı anlamına gelir. SSL inspection için optimize edilmiş internet edge firewall&rsquo;u çoğunlukla doğu-batı segmentasyonu için yanlış seçimdir. Yüksek oturum sayılı DC firewall&rsquo;u çoğunlukla bir şube ofisi için gereğinden fazla mühendislenmiştir.</p>
+<p>Bu teorik değildir — oturum sayısı sınırına ulaşıldığı için internet edge firewall&rsquo;un belirtilen throughput&rsquo;unun %30&rsquo;unda doyuma ulaştığı, DC firewall&rsquo;unda ise bol throughput rezervi olmasına rağmen PPS sınırları nedeniyle paket düştüğü ağlar gördüm.</p>
+<hr>
+<h2 id="satıcı-saha-notları">Satıcı Saha Notları</h2>
+<p>Aşağıdakiler doğrudan üretim deneyimine dayanmaktadır. Bunlar kıyaslama karşılaştırmaları değil, operasyonel gözlemlerdir. Satıcı yetenekleri yazılım sürümleri ve yeni donanım nesilleriyle gelişir — her aktif proje için mevcut spesifikasyonları doğrulayın.</p>
+<h3 id="fortinet-fortigate">Fortinet FortiGate</h3>
+<p>Fortinet, üretim firewall deneyimimin büyük bölümünün yoğunlaştığı yerdir — küçük şube deployment&rsquo;larından bankacılık genel merkezlerine ve büyük üretim ortamlarına kadar.</p>
+<p><strong>FortiGate&rsquo;in gerçekten üstün olduğu yerler:</strong></p>
+<p>Orta düzeyde güvenlik inspection gereksinimleri olan yüksek throughput ortamları. Fortinet&rsquo;in özel NP (Ağ İşlemcisi) ve CP (İçerik İşlemcisi) ASIC&rsquo;leri belirli işlevleri donanıma boşaltır — paket işleme, IPsec VPN ve bazı inspection görevleri genel amaçlı CPU&rsquo;lar yerine özel silikon üzerinde çalışır. Yüksek bant genişliğinde bu donanım hızlandırması anlamlı bir fark yaratır.</p>
+<p>Büyük trafik hacimlerini taşıması gereken ortamlar için — sunucudan sunucuya, büyük dosya transferleri, yüksek bant genişlikli şube bağlantısı — FortiGate, eşdeğer fiyat noktalarında yazılım tabanlı mimarilerin karşılaştıramayacağı throughput sunar.</p>
+<p>Fortinet Security Fabric, FortiGate&rsquo;i FortiSwitch, FortiAP, FortiAnalyzer ve FortiManager ile birlikte çalıştıran organizasyonlar için gerçek bir operasyonel avantajdır. Politika, loglama ve yönetim, çok satıcılı ortamların gerektirdiği entegrasyon çalışmasını azaltacak biçimde birleştirilmiştir.</p>
+<p><strong>FortiGate&rsquo;in sınırlılıkları:</strong></p>
+<p>Ölçekte derin inspection. IPS, uygulama kontrolü, SSL inspection ve antivirüs yüksek trafikli bağlantılarda aynı anda etkinleştirildiğinde, throughput başlık rakamlarına kıyasla önemli ölçüde düşebilir. Fortinet, bunu yansıtan &ldquo;tehdit koruması&rdquo; throughput rakamları yayınlar — ancak bu rakamlar hâlâ spesifik trafik karışımınız ve tam özellik aktivasyonuyla göreceğinizden genellikle iyimserdir.</p>
+<p><strong>Donanım nesil güncellemesi (2024–2025):</strong> Fortinet&rsquo;in yeni cihaz serisi, SSL inspection kapasitesini önemli ölçüde iyileştirdi. 2025&rsquo;te Keysight tarafından doğrulanan FortiGate 700G serisi, önceki nesillerin eşdeğer orta segment modellerine göre anlamlı bir iyileştirme olan 14 Gbps&rsquo;e kadar SSL derin inspection throughput&rsquo;u elde ediyor. Boyutlandırırken, genel tahminler değil, değerlendirdiğiniz spesifik model ve nesle ait datasheet rakamlarını her zaman kullanın.</p>
+<p><strong>Pratik rehberlik:</strong> Tam SSL inspection deployment&rsquo;ları için FortiGate boyutlandırırken, üretim trafiği için çalışma tahminim olarak datasheet&rsquo;teki SSL inspection throughput rakamının %20-30&rsquo;unu kullanıyorum. Bu muhafazakâr görünebilir, ancak trafik karışımını, eş zamanlı bağlantıları ve loglama yükünü hesaba katar. Math bu rakamda işe yarıyorsa, uygun rezerviniz var demektir.</p>
+<hr>
+<h3 id="palo-alto-networks">Palo Alto Networks</h3>
+<p>Palo Alto&rsquo;nun mimarisi geleneksel firewall&rsquo;lardan temelden farklıdır ve bunu anlamak hem güçlü yönlerini takdir etmek hem de kısıtlamalarını planlamak için gereklidir.</p>
+<p><strong>App-ID mimarisi:</strong></p>
+<p>Palo Alto, trafiği ne yapacağına karar vermeden önce uygulamaya göre tanımlar. Her oturum, yalnızca hangi portu kullandığını değil, neyi temsil ettiğini belirlemek için analiz edilir. Port 80, port 8080 veya özel bir port üzerindeki HTTP, hepsinde çalışan spesifik uygulama olarak tanımlanır.</p>
+<p>Bu, güvenlik açısından mimari olarak güçlüdür: politika &ldquo;X alt ağından TCP 443&rsquo;e izin ver&rdquo; yerine &ldquo;satış ekibinden Salesforce&rsquo;a izin ver&rdquo; üzerine kuruludur. Bilinmeyen uygulamalar — bilinen hiçbir uygulama imzasıyla eşleşmeyen trafik — varsayılan olarak potansiyel olarak şüpheli kabul edilir. Tanınmayan trafiğin geçmesini istiyorsanız açıkça izin vermeniz gerekir.</p>
+<p><strong>Bunun yarattığı güvenlik avantajı:</strong></p>
+<p>Tehdit modelinin tam uygulama görünürlüğü gerektirdiği ortamlarda — finansal hizmetler, düzenlenmiş sektörler, katı uyumluluk gereksinimleri olan ortamlar — Palo Alto&rsquo;nun yaklaşımı gerçek güvenlik derinliği yaratır. Politika modeli, her trafik türü için açık kararlar almayı zorlar. Hiçbir şey incelenmeden geçemez. Olgun güvenlik ekiplerine sahip güvenlik odaklı organizasyonlar için bu önemli bir avantajdır.</p>
+<p><strong>Operasyonel takas:</strong></p>
+<p>Palo Alto&rsquo;yu güvenlik odaklı ortamlarda güçlü kılan aynı mimari, diğerlerinde sürtünme yaratır. Bilinmeyen veya olağan dışı uygulamalar araştırma ve açık politika kararları gerektirir. Özel güvenlik ekipleri olmayan veya çeşitli, gelişen uygulama setlerine sahip ortamlarda, uygulama tabanlı bir politika modelini sürdürmenin operasyonel yükü önemli olabilir.</p>
+<p>Küçük ve orta ölçekli organizasyonlar için veya birincil gereksinimin maksimum güvenlik derinliği yerine makul güvenlikli bağlantı olduğu ortamlarda, bu takas değmeyebilir. Operasyonel model, her organizasyonun sahip olmadığı bir güvenlik olgunluk düzeyini varsayar.</p>
+<p><strong>Panorama:</strong></p>
+<p>Panorama aracılığıyla Palo Alto firewall&rsquo;larının merkezi yönetimi, bireysel cihazları yönetmekten önemli ölçüde daha yeteneklidir. Çok firewall ortamları için Panorama, Palo Alto&rsquo;yu ölçekte işletmek için fiilen gereklidir. Panorama olmadan yönetim yükü alternatiflere oranla orantısızdır.</p>
+<p><strong>SASE liderliği (2025 güncellemesi):</strong> Palo Alto&rsquo;nun bulut güvenlik platformu (Prisma SASE), en güçlü büyüme alanlarından biri haline geldi — 2025&rsquo;e kadar üç ardışık yıl Gartner SASE Lideri seçildi, yıllık %35 büyümeyle 1,3 milyar dolar ARR. Organizasyonunuz yalnızca bir perimeter firewall değil, daha geniş bir güvenlik platformunu değerlendiriyorsa bu bilgi ilgilidir.</p>
+<hr>
+<h3 id="cisco-firepower-şimdi-cisco-secure-firewall">Cisco Firepower (Şimdi Cisco Secure Firewall)</h3>
+<p>Cisco&rsquo;nun NGFW hikayesinin anlaşılmaya değer bir geçmişi var. Orijinal ASA (Adaptive Security Appliance) güçlü bir stateful firewall&rsquo;du — güvenilir, yaygın biçimde deploy edilmiş, ancak yeni nesil yetenekler açısından sınırlı. Cisco&rsquo;nun yanıtı, IPS teknolojisi (Snort tabanlı) gerçekten güçlü olan ve olan Sourcefire&rsquo;ı satın almak ve Firepower platformunu ASA mimarisinin üzerine inşa etmek oldu.</p>
+<p><strong>Firepower&rsquo;ın güçlü olduğu yerler:</strong></p>
+<p>IPS yeteneği gerçektir. Sourcefire&rsquo;ın tehdit istihbaratı ve tespiti, şimdi Cisco Talos (dünyanın en büyük tehdit istihbaratı organizasyonlarından biri), Firepower&rsquo;ın IPS&rsquo;ini genel olarak saygın bir tespit kalitesiyle güçlendirir. IPS&rsquo;in birincil güvenlik gereksinimi olduğu ortamlar için Cisco ciddi bir yetenek sunar.</p>
+<p>Cisco&rsquo;nun daha geniş ekosistemiyle entegrasyon — ISE, Umbrella, Stealthwatch (şimdi Secure Network Analytics), SecureX — giderek daha tutarlı hale gelmiş ve son yıllarda önemli ölçüde iyileşmiştir.</p>
+<p><strong>Yönetim zorluğu:</strong></p>
+<p>Cisco Firepower, tarihsel olarak yönetim karmaşıklığı nedeniyle eleştirilmiştir. Firepower Management Center (FMC) olmadan Firepower çalıştırmak, görünürlük ve politika yönetiminde önemli sınırlamaları kabul etmek anlamına gelir. FMC&rsquo;nin kendisi, alternatiflere göre daha dik bir öğrenme eğrisine sahiptir.</p>
+<p>Platform önemli ölçüde olgunlaşmış ve Cisco yönetim deneyimini iyileştirmeye yoğun yatırım yapmıştır. 2024&rsquo;te Cisco, Cisco Defense Orchestrator&rsquo;ı <strong>Security Cloud Control</strong> olarak yeniden adlandırdı — FMC, ASA ve diğer Cisco güvenlik ürünlerini tek bir arayüzde birleştiren, yapay zeka destekli bir bulut yönetim platformu. Artık politika kuralı oluşturma için AI Asistanı, proaktif öneriler için AIOps içgörüleri ve şirket içi altyapı yükünü azaltan bulut tabanlı FMC içeriyor. Bu, eski yalnızca FMC modeline göre anlamlı bir iyileştirmedir. Daha basit firewall platformlarından gelen ekipler hâlâ bir uyum dönemi yaşayacak, ancak fark birkaç yıl öncesine kıyasla daralmıştır.</p>
+<p><strong>Mimari bağlam:</strong></p>
+<p>Cisco, ISE&rsquo;nin kimlik, Catalyst&rsquo;ın switching ve DNA Center / Catalyst Center&rsquo;ın merkezi yönetim sağladığı Cisco ekosistemi yatırımına zaten derinden dahil olmuş ortamlarda en güçlüdür. Bu ortamlarda Firepower tutarlı biçimde uyum sağlar. Çok satıcılı ortamlarda entegrasyon hikayesi daha fazla çalışma gerektirir.</p>
+<hr>
+<h3 id="check-point">Check Point</h3>
+<p>Check Point, 1990&rsquo;larda firewall teknolojisini ana akım haline getiren orijinal kurumsal firewall satıcılarından biridir. Mimarileri bu mirası yansıtır: olgun, güvenlik odaklı ve yöneticilere önemli kontrol sağlayan ancak karşılık gelen uzmanlık gerektiren bir işletim sistemi (Linux tabanlı Gaia) etrafında inşa edilmiş.</p>
+<p><strong>Check Point&rsquo;in güçlü olduğu yerler:</strong></p>
+<p>Güvenlik politikası derinliği ve inspection kalitesi. Check Point&rsquo;in politika modeli ayrıntılıdır ve inspection yetenekleri olgunlaşmıştır. Güvenlik politikası karmaşıklığının yüksek olduğu ortamlarda — çok sayıda kural, çok sayıda istisna, ayrıntılı loglama gereksinimleri — Check Point&rsquo;in yönetim altyapısı (SmartConsole, yönetim sunucusu, log sunucusu ayrımı) ölçeği iyi karşılar.</p>
+<p>Platformu bilen güvenlik operasyon ekiplerine sahip organizasyonlar için Check Point yetenekli ve saygın bir seçimdir.</p>
+<p><strong>Operasyonel gerçeklik:</strong></p>
+<p>Check Point&rsquo;in yönetim modeli diğer satıcılardan farklıdır. Yönetim, zorunluluktan ayrıdır — Security Management Server (SMS) olan yönetim sunucusu, zorunluluk gateway&rsquo;lerinden ayrıdır. Bu ayrımla, politika kurulum süreciyle ve temel Gaia OS ile çalışmak gerçek uzmanlık gerektirir.</p>
+<p>Bir ağ mühendisinin perspektifinden Check Point, operasyonel olarak en şeffaf platform değildir. Linux yönetimine aşinalık önemli ölçüde yardımcı olur. Nesne modeli ve kural tabanı yapısı hakkında sağlam bir anlayış olmadan politika yönetimi, zamanla biriken karmaşıklığa yol açar.</p>
+<hr>
+<h2 id="ha-mimarisi-aktif-yedek-ve-aktif-aktif">HA Mimarisi: Aktif-Yedek ve Aktif-Aktif</h2>
+<p>Kurumsal firewall deployment&rsquo;ları yüksek erişilebilirlik gerektirir. İki modelin farklı özellikleri vardır:</p>
+<p><strong>Aktif-Yedek:</strong></p>
+<ul>
+<li>Bir firewall tüm trafiği işler; yedek izler ve arızada devralır</li>
+<li>Oturum durumu yedeğe senkronize edilir — failover kurulu bağlantılara şeffaftır</li>
+<li>Sorun giderme daha basit — herhangi bir zamanda tüm trafik tek cihazdan</li>
+<li>Normal işlemde donanım kapasitesinin %50&rsquo;sini boşa harcar</li>
+<li>Çoğu kurumsal edge deployment için standart seçim</li>
+</ul>
+<p><strong>Aktif-Aktif:</strong></p>
+<ul>
+<li>Her iki firewall da aynı anda trafiği yönetir, tipik olarak farklı trafik akışları veya bölgeler için</li>
+<li>Yapılandırmak ve sorun gidermek daha karmaşık — asimetrik routing&rsquo;den kaçınılmalı</li>
+<li>Her iki cihazı da kullanır, ancak durum senkronizasyonunu karmaşıklaştırır</li>
+<li>Tek cihazın karşılayamayacağı çok yüksek throughput gereksinimleri için daha uygun</li>
+<li>Dikkatli trafik mühendisliği gerektirir — asimetrik akışlar (FW-1 üzerinden istek, FW-2 üzerinden yanıt) oturum düşüşlerine neden olur</li>
+</ul>
+<p>Pratikte Aktif-Yedek, kurumsal deployment&rsquo;ların büyük çoğunluğu için doğru seçimdir. HA yükü hesaba katıldığında tek bir cihazın sağlayabileceğinden gerçekten daha fazla throughput&rsquo;a ihtiyaç duymadıkça, Aktif-Aktif&rsquo;in throughput faydası operasyonel karmaşıklığı haklı kılmaz.</p>
+<hr>
+<h2 id="politika-hijyeni-yavaş-yavaş-biriken-sorun">Politika Hijyeni: Yavaş Yavaş Biriken Sorun</h2>
+<p>Firewall kapasitesi yalnızca bir donanım sorusu değildir. Kural tabanı karmaşıklığı arttıkça firewall performansı düşer — özellikle kural tabanları düzenli temizlik yapılmadan büyüdüğünde.</p>
+<p>Trafiğin çoğunun ilk 50 kuralda eşleştiği 5.000 kurallı bir kural tabanı, trafiğin yüzlerce kural genelinde dağıldığı 5.000 kurallı bir tabanla çok farklı performans gösterir. Her paket, eşleşene veya örtük redde ulaşana kadar kural tabanını yukarıdan aşağıya doğru geçer.</p>
+<p><strong>Kural hijyeni pratikte ne anlama gelir:</strong></p>
+<ul>
+<li>Hiçbir zaman eşleşmeyen kurallar (gölge kurallar, eski kurallar) üç ayda bir tespit edilmeli ve kaldırılmalıdır</li>
+<li>Yüksek trafikli kurallar kural tabanının üst kısmına yerleştirilmelidir</li>
+<li>Aşırı geniş kurallar (loglama devre dışı bırakılmış herhangi/herhangi izinler) belgelenmeli ve gözden geçirilmelidir</li>
+<li>Platform desteklediğinde uygulamaya özgü kurallar port tabanlı kuralların yerini almalıdır</li>
+</ul>
+<p>FortiManager, Panorama ve FMC&rsquo;nin hepsinde kural kullanım istatistikleri ve gölge kural tespiti bulunur. Bu araçları kullanmak, periyodik temizlik alıştırması değil, sorumlu firewall operasyonunun bir parçasıdır.</p>
+<hr>
+<h2 id="kapasite-planlaması-pratik-çerçeve">Kapasite Planlaması: Pratik Çerçeve</h2>
+<p>Bir firewall boyutlandırırken şu metrikleri sırayla işleyin:</p>
+<p><strong>1. Temel trafik karakterizasyonu</strong></p>
+<ul>
+<li>Mevcut zirve bant genişliği nedir (ortalama değil)?</li>
+<li>SSL/HTTPS yüzdesi nedir?</li>
+<li>Zirvede eş zamanlı oturum sayısı nedir?</li>
+<li>Zirvede yeni oturum hızı nedir?</li>
+</ul>
+<p><strong>2. Büyüme projeksiyonu</strong></p>
+<ul>
+<li>3 yıllık yaşam döngüsü için beklenen zirvenin %40–50 üzerinde rezerv ekleyin</li>
+<li>Eklenecek yeni uygulama ve hizmetleri hesaba katın</li>
+</ul>
+<p><strong>3. Özellik etkisi</strong></p>
+<ul>
+<li>Hangi güvenlik özellikleri etkinleştirilecek? (IPS, SSL inspection, App-ID, AV)</li>
+<li>Ham throughput değil, satıcının &ldquo;tehdit koruması&rdquo; throughput rakamlarını kullanın</li>
+<li>SSL inspection için özellikle: tahmini HTTPS yüzdenizi kullanarak satıcı boyutlandırma araçlarıyla doğrulayın</li>
+</ul>
+<p><strong>4. HA yükü</strong></p>
+<ul>
+<li>Aktif-Yedek: her birimi trafiğin %100&rsquo;ü için boyutlandırın (yedek tam yükü karşılayabilmelidir)</li>
+<li>Yedek kapasitesini kullanmayı planlamayın — failover için hazır olmalıdır</li>
+</ul>
+<p><strong>5. Yönetim ve loglama</strong></p>
+<ul>
+<li>Yüksek loglama oranları firewall&rsquo;un kendi CPU&rsquo;sunu tüketir</li>
+<li>Harici log yönetimi (FortiAnalyzer, Panorama, FMC) ölçekte isteğe bağlı değildir</li>
+</ul>
+<p>Basit bir boyutlandırma örneği:</p>
+<pre tabindex="0"><code>Ortam:
+  Zirve bant genişliği: 2 Gbps
+  SSL yüzdesi: %80 (1,6 Gbps HTTPS)
+  IPS + App-ID + SSL inspection: hepsi etkin
+  3 yıllık büyüme rezervi: %50
+
+Gerekli SSL inspection throughput&#39;u:
+  1,6 Gbps × 1,5 (büyüme) = 2,4 Gbps
+
+≥ 2,4 Gbps SSL inspection throughput&#39;u için derecelendirilen model seçin
+(2,4 Gbps ham throughput için değil)
+</code></pre><hr>
+<h2 id="temel-çıkarımlar">Temel Çıkarımlar</h2>
+<ul>
+<li><strong>Datasheet throughput&rsquo;u üretim throughput&rsquo;u değildir.</strong> SSL inspection, IPS ve uygulama kontrolü efektif throughput&rsquo;u önemli ölçüde azaltır. Ham rakamlar değil, tehdit koruması veya SSL inspection rakamlarına göre boyutlandırın.</li>
+<li><strong>SSL inspection kapasitesi</strong>, çoğu internet edge deployment için bağlayıcı kısıtlamadır. Trafiğin büyük çoğunluğu HTTPS&rsquo;tir ve inspect etmek maliyetlidir.</li>
+<li><strong>Fortinet</strong>, donanım hızlandırmasının önemli olduğu yüksek throughput ortamlarında üstündür. Ölçekte tam derin inspection, dikkatli model seçimi gerektirir — tüm özellikler etkinleştirildiğinde throughput önemli ölçüde düşer.</li>
+<li><strong>Palo Alto</strong>, en derin uygulama görünürlüğü ve en katı politika modelini sunar. Mimari güvenlik-olgun organizasyonlar için güçlüdür; özel güvenlik ekipleri olmayanlar için operasyonel yük ekler. Çok cihazlı yönetim için Panorama fiilen gereklidir.</li>
+<li><strong>Cisco Firepower</strong>, güçlü IPS (Talos istihbaratı) ve Cisco ekosistemi entegrasyonu sunar. Yönetim karmaşıklığı gerçektir — FMC, platformun değerini gerçekleştirmek için gereklidir.</li>
+<li><strong>Check Point</strong>, derin politika kontrolüyle olgun ve güvenlik odaklıdır. Etkili biçimde işletmek için Linux/Gaia OS aşinalığı ve disiplinli kural tabanı yönetimi gerektirir.</li>
+<li><strong>Çok firewall mimarisi</strong> — edge, dahili segmentasyon ve DC için farklı firewall&rsquo;lar — çoğunlukla her şey için tek platform yerine doğru yanıttır.</li>
+<li><strong>Kural hijyeni</strong> yalnızca ev düzeni değil, bir performans ve güvenlik sorunudur. İhmal edilen kural tabanları her ikisini de bozar.</li>
+</ul>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<ul>
+<li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değil</a> — Firewall yerleştirme için mimari bağlam</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Firewall tasarımının arkasındaki politika felsefesi</li>
+<li>🛡️ <a href="/tr/technology/ddos-koruma-stratejileri-isp-scrubbing-on-premise-bulut/">DDoS Koruma Stratejileri</a> — Firewall&rsquo;un yukarısında ne var</li>
+<li>🛡️ <a href="/tr/technology/f5-waf-asm-advanced-waf-uygulama-guvenligi/">F5 WAF Deep Dive</a> — Firewall politikasını tamamlayan Katman 7 koruması</li>
+<li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">İzleme Doğru Yapıldığında</a> — Firewall davranışını görünür kılmak</li>
+</ul>
+]]></content:encoded></item><item><title>OT Ağları: Bir IT Mühendisinin Fabrika Zemininde Gerçekte Karşılaştıkları</title><link>https://barashhelvadzhaoglu.com/tr/technology/ot-network-security/</link><pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/ot-network-security/</guid><description>IT mühendisi için OT güvenlik rehberi — Purdue modeli, Katman 2 firewall, OT imzaları, yama yapılamayan sistemler ve endüstriyel 802.1X.</description><content:encoded><![CDATA[<h1 id="ot-ağları-bir-it-mühendisinin-fabrika-zemininde-gerçekte-karşılaştıkları">OT Ağları: Bir IT Mühendisinin Fabrika Zemininde Gerçekte Karşılaştıkları</h1>
+<p>Çoğu ağ mühendisi kariyerini IT altyapısında geçirir — kurumsal LAN&rsquo;lar, veri merkezleri, kampüs ağları, bulut bağlantısı. Sonra bir gün masanıza fabrika, depo otomasyon sistemi veya bir tesis içeren bir proje düşer. Ve birden tanıdık kurallar tam olarak geçerli olmaz.</p>
+<p>OT (Operational Technology — Operasyonel Teknoloji) ağları IT ağları değildir. Cihazlar farklıdır, protokoller farklıdır, öncelikler farklıdır ve — kritik olarak — bir şeyi yanlış yapmanın sonuçları farklıdır. IT&rsquo;de yanlış yapılandırılmış bir switch ağ kesintisine neden olur. OT&rsquo;de yanlış yapılandırılmış bir ağ değişikliği üretim hattını durdurabilir, pahalı ekipmanı hasar görebilir veya kritik altyapı senaryolarında fiziksel güvenlik riskleri yaratabilir.</p>
+<p>Bu yazı IT mühendisinin perspektifinden yazılmıştır — bir firewall eklemek, bir ağı segmente etmek veya endüstriyel bir sistemi kurumsal ağa bağlamak için çağrılan kişi. Derin bir SCADA mühendisliği rehberi değil, karşılaşacaklarınız ve herhangi bir şeye dokunmadan önce düşünmeniz gerekenler için pratik bir yönlendirme.</p>
+<hr>
+<h2 id="temel-fark-gizlilik-yerine-erişilebilirlik">Temel Fark: Gizlilik Yerine Erişilebilirlik</h2>
+<p>IT güvenliğinde klasik öncelik sırası <strong>CIA: Gizlilik, Bütünlük, Erişilebilirlik</strong>&rsquo;tir. Gizlilik önce gelir — verileri yetkisiz erişimden korumak birincil endişedir.</p>
+<p>OT&rsquo;de öncelik sırası esasen <strong>AIC: Erişilebilirlik, Bütünlük, Gizlilik</strong>&rsquo;tir. Üretim hattı çalışmaya devam etmelidir. IT ortamında 30 saniyelik ağ kesintisi bir rahatsızlıktır. Bir üretim tesisinde 30 saniyelik ağ kesintisi, ıskarta ürün, hasar görmüş makineler veya bir güvenlik olayı anlamına gelebilir.</p>
+<p>Bu tersine çevirme, OT ortamındaki her ağ kararı için doğrudan sonuçlar doğurur:</p>
+<ul>
+<li><strong>OT cihazlarını kapsamlı planlama olmadan yeniden başlatmazsınız.</strong> IT ortamında bir Cisco switch dramaya gerek kalmadan 3 dakikada yeniden başlatılabilir. Üretim hattına gömülü bir switch, planlanmış bakım penceresi, üretim durdurma ve tesis operasyon ekibiyle koordinasyon gerektirebilir.</li>
+<li><strong>Yama yönetimi basit değildir.</strong> IT&rsquo;de sistemleri düzenli olarak yamarsınız. OT&rsquo;de birçok sistem yamalanamamaktadır — satıcı yazılım sürümünü sertifikalandırır ve herhangi bir değişiklik sertifikayı geçersiz kılar veya pahalı yeniden doğrulama gerektirir.</li>
+<li><strong>Ağ değişiklikleri koordinasyon gerektirir.</strong> IT&rsquo;de VLAN eklemek rutindir. OT&rsquo;de aynı değişiklik üretim yöneticilerinden, güvenlik mühendislerinden ve ekipman satıcılarından onay gerektirebilir.</li>
+</ul>
+<p>Bunu çalışmaya başlamadan önce anlamak yalnızca mesleki nezaket değildir — gerçek operasyonel olayları önler.</p>
+<hr>
+<h2 id="purdue-modeli-ot-ağ-mimarisinin-haritası">Purdue Modeli: OT Ağ Mimarisinin Haritası</h2>
+<p>Purdue Modeli (ISA-95), endüstriyel ağ mimarisini anlamak için standart çerçevedir. En alttaki fiziksel süreçlerden en üstteki kurumsal IT&rsquo;ye kadar seviyeleri tanımlar:</p>
+<pre tabindex="0"><code>Seviye 4/5  — Kurumsal IT Ağı (ERP, e-posta, kurumsal LAN)
+─────────────────────────────────────────────────────────────
+              IT/OT DMZ  ← IT mühendislerinin çalıştığı sınır
+─────────────────────────────────────────────────────────────
+Seviye 3    — Operasyonlar / Saha Yönetimi
+              (Tarihçi sunucular, mühendislik iş istasyonları,
+               HMI sunucuları, toplu yönetim)
+
+Seviye 2    — Denetimsel Kontrol
+              (SCADA sunucuları, HMI istemcileri, DCS iş istasyonları)
+
+Seviye 1    — Temel Kontrol
+              (PLC&#39;ler, DCS kontrolörleri, RTU&#39;lar)
+
+Seviye 0    — Fiziksel Süreç
+              (Sensörler, aktüatörler, motorlar, valfler)
+</code></pre><p><strong>IT mühendislerinin tipik olarak çalıştığı yer:</strong> IT/OT DMZ ve Seviye 3. Kurumsal IT ağı ile OT ortamı arasındaki bağlantının yönetildiği yer burasıdır. Firewall projeleri, tarihçi bağlantısı, uzak erişim çözümleri ve ağ segmentasyonu çalışmalarının yapıldığı yer.</p>
+<p><strong>IT mühendislerinin nadiren doğrudan dokunduğu şeyler:</strong> Seviye 0, 1 ve 2 — gerçek kontrol sistemleri, PLC&rsquo;ler ve SCADA bileşenleri. Bunlar OT/otomasyon mühendisleri ve ekipman satıcılarının alanıdır.</p>
+<p>IT ile OT arasındaki DMZ, endüstriyel ağ mimarisindeki en kritik sınırdır. Var olmalıdır. Trafik kurumsal ağ ile OT ortamı arasında serbestçe akmamalıdır.</p>
+<hr>
+<h2 id="ot-protokolleri-bu-ağlarda-neler-çalışıyor">OT Protokolleri: Bu Ağlarda Neler Çalışıyor</h2>
+<p>Bir OT ağına ilk kez ağ analizörü bağladığınızda, hiçbir IT ağında görünmeyen protokoller göreceksiniz. Bunların ne olduğunu — yüzey düzeyinde bile olsa — anlamak, makul firewall ve segmentasyon kararları vermenize yardımcı olur.</p>
+<h3 id="modbus">Modbus</h3>
+<p>1979&rsquo;da geliştirilen en eski endüstriyel protokol. Üretim, kamu hizmetleri ve bina otomasyonunda hâlâ yaygın biçimde kullanılmaktadır.</p>
+<ul>
+<li><strong>Modbus RTU:</strong> Seri tabanlı (RS-232, RS-485). Ethernet değil, fiziksel seri bağlantılar üzerinden çalışır.</li>
+<li><strong>Modbus TCP:</strong> TCP/IP içinde kapsüllenmiş Modbus. Port 502 üzerinde çalışır.</li>
+</ul>
+<p>Modbus&rsquo;ta <strong>kimlik doğrulama yoktur, şifreleme yoktur, yetkilendirme yoktur</strong>. Modbus etkin bir kontrolörün port 502&rsquo;sine ulaşabilen ağdaki herhangi bir cihaz sensör değerlerini okuyabilir veya kontrol komutları yazabilir. Bu tarihsel bir ihmal değildir — Modbus, fiziksel erişimin güvenlik kontrolü olduğu izole seri ağlar için tasarlanmıştır.</p>
+<p>Modbus TCP, OT segmentinin dışından erişilebilen bir Ethernet ağında olduğunda, kimlik doğrulamanın yokluğu önemli bir risktir. Firewall politikası, Modbus etkin kontrolörlere hangi cihazların ulaşabileceğini kısıtlamalıdır.</p>
+<h3 id="dnp3-distributed-network-protocol">DNP3 (Distributed Network Protocol)</h3>
+<p>Kamu hizmetlerinde yaygın — enerji üretimi, su arıtma, petrol ve gaz. Başlangıçta kontrol merkezleri ile uzak saha cihazları (trafo merkezleri, pompa istasyonları) arasındaki SCADA iletişimi için tasarlanmıştır.</p>
+<p>DNP3&rsquo;ün temel kimlik doğrulama uzantıları vardır (Güvenli Kimlik Doğrulama Sürüm 5), ancak dağıtılmış uygulamaların çoğu hâlâ orijinal kimlik doğrulamasız sürümü kullanmaktadır. Modbus gibi, izole ağlar için tasarlanmış ve çoğunlukla kağıt üzerinde mevcut olan güvenlik özellikleri olmadan dağıtılmıştır.</p>
+<h3 id="opc-ua-opc-unified-architecture">OPC-UA (OPC Unified Architecture)</h3>
+<p>Eski protokollerdeki güvenlik açıklarını gidermek için özel olarak tasarlanmış modern endüstriyel iletişim standardı. OPC-UA şunları destekler:</p>
+<ul>
+<li>Sertifika tabanlı kimlik doğrulama</li>
+<li>Şifreli iletişim</li>
+<li>İnce taneli yetkilendirme (hangi istemcilerin hangi veri noktalarını okuyabileceği)</li>
+</ul>
+<p>OPC-UA, yeni kurulumlarda ve Tarihçi sunucu bağlantısında karşılaşacağınız protokoldür — Seviye 3 sistemlerin bir güvenlik sınırını korurken Seviye 2 kontrolörlerden veri topladığı yöntem.</p>
+<h3 id="profinet">PROFINET</h3>
+<p>Siemens&rsquo;in endüstriyel Ethernet protokolü, Avrupa üretiminde (otomotiv, gıda işleme, ilaç) baskındır. PROFINET standart Ethernet üzerinde çalışır ancak belirli EtherType değerleri kullanır ve gerçek zamanlı açıdan hassastır — milisaniyelik gecikmeler önemlidir.</p>
+<p>PROFINET&rsquo;in neredeyse hiç yerleşik güvenliği yoktur. Fiziksel olarak izole edilmiş bir ağı varsayar. PROFINET kontrolörlü ortamlarda, ağ segmentasyonu katı olmalıdır — PROFINET trafiği asla kendi özel VLAN&rsquo;ının dışına çıkmamalıdır.</p>
+<h3 id="ethernetip">EtherNet/IP</h3>
+<p>Rockwell Automation / Allen-Bradley&rsquo;nin endüstriyel Ethernet protokolü. Kuzey Amerika üretiminde yaygın. PROFINET&rsquo;e benzer güvenlik özellikleri — izole ağlar için tasarlanmış, sınırlı kimlik doğrulama.</p>
+<hr>
+<h2 id="it-mühendisinin-gerçekte-yapması-istenenler">IT Mühendisinin Gerçekte Yapması İstenenler</h2>
+<p>Pratikte, IT/ağ mühendisleri OT projelerine dahil olduğunda, talep genellikle şu kategorilerden birine girer:</p>
+<h3 id="senaryo-1-pc-ile-makine-arasına-firewall-ekle">Senaryo 1: &ldquo;PC ile Makine Arasına Firewall Ekle&rdquo;</h3>
+<p>En yaygın senaryo. Bir Windows PC (SCADA yazılımı veya HMI çalıştıran), aralarında hiçbir ağ cihazı olmadan Ethernet aracılığıyla doğrudan bir PLC veya üretim makinesine bağlıdır. Talep, bir güvenlik katmanı eklemektir.</p>
+<pre tabindex="0"><code>Önce:
+  [Windows HMI PC] ──────────────── [PLC / Makine Kontrolörü]
+
+Sonra (tipik yaklaşım):
+  [Windows HMI PC] ── [Firewall] ── [PLC / Makine Kontrolörü]
+</code></pre><p><strong>Katman 2 şeffaf firewall deployment&rsquo;ı:</strong></p>
+<p>Bu yola firewall eklemenin operasyonel açıdan en güvenli yolu, <strong>Katman 2 şeffaf mod</strong>dur (&ldquo;bump in the wire&rdquo; veya köprü modu olarak da adlandırılır). Firewall trafiği şeffaf olarak geçirir — ne cihaz onun varlığından haberdar olur, ne IP adresleri değişir ne de routing değişiklikleri yapılır. Firewall arızalanırsa, trafik kaldırılıp doğrudan yeniden bağlanarak geri yüklenebilir.</p>
+<p>Bu önemlidir çünkü PLC veya endüstriyel kontrolör üzerindeki IP adreslerini değiştirmek, onunla konuşan uygulama yazılımını yeniden yapılandırmayı gerektirir — bu, satıcı desteği, yeniden sertifikalama ve üretim kesintisi içerebilecek bir süreçtir.</p>
+<p>Şeffaf modda:</p>
+<ul>
+<li>PLC mevcut IP adresini korur</li>
+<li>HMI PC mevcut IP adresini korur</li>
+<li>Firewall, yönlendirilmiş bir atlama olmadan trafiği inceler ve politikayı uygular</li>
+</ul>
+<p>Bu senaryoda firewall politikası tipik olarak şunları içerir:</p>
+<ul>
+<li>HMI&rsquo;dan kontrolöre belirli OT protokolü trafiğine izin ver (Modbus port 502, PROFINET, EtherNet/IP)</li>
+<li>Yalnızca gerekli yönetim protokollerine izin ver</li>
+<li>Geri kalanını engelle</li>
+<li>Görünürlük için tüm trafiği logla</li>
+</ul>
+<h3 id="senaryo-2-ot-ağını-kurumsal-itye-bağla">Senaryo 2: &ldquo;OT Ağını Kurumsal IT&rsquo;ye Bağla&rdquo;</h3>
+<p>Üretim ekibi, fabrika zemininden kurumsal sistemlere veri almak ister — ERP&rsquo;ye üretim istatistikleri, raporlama veritabanına sensör verileri, uzak izleme yeteneği.</p>
+<p>Bu bir DMZ mimarisi gerektirir:</p>
+<pre tabindex="0"><code>[Kurumsal IT Ağı]
+         │
+    [IT/OT Firewall]   ← Katı politika: yalnızca belirli akışlara izin ver
+         │
+    [OT DMZ]
+    [Tarihçi Sunucu]    ← OT&#39;den veri toplar, IT&#39;ye sunar
+         │
+    [OT Firewall]       ← OT&#39;yi DMZ&#39;den koruyan ayrı firewall
+         │
+    [OT Ağı — Seviye 2/3]
+</code></pre><p>DMZ prensibi: kurumsal ağ, OT cihazlarına doğrudan ulaşamaz. DMZ&rsquo;deki Tarihçi sunucu, OT sistemlerinden veri toplar (OT firewall tarafından izin verilir) ve kurumsal sistemlerin kullanımına sunar (IT firewall tarafından izin verilir). Kurumsal ağ ne OT ağına, ne de OT ağı kurumsal ağa doğrudan bağlantı başlatabilir.</p>
+<p><strong>Neden iki firewall, bir değil?</strong> DMZ&rsquo;deki Tarihçi sunucu ele geçirilirse, herhangi bir ağa erişim yolu sağlamamalıdır. DMZ segmentli tek bir firewall, iki ayrı firewall&rsquo;dan daha az izolasyon sağlar.</p>
+<h3 id="senaryo-3-düz-ot-ağına-segmentasyon-ekle">Senaryo 3: &ldquo;Düz OT Ağına Segmentasyon Ekle&rdquo;</h3>
+<p>Birçok eski OT ortamı tamamen düz bir ağa sahiptir — tüm PLC&rsquo;ler, HMI&rsquo;lar, mühendislik iş istasyonları ve hatta bazen kurumsal bağlantılı PC&rsquo;ler aynı Katman 2 yayın etki alanındadır. Her cihaz diğer her cihaza ulaşabilir.</p>
+<p>Bu ağı segmente etmek şunları içerir:</p>
+<ul>
+<li>VLAN yetenekli yönetilen switchler eklemek</li>
+<li>Cihaz türü veya işleve göre VLAN&rsquo;lar tanımlamak (Seviye 2 kontrolörler, Seviye 3 denetimsel, mühendislik iş istasyonları)</li>
+<li>Katı VLAN arası politikayla bir firewall üzerinden VLAN&rsquo;lar arasında routing yapmak</li>
+</ul>
+<p><strong>Kritik kısıt:</strong> Herhangi bir ağ değişikliği yapmadan önce mevcut iletişim akışlarını kapsamlı biçimde belgeleyin. Hangi cihazlar hangi cihazlarla konuşur? Hangi portlar üzerinde? Bir PLC ile kontrolörü arasındaki belgelenmemiş iletişim yolunu kıran segmentasyon, üretim hattını durdurur.</p>
+<p>IT ortamlarında, akışları birkaç gün izleyerek keşfedebilir ve ardından uygulayabilirsiniz. OT&rsquo;de, bazı iletişim akışları yalnızca belirli üretim aşamalarında gerçekleşir — haftalık bir toplu işlem, vardiya sonu raporu — ve kısa bir izleme penceresi sırasında görünmez. Segmentasyonu uygulamadan önce tüm iletişim gereksinimlerini belgelemek için OT ekibiyle çalışın.</p>
+<hr>
+<h2 id="ot-odaklı-firewalllar-satıcıların-geliştirdikleri">OT Odaklı Firewall&rsquo;lar: Satıcıların Geliştirdikleri</h2>
+<p>Standart IT firewall&rsquo;ları (NGFW&rsquo;ler bile) OT protokollerine sınırlı görünürlüğe sahiptir. IP başlıklarını ve TCP/UDP portlarını inceleyebilirler, ancak Modbus TCP komutunun içeriğini anlayamazlar — &ldquo;sensör değeri oku&rdquo; ile &ldquo;aktüatöre kontrol komutu yaz&rdquo; arasındaki farkı ayırt edemezler.</p>
+<p>OT odaklı firewall&rsquo;lar <strong>endüstriyel protokol incelemesi</strong> ekler — OT protokolü payload&rsquo;larını ayrıştırma ve protokole özgü içeriğe dayalı politika kararları verme yeteneği.</p>
+<h3 id="imza-farkı">İmza Farkı</h3>
+<p>Standart bir NGFW&rsquo;nin 2.000–5.000 uygulama imzası olabilir — çoğunlukla IT uygulamaları (HTTP, TLS, DNS, SMB, Office 365, vb.). OT yetenekli bir firewall lisansı, endüstriyel protokoller için yüzlerce ek imza ekler:</p>
+<ul>
+<li><strong>Modbus TCP:</strong> Okuma isteklerini (HMI&rsquo;dan kabul edilebilir) yazma komutlarından (yalnızca yetkili sistemlerle kısıtla) ayırt et</li>
+<li><strong>PROFINET:</strong> Belirli PROFINET servislerini tanımla ve kontrol et</li>
+<li><strong>EtherNet/IP:</strong> CIP (Common Industrial Protocol) komutlarını ayrıştır</li>
+<li><strong>DNP3:</strong> DNP3 fonksiyon kodlarını ve nesne türlerini incele</li>
+<li><strong>OPC-DA/UA:</strong> OPC iletişim yönünü ve veri türlerini kontrol et</li>
+<li><strong>BACnet:</strong> Bina otomasyon protokolü incelemesi</li>
+<li>Düzinelerce endüstriyel ve bina otomasyon protokolü daha</li>
+</ul>
+<p><strong>Neden önemli:</strong> OT protokolü incelemesi olmadan, bir firewall yalnızca &ldquo;bu IP o IP&rsquo;ye bu portta ulaşabilir mi&rdquo; yi kontrol edebilir. OT incelemesiyle, &ldquo;HMI, PLC&rsquo;den Modbus holding registerlarını okuyabilir, ancak coillere yazamaz&rdquo; ı zorunlu kılabilir — IP/port filtrelemeden temel olarak farklı bir kontrol düzeyi.</p>
+<h3 id="satıcı-ortamı">Satıcı Ortamı</h3>
+<p><strong>OT Bundle&rsquo;lı Fortinet FortiGate:</strong>
+Fortinet, temel NGFW&rsquo;yi endüstriyel protokol imzaları ve OT&rsquo;ye özgü tehdit istihbaratıyla genişleten belirli OT/ICS lisansları sunar. FortiGate, şeffaf modda (Katman 2) veya yönlendirilmiş modda dağıtılabilir. IT için zaten FortiGate çalıştıran ortamlarda, aynı platform her ikisini de yönetir.</p>
+<p><strong>ICS/SCADA içeriğiyle Palo Alto Networks:</strong>
+Palo Alto&rsquo;nun App-ID motoru, endüstriyel protokol tanımlamasını içerir. Industrial IoT Security aboneliği OT cihaz görünürlüğü, risk değerlendirmesi ve protokole özgü politikalar ekler. Bölge tabanlı mimari, Purdue modeli segmentasyonuyla iyi uyum sağlar.</p>
+<p><strong>Claroty, Nozomi Networks, Dragos (OT&rsquo;ye özel):</strong>
+Bunlar geleneksel firewall&rsquo;lar değildir — OT&rsquo;ye özgü güvenlik izleme platformlarıdır. SPAN portu aracılığıyla OT ağına bağlanırlar (pasif izleme) ve derin görünürlük sağlarlar: varlık keşfi, protokol analizi, davranışsal temel, anomali tespiti. Trafiği engellemezler ancak genel IT araçlarının sağlayamadığı görünürlük sunarlar. Genellikle standart bir firewall ile birlikte kullanılır.</p>
+<p><strong>Cisco Industrial Network Director:</strong>
+Cisco&rsquo;nun OT odaklı yönetim ve güvenlik platformu, OT ağı görünürlüğü için Cisco endüstriyel switchleri ve firewall&rsquo;larıyla entegre olur.</p>
+<h3 id="lisanslama-gerçeği">Lisanslama Gerçeği</h3>
+<p>OT firewall yetenekleri, standart IT NGFW özelliklerinden ayrı olarak lisanslanır. OT projesi için bir firewall belirtiyorsanız, standart kurumsal lisans yeterli değildir — OT/ICS bundle veya eşdeğeri gerekir. Bu hem maliyeti hem de müşteriyle satıcı seçim görüşmesini etkiler.</p>
+<hr>
+<h2 id="yama-sorunu-dokunamadığınız-eski-sistemler">Yama Sorunu: Dokunamadığınız Eski Sistemler</h2>
+<p>IT&rsquo;de yama rutin bir işlemdir. Aylık yama döngüleri, otomatik dağıtım, merkezi yönetim. OT&rsquo;de yama çoğunlukla imkânsızdır.</p>
+<p>Sebepler spesifik ve meşrudur:</p>
+<p><strong>Satıcı sertifikasyonu:</strong> Endüstriyel ekipman üreticileri (Siemens, Rockwell, Schneider, ABB, vb.) sistemlerini belirli yazılım sürümleriyle sertifikalandırır. İşletim sistemi sürümünü değiştirmek veya işletim sistemi yaması uygulamak, ekipman sertifikasyonunu geçersiz kılabilir; orijinal ekipmandan daha pahalıya mal olabilecek ve aylarca sürebilecek bir yeniden doğrulama süreci başlatır.</p>
+<p><strong>Üretim bağımlılığı:</strong> Yama, kesinti gerektirir. Sürekli süreç endüstrilerinde (kimya tesisleri, çelik fabrikaları), &ldquo;kesinti&rdquo; planlanmış yıllık bakım penceresi anlamına gelebilir — yama uygulamak için yılda bir fırsat.</p>
+<p><strong>Kullanım ömrü dolmuş yazılım:</strong> Kritik endüstriyel yazılım çalıştıran Windows XP, Windows 2003 Server ve daha eski sistemlerle karşılaşacaksınız. Microsoft bu sistemler için yıllardır güvenlik yaması yayınlamamıştır. Üzerlerinde çalışan endüstriyel yazılım daha yeni Windows sürümlerinde doğrulanmadığı için yükseltilemezler.</p>
+<p><strong>Ağ güvenliği için ne anlama gelir:</strong></p>
+<p>Sistemleri yamalayamazsanız, ağ kontrolleriyle telafi etmelisiniz:</p>
+<ul>
+<li><strong>Katı ağ segmentasyonu:</strong> Yamalanamamış sistemler, internet kaynaklı tehditlere maruz kalabilecekleri herhangi bir ağdan erişilemez olmalıdır</li>
+<li><strong>Uygulama beyaz listesi:</strong> Yalnızca özellikle yetkili uygulamalar OT uç noktalarında çalışabilir (uç nokta işletim sistemi bunu destekliyorsa)</li>
+<li><strong>Telafi edici kontroller:</strong> Firewall, yamanın normalde yapacağı işi yapmalıdır — ağ politikası aracılığıyla saldırı yüzeyini kısıtlama</li>
+<li><strong>Çevrimdışı antivirüs güncellemeleri:</strong> İnternet bağlantısı yerine hava boşluklu ortamlarda USB veya çevrimdışı medya aracılığıyla iletilen AV güncellemeleri</li>
+</ul>
+<p>OT&rsquo;deki güvenlik görüşmesi &ldquo;sistemlerinizi yama yapın&rdquo; değildir — &ldquo;yamayalamadığımız sistemleri ağ mimarisi ve telafi edici kontroller aracılığıyla nasıl koruruz&rdquo; sorusudur.</p>
+<hr>
+<h2 id="otde-8021x-ve-nac-standart-it-yaklaşımlarının-neden-doğrudan-transfer-olmadığı">OT&rsquo;de 802.1X ve NAC: Standart IT Yaklaşımlarının Neden Doğrudan Transfer Olmadığı</h2>
+<p>802.1X port tabanlı ağ erişim kontrolü, kurumsal IT&rsquo;de standarttır. OT&rsquo;de belirli zorluklar yaratır:</p>
+<p><strong>PLC&rsquo;ler ve kontrolörlerin 802.1X supplicant&rsquo;ları yoktur.</strong> Bir Siemens S7 PLC veya Allen-Bradley ControlLogix kontrolörü, 802.1X istemcisi olan standart bir işletim sistemi çalıştırmaz. Kullanıcı adı/şifre veya sertifika kullanarak bir RADIUS sunucusuna kendini doğrulayamaz. Bir 802.1X etkin switch portuna basitçe bağlanamaz.</p>
+<p><strong>Geçici çözüm olarak MAC Authentication Bypass (MAB):</strong> OT cihazları için standart yaklaşım MAB&rsquo;dır — cihazın MAC adresi kimlik doğrulama kimlik bilgisi olarak kullanılır. Switch, MAC adresini RADIUS&rsquo;a gönderir; RADIUS bunu yetkili cihaz veritabanına göre kontrol eder. MAC biliniyorsa erişim verilir.</p>
+<p>MAB bir miktar kontrol sağlar — bilinmeyen cihazlar ağ erişimi alamaz — ancak sertifika veya kimlik bilgisi tabanlı kimlik doğrulamadan daha zayıftır. MAC adresleri taklit edilebilir. Değer görünürlükte ve yetkisiz cihazların bağlanmasını önlemede, kriptografik kimlik doğrulamada değildir.</p>
+<p><strong>Katı MAC adresi yönetimi gereksinimi:</strong> OT&rsquo;de MAB, tüm yetkili cihaz MAC adreslerinin doğru bir veritabanını sürdürmeyi gerektirir. Dinamik IT ortamında bu uygulanamaz. Cihazların nadiren değiştiği ve tüm eklemelerin değişiklik yönetiminden geçtiği OT&rsquo;de uygulanabilirdir — ancak disiplin gerektirir.</p>
+<p><strong>Alternatif olarak profiling:</strong> OT güvenlik platformları (Claroty, Nozomi, Cisco CyberVision), ağdaki cihazları profilleyebilir — pasif trafik analizinden PLC modellerini, yazılım sürümlerini ve iletişim kalıplarını tanımlar. Bu, cihazların kimlik doğrulaması yapmasını gerektirmeden varlık görünürlüğü sağlar. Profil verileri NAC politikalarına beslenebilir: &ldquo;bu cihaz profili bir Siemens S7 PLC ile eşleşiyorsa, PLC VLAN&rsquo;ına yerleştir.&rdquo;</p>
+<p><strong>Ağ değişikliği riski:</strong> Mevcut bir düz OT ağında son derece dikkatli planlama olmadan 802.1X&rsquo;i etkinleştirmek, üretim hattını durdurabilir. Zorunluluğu etkinleştirmeden önce her cihaz yetkili veritabanında olmalıdır. Doğrulama süreci yalnızca normal operasyonu değil, tüm üretim aşamalarını kapsamalıdır. Hafta sonu toplu çalışması sırasında ağdan düşen kaçırılan bir cihaz Pazartesi sabahı olayına neden olabilir.</p>
+<hr>
+<h2 id="pratik-kontrol-listesi-ot-ağına-dokunmadan-önce">Pratik Kontrol Listesi: OT Ağına Dokunmadan Önce</h2>
+<p>Saha deneyiminden — OT ortamında herhangi bir ağ değişikliği yapmadan önce gerçekleşmesi gereken şeyler:</p>
+<ul>
+<li><strong>Önce OT ekibiyle konuşun.</strong> Otomasyon mühendisleri ve tesis operasyon personeli, ağ hakkında belgelenmemiş şeyler bilir. Herhangi bir değişiklikten önce onların katkısı gereklidir.</li>
+<li><strong>Mevcut iletişim akışlarını belgeleyin.</strong> Hangi cihazlar hangileriyle, hangi portlar üzerinde, hangi sıklıkta konuşuyor. Kısa süreli izlemeye güvenmeyin — tüm bilinen iletişim yollarının belgelerini OT ekibinden isteyin.</li>
+<li><strong>Üretim programını anlayın.</strong> Bakım penceresi ne zaman? Tesiste planlanmış kesinti ne zaman? Değişiklikler bu pencerelerle uyumlu olmalı, üretim üzerine dayatılmamalıdır.</li>
+<li><strong>Mümkünse lab veya staging ortamında test edin.</strong> Birçok satıcı endüstriyel ekipmanları için lab ortamları veya simülatörler sağlar.</li>
+<li><strong>Bir geri alma planınız olsun.</strong> Katman 2 firewall eklemesi için geri alma, firewall&rsquo;u kaldırıp doğrudan yeniden bağlamaktır — bu prosedürü gerektiğinde hızlıca uygulanabilmesi için belgeleyin.</li>
+<li><strong>Yazılım/konfigürasyon yedeklerini koordine edin.</strong> Herhangi bir ağ değişikliği yapmadan önce OT cihaz konfigürasyonlarının yedeklendiğinden emin olun. Bir PLC&rsquo;nin güç döngüsüne ihtiyacı varsa, konfigürasyonu kurtarılabilir olmalıdır.</li>
+<li><strong>Değişiklikten önce ve sonra &ldquo;çalışıyor&rdquo; tanımını yapın.</strong> OT ekibiyle kabul kriterlerini belirleyin — hangi sistemlere erişilebilir olmalı, hangi süreçler çalışıyor olmalı — değişikliği başarılı ilan etmeden önce.</li>
+</ul>
+<hr>
+<h2 id="temel-çıkarımlar">Temel Çıkarımlar</h2>
+<ul>
+<li><strong>OT ağları, gizlilik yerine erişilebilirliği önceliklendirir</strong> — bu, birçok IT güvenlik varsayımını tersine çevirir ve her kararı bilgilendirmelidir.</li>
+<li><strong>Purdue modeli</strong>, IT/OT sınırının nerede oturduğunu tanımlar. Seviye 3 ile kurumsal IT arasındaki DMZ, IT mühendislerinin en sık çalıştığı yerdir.</li>
+<li><strong>OT protokolleri (Modbus, PROFINET, EtherNet/IP, DNP3)</strong> kimlik doğrulama veya şifrelemeye sahip değildir. Ağ kontrolleri birincil güvenlik mekanizmasıdır.</li>
+<li><strong>Katman 2 şeffaf firewall deployment&rsquo;ı</strong>, OT cihazları arasına güvenlik eklemenin en güvenli yoludur — IP adresi değişikliği yok, routing değişikliği yok, konfigürasyon değişiklikleri olmadan geri alınabilir.</li>
+<li><strong>OT odaklı firewall&rsquo;lar</strong>, endüstriyel protokolleri anlar ve politikayı protokol düzeyinde zorunlu kılabilir (okumalara izin ver, yazmaları engelle) — IP/port filtrelemeden temel olarak farklı bir yetenek.</li>
+<li><strong>OT firewall lisanslaması</strong>, IT NGFW lisanslamasından ayrıdır — bunu proje kapsamına dahil edin.</li>
+<li><strong>Yamalanmamış eski sistemler OT&rsquo;de normaldir</strong> — telafi edici ağ kontrolleri, IT&rsquo;de yamanın sağladığının yerini alır.</li>
+<li><strong>802.1X doğrudan transfer olmaz</strong> — PLC&rsquo;ler kimlik doğrulayamaz. MAB ve cihaz profiling pratik alternatiflerdir.</li>
+<li><strong>Herhangi bir şeye dokunmadan önce OT ekipleriyle koordine edin</strong> — üretim ortamlarındaki ağ hatalarının sonuçları IT&rsquo;dekinden önemli ölçüde daha ciddidir.</li>
+</ul>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<ul>
+<li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Kimlik Tabanlı Mimari Sahada</a> — 802.1X&rsquo;in IT ortamlarında nasıl çalıştığı ve OT&rsquo;nin neden farklı olduğu</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — IT/OT sınır tasarımına uygulanan Zero Trust prensipleri</li>
+<li>🛡️ <a href="/tr/technology/ddos-koruma-stratejileri-isp-scrubbing-on-premise-bulut/">DDoS Koruma Stratejileri</a> — OT bağlantılı altyapıyı volumetrik saldırılardan korumak</li>
+<li>🏗️ <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Ürünler Koleksiyonu Değildir</a> — OT ağ tasarımı için de geçerli sistem düşüncesi</li>
+</ul>
+]]></content:encoded></item><item><title>Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler ve Saha Deneyimleri</title><link>https://barashhelvadzhaoglu.com/tr/architecture/network-product-selection-strategy/</link><pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/network-product-selection-strategy/</guid><description>Kurumsal ağlarda ürün seçimi bir kontrol listesinden fazlasıdır. Firewall, switch ve AP değerlendirmesi için saha testi yapılmış çerçeve.</description><content:encoded><![CDATA[<h1 id="ağ-altyapısında-ürün-seçimi-stratejik-kriterler-ve-saha-deneyimleri">Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler ve Saha Deneyimleri</h1>
+<h2 id="switch-firewall-ve-apyi-veri-sayfasının-ötesinde-nasıl-değerlendirirsiniz">Switch, Firewall ve AP&rsquo;yi veri sayfasının ötesinde nasıl değerlendirirsiniz</h2>
+<p>Kurumsal ağ projelerinin çoğu aynı noktada başlıyor: ürün seçimi. Ve çoğu zaman aynı noktada kırılıyor: ürünlerin birlikte çalışmaması. Çünkü &ldquo;core network&rdquo; dediğimiz şey, üç kutunun yan yana durması değil; bu üç kutunun birlikte kimlik taşıması, birlikte segment üretmesi, birlikte politika uygulatması ve en önemlisi birlikte operasyon kaldırmasıdır.</p>
+<p>Benim yıllardır gördüğüm şu: bir şirketin ağı kötü olduğu için değil, ağın karar mekanizması parçalı olduğu için problem yaşanıyor. En pahalı cihazlar, en iyi lisanslar, en yüksek throughput… Hepsi var; ama olay anında hangi cihaz hangi bağlamla karar veriyor, trafik nerede ayrışıyor, nerede kontrol ediliyor — bu soruların net cevabı yok. Sonuç: &ldquo;network var&rdquo; ama &ldquo;network davranışı&rdquo; yok.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/network-product-selection-strategy.webp"/> <figcaption>
+            Stratejik Ürün Seçim Çerçevesi
+        </figcaption>
+</figure>
+
+<p>Bu yazıda, core network ürünlerini üç bacakta değerlendirmek için sahada test edilmiş bir çerçeveyi paylaşacağım: Firewall, Switching ve Access (Wi-Fi). Ama başlamadan önce: &ldquo;teknik özellik&rdquo; kadar belirleyici olan iki faktör var ve çoğu ekip bunları geç fark ediyor — <strong>raporlar/validasyon</strong> ve <strong>support/lifecycle</strong>.</p>
+<blockquote>
+<p>Bu seçim sürecinin arkasındaki mimari felsefeyi anlamak için: <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a></p>
+</blockquote>
+<h2 id="adım-1-raporları-testleri-ve-pazarlama-gürültüsünü-filtrelemek">Adım 1: Raporları, Testleri ve Pazarlama Gürültüsünü Filtrelemek</h2>
+<p>Ürün seçerken bakılacak ilk referanslardan biri Gartner raporlarıdır. Gartner gibi raporlar bir ürünün pazar konumu hakkında fikir verir: kim lider, kim vizyoner, kim niş oynuyor. Bu özellikle karar vericileri ikna etmekte işe yarar.</p>
+<p>Ama kritik bir tuzak var: <strong>Gartner sana senin senaryonda hangisinin doğru olduğunu söylemez.</strong> Gartner bir pazar haritasıdır; senin işin mimari harita çizmek. Gartner&rsquo;ı ilk filtre olarak kullanmak daha doğru — seçenekleri daraltır ama final kararı vermez.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/filtering-reports-tests-and-marketing-noise.webp"/> <figcaption>
+            Raporları ve Pazarlama Gürültüsünü Filtrelemek
+        </figcaption>
+</figure>
+
+<p>Gartner&rsquo;a ek olarak, bağımsız laboratuvarların performans ve güvenlik testleri, karşılaştırmalı raporlar ve real-world benchmark&rsquo;lar işin içine girmeli. Veri sayfasındaki throughput ile gerçek hayatta IPS açıkken, SSL decrypt varken, app-control çalışırken alınan throughput aynı şey değildir. Raporlar burada ikinci filtre olur: &ldquo;Bu kutu bu yükte ne yapıyor?&rdquo; sorusuna pazarlama dışı bir cevap ararsın.</p>
+<h2 id="adım-2-support-ve-lifecycle--görünmez-kolon">Adım 2: Support ve Lifecycle — Görünmez Kolon</h2>
+<p>Bir ürünün teknik yetenekleri hikayenin sadece yarısıdır. Destek modeli ve yaşam döngüsü de aynı derecede kritiktir. Network tasarımı yalnızca kurulum günüyle bitmez. Asıl soru şudur: <strong>3 yıl sonra ne olacak?</strong></p>
+<ul>
+<li>Bu ürünün EoL / EoS tarihleri nedir?</li>
+<li>Patch, bugfix, security update hızı nasıldır?</li>
+<li>TAC/Support gerçekten erişilebilir mi?</li>
+<li>RMA süreçleri ve yedek parça gerçekliği nedir?</li>
+<li>Lisans modeli 1 yıl sonra sürpriz çıkarır mı?</li>
+<li>Üretici roadmap&rsquo;i senin gittiğin yöne mi gidiyor?</li>
+</ul>
+<p>Sahada en sık gördüğüm problem: ekip teknik olarak doğruya yakın bir ürün seçiyor ama support/lifecycle önceliklendirilmediği için 12 ay sonra operasyon kâbusa dönüyor. Suç cihaza kalıyor — oysa sorun hiçbir zaman cihazın kendisi değildi.</p>
+<h2 id="adım-3-firewall-katmanının-değerlendirilmesi">Adım 3: Firewall Katmanının Değerlendirilmesi</h2>
+<p>Firewall, ağın &ldquo;kenarındaki güvenlik cihazı&rdquo; olmayı çoktan geçti. Doğru konumlandırılırsa mimarinin politika beynidir. Yanlış konumlandırılırsa her şeyin üstüne yıkıldığı darboğaz olur.</p>
+<p><strong>UTM vs NGFW — gerekli bir ayrım:</strong></p>
+<p>UTM yaklaşımı &ldquo;tek kutuda her şey&rdquo; felsefesini takip eder: firewall + IPS + web filter + AV + gateway özellikleri. Daha küçük yapılarda yönetim kolaylığı ve paket lisanslama yüzünden tercih edilir.</p>
+<p>NGFW ise uygulama farkındalığı, kullanıcı/kimlik bağlamı ve daha derin politika kontrolü etrafında konumlanır. Bugünün kurumsal ihtiyacında yalnızca port/protokol üzerinden güvenlik yürütmek çoğu zaman yetmez.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/firewall-selection.webp"/> <figcaption>
+            Firewall Seçimi: UTM vs NGFW vs Çoklu Rol
+        </figcaption>
+</figure>
+
+<p><strong>Aynı organizasyonda iki veya üç firewall neden normaldir:</strong></p>
+<ul>
+<li><strong>Perimeter/Internet Edge Firewall:</strong> İnternet çıkışı, VPN, NAT, inbound/outbound policy</li>
+<li><strong>Internal Segmentation Firewall (ISFW):</strong> East-west kontrol, iç segmentasyon, kritik zon izolasyonu</li>
+<li><strong>Data Center / High-performance FW:</strong> DC trafiği, yüksek session, yüksek PPS, düşük latency</li>
+<li>Bazı yapılarda: WAF veya Cloud FW</li>
+</ul>
+<p>Bu &ldquo;iki firewall almak&rdquo; demek değildir — &ldquo;iki farklı işi doğru araca vermek&rdquo; demektir.</p>
+<blockquote>
+<p>Firewall mimarisinin daha geniş network tasarımı içindeki yerine bakış için: <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a></p>
+</blockquote>
+<h2 id="adım-4-firewall-kapasite-planlaması--throughput-yalan-söyleyebilir">Adım 4: Firewall Kapasite Planlaması — Throughput Yalan Söyleyebilir</h2>
+<p>Firewall seçiminde en tehlikeli hata yalnızca Gbps throughput rakamına odaklanmaktır. Pratikte firewall&rsquo;lar throughput yüzünden değil şunlar yüzünden başarısız olur:</p>
+<ul>
+<li>PPS (packets per second)</li>
+<li>Concurrent session sayısı</li>
+<li>New session rate</li>
+<li>NAT table ve state</li>
+<li>Aktif IPS/AV/App-ID ile performans</li>
+<li>SSL/TLS decrypt yükü</li>
+<li>Log üretimi ve SIEM taşıma</li>
+</ul>
+<p>Gerçek bir örnek: &ldquo;10 Gbps firewall aldık&rdquo; cümlesi tek başına anlam taşımaz. O 10 Gbps çoğu vendor datasheet&rsquo;inde ideal koşul ölçümüdür. IPS, URL filtering, app control ve decrypt aktifse gerçek kapasite dramatik şekilde değişir. Doğru soru her zaman şudur:</p>
+<blockquote>
+<p><em>&ldquo;Açacağım güvenlik özellikleriyle ve benim trafik karakterimde — bu firewall gerçekte ne kadar iş kaldırır?&rdquo;</em></p>
+</blockquote>
+<p>Bu sorunun güvenilir bir cevabı yoksa, seçim risklidir.</p>
+<h2 id="adım-5-switch-değerlendirmesi--port-sayısı-değil-rol-ve-yük">Adım 5: Switch Değerlendirmesi — Port Sayısı Değil Rol ve Yük</h2>
+<p>Switch seçimi çoğu zaman port sayısıyla başlar: bakır port, fiber port, PoE ihtiyacı. Bunlar önemlidir — ama core network perspektifinden yeterli değildir. Switch yalnızca uçları bağlayan bir priz değildir; trafiğin nerede yoğunlaşacağını, nerede ayrışacağını ve nerede yukarı taşınacağını belirleyen bir karar noktasıdır.</p>
+<p><strong>En yaygın access layer hatası:</strong> yalnızca bugünün ihtiyacına göre planlama yapmak. Access katmanı ağda en hızlı değişen katmandır. Bugün yeterli görünen 1G bakır bir noktada yarın yüksek bant genişliği isteyen AP veya edge cihaz konumlanabilir. Multi-Gig portlar (2.5G/5G), port başına PoE sürdürülebilirliği ve uplink&rsquo;lerin gerçek kapasitesi kritik hale gelir.</p>
+<p>Uplink&rsquo;ler sürekli hafife alınır. &ldquo;2×10G uplink yeter&rdquo; çok duyulur — trafik karakteri analiz edilmeden. Kullanıcı sayısı arttıkça ve east-west trafik değiştikçe, uplink&rsquo;ler beklenenden çok daha hızlı doygunluğa ulaşır. Backplane kapasitesi ve oversubscription oranları uplink hızı kadar önemlidir.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/switching-selection.webp"/> <figcaption>
+            Switch Seçimi: Access vs Core vs Data Center
+        </figcaption>
+</figure>
+
+<p><strong>Edge switch vs datacenter switch:</strong> bu sınır çoğu projede net çizilmez. Edge switch&rsquo;ler port yoğunluğu ve PoE için optimize edilir; datacenter switch&rsquo;leri throughput, düşük latency, yüksek PPS ve east-west trafik için gelir. Tek cihazdan her ikisini beklemek ya maliyeti gereksiz artırır ya da performansı düşürür.</p>
+<p>Core network tasarlarken <strong>&ldquo;Bu switch nerede duracak ve neyi taşıyacak?&rdquo;</strong> sorusu <strong>&ldquo;Kaç portu var?&rdquo;</strong> sorusundan önce gelmelidir.</p>
+<h2 id="adım-6-kablosuz--uplink-ve-controller-mimarisi">Adım 6: Kablosuz — Uplink ve Controller Mimarisi</h2>
+<p>Kablosuz konuşulurken odak Wi-Fi standardına kayar: Wi-Fi 6, 6E, 7. Pratikte kablosuz performansı çoğu zaman radyo değil kablo sınırlar. AP ne kadar güçlü olursa olsun, uplink bunu taşıyamıyorsa teorik hızlar anlamsızdır.</p>
+<p>Pek çok kurumsal AP, 1 Gbps uplink ile sınırlandığında potansiyelinin önemli bir kısmını kullanamaz. 2.5G ve 5G bakır uplink desteği yüksek yoğunluklu ortamlarda lüks değil, doğrudan tasarım gereksinimidir. Ve kritik nokta: AP 2.5G destekliyorsa ama bağlı olduğu switch portu desteklemiyorsa, tüm yatırım boşa gider. <strong>AP ve switch seçimi birlikte yapılmalıdır.</strong></p>
+<figure>
+    <img loading="lazy" src="/img/postimages/wifi-selection.webp"/> <figcaption>
+            Kablosuz Mimarisi: AP, Uplink ve Controller
+        </figcaption>
+</figure>
+
+<p>Controller mimarisi de kritiktir. Desteklenen AP sayısı, eş zamanlı client kapasitesi ve roaming davranışı gerçek hayat stabilitesini belirler. &ldquo;500 AP destekler&rdquo; yazan controller yüksek yoğunluklu ortamlarda çok daha erken zorlanabilir. Controller kapasitesi yalnızca lisans sayısıyla değil; CPU, bellek, session handling ve policy enforcement ile birlikte değerlendirilmelidir.</p>
+<p>Kablosuz ağlar çoğu zaman edge katmanı gibi görünür ama core network&rsquo;ü en hızlı zorlayan katmandır. AP seçimi kapsama hesabı değil — core network davranışını doğrudan etkileyen mimari bir karardır.</p>
+<h2 id="adım-7-üretici-değerlendirmesi--saha-gerçekleri">Adım 7: Üretici Değerlendirmesi — Saha Gerçekleri</h2>
+<p>Aşağıdakiler tamamen kişisel saha deneyimlerime dayanıyor. Amaç övmek veya yermek değil — her üreticinin nerede güçlü, nerede zorlandığını açıkça söylemek.</p>
+<p><strong>Cisco,</strong> switching ve routing tarafında hâlâ sektörün en güçlü oyuncularından biri. Wireless uzun yıllardır olgun. Firewall tarafında özellikle Sourcefire gibi satın almalarla ciddi gelişim gösterdiler.
+Uyarı: tüm ürünleri Cisco seçtiğinizde entegrasyon çoğu zaman yorucu olabilir. Her şey mümkün ama genellikle &ldquo;kolay&rdquo; değil.</p>
+<p><strong>HPE Aruba,</strong> Juniper dahil olmak üzere satın almalarla portföyü önemli ölçüde büyüdü. Switching yaygın ve sevilen. Wireless benim kişisel görüşüme göre sektörün en güçlülerinden biri.
+Güçlü bir native firewall ürün ailesinin olmaması bu alanda eksiklik olmaya devam ediyor.</p>
+<p><strong>Fortinet,</strong> tek çatı altında firewall, switching ve wireless sunan en geniş portföylerden birine sahip. Firewall kökenli güçleri tartışmasız. Switching daha geç olgunlaştı ama sahada giderek daha fazla görülüyor.
+En büyük operasyonel avantaj: entegrasyon ve yönetim kolaylığı. Sınırlı IT ekiplerinde bu fark çok net hissediliyor.</p>
+<p><strong>Palo Alto Networks,</strong> firewall alanında açık ara lider — switching ve wireless&rsquo;a bilinçli olarak girmiyor. Uygulama görünürlüğü, politika derinliği ve SASE liderliğinde en belirgin farkı yaratıyorlar.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/vendor-selection.webp"/> <figcaption>
+            Üretici Karşılaştırması: Saha Gerçeği
+        </figcaption>
+</figure>
+
+<p>Pratikte organizasyonlar tüm kombinasyonları kullanır: tek vendor, çift vendor veya best-of-breed. Bu kararlar teknik olduğu kadar organizasyoneldir.</p>
+<p>Kişisel görüşüm: ekip olgunsa her katman için uzmanlaşmış üreticiler teknik olarak daha güçlü sonuçlar üretir. Basitlik ve tek destek kanalı daha önemliyse tek vendor yaklaşımı tamamen geçerlidir.</p>
+<p><strong>Son nokta:</strong> API desteği artık bonus değil, seçim kriteridir. &ldquo;Bu mimariyi nasıl otomatik yöneteceğim?&rdquo; sorusu switch, firewall ve AP seçiminden önce gelmelidir. Bana göre doğru core network tasarımı tam burada başlar.</p>
+<h2 id="sistem-odası-ve-kablolama-kimsenin-konuşmak-istemediği-ama-herkesin-bedelini-ödediği-gerçek">Sistem Odası ve Kablolama: Kimsenin Konuşmak İstemediği Ama Herkesin Bedelini Ödediği Gerçek</h2>
+<p>Network projelerinde en çok konuşulan konular genelde en parlak olanlardır. Ama sahada yaşanan problemlerin önemli bir kısmı çok daha temel bir yerde başlar: sistem odası tasarımı ve kablolama altyapısı.</p>
+<p>Ne kadar iyi ürünler seçersen seç — sistem odası ve kablolama zayıfsa, o ağ eninde sonunda problem üretir. Ve bu problemler &ldquo;network arızası&rdquo; gibi görünür ama kök sebep neredeyse hiçbir zaman gerçekten network değildir.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/server-room-and-cabling.webp"/> <figcaption>
+            Sistem Odası ve Kablolama: Konuşulmayan Temel
+        </figcaption>
+</figure>
+
+<p>Sistem odası çoğu kurumda hâlâ eşya odası gibi ele alınıyor. Kablolar üst üste geliyor, geçici çözümler kalıcı hale geliyor. Kimsenin dokunmak istemediği ama herkesin bağımlı olduğu bir alan oluşuyor. Asıl risk tam burada başlıyor.</p>
+<p>Isı, enerji, hava akışı, erişilebilirlik ve düzen birlikte düşünülmelidir. Yedekli güç kaynakları satın alınır ama farklı enerji hatlarına gidip gitmediği kontrol edilmez. UPS var denir ama kapasite hesabı yapılmaz. Bunlar kağıt üzerinde küçük detay gibi görünür — kriz anında tüm mimariyi anlamsız kılar.</p>
+<p>Kablolama ağın en uzun ömürlü parçasıdır. Switch, firewall ve AP değişir — kablo kalır. Bugünkü ihtiyaca göre kablolama yapmak garantili bir hatadır. 1G altyapısı 2.5G/5G AP&rsquo;lerle hızla sınıra dayanır.</p>
+<p>Benim bakış açıma göre sistem odası ve kablolama core network tasarımının &ldquo;alt katmanı&rdquo; değil; temelidir. İyi çalışan bir network kimsenin fark etmediği şeydir — çünkü sorun çıkmaz. Ve bu, bir altyapı tasarımının alabileceği en büyük övgüdür.</p>
+<h2 id="not">Not</h2>
+<p>Bu makale ilk olarak <strong>Substack</strong>&rsquo;te daha kısa, anlatısal bir biçimde yayınlanmıştı.
+Bu versiyon, serinin mimari temelini genişletiyor.</p>
+<p>👉 <strong>Makaleyi Substack&rsquo;te okuyun:</strong> <a href="https://substack.com/home/post/p-183952844">Burayı Tıklayın</a></p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Mimari &amp; Strateji</strong></p>
+<ul>
+<li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Bu serinin temel yazısı</li>
+<li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a> — Mimari öncelikli core network tasarımı</li>
+<li>🛡️ <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Mimari olarak güvenlik</li>
+</ul>
+<p><strong>Teknik Mühendislik</strong></p>
+<ul>
+<li>📊 <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a> — Operasyonel görünürlük</li>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-terminal-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Out-of-band erişim</li>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Trafik görünürlüğü ve güvenlik stratejisi</li>
+</ul>
+]]></content:encoded></item><item><title>Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</title><link>https://barashhelvadzhaoglu.com/tr/architecture/core-network-is-not-a-product-list/</link><pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/core-network-is-not-a-product-list/</guid><description>Kurumsal ağlar parçalı mimari yüzünden başarısız olur. Firewall, switching, AP seçimi ve kapasite planlaması üzerine saha incelemesi.</description><content:encoded><![CDATA[<h1 id="switch-firewall-ap--doğru-ürünleri-seçmek-neden-yeterli-değildir">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</h1>
+<h2 id="mimari-kapasite-planlaması-ve-kimsenin-konuşmadığı-üretici-gerçeği">Mimari, kapasite planlaması ve kimsenin konuşmadığı üretici gerçeği</h2>
+<p>Kurumsal ağ projelerinin çoğu aynı noktada başlıyor: ürün seçimi. Ve çoğu zaman aynı noktada kırılıyor: ürünlerin birlikte çalışmaması. Çünkü &ldquo;core network&rdquo; dediğimiz şey, üç kutunun (switch, firewall, access point) yan yana durması değil; bu üç kutunun birlikte kimlik taşıması, birlikte segment üretmesi, birlikte politika uygulatması ve en önemlisi birlikte operasyon kaldırmasıdır.</p>
+<p>Benim yıllardır gördüğüm şu: bir şirketin ağı kötü olduğu için değil, ağın karar mekanizması parçalı olduğu için problem yaşanıyor. En pahalı cihazlar, en iyi lisanslar, en yüksek throughput… Hepsi var; ama olay anında kim neyi biliyor, hangi cihaz hangi bağlamla karar veriyor, trafik nerede ayrışıyor, nerede kontrol ediliyor—bu soruların net cevabı yok. Sonuç: &ldquo;network var&rdquo; ama &ldquo;network davranışı&rdquo; yok.</p>
+<p>Bu yazıda core network&rsquo;ü üç bacakta ele alacağım: Firewall, Switching, Access (Wi-Fi). Ama başlamadan önce bir şeyi net koymak istiyorum: seçim sürecinde &ldquo;teknik özellik&rdquo; kadar belirleyici olan iki faktör var ve çoğu ekip bunları geç fark ediyor: raporlar/validasyon ve support/lifecycle.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/core-network-architecture-overview.webp"/> <figcaption>
+            Core Network Mimarisine Genel Bakış
+        </figcaption>
+</figure>
+
+<h2 id="raporlar-testler-ve-pazarlama-gürültüsünü-filtrelemek">Raporlar, testler ve &ldquo;pazarlama gürültüsü&quot;nü filtrelemek</h2>
+<p>Ürün seçerken bakılacak yerlerden biri, evet, Gartner raporları. Çünkü Gartner gibi raporlar sana bir ürünün &ldquo;pazardaki konumu&rdquo; hakkında fikir verir: kim lider, kim vizyoner, kim niş oynuyor. Bu özellikle karar verici tarafı ikna etmekte işe yarar; bütçe masasında &ldquo;neden bu marka?&rdquo; sorusuna bir çerçeve sunar.</p>
+<p>Ama burada kritik bir tuzak var: Gartner sana senin senaryonda hangisinin doğru olduğunu söylemez. Gartner bir &ldquo;pazar haritası&quot;dır; senin işin &ldquo;mimari harita&rdquo; çizmek. Bu yüzden Gartner&rsquo;ı bir ilk filtre gibi kullanmak daha doğru: seçenekleri daraltır ama final kararı vermez.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/filtering-reports-tests-and-marketing-noise.webp"/> 
+</figure>
+
+<p>Gartner&rsquo;a ek olarak, üreticilerin ya da bağımsız laboratuvarların yaptığı performans ve güvenlik testleri, karşılaştırmalı raporlar, &ldquo;real-world&rdquo; benchmark&rsquo;lar da işin içine girmeli. Çünkü veri sayfasındaki throughput ile, gerçek hayatta IPS açıkken, SSL decrypt varken, app-control çalışırken alınan throughput aynı şey değildir. Raporlar burada bir ikinci filtre olur: &ldquo;Bu kutu bu yükte ne yapıyor?&rdquo; sorusuna pazarlama dışı bir cevap ararsın.</p>
+<h2 id="support-ve-lifecycle-projeyi-ayakta-tutan-görünmez-kolon">Support ve lifecycle: Projeyi ayakta tutan görünmez kolon</h2>
+<p>Bir ürünün teknik yetenekleri kadar kritik olan şey, onun destek modeli ve yaşam döngüsüdür. Çünkü network tasarımı yalnızca &ldquo;kurulum günü&quot;nden ibaret değildir. Asıl mesele 3 yıl sonra ne olacağıdır:</p>
+<ul>
+<li>Bu ürünün EoL / EoS tarihleri nedir?</li>
+<li>Patch, bugfix, security update hızı nasıldır?</li>
+<li>TAC/Support gerçekten erişilebilir mi, escalation süreci nasıl işler?</li>
+<li>RMA süreçleri ve yedek parça gerçekliği nedir?</li>
+<li>Lisans modeli 1 yıl sonra sürpriz çıkarır mı?</li>
+<li>Üretici roadmap&rsquo;i senin gittiğin yöne mi gidiyor?</li>
+</ul>
+<p>Bunu yazıya özellikle koymak istiyorum çünkü sahada en sık gördüğüm problem şu: ekip teknik olarak doğruya yakın bir ürün seçiyor ama support/lifecycle yüzünden 12 ay sonra operasyon kâbusa dönüyor. Sonra suç cihazda kalıyor; oysa sorun cihazın kendisinden çok, seçimin &ldquo;destek&rdquo; tarafının ciddiye alınmamasıdır.</p>
+<h2 id="firewall-utm-mi-ngfw-mi-yoksa-birden-fazla-rol-mü">Firewall: UTM mi, NGFW mi, yoksa birden fazla rol mü?</h2>
+<p>Firewall, günümüzde ağın &ldquo;kenarındaki güvenlik cihazı&rdquo; olmayı çoktan geçti. Doğru konumlandırılırsa politika beynidir; yanlış konumlandırılırsa her şeyin üstüne yıkıldığı için darboğaz olur.</p>
+<p>Burada en baştan terminolojiyi netlemek iyi olur: UTM ve NGFW kavramları çoğu ortamda birbirine karışıyor.</p>
+<p>UTM yaklaşımı genelde &ldquo;her şey tek kutuda&rdquo; düşüncesine yakın durur: temel firewall + IPS + web filter + AV + bazı gateway özellikleri… Özellikle daha küçük/orta ölçekli yapılarda, yönetim kolaylığı ve paket yaklaşımı yüzünden tercih edilir.</p>
+<p>NGFW ise daha çok uygulama farkındalığı, kullanıcı/kimlik farkındalığı, daha gelişmiş security services ve policy derinliğiyle konumlanır. Bugünün kurumsal ihtiyacında &ldquo;sadece port-protocol&rdquo; ile güvenlik yürütmek çoğu zaman yetmez; NGFW burada devreye girer.</p>
+<p>Ama asıl kritik nokta şu: bir şirketin ihtiyacı tek bir &ldquo;firewall tipi&rdquo; ile bitmeyebilir. Çünkü firewall dediğimiz şey, aslında farklı amaçlar için farklı katmanlarda görev alabilir.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/firewall-selection.webp"/> 
+</figure>
+
+<h3 id="aynı-şirkette-iki-hatta-üç-firewall-neden-normaldir">Aynı şirkette iki (hatta üç) firewall neden normaldir?</h3>
+<p>Birçok kurumda şu senaryolar çok makuldür:</p>
+<ul>
+<li>Perimeter/Internet Edge Firewall: İnternet çıkışı, VPN, NAT, inbound/outbound policy.</li>
+<li>Internal Segmentation Firewall (ISFW): İç ağda segmentasyon, east-west kontrol, kritik zonlar.</li>
+<li>Data Center / High-performance FW: DC trafiği, yüksek session, yüksek PPS, düşük latency ihtiyacı.</li>
+<li>Bazı yapılarda ayrıca WAF ya da Cloud FW gibi özel bileşenler.</li>
+</ul>
+<p>Bu &ldquo;iki firewall almak&rdquo; demek değildir; bu, &ldquo;iki farklı işi doğru araca vermek&rdquo; demektir. Tek kutuya her şeyi yığdığında, ya performans kaybedersin ya yönetim kaybedersin ya da güvenlik kaybedersin.</p>
+<blockquote>
+<p>Bu mimarinin arkasındaki güvenlik felsefesini daha derinlemesine anlamak için: <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Mimari Olarak Mühendislemek</a></p>
+</blockquote>
+<p>Ve bu bizi doğrudan kapasite planlamasına götürür.</p>
+<h2 id="firewall-kapasite-planlaması-throughput-tek-başına-yalan-söyleyebilir">Firewall kapasite planlaması: Throughput tek başına yalan söyleyebilir</h2>
+<p>Firewall seçiminde en tehlikeli yanlış, yalnızca &ldquo;Gbps throughput&rdquo; rakamına bakmaktır. Çünkü gerçek hayatta firewall&rsquo;u öldüren şey çoğu zaman throughput değil:</p>
+<ul>
+<li>PPS (packets per second)</li>
+<li>Concurrent session sayısı</li>
+<li>New session rate</li>
+<li>NAT table ve state</li>
+<li>IPS/AV/App-ID açıkken performans</li>
+<li>SSL/TLS decrypt gibi ağır iş yükleri</li>
+<li>Log üretimi ve log&rsquo;u taşımak (SIEM entegrasyonu)</li>
+</ul>
+<figure>
+    <img loading="lazy" src="/img/postimages/firewall-capacity-planning.webp"/> <figcaption>
+            Firewall Kapasite Planlama Metrikleri
+        </figcaption>
+</figure>
+
+<p>Örnek bir gerçek: &ldquo;10 Gbps firewall aldık&rdquo; cümlesi tek başına anlam taşımaz. Çünkü o 10 Gbps, çoğu vendor datasheet&rsquo;inde &ldquo;ideal koşul&rdquo; ölçümüdür. Senin ortamında IPS, URL filtering, app control, decrypt aktifse; gerçek kapasite dramatik şekilde değişir. Bu yüzden doğru soru şu olmalı:
+&ldquo;Benim açacağım güvenlik özellikleriyle, benim trafik karakterimde, bu firewall ne kadar iş kaldırıyor?&rdquo;</p>
+<p>Bu sorunun cevabı yoksa, seçim risklidir.</p>
+<h2 id="switching-port-sayısından-çok-taşıyabileceği-yük-ve-rolü-önemlidir">Switching: Port sayısından çok, taşıyabileceği yük ve rolü önemlidir</h2>
+<p>Switch seçimi çoğu zaman port sayısıyla başlar: kaç adet bakır port, kaç adet fiber port, PoE ihtiyacı var mı yok mu… Bunlar elbette önemlidir ama core network perspektifinden bakıldığında yeterli değildir. Çünkü switch yalnızca uçları bağlayan bir priz değildir; trafiğin nerede yoğunlaşacağını, nerede ayrışacağını ve nerede yukarı taşınacağını belirleyen bir karar noktasıdır.</p>
+<p>Özellikle access switch tarafında yapılan en yaygın hata, bugünkü ihtiyaca göre port planlaması yapmaktır. Oysa access katmanı, ağda en hızlı değişen katmandır. Bugün bakır port yeterli görünen bir noktada, yarın yüksek bant genişliği isteyen bir AP, bir kamera ya da farklı bir edge cihaz konumlanabilir. Bu yüzden bakır portların hız kabiliyeti (1G mi, 2.5G/5G mi destekliyor), PoE bütçesinin yalnızca toplam watt değil port başına sürdürülebilirliği ve uplink&rsquo;lerin gerçek kapasitesi kritik hale gelir.</p>
+<p>Uplink konusu genellikle hafife alınır. &ldquo;2×10G uplink yeter&rdquo; gibi cümleler çok duyulur ama bu uplink&rsquo;lerin hangi trafik karakterini taşıyacağı çoğu zaman konuşulmaz. Access katmanında kullanıcı sayısı arttıkça, east-west trafik ve broadcast davranışı değiştikçe, uplink&rsquo;ler beklenenden çok daha hızlı doygunluğa ulaşabilir. Bu noktada yalnızca uplink hızına değil, switch&rsquo;in backplane kapasitesine ve oversubscription oranlarına bakmak gerekir.</p>
+<p>Edge switch ile datacenter switch arasındaki fark da çoğu projede net çizilmez. Edge switch&rsquo;ler genellikle kullanıcı ve cihaz yoğunluğu için optimize edilir: çok sayıda port, PoE, erişim odaklı özellikler. Datacenter switch&rsquo;ler ise yüksek throughput, düşük latency, yüksek PPS ve east-west trafiği kaldıracak mimariyle gelir. Core network tasarlarken &ldquo;bu switch nerede duracak ve neyi taşıyacak?&rdquo; sorusu, &ldquo;kaç portu var?&rdquo; sorusundan önce gelmelidir.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/switching-selection.webp"/> 
+</figure>
+
+<p>Inter-VLAN routing kararları da switch seçimiyle doğrudan ilişkilidir. Eğer routing switch üzerinde yapılacaksa, bu switch&rsquo;in yalnızca L3 desteklemesi yetmez; route scale, TCAM kapasitesi, policy uygulanabilirliği ve bu kararların firewall ile nasıl entegre olacağı düşünülmelidir.</p>
+<h2 id="access--wi-fi-radyo-kadar-uplink-ve-kontrol-katmanı-da-mimarinin-parçasıdır">Access / Wi-Fi: Radyo kadar uplink ve kontrol katmanı da mimarinin parçasıdır</h2>
+<p>Kablosuz ağlar konuşulurken odak genellikle Wi-Fi standardına kayar: Wi-Fi 6, 6E, 7… Oysa pratikte kablosuz performansı sınırlayan şey çoğu zaman hava değil, kablodur. Access point ne kadar güçlü olursa olsun, arkasındaki uplink bunu taşıyamıyorsa teorik hızlar hiçbir anlam ifade etmez.</p>
+<p>Bugün pek çok kurumsal AP, 1 Gbps uplink ile sınırlandığında potansiyelinin ciddi bir kısmını kullanamaz. Bu yüzden 2.5G ve 5G bakır uplink desteği, özellikle yoğun kullanıcı olan ortamlarda bir &ldquo;lüks&rdquo; değil, doğrudan tasarım gereksinimidir. AP ve switch seçimi bu yüzden ayrı ayrı değil, birlikte yapılmalıdır.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/wifi-selection.webp"/> 
+</figure>
+
+<p>Wi-Fi tarafında bir diğer kritik konu, controller mimarisidir. Controller&rsquo;ın desteklediği AP sayısı, eş zamanlı client kapasitesi ve roaming davranışı, ağın gerçek hayattaki stabilitesini belirler. Controller kapasitesi yalnızca lisans sayısı değil; CPU, bellek, session handling ve policy enforcement kapasitesiyle birlikte değerlendirilmelidir.</p>
+<p>Ayrıca kablosuz ağlar çoğu zaman &ldquo;edge&rdquo; gibi düşünülür ama gerçekte core network&rsquo;ü en hızlı zorlayan katmandır. AP seçimi yalnızca kapsama alanı hesabı değil; core network davranışını doğrudan etkileyen bir mimari karardır.</p>
+<h2 id="kapanış-üretici-seçimi-mimari-olgunluk-ve-gerçekler">Kapanış: Üretici Seçimi, Mimari Olgunluk ve Gerçekler</h2>
+<p>Bu noktada şunu özellikle belirtmek istiyorum: aşağıda bahsettiklerim tamamen kişisel saha tecrübelerime ve gözlemlerime dayanıyor. Bir üreticiyi övmek ya da yermekten çok, nerede güçlü olduklarını ve nerede zorlandıklarını açıkça söylemek niyetindeyim.</p>
+<p>Cisco ile başlamak doğal. Switching ve routing tarafında hâlâ sektörün en güçlü oyuncularından biri. Özellikle büyük ve karmaşık yapılarda, campus ve datacenter switching konusunda ciddi bir olgunlukları var. Ancak şunu net söylemek gerekir: tüm ürünleri Cisco seçtiğinizde, bu ürünlerin birbiriyle entegrasyonu çoğu zaman bir admin için yorucu ve zahmetli olabiliyor.</p>
+<p>Yaklaşık on yıldır gelişimini yakından izlediğim HPE Aruba tarafı ise farklı bir hikâye sunuyor. Switching tarafında Aruba ailesi oldukça yaygın ve sevecen bir kullanıcı kitlesine sahip. Wireless tarafında ise benim kişisel görüşüm, sektördeki en güçlü Wi-Fi çözümlerinden birine sahipler. Kendi başına güçlü bir firewall ürün ailesinin olmaması bu alanda bir eksiklik.</p>
+<p>Fortinet tarafı ise çok geniş bir ürün yelpazesi sunuyor. Firewall, switching ve wireless tarafında &ldquo;tek çatı altında&rdquo; komple bir çözüm sunabilmeleri ciddi bir avantaj. Fortinet ekosisteminin bana göre en büyük artılarından biri, kullanım ve arayüz kolaylığı.</p>
+<p>Palo Alto Networks tarafına geldiğimizde tablo daha net: Palo Alto, firewall konusunda çok güçlü ve bu alanda tartışmasız şekilde lider üreticilerden biri. Application visibility, policy derinliği ve özellikle SASE gibi alanlarda Palo Alto&rsquo;nun ciddi bir fark yarattığını düşünüyorum.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/vendor-selection.webp"/> 
+</figure>
+
+<p>Son olarak özellikle altını çizmek istediğim bir nokta var: günümüzde neredeyse tüm büyük üreticiler otomasyon tarafına ciddi yatırım yapıyor. API desteği artık bir &ldquo;ekstra&rdquo; değil, doğrudan bir seçim kriteri.</p>
+<blockquote>
+<p>Altyapınızda gerçek görünürlük oluşturmak için pratik bir çerçeve: <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a></p>
+</blockquote>
+<h2 id="sistem-odası-ve-kablolama-kimsenin-konuşmak-istemediği-ama-herkesin-bedelini-ödediği-gerçek">Sistem Odası ve Kablolama: Kimsenin Konuşmak İstemediği Ama Herkesin Bedelini Ödediği Gerçek</h2>
+<p>Network projelerinde en çok konuşulan konular genelde en &ldquo;parlak&rdquo; olanlardır. Ama sahada yaşanan problemlerin önemli bir kısmı, bu ürünlerden çok daha temel bir yerde başlar: sistem odası tasarımı ve kablolama altyapısı.</p>
+<p>Benim yıllar içinde defalarca gördüğüm bir gerçek var: ne kadar iyi ürünler seçersen seç, ne kadar doğru mimari kurgularsan kurgula; eğer sistem odası ve kablolama altyapısı zayıfsa, o ağ eninde sonunda problem üretir.</p>
+<p>Sistem odası çoğu kurumda hâlâ bir &ldquo;eşya odası&rdquo; gibi ele alınıyor. İlk başta küçük bir alana birkaç rack konuyor, işler büyüdükçe aynı odaya yeni cihazlar ekleniyor, kablolar üst üste geliyor, geçici çözümler kalıcı hale geliyor. İşte asıl risk tam burada başlıyor.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/server-room-and-cabling.webp"/> 
+</figure>
+
+<p>Bir sistem odası yalnızca cihazların durduğu bir yer değildir. O oda, ağın kalbidir. Isı, enerji, hava akışı, erişilebilirlik ve düzen; hepsi birlikte düşünülmelidir.</p>
+<p>Kablolama altyapısı ise genelde &ldquo;bir kere yapılır ve unutulur&rdquo; diye düşünülür. Oysa kablolama, network&rsquo;ün en uzun ömürlü parçasıdır. Switch&rsquo;i, firewall&rsquo;u, access point&rsquo;i değiştirirsin; ama kablo orada kalır.</p>
+<p>Fiber ve bakır kabloların nerede, hangi amaçla kullanılacağı da mimari bir karardır. Patch panel düzeni, kablo etiketleme, rack içi ve rack arası kablo yönetimi doğrudan operasyonel konulardır.</p>
+<p>Benim bakış açıma göre sistem odası ve kablolama, core network tasarımının &ldquo;alt katmanı&rdquo; değildir; temelidir. İyi çalışan bir network&rsquo;ün arkasında çoğu zaman iyi tasarlanmış bir sistem odası ve temiz bir kablolama altyapısı vardır. Kimse bunu fark etmez; çünkü zaten sorun çıkmaz. Ve bana göre bu, bir altyapı tasarımının alabileceği en büyük övgüdür.</p>
+<h2 id="not">Not</h2>
+<p>Bu makale ilk olarak <strong>Substack</strong>&rsquo;te daha kısa, anlatısal bir biçimde yayınlanmıştı.
+Bu versiyon, serinin mimari temelini genişletiyor.</p>
+<p>👉 <strong>Makaleyi Substack&rsquo;te okuyun:</strong> <a href="https://substack.com/home/post/p-183952844">Burayı Tıklayın</a></p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p>Bu yazıyı faydalı bulduysanız, şu yazılar da ilginizi çekebilir:</p>
+<p><strong>Mimari &amp; Güvenlik Tasarımı</strong></p>
+<ul>
+<li>📐 <a href="/tr/architecture/it-infrastructure-is-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Bu serinin temel yazısı</li>
+<li>🛡️ <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Mimari Olarak Mühendislemek</a> — Zero Trust neden bir ürün değil, bir felsefedir</li>
+<li>📊 <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a> — Altyapınızda gerçek görünürlük nasıl inşa edilir</li>
+</ul>
+<p><strong>Teknik Mühendislik</strong></p>
+<ul>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-terminal-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Her şey kesildiğinde out-of-band erişim</li>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Gelişmiş trafik görünürlüğü ve güvenlik stratejisi</li>
+<li>🔐 <a href="/tr/posts/unlocking-success-in-802-1x-projects-field-insights/">802.1X Projelerinde Başarı: Saha Deneyimleri</a> — Kurumsal ağlarda kimlik tabanlı erişim</li>
+<li>⚙️ <a href="/tr/posts/cisco-nexus-nxos-upgrade-guide/">Nexus Yazılım Yükseltme Rehberi</a> — Kesintisiz NX-OS yükseltme adım adım</li>
+</ul>
+]]></content:encoded></item></channel></rss>

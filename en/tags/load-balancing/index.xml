@@ -1,1 +1,441 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Load Balancing on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/load-balancing/</link><description>Recent content in Load Balancing on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>en</language><lastBuildDate>Wed, 08 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/load-balancing/index.xml" rel="self" type="application/rss+xml"/><item><title>F5 LTM Deep Dive: Virtual Servers, iRules, SSL Offloading &amp; HA</title><link>https://barashhelvadzhaoglu.com/en/technology/f5-ltm-deep-dive/</link><pubDate>Wed, 08 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/f5-ltm-deep-dive/</guid><description>F5 BIG-IP LTM deep dive — full-proxy architecture, virtual servers, iRules, SSL offloading, and a zero-downtime migration walkthrough.</description></item><item><title>F5 BIG-IP Is Not a Load Balancer — It's an Application Delivery Platform</title><link>https://barashhelvadzhaoglu.com/en/technology/f5-master/</link><pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/f5-master/</guid><description>F5 BIG-IP is far more than a load balancer. Master guide covering LTM, GTM, WAF, APM, AFM, and BGP routing — with links to each deep dive.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Load Balancing on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/load-balancing/</link><description>Recent content in Load Balancing on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>en</language><lastBuildDate>Wed, 08 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/load-balancing/index.xml" rel="self" type="application/rss+xml"/><item><title>F5 LTM Deep Dive: Virtual Servers, iRules, SSL Offloading &amp; HA</title><link>https://barashhelvadzhaoglu.com/en/technology/f5-ltm-deep-dive/</link><pubDate>Wed, 08 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/f5-ltm-deep-dive/</guid><description>F5 BIG-IP LTM deep dive — full-proxy architecture, virtual servers, iRules, SSL offloading, and a zero-downtime migration walkthrough.</description><content:encoded><![CDATA[<h1 id="f5-ltm-deep-dive-virtual-servers-irules-ssl-offloading--ha">F5 LTM Deep Dive: Virtual Servers, iRules, SSL Offloading &amp; HA</h1>
+<p>This article is part of the F5 BIG-IP series.</p>
+<blockquote>
+<p><strong>New to F5?</strong> Start with the platform overview first: <a href="/en/technology/f5-bigip-application-delivery-platform-overview/">F5 BIG-IP Is Not a Load Balancer — It&rsquo;s an Application Delivery Platform</a></p>
+</blockquote>
+<p>If you already know the big picture and want to go deep on LTM — configuration, iRules, migration field notes — you&rsquo;re in the right place.</p>
+<hr>
+<h2 id="the-full-proxy-architecture-why-it-changes-everything">The Full-Proxy Architecture: Why It Changes Everything</h2>
+<p>The most important thing to understand about LTM is that it is a <strong>full-proxy</strong>. This is not a marketing term — it has direct operational consequences that distinguish LTM from every simpler load balancer.</p>
+<p>When a client connects through F5 LTM, there are two completely separate TCP connections:</p>
+<pre tabindex="0"><code>Client ──[TCP connection 1]──→ F5 LTM ──[TCP connection 2]──→ Backend Server
+         (Virtual Server IP)             (Pool Member IP)
+</code></pre><p>F5 terminates the client connection completely, inspects it, makes all routing and policy decisions, then opens a new connection to the backend. The client and backend server never communicate directly.</p>
+<p>This gives LTM capabilities that pass-through load balancers cannot provide:</p>
+<ul>
+<li>Full visibility into every byte of the request and response</li>
+<li>Ability to rewrite any part of the traffic — headers, URIs, cookies, response bodies</li>
+<li>SSL termination on behalf of backends — backends see plain HTTP</li>
+<li>Independent TCP tuning for client-facing and server-facing connections</li>
+<li>Connection multiplexing and HTTP pipelining optimizations</li>
+</ul>
+<p>In practice, the full-proxy position means that problems upstream (client-side) and problems downstream (server-side) are completely isolated. This dramatically simplifies troubleshooting in production incidents.</p>
+<hr>
+<h2 id="virtual-servers-the-entry-point">Virtual Servers: The Entry Point</h2>
+<p>A <strong>Virtual Server</strong> is the IP address and port combination that clients connect to. It is the primary object in LTM and the container for all traffic policy:</p>
+<pre tabindex="0"><code>Virtual Server: vs_webapp_443
+  Destination IP:     10.10.1.100
+  Port:               443
+  Protocol:           TCP
+  HTTP Profile:       http_profile_xforward
+  SSL Client Profile: clientssl_webapp
+  SSL Server Profile: serverssl_backend
+  Default Pool:       pool_webapp_8080
+  Persistence:        cookie_persistence
+  iRule:              /Common/rule_uri_routing
+</code></pre><p><strong>One VIP, multiple applications:</strong> A single virtual server IP can serve multiple applications using iRules to route based on HTTP Host header or URI path. This reduces IP consumption and simplifies upstream firewall rules.</p>
+<p><strong>Virtual server state is independent of pool health:</strong> If a virtual server is disabled, no traffic reaches the pool — regardless of whether pool members are healthy. Always monitor virtual server availability separately from pool member availability.</p>
+<p><strong>Three virtual server types:</strong></p>
+<ul>
+<li><strong>Standard</strong> — full proxy, the most common type</li>
+<li><strong>Performance Layer 4</strong> — bypasses the proxy for high-throughput scenarios where L7 inspection is not needed</li>
+<li><strong>Forwarding</strong> — pass-through routing without proxy behavior, used for transparent deployments</li>
+</ul>
+<hr>
+<h2 id="pools-and-load-balancing-methods">Pools and Load Balancing Methods</h2>
+<p>A <strong>Pool</strong> is the group of backend servers the virtual server distributes traffic to:</p>
+<pre tabindex="0"><code>Pool: pool_webapp_8080
+  Load Balancing Method: Least Connections (member)
+  Slow Ramp Time:        30 seconds
+  Monitor:               http_monitor_webapp
+  Members:
+    192.168.10.11:8080   Priority Group: 1
+    192.168.10.12:8080   Priority Group: 1
+    192.168.10.13:8080   Priority Group: 2  ← standby, activates only if group 1 fails
+</code></pre><p><strong>Load balancing methods compared:</strong></p>
+<ul>
+<li><strong>Round Robin</strong> — sequential distribution. Works for stateless, uniform workloads. Poor choice when connection durations vary significantly.</li>
+<li><strong>Least Connections (member)</strong> — sends to the member with fewest active connections. Best for applications with variable session lengths. Standard choice in most production environments.</li>
+<li><strong>Least Connections (node)</strong> — counts connections across all pools to a server IP, not just this pool. Use when a server participates in multiple pools.</li>
+<li><strong>Ratio</strong> — weighted distribution. Member A gets 3× more connections than Member B. For servers with different capacities.</li>
+<li><strong>Fastest</strong> — sends to the most recently responsive member. Can create hot spots; use Observed instead for more stability.</li>
+</ul>
+<p><strong>Slow Ramp Time</strong> is underused but important. When a pool member recovers from failure, it is immediately available — but may not be fully warmed up (JVM, caches, database connection pools). Slow Ramp Time gradually increases the weight of a newly available member over the specified seconds, preventing a cold server from being immediately flooded.</p>
+<p><strong>Priority Groups</strong> allow active and standby member sets within one pool. Group 1 members receive all traffic while above the minimum active members threshold. Group 2 members activate automatically when Group 1 falls below threshold. This replaces the need for separate active and standby pools.</p>
+<hr>
+<h2 id="health-monitors-more-important-than-load-balancing-method">Health Monitors: More Important Than Load Balancing Method</h2>
+<p>A pool member can be TCP-reachable and completely broken at the application level. A payment processing server returning HTTP 500 on every request is still TCP-reachable — a basic TCP monitor will never detect the problem.</p>
+<p>This is the most common failure scenario I&rsquo;ve seen in production environments, and the most common place where teams underinvest.</p>
+<h3 id="tcp-monitor-necessary-but-insufficient">TCP Monitor: Necessary but Insufficient</h3>
+<pre tabindex="0"><code>Monitor: tcp_monitor_basic
+  Type:      TCP
+  Interval:  5 seconds
+  Timeout:   16 seconds
+</code></pre><p>Detects: network connectivity loss, server crashes, port not listening.</p>
+<p>Does not detect: application errors, database connection failures, memory exhaustion, partially-initialized application states.</p>
+<h3 id="http-monitor-the-production-standard">HTTP Monitor: The Production Standard</h3>
+<pre tabindex="0"><code>Monitor: http_monitor_webapp
+  Type:           HTTP
+  Send String:    GET /health HTTP/1.1\r\nHost: webapp.internal\r\nConnection: close\r\n\r\n
+  Receive String: &#34;status&#34;:&#34;healthy&#34;
+  Interval:       5 seconds
+  Timeout:        16 seconds
+</code></pre><p>LTM marks the member UP only when the response body contains the exact expected string. The application must actively confirm it is healthy — not just that the port is open.</p>
+<p>A good <code>/health</code> endpoint checks: database connectivity, cache availability, key dependency status, and disk space if relevant. An application returning HTTP 200 with <code>{&quot;status&quot;:&quot;degraded&quot;}</code> should fail the monitor check.</p>
+<h3 id="https-monitor-for-encrypted-backends">HTTPS Monitor for Encrypted Backends</h3>
+<pre tabindex="0"><code>Monitor: https_monitor_webapp
+  Type:         HTTPS
+  SSL Profile:  serverssl_monitor (configure to accept self-signed certs internally)
+  Send String:  GET /health HTTP/1.1\r\nHost: webapp.internal\r\n\r\n
+  Receive String: &#34;status&#34;:&#34;healthy&#34;
+</code></pre><h3 id="the-timeout-formula">The Timeout Formula</h3>
+<p>A frequent misconfiguration: setting timeout ≤ interval. The correct formula:</p>
+<pre tabindex="0"><code>Timeout = (Interval × retries) + 1
+</code></pre><p>With Interval=5 and 3 retries: Timeout = 16. This gives LTM time to retry before marking the member down, avoiding false positives from transient network blips.</p>
+<hr>
+<h2 id="ssl-offloading-and-ssl-bridging">SSL Offloading and SSL Bridging</h2>
+<h3 id="ssl-offload-client-ssl-only">SSL Offload (Client SSL only)</h3>
+<pre tabindex="0"><code>Client ──(HTTPS/TLS 1.3)──→ F5 LTM ──(HTTP)──→ Backend
+</code></pre><p>F5 terminates TLS from the client and forwards unencrypted HTTP to backends. Maximum backend CPU savings. Requires a <strong>Client SSL Profile</strong> on the virtual server:</p>
+<pre tabindex="0"><code>Client SSL Profile: clientssl_webapp
+  Certificate:   /Common/webapp_cert
+  Key:           /Common/webapp_key
+  Chain:         /Common/intermediate_ca
+  Ciphers:       TLSv1.2:TLSv1.3
+  Options:       No TLSv1, No TLSv1.1
+</code></pre><h3 id="ssl-bridging-client--server-ssl">SSL Bridging (Client + Server SSL)</h3>
+<pre tabindex="0"><code>Client ──(HTTPS/TLS 1.3)──→ F5 LTM ──(HTTPS/TLS)──→ Backend
+</code></pre><p>F5 decrypts, inspects, then re-encrypts for the backend. Required in regulated environments (banking, healthcare) where compliance mandates end-to-end encryption. Adds some latency — two TLS handshakes per connection — but provides full compliance and visibility.</p>
+<p>In the banking environment, all production virtual servers ran SSL bridging. Every connection was decrypted, inspected by WAF, and re-encrypted to the backend.</p>
+<h3 id="certificate-management">Certificate Management</h3>
+<p>Key operational points:</p>
+<ul>
+<li>F5 does not alert by default when certificates approach expiry. Set up external monitoring (SolarWinds, Zabbix) to check certificate expiry on virtual servers.</li>
+<li>Certificate replacement is zero-downtime: update the certificate object, the profile references it automatically.</li>
+<li><strong>SNI</strong> allows a single VIP to serve multiple applications with different certificates — each SSL profile is matched to the appropriate server name.</li>
+</ul>
+<hr>
+<h2 id="session-persistence">Session Persistence</h2>
+<h3 id="cookie-persistence-recommended">Cookie Persistence (Recommended)</h3>
+<p>F5 inserts a cookie identifying the pool member into the HTTP response:</p>
+<pre tabindex="0"><code>Persistence Profile: cookie_persistence
+  Method:      Insert
+  Cookie Name: BIGipServer_webapp
+  Expiration:  Session
+  Encrypt:     Enabled
+</code></pre><p>On subsequent requests, the browser sends this cookie. F5 routes to the correct member regardless of current load distribution. Transparent to the application, works through NAT, survives client IP changes.</p>
+<h3 id="source-address-persistence">Source Address Persistence</h3>
+<p>Routes all traffic from the same client IP to the same member:</p>
+<pre tabindex="0"><code>Persistence Profile: source_addr_persistence
+  Timeout: 3600 seconds
+</code></pre><p>Simple, but problematic when many users share a NAT IP — all users behind the same NAT hit the same backend server, breaking load distribution.</p>
+<h3 id="irule-based-universal-persistence">iRule-Based Universal Persistence</h3>
+<p>For custom session identifiers (non-standard cookies, URL parameters, custom headers):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span>when HTTP_REQUEST <span style="color:#66d9ef">{</span>
+</span></span><span style="display:flex;"><span>  persist uie <span style="color:#66d9ef">[</span>HTTP<span style="color:#f92672">::</span>header <span style="color:#e6db74">&#34;X-Session-Token&#34;</span><span style="color:#66d9ef">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">}</span>
+</span></span></code></pre></div><p>Persists based on a custom header value — something no standard profile supports.</p>
+<hr>
+<h2 id="irules-the-programmable-traffic-layer">iRules: The Programmable Traffic Layer</h2>
+<p>iRules are Tcl-based scripts executing in the TMOS data plane at wire speed. They are the most powerful LTM differentiator — traffic logic that would otherwise require application code changes.</p>
+<h3 id="event-model">Event Model</h3>
+<p>iRules execute on events in the traffic lifecycle:</p>
+<ul>
+<li><code>HTTP_REQUEST</code> — complete HTTP request received from client</li>
+<li><code>HTTP_RESPONSE</code> — response received from backend</li>
+<li><code>CLIENT_ACCEPTED</code> — TCP connection from client established</li>
+<li><code>SERVER_CONNECTED</code> — F5 connected to backend</li>
+<li><code>SSL_HANDSHAKE_START</code> — during TLS negotiation</li>
+</ul>
+<h3 id="production-irule-examples">Production iRule Examples</h3>
+<p><strong>Client IP forwarding to backend:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span>when HTTP_REQUEST <span style="color:#66d9ef">{</span>
+</span></span><span style="display:flex;"><span>  HTTP<span style="color:#f92672">::</span>header insert <span style="color:#e6db74">&#34;X-Forwarded-For&#34;</span>   <span style="color:#66d9ef">[</span>IP<span style="color:#f92672">::</span>client_addr<span style="color:#66d9ef">]</span>
+</span></span><span style="display:flex;"><span>  HTTP<span style="color:#f92672">::</span>header insert <span style="color:#e6db74">&#34;X-Real-IP&#34;</span>         <span style="color:#66d9ef">[</span>IP<span style="color:#f92672">::</span>client_addr<span style="color:#66d9ef">]</span>
+</span></span><span style="display:flex;"><span>  HTTP<span style="color:#f92672">::</span>header insert <span style="color:#e6db74">&#34;X-Forwarded-Proto&#34;</span> <span style="color:#e6db74">&#34;https&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">}</span>
+</span></span></code></pre></div><p><strong>URI-based pool routing:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span>when HTTP_REQUEST <span style="color:#66d9ef">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">{</span> <span style="color:#66d9ef">[</span>HTTP<span style="color:#f92672">::</span>uri<span style="color:#66d9ef">]</span> starts_with <span style="color:#e6db74">&#34;/api/v2/&#34;</span> <span style="color:#66d9ef">}</span> <span style="color:#66d9ef">{</span>
+</span></span><span style="display:flex;"><span>    pool pool_api_v2_servers
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">}</span> <span style="color:#66d9ef">elseif</span> <span style="color:#66d9ef">{</span> <span style="color:#66d9ef">[</span>HTTP<span style="color:#f92672">::</span>uri<span style="color:#66d9ef">]</span> starts_with <span style="color:#e6db74">&#34;/api/&#34;</span> <span style="color:#66d9ef">}</span> <span style="color:#66d9ef">{</span>
+</span></span><span style="display:flex;"><span>    pool pool_api_v1_servers
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">}</span> <span style="color:#66d9ef">elseif</span> <span style="color:#66d9ef">{</span> <span style="color:#66d9ef">[</span>HTTP<span style="color:#f92672">::</span>uri<span style="color:#66d9ef">]</span> starts_with <span style="color:#e6db74">&#34;/admin/&#34;</span> <span style="color:#66d9ef">}</span> <span style="color:#66d9ef">{</span>
+</span></span><span style="display:flex;"><span>    pool pool_admin_servers
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">{</span>
+</span></span><span style="display:flex;"><span>    pool pool_web_servers
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">}</span>
+</span></span></code></pre></div><p><strong>Maintenance redirect when pool is empty:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span>when HTTP_REQUEST <span style="color:#66d9ef">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">{</span> <span style="color:#66d9ef">[</span>active_members pool_webapp_8080<span style="color:#66d9ef">]</span> <span style="color:#f92672">&lt;</span> 1 <span style="color:#66d9ef">}</span> <span style="color:#66d9ef">{</span>
+</span></span><span style="display:flex;"><span>    HTTP<span style="color:#f92672">::</span>redirect <span style="color:#e6db74">&#34;https://status.company.com/maintenance&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">}</span>
+</span></span></code></pre></div><p><strong>Host header-based routing — multiple applications on one VIP:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span>when HTTP_REQUEST <span style="color:#66d9ef">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">switch</span> <span style="color:#66d9ef">[</span>HTTP<span style="color:#f92672">::</span>host<span style="color:#66d9ef">]</span> <span style="color:#66d9ef">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;app1.company.com&#34;</span> <span style="color:#66d9ef">{</span> pool pool_app1 <span style="color:#66d9ef">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;app2.company.com&#34;</span> <span style="color:#66d9ef">{</span> pool pool_app2 <span style="color:#66d9ef">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;api.company.com&#34;</span>  <span style="color:#66d9ef">{</span> pool pool_api  <span style="color:#66d9ef">}</span>
+</span></span><span style="display:flex;"><span>    default            <span style="color:#66d9ef">{</span> pool pool_default <span style="color:#66d9ef">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">}</span>
+</span></span></code></pre></div><p><strong>Connection rate limiting by client IP:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span>when CLIENT_ACCEPTED <span style="color:#66d9ef">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">set</span> conn_limit <span style="color:#ae81ff">50</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">{</span> <span style="color:#66d9ef">[</span>table lookup <span style="color:#f92672">-</span>notouch <span style="color:#66d9ef">[</span>IP<span style="color:#f92672">::</span>client_addr<span style="color:#66d9ef">]]</span> <span style="color:#f92672">&gt;</span> $conn_limit <span style="color:#66d9ef">}</span> <span style="color:#66d9ef">{</span>
+</span></span><span style="display:flex;"><span>    reject
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">{</span>
+</span></span><span style="display:flex;"><span>    table incr <span style="color:#66d9ef">[</span>IP<span style="color:#f92672">::</span>client_addr<span style="color:#66d9ef">]</span>
+</span></span><span style="display:flex;"><span>    table timeout <span style="color:#66d9ef">[</span>IP<span style="color:#f92672">::</span>client_addr<span style="color:#66d9ef">]</span> <span style="color:#ae81ff">60</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">}</span>
+</span></span></code></pre></div><h3 id="irule-performance-notes">iRule Performance Notes</h3>
+<p>iRules execute for every connection or request through the virtual server. Guidelines:</p>
+<ul>
+<li>Avoid complex string operations in high-traffic iRules — use <code>table</code> to cache computed values</li>
+<li>A syntax error disables the entire iRule silently — test in staging first</li>
+<li>Use <code>log local0.debug</code> sparingly in production — excessive logging impacts performance</li>
+<li>The <code>RULE_INIT</code> event runs once at startup and is ideal for initializing shared data structures</li>
+</ul>
+<hr>
+<h2 id="high-availability-active-standby-in-production">High Availability: Active-Standby in Production</h2>
+<h3 id="device-groups-and-traffic-groups">Device Groups and Traffic Groups</h3>
+<p>F5 HA uses <strong>Device Trust</strong> (mutual authentication between peers) and <strong>Device Groups</strong> (sync-failover configuration):</p>
+<pre tabindex="0"><code>Device Group: dg_production
+  Type:    sync-failover
+  Members: bigip-01 (Active), bigip-02 (Standby)
+
+Traffic Group: traffic-group-1
+  Floating IPs: 10.10.1.100 (VIP), 10.10.1.1 (self IP)
+  Active on:    bigip-01
+</code></pre><p>Traffic Groups contain the floating IPs that migrate between devices during failover. When bigip-01 fails, bigip-02 takes ownership of traffic-group-1 and announces the VIP via gratuitous ARP.</p>
+<h3 id="the-dedicated-heartbeat-vlan-non-negotiable">The Dedicated Heartbeat VLAN: Non-Negotiable</h3>
+<p>F5 HA uses network failover — heartbeat packets between devices detect peer failure. The critical rule:</p>
+<p><strong>Always use a dedicated failover VLAN, separate from production and management networks.</strong></p>
+<p>Sharing the production interface for heartbeat creates false failover events during network congestion. Both devices believe the other has failed and both become active simultaneously — split-brain. Traffic is duplicated, sessions break, and the incident is painful to recover from.</p>
+<pre tabindex="0"><code>Failover VLAN: vlan_ha_heartbeat
+  Interface:         1.3 (dedicated)
+  bigip-01 self IP:  192.168.100.1/24
+  bigip-02 self IP:  192.168.100.2/24
+</code></pre><h3 id="config-sync-manual-vs-automatic">Config Sync: Manual vs. Automatic</h3>
+<p><strong>Automatic sync</strong> — changes made on the active device immediately propagate to standby. Risk: a partial or incorrect configuration change propagates before you can review it.</p>
+<p><strong>Manual sync</strong> — administrator triggers sync explicitly after verifying changes. Safer for production. Standard choice in regulated environments.</p>
+<h3 id="connection-mirroring">Connection Mirroring</h3>
+<p>By default, failover drops all existing connections — clients must reconnect. For most web applications, this is acceptable.</p>
+<p>For long-lived connections (persistent WebSockets, large file transfers, database connections), <strong>connection mirroring</strong> maintains session state on the standby device. Failover resumes these connections with minimal disruption.</p>
+<p>Enable connection mirroring selectively — it consumes memory and CPU on both devices. Not every virtual server needs it.</p>
+<hr>
+<h2 id="field-notes-the-2000--5000-migration">Field Notes: The 2000 → 5000 Migration</h2>
+<h3 id="why-we-migrated">Why We Migrated</h3>
+<p>BIG-IP 2000 series had reached its SSL offloading ceiling at banking peak hours. TMOS 13.x was approaching end of support. The 5000 series offered hardware SSL acceleration, 6× throughput improvement, and TLS 1.3 support via TMOS 15.x.</p>
+<h3 id="zero-downtime-approach-30-devices-0-outages">Zero-Downtime Approach: 30+ Devices, 0 Outages</h3>
+<p><strong>Phase 1 — Parallel deployment</strong>
+Install 5000 series hardware alongside existing 2000 series. Configure identical virtual servers, pools, profiles, and iRules on new devices. Zero traffic yet.</p>
+<p><strong>Phase 2 — Validation on non-critical virtual server</strong>
+Route a single internal application to the new device. Monitor for 72 hours: connection rates, SSL handshake latency, health monitor behavior, iRule execution logs, HA failover test under synthetic load.</p>
+<p><strong>Phase 3 — Progressive migration by business risk</strong>
+Migrate virtual servers in groups — internal tools first, general applications second, payment processing last. For each group:</p>
+<ul>
+<li>Update upstream routing / SNAT to point to new device</li>
+<li>Monitor 48 hours</li>
+<li>Keep old device as rollback for 72 hours per group</li>
+</ul>
+<p><strong>Phase 4 — HA pair completion</strong>
+After all virtual servers validated on new active device:</p>
+<ol>
+<li>Replace standby (old device) first</li>
+<li>Verify new standby syncs config from active</li>
+<li>Force failover — test new standby under production load</li>
+<li>Decommission old active</li>
+</ol>
+<p><strong>The rule that made it work: never replace both HA devices simultaneously.</strong> There must always be one fully validated, production-tested device handling traffic.</p>
+<h3 id="tmos-compatibility-audit-do-this-before-you-start">TMOS Compatibility Audit: Do This Before You Start</h3>
+<p>iRules written for TMOS 13.x do not always behave identically on 15.x. Before migration, audit all iRules for:</p>
+<ul>
+<li><code>HTTP::</code> commands — behavior changes in HTTP/2 scenarios</li>
+<li><code>SSL::</code> events — new events and changed timing in TLS 1.3</li>
+<li><code>RULE_INIT</code> execution — timing differences at startup</li>
+</ul>
+<p>We found 3 iRules requiring modification before cutover. Finding these in staging saved hours of production incident response.</p>
+<hr>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li>LTM is a <strong>full-proxy</strong> — not pass-through. This distinction drives all its capabilities and troubleshooting approaches.</li>
+<li><strong>Health monitors</strong> matter more than load balancing method. HTTP monitors that check application responses are always better than TCP monitors.</li>
+<li><strong>iRules</strong> enable wire-speed traffic logic without application code changes — the most powerful LTM differentiator.</li>
+<li><strong>SSL offloading</strong> removes encryption burden from backends. SSL bridging is required in regulated environments.</li>
+<li>Always use a <strong>dedicated heartbeat VLAN</strong> for HA. Shared interfaces cause split-brain.</li>
+<li>In migrations: <strong>standby first, then active</strong>. Never simultaneously.</li>
+</ul>
+<hr>
+<h2 id="this-series">This Series</h2>
+<ul>
+<li>📖 <a href="/en/technology/f5-bigip-application-delivery-platform-overview/">F5 BIG-IP Platform Overview — All Modules</a> ← Start here if you&rsquo;re new to F5</li>
+<li>🌐 <a href="/en/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM &amp; GSLB Deep Dive</a></li>
+<li>🛡️ <a href="/en/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive</a></li>
+</ul>
+<h2 id="related-articles">Related Articles</h2>
+<ul>
+<li>🛠️ <a href="/en/posts/next-gen-console-server-architecture/">The Backdoor of the Network: Next-Gen Console Server Architecture</a> — Out-of-band access during F5 maintenance windows</li>
+<li>🛡️ <a href="/en/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Traffic visibility alongside ADC</li>
+<li>🔐 <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset</a> — Where LTM fits in a Zero Trust architecture</li>
+</ul>
+]]></content:encoded></item><item><title>F5 BIG-IP Is Not a Load Balancer — It's an Application Delivery Platform</title><link>https://barashhelvadzhaoglu.com/en/technology/f5-master/</link><pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/f5-master/</guid><description>F5 BIG-IP is far more than a load balancer. Master guide covering LTM, GTM, WAF, APM, AFM, and BGP routing — with links to each deep dive.</description><content:encoded><![CDATA[<h1 id="f5-big-ip-it-is-an-application-delivery-platform">F5 BIG-IP: It is an Application Delivery Platform</h1>
+<p>The most common introduction to F5 in an enterprise goes like this: someone opens a ticket that says <em>&ldquo;the load balancer is down&rdquo;</em> and points at the F5. The problem is already in that sentence.</p>
+<p>F5 BIG-IP is not a load balancer. Calling it one is like calling a data center a server room — technically not wrong, but it completely misses the point.</p>
+<p>F5 BIG-IP is an <strong>Application Delivery Controller (ADC)</strong>: a full-proxy platform that manages, secures, optimizes, and makes applications highly available across local and global infrastructure. Load balancing is one of perhaps a dozen things it does.</p>
+<hr>
+<h2 id="how-to-read-this-series">How to Read This Series</h2>
+<p>This article gives you the <strong>big picture</strong> — what F5 is, where it sits, what each module does, and when it makes sense over alternatives.</p>
+<p><strong>If you are a network or security engineer</strong> who wants to go deep into configuration, iRules, migration field notes, and architecture details — jump directly to the module that interests you:</p>
+<ul>
+<li>🔧 <strong><a href="/en/technology/f5-ltm-deep-dive-virtual-servers-irules-ha/">F5 LTM Deep Dive</a></strong> — Virtual servers, pools, iRules, SSL offloading, HA, and a 30-device migration walkthrough</li>
+<li>🌐 <strong><a href="/en/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM &amp; GSLB Deep Dive</a></strong> — iQuery, Wide IPs, topology routing, DNS TTL strategy, multi-DC failover design</li>
+<li>🛡️ <strong><a href="/en/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive</a></strong> — ASM vs Advanced WAF, OWASP Top 10, bot defense, transparent-to-blocking deployment strategy</li>
+</ul>
+<p><strong>If you are an architect or decision-maker</strong> evaluating whether F5 fits your infrastructure — keep reading here. This article answers that question without requiring you to understand iRule syntax.</p>
+<hr>
+<h2 id="where-does-f5-sit-in-enterprise-architecture">Where Does F5 Sit in Enterprise Architecture?</h2>
+<p>F5 BIG-IP operates between the firewall and the application servers:</p>
+<pre tabindex="0"><code>Internet
+    │
+[DDoS Scrubbing / ISP]
+    │
+[NGFW — Palo Alto / Fortinet]   ← L3/L4: routing, IP filtering, VPN, stateful inspection
+    │
+[F5 BIG-IP]                     ← L4–L7: application delivery, SSL, health, routing logic
+    │
+[Backend Servers / App Clusters]
+</code></pre><p>The firewall handles network-level decisions. F5 handles everything above that layer — SSL termination, health-aware load balancing, session persistence, traffic manipulation, and Layer 7 security.</p>
+<p>This separation matters because a firewall is not designed to do what F5 does. It cannot efficiently terminate thousands of SSL sessions per second, inspect HTTP response bodies for health monitoring, rewrite application headers on the fly, or make routing decisions based on URI paths, cookies, or user identity.</p>
+<p>In a dual data center design, the architecture expands:</p>
+<pre tabindex="0"><code>               [F5 GTM]        ← DNS-level: directs clients to the right DC
+              /         \
+         [DC-1]         [DC-2]
+       [F5 LTM]       [F5 LTM] ← Local: distributes traffic within each DC
+           │               │
+      App Servers      App Servers
+</code></pre><p>GTM sits above both LTMs and answers DNS queries — directing clients to the appropriate data center based on health, load, and geography. This is what makes multi-DC failover automatic rather than manual.</p>
+<hr>
+<h2 id="the-full-module-map">The Full Module Map</h2>
+<p>TMOS (Traffic Management Operating System) is the foundation. Every F5 module runs on top of it. Understanding which module solves which problem is the key to both architecture design and licensing conversations.</p>
+<h3 id="ltm--local-traffic-manager">LTM — Local Traffic Manager</h3>
+<p>The core module. Almost every F5 deployment starts here.</p>
+<p>LTM is a <strong>full-proxy ADC</strong>: it terminates every client connection, inspects it, makes routing and policy decisions, and opens a new connection to the backend. This full-proxy position gives complete visibility and control over application traffic.</p>
+<p>What LTM provides:</p>
+<ul>
+<li>Load balancing across pools of backend servers — with health monitoring that understands application responses, not just TCP reachability</li>
+<li>SSL/TLS offloading — terminating HTTPS on behalf of backends, removing their encryption burden</li>
+<li>Session persistence — keeping users connected to the same backend server across requests</li>
+<li>iRules — a programmable scripting layer that manipulates traffic at wire speed: rewrite headers, route by URI, inject content, enforce rate limits</li>
+<li>High availability — Active-Standby or Active-Active clustering with sub-second failover</li>
+</ul>
+<p>→ <strong><a href="/en/technology/f5-ltm-deep-dive-virtual-servers-irules-ha/">F5 LTM Deep Dive: Virtual Servers, iRules, SSL Offloading &amp; HA</a></strong></p>
+<hr>
+<h3 id="gtm--dns--global-traffic-manager">GTM / DNS — Global Traffic Manager</h3>
+<p>LTM manages traffic within one data center. GTM manages traffic <strong>between</strong> data centers — at the DNS level.</p>
+<p>When a client resolves <code>webapp.company.com</code>, GTM answers the DNS query. Its answer depends on which data center is healthy, what the current load is, and where the client is geographically located.</p>
+<p>GTM&rsquo;s key capability is <strong>iQuery</strong> — a proprietary protocol that gives it real-time application health data directly from LTM. When a backend application fails and LTM marks its pool down, GTM knows immediately and stops routing new clients to that data center — without waiting for DNS TTL expiry.</p>
+<p>What GTM provides:</p>
+<ul>
+<li>Global Server Load Balancing (GSLB) across multiple data centers</li>
+<li>Automatic DNS-level failover when a DC goes offline</li>
+<li>Topology-based routing — European users to EU data centers, Middle Eastern users to regional DCs</li>
+<li>Flexible policies: always-prefer-primary (Global Availability), equal distribution (Round Robin), or connection-aware (Least Connections)</li>
+</ul>
+<p>→ <strong><a href="/en/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM &amp; GSLB Deep Dive: Global Traffic Management and DNS Failover</a></strong></p>
+<hr>
+<h3 id="waf--web-application-firewall-asm--advanced-waf">WAF — Web Application Firewall (ASM / Advanced WAF)</h3>
+<p>A network firewall operates at L3/L4. It cannot inspect whether a POST request body contains a SQL injection payload. WAF can.</p>
+<p>F5 WAF sits inline on the LTM virtual server, inspecting HTTP/HTTPS application traffic after SSL termination. This positioning gives it full visibility into decrypted content.</p>
+<p>F5 offers two WAF tiers:</p>
+<ul>
+<li><strong>ASM</strong> — signature-based protection against known attacks, OWASP Top 10 coverage, parameter and cookie enforcement</li>
+<li><strong>Advanced WAF</strong> — adds behavioral bot defense, credential stuffing protection, JavaScript challenges, and L7 DoS mitigation</li>
+</ul>
+<p>What WAF protects against: SQL injection, XSS, CSRF, parameter tampering, cookie poisoning, forceful browsing, bot traffic, and application-layer DoS.</p>
+<p>→ <strong><a href="/en/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive: Application Security with ASM and Advanced WAF</a></strong></p>
+<hr>
+<h3 id="apm--access-policy-manager">APM — Access Policy Manager</h3>
+<p>APM is F5&rsquo;s identity and access module — where F5 moves beyond traffic delivery into <strong>access control</strong>.</p>
+<ul>
+<li><strong>SSL VPN</strong> — full network-level remote access via BIG-IP Edge Client, comparable to Cisco AnyConnect or Fortinet SSL VPN</li>
+<li><strong>Zero Trust Network Access (ZTNA)</strong> — identity-aware, per-application access without exposing the full network</li>
+<li><strong>SSO</strong> — Kerberos, SAML, OAuth integration for seamless authentication across applications</li>
+<li><strong>MFA integration</strong> — RADIUS, LDAP, Active Directory, RSA SecurID</li>
+<li><strong>Endpoint inspection</strong> — verifying device health (AV status, patch level, domain membership) before granting access</li>
+</ul>
+<p>APM&rsquo;s advantage over standalone VPN solutions: it shares the same hardware and management plane as LTM. One platform for both application delivery and remote access.</p>
+<hr>
+<h3 id="afm--advanced-firewall-manager">AFM — Advanced Firewall Manager</h3>
+<p>AFM adds network-level firewall capabilities to the F5 platform:</p>
+<ul>
+<li>L3/L4 stateful packet inspection — similar to a traditional network firewall, running inline on the ADC</li>
+<li><strong>DoS and DDoS protection</strong> — rate limiting, protocol anomaly detection, TCP SYN flood mitigation at hardware speeds</li>
+<li><strong>IP intelligence</strong> — blocking known-bad IPs, Tor exit nodes, botnet C2 addresses via F5&rsquo;s threat intelligence feeds</li>
+<li>Network Address Translation (NAT) policies</li>
+</ul>
+<p>AFM is deployed when organizations want to consolidate firewall and ADC functions on a single platform, or when the ADC itself needs a dedicated protection layer.</p>
+<hr>
+<h3 id="bgp-and-dynamic-routing">BGP and Dynamic Routing</h3>
+<p>One of the least-known F5 capabilities: <strong>BIG-IP runs a full routing stack</strong>.</p>
+<p>TMOS supports BGP, OSPF, static routes with route domains (VRF-equivalent), and ECMP. In practice, BGP is the most relevant:</p>
+<ul>
+<li>F5 can participate in BGP routing and advertise Virtual IP addresses as BGP routes</li>
+<li>In large enterprise and service provider environments, <strong>anycast VIP advertisement</strong> via BGP allows the same VIP IP to be advertised from multiple data centers — routing naturally directs clients to the nearest healthy site</li>
+<li>BGP withdrawal during maintenance windows automatically shifts traffic to DR sites without manual DNS changes</li>
+</ul>
+<p>In the banking environment I worked in, we used BGP between F5 and the core routing layer to dynamically withdraw VIP advertisements during planned maintenance — clean, automatic, no DNS changes required.</p>
+<hr>
+<h3 id="link-controller">Link Controller</h3>
+<p>Link Controller manages outbound internet connectivity across multiple ISP links:</p>
+<ul>
+<li>Load balancing across multiple upstream ISP connections</li>
+<li>Cost-based routing — prefer cheaper links, fail over to premium links when needed</li>
+<li>ISP health monitoring with automatic rerouting on link failure</li>
+</ul>
+<p>Most relevant for organizations with multiple ISP connections that want intelligent distribution rather than simple active-standby.</p>
+<hr>
+<h3 id="irules-and-irules-lx">iRules and iRules LX</h3>
+<p>iRules are F5&rsquo;s programmable traffic layer — Tcl-based scripts that execute in the TMOS data plane at wire speed. They apply across modules and can manipulate any aspect of traffic: headers, URIs, cookies, routing decisions, SSL attributes.</p>
+<p>iRules LX extends this with a Node.js runtime for more complex logic and external API integrations.</p>
+<p>iRules are what make F5 uniquely flexible for organizations with non-standard application requirements — when no profile or policy covers the use case, an iRule usually can.</p>
+<hr>
+<h2 id="when-does-f5-make-sense--and-when-doesnt-it">When Does F5 Make Sense — and When Doesn&rsquo;t It?</h2>
+<p>F5 BIG-IP is powerful, operationally mature, and expensive. The decision to deploy it should be based on specific requirements, not on reputation alone.</p>
+<p><strong>F5 is the right choice when:</strong></p>
+<ul>
+<li>SSL/TLS termination volume is high — hardware acceleration on physical appliances handles thousands of sessions per second that software solutions cannot match economically</li>
+<li>Applications require complex traffic logic (iRules) that simpler proxies cannot express without application code changes</li>
+<li>Multiple data centers require automated DNS-level failover (GTM)</li>
+<li>Regulatory requirements mandate WAF with detailed audit logging</li>
+<li>You need a single platform for application delivery, VPN, and L7 security — reducing operational complexity</li>
+<li>Mission-critical applications need sub-second HA failover with connection state mirroring</li>
+</ul>
+<p><strong>Consider alternatives when:</strong></p>
+<ul>
+<li>Your infrastructure is fully cloud-native — AWS ALB, Azure Load Balancer, or GCP Load Balancing cover most use cases without on-premises hardware</li>
+<li>Traffic volumes are moderate and Nginx Plus or HAProxy handle your requirements at a fraction of the cost</li>
+<li>Applications are stateless and session persistence is not required</li>
+<li>TCO is the primary constraint and open-source solutions are operationally feasible for your team</li>
+</ul>
+<p>The honest summary: in banking, telco, and large enterprises with on-premises infrastructure and mission-critical application requirements, F5 remains the dominant platform. In cloud-native or cost-constrained environments, evaluate alternatives seriously before committing to F5 licensing.</p>
+<hr>
+<h2 id="this-series">This Series</h2>
+<p>This article is the starting point. Each module has a dedicated deep dive:</p>
+<ul>
+<li>🔧 <strong><a href="/en/technology/f5-ltm-deep-dive-virtual-servers-irules-ha/">F5 LTM Deep Dive: Virtual Servers, iRules, SSL Offloading &amp; HA</a></strong> — Full-proxy architecture, pool configuration, health monitors, iRule examples, session persistence, HA clustering, and a zero-downtime 30-device migration walkthrough</li>
+<li>🌐 <strong><a href="/en/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM &amp; GSLB Deep Dive: Global Traffic Management and DNS Failover</a></strong> — Wide IPs, iQuery, topology routing, TTL strategy, active-active vs. active-standby DC patterns</li>
+<li>🛡️ <strong><a href="/en/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive: Application Security with ASM and Advanced WAF</a></strong> — Security policy models, OWASP Top 10 coverage, bot defense, L7 DoS protection, and transparent-to-blocking deployment strategy</li>
+</ul>
+<hr>
+<h2 id="related-articles">Related Articles</h2>
+<ul>
+<li>🛡️ <a href="/en/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Traffic visibility across the full stack</li>
+<li>🔐 <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture</a> — Where APM and WAF fit in Zero Trust</li>
+<li>🏗️ <a href="/en/architecture/it-infrastructure-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a> — Systems thinking behind ADC placement</li>
+<li>🎯 <a href="/en/architecture/network-product-selection-strategy/">Network Infrastructure Product Selection: Strategic Criteria</a> — How to evaluate ADC vendors objectively</li>
+</ul>
+]]></content:encoded></item></channel></rss>

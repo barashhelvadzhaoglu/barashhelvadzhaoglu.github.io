@@ -1,1 +1,700 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>IT Services &amp; Consulting on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/services/</link><description>Recent content in IT Services &amp; Consulting on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>en</language><atom:link href="https://barashhelvadzhaoglu.com/en/services/index.xml" rel="self" type="application/rss+xml"/><item><title>Network Security &amp; Infrastructure Consulting for Enterprises</title><link>https://barashhelvadzhaoglu.com/en/services/network-security-consulting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/services/network-security-consulting/</guid><description>High-end network security consulting in Munich. Firewall migration, Zero Trust architecture, and network automation. Free initial technical consultation.</description></item><item><title>On-Site IT Care – Local IT Support for Businesses</title><link>https://barashhelvadzhaoglu.com/en/services/onsite-it-care/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/services/onsite-it-care/</guid><description>Professional IT care for SMBs in Munich. WiFi optimization, NAS backup, antivirus, camera systems, UPS and PC maintenance — one contact person.</description></item><item><title>Web Shield – Website Protection &amp; Management</title><link>https://barashhelvadzhaoglu.com/en/services/web-shield/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/services/web-shield/</guid><description>Website management in Munich. SSL, WAF protection, DDoS defense, free hosting and monthly security reports. All credentials stay with you.</description></item><item><title>WiFi Marketing &amp; Captive Portal Munich</title><link>https://barashhelvadzhaoglu.com/en/services/wifi-marketing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/services/wifi-marketing/</guid><description>Turn your guest WiFi into a powerful marketing tool. Automatic email &amp;amp; phone number collection, GDPR compliant. For cafes, hotels, and restaurants in Munich.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>IT Services &amp; Consulting on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/services/</link><description>Recent content in IT Services &amp; Consulting on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>en</language><atom:link href="https://barashhelvadzhaoglu.com/en/services/index.xml" rel="self" type="application/rss+xml"/><item><title>Network Security &amp; Infrastructure Consulting for Enterprises</title><link>https://barashhelvadzhaoglu.com/en/services/network-security-consulting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/services/network-security-consulting/</guid><description>High-end network security consulting in Munich. Firewall migration, Zero Trust architecture, and network automation. Free initial technical consultation.</description><content:encoded><![CDATA[<h1 id="network-security--infrastructure-consulting-for-enterprises">Network Security &amp; Infrastructure Consulting for Enterprises</h1>
+<p>In today&rsquo;s complex threat landscape, your network infrastructure must do more than just &ldquo;work&rdquo;—it must be resilient, transparent, and secure. With over 11 years of experience as a <strong>Senior Network Security Engineer</strong>, I modernize your critical infrastructure according to global standards.</p>
+<p>Based in Munich, I bring expertise from high-security sectors like banking and industry directly to your business.</p>
+<blockquote>
+<p>💬 <strong>Free Initial Technical Consultation (30 Min):</strong> <a href="https://wa.me/4916098665971">Message on WhatsApp</a> or <a href="mailto:info@barashhelvadzhaoglu.com">Send an Email</a></p>
+</blockquote>
+<hr>
+<h2 id="core-competencies--solutions">Core Competencies &amp; Solutions</h2>
+<h3 id="1-next-generation-firewall-ngfw-management">1. Next-Generation Firewall (NGFW) Management</h3>
+<p>Your firewall is the first line of defense. I provide not just installation, but optimization based on best-practice standards:</p>
+<ul>
+<li><strong>Palo Alto &amp; Fortinet Migration:</strong> Seamless migration from legacy systems to modern NGFW platforms with <strong>Zero Downtime</strong>.</li>
+<li><strong>Policy Optimization:</strong> Cleaning up complex rulebases to boost system performance and security.</li>
+<li><strong>SSL Inspection:</strong> Gaining visibility into hidden threats within encrypted traffic.</li>
+</ul>
+<h3 id="2-zero-trust--secure-access-architecture">2. Zero Trust &amp; Secure Access Architecture</h3>
+<p>Modernizing your network based on the principle of &ldquo;Never trust, always verify&rdquo;:</p>
+<ul>
+<li><strong>Micro-Segmentation:</strong> Limiting lateral movement within the network to prevent the spread of security breaches.</li>
+<li><strong>Secure Remote Access (VPN/ZTNA):</strong> Implementing Palo Alto GlobalProtect or Fortinet ZTNA for secure mobile work.</li>
+<li><strong>Identity Management (Cisco ISE / Aruba ClearPass):</strong> Automated verification of identity and security posture for every device on the network.</li>
+</ul>
+<h3 id="3-data-center--campus-network-design">3. Data Center &amp; Campus Network Design</h3>
+<p>High-speed infrastructures for modern requirements:</p>
+<ul>
+<li><strong>Cisco NDFC &amp; VXLAN:</strong> Scalable and flexible fabric architectures for modern data centers.</li>
+<li><strong>High Availability (HA):</strong> Redundant designs to ensure continuous operation during hardware or software failures.</li>
+<li><strong>SD-WAN Implementation:</strong> Cost-effective and intelligent wide-area network management for global sites.</li>
+</ul>
+<h3 id="4-network-automation-netdevops">4. Network Automation (NetDevOps)</h3>
+<p>Modern approaches that eliminate manual errors and increase speed:</p>
+<ul>
+<li><strong>Python-based Automation:</strong> Executing policy changes or inventory audits on hundreds of devices simultaneously.</li>
+<li><strong>Configuration Backup &amp; Monitoring:</strong> Comprehensive logging of every change in your infrastructure for audits and compliance.</li>
+</ul>
+<hr>
+<h2 id="typical-project-sizes--investment">Typical Project Sizes &amp; Investment</h2>
+<p>Every business is different—here is an orientation framework:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Project Type</th>
+          <th>Scope</th>
+          <th>Investment</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Firewall Audit &amp; Optimization</td>
+          <td>1-2 Days</td>
+          <td><strong>from €500</strong></td>
+      </tr>
+      <tr>
+          <td>WLAN Planning (up to 50 APs)</td>
+          <td>3-5 Days</td>
+          <td><strong>from €900</strong></td>
+      </tr>
+      <tr>
+          <td>Firewall Migration (Palo Alto / Fortinet)</td>
+          <td>5-10 Days</td>
+          <td><strong>from €2,000</strong></td>
+      </tr>
+      <tr>
+          <td>Zero Trust Architecture</td>
+          <td>Project-based</td>
+          <td><strong>On Request</strong></td>
+      </tr>
+      <tr>
+          <td>Monthly Managed Security Monitoring</td>
+          <td>Ongoing</td>
+          <td><strong>from €199/mo</strong></td>
+      </tr>
+  </tbody>
+</table>
+<p><em>Free estimate provided after a 30-minute initial call. No hidden costs.</em></p>
+<hr>
+<h2 id="why-professional-consulting">Why Professional Consulting?</h2>
+<ul>
+<li><strong>Senior Expertise:</strong> I apply bank-level security protocols to your corporate environment.</li>
+<li><strong>Vendor-Neutral Approach:</strong> I objectively recommend only the technology you truly need (Cisco, Palo Alto, Fortinet, etc.).</li>
+<li><strong>Sustainability:</strong> I provide full documentation for all systems, ensuring your infrastructure remains transparent and manageable.</li>
+<li><strong>GDPR Compliant:</strong> All solutions are implemented considering German data protection requirements.</li>
+</ul>
+<hr>
+<h2 id="schedule-a-consultation-now">Schedule a Consultation Now</h2>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<p><strong>📧 Email:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
+<p><em>The initial consultation (30 min) is free and non-binding. You will receive a clear, transparent offer afterward.</em></p>
+]]></content:encoded></item><item><title>On-Site IT Care – Local IT Support for Businesses</title><link>https://barashhelvadzhaoglu.com/en/services/onsite-it-care/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/services/onsite-it-care/</guid><description>Professional IT care for SMBs in Munich. WiFi optimization, NAS backup, antivirus, camera systems, UPS and PC maintenance — one contact person.</description><content:encoded><![CDATA[<h1 id="on-site-it-care--complete-it-support-for-your-business">On-Site IT Care – Complete IT Support for Your Business</h1>
+<p>You focus on your business — I&rsquo;ll take care of your IT.</p>
+<p>Small and medium businesses don&rsquo;t need their own IT department. They need a reliable contact who shows up when something isn&rsquo;t working, who acts proactively before something fails — and who explains clearly what they&rsquo;re doing.</p>
+<p>As a <strong>Senior IT Engineer with over 11 years of experience</strong>, that&rsquo;s exactly what I offer: personal, professional IT support on-site in Munich and surrounding areas.</p>
+<blockquote>
+<p>💬 <strong>Free IT analysis:</strong> <a href="https://wa.me/4916098665971">Write on WhatsApp</a> — I&rsquo;ll assess your current IT situation at no cost.</p>
+</blockquote>
+<hr>
+<h2 id="services-overview">Services Overview</h2>
+<h3 id="-wifi-optimization--mesh-network-aruba-instant-on">📶 WiFi Optimization &amp; Mesh Network (Aruba Instant On)</h3>
+<p><strong>The problem:</strong> WiFi drops out, there&rsquo;s no signal in the back room, customers complain about slow internet.</p>
+<p><strong>The solution:</strong> I analyze your premises and install professional <strong>Aruba Instant On Access Points</strong> — without replacing your existing modem.</p>
+<ul>
+<li><strong>Mesh technology:</strong> Access points connect automatically — no complicated cable runs required</li>
+<li><strong>Separate networks:</strong> Staff WiFi and guest WiFi cleanly separated — GDPR-compliant and secure</li>
+<li><strong>Cloud management:</strong> All devices monitored via an app — I see immediately if something is wrong</li>
+<li><strong>Scalable:</strong> Need more coverage later? Simply add another access point</li>
+</ul>
+<p><strong>Suitable for:</strong> Cafés, restaurants, medical practices, law firms, small offices, hotels</p>
+<table>
+  <thead>
+      <tr>
+          <th>Service</th>
+          <th>Price</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Site survey (signal analysis)</td>
+          <td>Free</td>
+      </tr>
+      <tr>
+          <td>Installation 1x Aruba AP</td>
+          <td>From €99 + hardware</td>
+      </tr>
+      <tr>
+          <td>Installation 2x AP (Mesh)</td>
+          <td>From €149 + hardware</td>
+      </tr>
+      <tr>
+          <td>Monthly monitoring</td>
+          <td>€19/month</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h3 id="-nas-backup--data-security-aws-s3">💾 NAS Backup &amp; Data Security (AWS S3)</h3>
+<p><strong>The problem:</strong> Many businesses have a NAS device without RAID — a single hard drive failure and all data is lost. Or: the NAS is running but there&rsquo;s no external backup.</p>
+<p><strong>The solution:</strong> I set up automatic, encrypted data backup from your NAS directly to <strong>AWS Cloud (Frankfurt)</strong>.</p>
+<ul>
+<li><strong>Automatic:</strong> Daily backup without manual intervention</li>
+<li><strong>Encrypted:</strong> Your data is encrypted before transfer — only you have the key</li>
+<li><strong>Your AWS account:</strong> I set everything up in your name — the data and account belong to you</li>
+<li><strong>GDPR-compliant:</strong> Servers in Frankfurt (EU), no data sharing with third parties</li>
+<li><strong>Affordable:</strong> 100 GB in AWS S3 costs approximately €2-3 per month</li>
+</ul>
+<p><strong>For medical practices &amp; law firms:</strong> I prepare a Data Processing Agreement (AVV) — legally clean and GDPR-compliant.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Service</th>
+          <th>Price</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>AWS account setup</td>
+          <td>€49 one-time</td>
+      </tr>
+      <tr>
+          <td>Backup configuration (Hyper Backup)</td>
+          <td>€49 one-time</td>
+      </tr>
+      <tr>
+          <td>AVV preparation (for medical practices)</td>
+          <td>€29 one-time</td>
+      </tr>
+      <tr>
+          <td>Monthly monitoring &amp; control</td>
+          <td>€19/month</td>
+      </tr>
+  </tbody>
+</table>
+<p><em>AWS costs (~€2-5/month) are billed directly through your AWS account.</em></p>
+<hr>
+<h3 id="-ups--uninterruptible-power-supply">🔋 UPS – Uninterruptible Power Supply</h3>
+<p><strong>The problem:</strong> A power outage or voltage spike can permanently damage your server, NAS or network devices and cause data loss — often without warning.</p>
+<p><strong>The solution:</strong> A <strong>UPS (Uninterruptible Power Supply)</strong> protects your devices from power outages and voltage surges.</p>
+<p>How it works:</p>
+<pre tabindex="0"><code>Power goes out
+      ↓
+UPS kicks in immediately (battery)
+      ↓
+NAS detects the outage automatically
+      ↓
+Safe shutdown within 2 minutes
+      ↓
+No data loss, no damage
+</code></pre><ul>
+<li><strong>Recommendation:</strong> APC or Eaton Line-Interactive UPS</li>
+<li><strong>NAS integration:</strong> Synology NAS detects UPS automatically via USB and shuts down safely</li>
+<li><strong>Annual battery check:</strong> I check the battery condition once a year</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th>Service</th>
+          <th>Price</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>UPS needs analysis</td>
+          <td>Free</td>
+      </tr>
+      <tr>
+          <td>Installation &amp; NAS integration</td>
+          <td>€59 labor</td>
+      </tr>
+      <tr>
+          <td>UPS hardware (APC 650VA)</td>
+          <td>~€80-120 + margin</td>
+      </tr>
+      <tr>
+          <td>Annual battery check</td>
+          <td>€29/year</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h3 id="-antivirus--endpoint-protection-centrally-managed">🛡️ Antivirus &amp; Endpoint Protection (Centrally Managed)</h3>
+<p><strong>The problem:</strong> A single antivirus program on each PC is not enough. Ransomware, phishing and modern attacks bypass simple solutions easily.</p>
+<p><strong>The solution:</strong> I install a <strong>centrally managed EDR/antivirus solution</strong> (e.g. Bitdefender GravityZone or ESET Protect) on all your devices.</p>
+<ul>
+<li><strong>Central management:</strong> I see the protection status of all devices at a glance</li>
+<li><strong>Real-time protection:</strong> Threats are detected before they cause damage</li>
+<li><strong>Ransomware protection:</strong> Your files are protected from encryption by malware</li>
+<li><strong>Monthly report:</strong> You receive a monthly overview of detected threats</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th>Service</th>
+          <th>Price</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Setup &amp; installation (up to 5 PCs)</td>
+          <td>€59 one-time</td>
+      </tr>
+      <tr>
+          <td>License per device</td>
+          <td>From €3-5/month</td>
+      </tr>
+      <tr>
+          <td>Monthly management &amp; report</td>
+          <td>Included in package</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h3 id="-camera-system--video-surveillance">📹 Camera System &amp; Video Surveillance</h3>
+<p><strong>The problem:</strong> You want to monitor your entrance, cash register or warehouse — but don&rsquo;t know which system is right for you.</p>
+<p><strong>The solution:</strong> I install a professional IP camera system that fits your situation — easy to use, reliable and GDPR-compliant.</p>
+<ul>
+<li><strong>Synology Surveillance Station:</strong> If you already have a Synology NAS, we can use it as a video recorder — 2 camera licenses are included free</li>
+<li><strong>IP cameras:</strong> Hikvision or Dahua — reliable and cost-effective</li>
+<li><strong>Remote access:</strong> View your cameras anytime via smartphone app</li>
+<li><strong>GDPR:</strong> I help with correct signage and privacy policy</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th>Service</th>
+          <th>Price</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Consultation &amp; planning</td>
+          <td>Free</td>
+      </tr>
+      <tr>
+          <td>Installation per camera</td>
+          <td>From €49 labor</td>
+      </tr>
+      <tr>
+          <td>Synology Surveillance Station setup</td>
+          <td>€59 one-time</td>
+      </tr>
+      <tr>
+          <td>Additional camera license (Synology)</td>
+          <td>~€50 one-time</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h3 id="-pc--server-maintenance">💻 PC &amp; Server Maintenance</h3>
+<p><strong>The problem:</strong> Slow computers cost productivity every day. Outdated systems are security risks.</p>
+<p><strong>The solution:</strong> Regular maintenance keeps your devices fast, secure and reliable.</p>
+<ul>
+<li><strong>Windows reinstallation:</strong> Clean system, optimized drivers, no data loss</li>
+<li><strong>Hardware upgrade:</strong> SSD and RAM — up to 5x faster without buying a new PC</li>
+<li><strong>Windows Update management:</strong> All security updates centrally and controlled</li>
+<li><strong>Server maintenance:</strong> Replace RAM/drives, clean fans, check logs</li>
+<li><strong>Remote support:</strong> Simple problems solved via AnyDesk without an on-site visit</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th>Service</th>
+          <th>Price</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>PC diagnosis</td>
+          <td>Free</td>
+      </tr>
+      <tr>
+          <td>Windows reinstallation</td>
+          <td>From €49</td>
+      </tr>
+      <tr>
+          <td>SSD/RAM upgrade</td>
+          <td>From €49 + hardware</td>
+      </tr>
+      <tr>
+          <td>Server maintenance (on-site)</td>
+          <td>€59/hour</td>
+      </tr>
+      <tr>
+          <td>Remote support</td>
+          <td>€29/hour</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="monthly-care-packages">Monthly Care Packages</h2>
+<p>Instead of individual jobs, I also offer monthly care contracts — so you always have a fixed contact person and predictable IT costs:</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th><strong>Basic</strong></th>
+          <th><strong>Business</strong></th>
+          <th><strong>Premium</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Antivirus (up to 5 devices)</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>Windows Update management</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>Remote support (hrs/month)</td>
+          <td>1 hr</td>
+          <td>2 hrs</td>
+          <td>4 hrs</td>
+      </tr>
+      <tr>
+          <td>NAS backup monitoring</td>
+          <td>–</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>WiFi monitoring</td>
+          <td>–</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>On-site visit/month</td>
+          <td>–</td>
+          <td>1x</td>
+          <td>2x</td>
+      </tr>
+      <tr>
+          <td>UPS annual check</td>
+          <td>–</td>
+          <td>–</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>Monthly report</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>Response time</td>
+          <td>48 hrs</td>
+          <td>24 hrs</td>
+          <td>4 hrs</td>
+      </tr>
+      <tr>
+          <td><strong>Price</strong></td>
+          <td><strong>€49/month</strong></td>
+          <td><strong>€89/month</strong></td>
+          <td><strong>€149/month</strong></td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="your-data--always-under-your-control">Your Data — Always Under Your Control</h2>
+<p>As with all my services: <strong>All accounts belong to you.</strong></p>
+<ul>
+<li>AWS account in your name</li>
+<li>Antivirus license in your name</li>
+<li>All credentials stored securely in <strong>Bitwarden</strong> (password manager) and transferable to you at any time</li>
+</ul>
+<p>I only receive administrator access for management purposes. You retain full control — always.</p>
+<hr>
+<h2 id="who-is-on-site-it-care-for">Who Is On-Site IT Care For?</h2>
+<ul>
+<li><strong>Medical practices &amp; therapists</strong> — GDPR-compliant data backup, reliable patient WiFi</li>
+<li><strong>Law firms</strong> — Secure data storage, encrypted backups</li>
+<li><strong>Cafés &amp; restaurants</strong> — Stable guest WiFi, camera system, reliable POS IT</li>
+<li><strong>Hotels &amp; guesthouses</strong> — Full-coverage WiFi, camera surveillance, NAS backup</li>
+<li><strong>Retailers</strong> — POS maintenance, WiFi, video surveillance</li>
+<li><strong>Small offices (2-20 people)</strong> — Complete IT without an in-house IT department</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<p><strong>Do I need to sign a long-term contract?</strong>
+<em>No. Individual services are bookable at any time. Monthly packages have a 30-day cancellation period.</em></p>
+<p><strong>Do you come outside business hours?</strong>
+<em>Yes, by arrangement also in the evenings or on weekends — especially for installations that should not interrupt operations.</em></p>
+<p><strong>What if I don&rsquo;t know my NAS model?</strong>
+<em>No problem. I&rsquo;ll take a free look at everything and explain exactly what&rsquo;s there and what can be improved.</em></p>
+<p><strong>Do you also work with Mac devices?</strong>
+<em>For basic tasks yes. For complex Mac problems I&rsquo;ll honestly recommend when a specialist is better suited.</em></p>
+<p><strong>How quickly can you come?</strong>
+<em>Usually within 24-48 hours. For urgent cases also the same day — just write on WhatsApp.</em></p>
+<hr>
+<h2 id="request-your-free-it-check-now">Request Your Free IT Check Now</h2>
+<p>I&rsquo;ll assess your current IT situation for free — WiFi, data backup, devices, everything. You&rsquo;ll then receive an honest assessment and a clear proposal.</p>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<p><strong>📧 Email:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
+<p><em>Free check. No order without your approval. No lock-in.</em></p>
+]]></content:encoded></item><item><title>Web Shield – Website Protection &amp; Management</title><link>https://barashhelvadzhaoglu.com/en/services/web-shield/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/services/web-shield/</guid><description>Website management in Munich. SSL, WAF protection, DDoS defense, free hosting and monthly security reports. All credentials stay with you.</description><content:encoded><![CDATA[<h1 id="web-shield--professional-website-protection--management">Web Shield – Professional Website Protection &amp; Management</h1>
+<p>Your website is often the first impression potential customers have of your business. A crash, a cyberattack, or an expired SSL certificate can cost you customers and trust — often without you even noticing.</p>
+<p><strong>Web Shield</strong> is a monthly all-inclusive protection plan for your business website: security, maintenance, backups, and monitoring — all from one person, so you never have to worry about it.</p>
+<blockquote>
+<p>💬 <strong>Free website analysis:</strong> <a href="https://wa.me/4916098665971">Write on WhatsApp</a> — I&rsquo;ll check your website for vulnerabilities at no cost.</p>
+</blockquote>
+<hr>
+<h2 id="whats-included">What&rsquo;s Included?</h2>
+<h3 id="-ssl-certificate--always-valid-never-expired">🔒 SSL Certificate – Always Valid, Never Expired</h3>
+<p>An expired SSL certificate shows your visitors the warning &ldquo;This site is not secure&rdquo; — and they leave immediately.</p>
+<ul>
+<li>Automatic setup and renewal</li>
+<li>No manual action required</li>
+<li>Your site is always accessible with the green padlock</li>
+</ul>
+<hr>
+<h3 id="-waf--web-application-firewall">🛡️ WAF – Web Application Firewall</h3>
+<p>A WAF protects your website from the most common attacks: SQL injection, cross-site scripting (XSS), bot attacks, and more.</p>
+<ul>
+<li>OWASP security ruleset activation</li>
+<li>Automatic blocking of suspicious requests</li>
+<li>24/7 protection against hacking attempts</li>
+</ul>
+<hr>
+<h3 id="-ddos-protection--your-website-stays-online">⚡ DDoS Protection – Your Website Stays Online</h3>
+<p>DDoS attacks flood your website with requests until it crashes. With our protection, these attacks are automatically repelled — before they cause damage.</p>
+<ul>
+<li>Unlimited DDoS protection</li>
+<li>Automatic detection and mitigation</li>
+<li>No downtime from attacks</li>
+</ul>
+<hr>
+<h3 id="-free-hosting-for-eligible-websites">🌐 Free Hosting (for eligible websites)</h3>
+<p>Are you still paying monthly for hosting at Ionos, Strato, or another provider?</p>
+<p>For many simple business websites, we can migrate hosting entirely to <strong>Cloudflare Pages</strong> — <strong>free, faster, and more secure</strong> than traditional hosting.</p>
+<ul>
+<li>No more monthly hosting costs</li>
+<li>Global CDN — your site loads fast worldwide</li>
+<li>Automatic deployments when changes are made</li>
+</ul>
+<p><em>Note: Suitable for static websites and simple business pages. Complex WordPress or e-commerce systems stay with existing hosting — but still receive WAF and DDoS protection.</em></p>
+<hr>
+<h3 id="-monthly-security-report">📊 Monthly Security Report</h3>
+<p>Every month you receive a clear report by email:</p>
+<pre tabindex="0"><code>Your Website Report – March 2026
+──────────────────────────────────
+✅ SSL Certificate: Valid (340 days)
+✅ Uptime: 99.98%
+🛡️ Blocked attacks: 127
+⚡ DDoS attempts repelled: 3
+👥 Total visitors: 1,847
+🌍 Top countries: Germany, Austria, Switzerland
+⚡ Average load time: 0.7 sec
+</code></pre><p>See at a glance that your website is protected and performing well.</p>
+<hr>
+<h3 id="-your-credentials--always-under-your-control">🔑 Your Credentials – Always Under Your Control</h3>
+<p>This is especially important to us: <strong>All accounts belong to you.</strong></p>
+<p>For each client we set up their own account:</p>
+<ul>
+<li><strong>Cloudflare account</strong> in your name → DNS, WAF, SSL, Hosting</li>
+<li><strong>GitHub account</strong> in your name → Your website files</li>
+<li><strong>Password Manager</strong> (Bitwarden) → All credentials stored securely</li>
+</ul>
+<p>I only receive an <strong>administrator access</strong> — so I can handle the management. You retain full control at all times. Should you wish to end the service, everything belongs to you. No lock-in, no hidden dependencies.</p>
+<hr>
+<h2 id="packages--pricing">Packages &amp; Pricing</h2>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th><strong>Starter</strong></th>
+          <th><strong>Business</strong></th>
+          <th><strong>Premium</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>SSL Certificate</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>WAF Protection</td>
+          <td>Basic</td>
+          <td>Advanced</td>
+          <td>Full</td>
+      </tr>
+      <tr>
+          <td>DDoS Protection</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>Monthly Report</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>Free Hosting</td>
+          <td>–</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>WordPress Updates</td>
+          <td>–</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>Monthly Backup</td>
+          <td>–</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>Support Response</td>
+          <td>48 hrs</td>
+          <td>24 hrs</td>
+          <td>4 hrs</td>
+      </tr>
+      <tr>
+          <td><strong>Price</strong></td>
+          <td><strong>€29/month</strong></td>
+          <td><strong>€59/month</strong></td>
+          <td><strong>€99/month</strong></td>
+      </tr>
+  </tbody>
+</table>
+<p><em>One-time setup fee: €49 (waived in the first month with annual contract)</em></p>
+<hr>
+<h2 id="who-is-web-shield-for">Who Is Web Shield For?</h2>
+<ul>
+<li><strong>Medical practices &amp; therapists</strong> — GDPR-compliant protection for patient contact forms</li>
+<li><strong>Law firms</strong> — Protecting confidential client inquiries</li>
+<li><strong>Restaurants &amp; cafés</strong> — Securing online reservations and menus</li>
+<li><strong>Retailers &amp; service providers</strong> — Professional online presence without IT knowledge</li>
+<li><strong>Hotels &amp; guesthouses</strong> — Protecting booking forms and guest data</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<p><strong>Do I need to change my website or hosting provider?</strong>
+<em>No. We only change the DNS settings of your domain — your website stays where it is. The entire process takes less than an hour and is imperceptible to your visitors.</em></p>
+<p><strong>What happens if I cancel the service?</strong>
+<em>All accounts (Cloudflare, GitHub) belong to you. You can keep everything or hand it over to another provider. No lock-in.</em></p>
+<p><strong>My website was created by an agency — is that a problem?</strong>
+<em>No. We work with any existing website, regardless of who created it.</em></p>
+<p><strong>How quickly can I get started?</strong>
+<em>After a short initial consultation, your protection is usually active within 24 hours.</em></p>
+<p><strong>I have WordPress — does this work too?</strong>
+<em>Yes. WAF and DDoS protection work with any website. WordPress updates and backups are included in the Business package.</em></p>
+<hr>
+<h2 id="how-the-setup-works">How the Setup Works</h2>
+<ol>
+<li><strong>Free initial consultation (20 min.)</strong> — I analyze your current website and explain what can be improved.</li>
+<li><strong>Proposal</strong> — You receive a clear offer with no hidden costs.</li>
+<li><strong>Setup (24 hrs.)</strong> — I set everything up. You don&rsquo;t have to do anything.</li>
+<li><strong>First report</strong> — After 30 days you receive your first security report.</li>
+</ol>
+<hr>
+<h2 id="request-your-free-website-analysis-now">Request Your Free Website Analysis Now</h2>
+<p>I&rsquo;ll take a look at your website for free and show you specifically where improvements can be made — no obligation, no commitment.</p>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<p><strong>📧 Email:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
+<p><em>Free analysis. No order without your approval.</em></p>
+]]></content:encoded></item><item><title>WiFi Marketing &amp; Captive Portal Munich</title><link>https://barashhelvadzhaoglu.com/en/services/wifi-marketing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/services/wifi-marketing/</guid><description>Turn your guest WiFi into a powerful marketing tool. Automatic email &amp;amp; phone number collection, GDPR compliant. For cafes, hotels, and restaurants in Munich.</description><content:encoded><![CDATA[<h1 id="your-guest-wifi-as-a-marketing-tool">Your Guest WiFi as a Marketing Tool</h1>
+<p>Every guest who logs into your WiFi leaves their email address or phone number — <strong>automatically and GDPR-compliant.</strong> No manual work. No extra costs for your business.</p>
+<blockquote>
+<p>💬 <strong>Book a Free Demo:</strong> <a href="https://wa.me/4916098665971">Contact on WhatsApp</a></p>
+</blockquote>
+<hr>
+<h2 id="how-it-works">How It Works</h2>
+<p><strong>1. Guest connects to your WiFi</strong>
+A branded splash page with your logo opens automatically.</p>
+<p><strong>2. Guest enters email or phone number</strong>
+One click on &ldquo;Accept&rdquo; — and they are online. You now have their contact details.</p>
+<p><strong>3. Build your customer list</strong>
+All data is securely stored in your dashboard. Weekly email reports included.</p>
+<p><strong>4. Send targeted offers</strong>
+Use the collected contacts for newsletters, promotions, or loyalty discounts.</p>
+<hr>
+<h2 id="who-is-this-for">Who is this for?</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Industry</th>
+          <th>Benefit</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Cafes &amp; Restaurants</strong></td>
+          <td>Win loyal customers, promote specials</td>
+      </tr>
+      <tr>
+          <td><strong>Hotels &amp; Guesthouses</strong></td>
+          <td>Guest retention, request reviews</td>
+      </tr>
+      <tr>
+          <td><strong>Language Schools</strong></td>
+          <td>Inform students, promote new courses</td>
+      </tr>
+      <tr>
+          <td><strong>Retail Shops</strong></td>
+          <td>Digital replacement for loyalty cards</td>
+      </tr>
+      <tr>
+          <td><strong>Medical &amp; Law Offices</strong></td>
+          <td>Appointment reminders, news</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="packages--pricing">Packages &amp; Pricing</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Package</th>
+          <th>Content</th>
+          <th>Price</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Starter</strong></td>
+          <td>Installation + Portal Setup + Dashboard</td>
+          <td>One-time €79</td>
+      </tr>
+      <tr>
+          <td><strong>Basic</strong></td>
+          <td>Starter + Monthly Report + Support</td>
+          <td>€29/month</td>
+      </tr>
+      <tr>
+          <td><strong>Pro</strong></td>
+          <td>Basic + Email Campaigns + Custom Branding</td>
+          <td>€59/month</td>
+      </tr>
+  </tbody>
+</table>
+<p><em>Already have a WiFi device? No problem — we will check compatibility for free.</em></p>
+<p><em>All packages are GDPR compliant. No hidden costs.</em></p>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<p><strong>Do I need new hardware?</strong>
+<em>Usually not. If your existing device is compatible, we only add a small add-on device (starting at €39).</em></p>
+<p><strong>Is it GDPR compliant?</strong>
+<em>Yes. Guests actively consent to data collection. All data is stored encrypted on German servers.</em></p>
+<p><strong>How much customer data can I collect?</strong>
+<em>An average cafe collects between 200–500 new contacts per month.</em></p>
+<p><strong>Can I use the data for email marketing?</strong>
+<em>Yes, you can export contacts directly or we can set up automated campaigns for you.</em></p>
+<hr>
+<h2 id="schedule-your-free-demo-now">Schedule Your Free Demo Now</h2>
+<p>I can show you how the system works in just 20 minutes — live and with no obligation.</p>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<p><strong>📧 Email:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
+<p><em>Free initial consultation. No commitment without a prior quote.</em></p>
+]]></content:encoded></item></channel></rss>

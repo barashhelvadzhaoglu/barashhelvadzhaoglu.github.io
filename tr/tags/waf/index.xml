@@ -1,1 +1,222 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>WAF on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/waf/</link><description>Recent content in WAF on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Fri, 27 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/waf/index.xml" rel="self" type="application/rss+xml"/><item><title>F5 BIG-IP Bir Load Balancer Değil — Uygulama Teslim Platformudur</title><link>https://barashhelvadzhaoglu.com/tr/technology/f5-master/</link><pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/f5-master/</guid><description>F5 BIG-IP bir load balancer&amp;#39;dan çok daha fazlasıdır. LTM, GTM, WAF, APM, AFM ve BGP routing&amp;#39;i kapsayan master rehber.</description></item><item><title>Web Sitenizde 'Güvenli Değil' mi Yazıyor? Müşteriler Anında Ayrılıyor — Ve SSL Sertifikaları Çok Daha Kısa Olacak</title><link>https://barashhelvadzhaoglu.com/tr/posts/ssl-websecurity/</link><pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/ssl-websecurity/</guid><description>Süresi dolmuş SSL müşteri kaybettirir ve Google sıralamasına zarar verir. Sertifikalar 47 güne düşüyor — otomatik yönetim zorunlu hale geliyor.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>WAF on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/waf/</link><description>Recent content in WAF on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Fri, 27 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/waf/index.xml" rel="self" type="application/rss+xml"/><item><title>F5 BIG-IP Bir Load Balancer Değil — Uygulama Teslim Platformudur</title><link>https://barashhelvadzhaoglu.com/tr/technology/f5-master/</link><pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/f5-master/</guid><description>F5 BIG-IP bir load balancer&amp;#39;dan çok daha fazlasıdır. LTM, GTM, WAF, APM, AFM ve BGP routing&amp;#39;i kapsayan master rehber.</description><content:encoded><![CDATA[<h1 id="f5-big-ip-bir-uygulama-teslim-platformudur">F5 BIG-IP: Bir Uygulama Teslim Platformudur</h1>
+<p>Kurumsal bir ortamda F5&rsquo;e en yaygın giriş şöyle gerçekleşir: biri <em>&ldquo;load balancer çöktü&rdquo;</em> yazan bir ticket açar ve F5&rsquo;i işaret eder. Sorun zaten o cümlede gizlidir.</p>
+<p>F5 BIG-IP bir load balancer değildir. Ona öyle demek, bir veri merkezine sunucu odası demek gibidir — teknik olarak yanlış değil, ama konuyu tamamen kaçırıyor.</p>
+<p>F5 BIG-IP bir <strong>Uygulama Teslim Controller&rsquo;ı (ADC)</strong>&lsquo;dır: uygulamaları yerel ve global altyapıda yöneten, güvence altına alan, optimize eden ve yüksek erişilebilir kılan full-proxy bir platformdur. Load balancing, yaptığı belki düzine şeyden yalnızca biridir.</p>
+<hr>
+<h2 id="bu-seriyi-nasıl-okuyalım">Bu Seriyi Nasıl Okuyalım</h2>
+<p>Bu yazı size <strong>büyük resmi</strong> verir — F5&rsquo;in ne olduğu, nerede durduğu, her modülün ne yaptığı ve alternatiflere göre ne zaman mantıklı olduğu.</p>
+<p><strong>Ağ veya güvenlik mühendisiyseniz</strong> ve yapılandırma, iRule&rsquo;lar, migrasyon saha notları ve mimari detaylara derinlemesine inmek istiyorsanız — doğrudan ilgilendiğiniz modüle atlayın:</p>
+<ul>
+<li>🔧 <strong><a href="/tr/technology/f5-ltm-virtual-server-irule-ssl-offloading-ha/">F5 LTM Deep Dive</a></strong> — Virtual server&rsquo;lar, pool&rsquo;lar, iRule&rsquo;lar, SSL offloading, HA ve 30 cihazlık migrasyon rehberi</li>
+<li>🌐 <strong><a href="/tr/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM ve GSLB Deep Dive</a></strong> — iQuery, Wide IP&rsquo;ler, topoloji routing, DNS TTL stratejisi, çok DC failover tasarımı</li>
+<li>🛡️ <strong><a href="/tr/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive</a></strong> — ASM ve Advanced WAF, OWASP Top 10, bot savunması, şeffaftan engellemeye deployment stratejisi</li>
+</ul>
+<p><strong>Mimar veya karar vericiyseniz</strong> ve F5&rsquo;in altyapınıza uyup uymadığını değerlendiriyorsanız — okumaya burada devam edin. Bu yazı, iRule sözdizimini anlamanızı gerektirmeden o soruyu yanıtlıyor.</p>
+<hr>
+<h2 id="f5-kurumsal-mimaride-nerede-durur">F5 Kurumsal Mimaride Nerede Durur?</h2>
+<p>F5 BIG-IP, firewall ile uygulama sunucuları arasında çalışır:</p>
+<pre tabindex="0"><code>İnternet
+    │
+[DDoS Scrubbing / ISP]
+    │
+[NGFW — Palo Alto / Fortinet]   ← L3/L4: routing, IP filtreleme, VPN, stateful inspection
+    │
+[F5 BIG-IP]                     ← L4–L7: uygulama teslimi, SSL, sağlık, routing mantığı
+    │
+[Backend Sunucular / Uygulama Kümeleri]
+</code></pre><p>Firewall, ağ düzeyindeki kararları alır. F5, bunun üzerindeki her şeyi yönetir — SSL sonlandırma, sağlık bilincine sahip load balancing, session persistence, trafik manipülasyonu ve Katman 7 güvenliği.</p>
+<p>Bu ayrım önemlidir çünkü bir firewall F5&rsquo;in yaptığını yapmak üzere tasarlanmamıştır. Saniyede binlerce SSL oturumunu verimli biçimde sonlandıramaz, sağlık izleme için HTTP yanıt gövdelerini inceleyemez, uygulama başlıklarını anında yeniden yazamaz ya da URI yolları, çerezler veya kullanıcı kimliğine dayalı routing kararları veremez.</p>
+<p>İki veri merkezi tasarımında mimari genişler:</p>
+<pre tabindex="0"><code>               [F5 GTM]        ← DNS düzeyi: istemcileri doğru DC&#39;ye yönlendirir
+              /         \
+         [DC-1]         [DC-2]
+       [F5 LTM]       [F5 LTM] ← Yerel: her DC içinde trafiği dağıtır
+           │               │
+      Uygulama Sunucuları  Uygulama Sunucuları
+</code></pre><p>GTM her iki LTM&rsquo;nin üzerinde oturur ve DNS sorgularını yanıtlar — istemcileri sağlık, yük ve coğrafyaya göre uygun veri merkezine yönlendirir. Bu, çok DC failover&rsquo;ını manuel yerine otomatik yapan şeydir.</p>
+<hr>
+<h2 id="tam-modül-haritası">Tam Modül Haritası</h2>
+<p>TMOS (Traffic Management Operating System) temeldir. Her F5 modülü onun üzerinde çalışır. Hangi modülün hangi sorunu çözdüğünü anlamak, hem mimari tasarım hem de lisanslama görüşmeleri için anahtardır.</p>
+<h3 id="ltm--local-traffic-manager">LTM — Local Traffic Manager</h3>
+<p>Temel modül. Neredeyse her F5 deployment&rsquo;ı buradan başlar.</p>
+<p>LTM, bir <strong>full-proxy ADC</strong>&lsquo;dir: her istemci bağlantısını sonlandırır, inceler, routing ve politika kararları alır ve backend&rsquo;e yeni bir bağlantı açar. Bu full-proxy konumu, uygulama trafiği üzerinde tam görünürlük ve kontrol sağlar.</p>
+<p>LTM&rsquo;nin sunduğu özellikler:</p>
+<ul>
+<li>Backend sunucu pool&rsquo;larında load balancing — yalnızca TCP erişilebilirliğini değil, uygulama yanıtlarını anlayan sağlık izleme ile</li>
+<li>SSL/TLS offloading — backend&rsquo;ler adına HTTPS sonlandırma, şifreleme yüklerini kaldırma</li>
+<li>Session persistence — kullanıcıları istekler genelinde aynı backend sunucusuna bağlı tutma</li>
+<li>iRule&rsquo;lar — trafik düzeyinde hat hızında çalışan programlanabilir bir betik katmanı: başlık yeniden yazma, URI&rsquo;ye göre yönlendirme, içerik ekleme, hız sınırı uygulama</li>
+<li>Yüksek erişilebilirlik — saniye altı failover ile Aktif-Yedek veya Aktif-Aktif kümeleme</li>
+</ul>
+<p>→ <strong><a href="/tr/technology/f5-ltm-virtual-server-irule-ssl-offloading-ha/">F5 LTM Deep Dive: Virtual Server&rsquo;lar, iRule&rsquo;lar, SSL Offloading ve HA</a></strong></p>
+<hr>
+<h3 id="gtm--dns--global-traffic-manager">GTM / DNS — Global Traffic Manager</h3>
+<p>LTM trafiği tek bir veri merkezi içinde yönetir. GTM trafiği veri merkezleri <strong>arasında</strong> yönetir — DNS düzeyinde.</p>
+<p>Bir istemci <code>webapp.sirket.com</code>&lsquo;u çözümlediğinde, GTM DNS sorgusunu yanıtlar. Yanıtı, hangi veri merkezinin sağlıklı olduğuna, mevcut yüke ve istemcinin coğrafi olarak nerede bulunduğuna bağlıdır.</p>
+<p>GTM&rsquo;nin temel özelliği <strong>iQuery</strong>&lsquo;dir — doğrudan LTM&rsquo;den gerçek zamanlı uygulama sağlık verisi sağlayan özel bir protokol. Bir backend uygulaması başarısız olduğunda ve LTM pool&rsquo;unu down olarak işaretlediğinde, GTM bunu anında bilir ve DNS TTL süresinin dolmasını beklemeden yeni istemcileri o veri merkezine yönlendirmeyi durdurur.</p>
+<p>GTM&rsquo;nin sunduğu özellikler:</p>
+<ul>
+<li>Birden fazla veri merkezinde Global Server Load Balancing (GSLB)</li>
+<li>Bir DC çevrimdışı olduğunda otomatik DNS düzeyinde failover</li>
+<li>Topoloji tabanlı routing — Avrupalı kullanıcılar AB veri merkezlerine, Orta Doğulu kullanıcılar bölgesel DC&rsquo;lere</li>
+<li>Esnek politikalar: her zaman birincil tercih et (Global Availability), eşit dağılım (Round Robin) veya bağlantı bilincine sahip (Least Connections)</li>
+</ul>
+<p>→ <strong><a href="/tr/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM ve GSLB Deep Dive: Global Trafik Yönetimi ve DNS Failover</a></strong></p>
+<hr>
+<h3 id="waf--web-application-firewall-asm--advanced-waf">WAF — Web Application Firewall (ASM / Advanced WAF)</h3>
+<p>Bir ağ firewall&rsquo;u L3/L4&rsquo;te çalışır. Bir POST isteği gövdesinin SQL injection payload içerip içermediğini inceleyemez. WAF inceleyebilir.</p>
+<p>F5 WAF, SSL sonlandırmasından sonra HTTP/HTTPS uygulama trafiğini inceleyerek LTM virtual server&rsquo;ında inline çalışır. Bu konumlama, şifresi çözülmüş içeriğe tam görünürlük sağlar.</p>
+<p>F5 iki WAF katmanı sunar:</p>
+<ul>
+<li><strong>ASM</strong> — bilinen saldırılara karşı imza tabanlı koruma, OWASP Top 10 kapsamı, parametre ve çerez zorunluluğu</li>
+<li><strong>Advanced WAF</strong> — davranışsal bot savunması, credential stuffing koruması, JavaScript challenge&rsquo;ları ve L7 DoS azaltmayı ekler</li>
+</ul>
+<p>WAF&rsquo;ın koruduğu şeyler: SQL injection, XSS, CSRF, parametre tampering, çerez zehirlenmesi, zorla gezinme, bot trafiği ve uygulama katmanı DoS.</p>
+<p>→ <strong><a href="/tr/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive: ASM ve Advanced WAF ile Uygulama Güvenliği</a></strong></p>
+<hr>
+<h3 id="apm--access-policy-manager">APM — Access Policy Manager</h3>
+<p>APM, F5&rsquo;in kimlik ve erişim modülüdür — F5&rsquo;in trafik tesliminin ötesine geçerek <strong>erişim kontrolüne</strong> girdiği yer.</p>
+<ul>
+<li><strong>SSL VPN</strong> — BIG-IP Edge Client aracılığıyla tam ağ düzeyinde uzak erişim, Cisco AnyConnect veya Fortinet SSL VPN ile karşılaştırılabilir</li>
+<li><strong>Zero Trust Network Access (ZTNA)</strong> — tam ağı açığa çıkarmadan kimlik bilincine sahip, uygulama başına erişim</li>
+<li><strong>SSO</strong> — uygulamalar genelinde sorunsuz kimlik doğrulama için Kerberos, SAML, OAuth entegrasyonu</li>
+<li><strong>MFA entegrasyonu</strong> — RADIUS, LDAP, Active Directory, RSA SecurID</li>
+<li><strong>Endpoint inspection</strong> — erişim vermeden önce cihaz sağlığını doğrulama (AV durumu, yama seviyesi, domain üyeliği)</li>
+</ul>
+<p>APM&rsquo;nin bağımsız VPN çözümlerine göre avantajı: LTM ile aynı donanım ve yönetim düzlemini paylaşır. Hem uygulama teslimi hem de uzak erişim için tek platform.</p>
+<hr>
+<h3 id="afm--advanced-firewall-manager">AFM — Advanced Firewall Manager</h3>
+<p>AFM, F5 platformuna ağ düzeyinde firewall özellikleri ekler:</p>
+<ul>
+<li>L3/L4 stateful paket incelemesi — ADC üzerinde inline çalışan geleneksel bir ağ firewall&rsquo;una benzer</li>
+<li><strong>DoS ve DDoS koruması</strong> — donanım hızlarında hız sınırlama, protokol anomali tespiti, TCP SYN flood azaltma</li>
+<li><strong>IP intelligence</strong> — F5&rsquo;in tehdit istihbaratı beslemeleri aracılığıyla bilinen kötü IP&rsquo;leri, Tor çıkış node&rsquo;larını, botnet C2 adreslerini engelleme</li>
+<li>Ağ Adresi Çevirisi (NAT) politikaları</li>
+</ul>
+<p>AFM, organizasyonların firewall ve ADC işlevlerini tek bir platformda birleştirmek istediğinde veya ADC&rsquo;nin kendisine özel bir koruma katmanı ihtiyaç duyulduğunda kullanılır.</p>
+<hr>
+<h3 id="bgp-ve-dinamik-routing">BGP ve Dinamik Routing</h3>
+<p>F5&rsquo;in en az bilinen özelliklerinden biri: <strong>BIG-IP tam bir routing yığını çalıştırır</strong>.</p>
+<p>TMOS, BGP, OSPF, route domain&rsquo;li statik rotalar (VRF eşdeğeri) ve ECMP destekler. Pratikte BGP en ilgili olanıdır:</p>
+<ul>
+<li>F5, BGP routing&rsquo;e katılabilir ve Virtual IP adreslerini BGP rotaları olarak duyurabilir</li>
+<li>Büyük kurumsal ve servis sağlayıcı ortamlarında, BGP aracılığıyla <strong>anycast VIP duyurusu</strong>, aynı VIP IP&rsquo;nin birden fazla veri merkezinden duyurulmasına olanak tanır — routing doğal olarak istemcileri en yakın sağlıklı siteye yönlendirir</li>
+<li>Planlı bakım pencerelerinde BGP çekilmesi, manuel DNS değişikliklerine gerek kalmadan trafiği otomatik olarak DR sitelerine kaydırır</li>
+</ul>
+<p>Çalıştığım bankacılık ortamında, planlı bakım sırasında VIP duyurularını dinamik olarak çekmek için F5 ile çekirdek routing katmanı arasında BGP kullandık — temiz, otomatik, DNS değişikliği gerektirmiyor.</p>
+<hr>
+<h3 id="link-controller">Link Controller</h3>
+<p>Link Controller, birden fazla ISP bağlantısında giden internet bağlantısını yönetir:</p>
+<ul>
+<li>Birden fazla upstream ISP bağlantısında load balancing</li>
+<li>Maliyet tabanlı routing — daha ucuz bağlantıları tercih et, gerektiğinde premium bağlantılara geç</li>
+<li>Bağlantı arızasında otomatik yeniden yönlendirme ile ISP sağlık izleme</li>
+</ul>
+<p>Basit aktif-yedek yerine akıllı dağılım isteyen çok ISP bağlantısı olan organizasyonlar için en ilgili modüldür.</p>
+<hr>
+<h3 id="irulelar-ve-irules-lx">iRule&rsquo;lar ve iRules LX</h3>
+<p>iRule&rsquo;lar, F5&rsquo;in programlanabilir trafik katmanıdır — TMOS veri düzleminde hat hızında çalışan Tcl tabanlı betikler. Modüller genelinde uygulanır ve trafiğin herhangi bir yönünü manipüle edebilir: başlıklar, URI&rsquo;ler, çerezler, routing kararları, SSL özellikleri.</p>
+<p>iRules LX, daha karmaşık mantık ve harici API entegrasyonları için bunu bir Node.js çalışma zamanıyla genişletir.</p>
+<p>iRule&rsquo;lar, standart dışı uygulama gereksinimleri olan organizasyonlar için F5&rsquo;i benzersiz biçimde esnek kılan şeydir — hiçbir profil veya politika kullanım senaryosunu karşılamadığında, bir iRule genellikle karşılar.</p>
+<hr>
+<h2 id="f5-ne-zaman-mantıklıdır--ne-zaman-değil">F5 Ne Zaman Mantıklıdır — Ne Zaman Değil?</h2>
+<p>F5 BIG-IP güçlü, operasyonel açıdan olgun ve pahalıdır. Onu kullanma kararı yalnızca itibara değil, belirli gereksinimlere dayanmalıdır.</p>
+<p><strong>F5 doğru seçimdir:</strong></p>
+<ul>
+<li>SSL/TLS sonlandırma hacmi yüksek olduğunda — fiziksel cihazlardaki donanım hızlandırması, yazılım çözümlerinin ekonomik olarak karşılayamadığı saniyede binlerce oturumu yönetir</li>
+<li>Uygulamalar, daha basit proxy&rsquo;lerin uygulama kodu değişiklikleri olmadan ifade edemeyeceği karmaşık trafik mantığı (iRule&rsquo;lar) gerektirdiğinde</li>
+<li>Birden fazla veri merkezi otomatik DNS düzeyinde failover (GTM) gerektirdiğinde</li>
+<li>Düzenleyici gereklilikler ayrıntılı denetim loguyla WAF zorunlu kıldığında</li>
+<li>Uygulama teslimi, VPN ve L7 güvenliği için tek bir platforma ihtiyaç duyulduğunda — operasyonel karmaşıklığı azaltmak</li>
+<li>Görev-kritik uygulamalar bağlantı durumu yansıtma ile saniye altı HA failover gerektirdiğinde</li>
+</ul>
+<p><strong>Alternatifleri değerlendirin:</strong></p>
+<ul>
+<li>Altyapınız tamamen cloud-native olduğunda — AWS ALB, Azure Load Balancer veya GCP Load Balancing çoğu kullanım senaryosunu şirket içi donanım gerektirmeden karşılar</li>
+<li>Trafik hacimleri ılımlı ve Nginx Plus veya HAProxy gereksinimlerinizi çok daha düşük maliyetle karşıladığında</li>
+<li>Uygulamalar durumsuz ve session persistence gerekli olmadığında</li>
+<li>TCO birincil kısıt ve açık kaynak çözümler ekibiniz için operasyonel olarak uygulanabilir olduğunda</li>
+</ul>
+<p>Dürüst özet: şirket içi altyapıya ve görev-kritik uygulama gereksinimlerine sahip bankacılık, telekom ve büyük kurumlarda F5 baskın platform olmayı sürdürüyor. Cloud-native veya maliyet kısıtlı ortamlarda, F5 lisanslamaya bağlanmadan önce alternatifleri ciddiye alın.</p>
+<hr>
+<h2 id="bu-seri">Bu Seri</h2>
+<p>Bu yazı başlangıç noktasıdır. Her modülün özel bir deep dive&rsquo;ı vardır:</p>
+<ul>
+<li>🔧 <strong><a href="/tr/technology/f5-ltm-virtual-server-irule-ssl-offloading-ha/">F5 LTM Deep Dive: Virtual Server&rsquo;lar, iRule&rsquo;lar, SSL Offloading ve HA</a></strong> — Full-proxy mimarisi, pool yapılandırması, health monitor&rsquo;lar, iRule örnekleri, session persistence, HA kümeleme ve sıfır downtime 30 cihaz migrasyon rehberi</li>
+<li>🌐 <strong><a href="/tr/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM ve GSLB Deep Dive: Global Trafik Yönetimi ve DNS Failover</a></strong> — Wide IP&rsquo;ler, iQuery, topoloji routing, TTL stratejisi, aktif-aktif ve aktif-yedek DC desenleri</li>
+<li>🛡️ <strong><a href="/tr/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive: ASM ve Advanced WAF ile Uygulama Güvenliği</a></strong> — Güvenlik politikası modelleri, OWASP Top 10 kapsamı, bot savunması, L7 DoS koruması ve şeffaftan engellemeye deployment stratejisi</li>
+</ul>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<ul>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Tam yığın genelinde trafik görünürlüğü</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — APM ve WAF&rsquo;ın Zero Trust&rsquo;ta yeri</li>
+<li>🏗️ <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Ürünler Koleksiyonu Değildir</a> — ADC yerleşiminin arkasındaki sistem düşüncesi</li>
+<li>🎯 <a href="/tr/architecture/network-product-selection-strategy/">Ağ Altyapısı Ürün Seçimi: Stratejik Kriterler</a> — ADC satıcılarını nesnel olarak nasıl değerlendirirsiniz</li>
+</ul>
+]]></content:encoded></item><item><title>Web Sitenizde 'Güvenli Değil' mi Yazıyor? Müşteriler Anında Ayrılıyor — Ve SSL Sertifikaları Çok Daha Kısa Olacak</title><link>https://barashhelvadzhaoglu.com/tr/posts/ssl-websecurity/</link><pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/ssl-websecurity/</guid><description>Süresi dolmuş SSL müşteri kaybettirir ve Google sıralamasına zarar verir. Sertifikalar 47 güne düşüyor — otomatik yönetim zorunlu hale geliyor.</description><content:encoded><![CDATA[<p>Tarayıcıda bir web sitesi açıyorsunuz ve adres çubuğunda bunu görüyorsunuz: 🔴 <strong>&ldquo;Bağlantınız özel değil&rdquo;</strong></p>
+<p>Ne yaparsınız? Büyük ihtimalle geri tuşuna basarsınız.</p>
+<p>Müşterileriniz de tam olarak bunu yapıyor. Ve bunu fark etmiyor bile olabilirsiniz — çünkü süresi dolmuş bir SSL sertifikası genellikle web sitesi sahibine bildirim göndermez.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/ssl-websecurity-cover.webp"/> <figcaption>
+            SSL Sertifikası ve Web Sitesi Güvenliği — Cloudflare ile
+        </figcaption>
+</figure>
+
+<h2 id="ssl-sertifikası-nedir-ve-neden-önemlidir">SSL Sertifikası Nedir ve Neden Önemlidir?</h2>
+<p>SSL sertifikası (Secure Sockets Layer), web siteniz ile ziyaretçiler arasındaki bağlantıyı şifreleyen dijital bir belgedir. Adres çubuğundaki kilit simgesi ve &ldquo;https://&rdquo; varlığını onaylar.</p>
+<p>SSL&rsquo;in iki temel işlevi vardır:</p>
+<p><strong>1. Güvenlik:</strong> Ziyaretçinin tarayıcısı ile sunucunuz arasında akan verileri şifreler. İletişim formu dolduran bir hasta, ödeme bilgisi giren bir müşteri — bu veriler şifreli iletilir.</p>
+<p><strong>2. Güven:</strong> Ziyaretçi kilit simgesini gördüğünde sitenin meşru olduğunu bilir. &ldquo;Güvenli değil&rdquo; uyarısı tam tersini yapar.</p>
+<h2 id="süresi-dolmuş-ssl-sertifikasının-gerçek-maliyeti">Süresi Dolmuş SSL Sertifikasının Gerçek Maliyeti</h2>
+<p>Pek çok işletme SSL sertifikalarını &ldquo;bir kez kur unut&rdquo; mantığıyla ele alır. Bir ya da iki yıllık sertifika satın alır, süresi dolar, fark etmez — bazen haftalarca.</p>
+<p>Bu sürede neler olur:</p>
+<p><strong>Müşteri kaybı:</strong> &ldquo;Güvenli değil&rdquo; uyarısıyla karşılaşan ziyaretçilerin büyük çoğunluğu anında sayfadan ayrılır. İletişim formları, randevu talepleri, online siparişler — hiçbiri tamamlanmaz.</p>
+<p><strong>Google sıralamasında düşüş:</strong> Google, SSL olmayan veya süresi dolmuş sertifikalı siteleri arama sonuçlarında aşağı iter.</p>
+<p><strong>İtibar hasarı:</strong> &ldquo;Güvenli değil&rdquo; gören bir müşteri o işletme hakkında kalıcı olumsuz bir izlenim taşır.</p>
+<h2 id="büyük-değişiklik-geliyor-ssl-sertifikaları-47-güne-düşüyor">Büyük Değişiklik Geliyor: SSL Sertifikaları 47 Güne Düşüyor</h2>
+<p>Şu anda SSL sertifikaları 90 gün veya bir yıl geçerlidir. Bu değişiyor.</p>
+<p>CA/Browser Forum — sertifika kuruluşlarını ve büyük tarayıcıları bir araya getiren kurul — yeni bir gereklilik kabul etti: Önümüzdeki yıllarda SSL sertifikası geçerlilik süresi <strong>47 güne</strong> düşecek. Apple, Google ve Mozilla bu kararı destekliyor.</p>
+<p><strong>Bu ne anlama geliyor?</strong>
+Şu anda yılda bir kez yeniliyorsanız, yakında <strong>yılda 7–8 kez</strong> yenilemeniz gerekecek. Manuel takip neredeyse imkânsız hale gelir.</p>
+<p><strong>Bu karar neden alındı?</strong>
+Daha kısa geçerlilik süreleri, ele geçirilmiş sertifikaların etkisini sınırlar ve sektörü otomasyona yönlendirir — bu aslında olumlu bir gelişmedir.</p>
+<h2 id="çözüm-cloudflare-ile-otomatik-ssl-yönetimi">Çözüm: Cloudflare ile Otomatik SSL Yönetimi</h2>
+<p>Cloudflare web sitenizin DNS&rsquo;ini devraldığında SSL sertifikanızı otomatik olarak yönetir. Siz hiçbir şeyi takip etmeden süresi dolmadan yeniler. Geçerlilik 47 güne düştüğünde hiçbir fark yaratmaz — her şey arka planda otomatik halledilir.</p>
+<p>Bu özellik ücretsiz Cloudflare planında bile mevcuttur.</p>
+<h2 id="sslin-ötesinde-waf-ve-ddos-koruması">SSL&rsquo;in Ötesinde: WAF ve DDoS Koruması</h2>
+<p>SSL sadece başlangıçtır. Cloudflare&rsquo;e geçtiğinizde ayrıca şunları alırsınız:</p>
+<p><strong>WAF (Web Uygulama Güvenlik Duvarı):</strong> Web sitenizi SQL injection, XSS saldırıları ve bot trafiğinden korur.</p>
+<p><strong>DDoS Koruması:</strong> Sitenizi çökertmeye yönelik saldırı trafiği otomatik olarak tespit edilip filtrelenir.</p>
+<p><strong>Analitik:</strong> Kaç ziyaretçi geldi, nereden, kaç saldırı engellendi — aylık rapor.</p>
+<h2 id="hosting-taşıması-gerekmiyor">Hosting Taşıması Gerekmiyor</h2>
+<p>En sık duyduğum soru: &ldquo;Web sitemi taşımam mı gerekiyor?&rdquo;</p>
+<p>Hayır. Cloudflare yalnızca DNS düzeyinde çalışır. Web siteniz olduğu yerde kalır — Ionos, Strato, neredeyse. Kurulum 1–2 saat sürer ve ziyaretçileriniz hiçbir şey fark etmez.</p>
+<h2 id="aylık-güvenlik-raporu">Aylık Güvenlik Raporu</h2>
+<p>Her ay size şuna benzer bir rapor gönderirim:</p>
+<pre tabindex="0"><code>Web Sitesi Raporunuz — Mart 2026
+──────────────────────────────────
+✅ SSL Sertifikası: Geçerli (otomatik yönetiliyor)
+✅ Çalışma Süresi: %99,98
+🛡️ Engellenen Saldırılar: 94
+⚡ Savuşturulan DDoS Girişimleri: 2
+👥 Toplam Ziyaretçi: 1.203
+⚡ Ortalama Yükleme Süresi: 0,8 sn
+</code></pre><h2 id="sonuç">Sonuç</h2>
+<p>SSL sertifikası artık bir seçenek değil — temel bir gereklilik. 47 güne düşürülmesiyle birlikte manuel yönetim sürdürülebilir olmaktan çıkıyor.</p>
+<p>Web sitenizin SSL durumunu ücretsiz kontrol ediyorum. WhatsApp&rsquo;tan yazmanız yeterli.</p>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<p><strong>Koruma &amp; Güvenlik</strong></p>
+<ul>
+<li>💾 <a href="/tr/posts/nas-backup/">RAID&rsquo;siz NAS&rsquo;ınız Bir Zaman Bombasıdır</a> — AWS S3 ile veri yedekleme</li>
+<li>🔋 <a href="/tr/posts/ups-office/">Elektrik Kesilirse Ne Olur?</a> — Ofis ve muayenehane için UPS koruması</li>
+<li>📶 <a href="/tr/posts/wifi-mesh-solution/">Wi-Fi Sorunları? Kablo Gerektirmeyen Kalıcı Mesh Çözümü</a> — Ofis ve villalar için profesyonel Wi-Fi</li>
+</ul>
+<p><strong>Mimari &amp; Altyapı</strong></p>
+<ul>
+<li>🛡️ <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenlik Bir Mimari Olarak</a> — Güvenlik ürün değil kültür olarak</li>
+<li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Dayanıklı IT için sistem düşüncesi</li>
+</ul>
+]]></content:encoded></item></channel></rss>

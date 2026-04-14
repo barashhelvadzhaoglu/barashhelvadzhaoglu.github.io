@@ -1,1 +1,66 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Website on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/website/</link><description>Recent content in Website on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>de</language><lastBuildDate>Fri, 20 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/website/index.xml" rel="self" type="application/rss+xml"/><item><title>Steht auf Ihrer Website 'Nicht sicher'? Kunden verlassen die Seite sofort — und SSL-Zertifikate werden bald viel kürzer</title><link>https://barashhelvadzhaoglu.com/de/posts/ssl-websecurity/</link><pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/posts/ssl-websecurity/</guid><description>Abgelaufene SSL-Zertifikate kosten Kunden und schaden dem Ranking. Mit Verkürzung auf 47 Tage wird automatische SSL-Verwaltung unverzichtbar.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Website on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/website/</link><description>Recent content in Website on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>de</language><lastBuildDate>Fri, 20 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/website/index.xml" rel="self" type="application/rss+xml"/><item><title>Steht auf Ihrer Website 'Nicht sicher'? Kunden verlassen die Seite sofort — und SSL-Zertifikate werden bald viel kürzer</title><link>https://barashhelvadzhaoglu.com/de/posts/ssl-websecurity/</link><pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/posts/ssl-websecurity/</guid><description>Abgelaufene SSL-Zertifikate kosten Kunden und schaden dem Ranking. Mit Verkürzung auf 47 Tage wird automatische SSL-Verwaltung unverzichtbar.</description><content:encoded><![CDATA[<p>Sie öffnen eine Website im Browser und sehen das in der Adressleiste: 🔴 <strong>&ldquo;Ihre Verbindung ist nicht privat&rdquo;</strong></p>
+<p>Was tun Sie? Höchstwahrscheinlich drücken Sie auf Zurück.</p>
+<p>Genau das tun Ihre Kunden auch. Und Sie bemerken es möglicherweise nicht einmal — denn ein abgelaufenes SSL-Zertifikat benachrichtigt den Websiteinhaber in der Regel nicht.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/ssl-websecurity-cover.webp"/> <figcaption>
+            SSL-Zertifikat und Website-Sicherheit mit Cloudflare
+        </figcaption>
+</figure>
+
+<h2 id="was-ist-ein-ssl-zertifikat-und-warum-ist-es-wichtig">Was ist ein SSL-Zertifikat und warum ist es wichtig?</h2>
+<p>Ein SSL-Zertifikat (Secure Sockets Layer) ist ein digitales Dokument, das die Verbindung zwischen Ihrer Website und den Besuchern verschlüsselt. Das Schlosssymbol in der Adressleiste und &ldquo;https://&rdquo; bestätigen seine Existenz.</p>
+<p>SSL hat zwei Kernfunktionen:</p>
+<p><strong>1. Sicherheit:</strong> Verschlüsselt den Datenfluss zwischen dem Browser des Besuchers und Ihrem Server. Ein Patient, der ein Kontaktformular ausfüllt, ein Kunde, der Zahlungsdaten eingibt — diese Daten reisen verschlüsselt.</p>
+<p><strong>2. Vertrauen:</strong> Wenn ein Besucher das Schlosssymbol sieht, weiß er, dass die Seite legitim ist. Die Warnung &ldquo;nicht sicher&rdquo; bewirkt das Gegenteil.</p>
+<h2 id="die-wahren-kosten-eines-abgelaufenen-ssl-zertifikats">Die wahren Kosten eines abgelaufenen SSL-Zertifikats</h2>
+<p>Viele Unternehmen behandeln SSL-Zertifikate als &ldquo;einmal einrichten und vergessen&rdquo;. Sie kaufen ein Jahres- oder Zweijahres-Zertifikat, es läuft ab, sie merken es nicht — manchmal wochenlang.</p>
+<p>Was in dieser Zeit passiert:</p>
+<p><strong>Kundenverlust:</strong> Die große Mehrheit der Besucher, die auf eine &ldquo;nicht sicher&rdquo;-Warnung stoßen, verlässt die Seite sofort. Kontaktformulare, Terminanfragen, Online-Bestellungen — nichts davon wird abgeschlossen.</p>
+<p><strong>Einbruch im Google-Ranking:</strong> Google schiebt Seiten ohne SSL oder mit abgelaufenen Zertifikaten in den Suchergebnissen nach unten.</p>
+<p><strong>Reputationsschaden:</strong> Ein Kunde, der &ldquo;nicht sicher&rdquo; sieht, trägt einen bleibenden negativen Eindruck von diesem Unternehmen.</p>
+<h2 id="die-große-änderung-kommt-ssl-zertifikate-sinken-auf-47-tage">Die große Änderung kommt: SSL-Zertifikate sinken auf 47 Tage</h2>
+<p>Derzeit sind SSL-Zertifikate 90 Tage oder ein Jahr gültig. Das ändert sich.</p>
+<p>Das CA/Browser Forum hat eine neue Anforderung verabschiedet: In den kommenden Jahren wird die Gültigkeitsdauer von SSL-Zertifikaten auf <strong>47 Tage</strong> sinken. Apple, Google und Mozilla unterstützen diese Entscheidung.</p>
+<p><strong>Was bedeutet das?</strong>
+Wenn Sie derzeit einmal jährlich erneuern, müssen Sie bald <strong>7–8 Mal pro Jahr</strong> erneuern. Manuelle Nachverfolgung wird nahezu unmöglich.</p>
+<p><strong>Warum wurde diese Entscheidung getroffen?</strong>
+Kürzere Gültigkeitszeiträume begrenzen die Auswirkungen kompromittierter Zertifikate und drängen die Branche zur Automatisierung — was tatsächlich eine positive Entwicklung ist.</p>
+<h2 id="die-lösung-automatische-ssl-verwaltung-mit-cloudflare">Die Lösung: Automatische SSL-Verwaltung mit Cloudflare</h2>
+<p>Wenn Cloudflare das DNS Ihrer Website übernimmt, verwaltet es Ihr SSL-Zertifikat automatisch. Es wird vor Ablauf erneuert, ohne dass Sie irgendetwas verfolgen müssen. Wenn die Gültigkeit auf 47 Tage sinkt, macht das keinen Unterschied — alles wird im Hintergrund erledigt.</p>
+<p>Diese Funktion ist selbst im kostenlosen Cloudflare-Tarif verfügbar.</p>
+<h2 id="über-ssl-hinaus-waf-und-ddos-schutz">Über SSL hinaus: WAF und DDoS-Schutz</h2>
+<p>SSL ist nur der Anfang. Wenn Sie zu Cloudflare wechseln, erhalten Sie zusätzlich:</p>
+<p><strong>WAF (Web Application Firewall):</strong> Schützt Ihre Website vor SQL-Injection, XSS-Angriffen und Bot-Traffic.</p>
+<p><strong>DDoS-Schutz:</strong> Angriffstraffic wird automatisch erkannt und gefiltert.</p>
+<p><strong>Analytics:</strong> Wie viele Besucher kamen, woher, wie viele Angriffe wurden blockiert — monatlicher Bericht.</p>
+<h2 id="kein-hosting-wechsel-nötig">Kein Hosting-Wechsel nötig</h2>
+<p>Die häufigste Frage: &ldquo;Muss ich meine Website umziehen?&rdquo;</p>
+<p>Nein. Cloudflare arbeitet nur auf DNS-Ebene. Ihre Website bleibt, wo sie ist — Ionos, Strato, wo auch immer. Die Einrichtung dauert 1–2 Stunden, und Ihre Besucher bemerken nichts.</p>
+<h2 id="monatlicher-sicherheitsbericht">Monatlicher Sicherheitsbericht</h2>
+<p>Jeden Monat sende ich Ihnen einen Bericht:</p>
+<pre tabindex="0"><code>Ihr Website-Bericht — März 2026
+──────────────────────────────────
+✅ SSL-Zertifikat: Gültig (automatisch verwaltet)
+✅ Verfügbarkeit: 99,98%
+🛡️ Blockierte Angriffe: 94
+⚡ Abgewehrte DDoS-Versuche: 2
+👥 Besucher gesamt: 1.203
+⚡ Durchschnittliche Ladezeit: 0,8 Sek.
+</code></pre><h2 id="fazit">Fazit</h2>
+<p>Ein SSL-Zertifikat ist keine Option mehr — es ist eine Grundvoraussetzung. Mit der bevorstehenden Verkürzung auf 47 Tage wird manuelle Verwaltung nicht mehr tragbar.</p>
+<p>Ich prüfe den SSL-Status Ihrer Website kostenlos. Schreiben Sie mir einfach auf WhatsApp.</p>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<hr>
+<h2 id="verwandte-artikel">Verwandte Artikel</h2>
+<p><strong>Schutz &amp; Sicherheit</strong></p>
+<ul>
+<li>💾 <a href="/de/posts/nas-backup/">Ihr NAS ohne RAID ist eine Zeitbombe</a> — Datensicherung mit AWS S3</li>
+<li>🔋 <a href="/de/posts/ups-office/">Was passiert, wenn der Strom ausfällt?</a> — USV-Schutz für Büro und Praxis</li>
+<li>📶 <a href="/de/posts/wifi-mesh-solution/">WLAN-Probleme? Dauerhafte Mesh-Lösung ohne Kabel</a> — Professionelles WLAN für Büro und Villa</li>
+</ul>
+<p><strong>Architektur &amp; Infrastruktur</strong></p>
+<ul>
+<li>🛡️ <a href="/de/architecture/zero-trust-architecture-behaviors/">Zero Trust Mindset: Sicherheit als Architektur</a> — Sicherheit nicht als Produkt, sondern als Kultur</li>
+<li>📐 <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Systemdenken für resiliente IT</li>
+</ul>
+]]></content:encoded></item></channel></rss>
