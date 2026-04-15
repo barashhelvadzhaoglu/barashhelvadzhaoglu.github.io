@@ -1,4 +1,249 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Teknoloji on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/categories/teknoloji/</link><description>Recent content in Teknoloji on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Mon, 13 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/categories/teknoloji/index.xml" rel="self" type="application/rss+xml"/><item><title>SecureCRT ve SuperPutty: Her Ağ Mühendisinin Bilmesi Gereken Terminal Araçları</title><link>https://barashhelvadzhaoglu.com/tr/technology/securecrt-superputty/</link><pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/securecrt-superputty/</guid><description>SecureCRT ve SuperPutty saha rehberi — oturum loglama, taşınabilirlik, kimlik yönetimi, scripting ve SuperPutty&amp;#39;nin PuTTY&amp;#39;ya göre avantajları.</description><content:encoded><![CDATA[<h1 id="securecrt-ve-superputty-her-ağ-mühendisinin-bilmesi-gereken-terminal-araçları">SecureCRT ve SuperPutty: Her Ağ Mühendisinin Bilmesi Gereken Terminal Araçları</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Teknoloji on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/categories/teknoloji/</link><description>Recent content in Teknoloji on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Wed, 15 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/categories/teknoloji/index.xml" rel="self" type="application/rss+xml"/><item><title>F5 GTM ve GSLB Deep Dive: Global Trafik Yönetimi ve DNS Failover</title><link>https://barashhelvadzhaoglu.com/tr/technology/f5-gtm-deep-dive/</link><pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/f5-gtm-deep-dive/</guid><description>F5 GTM (BIG-IP DNS) teknik inceleme — Wide IP, iQuery, topoloji routing, TTL stratejisi, çok DC failover ve aktif-aktif mimari desenleri.</description><content:encoded><![CDATA[<h1 id="f5-gtm-ve-gslb-deep-dive-global-trafik-yönetimi-ve-dns-failover">F5 GTM ve GSLB Deep Dive: Global Trafik Yönetimi ve DNS Failover</h1>
+<p>Bu yazı F5 BIG-IP serisinin bir parçasıdır.</p>
+<blockquote>
+<p><strong>F5&rsquo;e yeni misiniz?</strong> Önce platform genel bakışıyla başlayın: <a href="/tr/technology/f5-bigip-uygulama-teslim-platformu-genel-bakis/">F5 BIG-IP Bir Load Balancer Değil — Uygulama Teslim Platformudur</a></p>
+</blockquote>
+<p>Büyük resmi zaten anlıyorsanız ve GTM&rsquo;e derinlemesine inmek istiyorsanız — iQuery, Wide IP&rsquo;ler, topoloji routing, TTL stratejisi ve çok DC tasarımı — doğru yerdesiniz.</p>
+<hr>
+<h2 id="gtmin-çözdüğü-sorun">GTM&rsquo;in Çözdüğü Sorun</h2>
+<p>LTM, uygulama trafiğini tek bir veri merkezi içinde yönetir. Bağlantıları backend sunucular arasında dağıtır, sağlığı izler ve tek bir sitede HA sağlar. Ancak LTM&rsquo;nin veri merkezinin dışında ne olduğuna dair görünürlüğü yoktur — siteler arasında trafik yönlendiremez.</p>
+<p>GTM&rsquo;in doldurduğu boşluk tam olarak budur. Bir organizasyonun iki veri merkezi, birincil bir DC ve bir DR sitesi ya da küresel olarak dağıtılmış altyapısı olduğunda soru şudur: <em>İstemciler hangi veri merkezine bağlanacaklarını nasıl bilir ve biri çevrimdışı olduğunda ne otomatik olarak gerçekleşir?</em></p>
+<p>GTM olmadan yanıt genellikle manuel DNS değişiklikleridir — yavaş, hatalara açık ve otomatik failover için tamamen uygunsuz. GTM bunu DNS katmanında çözer.</p>
+<hr>
+<h2 id="dns-akışı-gtm-nasıl-karar-verir">DNS Akışı: GTM Nasıl Karar Verir</h2>
+<p>GTM, uygulama zone&rsquo;larınız için <strong>yetkili DNS sunucusu</strong> olarak davranır. Bir istemci <code>webapp.sirket.com</code>&lsquo;u çözümlediğinde, sorgu standart bir DNS sunucusu yerine GTM&rsquo;e ulaşır:</p>
+<pre tabindex="0"><code>1. İstemci: &#34;webapp.sirket.com için IP nedir?&#34;
+2. Sorgu GTM&#39;e ulaşır (sirket.com zone&#39;u için yetkili)
+3. GTM gerçek zamanlı olarak değerlendirir:
+   → DC-1 LTM sağlıklı mı? (iQuery aracılığıyla)
+   → DC-2 LTM sağlıklı mı? (iQuery aracılığıyla)
+   → Hangi load balancing politikası geçerli?
+   → Bu istemci coğrafi olarak nerede?
+4. GTM yanıtlar: &#34;webapp.sirket.com = 10.10.1.100&#34; (DC-1 VIP)
+5. İstemci 10.10.1.100&#39;e bağlanır → LTM buradan devralır
+</code></pre><p>Zeka 3. adımdadır. GTM statik bir kayıt döndüren pasif bir DNS sunucusu değildir — bir sorguyu her yanıtladığında mevcut altyapı sağlığına ve politikaya dayalı gerçek zamanlı bir karar verir.</p>
+<hr>
+<h2 id="gtm-nesne-hiyerarşisi">GTM Nesne Hiyerarşisi</h2>
+<p>GTM, DNS yapısını yansıtan dört seviyeli bir hiyerarşi kullanır:</p>
+<pre tabindex="0"><code>Veri Merkezi  →  Sunucu  →  Virtual Server  →  Wide IP (Pool Member)
+</code></pre><p><strong>Veri Merkezi:</strong> Fiziksel bir site için mantıksal gruplama (DC-Istanbul, DC-Frankfurt). O konumdaki tüm GTM kayıtlı sunucuları içerir.</p>
+<p><strong>Sunucu:</strong> GTM&rsquo;e kayıtlı bir BIG-IP cihazı (genellikle bir LTM). GTM, gerçek zamanlı sağlık verileri için iQuery aracılığıyla onunla iletişim kurar.</p>
+<p><strong>Virtual Server:</strong> Kayıtlı bir sunucudaki belirli bir LTM virtual server&rsquo;ı (VIP). GTM&rsquo;in trafiği yönlendirebileceği gerçek endpoint.</p>
+<p><strong>GTM Pool&rsquo;u:</strong> Bir veya birden fazla LTM genelinde virtual server&rsquo;lardan oluşan bir grup. GTM, DNS yanıtlarını pool member&rsquo;lar arasında dağıtır.</p>
+<p><strong>Wide IP:</strong> İstemcilerin çözümlediği DNS adı (<code>webapp.sirket.com</code>). Bir Wide IP, bir veya daha fazla GTM pool&rsquo;una referans verir ve çözümleme politikasını tanımlar.</p>
+<hr>
+<h2 id="iquery-gtmin-gerçekte-uygulama-sağlığını-neden-anladığı">iQuery: GTM&rsquo;in Gerçekte Uygulama Sağlığını Neden Anladığı</h2>
+<p><strong>iQuery</strong>, GTM&rsquo;e gerçek uygulama farkındalığı veren özel F5 protokolüdür. Bu, GTM&rsquo;i yalnızca bir VIP&rsquo;e ping atan veya TCP erişilebilirliğini kontrol eden harici DNS load balancer&rsquo;lardan ayıran şeydir.</p>
+<p>iQuery olmadan GTM yalnızca bir IP adresinin probe&rsquo;a yanıt verip vermediğini bilir. iQuery ile GTM şunları bilir:</p>
+<ul>
+<li>LTM virtual server&rsquo;ının etkin ve aktif olup olmadığı</li>
+<li>O virtual server&rsquo;ın arkasındaki pool&rsquo;un sağlıklı, aktif member&rsquo;lara sahip olup olmadığı</li>
+<li>LTM&rsquo;deki mevcut aktif bağlantı sayısı</li>
+<li>Mevcut CPU ve bellek kullanımı</li>
+</ul>
+<p><strong>Kritik sonuç:</strong> Bir backend uygulaması başarısız olduğunda ve LTM pool&rsquo;unu down olarak işaretlediğinde, iQuery bunu GTM&rsquo;e <strong>anında</strong> iletir — herhangi bir istemcinin bozuk bir endpoint&rsquo;e bağlanma şansı olmadan. GTM, o DC&rsquo;nin VIP&rsquo;ini hemen DNS sorgularına yanıt olarak vermeyi durdurur.</p>
+<p>GTM&rsquo;den bir VIP IP&rsquo;sine TCP sağlık probe&rsquo;u bu durumu hiçbir zaman tespit edemezdi — VIP IP&rsquo;si, arkasındaki uygulama tamamen bozuk olsa bile erişilebilir kalmaya devam eder. Farkı yaratan iQuery&rsquo;dir.</p>
+<h3 id="gtme-ltm-kaydetme">GTM&rsquo;e LTM Kaydetme</h3>
+<pre tabindex="0"><code>Sunucu: ltm-dc1
+  Ürün:          BIG-IP (iQuery&#39;yi etkinleştirir)
+  Adres:         10.10.0.1 (LTM yönetim IP&#39;si)
+  Veri Merkezi:  DC-Istanbul
+  Virtual Server&#39;lar: [iQuery aracılığıyla otomatik keşfedilir]
+    - vs_webapp_443  (10.10.1.100:443)
+    - vs_api_443     (10.10.1.101:443)
+    - vs_admin_443   (10.10.1.102:443)
+</code></pre><p>Kaydedildikten sonra GTM, o LTM&rsquo;deki tüm virtual server&rsquo;ları otomatik olarak keşfeder ve izler. GTM&rsquo;de manuel virtual server yapılandırması gerekmez — iQuery keşfi yönetir.</p>
+<hr>
+<h2 id="wide-ipler-ve-gtm-poolları">Wide IP&rsquo;ler ve GTM Pool&rsquo;ları</h2>
+<p>Bir Wide IP, bir DNS adını bir çözümleme politikasına bağlar:</p>
+<pre tabindex="0"><code>Wide IP: webapp.sirket.com (tür: A)
+  Pool: gtm_pool_webapp_primary
+    Load Balancing Yöntemi: Global Availability
+    Member&#39;lar:
+      - ltm-dc1 / vs_webapp_443  (Sıra: 1)
+      - ltm-dc2 / vs_webapp_443  (Sıra: 2)
+  Fallback Pool:    gtm_pool_webapp_dr
+  Last Resort Pool: [tüm pool&#39;lar tükenirse SERVFAIL döndür]
+</code></pre><p>Bir Wide IP&rsquo;nin öncelik sırasına göre birden fazla pool&rsquo;u olabilir. Birincil pool&rsquo;un kullanılabilir member&rsquo;ı yoksa GTM otomatik olarak bir sonraki pool&rsquo;u dener. Bu, manuel müdahale olmadan kademeli failover mimarisi sağlar.</p>
+<hr>
+<h2 id="load-balancing-yöntemleri">Load Balancing Yöntemleri</h2>
+<p>GTM load balancing, DNS yanıt seviyesinde çalışır — her yöntem, belirli bir sorgu için hangi pool member&rsquo;ın IP&rsquo;sinin döndürüleceğini belirler.</p>
+<h3 id="global-availability">Global Availability</h3>
+<p>Her zaman ilk kullanılabilir member&rsquo;ın IP&rsquo;sini döndürür. Yalnızca mevcut kullanılamadığında bir sonraki member&rsquo;a geçer:</p>
+<pre tabindex="0"><code>Member&#39;lar (öncelik sırasına göre):
+  1. ltm-dc1 / vs_webapp_443  ← sağlıklıyken tüm trafik
+  2. ltm-dc2 / vs_webapp_443  ← yalnızca DC-1 başarısız olduğunda trafik
+</code></pre><p><strong>En iyisi:</strong> Birincil/DR mimarileri. Tüm trafik birincil sitede çalışır; DR yalnızca gerçek kesintiler sırasında etkinleşir. Bankacılık ortamındaki standart yöntem buydu — uygun maliyetli, hakkında düşünmesi basit ve arıza altında öngörülebilir.</p>
+<h3 id="round-robin">Round Robin</h3>
+<p>DNS yanıtlarını pool member&rsquo;lar arasında dönüşümlü olarak verir:</p>
+<pre tabindex="0"><code>Sorgu 1 → DC-1 VIP
+Sorgu 2 → DC-2 VIP
+Sorgu 3 → DC-1 VIP
+</code></pre><p><strong>En iyisi:</strong> Her sitede eşit kapasiteli aktif-aktif çok DC mimarileri. Her iki sitenin de sürekli olarak yükü paylaşması gereken büyük ölçekli web uygulamalarında yaygın.</p>
+<h3 id="ratio">Ratio</h3>
+<p>Ağırlıklı dağılım:</p>
+<pre tabindex="0"><code>ltm-dc1 / vs_webapp_443  Ratio: 7  ← DNS yanıtlarının %70&#39;i
+ltm-dc2 / vs_webapp_443  Ratio: 3  ← DNS yanıtlarının %30&#39;u
+</code></pre><p><strong>En iyisi:</strong> Veri merkezlerinin farklı kapasitelere sahip olduğu aktif-aktif. Kapasiteyle orantılı yük dağılımı sağlar.</p>
+<h3 id="topology">Topology</h3>
+<p>DNS yanıtlarını istemcinin DNS çözümleyici IP&rsquo;sinin coğrafi konumuna göre yönlendirir:</p>
+<pre tabindex="0"><code>Topoloji Kayıtları (yukarıdan aşağıya değerlendirilir, ilk eşleşme kazanır):
+  alt ağ 10.0.0.0/8         → DC-Istanbul   (tüm dahili kullanıcılar)
+  ISP: Turk Telekom         → DC-Istanbul
+  bölge: Avrupa             → DC-Frankfurt
+  bölge: Orta Doğu          → DC-Istanbul
+  varsayılan               → DC-Frankfurt
+</code></pre><p><strong>En iyisi:</strong> Birden fazla bölgedeki kullanıcılara sahip global uygulamalar. Kullanıcıları en yakın DC&rsquo;ye yönlendirerek gecikmeyi azaltır. Ayrıca veri yerleşimi uyumluluğunu sağlar — AB kullanıcılarının isteklerinin AB veri merkezlerinde işlenmesini garanti eder.</p>
+<p>GTM, çözümleyici IP&rsquo;lerini bölgelere eşleştirmek için bir IP coğrafi konum veritabanı kullanır. Bu veritabanını güncel tutun — ISP&rsquo;ler IP aralıklarını düzenli olarak yeniden tahsis eder ve güncel olmayan coğrafi konum verileri kullanıcıları yanlış bölgelere gönderir.</p>
+<h3 id="least-connections">Least Connections</h3>
+<p>iQuery aracılığıyla gerçek zamanlı olarak elde edilen en az aktif bağlantıya sahip pool member&rsquo;a yönlendirir:</p>
+<pre tabindex="0"><code>iQuery aracılığıyla mevcut durum:
+  ltm-dc1: 4.521 aktif bağlantı
+  ltm-dc2: 3.102 aktif bağlantı
+  → GTM bir sonraki sorgu için DC-2 VIP&#39;ini döndürür
+</code></pre><p><strong>En iyisi:</strong> Statik ağırlıklar yerine gerçek bağlantı sayılarına dayalı dinamik load balancing&rsquo;in tercih edildiği aktif-aktif mimariler.</p>
+<hr>
+<h2 id="dns-ttl-stratejisi-en-çok-yanlış-anlaşılan-konu">DNS TTL Stratejisi: En Çok Yanlış Anlaşılan Konu</h2>
+<p>TTL, DNS çözümleyicilerin GTM&rsquo;nin yanıtını ne kadar süre önbelleğe alacağını belirler. Bu yaygın biçimde yanlış anlaşılır:</p>
+<p><strong>TTL, adı zaten çözümlemiş istemciler için failover hızını kontrol etmez.</strong> 10 saniye önce <code>webapp.sirket.com</code>&lsquo;u çözümleyen bir istemci, TTL sona erene kadar önbelleğe alınan IP&rsquo;yi kullanmaya devam eder — GTM&rsquo;nin şu anda neye yanıt verdiğinden bağımsız olarak.</p>
+<p>TTL, <strong>yeni DNS sorgularının</strong> mevcut altyapı durumunu ne kadar hızlı yansıtacağını kontrol eder.</p>
+<h3 id="ttl-takas-değerlendirmeleri">TTL Takas Değerlendirmeleri</h3>
+<table>
+  <thead>
+      <tr>
+          <th>TTL</th>
+          <th>Failover görünürlüğü</th>
+          <th>DNS sorgu yükü</th>
+          <th>Kullanım alanı</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>30 sn</td>
+          <td>Hızlı</td>
+          <td>Yüksek</td>
+          <td>Kritik ödeme sistemleri, kimlik doğrulama servisleri</td>
+      </tr>
+      <tr>
+          <td>60 sn</td>
+          <td>İyi</td>
+          <td>Orta</td>
+          <td>Çoğu üretim uygulaması</td>
+      </tr>
+      <tr>
+          <td>300 sn</td>
+          <td>Orta</td>
+          <td>Düşük</td>
+          <td>Dahili araçlar, izleme</td>
+      </tr>
+      <tr>
+          <td>3600 sn</td>
+          <td>Yavaş</td>
+          <td>Çok düşük</td>
+          <td>Statik içerik, nadiren değişen kayıtlar</td>
+      </tr>
+  </tbody>
+</table>
+<p>Bankacılık ortamında:</p>
+<ul>
+<li>Ödeme işleme ve kimlik doğrulama servisleri için <strong>30 saniye</strong></li>
+<li>Genel bankacılık uygulamaları için <strong>60 saniye</strong></li>
+<li>Dahili panolar ve izleme araçları için <strong>300 saniye</strong></li>
+</ul>
+<h3 id="minimum-etkin-failover-süresini-hesaplama">Minimum Etkin Failover Süresini Hesaplama</h3>
+<pre tabindex="0"><code>En kötü durum failover süresi ≈ Sağlık kontrolü aralığı + TTL
+</code></pre><p>5 saniyelik iQuery kontrol aralığı ve 30 saniyelik TTL ile: en kötü durum ~35 saniyedir. Bazı istemciler arıza tespitinden sonra saniyeler içinde yeni DC&rsquo;ye geçer; diğerleri TTL süresinin dolmasını bekler.</p>
+<p>Katı RTO gereksinimleri olan uygulamalar için geçiş penceresini zarif biçimde yönetmek için düşük TTL&rsquo;yi uygulama düzeyinde yeniden deneme mantığıyla birleştirin.</p>
+<hr>
+<h2 id="çok-dc-mimari-desenleri">Çok DC Mimari Desenleri</h2>
+<h3 id="aktif-yedek-birincil--dr">Aktif-Yedek (Birincil / DR)</h3>
+<pre tabindex="0"><code>Normal:
+  GTM → DC-1 LTM → Uygulama Sunucuları (DC-1)
+  DC-2 sıcak yedektir — çalışıyor, senkronize, trafik yok
+
+DC-1 arızası:
+  iQuery: DC-1 LTM virtual server&#39;ı down olarak işaretlendi
+  GTM: DC-1 VIP&#39;ini hemen yanıt olarak vermeyi durdurur
+  Yeni DNS sorguları: DC-2 VIP&#39;ini alır
+  Trafik kayması: TTL penceresi içinde
+</code></pre><p>Gereksinimler:</p>
+<ul>
+<li>Her iki DC&rsquo;de özdeş uygulama deployment&rsquo;ı</li>
+<li>Veritabanı replikasyonu (sıfır RPO için senkron, daha düşük RPO için asenkron)</li>
+<li>GTM yöntemi: <strong>Global Availability</strong></li>
+</ul>
+<h3 id="aktif-aktif-yük-paylaşımı">Aktif-Aktif (Yük Paylaşımı)</h3>
+<pre tabindex="0"><code>Normal:
+  GTM → DC-1 (DNS yanıtlarının %50&#39;si)
+  GTM → DC-2 (DNS yanıtlarının %50&#39;si)
+
+DC-1 arızası:
+  GTM, %100&#39;ünü DC-2&#39;ye yönlendirir
+</code></pre><p>Gereksinimler:</p>
+<ul>
+<li>DC&rsquo;ler arasında paylaşılan oturum durumu veya durumsuz uygulama tasarımı</li>
+<li>Her DC&rsquo;nin bağımsız olarak %100 trafiği karşılayabilmesi gerekir (bu kapasite için plan yapın)</li>
+<li>Her iki DC&rsquo;den aynı anda yazılabilir veritabanı</li>
+<li>GTM yöntemi: <strong>Round Robin</strong>, <strong>Ratio</strong> veya <strong>Least Connections</strong></li>
+</ul>
+<p>Aktif-aktif, daha iyi kaynak kullanımı ve daha hızlı etkin failover sağlar (soğuk başlatma DR sitesi yok). Mimari karmaşıklık daha yüksektir — özellikle veritabanı yazma çakışmaları ve oturum durumu yönetimi konusunda.</p>
+<h3 id="topoloji-tabanlı-coğrafi-dağılım">Topoloji Tabanlı Coğrafi Dağılım</h3>
+<pre tabindex="0"><code>AB kullanıcıları    → Avrupa&#39;daki çözümleyici IP   → DC-Frankfurt
+MENA kullanıcıları  → Orta Doğu&#39;daki çözümleyici IP → DC-Istanbul
+Dahili             → RFC1918 kaynak                → DC-Istanbul (en yakın)
+Varsayılan         → DC-Frankfurt
+</code></pre><p>Her DC, normal koşullarda kendi bölgesinin trafiğini yönetir. Fallback topoloji kayıtları, kesinti sırasında tüm bölgeleri hayatta kalan DC&rsquo;ye yönlendirir.</p>
+<p>Bu desen performans avantajlarını (daha düşük gecikme) uyumluluk gereksinimleriyle (veri yerleşimi) ve kapasite optimizasyonuyla (her DC kendi bölgesi için boyutlandırılmış) birleştirir.</p>
+<hr>
+<h2 id="gtm-monitorları-ile-iquery-her-biri-ne-zaman-kullanılır">GTM Monitor&rsquo;ları ile iQuery: Her Biri Ne Zaman Kullanılır</h2>
+<p><strong>iQuery (BIG-IP LTM&rsquo;ler için):</strong></p>
+<ul>
+<li>LTM&rsquo;den gerçek zamanlı uygulama sağlık verileri</li>
+<li>Ek izleme trafiği yok</li>
+<li>Yalnızca IP erişilebilirliğini değil uygulama sağlığını bilir</li>
+<li>Otomatik virtual server keşfi</li>
+<li>Tüm BIG-IP LTM endpoint&rsquo;leri için kullanın</li>
+</ul>
+<p><strong>GTM yerel monitor&rsquo;ları (BIG-IP olmayan endpoint&rsquo;ler için):</strong></p>
+<ul>
+<li>GTM kendi sağlık probe&rsquo;larını doğrudan endpoint&rsquo;lere gönderir</li>
+<li>TCP, HTTP, HTTPS, ICMP destekler</li>
+<li>Hibrit ortamlarda üçüncü taraf load balancer&rsquo;lar, bulut endpoint&rsquo;leri, kaynak sunucular için kullanın</li>
+</ul>
+<p>Çoğu kurumsal deployment&rsquo;ta iQuery, tüm BIG-IP&rsquo;ten BIG-IP&rsquo;e izlemeyi yönetir. GTM yerel monitor&rsquo;ları, bazı endpoint&rsquo;lerin F5 cihazı olmadığı hibrit mimariler için ayrılmıştır.</p>
+<hr>
+<h2 id="gtmde-dns-persistence">GTM&rsquo;de DNS Persistence</h2>
+<p>GTM TCP durumunu korumaz — yalnızca DNS yanıtlarını etkiler. Ancak, aynı çözümleyiciden tekrarlanan sorguların yapılandırılabilir bir süre boyunca aynı IP&rsquo;yi döndürmesini sağlamak için <strong>DNS persistence</strong> destekler:</p>
+<pre tabindex="0"><code>Wide IP Persistence:
+  Etkin: Evet
+  TTL:   300 saniye
+  Tür:   Kaynak IP&#39;ye göre (çözümleyici IP)
+</code></pre><p>Persistence etkinleştirildiğinde GTM, load balancing yönteminden bağımsız olarak 300 saniye boyunca aynı çözümleyiciye aynı VIP&rsquo;i döndürür. Bu, istemciler sık sık yeniden çözümlediğinde oturum kesintisini azaltır.</p>
+<p><strong>Önemli uyarı:</strong> DNS persistence, son istemci IP&rsquo;sine değil <strong>çözümleyici IP&rsquo;sine</strong> dayanır. Birçok son kullanıcı tek bir ISP özyinelemeli çözümleyiciyi paylaştığında, hepsi GTM için aynı &ldquo;istemci&rdquo; olarak görünür. Persistence, bu durumlarda orantısız trafiği bir DC&rsquo;ye yoğunlaştırabilir. Etkinleştirmeden önce persistence&rsquo;ın gerçekten yardımcı olup olmadığını değerlendirin.</p>
+<hr>
+<h2 id="temel-çıkarımlar">Temel Çıkarımlar</h2>
+<ul>
+<li>GTM, <strong>çok DC DNS failover&rsquo;ını</strong> çözer — LTM&rsquo;nin tek başına ele alamayacağı sorun.</li>
+<li><strong>iQuery</strong>, GTM&rsquo;nin en önemli özelliğidir: yalnızca IP erişilebilirliği değil, gerçek uygulama sağlık farkındalığı. LTM bir uygulama pool&rsquo;unu down olarak işaretlediğinde GTM anında tepki verir.</li>
+<li><strong>Global Availability</strong>, birincil/DR için doğru yöntemdir. Aktif-aktif için <strong>Round Robin</strong> veya <strong>Ratio</strong>.</li>
+<li><strong>Topology</strong> routing, global deployment&rsquo;lar için gecikmeyi azaltır ve veri yerleşimi uyumluluğunu sağlar.</li>
+<li><strong>TTL yalnızca yeni aramaları kontrol eder</strong> — mevcut bağlantıları değil. Minimum etkin failover = sağlık kontrolü aralığı + TTL.</li>
+<li><strong>BIG-IP LTM&rsquo;ler için iQuery</strong> kullanın; üçüncü taraf endpoint&rsquo;ler için GTM yerel monitor&rsquo;larını kullanın.</li>
+</ul>
+<hr>
+<h2 id="bu-seri">Bu Seri</h2>
+<ul>
+<li>📖 <a href="/tr/technology/f5-bigip-uygulama-teslim-platformu-genel-bakis/">F5 BIG-IP Platform Genel Bakış — Tüm Modüller</a> ← F5&rsquo;e yeniyseniz buradan başlayın</li>
+<li>🔧 <a href="/tr/technology/f5-ltm-virtual-server-irule-ssl-offloading-ha/">F5 LTM Deep Dive</a></li>
+<li>🛡️ <a href="/tr/technology/f5-waf-asm-advanced-waf-uygulama-guvenligi/">F5 WAF Deep Dive</a></li>
+</ul>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<ul>
+<li>🏗️ <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Ürünler Koleksiyonu Değildir</a> — Çok DC tasarımı için sistem düşüncesi</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti</a> — Dağıtık altyapıda kimlik bilincine sahip erişim</li>
+<li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">İzleme Doğru Yapıldığında</a> — GTM ve LTM sağlığını proaktif olarak izleme</li>
+</ul>
+]]></content:encoded></item><item><title>SecureCRT ve SuperPutty: Her Ağ Mühendisinin Bilmesi Gereken Terminal Araçları</title><link>https://barashhelvadzhaoglu.com/tr/technology/securecrt-superputty/</link><pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/securecrt-superputty/</guid><description>SecureCRT ve SuperPutty saha rehberi — oturum loglama, taşınabilirlik, kimlik yönetimi, scripting ve SuperPutty&amp;#39;nin PuTTY&amp;#39;ya göre avantajları.</description><content:encoded><![CDATA[<h1 id="securecrt-ve-superputty-her-ağ-mühendisinin-bilmesi-gereken-terminal-araçları">SecureCRT ve SuperPutty: Her Ağ Mühendisinin Bilmesi Gereken Terminal Araçları</h1>
 <p>Birkaç yıldan fazla ağ mühendisliği yapıyorsanız, muhtemelen terminal istemcisinin içinde binlerce saat geçirmişsinizdir. Bir switch&rsquo;e SSH, birkaç show komutu, değişiklik yap, sonraki cihaza geç. İşin en tekrar eden iş akışı — ve doğru araç bunu önemli ölçüde daha az acı verici kılar.</p>
 <p>Çoğu mühendis PuTTY ile başlar. Çalışır, ücretsizdir ve söylediğini yapar. Ancak terminal iş akışını işlevsel olmaktan gerçekten verimli olmaya taşıyan iki araç vardır: <strong>SecureCRT</strong> (profesyonel standart) ve <strong>SuperPutty</strong> (PuTTY kullanıcılarının ihtiyaç duyduğunu bilmediği ücretsiz yükseltme).</p>
 <p>Bu yazı her ikisini de kapsar — gerçekte ne yaptıklarını, günlük ağ çalışmasında önemli olan özellikleri ve her birinin ne zaman mantıklı olduğunu.</p>

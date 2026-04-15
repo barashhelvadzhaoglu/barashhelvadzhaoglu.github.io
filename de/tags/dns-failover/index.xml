@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>DNS-Failover on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/dns-failover/</link><description>Recent content in DNS-Failover on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>de</language><lastBuildDate>Wed, 15 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/dns-failover/index.xml" rel="self" type="application/rss+xml"/><item><title>F5 GTM &amp; GSLB Deep Dive: Globales Traffic-Management und DNS-Failover</title><link>https://barashhelvadzhaoglu.com/de/technology/f5-gtm-deep-dive/</link><pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/f5-gtm-deep-dive/</guid><description>F5 GTM (BIG-IP DNS) Deep Dive — Wide IPs, iQuery, Topologie-Routing, TTL-Strategie, Multi-DC-Failover und Aktiv-Aktiv vs. Aktiv-Standby.</description><content:encoded><![CDATA[<h1 id="f5-gtm--gslb-deep-dive-globales-traffic-management-und-dns-failover">F5 GTM &amp; GSLB Deep Dive: Globales Traffic-Management und DNS-Failover</h1>
+<p>Dieser Artikel ist Teil der F5 BIG-IP-Serie.</p>
+<blockquote>
+<p><strong>Neu bei F5?</strong> Beginnen Sie zuerst mit der Plattformübersicht: <a href="/de/technology/f5-bigip-application-delivery-platform-uebersicht/">F5 BIG-IP ist kein Load Balancer — Es ist eine Application Delivery Platform</a></p>
+</blockquote>
+<p>Wenn Sie das Gesamtbild bereits verstehen und tief in GTM eintauchen möchten — iQuery, Wide IPs, Topologie-Routing, TTL-Strategie und Multi-DC-Design — sind Sie hier richtig.</p>
+<hr>
+<h2 id="das-problem-das-gtm-löst">Das Problem, das GTM löst</h2>
+<p>LTM verwaltet Anwendungsdatenverkehr innerhalb eines einzelnen Rechenzentrums. Es verteilt Verbindungen auf Backend-Server, überwacht die Gesundheit und bietet HA innerhalb eines Standorts. Aber LTM hat keine Sichtbarkeit auf das, was außerhalb seines Rechenzentrums passiert — es kann keinen Datenverkehr zwischen Standorten leiten.</p>
+<p>Das ist genau die Lücke, die GTM füllt. Wenn eine Organisation zwei Rechenzentren hat, ein primäres DC und einen DR-Standort oder global verteilte Infrastruktur, lautet die Frage: <em>Wie wissen Clients, mit welchem Rechenzentrum sie sich verbinden sollen, und was passiert automatisch, wenn eines offline geht?</em></p>
+<p>Ohne GTM lautet die Antwort meist manuelle DNS-Änderungen — langsam, fehleranfällig und für automatisiertes Failover völlig ungeeignet. GTM löst dies auf der DNS-Ebene.</p>
+<hr>
+<h2 id="der-dns-fluss-wie-gtm-entscheidet">Der DNS-Fluss: Wie GTM entscheidet</h2>
+<p>GTM fungiert als <strong>autoritativer DNS-Server</strong> für Ihre Anwendungszonen. Wenn ein Client <code>webapp.unternehmen.de</code> auflöst, erreicht die Abfrage GTM statt eines Standard-DNS-Servers:</p>
+<pre tabindex="0"><code>1. Client: &#34;Was ist die IP für webapp.unternehmen.de?&#34;
+2. Abfrage erreicht GTM (autoritativ für unternehmen.de-Zone)
+3. GTM bewertet in Echtzeit:
+   → Ist DC-1 LTM gesund? (via iQuery)
+   → Ist DC-2 LTM gesund? (via iQuery)
+   → Welche Load-Balancing-Richtlinie gilt?
+   → Wo befindet sich dieser Client geografisch?
+4. GTM antwortet: &#34;webapp.unternehmen.de = 10.10.1.100&#34; (DC-1 VIP)
+5. Client verbindet sich mit 10.10.1.100 → LTM übernimmt von hier
+</code></pre><p>Die Intelligenz liegt in Schritt 3. GTM ist kein passiver DNS-Server, der einen statischen Eintrag zurückgibt — es trifft bei jeder Beantwortung einer Abfrage eine Echtzeit-Entscheidung basierend auf dem aktuellen Infrastrukturzustand und der Richtlinie.</p>
+<hr>
+<h2 id="gtm-objekthierarchie">GTM-Objekthierarchie</h2>
+<p>GTM verwendet eine vierstufige Hierarchie, die die DNS-Struktur widerspiegelt:</p>
+<pre tabindex="0"><code>Rechenzentrum  →  Server  →  Virtual Server  →  Wide IP (Pool-Member)
+</code></pre><p><strong>Rechenzentrum:</strong> Eine logische Gruppierung für einen physischen Standort (DC-Istanbul, DC-Frankfurt). Enthält alle bei GTM registrierten Server an diesem Standort.</p>
+<p><strong>Server:</strong> Ein bei GTM registriertes BIG-IP-Gerät (typischerweise ein LTM). GTM kommuniziert über iQuery mit ihm für Echtzeit-Gesundheitsdaten.</p>
+<p><strong>Virtual Server:</strong> Ein spezifischer LTM Virtual Server (VIP) auf einem registrierten Server. Der tatsächliche Endpunkt, zu dem GTM Datenverkehr leiten kann.</p>
+<p><strong>GTM-Pool:</strong> Eine Gruppe von Virtual Servern über einem oder mehreren LTMs. GTM verteilt DNS-Antworten auf Pool-Members.</p>
+<p><strong>Wide IP:</strong> Der DNS-Name (<code>webapp.unternehmen.de</code>), den Clients auflösen. Eine Wide IP referenziert einen oder mehrere GTM-Pools und definiert die Auflösungsrichtlinie.</p>
+<hr>
+<h2 id="iquery-warum-gtm-tatsächlich-die-anwendungsgesundheit-versteht">iQuery: Warum GTM tatsächlich die Anwendungsgesundheit versteht</h2>
+<p><strong>iQuery</strong> ist das proprietäre F5-Protokoll, das GTM echte Anwendungsbewusstheit verleiht. Das ist es, was GTM von externen DNS-Load-Balancern unterscheidet, die einfach eine VIP anpingen oder TCP-Erreichbarkeit prüfen.</p>
+<p>Ohne iQuery würde GTM nur wissen, ob eine IP-Adresse auf eine Probe antwortet. Mit iQuery weiß GTM:</p>
+<ul>
+<li>Ob der LTM Virtual Server aktiviert und aktiv ist</li>
+<li>Ob der Pool hinter diesem Virtual Server gesunde, aktive Members hat</li>
+<li>Aktuelle aktive Verbindungsanzahl auf dem LTM</li>
+<li>Aktuelle CPU- und Speicherauslastung</li>
+</ul>
+<p><strong>Die kritische Implikation:</strong> Wenn eine Backend-Anwendung ausfällt und LTM seinen Pool als ausgefallen markiert, propagiert iQuery dies <strong>sofort</strong> an GTM — bevor ein Client die Chance hat, sich mit einem defekten Endpunkt zu verbinden. GTM hört sofort auf, mit dieser VIP des DCs auf DNS-Abfragen zu antworten.</p>
+<p>Eine TCP-Gesundheitsprobe von GTM zu einer VIP-IP würde dies niemals erkennen — die VIP-IP bleibt erreichbar, selbst wenn die Anwendung dahinter vollständig defekt ist. iQuery ist das, was den Unterschied macht.</p>
+<h3 id="registrierung-eines-ltm-bei-gtm">Registrierung eines LTM bei GTM</h3>
+<pre tabindex="0"><code>Server: ltm-dc1
+  Produkt:         BIG-IP (aktiviert iQuery)
+  Adresse:         10.10.0.1 (LTM-Management-IP)
+  Rechenzentrum:   DC-Istanbul
+  Virtual Server:  [automatisch via iQuery entdeckt]
+    - vs_webapp_443  (10.10.1.100:443)
+    - vs_api_443     (10.10.1.101:443)
+    - vs_admin_443   (10.10.1.102:443)
+</code></pre><p>Nach der Registrierung entdeckt und überwacht GTM automatisch alle Virtual Server auf diesem LTM. Keine manuelle Virtual-Server-Konfiguration in GTM erforderlich — iQuery kümmert sich um die Erkennung.</p>
+<hr>
+<h2 id="wide-ips-und-gtm-pools">Wide IPs und GTM-Pools</h2>
+<p>Eine Wide IP verbindet einen DNS-Namen mit einer Auflösungsrichtlinie:</p>
+<pre tabindex="0"><code>Wide IP: webapp.unternehmen.de (Typ: A)
+  Pool: gtm_pool_webapp_primary
+    Load-Balancing-Methode: Global Availability
+    Members:
+      - ltm-dc1 / vs_webapp_443  (Reihenfolge: 1)
+      - ltm-dc2 / vs_webapp_443  (Reihenfolge: 2)
+  Fallback-Pool:    gtm_pool_webapp_dr
+  Last-Resort-Pool: [SERVFAIL zurückgeben, wenn alle Pools erschöpft]
+</code></pre><p>Eine Wide IP kann mehrere Pools in Prioritätsreihenfolge haben. Wenn der primäre Pool keine verfügbaren Members hat, versucht GTM automatisch den nächsten Pool. Das ermöglicht gestaffelte Failover-Architekturen ohne manuelle Eingriffe.</p>
+<hr>
+<h2 id="load-balancing-methoden">Load-Balancing-Methoden</h2>
+<p>GTM Load Balancing arbeitet auf DNS-Antwortebene — jede Methode bestimmt, welche IP des Pool-Members für eine gegebene Abfrage zurückgegeben wird.</p>
+<h3 id="global-availability">Global Availability</h3>
+<p>Gibt immer die IP des ersten verfügbaren Members zurück. Wechselt zum nächsten Member nur, wenn das aktuelle nicht verfügbar ist:</p>
+<pre tabindex="0"><code>Members (in Prioritätsreihenfolge):
+  1. ltm-dc1 / vs_webapp_443  ← gesamter Datenverkehr wenn gesund
+  2. ltm-dc2 / vs_webapp_443  ← Datenverkehr nur wenn DC-1 ausfällt
+</code></pre><p><strong>Geeignet für:</strong> Primär/DR-Architekturen. Der gesamte Datenverkehr läuft am primären Standort; DR aktiviert sich nur bei echten Ausfällen. Das war die Standardmethode in der Banking-Umgebung — kosteneffizient, einfach zu verstehen und vorhersehbar bei Ausfällen.</p>
+<h3 id="round-robin">Round Robin</h3>
+<p>Wechselt DNS-Antworten zwischen Pool-Members ab:</p>
+<pre tabindex="0"><code>Abfrage 1 → DC-1 VIP
+Abfrage 2 → DC-2 VIP
+Abfrage 3 → DC-1 VIP
+</code></pre><p><strong>Geeignet für:</strong> Aktiv-Aktiv-Multi-DC-Architekturen mit gleicher Kapazität an jedem Standort. Verbreitet in groß angelegten Webanwendungen, wo beide Standorte kontinuierlich Last teilen sollen.</p>
+<h3 id="ratio">Ratio</h3>
+<p>Gewichtete Verteilung:</p>
+<pre tabindex="0"><code>ltm-dc1 / vs_webapp_443  Ratio: 7  ← 70% der DNS-Antworten
+ltm-dc2 / vs_webapp_443  Ratio: 3  ← 30% der DNS-Antworten
+</code></pre><p><strong>Geeignet für:</strong> Aktiv-Aktiv wenn Rechenzentren unterschiedliche Kapazitäten haben. Ermöglicht kapazitätsproportionale Lastverteilung.</p>
+<h3 id="topology">Topology</h3>
+<p>Routet DNS-Antworten basierend auf dem geografischen Standort der Client-DNS-Resolver-IP:</p>
+<pre tabindex="0"><code>Topologie-Einträge (von oben nach unten bewertet, erste Übereinstimmung gewinnt):
+  Subnetz 10.0.0.0/8        → DC-Istanbul   (alle internen Benutzer)
+  ISP: Turk Telekom          → DC-Istanbul
+  Region: Europa             → DC-Frankfurt
+  Region: Naher Osten        → DC-Istanbul
+  Standard                   → DC-Frankfurt
+</code></pre><p><strong>Geeignet für:</strong> Globale Anwendungen mit Benutzern in mehreren Regionen. Reduziert die Latenz, indem Benutzer zum nächsten DC geleitet werden. Ermöglicht auch Datenresidenz-Compliance — sicherstellt, dass Anfragen von EU-Benutzern in EU-Rechenzentren verarbeitet werden.</p>
+<p>GTM verwendet eine IP-Geolokalisierungsdatenbank, um Resolver-IPs auf Regionen abzubilden. Halten Sie diese Datenbank aktuell — ISPs vergeben IP-Bereiche regelmäßig neu, und veraltete Geolokalisierungsdaten senden Benutzer in falsche Regionen.</p>
+<h3 id="least-connections">Least Connections</h3>
+<p>Leitet zum Pool-Member mit den wenigsten aktiven Verbindungen, die in Echtzeit über iQuery erhalten werden:</p>
+<pre tabindex="0"><code>Aktueller Status via iQuery:
+  ltm-dc1: 4.521 aktive Verbindungen
+  ltm-dc2: 3.102 aktive Verbindungen
+  → GTM gibt DC-2 VIP für nächste Abfrage zurück
+</code></pre><p><strong>Geeignet für:</strong> Aktiv-Aktiv-Architekturen, wo dynamisches Load Balancing basierend auf tatsächlichen Verbindungsanzahlen gegenüber statischen Gewichtungen bevorzugt wird.</p>
+<hr>
+<h2 id="dns-ttl-strategie-der-am-meisten-missverstandene-aspekt">DNS-TTL-Strategie: Der am meisten missverstandene Aspekt</h2>
+<p>TTL bestimmt, wie lange DNS-Resolver die Antwort von GTM zwischenspeichern. Das wird weithin missverstanden:</p>
+<p><strong>TTL steuert nicht die Failover-Geschwindigkeit für Clients, die den Namen bereits aufgelöst haben.</strong> Ein Client, der <code>webapp.unternehmen.de</code> vor 10 Sekunden aufgelöst hat, verwendet weiterhin die zwischengespeicherte IP bis TTL abläuft — unabhängig davon, was GTM derzeit antwortet.</p>
+<p>TTL steuert, wie schnell <strong>neue DNS-Lookups</strong> den aktuellen Infrastrukturzustand widerspiegeln.</p>
+<h3 id="ttl-kompromisse">TTL-Kompromisse</h3>
+<table>
+  <thead>
+      <tr>
+          <th>TTL</th>
+          <th>Failover-Sichtbarkeit</th>
+          <th>DNS-Abfragelast</th>
+          <th>Anwendungsfall</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>30 Sek</td>
+          <td>Schnell</td>
+          <td>Hoch</td>
+          <td>Kritische Zahlungssysteme, Auth-Dienste</td>
+      </tr>
+      <tr>
+          <td>60 Sek</td>
+          <td>Gut</td>
+          <td>Moderat</td>
+          <td>Die meisten Produktionsanwendungen</td>
+      </tr>
+      <tr>
+          <td>300 Sek</td>
+          <td>Moderat</td>
+          <td>Niedrig</td>
+          <td>Interne Tools, Monitoring</td>
+      </tr>
+      <tr>
+          <td>3600 Sek</td>
+          <td>Langsam</td>
+          <td>Sehr niedrig</td>
+          <td>Statische Inhalte, selten ändernde Einträge</td>
+      </tr>
+  </tbody>
+</table>
+<p>In der Banking-Umgebung:</p>
+<ul>
+<li><strong>30 Sekunden</strong> für Zahlungsabwicklung und Authentifizierungsdienste</li>
+<li><strong>60 Sekunden</strong> für allgemeine Banking-Anwendungen</li>
+<li><strong>300 Sekunden</strong> für interne Dashboards und Monitoring-Tools</li>
+</ul>
+<h3 id="berechnung-der-minimalen-effektiven-failover-zeit">Berechnung der minimalen effektiven Failover-Zeit</h3>
+<pre tabindex="0"><code>Worst-Case-Failover-Zeit ≈ Gesundheitsprüfungsintervall + TTL
+</code></pre><p>Mit einem 5-Sekunden-iQuery-Prüfintervall und 30-Sekunden-TTL: Worst Case ist ~35 Sekunden. Einige Clients wechseln innerhalb von Sekunden nach der Fehlererkennung zum neuen DC; andere warten auf TTL-Ablauf.</p>
+<p>Für Anwendungen mit strengen RTO-Anforderungen kombinieren Sie niedrige TTL mit Wiederholungslogik auf Anwendungsebene, um das Übergangsfenster reibungslos zu handhaben.</p>
+<hr>
+<h2 id="multi-dc-architekturmuster">Multi-DC-Architekturmuster</h2>
+<h3 id="aktiv-standby-primär--dr">Aktiv-Standby (Primär / DR)</h3>
+<pre tabindex="0"><code>Normal:
+  GTM → DC-1 LTM → App-Server (DC-1)
+  DC-2 ist Hot-Standby — läuft, synchronisiert, kein Datenverkehr
+
+DC-1-Ausfall:
+  iQuery: DC-1 LTM Virtual Server als ausgefallen markiert
+  GTM: hört sofort auf, mit DC-1 VIP zu antworten
+  Neue DNS-Abfragen: erhalten DC-2 VIP
+  Datenverkehrsverschiebung: innerhalb des TTL-Fensters
+</code></pre><p>Anforderungen:</p>
+<ul>
+<li>Identisches Anwendungs-Deployment auf beiden DCs</li>
+<li>Datenbankreplikation (synchron für null RPO, asynchron für niedrigeres RPO)</li>
+<li>GTM-Methode: <strong>Global Availability</strong></li>
+</ul>
+<h3 id="aktiv-aktiv-lastverteilung">Aktiv-Aktiv (Lastverteilung)</h3>
+<pre tabindex="0"><code>Normal:
+  GTM → DC-1 (50% der DNS-Antworten)
+  GTM → DC-2 (50% der DNS-Antworten)
+
+DC-1-Ausfall:
+  GTM leitet 100% zu DC-2
+</code></pre><p>Anforderungen:</p>
+<ul>
+<li>Zwischen DCs geteilter Sitzungszustand oder zustandsloses Anwendungsdesign</li>
+<li>Jedes DC muss 100% des Datenverkehrs unabhängig bewältigen (für diese Kapazität planen)</li>
+<li>Gleichzeitig von beiden DCs beschreibbare Datenbank</li>
+<li>GTM-Methode: <strong>Round Robin</strong>, <strong>Ratio</strong> oder <strong>Least Connections</strong></li>
+</ul>
+<p>Aktiv-Aktiv liefert bessere Ressourcennutzung und schnelleres effektives Failover (kein Kaltstart-DR-Standort). Die Architekturkomplexität ist höher — besonders rund um Datenbankschreibkonflikte und Sitzungszustandsverwaltung.</p>
+<h3 id="topologiebasierte-geografische-verteilung">Topologiebasierte geografische Verteilung</h3>
+<pre tabindex="0"><code>EU-Benutzer    → Resolver-IP in Europa    → DC-Frankfurt
+MENA-Benutzer  → Resolver-IP im Nahen Osten → DC-Istanbul
+Intern         → RFC1918-Quelle            → DC-Istanbul (nächster)
+Standard       → DC-Frankfurt
+</code></pre><p>Jedes DC verarbeitet unter normalen Bedingungen den Datenverkehr seiner Region. Fallback-Topologie-Einträge leiten alle Regionen während eines Ausfalls zum überlebenden DC.</p>
+<p>Dieses Muster kombiniert Leistungsvorteile (geringere Latenz) mit Compliance-Anforderungen (Datenresidenz) und Kapazitätsoptimierung (jedes DC für seine Region dimensioniert).</p>
+<hr>
+<h2 id="gtm-monitore-vs-iquery-wann-was-verwenden">GTM-Monitore vs. iQuery: Wann was verwenden</h2>
+<p><strong>iQuery (für BIG-IP LTMs):</strong></p>
+<ul>
+<li>Echtzeit-Anwendungsgesundheitsdaten vom LTM</li>
+<li>Kein zusätzlicher Monitoring-Datenverkehr</li>
+<li>Kennt Anwendungsgesundheit, nicht nur IP-Erreichbarkeit</li>
+<li>Automatische Virtual-Server-Erkennung</li>
+<li>Für alle BIG-IP LTM-Endpunkte verwenden</li>
+</ul>
+<p><strong>GTM-native Monitore (für Nicht-BIG-IP-Endpunkte):</strong></p>
+<ul>
+<li>GTM sendet eigene Gesundheitsproben direkt an Endpunkte</li>
+<li>Unterstützt TCP, HTTP, HTTPS, ICMP</li>
+<li>Für Drittanbieter-Load-Balancer, Cloud-Endpunkte, Ursprungsserver in hybriden Umgebungen verwenden</li>
+</ul>
+<p>In den meisten Enterprise-Deployments übernimmt iQuery das gesamte BIG-IP-zu-BIG-IP-Monitoring. GTM-native Monitore sind für hybride Architekturen reserviert, wo einige Endpunkte keine F5-Geräte sind.</p>
+<hr>
+<h2 id="dns-persistenz-in-gtm">DNS-Persistenz in GTM</h2>
+<p>GTM pflegt keinen TCP-Zustand — es beeinflusst nur DNS-Antworten. Es unterstützt jedoch <strong>DNS-Persistenz</strong>, um sicherzustellen, dass wiederholte Abfragen vom gleichen Resolver für einen konfigurierbaren Zeitraum die gleiche IP zurückgeben:</p>
+<pre tabindex="0"><code>Wide IP Persistenz:
+  Aktiviert: Ja
+  TTL:       300 Sekunden
+  Typ:       nach Quell-IP (Resolver-IP)
+</code></pre><p>Mit aktivierter Persistenz gibt GTM unabhängig von der Load-Balancing-Methode für 300 Sekunden dieselbe VIP an denselben Resolver zurück. Das reduziert Sitzungsunterbrechungen, wenn Clients häufig neu auflösen.</p>
+<p><strong>Wichtiger Vorbehalt:</strong> DNS-Persistenz basiert auf der <strong>Resolver-IP</strong>, nicht der End-Client-IP. Wenn viele Endbenutzer einen einzelnen rekursiven ISP-Resolver teilen, erscheinen sie GTM alle als derselbe „Client&quot;. Persistenz kann in diesen Fällen disproportionalen Datenverkehr zu einem DC konzentrieren. Bewerten Sie, ob Persistenz wirklich hilft, bevor Sie sie aktivieren.</p>
+<hr>
+<h2 id="wichtigste-erkenntnisse">Wichtigste Erkenntnisse</h2>
+<ul>
+<li>GTM löst <strong>Multi-DC-DNS-Failover</strong> — das Problem, das LTM allein nicht addressieren kann.</li>
+<li><strong>iQuery</strong> ist GTMs wichtigste Funktion: echte Anwendungsgesundheitsbewusstheit, nicht nur IP-Erreichbarkeit. Wenn LTM einen Anwendungspool als ausgefallen markiert, reagiert GTM sofort.</li>
+<li><strong>Global Availability</strong> ist die richtige Methode für Primär/DR. <strong>Round Robin</strong> oder <strong>Ratio</strong> für Aktiv-Aktiv.</li>
+<li><strong>Topology</strong>-Routing reduziert die Latenz und ermöglicht Datenresidenz-Compliance für globale Deployments.</li>
+<li><strong>TTL steuert nur neue Lookups</strong> — nicht bestehende Verbindungen. Minimales effektives Failover = Gesundheitsprüfungsintervall + TTL.</li>
+<li>Verwenden Sie <strong>iQuery für BIG-IP LTMs</strong>; verwenden Sie GTM-native Monitore für Drittanbieter-Endpunkte.</li>
+</ul>
+<hr>
+<h2 id="diese-serie">Diese Serie</h2>
+<ul>
+<li>📖 <a href="/de/technology/f5-bigip-application-delivery-platform-uebersicht/">F5 BIG-IP Plattformübersicht — Alle Module</a> ← Beginnen Sie hier, wenn Sie neu bei F5 sind</li>
+<li>🔧 <a href="/de/technology/f5-ltm-virtual-server-irules-ssl-offloading-ha/">F5 LTM Deep Dive</a></li>
+<li>🛡️ <a href="/de/technology/f5-waf-asm-advanced-waf-anwendungssicherheit/">F5 WAF Deep Dive</a></li>
+</ul>
+<h2 id="verwandte-artikel">Verwandte Artikel</h2>
+<ul>
+<li>🏗️ <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Systemdenken für Multi-DC-Design</li>
+<li>🔐 <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Die Zero-Trust-Mentalität</a> — Identitätsbewusster Zugang über verteilte Infrastruktur</li>
+<li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Monitoring richtig gemacht</a> — GTM- und LTM-Gesundheit proaktiv überwachen</li>
+</ul>
+]]></content:encoded></item></channel></rss>
