@@ -67,6 +67,362 @@
 <p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
 <p><strong>📧 E-posta:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
 <p><em>30 dakikalık ücretsiz teknik ön görüşme. Taahhüt gerekmez.</em></p>
+]]></content:encoded></item><item><title>Bavyera'daki Küçük İşletmeler İçin BT Güvenlik Yükümlülükleri — ve Digitalbonus Bayern'in Maliyetlerin %50'sine Kadarını Nasıl Karşıladığı</title><link>https://barashhelvadzhaoglu.com/tr/posts/digitalbonus-comprehensive/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/digitalbonus-comprehensive/</guid><description>Bavyera&amp;#39;da yasal olarak hangi BT güvenlik önlemleri zorunludur? Firewall, ağ ayırma, e-posta koruması, yedekleme — yasal dayanaklar ve 7.500 €&amp;#39;ya kadar teşvikle.</description><content:encoded><![CDATA[<h1 id="küçük-işletmeler-için-bt-güvenlik-yükümlülükleri--ve-digitalbonus-bayern-50ye-kadarını-nasıl-üstleniyor">Küçük İşletmeler İçin BT Güvenlik Yükümlülükleri — ve Digitalbonus Bayern %50&rsquo;ye Kadarını Nasıl Üstleniyor</h1>
+<p>Bavyera&rsquo;daki birçok küçük işletme, BT güvenliğinin büyük şirketleri ilgilendiren bir konu olduğuna inanıyor. Gerçek ise farklıdır: DSGVO (Genel Veri Koruma Yönetmeliği), kişisel veri işleyen <strong>herkes</strong> için geçerlidir — perakendeciden doktor muayenehanesine, otelden kafeye kadar. Ve gereksinimler somut, bağlayıcı ve para cezalarıyla desteklenmiştir.</p>
+<p>İyi haber: <strong>Digitalbonus Bayern</strong>, firewall, ağ ayırma, e-posta güvenliği, yedekleme ve daha fazlası için <strong>yatırım maliyetlerinin %50&rsquo;sine kadarını</strong> iade ediyor. Program Aralık 2027&rsquo;ye kadar devam etmektedir.</p>
+<blockquote>
+<p>💬 <strong>Ücretsiz BT Analizi:</strong> <a href="https://wa.me/4916098665971">WhatsApp</a> veya <a href="mailto:info@barashhelvadzhaoglu.com">E-posta</a>
+Altyapınızı ücretsiz kontrol ediyoruz — sipariş yok, ürün satışı yok.</p>
+</blockquote>
+<hr>
+<h2 id="yasal-temel-gerçekte-ne-zorunludur">Yasal Temel: Gerçekte Ne Zorunludur?</h2>
+<h3 id="dsgvo-madde-32--işleme-güvenliği">DSGVO Madde 32 — İşleme Güvenliği</h3>
+<p><strong>Kaynak:</strong> <a href="https://gdpr.eu/article-32-security-of-processing/">Art. 32 DSGVO</a></p>
+<blockquote>
+<p>„Veri sorumlusu ve veri işleyen, riske uygun bir koruma düzeyi sağlamak için uygun teknik ve organizasyonel önlemleri alır.&quot;</p>
+</blockquote>
+<p>Bu şu anlama gelir: Kişisel verileri işleyen her şirket — yani isimler, e-posta adresleri, sağlık verileri, rezervasyon bilgileri — <strong>teknik koruma önlemleri</strong> oluşturmalıdır. Tavsiye olarak değil, <strong>yasal bir yükümlülük</strong> olarak.</p>
+<h3 id="bsi-it-grundschutz--teknik-standart">BSI IT-Grundschutz — Teknik Standart</h3>
+<p><strong>Kaynak:</strong> <a href="https://www.bsi.bund.de/grundschutz">BSI IT-Grundschutz Kompendium</a></p>
+<p>Federal Bilgi Güvenliği Ofisi (BSI), BT-Grundschutz&rsquo;da DSGVO anlamında &ldquo;uygun teknik önlemlerin&rdquo; ne olduğunu somut olarak tanımlar. Alman mahkemeleri ve veri koruma yetkilileri denetimlerde bu standardı baz almaktadır.</p>
+<p><strong>BSI IT-Grundschutz küçük işletmeler için geçerli mi?</strong>
+Resmi olarak gönüllüdür — ancak: DSGVO &ldquo;teknolojinin güncel durumunu&rdquo; (Stand der Technik) zorunlu kılar. Almanya&rsquo;da bu durum BSI IT-Grundschutz&rsquo;a tekabül eder. Buna uymayanlar, bir denetim sırasında neden farklı önlemlerinin eşdeğer olduğunu kanıtlamak zorunda kalabilirler.</p>
+<hr>
+<h2 id="somut-olarak-ne-zorunludur--önlem-önlem-detaylar">Somut Olarak Ne Zorunludur — Önlem Önlem Detaylar</h2>
+<h3 id="1-firewall--bsi-net32-uyarınca-yükümlülük">1. Firewall — BSI NET.3.2 Uyarınca Yükümlülük</h3>
+<p><strong>Yasal Dayanak:</strong> BSI IT-Grundschutz, Modül <a href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/Kompendium/Bausteine/Infrastruktur/NET_3_2_Firewall.pdf">NET.3.2 Firewall</a></p>
+<p>BSI NET.3.2.A2 şunu şart koşar:</p>
+<blockquote>
+<p>„Güvenlik duvarı için bir kurallar dizisi oluşturulmalıdır. Dış ağdan iç ağa otomatik olarak hiçbir veri trafiği girmemelidir.&quot;</p>
+</blockquote>
+<p>BSI NET.3.2.A9 ekler:</p>
+<blockquote>
+<p>„Güvenlik duvarı tüm önemli olayları günlüğe kaydetmelidir (loglama).&quot;</p>
+</blockquote>
+<p><strong>Pratikte ne anlama gelir:</strong></p>
+<ul>
+<li>Basit bir DSL yönlendirici (Router), BSI anlamında bir firewall <strong>değildir</strong>.</li>
+<li>Bir UTM-Firewall (örneğin Fortinet FortiGate, Palo Alto) gereklidir.</li>
+<li>Firewall, sadece internet ve iç ağ arasında değil, <strong>tüm</strong> ağ bölgeleri arasında durmalıdır.</li>
+</ul>
+<p><strong>Digitalbonus ile teşvik edilebilir mi:</strong> ✅ Evet — Donanım ve yapılandırma hizmeti.</p>
+<hr>
+<h3 id="2-ağ-segmentasyonu-vlanlar--bsi-net11-ve-dsgvo-madde-25-uyarınca-yükümlülük">2. Ağ Segmentasyonu (VLAN&rsquo;lar) — BSI NET.1.1 ve DSGVO Madde 25 Uyarınca Yükümlülük</h3>
+<p><strong>Yasal Dayanak:</strong></p>
+<ul>
+<li>BSI IT-Grundschutz, Modül <a href="https://www.bsi.bund.de/grundschutz">NET.1.1 Ağ Mimarisi ve Tasarımı</a></li>
+<li>DSGVO Madde 25 — Tasarım Yoluyla Veri Koruma (Privacy by Design)</li>
+</ul>
+<blockquote>
+<p>„Kişisel veriler, yalnızca görevleri için erişime ihtiyaç duyan kişilerin erişebileceği şekilde işlenmelidir.&quot;</p>
+</blockquote>
+<p><strong>Pratikte ne anlama gelir:</strong></p>
+<p>Aşağıdaki cihaz sınıfları <strong>ayrı ağlarda (VLAN&rsquo;lar)</strong> çalıştırılmalıdır:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Ağ Segmenti</th>
+          <th>İçinde Ne Yer Alır</th>
+          <th>Ayrım Olmazsa Risk</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Çalışan Ağı</strong></td>
+          <td>PC&rsquo;ler, Laptoplar</td>
+          <td>Müşteri verilerine erişim</td>
+      </tr>
+      <tr>
+          <td><strong>Sunucu / NAS</strong></td>
+          <td>Dosya sunucusu, Yedekleme sistemi</td>
+          <td>Saldırı anında veri kaybı</td>
+      </tr>
+      <tr>
+          <td><strong>IoT Cihazları</strong></td>
+          <td>Yazıcılar, IP Kameralar, Smart-TV, UPS</td>
+          <td>Bilinen açıklar, güncelleme yok</td>
+      </tr>
+      <tr>
+          <td><strong>Misafir WLAN</strong></td>
+          <td>Müşteriler, Hastalar, Otel misafirleri</td>
+          <td>Dahili sistemlere erişim</td>
+      </tr>
+      <tr>
+          <td><strong>Kasa / POS</strong></td>
+          <td>Kart terminali, Kasa sistemi</td>
+          <td>PCI DSS yükümlülüğü, ödeme verileri</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Yazıcılar neden tehlikelidir:</strong>
+IP yazıcılar genellikle eski donanım yazılımlarına sahiptir ve otomatik güvenlik güncellemeleri yoktur. Muhasebe PC&rsquo;si ile aynı ağdaki ele geçirilmiş bir yazıcı, saldırganlara tüm verilere doğrudan erişim sağlar.</p>
+<p><strong>IP Kameralar neden tehlikelidir:</strong>
+Ucuz IP kameralar (Hikvision, Dahua), şirket ağına giriş noktası olarak uluslararası hacker saldırılarında düzenli olarak kötüye kullanılmaktadır.</p>
+<p><strong>Digitalbonus ile teşvik edilebilir mi:</strong> ✅ Evet — Yönetilebilir anahtarlar (Managed Switches), Access Pointler, yapılandırma hizmeti.</p>
+<hr>
+<h3 id="3-captive-portal-ve-log-saklama-ile-misafir-wlan">3. Captive Portal ve Log Saklama ile Misafir WLAN</h3>
+<p><strong>Yasal Dayanak:</strong></p>
+<ul>
+<li>DSGVO Madde 32 — Teknik Koruma Önlemleri</li>
+<li>§ 100 TKG (Telekomünikasyon Yasası) — Trafik Verileri</li>
+<li>BSI IT-Grundschutz NET.2.2 — WLAN Kullanımı</li>
+</ul>
+<p><strong>Ne zorunludur:</strong></p>
+<p><strong>a) Tam İzolasyon:</strong>
+Misafir WLAN&rsquo;ın dahili sistemlere <strong>hiçbir</strong> erişimi olmamalıdır. Bir otel misafiri veya bekleme odasındaki bir hasta; rezervasyon sistemlerine, yazıcılara veya çalışan dosyalarına erişememelidir.</p>
+<p><strong>b) Bağlantı Günlükleri — 12 Ay Saklama Zorunluluğu:</strong>
+Halka açık WLAN sunanlar, olası resmi talepler için bağlantı verilerini (IP adresi, bağlantı zamanı, bağlantı süresi) <strong>12 ay</strong> boyunca saklamalıdır.</p>
+<p><strong>c) DSGVO Onaylı Captive Portal:</strong>
+Giriş sırasında misafir, veri işleme hakkında bilgilendirilmeli ve aktif olarak onay vermelidir.</p>
+<p><strong>Teknik Uygulama:</strong>
+Bağlantı logları firewall (örn. FortiGate) tarafından kaydedilir ve otomatik olarak bir NAS cihazına aktarılır — orada 12 ay boyunca saklanır.</p>
+<p><strong>Digitalbonus ile teşvik edilebilir mi:</strong> ✅ Evet — WLAN donanımı ve yapılandırması.</p>
+<hr>
+<h3 id="4-e-posta-güvenliği--bsi-app53-ve-dsgvo-madde-32-uyarınca-yükümlülük">4. E-posta Güvenliği — BSI APP.5.3 ve DSGVO Madde 32 Uyarınca Yükümlülük</h3>
+<p><strong>Yasal Dayanak:</strong></p>
+<ul>
+<li>BSI IT-Grundschutz, Modül <a href="https://www.bsi.bund.de/grundschutz">APP.5.3 Genel E-posta İstemcisi ve Sunucusu</a></li>
+<li>DSGVO Madde 32 — Yetkisiz erişime ve veri kaybına karşı koruma</li>
+</ul>
+<p>BSI APP.5.3.A1 şunu şart koşar:</p>
+<blockquote>
+<p>„E-postalardaki kötü amaçlı yazılımlara karşı koruma önlemleri alınmalıdır. Gelen ve giden e-postalar kötü amaçlı yazılımlara karşı taranmalıdır.&quot;</p>
+</blockquote>
+<p><strong>Pratikte ne anlama gelir:</strong>
+Ionos veya Strato gibi sağlayıcılardaki ek koruması olmayan basit bir e-posta kutusu <strong>yeterli değildir</strong>.</p>
+<p>Şunlar gereklidir:</p>
+<ul>
+<li><strong>Spam Filtreleme:</strong> İstenmeyen toplu e-postaların engellenmesi.</li>
+<li><strong>Zararlı Yazılım Koruması:</strong> Tehlikeli eklerin (Ransomware, Truva atları) tespiti.</li>
+<li><strong>Phishing Koruması:</strong> Sahte gönderici adreslerinin tespiti (Business Email Compromise).</li>
+<li><strong>Loglama:</strong> Filtrelenen tüm e-postaların kanıtı.</li>
+</ul>
+<p><strong>Teknik Çözüm:</strong>
+Bulut tabanlı bir E-posta Güvenlik Ağ Geçidi (örn. Hornetsecurity, FortiMail Cloud), tüm gelen e-postaları alıcıya ulaşmadan önce bir güvenlik filtresinden geçirir. Mevcut her e-posta sistemiyle çalışır — Office 365, Google Workspace veya basit Webmail.</p>
+<p><strong>Digitalbonus ile teşvik edilebilir mi:</strong> ✅ Evet — BT güvenlik yazılım lisansı olarak (18 aya kadar).</p>
+<hr>
+<h3 id="5-uç-nokta-koruması-antivirüs--edr--bsi-sys21-ve-dsgvo-madde-32-uyarınca-yükümlülük">5. Uç Nokta Koruması (Antivirüs / EDR) — BSI SYS.2.1 ve DSGVO Madde 32 Uyarınca Yükümlülük</h3>
+<p><strong>Yasal Dayanak:</strong></p>
+<ul>
+<li>BSI IT-Grundschutz, Modül <a href="https://www.bsi.bund.de/grundschutz">SYS.2.1 Genel İstemci</a></li>
+<li>DSGVO Madde 32 — Zararlı yazılımlar nedeniyle veri kaybına karşı koruma</li>
+</ul>
+<p>BSI SYS.2.1.A6 şunu şart koşar:</p>
+<blockquote>
+<p>„İstemcilerde bir virüsten koruma programı kurulu ve etkin olmalıdır. Virüsten koruma programı düzenli olarak güncellenmelidir.&quot;</p>
+</blockquote>
+<p>BSI SYS.2.1.A7 ekler:</p>
+<blockquote>
+<p>„Güvenlikle ilgili olaylar günlüğe kaydedilmeli ve anormallikler açısından kontrol edilmelidir.&quot;</p>
+</blockquote>
+<p><strong>Pratikte ne anlama gelir:</strong></p>
+<p>Her PC&rsquo;de —merkezi yönetim olmaksızın— çalışan tekil bir antivirüs programı BSI standardına <strong>uygun değildir</strong>. Şunlar gereklidir:</p>
+<ul>
+<li><strong>Merkezi Yönetim:</strong> Bir yönetici tüm cihazların koruma durumunu bir bakışta görebilir.</li>
+<li><strong>Gerçek Zamanlı Koruma:</strong> Tehditler zarar vermeden tespit edilir.</li>
+<li><strong>Ransomware Koruması:</strong> Kötü amaçlı yazılımlar tarafından dosya şifrelenmesi engellenir.</li>
+<li><strong>Loglama:</strong> Tüm güvenlik olayları kaydedilir — olası denetimler için.</li>
+<li><strong>Aylık Raporlar:</strong> Aktif koruma önlemlerinin kanıtı.</li>
+</ul>
+<p><strong>Teknik Çözüm:</strong>
+Bitdefender GravityZone veya ESET Protect gibi merkezi olarak yönetilen EDR çözümleri, tüm cihazların merkezi bir panel üzerinden yönetilmesini sağlar.</p>
+<p><strong>Digitalbonus ile teşvik edilebilir mi:</strong> ✅ Evet — Yazılım lisansları ve kurulum hizmeti.</p>
+<hr>
+<h3 id="6-veri-yedekleme-backup--bsi-con3-ve-gobd-uyarınca-yükümlülük">6. Veri Yedekleme (Backup) — BSI CON.3 ve GoBD Uyarınca Yükümlülük</h3>
+<p><strong>Yasal Dayanak:</strong></p>
+<ul>
+<li>BSI IT-Grundschutz, Modül <a href="https://www.bsi.bund.de/grundschutz">CON.3 Veri Yedekleme Konsepti</a></li>
+<li>GoBD (Uygun Defter Tutma İlkeleri) — Yasal saklama yükümlülükleri</li>
+<li>DSGVO Madde 32 — Kişisel verilerin geri yüklenebilirliği</li>
+</ul>
+<p>BSI CON.3.A7 şunu şart koşar:</p>
+<blockquote>
+<p>„Yedeklenen veriler, veri yedeklemesinin işlevselliğini kontrol etmek için düzenli olarak geri yüklenmelidir.&quot;</p>
+</blockquote>
+<p><strong>3-2-1 Kuralı — Sektör Standardı:</strong></p>
+<ul>
+<li><strong>3</strong> Veri kopyası</li>
+<li><strong>2</strong> Farklı depolama ortamı (örn. NAS + Bulut)</li>
+<li><strong>1</strong> Kopya bina dışında (örn. AWS Frankfurt)</li>
+</ul>
+<p><strong>Pratikte ne anlama gelir:</strong>
+Ara sıra manuel olarak üzerine veri yazılan tek bir harici sabit sürücü BSI standardına <strong>uygun değildir</strong>. Şunlar gereklidir:</p>
+<ul>
+<li><strong>Otomatik günlük yedekleme</strong> — manuel müdahale yok.</li>
+<li><strong>Şifreleme</strong> — yedekleme ortamı çalınsa bile veriler korunur.</li>
+<li><strong>Harici kopya</strong> — yangın veya hırsızlık durumunda yedek korunur.</li>
+<li><strong>Düzenli geri yükleme testleri</strong> — yedeğin çalıştığının kanıtı.</li>
+<li><strong>GoBD Uyumluluğu</strong> — muhasebe verileri için 6–10 yıllık saklama süreleri.</li>
+</ul>
+<p><strong>Teknik Çözüm:</strong>
+AWS S3 Frankfurt&rsquo;a (AB veri merkezi, DSGVO uyumlu) otomatik şifreli senkronizasyon sağlayan NAS cihazı (örn. Synology).</p>
+<p><strong>Digitalbonus ile teşvik edilebilir mi:</strong> ✅ Evet — NAS donanımı ve bulut yedekleme kurulumu.</p>
+<hr>
+<h2 id="gerçek-para-cezaları--denetimlerle-değil-şikayetlerle-tetiklenir">Gerçek Para Cezaları — Denetimlerle Değil, Şikayetlerle Tetiklenir</h2>
+<p>BayLDA (Bavyera Veri Koruma Denetim Makamı) <strong>düzenli rutin kontroller yapmaz</strong>. Para cezaları şunlar nedeniyle oluşur:</p>
+<ul>
+<li><strong>Müşteri Şikayetleri</strong> — memnuniyetsiz bir hasta, misafir veya çalışan.</li>
+<li><strong>Veri İhlalleri</strong> — hacker saldırısı, veri kaybı, yanlışlıkla veri paylaşımı.</li>
+<li><strong>Rakip Şikayetleri</strong> — rakiplerin ihbarda bulunması.</li>
+</ul>
+<p>BayLDA, 2023 yılında DSGVO&rsquo;nun yürürlüğe girmesinden bu yana en yüksek sayıda para cezasını kesti. Gerçek örnekler: Bavyera&rsquo;da bir diş hekimi muayenehanesi 3.500 €, perakende sektörü 1.200 € — tekil müşteri şikayetleri ile tetiklendi.</p>
+<p><strong>Önemli:</strong> Bilmemek cezadan muaf tutmaz. DSGVO 2018&rsquo;den beri yürürlüktedir — her şirketin uyum sağlamak için zamanı vardı.</p>
+<hr>
+<h2 id="digitalbonus-bayern-neleri-teşvik-ediyor">Digitalbonus Bayern Neleri Teşvik Ediyor?</h2>
+<p><strong>Program:</strong> <a href="https://www.digitalbonus.bayern">Digitalbonus Bayern</a>
+<strong>Teşvik Oranı:</strong> Teşvik edilebilir maliyetlerin %50&rsquo;si
+<strong>Maksimum:</strong> 7.500 € (Digitalbonus Standard) — her teşvik alanı için (BT Güvenliği ve Dijitalleşme) birer kez
+<strong>Süre:</strong> 31 Aralık 2027&rsquo;ye kadar
+<strong>Başvuru:</strong> Sadece ELSTER kurumsal hesabı üzerinden dijital olarak</p>
+<table>
+  <thead>
+      <tr>
+          <th>Önlem</th>
+          <th>Teşvik Edilebilir mi</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Firewall (Donanım + Lisans + Yapılandırma)</td>
+          <td>✅ Evet</td>
+      </tr>
+      <tr>
+          <td>VLAN ayırımı için Yönetilebilir Switch</td>
+          <td>✅ Evet</td>
+      </tr>
+      <tr>
+          <td>WLAN Access Pointler</td>
+          <td>✅ Evet</td>
+      </tr>
+      <tr>
+          <td>NAS + şifreli Bulut Yedekleme</td>
+          <td>✅ Evet</td>
+      </tr>
+      <tr>
+          <td>E-posta güvenlik lisansı (18 aya kadar)</td>
+          <td>✅ Evet</td>
+      </tr>
+      <tr>
+          <td>Antivirüs/EDR lisansları (18 aya kadar)</td>
+          <td>✅ Evet</td>
+      </tr>
+      <tr>
+          <td>Kurulum ve yapılandırma hizmeti</td>
+          <td>✅ Evet</td>
+      </tr>
+      <tr>
+          <td>Bakım sözleşmesi (18 aya kadar)</td>
+          <td>✅ Evet</td>
+      </tr>
+      <tr>
+          <td>Danışmanlık hizmeti (Toplam maliyetin %50&rsquo;sine kadar)</td>
+          <td>✅ Evet</td>
+      </tr>
+      <tr>
+          <td>Standart PC&rsquo;ler, Laptoplar, Yazıcılar</td>
+          <td>❌ Hayır</td>
+      </tr>
+      <tr>
+          <td>Standart ofis yazılımları (Office, Windows)</td>
+          <td>❌ Hayır</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Önemli Şart:</strong> Başvuru, proje <strong>başlamadan önce</strong> yapılmalıdır. Başvuru onayı alınmadan ne sipariş verilmeli ne de sözlü iş emri verilmelidir.</p>
+<hr>
+<h2 id="örnek-hesaplama-küçük-bir-otel-10-oda-5-çalışan">Örnek Hesaplama: Küçük Bir Otel (10 Oda, 5 Çalışan)</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Önlem</th>
+          <th>Maliyet</th>
+          <th>Teşvik Sonrası (%50)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>FortiGate Firewall + 1 yıllık lisans</td>
+          <td>1.000 €</td>
+          <td>500 €</td>
+      </tr>
+      <tr>
+          <td>Yönetilebilir Switch (VLAN uyumlu)</td>
+          <td>500 €</td>
+          <td>250 €</td>
+      </tr>
+      <tr>
+          <td>3× WLAN Access Point</td>
+          <td>900 €</td>
+          <td>450 €</td>
+      </tr>
+      <tr>
+          <td>NAS + AWS Yedekleme kurulumu</td>
+          <td>500 €</td>
+          <td>250 €</td>
+      </tr>
+      <tr>
+          <td>E-posta Güvenliği (18 ay)</td>
+          <td>400 €</td>
+          <td>200 €</td>
+      </tr>
+      <tr>
+          <td>Antivirüs/EDR 5 cihaz (18 ay)</td>
+          <td>300 €</td>
+          <td>150 €</td>
+      </tr>
+      <tr>
+          <td>Kurulum &amp; Yapılandırma</td>
+          <td>1.000 €</td>
+          <td>500 €</td>
+      </tr>
+      <tr>
+          <td>18 aylık Bakım</td>
+          <td>900 €</td>
+          <td>450 €</td>
+      </tr>
+      <tr>
+          <td><strong>Toplam</strong></td>
+          <td><strong>5.500 €</strong></td>
+          <td><strong>2.750 €</strong></td>
+      </tr>
+  </tbody>
+</table>
+<p>Otel <strong>2.750 €</strong> öder — Bavyera Eyaleti <strong>2.750 €</strong>&lsquo;yu üstlenir.</p>
+<hr>
+<h2 id="bu-kimler-için-ilgilidir">Bu Kimler İçin İlgilidir?</h2>
+<ul>
+<li><strong>Oteller ve Pansiyonlar</strong> — Misafir WLAN, kamera sistemleri, rezervasyon verileri, POS terminalleri</li>
+<li><strong>Doktor ve Terapi Muayenehaneleri</strong> — Hasta verileri, mesleki gizlilik, DSGVO + §75b SGB V</li>
+<li><strong>Hukuk Büroları</strong> — Müvekkil gizliliği, katı DSGVO yükümlülükleri</li>
+<li><strong>Kafeler ve Restoranlar</strong> — Misafir WLAN, kasa sistemi, rezervasyon verileri</li>
+<li><strong>Dil Okulları</strong> — Öğrenci WLAN, yönetim verileri, öğretmen verileri</li>
+<li><strong>Küçük Ofisler (2–20 Kişi)</strong> — Kendi BT departmanı olmayanlar</li>
+</ul>
+<hr>
+<h2 id="ne-sunuyoruz-bağımsız-danışmanlık--ürün-satışı-değil">Ne Sunuyoruz: Bağımsız Danışmanlık — Ürün Satışı Değil</h2>
+<p>Biz ürün satmıyoruz. Kendi sağlayıcılarınızı ve ürünlerinizi seçersiniz — biz planlama, kurulum, yapılandırma ve dokümantasyon konularında yardımcı oluruz.</p>
+<p>Bankacılık, sanayi ve otelcilik (Hilton, Marriott, Crown Hotel Group, Wyndham Grand Europa dahil) sektörlerinde <strong>11 yılı aşkın deneyime sahip Kıdemli Ağ Güvenlik Mühendisi</strong> olarak şunları sunuyoruz:</p>
+<ol>
+<li><strong>Ücretsiz BT Altyapı Analizi</strong> — Mevcut durumunuza bakıyor ve açıkların nerede olduğunu gösteriyoruz.</li>
+<li><strong>Bağımsız Ürün Tavsiyesi</strong> — En pahalı olanı değil, size uygun olanı tavsiye ediyoruz.</li>
+<li><strong>Teknik Uygulama</strong> — VLAN yapılandırması, firewall kurulumu, yedekleme kurulumu, e-posta güvenliği.</li>
+<li><strong>Digitalbonus Başvuru Hazırlığı</strong> — Teşvik edilebilir önlemlerin dokümantasyonunda yardımcı oluyoruz.</li>
+<li><strong>Sürekli Bakım</strong> — Aylık izleme, güncellemeler, sorunlarda muhataplık.</li>
+</ol>
+<hr>
+<h2 id="sonraki-adım-ücretsiz-analiz">Sonraki Adım: Ücretsiz Analiz</h2>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<p><strong>📧 E-posta:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
+<p><em>Ücretsiz analiz. Onayınız olmadan iş emri yok. Ürün satışı yok — sadece danışmanlık ve teknik uzmanlık.</em></p>
+<hr>
+<h2 id="ilgili-bağlantılar">İlgili Bağlantılar</h2>
+<ul>
+<li><a href="https://www.digitalbonus.bayern">Digitalbonus Bayern — Resmi Teşvik Programı</a></li>
+<li><a href="https://gdpr.eu/article-32-security-of-processing/">DSGVO Madde 32 — İşleme Güvenliği</a></li>
+<li><a href="https://www.bsi.bund.de/grundschutz">BSI IT-Grundschutz Kompendium</a></li>
+<li><a href="https://www.lda.bayern.de">BayLDA — Bavyera Veri Koruma Denetim Makamı</a></li>
+<li><a href="https://www.bundesfinanzministerium.de/Content/DE/Downloads/BMF_Schreiben/Weitere_Steuerthemen/Abgabenordnung/2019-11-28-GoBD.pdf">GoBD — Muhasebe İlkeleri</a></li>
+</ul>
 ]]></content:encoded></item><item><title>Cisco ISE &amp; 802.1X NAC — Kurulum, Destek ve Proje Danışmanlığı</title><link>https://barashhelvadzhaoglu.com/tr/services/cisco-ise-8021x/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/services/cisco-ise-8021x/</guid><description>Bağımsız Cisco ISE ve 802.1X danışmanlığı. NAC kurulum, yapılandırma, upgrade ve sürekli destek. Uzaktan hizmet. Ücretsiz teknik ön görüşme.</description><content:encoded><![CDATA[<h1 id="cisco-ise--8021x-nac--bağımsız-danışmanlık-ve-destek">Cisco ISE &amp; 802.1X NAC — Bağımsız Danışmanlık ve Destek</h1>
 <p>Ağ Erişim Kontrolü, kurumsal güvenliğin en karmaşık alanlarından biridir — ve en sık yanlış uygulanan. Cisco ISE projeleri teknoloji yüzünden değil, çevresindeki yapılar yüzünden başarısız olur: Active Directory yapısı, PKI tasarımı, sertifika yaşam döngüsü, VLAN mimarisi ve gerçek kullanıcılara, gerçek cihazlara ve gerçek yardım masası baskısına dayanması gereken endpoint posture politikaları.</p>
 <p>Bankacılık, üretim ve kurumsal ortamlarda Cisco ISE&rsquo;yi sahaya sürmek ve işletmek için <strong>11+ yıllık</strong> uygulamalı deneyimimle; tam zamanlı uzman istihdam etmeden ISE uzmanlığına ihtiyaç duyan kuruluşlara bağımsız danışmanlık, dağıtım desteği ve sürekli yönetilen hizmetler sunuyorum.</p>
