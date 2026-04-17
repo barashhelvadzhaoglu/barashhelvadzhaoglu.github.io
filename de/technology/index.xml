@@ -1,4 +1,239 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Moderne Technologien &amp; Infrastruktur-Tools on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/technology/</link><description>Recent content in Moderne Technologien &amp; Infrastruktur-Tools on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>de</language><lastBuildDate>Wed, 15 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/technology/index.xml" rel="self" type="application/rss+xml"/><item><title>F5 GTM &amp; GSLB Deep Dive: Globales Traffic-Management und DNS-Failover</title><link>https://barashhelvadzhaoglu.com/de/technology/f5-gtm-deep-dive/</link><pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/f5-gtm-deep-dive/</guid><description>F5 GTM (BIG-IP DNS) Deep Dive — Wide IPs, iQuery, Topologie-Routing, TTL-Strategie, Multi-DC-Failover und Aktiv-Aktiv vs. Aktiv-Standby.</description><content:encoded><![CDATA[<h1 id="f5-gtm--gslb-deep-dive-globales-traffic-management-und-dns-failover">F5 GTM &amp; GSLB Deep Dive: Globales Traffic-Management und DNS-Failover</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Moderne Technologien &amp; Infrastruktur-Tools on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/technology/</link><description>Recent content in Moderne Technologien &amp; Infrastruktur-Tools on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>de</language><lastBuildDate>Fri, 17 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/technology/index.xml" rel="self" type="application/rss+xml"/><item><title>Enterprise WLAN-Controller-Architektur: Cisco und Aruba WLAN-Design</title><link>https://barashhelvadzhaoglu.com/de/technology/wifi-controller/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/wifi-controller/</guid><description>Enterprise-WLAN-Controller Deep Dive — Cisco WLC vs. DNA Center, Aruba Mobility Master vs. Central, zentrale vs. verteilte Designs.</description><content:encoded><![CDATA[<h1 id="enterprise-wlan-controller-architektur-cisco-und-aruba-wlan-design">Enterprise WLAN-Controller-Architektur: Cisco und Aruba WLAN-Design</h1>
+<p>Dieser Artikel ist Teil der Enterprise-WiFi-Serie.</p>
+<blockquote>
+<p><strong>Neu im Enterprise-Wireless-Bereich?</strong> Beginnen Sie mit der Übersicht: <a href="/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/">Enterprise WiFi-Architektur: Von Standards bis zur Deployment</a></p>
+</blockquote>
+<hr>
+<h2 id="warum-controller-architektur-wichtig-ist">Warum Controller-Architektur wichtig ist</h2>
+<p>Ein Access Point ist nur ein Radiosender. Was ihn zu einem Teil eines Unternehmensnetzwerks macht — mit konsistenter Richtlinie, nahtlosem Roaming, zentralisiertem Management und Sicherheitsintegration — ist die Controller-Architektur dahinter.</p>
+<p>Wenn Sie die Controller-Architektur falsch gestalten, erhalten Sie:</p>
+<ul>
+<li>Roaming-Ausfälle zwischen Gebäuden oder Etagen</li>
+<li>Inkonsistente Sicherheitsrichtlinien über verschiedene AP-Gruppen</li>
+<li>Authentifizierungsengpässe, die Client-Verbindungen verlangsamen</li>
+<li>Verwaltungskomplexität, die Routineänderungen in mehrstufige Operationen verwandelt</li>
+</ul>
+<p>Wenn Sie es richtig machen, verhält sich das WLAN wie eine Erweiterung der kabelgebundenen Infrastruktur — konsistent, verwaltbar und integriert mit Identitäts- und Sicherheitssystemen.</p>
+<hr>
+<h2 id="die-drei-architekturmodelle">Die drei Architekturmodelle</h2>
+<h3 id="modell-1-zentralisierter-controller-traditionell">Modell 1: Zentralisierter Controller (Traditionell)</h3>
+<p>Alle Intelligenz liegt im Controller. APs sind „dünn&quot; — sie übertragen RF und leiten den gesamten Datenverkehr an den Controller:</p>
+<pre tabindex="0"><code>[AP] ──CAPWAP-Datentunnel──→ [WLC] → Core-Switch → Netzwerk
+[AP] ──CAPWAP-Datentunnel──→ [WLC]
+[AP] ──CAPWAP-Datentunnel──→ [WLC]
+</code></pre><p><strong>CAPWAP (Control and Provisioning of Wireless Access Points)</strong> ist das Protokoll zwischen APs und dem Controller. Es transportiert:</p>
+<ul>
+<li><strong>Steuerungsebene:</strong> AP-Registrierung, Konfiguration, RF-Management, Roaming-Entscheidungen</li>
+<li><strong>Datenebene:</strong> Client-Datenverkehr (im zentralisierten Modus leitet der gesamte Client-Datenverkehr durch den Controller)</li>
+</ul>
+<p><strong>Vorteile:</strong></p>
+<ul>
+<li>Zentralisierte Sichtbarkeit auf alle Clients und Datenverkehr</li>
+<li>Nahtloses Roaming innerhalb der Controller-Domäne — Client-Zustand bleibt auf dem Controller</li>
+<li>Konsistente Richtliniendurchsetzung — jeder Client durchläuft denselben Controller</li>
+</ul>
+<p><strong>Nachteile:</strong></p>
+<ul>
+<li>WLC ist ein Single Point of Failure (erfordert HA-Paar)</li>
+<li>Datenverkehrs-Hairpin fügt Latenz und Controller-Bandbreitenverbrauch hinzu</li>
+<li>Skalierung erfordert das Hinzufügen von Controller-Kapazität</li>
+</ul>
+<p><strong>Verwendungsort:</strong> Große Campus-Deployments mit On-Premise-Infrastruktur, regulierte Umgebungen, die lokale Datenverkehrskontrolle erfordern.</p>
+<h3 id="modell-2-verteilt--flexconnect">Modell 2: Verteilt / FlexConnect</h3>
+<p>Ein Hybridmodell, bei dem der Controller Konfiguration und Richtlinie verwaltet, aber Client-Datenverkehr lokal am AP oder Branch-Switch vermittelt wird:</p>
+<pre tabindex="0"><code>Zentraler Standort:         Branch-Standort:
+[WLC]                       [AP FlexConnect] ──lokaler Switch──→ LAN
+  │                          │
+  └──WAN──────────nur CAPWAP-Steuerung──
+</code></pre><p>Im FlexConnect-Modus übernimmt der AP lokales Switching für VLANs, die am Branch verfügbar sind. Wenn der WAN-Link ausfällt, können Clients weiterhin auf lokale Ressourcen zugreifen — der AP arbeitet im Standalone-Modus mit zwischengespeicherter Konfiguration.</p>
+<p><strong>Verwendungsort:</strong> Zweigstellen, die über WAN mit einem zentralen WLC verbunden sind, wo das Hairpinning des gesamten Datenverkehrs zur Zentrale unpraktisch wäre.</p>
+<h3 id="modell-3-cloud-verwaltet">Modell 3: Cloud-verwaltet</h3>
+<p>Management und Konfiguration werden von einer Cloud-Plattform verwaltet. Datendatenverkehr geht direkt ins lokale Netzwerk — kein Hairpin:</p>
+<pre tabindex="0"><code>[AP] ──Daten──→ Lokaler Switch → Netzwerk (direkt, kein Controller-Hairpin)
+[AP] ──Verwaltungstunnel──→ Cloud-Dashboard (Konfiguration, Monitoring)
+</code></pre><p>APs kommunizieren für Konfiguration und Telemetrie mit der Cloud, aber Client-Daten verlassen das lokale Netzwerk nie. Wenn die Cloud-Konnektivität verloren geht, arbeiten APs mit ihrer letzten bekannten Konfiguration weiter.</p>
+<p><strong>Verwendungsort:</strong> Multi-Site-Organisationen ohne dediziertes Netzwerkpersonal an jedem Standort, KMU-Umgebungen, Einzelhandelsketten, Gastgewerbe.</p>
+<hr>
+<h2 id="cisco-wireless-architektur">Cisco Wireless-Architektur</h2>
+<h3 id="traditionell-cisco-wlc--lightweight-aps">Traditionell: Cisco WLC + Lightweight APs</h3>
+<p>Die klassische Cisco Enterprise-Wireless-Architektur:</p>
+<ul>
+<li><strong>Cisco WLC (Wireless LAN Controller):</strong> Hardware-Appliances (9800er-Serie, früher 5508, 8540) oder virtuell (C9800-CL). Verwaltet je nach Modell bis zu Tausenden von APs.</li>
+<li><strong>Lightweight APs (LWAPP/CAPWAP):</strong> Cisco Catalyst und Aironet APs im CAPWAP-Modus.</li>
+</ul>
+<p><strong>HA-Konfiguration:</strong> WLC-Paare arbeiten in Aktiv-Standby mit Stateful Switchover (SSO). Client-Sessions werden auf den Standby-WLC gespiegelt — Failover ist für Clients transparent.</p>
+<pre tabindex="0"><code>WLC-Primär (Aktiv)  ←── HA-Link ──→  WLC-Sekundär (Standby)
+       │                                        │
+    [APs]                                    [APs]
+</code></pre><p><strong>Mobilitätsgruppe:</strong> Mehrere WLCs im selben Campus bilden eine Mobilitätsgruppe — Clients können zwischen APs, die von verschiedenen WLCs verwaltet werden, mit nahtlosem Layer-2- oder Layer-3-Roaming wechseln.</p>
+<h3 id="modern-cisco-dna-center--catalyst-center">Modern: Cisco DNA Center + Catalyst Center</h3>
+<p>Ciscos aktuelles Enterprise-Platform:</p>
+<ul>
+<li><strong>Catalyst Center (früher DNA Center):</strong> Die Management-, Automatisierungs- und Assurance-Plattform. Läuft auf dedizierten Hardware-Appliances.</li>
+<li><strong>SD-Access:</strong> Ciscos Campus-Fabric-Technologie — Wireless- und Wired-Ports nehmen an demselben Richtlinien-Fabric mit konsistenter VLAN- und SGT-Zuweisung (Security Group Tag) teil.</li>
+<li><strong>KI-verbessertes RRM:</strong> Radio Resource Management mit maschinellem Lernen zur Optimierung der Kanal- und Leistungszuweisung basierend auf historischen RF-Daten.</li>
+</ul>
+<p><strong>ISE-Integration:</strong> Cisco Identity Services Engine bietet 802.1X-Authentifizierung und Richtlinien. Wenn ein Client verbindet, authentifiziert ISE ihn, weist eine Sicherheitsgruppe zu, und DNA Center setzt die entsprechende Netzwerkrichtlinie durch — konsistent ob der Client kabelgebunden oder drahtlos ist.</p>
+<h3 id="cisco-meraki-cloud-verwaltete-einfachheit">Cisco Meraki: Cloud-verwaltete Einfachheit</h3>
+<p>Meraki ist Ciscos Cloud-verwaltete Plattform — für operative Einfachheit über Enterprise-Flexibilität konzipiert:</p>
+<ul>
+<li><strong>Dashboard:</strong> Gesamtes Management über ein einziges Cloud-Portal. Null On-Premise-Controller-Hardware.</li>
+<li><strong>Auto-Provisionierung:</strong> Neue APs werden bei Verbindung automatisch provisioniert — keine manuelle Konfiguration.</li>
+<li><strong>Integrierte Sicherheit:</strong> Meraki APs enthalten integriertes IDS/IPS, Content-Filterung und Traffic-Analytik.</li>
+<li><strong>MX-Integration:</strong> Meraki Wireless integriert sich nativ mit Meraki MX Sicherheitsappliances — einheitliche Richtlinie über kabelgebunden und drahtlos.</li>
+</ul>
+<p><strong>Kompromisse:</strong> Weniger flexibel als Catalyst Center für komplexe Enterprise-Richtlinien. Gesamtes Management erfordert Cloud-Konnektivität (APs arbeiten offline weiter, können aber nicht konfiguriert werden). Abonnementbasierte Lizenzierung.</p>
+<p><strong>Wo Meraki glänzt:</strong> Multi-Site-Einzelhandel, Gastgewerbe, KMU, Zweigstellen — jedes Szenario, wo operative Einfachheit und schnelles Deployment wichtiger als tiefe Enterprise-Anpassung sind.</p>
+<hr>
+<h2 id="aruba-wireless-architektur">Aruba Wireless-Architektur</h2>
+<h3 id="traditionell-aruba-mobility-master--mobility-controller">Traditionell: Aruba Mobility Master + Mobility Controller</h3>
+<p>Arubas On-Premise Enterprise-Architektur:</p>
+<ul>
+<li><strong>Mobility Master (MM):</strong> Die Top-Level-Management- und Orchestrierungsplattform. Leitet keinen Datendatenverkehr weiter — reine Steuerungsebene.</li>
+<li><strong>Mobility Controller (MC):</strong> Verteilte Controller, die AP-Management, Client-Authentifizierung und Datenweiterleitungen für ihre lokalen APs übernehmen.</li>
+<li><strong>APs:</strong> Aruba Access Points im „Campus AP&quot;-Modus, verbunden mit ihrem zugewiesenen Controller.</li>
+</ul>
+<pre tabindex="0"><code>[Mobility Master]
+        │
+   ┌────┴────┐
+[MC-1]     [MC-2]      ← Verteilte Controller
+  │           │
+[APs]       [APs]
+</code></pre><p><strong>Die Mobility Master Hierarchie</strong> trennt Verwaltungskomplexität von der Datenebenenskalierung. Der MM verwaltet globale Richtlinien, Firmware-Management und RF-Planung. Controller verwalten lokales AP-Management und Client-Daten. Diese Architektur skaliert gut für große, gebäudeübergreifende Campusse.</p>
+<p><strong>Cluster-Mobilität:</strong> Controller im selben Cluster teilen den Client-Zustand. Roaming zwischen APs auf verschiedenen Controllern im selben Cluster ist nahtlos — Authentifizierung und Session des Clients bewegen sich mit ihm.</p>
+<h3 id="modern-aruba-cx--aos-10">Modern: Aruba CX + AOS 10</h3>
+<p>Arubas aktuelle Architektur (AOS 10) bewegt sich in Richtung eines verteilten, fabric-integrierten Modells:</p>
+<ul>
+<li>APs haben mehr lokale Intelligenz — Authentifizierung und Richtliniendurchsetzung können am AP ohne Controller-Beteiligung für jedes Paket stattfinden</li>
+<li>Integration mit Aruba CX Switching Fabric für einheitliche kabelgebundene/drahtlose Richtlinien</li>
+<li>Aruba Central als Verwaltungsebene — Cloud-basiert, ersetzt On-Premise Mobility Master für viele Deployments</li>
+</ul>
+<h3 id="aruba-central-cloud-verwaltetes-enterprise">Aruba Central: Cloud-verwaltetes Enterprise</h3>
+<p>Anders als Cisco Meraki (für Einfachheit konzipiert), ist Aruba Central als Enterprise-Grade-Cloud-Management positioniert:</p>
+<ul>
+<li>Vollständige Enterprise-Richtlinienfähigkeiten über Cloud-Management verfügbar</li>
+<li>KI-gestützte Netzwerkeinblicke und Anomalieerkennung</li>
+<li>ClearPass-Integration für 802.1X-Authentifizierung (cloud-verbunden, nicht nur On-Premise)</li>
+<li>Unterstützung für sehr große Deployments (Tausende von APs, Hunderte von Standorten)</li>
+</ul>
+<p><strong>ClearPass-Integration</strong> ist Arubas stärkster Differenziator: eine dedizierte NAC-Plattform, die 802.1X, Geräteprofiling, Gastportal, Posture-Bewertung und dynamische VLAN-Zuweisung übernimmt. ClearPass integriert sich mit Active Directory, LDAP und Drittanbieter-MDM-Systemen für umfassenden identitätsbasierten Netzwerkzugang.</p>
+<hr>
+<h2 id="roaming-architektur-die-kritischen-designentscheidungen">Roaming-Architektur: Die kritischen Designentscheidungen</h2>
+<h3 id="layer-2-roaming">Layer-2-Roaming</h3>
+<p>Der Client wechselt von AP-1 zu AP-2, beide im selben VLAN und vom selben Controller verwaltet. Die IP-Adresse des Clients ändert sich nicht. Roaming ist schnell und transparent.</p>
+<pre tabindex="0"><code>AP-1 (VLAN 10) ──→ Client roamt ──→ AP-2 (VLAN 10)
+Gleiches Subnetz, gleicher Controller, Client-IP unverändert
+</code></pre><h3 id="layer-3-roaming">Layer-3-Roaming</h3>
+<p>Der Client wechselt zwischen Subnetzen — verschiedene VLANs auf verschiedenen Controllern oder Gebäuden. Ohne spezielle Behandlung würde der Client eine neue IP-Adresse benötigen, was aktive Sessions unterbricht.</p>
+<p>Enterprise-Controller verwalten Layer-3-Roaming durch einen <strong>Mobilitätstunnel</strong> — der ursprüngliche Controller (der „Anchor&quot;) hält die ursprüngliche IP-Adresse des Clients und tunnelt den Datenverkehr zum/vom aktuellen Controller des Clients (dem „Foreign&quot;):</p>
+<pre tabindex="0"><code>Client verbindet sich mit AP-1 (Gebäude A, VLAN 10, Controller-1)
+Client roamt zu AP-2     (Gebäude B, VLAN 20, Controller-2)
+
+Controller-2 (Foreign) ──Mobilitätstunnel──→ Controller-1 (Anchor)
+Client-IP: noch 192.168.10.x aus VLAN 10
+Session: ununterbrochen
+</code></pre><p>Das fügt Overhead hinzu — Datenverkehr für den roamenden Client muss den Inter-Controller-Tunnel durchqueren. Für die meisten Anwendungen ist das vernachlässigbar. Für latenzsensitive Anwendungen (VoIP, Echtzeit-Video) die Anchor-to-Foreign-Tunnellänge minimieren.</p>
+<h3 id="schnelles-roaming-80211rkv">Schnelles Roaming: 802.11r/k/v</h3>
+<p>Wie im Standards-Artikel beschrieben, sollten Enterprise-Deployments alle drei Fast-Roaming-Protokolle aktivieren. Aus Controller-Perspektive:</p>
+<ul>
+<li><strong>802.11r:</strong> Der Controller vorauthentifiziert den Client mit dem Ziel-AP, bevor der Client die aktuelle Verbindung trennt. Erfordert Koordination auf Controller-Ebene.</li>
+<li><strong>802.11k:</strong> Der Controller stellt Clients Nachbar-AP-Informationen bereit. Clients nutzen dies für bessere Roaming-Entscheidungen.</li>
+<li><strong>802.11v:</strong> Der Controller kann vorschlagen oder anfordern, dass ein Client zu einem bestimmten AP roamt — nützlich für Lastausgleich und Sticky-Client-Management.</li>
+</ul>
+<p><strong>Opportunistic Key Caching (OKC):</strong> Für Netzwerke mit WPA2-Enterprise (802.1X) ermöglicht OKC dem Client, einen zwischengespeicherten PMK (Pairwise Master Key) beim Roaming zu einem neuen AP wiederzuverwenden und eine vollständige 802.1X-Reauthentifizierung zu vermeiden. Reduziert die Roaming-Zeit in 802.1X-Netzwerken erheblich.</p>
+<hr>
+<h2 id="radio-resource-management">Radio Resource Management</h2>
+<p>Enterprise-Controller optimieren die RF-Umgebung kontinuierlich durch Radio Resource Management (RRM):</p>
+<h3 id="sendeleistungssteuerung">Sendeleistungssteuerung</h3>
+<p>Der Controller überwacht RSSI (Signalstärke) zwischen APs. Wenn ein AP starke Signale von vielen Nachbarn erkennt, reduziert er seine Sendeleistung — Abdeckung aufrechterhalten und gleichzeitig Interferenz mit benachbarten Zellen reduzieren.</p>
+<p><strong>Abdeckungsloch-Erkennung:</strong> Wenn ein Client schlechten RSSI meldet, kann der Controller die Sendeleistung des APs erhöhen, um zu kompensieren.</p>
+<h3 id="dynamische-kanalzuweisung">Dynamische Kanalzuweisung</h3>
+<p>Der Controller scannt die RF-Umgebung und weist Kanäle zu, um Gleichkanal-Interferenz zu minimieren:</p>
+<ul>
+<li>APs melden Nachbar-AP-Signale und Client-Interferenz</li>
+<li>Der Controller erstellt eine RF-Topologiekarte</li>
+<li>Kanäle werden zugewiesen, um die Trennung zwischen gleichen Kanal-APs zu maximieren</li>
+</ul>
+<p>Bei Cisco heißt das <strong>RRM (Radio Resource Management)</strong>. Bei Aruba ist es <strong>ARM (Adaptive Radio Management)</strong>. Beide arbeiten autonom, profitieren aber von manuellen Überschreibungen für bekannte RF-Herausforderungen.</p>
+<h3 id="client-lastausgleich">Client-Lastausgleich</h3>
+<p>Wenn mehrere APs denselben Bereich abdecken (überlappende Zellen), kann der Controller Clients über APs verteilen:</p>
+<ul>
+<li>Neue Clients zum weniger belasteten AP lenken, wenn beide in Reichweite sind</li>
+<li>Clients von überlasteten APs zu weniger belasteten Nachbarn verschieben</li>
+</ul>
+<p>Das erfordert sorgfältiges Tuning — aggressiver Lastausgleich führt dazu, dass Clients unnötig roamen.</p>
+<hr>
+<h2 id="ha-und-redundanz-in-der-controller-architektur">HA und Redundanz in der Controller-Architektur</h2>
+<h3 id="wlc-ha-cisco">WLC HA (Cisco)</h3>
+<p>Cisco 9800 WLCs unterstützen <strong>High Availability SSO (Stateful Switchover)</strong>:</p>
+<pre tabindex="0"><code>WLC-Aktiv ──RP (Redundanzport)──→ WLC-Standby
+     │                                   │
+Konfiguration gespiegelt         Client-Sessions gespiegelt
+</code></pre><p>Wenn der aktive WLC ausfällt, übernimmt der Standby mit vollständigem Client-Session-Zustand — Clients verbinden sich nicht neu. APs behalten ihre CAPWAP-Tunnel; der Übergang ist transparent.</p>
+<h3 id="aruba-controller-ha">Aruba Controller HA</h3>
+<p>Aruba unterstützt <strong>Aktiv-Aktiv</strong>-Cluster-Konfigurationen, wo mehrere Controller die AP- und Client-Last teilen:</p>
+<pre tabindex="0"><code>[MC-1] ←─ Cluster ─→ [MC-2] ←─ Cluster ─→ [MC-3]
+  │                     │                     │
+[APs]                 [APs]                 [APs]
+</code></pre><p>Wenn MC-1 ausfällt, verteilen sich seine APs auf MC-2 und MC-3. Client-Sessions werden durch das Cluster-Zustandsteilen aufrechterhalten.</p>
+<h3 id="cloud-management-ausfallsicherheit">Cloud-Management-Ausfallsicherheit</h3>
+<p>Cloud-verwaltete APs (Meraki, Aruba Central) arbeiten während eines Cloud-Konnektivitätsverlusts weiter:</p>
+<ul>
+<li>APs behalten die letzte bekannte Konfiguration</li>
+<li>Clients können normal verbinden und roamen</li>
+<li>Verwaltungsoperationen (Konfigurationsänderungen, Monitoring) erfordern Cloud-Konnektivität</li>
+</ul>
+<p>Für Umgebungen, die garantierten Verwaltungszugang unabhängig von der Internetkonnektivität erfordern, bleibt On-Premise-Controller-Architektur geeigneter.</p>
+<hr>
+<h2 id="integration-mit-identitätssystemen">Integration mit Identitätssystemen</h2>
+<h3 id="cisco-ise-integration">Cisco ISE-Integration</h3>
+<p>Für Deployments mit Cisco ISE für 802.1X:</p>
+<pre tabindex="0"><code>Client verbindet sich mit WiFi
+      ↓
+AP sendet RADIUS-Anfrage an ISE (über WLC)
+      ↓
+ISE authentifiziert gegen Active Directory
+      ↓
+ISE gibt zurück: VLAN-Zuweisung + Security Group Tag
+      ↓
+WLC wendet Richtlinie an: Client wird in korrektes VLAN platziert
+      ↓
+DNA Center setzt SGT-basierte Richtlinie Ende-zu-Ende durch
+</code></pre><p>ISE Posture Assessment kann auch die Gerätekonformität prüfen (AV-Status, OS-Patch-Level) bevor vollständiger Netzwerkzugang gewährt wird — identisches Verhalten für kabelgebundene und drahtlose Clients.</p>
+<h3 id="aruba-clearpass-integration">Aruba ClearPass-Integration</h3>
+<p>ClearPass bietet äquivalente Fähigkeiten für Aruba-Deployments:</p>
+<ul>
+<li>802.1X-Authentifizierung via RADIUS</li>
+<li>MAC Authentication Bypass (MAB) für Geräte ohne 802.1X-Supplicants</li>
+<li>Geräteprofiling — Gerätetyp identifizieren (Telefon, Laptop, Drucker, IoT) basierend auf DHCP, HTTP User-Agent und CDP/LLDP-Signalen</li>
+<li>Gastportal — Selbstregistrierung oder Sponsor-Genehmigungs-Workflows</li>
+<li>Dynamische VLAN- und Rollenzuweisung basierend auf Benutzeridentität, Gerätetyp und Posture</li>
+</ul>
+<p>ClearPasss <strong>OnGuard</strong>-Agent führt Posture-Bewertung durch — überprüft, dass Unternehmens-Laptops aktuelles AV, erforderliche Patches und genehmigte Software haben, bevor Netzwerkzugang gewährt wird.</p>
+<hr>
+<h2 id="wichtigste-erkenntnisse">Wichtigste Erkenntnisse</h2>
+<ul>
+<li>Controller-Architektur bestimmt Roaming-Qualität, Richtlinienkonsistenz und operative Komplexität — nicht nur Verwaltungskomfort.</li>
+<li><strong>Zentralisierter WLC</strong> bietet nahtloses Roaming und konsistente Richtlinien auf Kosten von Datenverkehrs-Hairpin und Single-Point-of-Failure-Risiko (mit HA gemindert).</li>
+<li><strong>Cloud-Management</strong> (Meraki, Aruba Central) bietet operative Einfachheit und Multi-Site-Skalierung ohne On-Premise-Hardware.</li>
+<li><strong>Schnelles Roaming (802.11r/k/v + OKC)</strong> muss auf Controller-Ebene für Sprach- und Videoanwendungen aktiviert werden — die Standardkonfiguration ist selten optimal.</li>
+<li><strong>ISE/ClearPass-Integration</strong> verwandelt Wireless von „einem Netzwerk&quot; in „einen identitätsbewussten Richtliniendurchsetzungspunkt&quot; — konsistentes Verhalten für kabelgebunden und drahtlos, alles basierend auf wer und was verbindet.</li>
+</ul>
+<hr>
+<h2 id="diese-serie">Diese Serie</h2>
+<ul>
+<li>📖 <a href="/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/">Enterprise WiFi-Architektur Übersicht</a> ← Beginnen Sie hier</li>
+<li>📡 <a href="/de/technology/wifi-80211-standards-wifi4-wifi5-wifi6/">802.11 Standards Deep Dive</a></li>
+<li>🏨 <a href="/de/technology/wifi-design-kmu-hotel-gesundheit/">WiFi-Design für KMU, Hotels und Arztpraxen</a></li>
+<li>🔐 <a href="/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/">WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey</a></li>
+</ul>
+<h2 id="verwandte-artikel">Verwandte Artikel</h2>
+<ul>
+<li>🔐 <a href="/de/technology/identity-based-microsegmentation-8021x/">802.1X Identitätsbasierte Architektur im Praxiseinsatz</a> — Deep Dive in 802.1X-Deployment</li>
+<li>🏗️ <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Systemdenken für Wireless</li>
+<li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Monitoring richtig gemacht</a> — Wireless-Infrastruktur proaktiv überwachen</li>
+</ul>
+]]></content:encoded></item><item><title>F5 GTM &amp; GSLB Deep Dive: Globales Traffic-Management und DNS-Failover</title><link>https://barashhelvadzhaoglu.com/de/technology/f5-gtm-deep-dive/</link><pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/f5-gtm-deep-dive/</guid><description>F5 GTM (BIG-IP DNS) Deep Dive — Wide IPs, iQuery, Topologie-Routing, TTL-Strategie, Multi-DC-Failover und Aktiv-Aktiv vs. Aktiv-Standby.</description><content:encoded><![CDATA[<h1 id="f5-gtm--gslb-deep-dive-globales-traffic-management-und-dns-failover">F5 GTM &amp; GSLB Deep Dive: Globales Traffic-Management und DNS-Failover</h1>
 <p>Dieser Artikel ist Teil der F5 BIG-IP-Serie.</p>
 <blockquote>
 <p><strong>Neu bei F5?</strong> Beginnen Sie zuerst mit der Plattformübersicht: <a href="/de/technology/f5-bigip-application-delivery-platform-uebersicht/">F5 BIG-IP ist kein Load Balancer — Es ist eine Application Delivery Platform</a></p>

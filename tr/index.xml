@@ -1,4 +1,381 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Barış Helvacıoğlu | Senior Ağ Güvenliği Mühendisi &amp; BT Danışmanı Münih on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/</link><description>Recent content in Barış Helvacıoğlu | Senior Ağ Güvenliği Mühendisi &amp; BT Danışmanı Münih on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Wed, 15 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/index.xml" rel="self" type="application/rss+xml"/><item><title>F5 GTM ve GSLB Deep Dive: Global Trafik Yönetimi ve DNS Failover</title><link>https://barashhelvadzhaoglu.com/tr/technology/f5-gtm-deep-dive/</link><pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/f5-gtm-deep-dive/</guid><description>F5 GTM (BIG-IP DNS) teknik inceleme — Wide IP, iQuery, topoloji routing, TTL stratejisi, çok DC failover ve aktif-aktif mimari desenleri.</description><content:encoded><![CDATA[<h1 id="f5-gtm-ve-gslb-deep-dive-global-trafik-yönetimi-ve-dns-failover">F5 GTM ve GSLB Deep Dive: Global Trafik Yönetimi ve DNS Failover</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Barış Helvacıoğlu | Senior Ağ Güvenliği Mühendisi &amp; BT Danışmanı Münih on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/</link><description>Recent content in Barış Helvacıoğlu | Senior Ağ Güvenliği Mühendisi &amp; BT Danışmanı Münih on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Fri, 17 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/index.xml" rel="self" type="application/rss+xml"/><item><title>Aruba ClearPass — NAC Kurulum, 802.1X ve Yönetilen Hizmetler</title><link>https://barashhelvadzhaoglu.com/tr/services/aruba-clearpass/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/services/aruba-clearpass/</guid><description>Bağımsız Aruba ClearPass danışmanlığı. NAC kurulum, 802.1X yapılandırma, misafir yönetimi ve sürekli destek. Uzaktan hizmet. Ücretsiz teknik ön görüşme.</description><content:encoded><![CDATA[<h1 id="aruba-clearpass--bağımsız-nac-danışmanlığı-ve-desteği">Aruba ClearPass — Bağımsız NAC Danışmanlığı ve Desteği</h1>
+<p>Aruba ClearPass mevcut en yetenekli Ağ Erişim Kontrolü platformlarından biridir — ancak esnekliği aynı zamanda doğru uygulamayı karmaşık kılar. Laboratuvarda çalışan bir ClearPass dağıtımı üretimde sıklıkla bozulur: 802.1X desteklemeyen cihazlar, eski yazıcılar, BYOD sertifika hataları veya mobil cihazlarda beklendiği gibi çalışmayan misafir portal yönlendirmeleri.</p>
+<p>Aruba kablosuz, Cisco switching ve HP altyapısıyla birlikte ClearPass&rsquo;i sahaya sürmek için <strong>11+ yıllık</strong> kurumsal NAC deneyimimle; tam zamanlı uzman istihdam etmeden ClearPass uzmanlığına ihtiyaç duyan kuruluşlara bağımsız danışmanlık, dağıtım desteği ve yönetilen hizmetler sunuyorum.</p>
+<blockquote>
+<p>💬 <strong>Ücretsiz teknik ön görüşme:</strong> <a href="https://wa.me/4916098665971">WhatsApp</a> veya <a href="mailto:info@barashhelvadzhaoglu.com">E-posta</a></p>
+</blockquote>
+<hr>
+<h2 id="hangi-hizmetleri-sunuyorum">Hangi Hizmetleri Sunuyorum?</h2>
+<h3 id="-clearpass-kurulum-ve-yapılandırma">🔐 ClearPass Kurulum ve Yapılandırma</h3>
+<ul>
+<li>Sıfırdan ClearPass kurulumları — Publisher/Subscriber boyutlandırma, HA yapılandırması</li>
+<li>Kimlik doğrulama kaynakları — AD, LDAP, SQL, yerel kullanıcı veritabanı</li>
+<li>Hizmet yapılandırması — 802.1X kablolu, 802.1X kablosuz, MAC Authentication (MAB)</li>
+<li>Uygulama profilleri — VLAN değişikliği, ACL, Rol ataması, CoA</li>
+<li>Onboard — BYOD self-servis cihaz sağlama, sertifika düzenleme</li>
+<li>Guest — özelleştirilmiş misafir portalleri, sponsor akışı</li>
+<li>OnGuard — endpoint sağlık kontrolleri, posture değerlendirme</li>
+<li>Aruba Mobility Master, Aruba Central, Cisco Catalyst, HP switch entegrasyonu</li>
+</ul>
+<h3 id="-8021x-proje-danışmanlığı">📶 802.1X Proje Danışmanlığı</h3>
+<ul>
+<li>Dağıtım öncesi altyapı denetimi</li>
+<li>AD/LDAP entegrasyonu — makine kimlik doğrulama, grup eşleme</li>
+<li>Sertifika stratejisi — EAP-TLS vs PEAP, dahili CA entegrasyonu</li>
+<li>MAB istisna yönetimi — yazıcılar, kameralar, IoT cihazlar, VoIP telefonlar</li>
+<li>Aşamalı dağıtım planlaması — monitor modundan zorunlu kılmaya</li>
+<li>Kablosuz 802.1X — WPA3-Enterprise, EAP-TLS, dinamik VLAN ataması</li>
+</ul>
+<h3 id="-clearpass-upgrade-ve-migrasyon">⚙️ ClearPass Upgrade ve Migrasyon</h3>
+<ul>
+<li>ClearPass versiyon upgradeleri</li>
+<li>Cisco ISE veya diğer NAC platformlarından ClearPass&rsquo;e migrasyon</li>
+<li>Upgrade öncesi sağlık kontrolleri, veritabanı yedeği, sonrası doğrulama</li>
+</ul>
+<h3 id="-sürekli-clearpass-yönetimi">🛡️ Sürekli ClearPass Yönetimi</h3>
+<ul>
+<li>Politika incelemesi ve optimizasyonu</li>
+<li>Sertifika izleme ve yenileme</li>
+<li>Yeni cihaz türü onboarding</li>
+<li>Yamalama ve hotfix uygulaması</li>
+<li>Aylık operasyonel raporlar</li>
+</ul>
+<hr>
+<h2 id="referans-deneyimlerim">Referans Deneyimlerim</h2>
+<ul>
+<li><strong>Alman uluslararası şirket</strong> — Aruba Mobility Master + ClearPass, HQ ve depoda 802.1X, Ekahau site survey</li>
+<li><strong>Dondurma üretim grubu</strong> — Aruba Central bulut yönetimi + fabrika ve şubede ClearPass</li>
+<li><strong>Global ambalaj üreticisi</strong> — çok satıcılı ortamda Cisco ISE ile birlikte ClearPass</li>
+</ul>
+<p>Sertifikalar: <strong>ACMP</strong> (Aruba Certified Mobility Professional), <strong>ACCP</strong> (Aruba Certified ClearPass Professional)</p>
+<hr>
+<h2 id="hizmet-modelleri">Hizmet Modelleri</h2>
+<h3 id="proje-bazlı">Proje Bazlı</h3>
+<ul>
+<li>ClearPass dağıtımı (kablolu + kablosuz 802.1X): <strong>€1.500&rsquo;den</strong></li>
+<li>ClearPass upgrade: <strong>€500&rsquo;den</strong></li>
+<li>Misafir portal tasarımı ve yapılandırması: <strong>€400&rsquo;den</strong></li>
+<li>Odaklanmış sorun giderme: <strong>€300&rsquo;den</strong></li>
+<li>Politika denetimi: <strong>€400&rsquo;den</strong></li>
+</ul>
+<h3 id="bakım-anlaşması-aylık">Bakım Anlaşması (Aylık)</h3>
+<ul>
+<li>ClearPass izleme, sertifika yönetimi, politika güncellemeleri: <strong>Aylık €120&rsquo;den</strong></li>
+</ul>
+<hr>
+<h2 id="iletişime-geçin">İletişime Geçin</h2>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<p><strong>📧 E-posta:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
+<p><em>30 dakikalık ücretsiz teknik ön görüşme. Taahhüt gerekmez.</em></p>
+]]></content:encoded></item><item><title>Cisco ISE &amp; 802.1X NAC — Kurulum, Destek ve Proje Danışmanlığı</title><link>https://barashhelvadzhaoglu.com/tr/services/cisco-ise-8021x/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/services/cisco-ise-8021x/</guid><description>Bağımsız Cisco ISE ve 802.1X danışmanlığı. NAC kurulum, yapılandırma, upgrade ve sürekli destek. Uzaktan hizmet. Ücretsiz teknik ön görüşme.</description><content:encoded><![CDATA[<h1 id="cisco-ise--8021x-nac--bağımsız-danışmanlık-ve-destek">Cisco ISE &amp; 802.1X NAC — Bağımsız Danışmanlık ve Destek</h1>
+<p>Ağ Erişim Kontrolü, kurumsal güvenliğin en karmaşık alanlarından biridir — ve en sık yanlış uygulanan. Cisco ISE projeleri teknoloji yüzünden değil, çevresindeki yapılar yüzünden başarısız olur: Active Directory yapısı, PKI tasarımı, sertifika yaşam döngüsü, VLAN mimarisi ve gerçek kullanıcılara, gerçek cihazlara ve gerçek yardım masası baskısına dayanması gereken endpoint posture politikaları.</p>
+<p>Bankacılık, üretim ve kurumsal ortamlarda Cisco ISE&rsquo;yi sahaya sürmek ve işletmek için <strong>11+ yıllık</strong> uygulamalı deneyimimle; tam zamanlı uzman istihdam etmeden ISE uzmanlığına ihtiyaç duyan kuruluşlara bağımsız danışmanlık, dağıtım desteği ve sürekli yönetilen hizmetler sunuyorum.</p>
+<blockquote>
+<p>💬 <strong>Ücretsiz teknik ön görüşme:</strong> <a href="https://wa.me/4916098665971">WhatsApp</a> veya <a href="mailto:info@barashhelvadzhaoglu.com">E-posta</a></p>
+</blockquote>
+<hr>
+<h2 id="hangi-hizmetleri-sunuyorum">Hangi Hizmetleri Sunuyorum?</h2>
+<h3 id="-cisco-ise-kurulum-ve-yapılandırma">🔐 Cisco ISE Kurulum ve Yapılandırma</h3>
+<ul>
+<li>Sıfırdan ISE kurulumları — mimari tasarım, node boyutlandırma, HA yapılandırması</li>
+<li>Policy Service Node (PSN), Administration Node (PAN), Monitoring Node (MnT) kurulumu</li>
+<li>Kimlik doğrulama politikaları — MAB, dot1x, WebAuth</li>
+<li>Yetkilendirme politikaları — VLAN ataması, dACL, Security Group Tags (SGT)</li>
+<li>Misafir yaşam döngüsü yönetimi — sponsorlu, kendi kendine kayıt, hotspot portalleri</li>
+<li>BYOD onboarding — cihaz kaydı, sertifika sağlama</li>
+<li>Profiling — cihaz sınıflandırma, endpoint görünürlüğü</li>
+<li>Active Directory, LDAP, PKI entegrasyonu</li>
+</ul>
+<h3 id="-8021x-proje-danışmanlığı">📶 802.1X Proje Danışmanlığı</h3>
+<p>802.1X başarısı ağ konfigürasyonunun çok ötesine geçer. Kuruluşların tüm yığını aşmasına yardımcı oluyorum:</p>
+<ul>
+<li><strong>AD &amp; GPO hazırlığı</strong> — makine kimlik doğrulama, sertifika otomatik kayıt</li>
+<li><strong>PKI tasarımı</strong> — dahili CA, sertifika şablonları, BYOD için SCEP/EST</li>
+<li><strong>Switch yapılandırması</strong> — Cisco Catalyst, Aruba, HP — dot1x port yapılandırması, MAB fallback</li>
+<li><strong>Kablosuz entegrasyon</strong> — WPA3-Enterprise, EAP-TLS, PEAP-MSCHAPv2</li>
+<li><strong>Monitor mod → Düşük etki → Kapalı mod</strong> — aşamalı dağıtım planlaması</li>
+<li><strong>Sorun giderme</strong> — RADIUS debug, ISE canlı loglar, switch port teşhis</li>
+</ul>
+<h3 id="-cisco-ise-upgrade-ve-migrasyon">⚙️ Cisco ISE Upgrade ve Migrasyon</h3>
+<ul>
+<li>ISE versiyon upgrade planlaması ve uygulaması (2.x → 3.x → 3.3)</li>
+<li>HA dağıtımları için sıfır kesinti upgrade stratejisi</li>
+<li>Upgrade öncesi sağlık kontrolleri ve sonrası doğrulama</li>
+<li>Eski NAC çözümlerinden migrasyon (Bradford, Aruba ClearPass → ISE)</li>
+</ul>
+<h3 id="-sürekli-ise-yönetimi">🛡️ Sürekli ISE Yönetimi</h3>
+<ul>
+<li>Politika incelemesi ve optimizasyonu</li>
+<li>Sertifika yaşam döngüsü yönetimi</li>
+<li>Yeni endpoint türü onboarding — IoT cihazları, yazıcılar, kameralar</li>
+<li>ISE yamalama ve hotfix uygulaması</li>
+<li>Aylık sağlık raporları</li>
+</ul>
+<hr>
+<h2 id="referans-deneyimlerim">Referans Deneyimlerim</h2>
+<ul>
+<li><strong>Vakıfbank</strong> — çift veri merkezinde 15.000+ kullanıcı için tam ISE dağıtımı, AD, PKI ve Cisco DNA Center ile entegre</li>
+<li><strong>Cisco DNA Center SD-Access</strong> — Türkiye ve Mısır&rsquo;da fabric genelinde 802.1X için politika motoru olarak ISE — <strong>Cisco Success Story olarak yayınlandı</strong></li>
+<li><strong>Global ambalaj üreticisi</strong> — fabrika ortamlarında Cisco ISE, AnyConnect ve Catalyst 9000 ile çok siteli 802.1X dağıtımı</li>
+</ul>
+<hr>
+<h2 id="bağımsız-danışmanlık--üretici-bağımsızlığı">Bağımsız Danışmanlık — Üretici Bağımsızlığı</h2>
+<p>Hiçbir üreticiye bağlı değilim. Ortamınız için ne işe yarıyorsa onu öneriyorum — Cisco ISE, Aruba ClearPass veya hibrit yaklaşım olsun.</p>
+<hr>
+<h2 id="hizmet-modelleri">Hizmet Modelleri</h2>
+<h3 id="proje-bazlı">Proje Bazlı</h3>
+<ul>
+<li>802.1X mimari tasarım ve dağıtım: <strong>€1.500&rsquo;den</strong></li>
+<li>ISE upgrade (node başına): <strong>€500&rsquo;den</strong></li>
+<li>Odaklanmış sorun giderme: <strong>€300&rsquo;den</strong></li>
+<li>Politika denetimi ve temizleme: <strong>€500&rsquo;den</strong></li>
+</ul>
+<h3 id="bakım-anlaşması-aylık">Bakım Anlaşması (Aylık)</h3>
+<ul>
+<li>ISE izleme, sertifika yönetimi, politika güncellemeleri: <strong>Aylık €150&rsquo;den</strong></li>
+</ul>
+<hr>
+<h2 id="iletişime-geçin">İletişime Geçin</h2>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<p><strong>📧 E-posta:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
+<p><em>30 dakikalık ücretsiz teknik ön görüşme. Taahhüt gerekmez.</em></p>
+]]></content:encoded></item><item><title>Kurumsal WiFi Controller Mimarisi: Cisco ve Aruba WLAN Tasarımı</title><link>https://barashhelvadzhaoglu.com/tr/technology/wifi-controller/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/wifi-controller/</guid><description>Kurumsal kablosuz controller mimarileri — Cisco WLC ile DNA Center, Aruba Mobility Master ile Central, merkezi ve dağıtık tasarımlar.</description><content:encoded><![CDATA[<h1 id="kurumsal-wifi-controller-mimarisi-cisco-ve-aruba-wlan-tasarımı">Kurumsal WiFi Controller Mimarisi: Cisco ve Aruba WLAN Tasarımı</h1>
+<p>Bu yazı Kurumsal WiFi serisinin bir parçasıdır.</p>
+<blockquote>
+<p><strong>Kurumsal kablosuz ağa yeni misiniz?</strong> Genel bakışla başlayın: <a href="/tr/technology/kurumsal-wifi-mimarisi-tam-rehber/">Kurumsal WiFi Mimarisi: Standartlardan Deployment&rsquo;a</a></p>
+</blockquote>
+<hr>
+<h2 id="controller-mimarisi-neden-önemli">Controller Mimarisi Neden Önemli</h2>
+<p>Bir erişim noktası yalnızca bir radyo vericisidir. Onu kurumsal bir ağın parçası yapan — tutarlı politika, kesintisiz roaming, merkezi yönetim ve güvenlik entegrasyonu ile — arkasındaki controller mimarisiddir.</p>
+<p>Controller mimarisini yanlış kurarsanız şunları elde edersiniz:</p>
+<ul>
+<li>Binalar veya katlar arasında roaming başarısızlıkları</li>
+<li>Farklı AP gruplarında tutarsız güvenlik politikaları</li>
+<li>İstemci bağlantılarını yavaşlatan kimlik doğrulama darboğazları</li>
+<li>Rutin değişiklikleri çok adımlı operasyonlara dönüştüren yönetim karmaşıklığı</li>
+</ul>
+<p>Doğru kurarsanız, kablosuz ağ kablolu altyapının bir uzantısı gibi davranır — tutarlı, yönetilebilir ve kimlik ve güvenlik sistemleriyle entegre.</p>
+<hr>
+<h2 id="üç-mimari-model">Üç Mimari Model</h2>
+<h3 id="model-1-merkezi-controller-geleneksel">Model 1: Merkezi Controller (Geleneksel)</h3>
+<p>Tüm zeka controller&rsquo;da bulunur. AP&rsquo;ler &ldquo;ince&quot;dir — RF iletir ve tüm trafiği controller&rsquo;a yönlendirir:</p>
+<pre tabindex="0"><code>[AP] ──CAPWAP veri tüneli──→ [WLC] → Çekirdek Switch → Ağ
+[AP] ──CAPWAP veri tüneli──→ [WLC]
+[AP] ──CAPWAP veri tüneli──→ [WLC]
+</code></pre><p><strong>CAPWAP (Control and Provisioning of Wireless Access Points)</strong>, AP&rsquo;ler ile controller arasındaki protokoldür. Şunları taşır:</p>
+<ul>
+<li><strong>Kontrol düzlemi:</strong> AP kaydı, yapılandırma, RF yönetimi, roaming kararları</li>
+<li><strong>Veri düzlemi:</strong> İstemci trafiği (merkezi modda, tüm istemci verisi controller&rsquo;dan geçer)</li>
+</ul>
+<p><strong>Avantajlar:</strong></p>
+<ul>
+<li>Tüm istemciler ve trafik üzerinde merkezi görünürlük</li>
+<li>Controller alanı içinde kesintisiz roaming — istemci durumu controller&rsquo;da kalır, AP&rsquo;de değil</li>
+<li>Tutarlı politika uygulaması — her istemci aynı controller&rsquo;dan geçer</li>
+</ul>
+<p><strong>Dezavantajlar:</strong></p>
+<ul>
+<li>WLC tek hata noktasıdır (HA çifti gerektirir)</li>
+<li>Trafik hairpin gecikme ve controller bant genişliği tüketimi ekler</li>
+<li>Ölçeklendirme controller kapasitesi eklemeyi gerektirir</li>
+</ul>
+<p><strong>Kullanıldığı yer:</strong> Şirket içi altyapıya sahip büyük kampüs deployment&rsquo;ları, yerel trafik kontrolü gerektiren düzenlenmiş ortamlar.</p>
+<h3 id="model-2-dağıtık--flexconnect">Model 2: Dağıtık / FlexConnect</h3>
+<p>Controller&rsquo;ın yapılandırma ve politikayı yönettiği, ancak istemci veri trafiğinin AP&rsquo;de veya şube switch&rsquo;inde yerel olarak anahtarlandığı hibrit bir model:</p>
+<pre tabindex="0"><code>Merkezi Site:               Şube Sitesi:
+[WLC]                       [AP FlexConnect] ──yerel switch──→ LAN
+  │                          │
+  └──WAN──────────yalnızca CAPWAP kontrolü──
+</code></pre><p>FlexConnect modunda, AP şubede mevcut olan VLAN&rsquo;lar için yerel anahtarlama yapar. WAN bağlantısı başarısız olursa, istemciler yerel kaynaklara erişmeye devam edebilir — AP önbelleğe alınmış yapılandırmayla bağımsız modda çalışır.</p>
+<p><strong>Kullanıldığı yer:</strong> Tüm trafiği genel merkeze yönlendirmenin pratik olmayacağı, merkezi bir WLC&rsquo;ye WAN üzerinden bağlı şube ofisleri.</p>
+<h3 id="model-3-bulut-yönetimli">Model 3: Bulut Yönetimli</h3>
+<p>Yönetim ve yapılandırma bir bulut platformu tarafından yönetilir. Veri trafiği doğrudan yerel ağa gider — hairpin yok:</p>
+<pre tabindex="0"><code>[AP] ──veri──→ Yerel switch → Ağ (doğrudan, controller hairpin yok)
+[AP] ──yönetim tüneli──→ Bulut Panosu (yapılandırma, izleme)
+</code></pre><p>AP&rsquo;ler yapılandırma ve telemetri için bulutla iletişim kurar, ancak istemci verisi asla yerel ağı terk etmez. Bulut bağlantısı kesilirse, AP&rsquo;ler son bilinen yapılandırmalarıyla çalışmaya devam eder.</p>
+<p><strong>Kullanıldığı yer:</strong> Her sitede özel ağ personeli olmayan çok siteli organizasyonlar, KOBİ ortamları, perakende zincirleri, konaklama.</p>
+<hr>
+<h2 id="cisco-kablosuz-mimarisi">Cisco Kablosuz Mimarisi</h2>
+<h3 id="geleneksel-cisco-wlc--lightweight-apler">Geleneksel: Cisco WLC + Lightweight AP&rsquo;ler</h3>
+<p>Klasik Cisco kurumsal kablosuz mimarisi:</p>
+<ul>
+<li><strong>Cisco WLC (Wireless LAN Controller):</strong> Donanım cihazları (9800 serisi, eski 5508, 8540) veya sanal (C9800-CL). Modele bağlı olarak binlerce AP&rsquo;ye kadar yönetir.</li>
+<li><strong>Lightweight AP&rsquo;ler (LWAPP/CAPWAP):</strong> CAPWAP modunda çalışan Cisco Catalyst ve Aironet AP&rsquo;ler.</li>
+</ul>
+<p><strong>HA yapılandırması:</strong> WLC çiftleri, Stateful Switchover (SSO) ile Aktif-Yedek modunda çalışır. İstemci oturumları yedek WLC&rsquo;ye yansıtılır — failover istemcilere şeffaftır.</p>
+<pre tabindex="0"><code>WLC-Birincil (Aktif)  ←── HA bağlantısı ──→  WLC-İkincil (Yedek)
+       │                                              │
+    [AP&#39;ler]                                       [AP&#39;ler]
+</code></pre><p><strong>Mobilite Grubu:</strong> Aynı kampüsteki birden fazla WLC, Mobilite Grubu oluşturur — istemciler, farklı WLC&rsquo;ler tarafından yönetilen AP&rsquo;ler arasında kesintisiz Katman 2 veya Katman 3 mobilitesiyle dolaşabilir.</p>
+<h3 id="modern-cisco-dna-center--catalyst-center">Modern: Cisco DNA Center + Catalyst Center</h3>
+<p>Cisco&rsquo;nun mevcut kurumsal platformu:</p>
+<ul>
+<li><strong>Catalyst Center (eski adıyla DNA Center):</strong> Yönetim, otomasyon ve güvence platformu. Özel donanım cihazları üzerinde çalışır.</li>
+<li><strong>SD-Access:</strong> Cisco&rsquo;nun kampüs fabric teknolojisi — kablosuz ve kablolu portlar, tutarlı VLAN ve SGT (Security Group Tag) atamasıyla aynı politika fabric&rsquo;ine katılır.</li>
+<li><strong>AI geliştirilmiş RRM:</strong> Tarihsel RF verilerine dayalı kanal ve güç atamalarını optimize etmek için makine öğrenmesi kullanan Radyo Kaynak Yönetimi.</li>
+</ul>
+<p><strong>ISE entegrasyonu:</strong> Cisco Identity Services Engine, 802.1X kimlik doğrulaması ve politika sağlar. Bir istemci bağlandığında, ISE onu doğrular, bir güvenlik grubu atar ve DNA Center karşılık gelen ağ politikasını uygular — istemci kablolu veya kablosuz olsun tutarlı.</p>
+<h3 id="cisco-meraki-bulut-yönetimli-sadelik">Cisco Meraki: Bulut Yönetimli Sadelik</h3>
+<p>Meraki, Cisco&rsquo;nun kurumsal esneklik yerine operasyonel sadelik için tasarlanmış bulut yönetimli platformudur:</p>
+<ul>
+<li><strong>Pano:</strong> Tüm yönetim tek bir bulut portalı üzerinden. Sıfır şirket içi controller donanımı.</li>
+<li><strong>Otomatik sağlama:</strong> Yeni AP&rsquo;ler bağlandığında otomatik olarak sağlanır — manuel yapılandırma yok.</li>
+<li><strong>Entegre güvenlik:</strong> Meraki AP&rsquo;ler yerleşik IDS/IPS, içerik filtreleme ve trafik analitiği içerir.</li>
+<li><strong>MX entegrasyonu:</strong> Meraki kablosuz, Meraki MX güvenlik cihazlarıyla yerel olarak entegre olur — kablolu ve kablosuz arasında birleşik politika.</li>
+</ul>
+<p><strong>Takas noktaları:</strong> Karmaşık kurumsal politikalar için Catalyst Center&rsquo;dan daha az esnek. Tüm yönetim bulut bağlantısı gerektirir (AP&rsquo;ler çevrimdışı olsa da çalışmaya devam eder, ancak yapılandırılamaz). Abonelik tabanlı lisanslama.</p>
+<p><strong>Meraki&rsquo;nin üstün olduğu yer:</strong> Çok siteli perakende, konaklama, KOBİ, şube ofisleri — operasyonel sadelik ve hızlı deployment&rsquo;ın derin kurumsal özelleştirmeden daha önemli olduğu herhangi bir senaryo.</p>
+<hr>
+<h2 id="aruba-kablosuz-mimarisi">Aruba Kablosuz Mimarisi</h2>
+<h3 id="geleneksel-aruba-mobility-master--mobility-controllerlar">Geleneksel: Aruba Mobility Master + Mobility Controller&rsquo;lar</h3>
+<p>Aruba&rsquo;nın şirket içi kurumsal mimarisi:</p>
+<ul>
+<li><strong>Mobility Master (MM):</strong> Üst düzey yönetim ve orkestrasyon platformu. Veri trafiğini iletmez — yalnızca kontrol düzlemi.</li>
+<li><strong>Mobility Controller&rsquo;lar (MC):</strong> Yerel AP&rsquo;leri için AP yönetimini, istemci kimlik doğrulamasını ve veri iletimini yöneten dağıtık controller&rsquo;lar.</li>
+<li><strong>AP&rsquo;ler:</strong> Atanmış controller&rsquo;larına bağlı, &ldquo;kampüs AP&rdquo; modunda Aruba erişim noktaları.</li>
+</ul>
+<pre tabindex="0"><code>[Mobility Master]
+        │
+   ┌────┴────┐
+[MC-1]     [MC-2]      ← Dağıtık controller&#39;lar
+  │           │
+[AP&#39;ler]   [AP&#39;ler]
+</code></pre><p><strong>Mobility Master hiyerarşisi</strong>, yönetim karmaşıklığını veri düzlemi ölçeğinden ayırır. MM, küresel politikayı, yazılım yönetimini ve RF planlamasını yönetir. Controller&rsquo;lar yerel AP yönetimini ve istemci verilerini yönetir. Bu mimari, büyük, çok binali kampüsler için iyi ölçeklenir.</p>
+<p><strong>Küme mobilitesi:</strong> Aynı kümede bulunan controller&rsquo;lar istemci durumunu paylaşır. Aynı kümedeki farklı controller&rsquo;lardaki AP&rsquo;ler arasında roaming kesintisizdir — istemcinin kimlik doğrulaması ve oturumu onunla birlikte taşınır.</p>
+<h3 id="modern-aruba-cx--aos-10">Modern: Aruba CX + AOS 10</h3>
+<p>Aruba&rsquo;nın mevcut mimarisi (AOS 10) dağıtık, fabric entegre bir modele doğru kayıyor:</p>
+<ul>
+<li>AP&rsquo;lerin daha fazla yerel zekası var — kimlik doğrulama ve politika uygulaması, her paket için controller katılımı olmadan AP&rsquo;de gerçekleşebilir</li>
+<li>Birleşik kablolu/kablosuz politika için Aruba CX switching fabric ile entegrasyon</li>
+<li>Yönetim düzlemi olarak Aruba Central — bulut tabanlı, birçok deployment için şirket içi Mobility Master&rsquo;ın yerini alıyor</li>
+</ul>
+<h3 id="aruba-central-bulut-yönetimli-kurumsal">Aruba Central: Bulut Yönetimli Kurumsal</h3>
+<p>Cisco Meraki&rsquo;den farklı olarak (sadelik için tasarlanmış), Aruba Central kurumsal kaliteli bulut yönetimi olarak konumlandırılmıştır:</p>
+<ul>
+<li>Bulut yönetimi aracılığıyla tam kurumsal politika yetenekleri</li>
+<li>AI destekli ağ içgörüleri ve anomali tespiti</li>
+<li>802.1X kimlik doğrulaması için ClearPass entegrasyonu (yalnızca şirket içi değil, bulut bağlantılı)</li>
+<li>Çok büyük deployment&rsquo;lar için destek (binlerce AP, yüzlerce site)</li>
+</ul>
+<p><strong>ClearPass entegrasyonu</strong>, Aruba&rsquo;nın en güçlü farklılaştırıcısıdır: 802.1X, cihaz profillemesi, misafir portalı, posture değerlendirmesi ve dinamik VLAN atamasını yöneten özel bir NAC platformu. ClearPass, kapsamlı kimlik tabanlı ağ erişimi için Active Directory, LDAP ve üçüncü taraf MDM sistemleriyle entegre olur.</p>
+<hr>
+<h2 id="roaming-mimarisi-kritik-tasarım-kararları">Roaming Mimarisi: Kritik Tasarım Kararları</h2>
+<h3 id="katman-2-roaming">Katman 2 Roaming</h3>
+<p>İstemci AP-1&rsquo;den AP-2&rsquo;ye geçer, her ikisi de aynı VLAN&rsquo;da ve aynı controller tarafından yönetilir. İstemcinin IP adresi değişmez. Roaming hızlı ve şeffaftır.</p>
+<pre tabindex="0"><code>AP-1 (VLAN 10) ──→ İstemci dolaşır ──→ AP-2 (VLAN 10)
+Aynı alt ağ, aynı controller, istemci IP değişmez
+</code></pre><h3 id="katman-3-roaming">Katman 3 Roaming</h3>
+<p>İstemci alt ağlar arasında geçer — farklı controller&rsquo;lardaki veya binalardaki farklı VLAN&rsquo;lar. Özel yönetim olmadan, istemcinin yeni bir IP adresine ihtiyacı olur ve aktif oturumlar kesilir.</p>
+<p>Kurumsal controller&rsquo;lar, <strong>mobilite tüneli</strong> aracılığıyla Katman 3 roaming&rsquo;i yönetir — orijinal controller (&ldquo;anchor&rdquo;) istemcinin orijinal IP adresini korur ve trafiği istemcinin mevcut controller&rsquo;ına (&ldquo;foreign&rdquo;) tünel üzerinden iletir:</p>
+<pre tabindex="0"><code>İstemci AP-1&#39;e bağlanır (Bina A, VLAN 10, Controller-1)
+İstemci AP-2&#39;ye dolaşır (Bina B, VLAN 20, Controller-2)
+
+Controller-2 (foreign) ──mobilite tüneli──→ Controller-1 (anchor)
+İstemci IP: hâlâ VLAN 10&#39;dan 192.168.10.x
+Oturum: kesintisiz
+</code></pre><p>Bu ek yük ekler — dolaşan istemcinin trafiği controller&rsquo;lar arası tüneli geçmek zorundadır. Çoğu uygulama için bu ihmal edilebilir düzeydedir. Gecikmeye duyarlı uygulamalar (VoIP, gerçek zamanlı video) için anchor-to-foreign tünel uzunluğunu en aza indirin.</p>
+<h3 id="hızlı-roaming-80211rkv">Hızlı Roaming: 802.11r/k/v</h3>
+<p>Standartlar yazısında ele alındığı gibi, kurumsal deployment&rsquo;ların tüm üç hızlı roaming protokolünü etkinleştirmesi gerekir. Controller perspektifinden:</p>
+<ul>
+<li><strong>802.11r:</strong> Controller, istemci mevcut AP&rsquo;den bağlantısını kesmeden önce hedef AP ile istemciyi önceden doğrular. Controller düzeyinde koordinasyon gerektirir.</li>
+<li><strong>802.11k:</strong> Controller, komşu AP bilgilerini istemcilere sağlar. İstemciler bunu daha iyi roaming kararları vermek için kullanır.</li>
+<li><strong>802.11v:</strong> Controller, bir istemcinin belirli bir AP&rsquo;ye dolaşmasını önerebilir veya talep edebilir — yük dengeleme ve yapışkan istemci yönetimi için kullanışlı.</li>
+</ul>
+<p><strong>Opportunistic Key Caching (OKC):</strong> WPA2-Enterprise (802.1X) kullanan ağlar için OKC, istemcinin yeni bir AP&rsquo;ye dolaşırken önbelleğe alınmış bir PMK&rsquo;yı (Pairwise Master Key) yeniden kullanmasına olanak tanır ve tam 802.1X yeniden doğrulamasını önler. 802.1X ağlarında roaming süresini önemli ölçüde azaltır.</p>
+<hr>
+<h2 id="radyo-kaynak-yönetimi">Radyo Kaynak Yönetimi</h2>
+<p>Kurumsal controller&rsquo;lar, Radyo Kaynak Yönetimi (RRM) aracılığıyla RF ortamını sürekli olarak optimize eder:</p>
+<h3 id="iletim-gücü-kontrolü">İletim Gücü Kontrolü</h3>
+<p>Controller, AP&rsquo;ler arasında RSSI&rsquo;yi (sinyal gücü) izler. Bir AP komşulardan güçlü sinyaller algılarsa, iletim gücünü azaltır — bitişik hücrelerle girişimi azaltırken kapsama alanını korur.</p>
+<p><strong>Kapsama boşluğu tespiti:</strong> Bir istemci düşük RSSI bildirirse, controller kapsama boşluklarını önlemek için AP&rsquo;nin iletim gücünü artırabilir. Bu kapsama boşluklarını önler ancak komşu AP&rsquo;lerle girişim karşı dengelenmelidir.</p>
+<h3 id="dinamik-kanal-atama">Dinamik Kanal Atama</h3>
+<p>Controller RF ortamını tarar ve aynı kanaldaki girişimi en aza indirmek için kanallar atar:</p>
+<ul>
+<li>AP&rsquo;ler komşu AP sinyallerini ve istemci girişimini raporlar</li>
+<li>Controller bir RF topoloji haritası oluşturur</li>
+<li>Kanallar, aynı kanaldaki AP&rsquo;ler arasındaki ayrımı en üst düzeye çıkarmak için atanır</li>
+</ul>
+<p>Cisco&rsquo;da bu <strong>RRM (Radyo Kaynak Yönetimi)</strong>&lsquo;dir. Aruba&rsquo;da ise <strong>ARM (Adaptive Radio Management)</strong>. Her ikisi de özerk çalışır, ancak bilinen RF zorluklarında manuel geçersiz kılmadan yararlanır.</p>
+<h3 id="istemci-yük-dengeleme">İstemci Yük Dengeleme</h3>
+<p>Birden fazla AP aynı alanı kapladığında (örtüşen hücreler), controller istemcileri AP&rsquo;ler arasında dağıtabilir:</p>
+<ul>
+<li>Her ikisi de kapsama alanındayken yeni istemcileri daha az yüklü AP&rsquo;ye yönlendirin</li>
+<li>Aşırı yüklü AP&rsquo;lerden daha az yüklü komşulara istemci taşıyın</li>
+</ul>
+<p>Bu dikkatli ayarlama gerektirir — agresif yük dengeleme istemcilerin gereksiz yere dolaşmasına neden olur.</p>
+<hr>
+<h2 id="controller-mimarisinde-ha-ve-yedeklilik">Controller Mimarisinde HA ve Yedeklilik</h2>
+<h3 id="wlc-ha-cisco">WLC HA (Cisco)</h3>
+<p>Cisco 9800 WLC&rsquo;ler, <strong>High Availability SSO (Stateful Switchover)</strong> destekler:</p>
+<pre tabindex="0"><code>WLC-Aktif ──RP (Yedeklilik Portu)──→ WLC-Yedek
+     │                                      │
+Yapılandırma yansıtıldı              İstemci oturumları yansıtıldı
+</code></pre><p>Aktif WLC başarısız olduğunda, yedek tam istemci oturum durumuyla devralır — istemciler yeniden bağlanmaz. AP&rsquo;ler CAPWAP tünellerini korur; geçiş şeffaftır.</p>
+<p><strong>N+1 yedeklilik:</strong> Büyük deployment&rsquo;larda, birden fazla WLC AP yükünü paylaşır. Biri başarısız olursa, AP&rsquo;leri kalan WLC&rsquo;lere yeniden kaydeder. AP geri dönüş önceliklerini yapılandırmayı gerektirir.</p>
+<h3 id="aruba-controller-ha">Aruba Controller HA</h3>
+<p>Aruba, birden fazla controller&rsquo;ın AP ve istemci yükünü paylaştığı <strong>Aktif-Aktif</strong> küme yapılandırmalarını destekler:</p>
+<pre tabindex="0"><code>[MC-1] ←─ küme ─→ [MC-2] ←─ küme ─→ [MC-3]
+  │                   │                   │
+[AP&#39;ler]           [AP&#39;ler]           [AP&#39;ler]
+</code></pre><p>MC-1 başarısız olursa, AP&rsquo;leri MC-2 ve MC-3&rsquo;e dağıtır. İstemci oturumları küme durum paylaşımı aracılığıyla korunur.</p>
+<h3 id="bulut-yönetimi-dayanıklılığı">Bulut Yönetimi Dayanıklılığı</h3>
+<p>Bulut yönetimli AP&rsquo;ler (Meraki, Aruba Central), bulut bağlantısı kesilmesi sırasında çalışmaya devam eder:</p>
+<ul>
+<li>AP&rsquo;ler son bilinen yapılandırmayı korur</li>
+<li>İstemciler normal şekilde bağlanıp dolaşabilir</li>
+<li>Yönetim operasyonları (yapılandırma değişiklikleri, izleme) bulut bağlantısı gerektirir</li>
+</ul>
+<p>İnternet bağlantısından bağımsız olarak garantili yönetim erişimi gerektiren ortamlar için, şirket içi controller mimarisi daha uygun olmaya devam eder.</p>
+<hr>
+<h2 id="kimlik-sistemleriyle-entegrasyon">Kimlik Sistemleriyle Entegrasyon</h2>
+<h3 id="cisco-ise-entegrasyonu">Cisco ISE Entegrasyonu</h3>
+<p>802.1X için Cisco ISE kullanan deployment&rsquo;lar için:</p>
+<pre tabindex="0"><code>İstemci WiFi&#39;ye bağlanır
+      ↓
+AP, ISE&#39;ye RADIUS isteği gönderir (WLC aracılığıyla)
+      ↓
+ISE, Active Directory&#39;e karşı doğrular
+      ↓
+ISE döndürür: VLAN ataması + Security Group Tag
+      ↓
+WLC politikayı uygular: istemci doğru VLAN&#39;a yerleştirilir
+      ↓
+DNA Center, SGT tabanlı politikayı uçtan uca uygular
+</code></pre><p>ISE posture değerlendirmesi, tam ağ erişimi vermeden önce cihaz uyumluluğunu da kontrol edebilir (AV durumu, işletim sistemi yama seviyesi) — kablolu ve kablosuz istemciler için özdeş davranış.</p>
+<h3 id="aruba-clearpass-entegrasyonu">Aruba ClearPass Entegrasyonu</h3>
+<p>ClearPass, Aruba deployment&rsquo;ları için eşdeğer yetenekler sağlar:</p>
+<ul>
+<li>RADIUS aracılığıyla 802.1X kimlik doğrulaması</li>
+<li>802.1X supplicant&rsquo;ı olmayan cihazlar için MAC Authentication Bypass (MAB)</li>
+<li>Cihaz profilleme — DHCP, HTTP User-Agent ve CDP/LLDP sinyallerine dayalı cihaz türünü (telefon, dizüstü, yazıcı, IoT) tanımlama</li>
+<li>Misafir portalı — kendi kendine kayıt veya sponsor onayı iş akışları</li>
+<li>Kullanıcı kimliğine, cihaz türüne ve posture&rsquo;a dayalı dinamik VLAN ve rol ataması</li>
+</ul>
+<p>ClearPass&rsquo;ın <strong>OnGuard</strong> ajanı posture değerlendirmesi yapar — kurumsal dizüstü bilgisayarların güncel AV, gerekli yamalar ve onaylı yazılıma sahip olup olmadığını kontrol eder.</p>
+<hr>
+<h2 id="temel-çıkarımlar">Temel Çıkarımlar</h2>
+<ul>
+<li>Controller mimarisi roaming kalitesini, politika tutarlılığını ve operasyonel karmaşıklığı belirler — yalnızca yönetim kolaylığını değil.</li>
+<li><strong>Merkezi WLC</strong>, trafik hairpin ve tek hata noktası riski pahasına kesintisiz roaming ve tutarlı politika sağlar (HA ile hafifletilir).</li>
+<li><strong>Bulut yönetimi</strong> (Meraki, Aruba Central), şirket içi donanım olmadan operasyonel sadelik ve çok siteli ölçek sunar.</li>
+<li><strong>Hızlı roaming (802.11r/k/v + OKC)</strong>, ses ve video uygulamaları için controller düzeyinde etkinleştirilmelidir — varsayılan yapılandırma nadiren optimaldir.</li>
+<li><strong>ISE/ClearPass entegrasyonu</strong>, kablosuzu &ldquo;bir ağ&quot;dan &ldquo;kimlik bilincine sahip bir politika uygulama noktası&quot;na dönüştürür — kablolu ve kablosuz için tutarlı davranış, hepsi kimin ve neyin bağlandığına dayalı.</li>
+</ul>
+<hr>
+<h2 id="bu-seri">Bu Seri</h2>
+<ul>
+<li>📖 <a href="/tr/technology/kurumsal-wifi-mimarisi-tam-rehber/">Kurumsal WiFi Mimarisi Genel Bakış</a> ← Buradan başlayın</li>
+<li>📡 <a href="/tr/technology/wifi-80211-standartlari-wifi4-wifi5-wifi6/">802.11 Standartları Deep Dive</a></li>
+<li>🏨 <a href="/tr/technology/wifi-tasarimi-kobi-otel-saglik/">KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı</a></li>
+<li>🔐 <a href="/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/">WiFi Güvenliği: WPA3, 802.1X, Sahte AP, Site Survey</a></li>
+</ul>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<ul>
+<li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Kimlik Tabanlı Mimari Sahada</a> — 802.1X deployment&rsquo;ına derinlemesine bakış</li>
+<li>🏗️ <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Ürünler Koleksiyonu Değildir</a> — Kablosuz için sistem düşüncesi</li>
+<li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">İzleme Doğru Yapıldığında</a> — Kablosuz altyapıyı proaktif olarak izleme</li>
+</ul>
+]]></content:encoded></item><item><title>F5 GTM ve GSLB Deep Dive: Global Trafik Yönetimi ve DNS Failover</title><link>https://barashhelvadzhaoglu.com/tr/technology/f5-gtm-deep-dive/</link><pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/f5-gtm-deep-dive/</guid><description>F5 GTM (BIG-IP DNS) teknik inceleme — Wide IP, iQuery, topoloji routing, TTL stratejisi, çok DC failover ve aktif-aktif mimari desenleri.</description><content:encoded><![CDATA[<h1 id="f5-gtm-ve-gslb-deep-dive-global-trafik-yönetimi-ve-dns-failover">F5 GTM ve GSLB Deep Dive: Global Trafik Yönetimi ve DNS Failover</h1>
 <p>Bu yazı F5 BIG-IP serisinin bir parçasıdır.</p>
 <blockquote>
 <p><strong>F5&rsquo;e yeni misiniz?</strong> Önce platform genel bakışıyla başlayın: <a href="/tr/technology/f5-bigip-uygulama-teslim-platformu-genel-bakis/">F5 BIG-IP Bir Load Balancer Değil — Uygulama Teslim Platformudur</a></p>
@@ -3802,6 +4179,217 @@ Gönder →
 <li>🛡️ <a href="/tr/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Trafik görünürlüğü ve güvenlik stratejisi</li>
 <li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Saha Deployment Rehberi</a> — Kimlik tabanlı ağ erişim kontrolü</li>
 </ul>
+]]></content:encoded></item><item><title>Cisco Collaboration Destek &amp; Yönetilen Hizmetler</title><link>https://barashhelvadzhaoglu.com/tr/services/cisco-collaboration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/services/cisco-collaboration/</guid><description>Cisco Collaboration altyapınız için uzaktan yönetilen hizmetler. CUCM, IP telefonu, Jabber, Webex destek ve bakım anlaşması. Aylık €50&amp;#39;dan başlayan fiyatlar.</description><content:encoded><![CDATA[<h1 id="cisco-collaboration-altyapınız-için-uzaktan-destek-ve-bakım">Cisco Collaboration Altyapınız İçin Uzaktan Destek ve Bakım</h1>
+<p>Şirketinizin iletişim altyapısı Cisco&rsquo;nun omurgasında çalışıyor — IP telefonlar, Jabber, Webex, video konferans sistemleri. Bu altyapı doğru yönetilmediğinde görünmez bir maliyet merkezi haline gelir; bir sorun çıktığında ise tüm iletişim durur.</p>
+<p><strong>10+ yıl</strong> boyunca bankacılık, üretim, havacılık, petrokimya ve hizmet sektörlerinde onlarca Cisco Collaboration projesinde çalıştım. Tam zamanlı bir mühendis maliyeti olmadan, bakım anlaşmasıyla uzaktan profesyonel destek alabilirsiniz.</p>
+<blockquote>
+<p>💬 <strong>Ücretsiz teknik ön görüşme:</strong> <a href="https://wa.me/4916098665971">WhatsApp</a> veya <a href="mailto:info@barashhelvadzhaoglu.com">E-posta</a></p>
+</blockquote>
+<hr>
+<h2 id="hangi-hizmetleri-sunuyorum">Hangi Hizmetleri Sunuyorum?</h2>
+<h3 id="-cisco-unified-communications-manager-cucm--callmanager">📞 Cisco Unified Communications Manager (CUCM / CallManager)</h3>
+<p>CallManager altyapınızın tam yaşam döngüsü yönetimi:</p>
+<ul>
+<li>Günlük yönetim — kullanıcı, dahili hat, arama planı, hunt group</li>
+<li>Çağrı kalitesi sorunları, kayıt hataları, SIP trunk problemlerinin giderilmesi</li>
+<li><strong>CUCM versiyon yükseltme</strong> (8.x → 10.x → 11.x → 14.x) — sıfır kesinti ile</li>
+<li>Lisans yönetimi ve uyumluluk takibi</li>
+<li>Yedekleme ve felaket kurtarma planlaması</li>
+</ul>
+<h3 id="-cisco-jabber--webex">💬 Cisco Jabber &amp; Webex</h3>
+<ul>
+<li>Jabber kurulumu ve yapılandırması — masaüstü ve mobil</li>
+<li><strong>Expressway Edge/Core</strong> — VPN gerektirmeyen dış erişim kurulumu</li>
+<li>Webex ile şirket içi CUCM hibrit entegrasyonu</li>
+<li>MRA (Mobil ve Uzaktan Erişim) sorun giderme</li>
+<li>Kullanıcı açılışı ve teknik destek</li>
+</ul>
+<h3 id="-video-konferans-sistemleri">📹 Video Konferans Sistemleri</h3>
+<ul>
+<li>Cisco Room sistemleri (Webex Room Kit, Board serisi) kurulum ve yönetim</li>
+<li>Çok noktadan konferans altyapısı kurulumu</li>
+<li>Microsoft Teams ve Zoom birlikte çalışabilirlik entegrasyonu</li>
+<li>Periyodik bakım ve firmware güncellemeleri</li>
+</ul>
+<h3 id="-destek-altyapısı">🔧 Destek Altyapısı</h3>
+<ul>
+<li><strong>Unity Connection:</strong> Sesli mesaj, otomatik karşılama, IVR yapılandırması</li>
+<li><strong>IM &amp; Presence:</strong> Durum bilgisi, federasyon, kalıcı sohbet</li>
+<li><strong>SIP Trunk yönetimi:</strong> Sağlayıcı entegrasyonu, codec müzakeresi, failover</li>
+<li><strong>Ses gateway&rsquo;leri:</strong> MGCP, H.323, SIP gateway yapılandırması</li>
+</ul>
+<hr>
+<h2 id="hizmet-modelleri">Hizmet Modelleri</h2>
+<h3 id="bakım-anlaşması-aylık">Bakım Anlaşması (Aylık)</h3>
+<p>Altyapınızı sizin yerinize ben yönetiyorum — siz işinize odaklanın.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Paket</th>
+          <th>Kapsam</th>
+          <th>Fiyat</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Basic</strong></td>
+          <td>İzleme + olay müdahalesi + aylık 4 saat yönetim</td>
+          <td>Aylık €50&rsquo;dan</td>
+      </tr>
+      <tr>
+          <td><strong>Standard</strong></td>
+          <td>Basic + proaktif bakım + SIP trunk yönetimi + aylık 8 saat</td>
+          <td>Aylık €150&rsquo;dan</td>
+      </tr>
+      <tr>
+          <td><strong>Premium</strong></td>
+          <td>Standard + versiyon yükseltme + DR planlaması + sınırsız olay</td>
+          <td>Aylık €299&rsquo;dan</td>
+      </tr>
+  </tbody>
+</table>
+<p><em>Fiyatlandırma ortam büyüklüğüne göre değişir. 50+ kullanıcılı ortamlar için özel teklif sunulur.</em></p>
+<h3 id="proje-bazlı-çalışma">Proje Bazlı Çalışma</h3>
+<ul>
+<li>Yeni CUCM cluster kurulumu ve yapılandırması</li>
+<li>Eski PBX&rsquo;ten Cisco IP telefon sistemine geçiş</li>
+<li>CUCM versiyon yükseltme (planlama, uygulama, geri alma planı)</li>
+<li>Expressway / MRA kurulumu</li>
+<li>Uzak çalışanlar için Jabber dağıtımı</li>
+</ul>
+<p><strong>Tipik proje yatırımı: €500 – €5.000</strong> — kapsam ve kullanıcı sayısına göre değişir.</p>
+<hr>
+<h2 id="referans-projelerimden">Referans Projelerimden</h2>
+<ul>
+<li><strong>Petrokimya şirketi</strong> — 3.000+ Jabber kullanıcısı, 5 CUCM cluster konsolidasyonu</li>
+<li><strong>Deniz taşımacılığı firması</strong> — tam CUCM yükseltmesi + SIP trunk migrasyonu</li>
+<li><strong>Havacılık şirketi</strong> — 6 yıl operasyonel yönetim, Expressway kurulumu</li>
+<li><strong>Tekstil üreticisi</strong> — 3 ülke, 5 ofis CUCM dağıtımı</li>
+<li><strong>Hukuk bürosu</strong> — CUCM yükseltme + güvenlik entegrasyonu</li>
+</ul>
+<p>Projelerin tamamı uzaktan veya minimum yerinde ziyaretle teslim edildi.</p>
+<hr>
+<h2 id="uzaktan-hizmet-modeli">Uzaktan Hizmet Modeli</h2>
+<p>Tüm hizmetler <strong>uzaktan</strong>, güvenli yönetim erişimi üzerinden sunulmaktadır. Çoğu destek ve yönetim görevi için yerinde ziyaret gerekmez. Bu model, Türkiye&rsquo;nin herhangi bir şehrindeki şirketlerle çalışmamı mümkün kılıyor.</p>
+<hr>
+<h2 id="iletişime-geçin">İletişime Geçin</h2>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<p><strong>📧 E-posta:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
+<p><em>30 dakikalık ücretsiz teknik ön görüşme. Taahhüt gerekmez.</em></p>
+]]></content:encoded></item><item><title>Firewall Yönetimi &amp; Güvenlik Denetimi Hizmetleri</title><link>https://barashhelvadzhaoglu.com/tr/services/firewall-management/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/services/firewall-management/</guid><description>Uzaktan firewall yönetimi, kural optimizasyonu, VPN kurulumu ve güvenlik denetimi. Fortinet, Palo Alto, Cisco, Check Point. Aylık €50&amp;#39;dan veya proje bazlı.</description><content:encoded><![CDATA[<h1 id="firewall-yönetimi--güvenlik-denetimi">Firewall Yönetimi &amp; Güvenlik Denetimi</h1>
+<p>Firewall&rsquo;unuz ilk savunma hattınız — ama yalnızca doğru yapılandırıldığında ve aktif olarak bakımı yapıldığında. Şişirilmiş kural setleri, eski firmware sürümleri, yanlış yapılandırılmış VPN tünelleri ve izlenmeyen açık portlar zamanla biriken sessiz risklerdir.</p>
+<p><strong>11+ yıllık</strong> kurumsal firewall deneyimimle — bankacılık, üretim ve kritik altyapılarda aynı anda 100+ fiziksel ve sanal firewall yönettim — tam zamanlı mühendis maliyeti olmadan uzaktan firewall yönetimi, optimizasyon ve güvenlik denetimi sunuyorum.</p>
+<blockquote>
+<p>💬 <strong>Ücretsiz teknik ön görüşme:</strong> <a href="https://wa.me/4916098665971">WhatsApp</a> veya <a href="mailto:info@barashhelvadzhaoglu.com">E-posta</a></p>
+</blockquote>
+<hr>
+<h2 id="hangi-hizmetleri-sunuyorum">Hangi Hizmetleri Sunuyorum?</h2>
+<h3 id="-firewall-kural-yönetimi">🔥 Firewall Kural Yönetimi</h3>
+<ul>
+<li>Mevcut kural setlerinin gözden geçirilmesi ve temizlenmesi — gereksiz, gölgede kalan veya fazla izin veren kuralların kaldırılması</li>
+<li>Performans ve güvenlik için kural optimizasyonu</li>
+<li>Her değişikliğin değişiklik yönetimi ve dokümantasyonu</li>
+<li>Uyumluluk raporlaması (ISO 27001, PCI DSS, NIS2)</li>
+</ul>
+<h3 id="-vpn-kurulumu--optimizasyonu">🔒 VPN Kurulumu &amp; Optimizasyonu</h3>
+<ul>
+<li><strong>IPsec site-to-site VPN</strong> — yeni kurulum, sorun giderme, failover yapılandırması</li>
+<li><strong>SSL-VPN</strong> — uzak kullanıcı erişimi (Fortinet FortiClient, Palo Alto GlobalProtect, Cisco AnyConnect)</li>
+<li>VPN tünel izleme ve alarm yönetimi</li>
+<li>Çok satıcılı VPN birlikte çalışabilirliği</li>
+</ul>
+<h3 id="-güvenlik-denetimleri">🛡️ Güvenlik Denetimleri</h3>
+<ul>
+<li>Açık port analizi ve gereksiz servis maruziyeti</li>
+<li>En iyi uygulama çerçevelerine karşı firewall politika incelemesi</li>
+<li>Anormal trafik kalıpları için log analizi</li>
+<li>Önceliklendirilmiş bulgularla eyleme geçirilebilir iyileştirme raporu</li>
+</ul>
+<h3 id="-firmware--yama-yönetimi">⚙️ Firmware &amp; Yama Yönetimi</h3>
+<ul>
+<li>Geri alma planlaması ile zamanlanmış firmware güncellemeleri</li>
+<li>Firewall platformunuzdaki bilinen CVE&rsquo;ler için güvenlik açığı değerlendirmesi</li>
+<li>HA ortamlarında sıfır kesinti ile güncelleme uygulaması</li>
+</ul>
+<hr>
+<h2 id="desteklenen-platformlar">Desteklenen Platformlar</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Üretici</th>
+          <th>Ürünler</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Fortinet</strong></td>
+          <td>FortiGate, FortiManager, FortiAnalyzer</td>
+      </tr>
+      <tr>
+          <td><strong>Palo Alto Networks</strong></td>
+          <td>NGFW, Panorama, Prisma Access</td>
+      </tr>
+      <tr>
+          <td><strong>Cisco</strong></td>
+          <td>Firepower, ASA, FMC</td>
+      </tr>
+      <tr>
+          <td><strong>Check Point</strong></td>
+          <td>Security Gateway, SmartConsole</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="hizmet-modelleri">Hizmet Modelleri</h2>
+<h3 id="bakım-anlaşması-aylık">Bakım Anlaşması (Aylık)</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Paket</th>
+          <th>Kapsam</th>
+          <th>Fiyat</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Basic</strong></td>
+          <td>Aylık kural gözden geçirme + olay müdahalesi + 4 saat yönetim</td>
+          <td>Aylık €50&rsquo;dan</td>
+      </tr>
+      <tr>
+          <td><strong>Standard</strong></td>
+          <td>Basic + firmware yönetimi + VPN izleme + 8 saat</td>
+          <td>Aylık €150&rsquo;dan</td>
+      </tr>
+      <tr>
+          <td><strong>Premium</strong></td>
+          <td>Standard + üç aylık denetim + uyumluluk raporları + sınırsız</td>
+          <td>Aylık €299&rsquo;dan</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="proje-bazlı">Proje Bazlı</h3>
+<ul>
+<li>Firewall denetimi ve temizleme: <strong>€500&rsquo;dan</strong></li>
+<li>VPN kurulumu (site-to-site veya uzaktan erişim): <strong>€300&rsquo;dan</strong></li>
+<li>Firewall migrasyonu (üreticiler arası): <strong>€1.500&rsquo;dan</strong></li>
+<li>Raporlu tam güvenlik denetimi: <strong>€800&rsquo;dan</strong></li>
+</ul>
+<hr>
+<h2 id="referans-deneyimlerim">Referans Deneyimlerim</h2>
+<ul>
+<li><strong>Vakıfbank</strong> — 100+ Palo Alto ve Fortinet firewall yönettim, Panorama ve FortiManager ile merkezileştirdim. Kural seti optimizasyonu ile yanlış alarm oranını %40 azalttım.</li>
+<li><strong>30+ firewall migrasyonu</strong> — bankacılık, ilaç, üretim sektörlerinde sıfır kesinti, tamamı belgelenmiş.</li>
+<li><strong>Firewall kural otomasyonu</strong> — ITSM ile entegre Python scriptleri sayesinde kural uygulama süresini 3 saatten 10 dakikaya indirdim.</li>
+</ul>
+<hr>
+<h2 id="uzaktan-hizmet-modeli">Uzaktan Hizmet Modeli</h2>
+<p>Tüm hizmetler <strong>uzaktan</strong>, güvenli erişim üzerinden sunulmaktadır. Rutin yönetim ve denetimler için yerinde ziyaret gerekmez. Türkiye&rsquo;nin herhangi bir şehrindeki şirketlerle çalışabiliyorum.</p>
+<hr>
+<h2 id="iletişime-geçin">İletişime Geçin</h2>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<p><strong>📧 E-posta:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
+<p><em>30 dakikalık ücretsiz teknik ön görüşme. Taahhüt gerekmez.</em></p>
 ]]></content:encoded></item><item><title>Hakkımda | Barış Helvacıoğlu</title><link>https://barashhelvadzhaoglu.com/tr/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/about/</guid><description>Zero Trust, otomasyon ve veri merkezi modernizasyonu alanlarında 11 yılı aşkın deneyime sahip Kıdemli Ağ Güvenliği Mühendisi.</description><content:encoded><![CDATA[<img src="/img/barash.webp" alt="Barash Helvadzhaoglu" width="250" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px; border-radius: 50%; object-fit: cover; aspect-ratio: 1 / 1;">
 <h1 id="kıdemli-ağ-güvenliği-mühendisi--mimarı">Kıdemli Ağ Güvenliği Mühendisi &amp; Mimarı</h1>
 <p>Bankacılık, üretim ve danışmanlık sektörlerinde kurumsal ağların tasarımı, uygulanması ve güvenliği konusunda 11 yılı aşkın deneyime sahip, dinamik ve sonuç odaklı bir <strong>Kıdemli Ağ Güvenliği Mühendisi</strong>yim.</p>
@@ -3982,6 +4570,98 @@ Gönder →
 <p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
 <p><strong>📧 E-posta:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
 <p><em>İlk görüşme (30 dk) ücretsiz ve bağlayıcı değildir. Sonrasında şeffaf ve net bir teklif alırsınız.</em></p>
+]]></content:encoded></item><item><title>Kurumsal WiFi &amp; Ağ Tasarımı Hizmetleri</title><link>https://barashhelvadzhaoglu.com/tr/services/wifi-network-design/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/services/wifi-network-design/</guid><description>Kurumsal kablosuz ağ tasarımı, LAN/WAN mimarisi ve ofis altyapı projeleri. Cisco ve Aruba uzmanı. Proje bazlı veya bakım anlaşmasıyla uzaktan destek.</description><content:encoded><![CDATA[<h1 id="kurumsal-wifi--ağ-tasarımı">Kurumsal WiFi &amp; Ağ Tasarımı</h1>
+<p>Zayıf kablosuz kapsama, ağ darboğazları ve geçici altyapı kararları zamanla gerçek iş sorunlarına dönüşür — düşen video görüşmeleri, yavaş dosya transferleri, güvenlik açıkları ve canlıya geçişte başarısız olan projeler.</p>
+<p><strong>11+ yıllık</strong> kurumsal ağ ve kablosuz deneyimimle — oteller, fabrikalar, kampüsler, depolar ve kurumsal ofislerde Cisco ve Aruba ortamları tasarlayıp devreye aldım — işini doğru yaptırmak isteyen kuruluşlara ağ tasarımı, kablosuz planlama ve altyapı proje teslimatı sunuyorum.</p>
+<blockquote>
+<p>💬 <strong>Ücretsiz teknik ön görüşme:</strong> <a href="https://wa.me/4916098665971">WhatsApp</a> veya <a href="mailto:info@barashhelvadzhaoglu.com">E-posta</a></p>
+</blockquote>
+<hr>
+<h2 id="hangi-hizmetleri-sunuyorum">Hangi Hizmetleri Sunuyorum?</h2>
+<h3 id="-kurumsal-kablosuz-ağ-wlan-tasarımı">📡 Kurumsal Kablosuz Ağ (WLAN) Tasarımı</h3>
+<ul>
+<li><strong>RF planlama ve kapsama tasarımı</strong> — ısı haritası, kapasite planlaması, AP yerleşimi</li>
+<li>Cisco ve Aruba kablosuz mimarisi (controller tabanlı ve bulut yönetimli)</li>
+<li>Yüksek yoğunluklu ortamlar: oteller, konferans merkezleri, depolar, hastaneler</li>
+<li>Misafir ve personel ağı segmentasyonu (VLAN, SSID izolasyonu)</li>
+<li>Sorunsuz dolaşım (roaming) optimizasyonu</li>
+<li><strong>Ekahau site survey</strong> — tahmine dayalı ve dağıtım sonrası doğrulama</li>
+</ul>
+<h3 id="-ağ-mimarisi--lanwan-tasarımı">🏗️ Ağ Mimarisi &amp; LAN/WAN Tasarımı</h3>
+<ul>
+<li>Kampüs ve şube ağ tasarımı (Core / Distribution / Access)</li>
+<li>VLAN tasarımı ve segmentasyon stratejisi</li>
+<li>Routing protokol seçimi ve yapılandırması (OSPF, BGP, EIGRP)</li>
+<li>SD-WAN tasarımı ve implementasyonu</li>
+<li>Yüksek erişilebilirlik ve yedeklilik planlaması</li>
+</ul>
+<h3 id="-ofis-kurulumu--taşıma-projeleri">🏢 Ofis Kurulumu &amp; Taşıma Projeleri</h3>
+<ul>
+<li>Sıfırdan yeni ofis ağ altyapısı</li>
+<li>Ofis taşıma — ağ geçiş planlaması ve uygulaması</li>
+<li>Mevcut kurumsal altyapıyla entegrasyon</li>
+</ul>
+<h3 id="-bulut-yönetimli-ağ">☁️ Bulut Yönetimli Ağ</h3>
+<ul>
+<li>Cisco Meraki — tam yığın bulut yönetimi (MX/MS/MR)</li>
+<li>Aruba Central — kampüs ve şube için bulut yönetimi</li>
+<li>Merkezi izleme, alarm ve yaşam döngüsü yönetimi</li>
+</ul>
+<hr>
+<h2 id="desteklenen-platformlar">Desteklenen Platformlar</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Kategori</th>
+          <th>Teknolojiler</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Kablosuz</strong></td>
+          <td>Cisco DNA Center, Aruba Mobility Master, Aruba Central, Meraki</td>
+      </tr>
+      <tr>
+          <td><strong>Switching</strong></td>
+          <td>Cisco Catalyst 9000, Aruba, HP Comware</td>
+      </tr>
+      <tr>
+          <td><strong>Routing</strong></td>
+          <td>Cisco, Fortinet SD-WAN, BGP/OSPF</td>
+      </tr>
+      <tr>
+          <td><strong>Site Survey</strong></td>
+          <td>Ekahau</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="referans-projelerimden">Referans Projelerimden</h2>
+<ul>
+<li><strong>Otel</strong> — 200+ Aruba AP, 50+ switch, %99,9 uptime, misafir/personel segmentasyonu</li>
+<li><strong>Fabrika (süt ürünleri)</strong> — tam kablolu ağ yeniden tasarımı, 802.1X, sıfır üretim kesintisi</li>
+<li><strong>Depo</strong> — 200+ AP, yüksek yoğunluklu kapsama, çift WAN VPN yedekliliği</li>
+<li><strong>Eğitim kampüsü</strong> — tam Cisco Meraki dağıtımı (MX/MS/MR/MV), bulut yönetimli</li>
+<li><strong>Global ambalaj üreticisi</strong> — çok siteli kablosuz yenileme, Cisco ISE NAC entegrasyonu</li>
+<li><strong>Alman uluslararası şirket</strong> — Aruba Mobility Master + ClearPass, Ekahau site survey</li>
+</ul>
+<hr>
+<h2 id="proje-süreci">Proje Süreci</h2>
+<ol>
+<li><strong>Keşif</strong> — mevcut altyapınızı inceliyorum, gereksinimleri anlıyorum, boşlukları tespit ediyorum</li>
+<li><strong>Tasarım</strong> — malzeme listeli HLD ve LLD</li>
+<li><strong>Teslimat</strong> — uzaktan yapılandırma + gerektiğinde yerinde koordinasyon</li>
+<li><strong>Devir</strong> — ekibiniz için tam dokümantasyon ve eğitim</li>
+</ol>
+<p><strong>Tipik proje yatırımı: €800 – €8.000</strong> — kapsam ve site sayısına göre değişir.</p>
+<hr>
+<h2 id="uzaktan-hizmet-modeli">Uzaktan Hizmet Modeli</h2>
+<p>Tasarım, yapılandırma ve proje yönetimi tamamen <strong>uzaktan</strong> yapılabilir. Türkiye&rsquo;nin herhangi bir şehrindeki şirketlerle çalışabiliyorum. Fiziksel kurulum gerektiğinde yerel ekibinizle koordineli çalışıyorum.</p>
+<hr>
+<h2 id="iletişime-geçin">İletişime Geçin</h2>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<p><strong>📧 E-posta:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
+<p><em>30 dakikalık ücretsiz teknik ön görüşme. Taahhüt gerekmez.</em></p>
 ]]></content:encoded></item><item><title>On-Site IT Care – İşletmeler İçin Yerinde IT Bakım Hizmeti</title><link>https://barashhelvadzhaoglu.com/tr/services/onsite-it-care/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/services/onsite-it-care/</guid><description>Münih&amp;#39;teki KOBİ&amp;#39;ler için profesyonel IT bakım hizmeti. WiFi, NAS, antivirus, kamera, UPS ve PC bakımı — tek muhatap.</description><content:encoded><![CDATA[<h1 id="on-site-it-care--işletmeniz-için-kapsamlı-it-bakım-hizmeti">On-Site IT Care – İşletmeniz İçin Kapsamlı IT Bakım Hizmeti</h1>
 <p>Siz işinize odaklanın — IT&rsquo;nizle ben ilgileneyim.</p>
 <p>Küçük ve orta ölçekli işletmelerin kendi IT departmanına ihtiyacı yok. Bir şey çalışmadığında gelen, bir arıza olmadan önce önlem alan ve ne yaptığını anlaşılır şekilde açıklayan güvenilir bir muhataba ihtiyaçları var.</p>

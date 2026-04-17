@@ -1,4 +1,447 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>IT-Services &amp; Beratung on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/services/</link><description>Recent content in IT-Services &amp; Beratung on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>de</language><atom:link href="https://barashhelvadzhaoglu.com/de/services/index.xml" rel="self" type="application/rss+xml"/><item><title>Netzwerksicherheit &amp; Infrastruktur-Beratung für Unternehmen</title><link>https://barashhelvadzhaoglu.com/de/services/network-security-consulting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/services/network-security-consulting/</guid><description>Sicherheitsberatung für Unternehmensnetzwerke in München. Firewall-Migration, Zero Trust und Netzwerk-Automatisierung. Kostenlose Erstberatung.</description><content:encoded><![CDATA[<h1 id="netzwerksicherheit--infrastruktur-beratung-für-unternehmen">Netzwerksicherheit &amp; Infrastruktur-Beratung für Unternehmen</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>IT-Services &amp; Beratung on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/services/</link><description>Recent content in IT-Services &amp; Beratung on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>de</language><lastBuildDate>Fri, 17 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/services/index.xml" rel="self" type="application/rss+xml"/><item><title>Aruba ClearPass — NAC-Installation, 802.1X &amp; Managed Services</title><link>https://barashhelvadzhaoglu.com/de/services/aruba-clearpass/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/services/aruba-clearpass/</guid><description>Unabhängige Aruba ClearPass Beratung. NAC-Deployment, 802.1X-Konfiguration, Gastzugangsverwaltung und laufender Support. Remote-Lieferung. Kostenlose Erstberatung.</description><content:encoded><![CDATA[<h1 id="aruba-clearpass--unabhängige-nac-beratung--support">Aruba ClearPass — Unabhängige NAC-Beratung &amp; Support</h1>
+<p>Aruba ClearPass ist eine der leistungsfähigsten verfügbaren Network Access Control-Plattformen — aber ihre Flexibilität macht die korrekte Implementierung auch komplex. Ein ClearPass-Deployment, das im Labor funktioniert, scheitert in der Produktion oft an Randfällen: Nicht-802.1X-Geräte, Legacy-Drucker, BYOD-Zertifikatsfehler oder Gastportal-Weiterleitungen, die auf Mobilgeräten nicht wie erwartet funktionieren.</p>
+<p>Mit <strong>über 11 Jahren</strong> Enterprise-NAC-Erfahrung — ClearPass neben Aruba Wireless, Cisco Switching und HP-Infrastruktur bereitstellen — biete ich unabhängige Beratung, Deployment-Support und Managed Services für Organisationen, die ClearPass-Expertise ohne Vollzeit-Spezialisten benötigen.</p>
+<blockquote>
+<p>💬 <strong>Kostenlose technische Erstberatung:</strong> <a href="https://wa.me/4916098665971">WhatsApp</a> oder <a href="mailto:info@barashhelvadzhaoglu.com">E-Mail</a></p>
+</blockquote>
+<hr>
+<h2 id="leistungsumfang">Leistungsumfang</h2>
+<h3 id="-clearpass-deployment--konfiguration">🔐 ClearPass Deployment &amp; Konfiguration</h3>
+<ul>
+<li>Greenfield ClearPass-Deployments — Publisher/Subscriber-Dimensionierung, HA-Konfiguration</li>
+<li>Authentifizierungsquellen — AD, LDAP, SQL, lokale Benutzerdatenbank</li>
+<li>Service-Konfiguration — 802.1X kabelgebunden, 802.1X WLAN, MAC Authentication (MAB)</li>
+<li>Enforcement-Profile — VLAN-Wechsel, ACL, Rollenzuweisung, CoA</li>
+<li>Onboard — BYOD Self-Service-Gerätebereitstellung, Zertifikatsausstellung</li>
+<li>Guest — angepasste Gastportale, Sponsor-Flow, gesponserte Gastzugang</li>
+<li>OnGuard — Endpoint-Gesundheitschecks, Posture-Assessment</li>
+<li>Integration mit Aruba Mobility Master, Aruba Central, Cisco Catalyst, HP Switches</li>
+</ul>
+<h3 id="-8021x-projektberatung">📶 802.1X Projektberatung</h3>
+<ul>
+<li>Pre-Deployment-Infrastrukturaudit</li>
+<li>AD/LDAP-Integration — Maschinenauthentifizierung, Gruppenzuordnung</li>
+<li>Zertifikatsstrategie — EAP-TLS vs PEAP, interne CA-Integration</li>
+<li>MAB-Ausnahmebehandlung — Drucker, Kameras, IoT-Geräte, VoIP-Telefone</li>
+<li>Phasenweiser Rollout-Plan — vom Monitor-Modus zur Durchsetzung</li>
+<li>WLAN 802.1X — WPA3-Enterprise, EAP-TLS, dynamische VLAN-Zuweisung</li>
+</ul>
+<h3 id="-clearpass-upgrade--migration">⚙️ ClearPass Upgrade &amp; Migration</h3>
+<ul>
+<li>ClearPass Versions-Upgrades — Planung, Durchführung, Rollback-Planung</li>
+<li>Migration von Cisco ISE oder anderen NAC-Plattformen zu ClearPass</li>
+<li>Pre-Upgrade-Gesundheitschecks, Datenbank-Backup, Post-Upgrade-Validierung</li>
+</ul>
+<h3 id="-laufendes-clearpass-management">🛡️ Laufendes ClearPass-Management</h3>
+<ul>
+<li>Richtlinienüberprüfung und -optimierung</li>
+<li>Zertifikatsüberwachung und -erneuerung</li>
+<li>Onboarding neuer Gerätetypen</li>
+<li>Patch-Management und Hotfix-Anwendung</li>
+<li>Monatliche Betriebsberichte</li>
+</ul>
+<hr>
+<h2 id="referenzprojekte">Referenzprojekte</h2>
+<ul>
+<li><strong>Deutsches internationales Unternehmen</strong> — Aruba Mobility Master + ClearPass, 802.1X in HQ und Lager, Ekahau Site Survey</li>
+<li><strong>Eiscreme-Produktionsgruppe</strong> — Aruba Central Cloud-Management + ClearPass für Fabrik und Niederlassungen</li>
+<li><strong>Globaler Verpackungshersteller</strong> — ClearPass neben Cisco ISE in Multi-Vendor-Umgebung</li>
+</ul>
+<p>Zertifizierungen: <strong>ACMP</strong> (Aruba Certified Mobility Professional), <strong>ACCP</strong> (Aruba Certified ClearPass Professional)</p>
+<hr>
+<h2 id="unabhängige-beratung--keine-herstellerbindung">Unabhängige Beratung — Keine Herstellerbindung</h2>
+<p>Ich arbeite mit Aruba, Cisco, HP und gemischten Umgebungen. Wenn ClearPass das richtige Werkzeug ist, sage ich es Ihnen. Wenn Ihre bestehende Infrastruktur besser mit einem anderen NAC-Ansatz funktionieren würde, sage ich das auch.</p>
+<hr>
+<h2 id="servicemodelle">Servicemodelle</h2>
+<h3 id="projektbasiert">Projektbasiert</h3>
+<ul>
+<li>ClearPass-Deployment (kabelgebunden + WLAN 802.1X): <strong>ab €1.500</strong></li>
+<li>ClearPass-Upgrade: <strong>ab €500</strong></li>
+<li>Gastportal-Design und -Konfiguration: <strong>ab €400</strong></li>
+<li>Fokussiertes Troubleshooting: <strong>ab €300</strong></li>
+<li>Policy-Audit: <strong>ab €400</strong></li>
+</ul>
+<h3 id="managed-services-monatlich">Managed Services (Monatlich)</h3>
+<ul>
+<li>ClearPass-Monitoring, Zertifikatsmanagement, Policy-Updates: <strong>ab €120/Monat</strong></li>
+</ul>
+<hr>
+<h2 id="kontakt-aufnehmen">Kontakt aufnehmen</h2>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<p><strong>📧 E-Mail:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
+<p><em>Kostenlose 30-minütige technische Erstberatung. Keine Verpflichtung.</em></p>
+]]></content:encoded></item><item><title>Cisco ISE &amp; 802.1X NAC — Installation, Support &amp; Projektberatung</title><link>https://barashhelvadzhaoglu.com/de/services/cisco-ise-8021x/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/services/cisco-ise-8021x/</guid><description>Unabhängige Cisco ISE und 802.1X Beratung. NAC-Deployment, Konfiguration, Upgrade und laufender Support. Remote-Lieferung. Kostenlose technische Erstberatung.</description><content:encoded><![CDATA[<h1 id="cisco-ise--8021x-nac--unabhängige-beratung--support">Cisco ISE &amp; 802.1X NAC — Unabhängige Beratung &amp; Support</h1>
+<p>Network Access Control ist einer der komplexesten Bereiche der Unternehmenssicherheit — und einer der am häufigsten fehlimplementierten. Cisco ISE-Projekte scheitern nicht an der Technologie, sondern an dem, was sie umgibt: Active Directory-Struktur, PKI-Design, Zertifikatslebenszyklus, VLAN-Architektur und Endpoint-Posture-Richtlinien, die echten Benutzern, echten Geräten und echtem Helpdesk-Druck standhalten müssen.</p>
+<p>Mit <strong>über 11 Jahren</strong> praktischer Erfahrung bei der Bereitstellung und dem Betrieb von Cisco ISE in Banking, Fertigung und Unternehmensumgebungen biete ich unabhängige Beratung, Deployment-Support und laufende Managed Services für Organisationen, die ISE-Expertise benötigen, ohne einen Vollzeit-Spezialisten einzustellen.</p>
+<blockquote>
+<p>💬 <strong>Kostenlose technische Erstberatung:</strong> <a href="https://wa.me/4916098665971">WhatsApp</a> oder <a href="mailto:info@barashhelvadzhaoglu.com">E-Mail</a></p>
+</blockquote>
+<hr>
+<h2 id="leistungsumfang">Leistungsumfang</h2>
+<h3 id="-cisco-ise-deployment--konfiguration">🔐 Cisco ISE Deployment &amp; Konfiguration</h3>
+<ul>
+<li>Greenfield ISE-Deployments — Architekturdesign, Node-Dimensionierung, HA-Konfiguration</li>
+<li>Policy Service Node (PSN), Administration Node (PAN), Monitoring Node (MnT) Setup</li>
+<li>Authentifizierungsrichtlinien — MAB, dot1x, WebAuth</li>
+<li>Autorisierungsrichtlinien — VLAN-Zuweisung, dACL, Security Group Tags (SGT)</li>
+<li>Gast-Lifecycle-Management — gesponsert, Selbstregistrierung, Hotspot-Portale</li>
+<li>BYOD-Onboarding — Geräteregistrierung, Zertifikatsbereitstellung</li>
+<li>Profiling — Geräteklassifizierung, Endpoint-Sichtbarkeit</li>
+<li>Integration mit Active Directory, LDAP, PKI</li>
+</ul>
+<h3 id="-8021x-projektberatung">📶 802.1X Projektberatung</h3>
+<p>802.1X-Erfolg hängt von weit mehr als der Netzwerkkonfiguration ab:</p>
+<ul>
+<li><strong>AD &amp; GPO-Vorbereitung</strong> — Maschinenauthentifizierung, automatische Zertifikatsregistrierung</li>
+<li><strong>PKI-Design</strong> — interne CA, Zertifikatsvorlagen, SCEP/EST für BYOD</li>
+<li><strong>Switch-Konfiguration</strong> — Cisco Catalyst, Aruba, HP — dot1x-Port-Konfiguration, MAB-Fallback</li>
+<li><strong>WLAN-Integration</strong> — WPA3-Enterprise, EAP-TLS, PEAP-MSCHAPv2</li>
+<li><strong>Monitor-Modus → Low-Impact → Closed-Modus</strong> — phasenweise Rollout-Planung</li>
+<li><strong>Fehlerbehebung</strong> — RADIUS-Debug, ISE Live-Logs, Switch-Port-Diagnose</li>
+</ul>
+<h3 id="-cisco-ise-upgrade--migration">⚙️ Cisco ISE Upgrade &amp; Migration</h3>
+<ul>
+<li>ISE-Versions-Upgrade Planung und Durchführung (2.x → 3.x → 3.3)</li>
+<li>Zero-Downtime-Upgrade-Strategie für HA-Deployments</li>
+<li>Pre-Upgrade-Gesundheitschecks und Post-Upgrade-Validierung</li>
+<li>Migration von Legacy-NAC-Lösungen (Bradford, Aruba ClearPass → ISE)</li>
+</ul>
+<h3 id="-laufendes-ise-management">🛡️ Laufendes ISE-Management</h3>
+<ul>
+<li>Richtlinienüberprüfung und -optimierung</li>
+<li>Zertifikatslebenszyklus-Management</li>
+<li>Onboarding neuer Endpoint-Typen — IoT-Geräte, Drucker, Kameras</li>
+<li>ISE-Patching und Hotfix-Anwendung</li>
+<li>Monatliche Gesundheitsberichte</li>
+</ul>
+<hr>
+<h2 id="referenzprojekte">Referenzprojekte</h2>
+<ul>
+<li><strong>Vakıfbank</strong> — vollständiges ISE-Deployment für 15.000+ Benutzer in Dual-Rechenzentren, integriert mit AD, PKI und Cisco DNA Center</li>
+<li><strong>Cisco DNA Center SD-Access</strong> — ISE als Policy-Engine für fabric-weites 802.1X in der Türkei und Ägypten — <strong>als Cisco Success Story veröffentlicht</strong></li>
+<li><strong>Globaler Verpackungshersteller</strong> — Multi-Site 802.1X-Rollout mit Cisco ISE, AnyConnect und Catalyst 9000 in Fabrikumgebungen</li>
+</ul>
+<hr>
+<h2 id="unabhängige-beratung--keine-herstellerbindung">Unabhängige Beratung — Keine Herstellerbindung</h2>
+<p>Ich bin an keinen Hersteller gebunden. Ich empfehle, was für Ihre Umgebung funktioniert — ob Cisco ISE, Aruba ClearPass oder ein hybrider Ansatz.</p>
+<hr>
+<h2 id="servicemodelle">Servicemodelle</h2>
+<h3 id="projektbasiert">Projektbasiert</h3>
+<ul>
+<li>802.1X Architekturdesign und Deployment: <strong>ab €1.500</strong></li>
+<li>ISE Upgrade (pro Node): <strong>ab €500</strong></li>
+<li>Fokussiertes Troubleshooting: <strong>ab €300</strong></li>
+<li>Policy-Audit und Bereinigung: <strong>ab €500</strong></li>
+</ul>
+<h3 id="managed-services-monatlich">Managed Services (Monatlich)</h3>
+<ul>
+<li>ISE-Monitoring, Zertifikatsmanagement, Policy-Updates: <strong>ab €150/Monat</strong></li>
+</ul>
+<hr>
+<h2 id="kontakt-aufnehmen">Kontakt aufnehmen</h2>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<p><strong>📧 E-Mail:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
+<p><em>Kostenlose 30-minütige technische Erstberatung. Keine Verpflichtung.</em></p>
+]]></content:encoded></item><item><title>Cisco Collaboration Support &amp; Managed Services</title><link>https://barashhelvadzhaoglu.com/de/services/cisco-collaboration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/services/cisco-collaboration/</guid><description>Remote Managed Services für Cisco Collaboration. CUCM, IP-Telefonie, Jabber, Webex Support und Wartungsvertrag. Ab €50/Monat.</description><content:encoded><![CDATA[<h1 id="cisco-collaboration-support--managed-services">Cisco Collaboration Support &amp; Managed Services</h1>
+<p>Ihre Cisco Collaboration-Infrastruktur ist das Rückgrat Ihrer Unternehmenskommunikation — IP-Telefone, Jabber, Webex, Videokonferenzsysteme. Schlecht verwaltete Systeme werden zum versteckten Kostentreiber; bei einem Ausfall steht die gesamte Kommunikation still.</p>
+<p>Mit <strong>über 10 Jahren</strong> praktischer Erfahrung in Dutzenden von Cisco Collaboration-Projekten — Banking, Industrie, Luftfahrt, Petrochemie — biete ich Remote Managed Services, Support und Neuinstallationen für Unternehmen, die einen Spezialisten benötigen, ohne die Kosten eines Vollzeit-Ingenieurs.</p>
+<blockquote>
+<p>💬 <strong>Kostenlose technische Erstberatung:</strong> <a href="https://wa.me/4916098665971">WhatsApp</a> oder <a href="mailto:info@barashhelvadzhaoglu.com">E-Mail</a></p>
+</blockquote>
+<hr>
+<h2 id="leistungsumfang">Leistungsumfang</h2>
+<h3 id="-cisco-unified-communications-manager-cucm--callmanager">📞 Cisco Unified Communications Manager (CUCM / CallManager)</h3>
+<p>Vollständiges Lifecycle-Management Ihrer CallManager-Infrastruktur:</p>
+<ul>
+<li>Tägliche Administration — Benutzer, Nebenstellen, Wählpläne, Hunt Groups</li>
+<li>Fehlerbehebung bei Anrufqualitätsproblemen, Registrierungsfehlern, SIP-Trunk-Problemen</li>
+<li><strong>CUCM Versions-Upgrades</strong> (8.x → 14.x) mit null Ausfallzeit</li>
+<li>Lizenzverwaltung und Compliance-Überwachung</li>
+<li>Backup-Konfiguration und Notfallwiederherstellungsplanung</li>
+</ul>
+<h3 id="-cisco-jabber--webex">💬 Cisco Jabber &amp; Webex</h3>
+<ul>
+<li>Jabber-Deployment und -Konfiguration für Desktop und Mobile</li>
+<li><strong>Expressway Edge/Core</strong> — VPN-loser externer Zugriff</li>
+<li>Webex-Integration mit On-Premise CUCM (Hybrid Deployment)</li>
+<li>MRA (Mobile and Remote Access) Fehlerbehebung</li>
+<li>Benutzer-Onboarding und technischer Support</li>
+</ul>
+<h3 id="-videokonferenzsysteme">📹 Videokonferenzsysteme</h3>
+<ul>
+<li>Cisco Room-Systeme (Webex Room Kit, Board-Serie) Installation und Verwaltung</li>
+<li>Mehrpunkt-Konferenzinfrastruktur-Setup</li>
+<li>Integration mit Microsoft Teams und Zoom</li>
+<li>Planmäßige Wartung und Firmware-Updates</li>
+</ul>
+<h3 id="-unterstützende-infrastruktur">🔧 Unterstützende Infrastruktur</h3>
+<ul>
+<li><strong>Unity Connection:</strong> Voicemail, Auto-Attendant, IVR-Konfiguration</li>
+<li><strong>IM &amp; Presence:</strong> Statusanzeige, Federation, persistenter Chat</li>
+<li><strong>SIP-Trunk-Verwaltung:</strong> Anbieterintegration, Codec-Verhandlung, Failover</li>
+<li><strong>Voice-Gateways:</strong> MGCP, H.323, SIP Gateway-Konfiguration</li>
+</ul>
+<hr>
+<h2 id="servicemodelle">Servicemodelle</h2>
+<h3 id="managed-services-monatlich">Managed Services (Monatlich)</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Paket</th>
+          <th>Leistungsumfang</th>
+          <th>Preis</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Basic</strong></td>
+          <td>Monitoring + Incident Response + 4 Std./Monat Administration</td>
+          <td>Ab €50/Monat</td>
+      </tr>
+      <tr>
+          <td><strong>Standard</strong></td>
+          <td>Basic + proaktive Wartung + SIP-Trunk-Verwaltung + 8 Std./Monat</td>
+          <td>Ab €150/Monat</td>
+      </tr>
+      <tr>
+          <td><strong>Premium</strong></td>
+          <td>Standard + Upgrades + DR-Planung + unbegrenzte Incidents</td>
+          <td>Ab €299/Monat</td>
+      </tr>
+  </tbody>
+</table>
+<p><em>Preise variieren je nach Umgebungsgröße. Individuelle Angebote für 50+ Benutzerumgebungen.</em></p>
+<h3 id="projektbasierte-arbeit">Projektbasierte Arbeit</h3>
+<ul>
+<li>Neue CUCM-Cluster-Installation und -Konfiguration</li>
+<li>Migration von Legacy-PBX auf Cisco IP-Telefonie</li>
+<li>CUCM Versions-Upgrade (Planung, Durchführung, Rollback-Plan)</li>
+<li>Expressway / MRA Deployment</li>
+<li>Jabber-Rollout für Remote-Mitarbeiter</li>
+</ul>
+<p><strong>Typische Projektinvestition: €500 – €5.000</strong> je nach Umfang und Benutzerzahl.</p>
+<hr>
+<h2 id="referenzprojekte">Referenzprojekte</h2>
+<ul>
+<li><strong>Petrochemieunternehmen</strong> — 3.000+ Jabber-Nutzer, 5 konsolidierte CUCM-Cluster</li>
+<li><strong>Meerestransportbetreiber</strong> — vollständiges CUCM-Upgrade + SIP-Trunk-Migration</li>
+<li><strong>Luftfahrtunternehmen</strong> — 6-jähriges operatives Management, Expressway-Deployment</li>
+<li><strong>Textilfabrik</strong> — 3-Länder, 5-Büro CUCM-Deployment</li>
+<li><strong>Anwaltskanzlei</strong> — CUCM-Upgrade + Sicherheitsintegration</li>
+</ul>
+<p>Alle Projekte wurden remote oder mit minimalen Vor-Ort-Besuchen realisiert.</p>
+<hr>
+<h2 id="remote-first-lieferung">Remote-First Lieferung</h2>
+<p>Alle Leistungen werden <strong>remote</strong> über sicheren Admin-Zugang erbracht. Für die meisten Support- und Verwaltungsaufgaben sind keine Vor-Ort-Besuche erforderlich. Dieses Modell ermöglicht die Zusammenarbeit mit Unternehmen in ganz Deutschland und Europa.</p>
+<hr>
+<h2 id="kontakt-aufnehmen">Kontakt aufnehmen</h2>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<p><strong>📧 E-Mail:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
+<p><em>Kostenlose 30-minütige technische Erstberatung. Keine Verpflichtung.</em></p>
+]]></content:encoded></item><item><title>Enterprise WLAN &amp; Netzwerkdesign</title><link>https://barashhelvadzhaoglu.com/de/services/wifi-network-design/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/services/wifi-network-design/</guid><description>Enterprise Wireless-Design, Netzwerkarchitektur, LAN/WAN-Planung und Büroinfrastrukturprojekte. Cisco und Aruba Spezialist in München. Projektbasiert oder Managed.</description><content:encoded><![CDATA[<h1 id="enterprise-wlan--netzwerkdesign">Enterprise WLAN &amp; Netzwerkdesign</h1>
+<p>Schlechte WLAN-Abdeckung, Netzwerk-Engpässe und ad-hoc Infrastrukturentscheidungen häufen sich zu echten Geschäftsproblemen — abgebrochene Videoanrufe, langsame Dateiübertragungen, Sicherheitslücken und Projekte, die beim Go-Live scheitern.</p>
+<p>Mit <strong>über 11 Jahren</strong> Enterprise-Netzwerk- und Wireless-Erfahrung — Design und Deployment von Cisco- und Aruba-Umgebungen in Hotels, Fabriken, Campussen, Lagerhäusern und Unternehmensbüros — biete ich Netzwerkdesign, Wireless-Planung und Infrastrukturprojekte für Unternehmen an, die es richtig gemacht haben wollen.</p>
+<blockquote>
+<p>💬 <strong>Kostenlose technische Erstberatung:</strong> <a href="https://wa.me/4916098665971">WhatsApp</a> oder <a href="mailto:info@barashhelvadzhaoglu.com">E-Mail</a></p>
+</blockquote>
+<hr>
+<h2 id="leistungsumfang">Leistungsumfang</h2>
+<h3 id="-enterprise-wireless-wlan-design">📡 Enterprise Wireless (WLAN) Design</h3>
+<ul>
+<li><strong>RF-Planung und Abdeckungsdesign</strong> — Heat Mapping, Kapazitätsplanung, AP-Platzierung</li>
+<li>Cisco und Aruba Wireless-Architektur (Controller-basiert und Cloud-managed)</li>
+<li>Hochdichte Umgebungen: Hotels, Konferenzzentren, Lagerhäuser, Krankenhäuser</li>
+<li>Gäste- und Mitarbeiternetz-Segmentierung (VLAN, SSID-Isolation)</li>
+<li>Roaming-Optimierung und nahtlose Mobilität</li>
+<li><strong>Ekahau Site Survey</strong> — prädiktive und Post-Deployment-Validierung</li>
+</ul>
+<h3 id="-netzwerkarchitektur--lanwan-design">🏗️ Netzwerkarchitektur &amp; LAN/WAN Design</h3>
+<ul>
+<li>Campus- und Branch-Netzwerkdesign (Core / Distribution / Access)</li>
+<li>VLAN-Design und Segmentierungsstrategie</li>
+<li>Routing-Protokoll-Auswahl und -Konfiguration (OSPF, BGP, EIGRP)</li>
+<li>SD-WAN Design und Implementierung</li>
+<li>High-Availability und Redundanzplanung</li>
+</ul>
+<h3 id="-büroaufbau--umzugsprojekte">🏢 Büroaufbau &amp; Umzugsprojekte</h3>
+<ul>
+<li>Neue Büronetzwerkinfrastruktur von Grund auf</li>
+<li>Büroumzug — Netzwerk-Cutover-Planung und -Durchführung</li>
+<li>Integration in bestehende Unternehmensinfrastruktur</li>
+</ul>
+<h3 id="-cloud-managed-networking">☁️ Cloud-Managed Networking</h3>
+<ul>
+<li>Cisco Meraki — Full-Stack Cloud-Management (MX/MS/MR)</li>
+<li>Aruba Central — Cloud-Management für Campus und Branch</li>
+<li>Zentrales Monitoring, Alerting und Lifecycle-Management</li>
+</ul>
+<hr>
+<h2 id="unterstützte-plattformen">Unterstützte Plattformen</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Kategorie</th>
+          <th>Technologien</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Wireless</strong></td>
+          <td>Cisco DNA Center, Aruba Mobility Master, Aruba Central, Meraki</td>
+      </tr>
+      <tr>
+          <td><strong>Switching</strong></td>
+          <td>Cisco Catalyst 9000, Aruba, HP Comware</td>
+      </tr>
+      <tr>
+          <td><strong>Routing</strong></td>
+          <td>Cisco, Fortinet SD-WAN, BGP/OSPF</td>
+      </tr>
+      <tr>
+          <td><strong>Site Survey</strong></td>
+          <td>Ekahau</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="referenzprojekte">Referenzprojekte</h2>
+<ul>
+<li><strong>Hotel</strong> — 200+ Aruba APs, 50+ Switches, 99,9% Uptime, Gäste/Mitarbeiter-Segmentierung</li>
+<li><strong>Fabrik (Molkerei)</strong> — vollständiges Wired-Netzwerk-Redesign, 802.1X, null Produktionsausfall</li>
+<li><strong>Lagerhaus</strong> — 200+ APs, Hochdichte-Abdeckung, Dual-WAN VPN-Redundanz</li>
+<li><strong>Bildungscampus</strong> — vollständiges Cisco Meraki Deployment (MX/MS/MR/MV), Cloud-managed</li>
+<li><strong>Globaler Verpackungshersteller</strong> — Multi-Site Wireless-Erneuerung, Cisco ISE NAC</li>
+<li><strong>Deutsches internationales Unternehmen</strong> — Aruba Mobility Master + ClearPass, Ekahau</li>
+</ul>
+<hr>
+<h2 id="projektablauf">Projektablauf</h2>
+<ol>
+<li><strong>Discovery</strong> — Analyse der bestehenden Infrastruktur, Anforderungsaufnahme</li>
+<li><strong>Design</strong> — HLD und LLD mit Stückliste</li>
+<li><strong>Lieferung</strong> — Remote-Konfiguration + Vor-Ort-Koordination bei Bedarf</li>
+<li><strong>Übergabe</strong> — vollständige Dokumentation und Team-Schulung</li>
+</ol>
+<p><strong>Typische Projektinvestition: €800 – €8.000</strong> je nach Umfang und Standortanzahl.</p>
+<hr>
+<h2 id="kontakt-aufnehmen">Kontakt aufnehmen</h2>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<p><strong>📧 E-Mail:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
+<p><em>Kostenlose 30-minütige technische Erstberatung. Keine Verpflichtung.</em></p>
+]]></content:encoded></item><item><title>Firewall-Management &amp; Sicherheits-Audit</title><link>https://barashhelvadzhaoglu.com/de/services/firewall-management/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/services/firewall-management/</guid><description>Remote Firewall-Management, Regeloptimierung, VPN-Einrichtung und Sicherheits-Audits. Fortinet, Palo Alto, Cisco, Check Point. Ab €50/Monat oder projektbasiert.</description><content:encoded><![CDATA[<h1 id="firewall-management--sicherheits-audit">Firewall-Management &amp; Sicherheits-Audit</h1>
+<p>Ihre Firewall ist Ihre erste Verteidigungslinie — aber nur, wenn sie korrekt konfiguriert und aktiv gewartet wird. Aufgeblähte Regelwerke, veraltete Firmware, falsch konfigurierte VPN-Tunnel und unüberwachte offene Ports sind stille Risiken, die sich mit der Zeit anhäufen.</p>
+<p>Mit <strong>über 11 Jahren</strong> Enterprise-Firewall-Erfahrung — Banking, Industrie und kritische Infrastrukturen, gleichzeitige Verwaltung von 100+ physischen und virtuellen Firewalls — biete ich Remote Firewall-Management, Optimierung und Sicherheits-Audits für Unternehmen an, die einen Spezialisten ohne die Kosten eines Vollzeit-Ingenieurs benötigen.</p>
+<blockquote>
+<p>💬 <strong>Kostenlose technische Erstberatung:</strong> <a href="https://wa.me/4916098665971">WhatsApp</a> oder <a href="mailto:info@barashhelvadzhaoglu.com">E-Mail</a></p>
+</blockquote>
+<hr>
+<h2 id="leistungsumfang">Leistungsumfang</h2>
+<h3 id="-firewall-regelmanagement">🔥 Firewall-Regelmanagement</h3>
+<ul>
+<li>Review und Bereinigung bestehender Regelwerke — Entfernung redundanter, beschatteter oder zu permissiver Regeln</li>
+<li>Policy-Optimierung für Performance und Sicherheit</li>
+<li>Change Management und Dokumentation jeder Änderung</li>
+<li>Compliance-Reporting (ISO 27001, PCI DSS, NIS2)</li>
+</ul>
+<h3 id="-vpn-einrichtung--optimierung">🔒 VPN-Einrichtung &amp; Optimierung</h3>
+<ul>
+<li><strong>IPsec Site-to-Site VPN</strong> — Neueinrichtung, Fehlerbehebung, Failover-Konfiguration</li>
+<li><strong>SSL-VPN</strong> — Remote-Zugriff für Benutzer (Fortinet FortiClient, Palo Alto GlobalProtect, Cisco AnyConnect)</li>
+<li>VPN-Tunnel-Monitoring und Alerting</li>
+<li>Multi-Vendor VPN-Interoperabilität</li>
+</ul>
+<h3 id="-sicherheits-audits">🛡️ Sicherheits-Audits</h3>
+<ul>
+<li>Analyse offener Ports und unnötiger Service-Exponierung</li>
+<li>Firewall-Policy-Review gegen Best-Practice-Frameworks</li>
+<li>Log-Analyse auf anomale Verkehrsmuster</li>
+<li>Priorisierter Maßnahmenplan mit konkreten Handlungsempfehlungen</li>
+</ul>
+<h3 id="-firmware--patch-management">⚙️ Firmware &amp; Patch-Management</h3>
+<ul>
+<li>Geplante Firmware-Updates mit Rollback-Planung</li>
+<li>Schwachstellenbewertung für bekannte CVEs in Ihrer Firewall-Plattform</li>
+<li>Zero-Downtime-Updates für HA-Umgebungen</li>
+</ul>
+<hr>
+<h2 id="unterstützte-plattformen">Unterstützte Plattformen</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Hersteller</th>
+          <th>Produkte</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Fortinet</strong></td>
+          <td>FortiGate, FortiManager, FortiAnalyzer</td>
+      </tr>
+      <tr>
+          <td><strong>Palo Alto Networks</strong></td>
+          <td>NGFW, Panorama, Prisma Access</td>
+      </tr>
+      <tr>
+          <td><strong>Cisco</strong></td>
+          <td>Firepower, ASA, FMC</td>
+      </tr>
+      <tr>
+          <td><strong>Check Point</strong></td>
+          <td>Security Gateway, SmartConsole</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="servicemodelle">Servicemodelle</h2>
+<h3 id="managed-services-monatlich">Managed Services (Monatlich)</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Paket</th>
+          <th>Leistungsumfang</th>
+          <th>Preis</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Basic</strong></td>
+          <td>Monatlicher Regel-Review + Incident Response + 4 Std. Admin</td>
+          <td>Ab €50/Monat</td>
+      </tr>
+      <tr>
+          <td><strong>Standard</strong></td>
+          <td>Basic + Firmware-Management + VPN-Monitoring + 8 Std.</td>
+          <td>Ab €150/Monat</td>
+      </tr>
+      <tr>
+          <td><strong>Premium</strong></td>
+          <td>Standard + Quartals-Audit + Compliance-Reports + unbegrenzt</td>
+          <td>Ab €299/Monat</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="projektbasiert">Projektbasiert</h3>
+<ul>
+<li>Firewall-Audit und Bereinigung: <strong>ab €500</strong></li>
+<li>VPN-Einrichtung (Site-to-Site oder Remote Access): <strong>ab €300</strong></li>
+<li>Firewall-Migration (Hersteller zu Hersteller): <strong>ab €1.500</strong></li>
+<li>Vollständiger Sicherheits-Audit mit Bericht: <strong>ab €800</strong></li>
+</ul>
+<hr>
+<h2 id="referenzerfahrungen">Referenzerfahrungen</h2>
+<ul>
+<li><strong>Vakıfbank</strong> — 100+ Palo Alto und Fortinet Firewalls verwaltet, zentralisiert über Panorama und FortiManager. False-Positive-Alerts durch Regeloptimierung um 40% reduziert.</li>
+<li><strong>30+ Firewall-Migrationen</strong> — Banking, Pharma, Industrie — null Ausfallzeit, vollständig dokumentiert.</li>
+<li><strong>Firewall-Regelautomatisierung</strong> — Policy-Implementierungszeit von 3 Stunden auf 10 Minuten reduziert durch Python-Skripte mit ITSM-Integration.</li>
+</ul>
+<hr>
+<h2 id="remote-first-lieferung">Remote-First Lieferung</h2>
+<p>Alle Leistungen werden <strong>remote</strong> über sicheren Admin-Zugang erbracht. Für Routine-Management und Audits sind keine Vor-Ort-Besuche erforderlich. Bei Bedarf sind gelegentliche Vor-Ort-Termine in Deutschland möglich.</p>
+<hr>
+<h2 id="kontakt-aufnehmen">Kontakt aufnehmen</h2>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<p><strong>📧 E-Mail:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
+<p><em>Kostenlose 30-minütige technische Erstberatung. Keine Verpflichtung.</em></p>
+]]></content:encoded></item><item><title>Netzwerksicherheit &amp; Infrastruktur-Beratung für Unternehmen</title><link>https://barashhelvadzhaoglu.com/de/services/network-security-consulting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/services/network-security-consulting/</guid><description>Sicherheitsberatung für Unternehmensnetzwerke in München. Firewall-Migration, Zero Trust und Netzwerk-Automatisierung. Kostenlose Erstberatung.</description><content:encoded><![CDATA[<h1 id="netzwerksicherheit--infrastruktur-beratung-für-unternehmen">Netzwerksicherheit &amp; Infrastruktur-Beratung für Unternehmen</h1>
 <p>In der heutigen komplexen Bedrohungslandschaft darf Ihre Netzwerkinfrastruktur nicht nur &ldquo;funktionieren&rdquo; – sie muss belastbar, transparent und sicher sein. Mit über 11 Jahren Erfahrung als <strong>Senior Network Security Engineer</strong> modernisiere ich Ihre kritische Infrastruktur nach weltweit geltenden Standards.</p>
 <p>Von München aus bringe ich meine Expertise aus hochsicheren Bereichen wie dem Bankenwesen und der Industrie direkt in Ihr Unternehmen.</p>
 <blockquote>

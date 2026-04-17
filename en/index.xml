@@ -1,4 +1,417 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Barash Helvadzhaoglu | Senior Network Security Engineer &amp; IT Consultant Munich on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/</link><description>Recent content in Barash Helvadzhaoglu | Senior Network Security Engineer &amp; IT Consultant Munich on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>en</language><lastBuildDate>Wed, 15 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/index.xml" rel="self" type="application/rss+xml"/><item><title>F5 GTM &amp; GSLB Deep Dive: Global Traffic Management and DNS Failover</title><link>https://barashhelvadzhaoglu.com/en/technology/f5-gtm-deep-dive/</link><pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/f5-gtm-deep-dive/</guid><description>F5 GTM (BIG-IP DNS) deep dive — Wide IPs, iQuery, topology routing, TTL strategy, multi-DC failover, and active-active vs active-standby patterns.</description><content:encoded><![CDATA[<h1 id="f5-gtm--gslb-deep-dive-global-traffic-management-and-dns-failover">F5 GTM &amp; GSLB Deep Dive: Global Traffic Management and DNS Failover</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Barash Helvadzhaoglu | Senior Network Security Engineer &amp; IT Consultant Munich on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/</link><description>Recent content in Barash Helvadzhaoglu | Senior Network Security Engineer &amp; IT Consultant Munich on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>en</language><lastBuildDate>Fri, 17 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/index.xml" rel="self" type="application/rss+xml"/><item><title>Aruba ClearPass — NAC Installation, 802.1X &amp; Managed Services</title><link>https://barashhelvadzhaoglu.com/en/services/aruba-clearpass/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/services/aruba-clearpass/</guid><description>Independent Aruba ClearPass consulting. NAC deployment, 802.1X configuration, guest management and ongoing support. Remote delivery. Free technical consultation.</description><content:encoded><![CDATA[<h1 id="aruba-clearpass--independent-nac-consulting--support">Aruba ClearPass — Independent NAC Consulting &amp; Support</h1>
+<p>Aruba ClearPass is one of the most capable Network Access Control platforms available — but its flexibility also makes it complex to implement correctly. A ClearPass deployment that works in a lab often breaks in production because of edge cases: non-802.1X devices, legacy printers, BYOD certificate failures, or guest portal redirects that do not behave as expected on mobile devices.</p>
+<p>With <strong>11+ years</strong> of enterprise NAC experience — deploying ClearPass alongside Aruba wireless, Cisco switching, and HP infrastructure — I provide independent consulting, deployment support, and managed services for organizations that need ClearPass expertise without a full-time specialist.</p>
+<blockquote>
+<p>💬 <strong>Free technical consultation:</strong> <a href="https://wa.me/4916098665971">WhatsApp</a> or <a href="mailto:info@barashhelvadzhaoglu.com">Email</a></p>
+</blockquote>
+<hr>
+<h2 id="what-i-do">What I Do</h2>
+<h3 id="-clearpass-deployment--configuration">🔐 ClearPass Deployment &amp; Configuration</h3>
+<ul>
+<li>Greenfield ClearPass deployments — Publisher/Subscriber sizing, HA configuration</li>
+<li>Authentication Sources — AD, LDAP, SQL, local user database</li>
+<li>Service configuration — 802.1X wired, 802.1X wireless, MAC Authentication (MAB)</li>
+<li>Enforcement profiles — VLAN change, ACL, Role assignment, CoA (Change of Authorization)</li>
+<li>Onboard — BYOD self-service device provisioning, certificate issuance</li>
+<li>Guest — customized guest portals, sponsor flow, sponsored guest access</li>
+<li>OnGuard — endpoint health checks, posture assessment</li>
+<li>Integration with Aruba Mobility Master, Aruba Central, Cisco Catalyst, HP switches</li>
+</ul>
+<h3 id="-8021x-project-consulting">📶 802.1X Project Consulting</h3>
+<ul>
+<li>Pre-deployment infrastructure audit — switch configuration, AP settings, RADIUS readiness</li>
+<li>AD/LDAP integration — machine authentication, user authentication, group mapping</li>
+<li>Certificate strategy — EAP-TLS vs PEAP, internal CA integration, auto-enrollment</li>
+<li>MAB exception handling — printers, cameras, IoT devices, VoIP phones</li>
+<li>Phased rollout planning — monitor mode to enforcement, minimizing disruption</li>
+<li>Wireless 802.1X — WPA3-Enterprise, EAP-TLS, dynamic VLAN assignment</li>
+</ul>
+<h3 id="-clearpass-upgrade--migration">⚙️ ClearPass Upgrade &amp; Migration</h3>
+<ul>
+<li>ClearPass version upgrades — planning, execution, rollback planning</li>
+<li>Migration from Cisco ISE or other NAC platforms to ClearPass</li>
+<li>Pre-upgrade health checks, database backup, post-upgrade validation</li>
+<li>Aruba Central integration migration</li>
+</ul>
+<h3 id="-ongoing-clearpass-management">🛡️ Ongoing ClearPass Management</h3>
+<ul>
+<li>Policy review — cleaning up unused services, enforcement profiles, roles</li>
+<li>Certificate monitoring and renewal — CA certificates, RADIUS server certificate</li>
+<li>New device type onboarding — IoT, medical devices, industrial equipment</li>
+<li>Patch management — ClearPass hotfixes and security patches</li>
+<li>Monthly operational reports</li>
+</ul>
+<hr>
+<h2 id="why-clearpass-projects-struggle">Why ClearPass Projects Struggle</h2>
+<p><strong>Common issues I see:</strong></p>
+<ul>
+<li>Guest portal not redirecting on iOS/Android — SSL inspection stripping the redirect</li>
+<li>MAB devices authenticating but landing in the wrong VLAN — enforcement profile ordering</li>
+<li>ClearPass and Cisco switches not agreeing on VLAN change — CoA configuration</li>
+<li>BYOD certificates not enrolling — Onboard profile misconfiguration</li>
+<li>HA failover not working as expected — Subscriber not syncing policies</li>
+</ul>
+<p>These are all solvable — but they require someone who has seen them before.</p>
+<hr>
+<h2 id="field-experience">Field Experience</h2>
+<ul>
+<li><strong>German international company</strong> — Aruba Mobility Master + ClearPass, 802.1X across HQ and warehouse, Ekahau site survey, seamless roaming</li>
+<li><strong>Ice cream manufacturing group</strong> — Aruba Central cloud management + ClearPass for factory and branch, automated device onboarding</li>
+<li><strong>Global packaging manufacturer</strong> — ClearPass alongside Cisco ISE in multi-vendor environment, 802.1X for wired and wireless</li>
+</ul>
+<p>Certifications: <strong>ACMP</strong> (Aruba Certified Mobility Professional), <strong>ACCP</strong> (Aruba Certified ClearPass Professional)</p>
+<hr>
+<h2 id="independent-consulting--no-vendor-bias">Independent Consulting — No Vendor Bias</h2>
+<p>I work with Aruba, Cisco, HP and mixed environments. If ClearPass is the right tool, I will tell you. If your existing infrastructure would work better with a different NAC approach, I will tell you that too.</p>
+<hr>
+<h2 id="service-models">Service Models</h2>
+<h3 id="project-based">Project-Based</h3>
+<ul>
+<li>ClearPass deployment (wired + wireless 802.1X): <strong>from €1,500</strong></li>
+<li>ClearPass upgrade: <strong>from €500</strong></li>
+<li>Guest portal design and configuration: <strong>from €400</strong></li>
+<li>Focused troubleshooting: <strong>from €300</strong></li>
+<li>Policy audit: <strong>from €400</strong></li>
+</ul>
+<h3 id="managed-services-monthly">Managed Services (Monthly)</h3>
+<ul>
+<li>ClearPass monitoring, certificate management, policy updates: <strong>from €120/month</strong></li>
+</ul>
+<hr>
+<h2 id="remote-first-delivery">Remote-First Delivery</h2>
+<p>All services delivered <strong>remotely</strong> via secure access. On-site coordination available for new deployments when needed.</p>
+<hr>
+<h2 id="get-in-touch">Get in Touch</h2>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<p><strong>📧 Email:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
+<p><em>Free 30-minute technical consultation. No commitment required.</em></p>
+]]></content:encoded></item><item><title>Cisco ISE &amp; 802.1X NAC — Installation, Support &amp; Project Consulting</title><link>https://barashhelvadzhaoglu.com/en/services/cisco-ise-8021x/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/services/cisco-ise-8021x/</guid><description>Independent Cisco ISE and 802.1X consulting. NAC deployment, configuration, upgrade and ongoing support. Remote delivery worldwide. Free technical consultation.</description><content:encoded><![CDATA[<h1 id="cisco-ise--8021x-nac--independent-consulting--support">Cisco ISE &amp; 802.1X NAC — Independent Consulting &amp; Support</h1>
+<p>Network Access Control is one of the most complex areas of enterprise security — and one of the most frequently misimplemented. Cisco ISE projects fail not because of the technology, but because of what surrounds it: Active Directory structure, PKI design, certificate lifecycle, VLAN architecture, and endpoint posture policies that have to survive real users, real devices, and real helpdesk pressure.</p>
+<p>With <strong>11+ years</strong> of hands-on experience deploying and operating Cisco ISE in banking, manufacturing, and enterprise environments, I provide independent consulting, deployment support, and ongoing managed services for organizations that need ISE expertise without hiring a full-time specialist.</p>
+<blockquote>
+<p>💬 <strong>Free technical consultation:</strong> <a href="https://wa.me/4916098665971">WhatsApp</a> or <a href="mailto:info@barashhelvadzhaoglu.com">Email</a></p>
+</blockquote>
+<hr>
+<h2 id="what-i-do">What I Do</h2>
+<h3 id="-cisco-ise-deployment--configuration">🔐 Cisco ISE Deployment &amp; Configuration</h3>
+<ul>
+<li>Greenfield ISE deployments — architecture design, node sizing, HA configuration</li>
+<li>Policy Service Node (PSN), Administration Node (PAN), Monitoring Node (MnT) setup</li>
+<li>Authentication policies — MAB, dot1x, WebAuth</li>
+<li>Authorization policies — VLAN assignment, dACL, Security Group Tags (SGT)</li>
+<li>Guest lifecycle management — sponsored, self-registration, hotspot portals</li>
+<li>BYOD onboarding — device registration, certificate provisioning</li>
+<li>Profiling — device classification, endpoint visibility</li>
+<li>Integration with Active Directory, LDAP, PKI</li>
+</ul>
+<h3 id="-8021x-project-consulting">📶 802.1X Project Consulting</h3>
+<p>802.1X success depends on much more than network configuration. I help organizations navigate the full stack:</p>
+<ul>
+<li><strong>AD &amp; GPO preparation</strong> — machine authentication, certificate auto-enrollment</li>
+<li><strong>PKI design</strong> — internal CA, certificate templates, SCEP/EST for BYOD</li>
+<li><strong>Switch configuration</strong> — Cisco Catalyst, Aruba, HP — dot1x port config, MAB fallback</li>
+<li><strong>Wireless integration</strong> — WPA3-Enterprise, EAP-TLS, PEAP-MSCHAPv2</li>
+<li><strong>Monitor mode → Low-impact → Closed mode</strong> — phased rollout planning</li>
+<li><strong>Troubleshooting</strong> — RADIUS debug, ISE live logs, switch port diagnostics</li>
+</ul>
+<h3 id="-cisco-ise-upgrade--migration">⚙️ Cisco ISE Upgrade &amp; Migration</h3>
+<ul>
+<li>ISE version upgrade planning and execution (2.x → 3.x → 3.3)</li>
+<li>Zero-downtime upgrade strategy for HA deployments</li>
+<li>Pre-upgrade health checks and post-upgrade validation</li>
+<li>Migration from legacy NAC solutions (Bradford, Aruba ClearPass → ISE)</li>
+</ul>
+<h3 id="-ongoing-ise-management">🛡️ Ongoing ISE Management</h3>
+<ul>
+<li>Policy review and optimization — removing unused rules, cleaning up authorization profiles</li>
+<li>Certificate lifecycle management — monitoring expiry, renewal automation</li>
+<li>New endpoint type onboarding — IoT devices, printers, cameras</li>
+<li>ISE patching and hotfix application</li>
+<li>Monthly health reports</li>
+</ul>
+<hr>
+<h2 id="why-8021x-projects-fail--and-how-i-help">Why 802.1X Projects Fail — And How I Help</h2>
+<p>Most 802.1X deployments struggle not with ISE itself, but with the surrounding infrastructure:</p>
+<p><strong>Common failure points:</strong></p>
+<ul>
+<li>AD not structured for machine authentication — GPO not pushing certificates</li>
+<li>PKI misconfigured — certificates not auto-enrolling on endpoints</li>
+<li>Switch ports not consistently configured — MAB fallback missing</li>
+<li>Legacy devices with no 802.1X support — no exception handling strategy</li>
+<li>Rollout too aggressive — users locked out, helpdesk overwhelmed</li>
+</ul>
+<p><strong>My approach:</strong>
+I work through all of these systematically before touching ISE policy. The network part comes last — not first.</p>
+<hr>
+<h2 id="field-experience">Field Experience</h2>
+<ul>
+<li><strong>Vakıfbank</strong> — full ISE deployment for 15,000+ users across dual data centers, integrated with AD, PKI, and Cisco DNA Center</li>
+<li><strong>Cisco DNA Center SD-Access</strong> — ISE as the policy engine for fabric-wide 802.1X, SGT-based segmentation across Turkey and Egypt — published as a <strong>Cisco Success Story</strong></li>
+<li><strong>Global packaging manufacturer</strong> — multi-site 802.1X rollout with Cisco ISE, AnyConnect, and Catalyst 9000 across factory environments</li>
+<li><strong>Multiple enterprise environments</strong> — phased dot1x deployments from monitor mode to closed mode, zero user-impact cutover</li>
+</ul>
+<hr>
+<h2 id="independent-consulting--no-vendor-bias">Independent Consulting — No Vendor Bias</h2>
+<p>I am not tied to any vendor. I recommend what works for your environment — whether that is Cisco ISE, Aruba ClearPass, or a hybrid approach.</p>
+<p>If you already have ISE and need help with a specific problem — a failed upgrade, a certificate issue, a policy that is not working — I can engage for focused troubleshooting without a long-term commitment.</p>
+<hr>
+<h2 id="service-models">Service Models</h2>
+<h3 id="project-based">Project-Based</h3>
+<ul>
+<li>802.1X architecture design and deployment: <strong>from €1,500</strong></li>
+<li>ISE upgrade (per node): <strong>from €500</strong></li>
+<li>Focused troubleshooting engagement: <strong>from €300</strong></li>
+<li>Policy audit and cleanup: <strong>from €500</strong></li>
+</ul>
+<h3 id="managed-services-monthly">Managed Services (Monthly)</h3>
+<ul>
+<li>ISE monitoring, certificate management, policy updates: <strong>from €150/month</strong></li>
+</ul>
+<hr>
+<h2 id="remote-first-delivery">Remote-First Delivery</h2>
+<p>All services are delivered <strong>remotely</strong> via secure access. No on-site visits required for most engagements. For new deployments requiring physical switch configuration, I coordinate with your local team.</p>
+<hr>
+<h2 id="get-in-touch">Get in Touch</h2>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<p><strong>📧 Email:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
+<p><em>Free 30-minute technical consultation. No commitment required.</em></p>
+]]></content:encoded></item><item><title>Enterprise WiFi Controller Architecture: Cisco and Aruba WLAN Design</title><link>https://barashhelvadzhaoglu.com/en/technology/wifi-controller/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/wifi-controller/</guid><description>Enterprise wireless controller deep dive — Cisco WLC vs DNA Center, Aruba vs Central, centralized vs distributed, and mobility domain planning.</description><content:encoded><![CDATA[<h1 id="enterprise-wifi-controller-architecture-cisco-and-aruba-wlan-design">Enterprise WiFi Controller Architecture: Cisco and Aruba WLAN Design</h1>
+<p>This article is part of the Enterprise WiFi series.</p>
+<blockquote>
+<p><strong>New to enterprise wireless?</strong> Start with the overview: <a href="/en/technology/enterprise-wifi-architecture-complete-guide/">Enterprise WiFi Architecture: From Standards to Deployment</a></p>
+</blockquote>
+<hr>
+<h2 id="why-controller-architecture-matters">Why Controller Architecture Matters</h2>
+<p>An access point is just a radio transmitter. What makes it part of an enterprise network — with consistent policy, seamless roaming, centralized management, and security integration — is the controller architecture behind it.</p>
+<p>Get the controller architecture wrong and you get:</p>
+<ul>
+<li>Roaming failures between buildings or floors</li>
+<li>Inconsistent security policies across different AP groups</li>
+<li>Authentication bottlenecks that slow down client connections</li>
+<li>Management complexity that turns routine changes into multi-step operations</li>
+</ul>
+<p>Get it right and the wireless network behaves like an extension of the wired infrastructure — consistent, manageable, and integrated with identity and security systems.</p>
+<hr>
+<h2 id="the-three-architectural-models">The Three Architectural Models</h2>
+<h3 id="model-1-centralized-controller-traditional">Model 1: Centralized Controller (Traditional)</h3>
+<p>All intelligence lives in the controller. APs are &ldquo;thin&rdquo; — they transmit RF and forward all traffic to the controller:</p>
+<pre tabindex="0"><code>[AP] ──CAPWAP data tunnel──→ [WLC] → Core Switch → Network
+[AP] ──CAPWAP data tunnel──→ [WLC]
+[AP] ──CAPWAP data tunnel──→ [WLC]
+</code></pre><p><strong>CAPWAP (Control and Provisioning of Wireless Access Points)</strong> is the protocol between APs and the controller. It carries:</p>
+<ul>
+<li><strong>Control plane:</strong> AP registration, configuration, RF management, roaming decisions</li>
+<li><strong>Data plane:</strong> Client traffic (in centralized mode, all client data hairpins through the controller)</li>
+</ul>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>Centralized visibility into all clients and traffic</li>
+<li>Seamless roaming within the controller domain — client state stays on the controller, not the AP</li>
+<li>Consistent policy enforcement — every client goes through the same controller</li>
+</ul>
+<p><strong>Disadvantages:</strong></p>
+<ul>
+<li>WLC is a single point of failure (requires HA pair)</li>
+<li>Traffic hairpin adds latency and controller bandwidth consumption</li>
+<li>Scalability requires adding controller capacity</li>
+</ul>
+<p><strong>Where it&rsquo;s used:</strong> Large campus deployments with on-premise infrastructure, regulated environments requiring local traffic control.</p>
+<h3 id="model-2-distributed--flexconnect">Model 2: Distributed / FlexConnect</h3>
+<p>A hybrid model where the controller manages configuration and policy, but client data traffic is switched locally at the AP or branch switch:</p>
+<pre tabindex="0"><code>Central Site:               Branch Site:
+[WLC]                       [AP FlexConnect] ──local switch──→ LAN
+  │                          │
+  └──WAN──────────CAPWAP control only──
+</code></pre><p>In FlexConnect mode, the AP handles local switching for VLANs that are available at the branch. If the WAN link fails, clients can still access local resources — the AP operates in standalone mode with cached configuration.</p>
+<p><strong>Where it&rsquo;s used:</strong> Branch offices connected via WAN to a central WLC, where hairpinning all traffic to headquarters would be impractical.</p>
+<h3 id="model-3-cloud-managed">Model 3: Cloud-Managed</h3>
+<p>Management and configuration are handled by a cloud platform. Data traffic goes directly to the local network — no hairpin:</p>
+<pre tabindex="0"><code>[AP] ──data──→ Local switch → Network (direct, no controller hairpin)
+[AP] ──management tunnel──→ Cloud Dashboard (config, monitoring)
+</code></pre><p>APs communicate with the cloud for configuration and telemetry, but client data never leaves the local network. If cloud connectivity is lost, APs continue operating with their last known configuration.</p>
+<p><strong>Where it&rsquo;s used:</strong> Multi-site organizations without dedicated network staff at each site, SMB environments, retail chains, hospitality.</p>
+<hr>
+<h2 id="cisco-wireless-architecture">Cisco Wireless Architecture</h2>
+<h3 id="traditional-cisco-wlc--lightweight-aps">Traditional: Cisco WLC + Lightweight APs</h3>
+<p>The classic Cisco enterprise wireless architecture:</p>
+<ul>
+<li><strong>Cisco WLC (Wireless LAN Controller):</strong> Hardware appliances (9800 series, formerly 5508, 8540) or virtual (C9800-CL). Manages up to thousands of APs depending on model.</li>
+<li><strong>Lightweight APs (LWAPP/CAPWAP):</strong> Cisco Catalyst and Aironet APs operating in CAPWAP mode.</li>
+</ul>
+<p><strong>HA configuration:</strong> WLC pairs operate in Active-Standby with Stateful Switchover (SSO). Client sessions are mirrored to the standby WLC — failover is transparent to clients.</p>
+<pre tabindex="0"><code>WLC-Primary (Active)  ←── HA link ──→  WLC-Secondary (Standby)
+       │                                       │
+    [APs]                                   [APs]
+</code></pre><p><strong>Mobility Group:</strong> Multiple WLCs in the same campus form a Mobility Group — clients can roam between APs managed by different WLCs with seamless Layer 2 or Layer 3 mobility.</p>
+<h3 id="modern-cisco-dna-center--catalyst-center">Modern: Cisco DNA Center + Catalyst Center</h3>
+<p>Cisco&rsquo;s current enterprise platform:</p>
+<ul>
+<li><strong>Catalyst Center (formerly DNA Center):</strong> The management, automation, and assurance platform. Runs on dedicated hardware appliances.</li>
+<li><strong>SD-Access:</strong> Cisco&rsquo;s campus fabric technology — wireless and wired ports participate in the same policy fabric with consistent VLAN and SGT (Security Group Tag) assignment.</li>
+<li><strong>AI-enhanced RRM:</strong> Radio Resource Management using machine learning to optimize channel and power assignments based on historical RF data.</li>
+</ul>
+<p><strong>ISE integration:</strong> Cisco Identity Services Engine provides 802.1X authentication and policy. When a client connects, ISE authenticates it, assigns a security group, and DNA Center enforces the corresponding network policy — consistent whether the client is on wired or wireless.</p>
+<h3 id="cisco-meraki-cloud-managed-simplicity">Cisco Meraki: Cloud-Managed Simplicity</h3>
+<p>Meraki is Cisco&rsquo;s cloud-managed platform — designed for operational simplicity over enterprise flexibility:</p>
+<ul>
+<li><strong>Dashboard:</strong> All management through a single cloud portal. Zero on-premise controller hardware.</li>
+<li><strong>Auto-provisioning:</strong> New APs are automatically provisioned when connected — no manual configuration.</li>
+<li><strong>Integrated security:</strong> Meraki APs include built-in IDS/IPS, content filtering, and traffic analytics.</li>
+<li><strong>MX integration:</strong> Meraki wireless integrates natively with Meraki MX security appliances — unified policy across wired and wireless.</li>
+</ul>
+<p><strong>Trade-offs:</strong> Less flexible than Catalyst Center for complex enterprise policies. All management requires cloud connectivity (APs continue operating if offline, but cannot be configured). Subscription-based licensing.</p>
+<p><strong>Where Meraki excels:</strong> Multi-site retail, hospitality, SMB, branch offices — any scenario where operational simplicity and fast deployment matter more than deep enterprise customization.</p>
+<hr>
+<h2 id="aruba-wireless-architecture">Aruba Wireless Architecture</h2>
+<h3 id="traditional-aruba-mobility-master--mobility-controllers">Traditional: Aruba Mobility Master + Mobility Controllers</h3>
+<p>Aruba&rsquo;s on-premise enterprise architecture:</p>
+<ul>
+<li><strong>Mobility Master (MM):</strong> The top-level management and orchestration platform. Does not forward data traffic — purely control plane.</li>
+<li><strong>Mobility Controllers (MC):</strong> Distributed controllers that handle AP management, client authentication, and data forwarding for their local APs.</li>
+<li><strong>APs:</strong> Aruba access points in &ldquo;campus AP&rdquo; mode, connected to their assigned controller.</li>
+</ul>
+<pre tabindex="0"><code>[Mobility Master]
+        │
+   ┌────┴────┐
+[MC-1]     [MC-2]      ← Distributed controllers
+  │           │
+[APs]       [APs]
+</code></pre><p><strong>The Mobility Master hierarchy</strong> separates management complexity from data plane scale. The MM handles global policy, firmware management, and RF planning. Controllers handle local AP management and client data. This architecture scales well for large, multi-building campuses.</p>
+<p><strong>Cluster mobility:</strong> Controllers in the same cluster share client state. Roaming between APs on different controllers in the same cluster is seamless — the client&rsquo;s authentication and session move with it.</p>
+<h3 id="modern-aruba-cx--aos-10">Modern: Aruba CX + AOS 10</h3>
+<p>Aruba&rsquo;s current architecture (AOS 10) shifts toward a distributed, fabric-integrated model:</p>
+<ul>
+<li>APs have more local intelligence — authentication and policy enforcement can happen at the AP without controller involvement for every packet</li>
+<li>Integration with Aruba CX switching fabric for unified wired/wireless policy</li>
+<li>Aruba Central as the management plane — cloud-based, replacing on-premise Mobility Master for many deployments</li>
+</ul>
+<h3 id="aruba-central-cloud-managed-enterprise">Aruba Central: Cloud-Managed Enterprise</h3>
+<p>Unlike Cisco Meraki (designed for simplicity), Aruba Central is positioned as enterprise-grade cloud management:</p>
+<ul>
+<li>Full enterprise policy capabilities available through cloud management</li>
+<li>AI-powered network insights and anomaly detection</li>
+<li>ClearPass integration for 802.1X authentication (cloud-connected, not just on-premise)</li>
+<li>Support for very large deployments (thousands of APs, hundreds of sites)</li>
+</ul>
+<p><strong>ClearPass integration</strong> is Aruba&rsquo;s strongest differentiator: a dedicated NAC platform that handles 802.1X, device profiling, guest portal, posture assessment, and dynamic VLAN assignment. ClearPass integrates with Active Directory, LDAP, and third-party MDM systems for comprehensive identity-based network access.</p>
+<hr>
+<h2 id="roaming-architecture-the-critical-design-decisions">Roaming Architecture: The Critical Design Decisions</h2>
+<h3 id="layer-2-roaming">Layer 2 Roaming</h3>
+<p>The client moves from AP-1 to AP-2, both in the same VLAN and managed by the same controller. The client&rsquo;s IP address doesn&rsquo;t change. Roaming is fast and transparent.</p>
+<pre tabindex="0"><code>AP-1 (VLAN 10) ──→ Client roams ──→ AP-2 (VLAN 10)
+Same subnet, same controller, client IP unchanged
+</code></pre><h3 id="layer-3-roaming">Layer 3 Roaming</h3>
+<p>The client moves between subnets — different VLANs on different controllers or buildings. Without special handling, the client would need a new IP address, breaking active sessions.</p>
+<p>Enterprise controllers handle Layer 3 roaming through a <strong>mobility tunnel</strong> — the original controller (the &ldquo;anchor&rdquo;) maintains the client&rsquo;s original IP address and tunnels traffic to/from the client&rsquo;s current controller (the &ldquo;foreign&rdquo;):</p>
+<pre tabindex="0"><code>Client connects to AP-1 (Building A, VLAN 10, Controller-1)
+Client roams to AP-2   (Building B, VLAN 20, Controller-2)
+
+Controller-2 (foreign) ──mobility tunnel──→ Controller-1 (anchor)
+Client IP: still 192.168.10.x from VLAN 10
+Session: uninterrupted
+</code></pre><p>This adds overhead — traffic for the roaming client must traverse the inter-controller tunnel. For most applications, this is negligible. For latency-sensitive applications (VoIP, real-time video), minimize the anchor-to-foreign tunnel length.</p>
+<h3 id="fast-roaming-80211rkv">Fast Roaming: 802.11r/k/v</h3>
+<p>As covered in the standards article, enterprise deployments should enable all three fast roaming protocols. From the controller perspective:</p>
+<ul>
+<li><strong>802.11r:</strong> The controller pre-authenticates the client with the target AP before the client disconnects from the current AP. Requires controller-level coordination.</li>
+<li><strong>802.11k:</strong> The controller provides neighbor AP information to clients. Clients use this to make better roaming decisions.</li>
+<li><strong>802.11v:</strong> The controller can suggest or request that a client roam to a specific AP — useful for load balancing and sticky client management.</li>
+</ul>
+<p><strong>Opportunistic Key Caching (OKC):</strong> For networks using WPA2-Enterprise (802.1X), OKC allows the client to re-use a cached PMK (Pairwise Master Key) when roaming to a new AP, avoiding a full 802.1X re-authentication. Reduces roaming time significantly in 802.1X networks.</p>
+<hr>
+<h2 id="radio-resource-management">Radio Resource Management</h2>
+<p>Enterprise controllers continuously optimize the RF environment through Radio Resource Management (RRM):</p>
+<h3 id="transmit-power-control">Transmit Power Control</h3>
+<p>The controller monitors RSSI (signal strength) between APs. If an AP detects strong signals from many neighbors, it reduces its transmit power — maintaining coverage while reducing interference with adjacent cells.</p>
+<p><strong>Coverage hole detection:</strong> If a client reports poor RSSI, the controller can increase the AP&rsquo;s transmit power to compensate. This avoids coverage gaps but must be balanced against interference with neighboring APs.</p>
+<h3 id="dynamic-channel-assignment">Dynamic Channel Assignment</h3>
+<p>The controller scans the RF environment and assigns channels to minimize co-channel interference:</p>
+<ul>
+<li>APs report neighbor AP signals and client interference</li>
+<li>The controller builds an RF topology map</li>
+<li>Channels are assigned to maximize separation between same-channel APs</li>
+</ul>
+<p>In Cisco, this is <strong>RRM (Radio Resource Management)</strong>. In Aruba, it&rsquo;s <strong>ARM (Adaptive Radio Management)</strong>. Both operate autonomously, though they benefit from manual override for known RF challenges.</p>
+<h3 id="client-load-balancing">Client Load Balancing</h3>
+<p>When multiple APs cover the same area (overlapping cells), the controller can distribute clients across APs:</p>
+<ul>
+<li>Steer new clients to the less-loaded AP when both are within range</li>
+<li>Move clients from overloaded APs to less-loaded neighbors</li>
+</ul>
+<p>This requires careful tuning — aggressive load balancing causes clients to roam unnecessarily.</p>
+<hr>
+<h2 id="ha-and-redundancy-in-controller-architecture">HA and Redundancy in Controller Architecture</h2>
+<h3 id="wlc-ha-cisco">WLC HA (Cisco)</h3>
+<p>Cisco 9800 WLCs support <strong>High Availability SSO (Stateful Switchover)</strong>:</p>
+<pre tabindex="0"><code>WLC-Active ──RP (Redundancy Port)──→ WLC-Standby
+     │                                    │
+Configuration mirrored                Client sessions mirrored
+</code></pre><p>When the active WLC fails, the standby takes over with full client session state — clients do not reconnect. APs maintain their CAPWAP tunnels; the transition is transparent.</p>
+<p><strong>N+1 redundancy:</strong> In large deployments, multiple WLCs share the AP load. If one fails, its APs re-register to remaining WLCs. Requires configuring AP fallback priorities.</p>
+<h3 id="aruba-controller-ha">Aruba Controller HA</h3>
+<p>Aruba supports <strong>Active-Active</strong> cluster configurations where multiple controllers share the AP and client load:</p>
+<pre tabindex="0"><code>[MC-1] ←─ cluster ─→ [MC-2] ←─ cluster ─→ [MC-3]
+  │                     │                     │
+[APs]                 [APs]                 [APs]
+</code></pre><p>If MC-1 fails, its APs distribute to MC-2 and MC-3. Client sessions are maintained through the cluster state sharing.</p>
+<h3 id="cloud-management-resilience">Cloud Management Resilience</h3>
+<p>Cloud-managed APs (Meraki, Aruba Central) continue operating during cloud connectivity loss:</p>
+<ul>
+<li>APs retain last-known configuration</li>
+<li>Clients can connect and roam normally</li>
+<li>Management operations (configuration changes, monitoring) require cloud connectivity</li>
+</ul>
+<p>For environments requiring guaranteed management access regardless of internet connectivity, on-premise controller architecture remains more appropriate.</p>
+<hr>
+<h2 id="integration-with-identity-systems">Integration with Identity Systems</h2>
+<h3 id="cisco-ise-integration">Cisco ISE Integration</h3>
+<p>For deployments using Cisco ISE for 802.1X:</p>
+<pre tabindex="0"><code>Client connects to WiFi
+      ↓
+AP sends RADIUS request to ISE (via WLC)
+      ↓
+ISE authenticates against Active Directory
+      ↓
+ISE returns: VLAN assignment + Security Group Tag
+      ↓
+WLC applies policy: client placed in correct VLAN
+      ↓
+DNA Center enforces SGT-based policy end-to-end
+</code></pre><p>ISE posture assessment can also check device compliance (AV status, OS patch level) before granting full network access — identical behavior for wired and wireless clients.</p>
+<h3 id="aruba-clearpass-integration">Aruba ClearPass Integration</h3>
+<p>ClearPass provides equivalent capabilities for Aruba deployments:</p>
+<ul>
+<li>802.1X authentication via RADIUS</li>
+<li>MAC Authentication Bypass (MAB) for devices without 802.1X supplicants</li>
+<li>Device profiling — identifying device type (phone, laptop, printer, IoT) based on DHCP, HTTP User-Agent, and CDP/LLDP signals</li>
+<li>Guest portal — self-registration or sponsor-approval workflows</li>
+<li>Dynamic VLAN and role assignment based on user identity, device type, and posture</li>
+</ul>
+<p>ClearPass&rsquo;s <strong>OnGuard</strong> agent performs posture assessment — checking that corporate laptops have current AV, required patches, and approved software before granting network access.</p>
+<hr>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li>Controller architecture determines roaming quality, policy consistency, and operational complexity — not just management convenience.</li>
+<li><strong>Centralized WLC</strong> provides seamless roaming and consistent policy at the cost of traffic hairpin and single-point-of-failure risk (mitigated with HA).</li>
+<li><strong>Cloud management</strong> (Meraki, Aruba Central) offers operational simplicity and multi-site scale without on-premise hardware.</li>
+<li><strong>Fast roaming (802.11r/k/v + OKC)</strong> must be enabled at the controller level for voice and video applications — the default configuration is rarely optimal.</li>
+<li><strong>ISE/ClearPass integration</strong> transforms wireless from &ldquo;a network&rdquo; into &ldquo;an identity-aware policy enforcement point&rdquo; — consistent behavior for wired and wireless, all based on who and what is connecting.</li>
+</ul>
+<hr>
+<h2 id="this-series">This Series</h2>
+<ul>
+<li>📖 <a href="/en/technology/enterprise-wifi-architecture-complete-guide/">Enterprise WiFi Architecture Overview</a> ← Start here</li>
+<li>📡 <a href="/en/technology/wifi-80211-standards-wifi4-wifi5-wifi6/">802.11 Standards Deep Dive</a></li>
+<li>🏨 <a href="/en/technology/wifi-design-smb-hotel-medical/">WiFi Design for SMB, Hotels, and Medical Practices</a></li>
+<li>🔐 <a href="/en/technology/wifi-security-wpa3-8021x-site-survey/">WiFi Security: WPA3, 802.1X, Rogue AP, Site Survey</a></li>
+</ul>
+<h2 id="related-articles">Related Articles</h2>
+<ul>
+<li>🔐 <a href="/en/technology/identity-based-microsegmentation-8021x/">802.1X Identity-Based Architecture in the Field</a> — Deep dive on 802.1X deployment</li>
+<li>🏗️ <a href="/en/architecture/it-infrastructure-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a> — Systems thinking for wireless</li>
+<li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">Monitoring Done Right</a> — Monitoring wireless infrastructure proactively</li>
+</ul>
+]]></content:encoded></item><item><title>F5 GTM &amp; GSLB Deep Dive: Global Traffic Management and DNS Failover</title><link>https://barashhelvadzhaoglu.com/en/technology/f5-gtm-deep-dive/</link><pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/f5-gtm-deep-dive/</guid><description>F5 GTM (BIG-IP DNS) deep dive — Wide IPs, iQuery, topology routing, TTL strategy, multi-DC failover, and active-active vs active-standby patterns.</description><content:encoded><![CDATA[<h1 id="f5-gtm--gslb-deep-dive-global-traffic-management-and-dns-failover">F5 GTM &amp; GSLB Deep Dive: Global Traffic Management and DNS Failover</h1>
 <p>This article is part of the F5 BIG-IP series.</p>
 <blockquote>
 <p><strong>New to F5?</strong> Start with the platform overview first: <a href="/en/technology/f5-bigip-application-delivery-platform-overview/">F5 BIG-IP Is Not a Load Balancer — It&rsquo;s an Application Delivery Platform</a></p>
@@ -3983,6 +4396,307 @@ This version expands the architectural foundation for the series.</p>
 <li><strong>Substack:</strong> <a href="https://substack.com/@barashhelvadzhaoglu">Technical Notes &amp; Insights</a> — <em>Subscribe for in-depth network security and architecture articles.</em></li>
 <li><strong>Email:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></li>
 </ul>
+]]></content:encoded></item><item><title>Cisco Collaboration Support &amp; Managed Services</title><link>https://barashhelvadzhaoglu.com/en/services/cisco-collaboration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/services/cisco-collaboration/</guid><description>Remote managed services for Cisco Collaboration infrastructure. CUCM, IP telephony, Jabber, Webex, and video conferencing support. From €50/month.</description><content:encoded><![CDATA[<h1 id="cisco-collaboration-support--managed-services">Cisco Collaboration Support &amp; Managed Services</h1>
+<p>Your Cisco Collaboration infrastructure runs your business communication — IP phones, video conferencing, Jabber, Webex. When it breaks, work stops. When it&rsquo;s poorly managed, it becomes a hidden cost center.</p>
+<p>With <strong>10+ years</strong> of hands-on experience across dozens of Cisco Collaboration deployments — banking, manufacturing, aviation, petrochemical — I provide remote managed services, support, and new installations for organizations that need a specialist without the cost of a full-time engineer.</p>
+<blockquote>
+<p>💬 <strong>Free technical consultation:</strong> <a href="https://wa.me/4916098665971">WhatsApp</a> or <a href="mailto:info@barashhelvadzhaoglu.com">Email</a></p>
+</blockquote>
+<hr>
+<h2 id="what-i-support">What I Support</h2>
+<h3 id="-cisco-unified-communications-manager-cucm">📞 Cisco Unified Communications Manager (CUCM)</h3>
+<p>Full lifecycle management of your CallManager infrastructure:</p>
+<ul>
+<li>Day-to-day administration — users, extensions, dial plans, hunt groups</li>
+<li>Troubleshooting call quality issues, registration failures, SIP trunk problems</li>
+<li><strong>CUCM version upgrades</strong> (8.x → 14.x) with zero service interruption</li>
+<li>License management and compliance monitoring</li>
+<li>Backup configuration and disaster recovery planning</li>
+</ul>
+<h3 id="-cisco-jabber--webex">💬 Cisco Jabber &amp; Webex</h3>
+<ul>
+<li>Jabber deployment and configuration for desktop and mobile</li>
+<li><strong>Expressway Edge/Core</strong> setup for VPN-less external access</li>
+<li>Webex App integration with on-premise CUCM (Hybrid deployment)</li>
+<li>MRA (Mobile and Remote Access) troubleshooting</li>
+<li>User onboarding and training support</li>
+</ul>
+<h3 id="-video-conferencing">📹 Video Conferencing</h3>
+<ul>
+<li>Cisco Room systems (Webex Room Kit, Board series) deployment and management</li>
+<li>Multipoint conferencing setup</li>
+<li>Integration with Microsoft Teams and Zoom via interoperability gateways</li>
+<li>Scheduled maintenance and firmware updates</li>
+</ul>
+<h3 id="-supporting-infrastructure">🔧 Supporting Infrastructure</h3>
+<ul>
+<li><strong>Unity Connection (CUC):</strong> Voicemail, auto-attendant, IVR configuration</li>
+<li><strong>IM &amp; Presence:</strong> Status, federation, persistent chat</li>
+<li><strong>SIP Trunk management:</strong> Provider integration, codec negotiation, failover</li>
+<li><strong>Voice gateways:</strong> MGCP, H.323, SIP gateway configuration</li>
+</ul>
+<hr>
+<h2 id="service-models">Service Models</h2>
+<h3 id="managed-services-monthly">Managed Services (Monthly)</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Package</th>
+          <th>Coverage</th>
+          <th>Price</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Basic</strong></td>
+          <td>Monitoring + incident response + 4 hrs/month administration</td>
+          <td>From €50/month</td>
+      </tr>
+      <tr>
+          <td><strong>Standard</strong></td>
+          <td>Basic + proactive maintenance + SIP trunk management + 8 hrs/month</td>
+          <td>From €150/month</td>
+      </tr>
+      <tr>
+          <td><strong>Premium</strong></td>
+          <td>Standard + upgrades + DR planning + unlimited incidents</td>
+          <td>From €299/month</td>
+      </tr>
+  </tbody>
+</table>
+<p><em>Pricing scales with environment size. Custom quotes for 50+ user environments.</em></p>
+<h3 id="project-based-work">Project-Based Work</h3>
+<ul>
+<li>New CUCM cluster installation and configuration</li>
+<li>Migration from legacy PBX to Cisco IP telephony</li>
+<li>CUCM version upgrade (planning, execution, rollback plan)</li>
+<li>Expressway / MRA deployment</li>
+<li>Jabber rollout for remote workforce</li>
+</ul>
+<p><strong>Typical project investment: €500 – €5,000</strong> depending on scope and user count.</p>
+<hr>
+<h2 id="field-experience">Field Experience</h2>
+<p>I have managed Cisco Collaboration environments for:</p>
+<ul>
+<li><strong>Petrochemical company</strong> — 3,000+ Jabber users, 5 consolidated CUCM clusters</li>
+<li><strong>Marine transport operator</strong> — full CUCM upgrade + SIP trunk migration</li>
+<li><strong>Aviation enterprise</strong> — 6-year operational management, Expressway deployment</li>
+<li><strong>Textile manufacturer</strong> — 3-country, 5-office CUCM deployment</li>
+<li><strong>Law firm</strong> — CUCM upgrade + security integration</li>
+</ul>
+<p>All delivered remotely or with minimal on-site visits.</p>
+<hr>
+<h2 id="remote-first-delivery">Remote-First Delivery</h2>
+<p>All services are delivered <strong>remotely</strong> via secure admin access. No on-site visits required for most tasks. This makes it cost-effective for organizations anywhere.</p>
+<hr>
+<h2 id="get-in-touch">Get in Touch</h2>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<p><strong>📧 Email:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
+<p><em>Free 30-minute technical consultation. No commitment required.</em></p>
+]]></content:encoded></item><item><title>Enterprise WiFi &amp; Network Design Services</title><link>https://barashhelvadzhaoglu.com/en/services/wifi-network-design/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/services/wifi-network-design/</guid><description>Enterprise wireless design, network architecture, LAN/WAN planning and office infrastructure projects. Cisco and Aruba specialist. Project-based or managed.</description><content:encoded><![CDATA[<h1 id="enterprise-wifi--network-design">Enterprise WiFi &amp; Network Design</h1>
+<p>Poor wireless coverage, network bottlenecks, and ad-hoc infrastructure decisions accumulate into real business problems — dropped video calls, slow file transfers, security gaps, and projects that fail at go-live.</p>
+<p>With <strong>11+ years</strong> of enterprise network and wireless experience — designing and deploying Cisco and Aruba environments across hotels, factories, campuses, warehouses, and corporate offices — I provide network design, wireless planning, and infrastructure project delivery for organizations that need it done right.</p>
+<blockquote>
+<p>💬 <strong>Free technical consultation:</strong> <a href="https://wa.me/4916098665971">WhatsApp</a> or <a href="mailto:info@barashhelvadzhaoglu.com">Email</a></p>
+</blockquote>
+<hr>
+<h2 id="what-i-do">What I Do</h2>
+<h3 id="-enterprise-wireless-wlan-design">📡 Enterprise Wireless (WLAN) Design</h3>
+<ul>
+<li><strong>RF planning and coverage design</strong> — heat mapping, capacity planning, AP placement</li>
+<li>Cisco and Aruba wireless architecture (controller-based and cloud-managed)</li>
+<li>High-density environments: hotels, conference centers, warehouses, hospitals</li>
+<li>Guest and staff network segmentation (VLAN, SSID isolation)</li>
+<li>Roaming optimization and seamless mobility</li>
+<li><strong>Ekahau site survey</strong> for predictive and post-deployment validation</li>
+</ul>
+<h3 id="-network-architecture--lanwan-design">🏗️ Network Architecture &amp; LAN/WAN Design</h3>
+<ul>
+<li>Campus and branch network design (Core / Distribution / Access)</li>
+<li>VLAN design and segmentation strategy</li>
+<li>Routing protocol selection and configuration (OSPF, BGP, EIGRP)</li>
+<li>SD-WAN design and implementation</li>
+<li>High availability and redundancy planning</li>
+</ul>
+<h3 id="-office-build--relocation-projects">🏢 Office Build &amp; Relocation Projects</h3>
+<ul>
+<li>New office network infrastructure from scratch</li>
+<li>Office relocation — network cutover planning and execution</li>
+<li>Structured cabling coordination</li>
+<li>Integration with existing corporate infrastructure</li>
+</ul>
+<h3 id="-cloud-managed-networking">☁️ Cloud-Managed Networking</h3>
+<ul>
+<li>Cisco Meraki — full-stack cloud management (MX/MS/MR)</li>
+<li>Aruba Central — cloud management for campus and branch</li>
+<li>Centralized monitoring, alerting, and lifecycle management</li>
+</ul>
+<hr>
+<h2 id="supported-platforms">Supported Platforms</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Category</th>
+          <th>Technologies</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Wireless</strong></td>
+          <td>Cisco Catalyst Center (DNA), Aruba Mobility Master, Aruba Central, Meraki</td>
+      </tr>
+      <tr>
+          <td><strong>Switching</strong></td>
+          <td>Cisco Catalyst 9000, Aruba, HP Comware</td>
+      </tr>
+      <tr>
+          <td><strong>Routing</strong></td>
+          <td>Cisco, Fortinet SD-WAN, BGP/OSPF</td>
+      </tr>
+      <tr>
+          <td><strong>Site Survey</strong></td>
+          <td>Ekahau</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="project-experience">Project Experience</h2>
+<ul>
+<li><strong>Hotel</strong> — 200+ Aruba APs, 50+ switches, 99.9% uptime, guest/staff segmentation</li>
+<li><strong>Factory (dairy company)</strong> — full wired network redesign, 802.1X, zero production downtime</li>
+<li><strong>Warehouse</strong> — 200+ APs, high-density coverage, dual WAN VPN redundancy</li>
+<li><strong>Education campus</strong> — full Cisco Meraki deployment (MX/MS/MR/MV), cloud-managed</li>
+<li><strong>Global packaging manufacturer</strong> — multi-site wireless renewal, Cisco ISE NAC integration</li>
+<li><strong>German international company</strong> — Aruba Mobility Master + ClearPass, Ekahau site survey</li>
+</ul>
+<hr>
+<h2 id="how-projects-work">How Projects Work</h2>
+<ol>
+<li><strong>Discovery</strong> — I review your current infrastructure, understand requirements, identify gaps</li>
+<li><strong>Design</strong> — High-Level Design (HLD) and Low-Level Design (LLD) with bill of materials</li>
+<li><strong>Delivery</strong> — Remote configuration + on-site coordination as needed</li>
+<li><strong>Handover</strong> — Full documentation, training for your team</li>
+</ol>
+<p><strong>Typical project investment: €800 – €8,000</strong> depending on scope and site count.</p>
+<hr>
+<h2 id="get-in-touch">Get in Touch</h2>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<p><strong>📧 Email:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
+<p><em>Free 30-minute technical consultation. No commitment required.</em></p>
+]]></content:encoded></item><item><title>Firewall Management &amp; Security Audit Services</title><link>https://barashhelvadzhaoglu.com/en/services/firewall-management/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/services/firewall-management/</guid><description>Remote firewall management, rule optimization, VPN setup, and security audits. Fortinet, Palo Alto, Cisco, Check Point. From €50/month or project-based.</description><content:encoded><![CDATA[<h1 id="firewall-management--security-audit-services">Firewall Management &amp; Security Audit Services</h1>
+<p>Your firewall is your first line of defense — but only if it&rsquo;s properly configured and actively maintained. Bloated rule sets, outdated firmware, misconfigured VPN tunnels, and unmonitored open ports are silent risks that accumulate over time.</p>
+<p>With <strong>11+ years</strong> of enterprise firewall experience across banking, manufacturing, and critical infrastructure — managing 100+ physical and virtual firewalls simultaneously — I provide remote firewall management, optimization, and security audits for organizations that need a specialist without the overhead of a full-time engineer.</p>
+<blockquote>
+<p>💬 <strong>Free technical consultation:</strong> <a href="https://wa.me/4916098665971">WhatsApp</a> or <a href="mailto:info@barashhelvadzhaoglu.com">Email</a></p>
+</blockquote>
+<hr>
+<h2 id="what-i-do">What I Do</h2>
+<h3 id="-firewall-rule-management">🔥 Firewall Rule Management</h3>
+<ul>
+<li>Review and cleanup of existing rule sets — removing redundant, shadowed, or overly permissive rules</li>
+<li>Policy optimization for performance and security</li>
+<li>Change management and documentation of every modification</li>
+<li>Compliance reporting (ISO 27001, PCI DSS, NIS2)</li>
+</ul>
+<h3 id="-vpn-setup--optimization">🔒 VPN Setup &amp; Optimization</h3>
+<ul>
+<li><strong>IPsec site-to-site VPN</strong> — new setup, troubleshooting, failover configuration</li>
+<li><strong>SSL-VPN</strong> — remote access for users (Fortinet FortiClient, Palo Alto GlobalProtect, Cisco AnyConnect)</li>
+<li>VPN tunnel monitoring and alerting</li>
+<li>Multi-vendor VPN interoperability</li>
+</ul>
+<h3 id="-security-audits">🛡️ Security Audits</h3>
+<ul>
+<li>Open port analysis and unnecessary service exposure</li>
+<li>Firewall policy review against best-practice frameworks (OWASP, CIS)</li>
+<li>Log analysis for anomalous traffic patterns</li>
+<li>Actionable remediation report with prioritized findings</li>
+</ul>
+<h3 id="-firmware--patch-management">⚙️ Firmware &amp; Patch Management</h3>
+<ul>
+<li>Scheduled firmware updates with rollback planning</li>
+<li>Vulnerability assessment for known CVEs in your firewall platform</li>
+<li>Zero-downtime update execution for HA environments</li>
+</ul>
+<hr>
+<h2 id="supported-platforms">Supported Platforms</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Vendor</th>
+          <th>Products</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Fortinet</strong></td>
+          <td>FortiGate, FortiManager, FortiAnalyzer</td>
+      </tr>
+      <tr>
+          <td><strong>Palo Alto Networks</strong></td>
+          <td>NGFW, Panorama, Prisma Access</td>
+      </tr>
+      <tr>
+          <td><strong>Cisco</strong></td>
+          <td>Firepower, ASA, FMC</td>
+      </tr>
+      <tr>
+          <td><strong>Check Point</strong></td>
+          <td>Security Gateway, SmartConsole</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="service-models">Service Models</h2>
+<h3 id="managed-services-monthly">Managed Services (Monthly)</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Package</th>
+          <th>Coverage</th>
+          <th>Price</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Basic</strong></td>
+          <td>Monthly rule review + incident response + 4 hrs admin</td>
+          <td>From €50/month</td>
+      </tr>
+      <tr>
+          <td><strong>Standard</strong></td>
+          <td>Basic + firmware management + VPN monitoring + 8 hrs</td>
+          <td>From €150/month</td>
+      </tr>
+      <tr>
+          <td><strong>Premium</strong></td>
+          <td>Standard + quarterly audit + compliance reports + unlimited</td>
+          <td>From €299/month</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="project-based">Project-Based</h3>
+<ul>
+<li>Firewall audit and cleanup: <strong>from €500</strong></li>
+<li>VPN setup (site-to-site or remote access): <strong>from €300</strong></li>
+<li>Firewall migration (vendor to vendor): <strong>from €1,500</strong></li>
+<li>Full security audit with report: <strong>from €800</strong></li>
+</ul>
+<hr>
+<h2 id="field-experience">Field Experience</h2>
+<ul>
+<li><strong>Vakıfbank</strong> — managed 100+ Palo Alto and Fortinet firewalls, centralized via Panorama and FortiManager. Reduced false-positive alerts by 40% through rulebase optimization.</li>
+<li><strong>30+ firewall migrations</strong> across banking, pharma, manufacturing — zero downtime, all documented.</li>
+<li><strong>Firewall policy automation</strong> — reduced policy implementation time from 3 hours to 10 minutes using Python scripts integrated with ITSM.</li>
+</ul>
+<hr>
+<h2 id="remote-first-delivery">Remote-First Delivery</h2>
+<p>All services delivered <strong>remotely</strong> via secure access. No on-site visits required for routine management and audits.</p>
+<hr>
+<h2 id="get-in-touch">Get in Touch</h2>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<p><strong>📧 Email:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
+<p><em>Free 30-minute technical consultation. No commitment required.</em></p>
 ]]></content:encoded></item><item><title>Network Security &amp; Infrastructure Consulting for Enterprises</title><link>https://barashhelvadzhaoglu.com/en/services/network-security-consulting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/services/network-security-consulting/</guid><description>High-end network security consulting in Munich. Firewall migration, Zero Trust architecture, and network automation. Free initial technical consultation.</description><content:encoded><![CDATA[<h1 id="network-security--infrastructure-consulting-for-enterprises">Network Security &amp; Infrastructure Consulting for Enterprises</h1>
 <p>In today&rsquo;s complex threat landscape, your network infrastructure must do more than just &ldquo;work&rdquo;—it must be resilient, transparent, and secure. With over 11 years of experience as a <strong>Senior Network Security Engineer</strong>, I modernize your critical infrastructure according to global standards.</p>
 <p>Based in Munich, I bring expertise from high-security sectors like banking and industry directly to your business.</p>

@@ -1,4 +1,356 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>IT Hizmetleri ve Danışmanlık on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/services/</link><description>Recent content in IT Hizmetleri ve Danışmanlık on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><atom:link href="https://barashhelvadzhaoglu.com/tr/services/index.xml" rel="self" type="application/rss+xml"/><item><title>Kurumsal Ağ Güvenliği ve Altyapı Danışmanlığı</title><link>https://barashhelvadzhaoglu.com/tr/services/network-security-consulting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/services/network-security-consulting/</guid><description>Kurumsal ağ güvenliği danışmanlığı. Firewall migrasyonu, Zero Trust mimarisi ve ağ otomasyonu. Uzaktan destek. Ücretsiz teknik ön görüşme.</description><content:encoded><![CDATA[<h1 id="kurumsal-ağ-güvenliği-ve-altyapı-danışmanlığı">Kurumsal Ağ Güvenliği ve Altyapı Danışmanlığı</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>IT Hizmetleri ve Danışmanlık on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/services/</link><description>Recent content in IT Hizmetleri ve Danışmanlık on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Fri, 17 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/services/index.xml" rel="self" type="application/rss+xml"/><item><title>Aruba ClearPass — NAC Kurulum, 802.1X ve Yönetilen Hizmetler</title><link>https://barashhelvadzhaoglu.com/tr/services/aruba-clearpass/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/services/aruba-clearpass/</guid><description>Bağımsız Aruba ClearPass danışmanlığı. NAC kurulum, 802.1X yapılandırma, misafir yönetimi ve sürekli destek. Uzaktan hizmet. Ücretsiz teknik ön görüşme.</description><content:encoded><![CDATA[<h1 id="aruba-clearpass--bağımsız-nac-danışmanlığı-ve-desteği">Aruba ClearPass — Bağımsız NAC Danışmanlığı ve Desteği</h1>
+<p>Aruba ClearPass mevcut en yetenekli Ağ Erişim Kontrolü platformlarından biridir — ancak esnekliği aynı zamanda doğru uygulamayı karmaşık kılar. Laboratuvarda çalışan bir ClearPass dağıtımı üretimde sıklıkla bozulur: 802.1X desteklemeyen cihazlar, eski yazıcılar, BYOD sertifika hataları veya mobil cihazlarda beklendiği gibi çalışmayan misafir portal yönlendirmeleri.</p>
+<p>Aruba kablosuz, Cisco switching ve HP altyapısıyla birlikte ClearPass&rsquo;i sahaya sürmek için <strong>11+ yıllık</strong> kurumsal NAC deneyimimle; tam zamanlı uzman istihdam etmeden ClearPass uzmanlığına ihtiyaç duyan kuruluşlara bağımsız danışmanlık, dağıtım desteği ve yönetilen hizmetler sunuyorum.</p>
+<blockquote>
+<p>💬 <strong>Ücretsiz teknik ön görüşme:</strong> <a href="https://wa.me/4916098665971">WhatsApp</a> veya <a href="mailto:info@barashhelvadzhaoglu.com">E-posta</a></p>
+</blockquote>
+<hr>
+<h2 id="hangi-hizmetleri-sunuyorum">Hangi Hizmetleri Sunuyorum?</h2>
+<h3 id="-clearpass-kurulum-ve-yapılandırma">🔐 ClearPass Kurulum ve Yapılandırma</h3>
+<ul>
+<li>Sıfırdan ClearPass kurulumları — Publisher/Subscriber boyutlandırma, HA yapılandırması</li>
+<li>Kimlik doğrulama kaynakları — AD, LDAP, SQL, yerel kullanıcı veritabanı</li>
+<li>Hizmet yapılandırması — 802.1X kablolu, 802.1X kablosuz, MAC Authentication (MAB)</li>
+<li>Uygulama profilleri — VLAN değişikliği, ACL, Rol ataması, CoA</li>
+<li>Onboard — BYOD self-servis cihaz sağlama, sertifika düzenleme</li>
+<li>Guest — özelleştirilmiş misafir portalleri, sponsor akışı</li>
+<li>OnGuard — endpoint sağlık kontrolleri, posture değerlendirme</li>
+<li>Aruba Mobility Master, Aruba Central, Cisco Catalyst, HP switch entegrasyonu</li>
+</ul>
+<h3 id="-8021x-proje-danışmanlığı">📶 802.1X Proje Danışmanlığı</h3>
+<ul>
+<li>Dağıtım öncesi altyapı denetimi</li>
+<li>AD/LDAP entegrasyonu — makine kimlik doğrulama, grup eşleme</li>
+<li>Sertifika stratejisi — EAP-TLS vs PEAP, dahili CA entegrasyonu</li>
+<li>MAB istisna yönetimi — yazıcılar, kameralar, IoT cihazlar, VoIP telefonlar</li>
+<li>Aşamalı dağıtım planlaması — monitor modundan zorunlu kılmaya</li>
+<li>Kablosuz 802.1X — WPA3-Enterprise, EAP-TLS, dinamik VLAN ataması</li>
+</ul>
+<h3 id="-clearpass-upgrade-ve-migrasyon">⚙️ ClearPass Upgrade ve Migrasyon</h3>
+<ul>
+<li>ClearPass versiyon upgradeleri</li>
+<li>Cisco ISE veya diğer NAC platformlarından ClearPass&rsquo;e migrasyon</li>
+<li>Upgrade öncesi sağlık kontrolleri, veritabanı yedeği, sonrası doğrulama</li>
+</ul>
+<h3 id="-sürekli-clearpass-yönetimi">🛡️ Sürekli ClearPass Yönetimi</h3>
+<ul>
+<li>Politika incelemesi ve optimizasyonu</li>
+<li>Sertifika izleme ve yenileme</li>
+<li>Yeni cihaz türü onboarding</li>
+<li>Yamalama ve hotfix uygulaması</li>
+<li>Aylık operasyonel raporlar</li>
+</ul>
+<hr>
+<h2 id="referans-deneyimlerim">Referans Deneyimlerim</h2>
+<ul>
+<li><strong>Alman uluslararası şirket</strong> — Aruba Mobility Master + ClearPass, HQ ve depoda 802.1X, Ekahau site survey</li>
+<li><strong>Dondurma üretim grubu</strong> — Aruba Central bulut yönetimi + fabrika ve şubede ClearPass</li>
+<li><strong>Global ambalaj üreticisi</strong> — çok satıcılı ortamda Cisco ISE ile birlikte ClearPass</li>
+</ul>
+<p>Sertifikalar: <strong>ACMP</strong> (Aruba Certified Mobility Professional), <strong>ACCP</strong> (Aruba Certified ClearPass Professional)</p>
+<hr>
+<h2 id="hizmet-modelleri">Hizmet Modelleri</h2>
+<h3 id="proje-bazlı">Proje Bazlı</h3>
+<ul>
+<li>ClearPass dağıtımı (kablolu + kablosuz 802.1X): <strong>€1.500&rsquo;den</strong></li>
+<li>ClearPass upgrade: <strong>€500&rsquo;den</strong></li>
+<li>Misafir portal tasarımı ve yapılandırması: <strong>€400&rsquo;den</strong></li>
+<li>Odaklanmış sorun giderme: <strong>€300&rsquo;den</strong></li>
+<li>Politika denetimi: <strong>€400&rsquo;den</strong></li>
+</ul>
+<h3 id="bakım-anlaşması-aylık">Bakım Anlaşması (Aylık)</h3>
+<ul>
+<li>ClearPass izleme, sertifika yönetimi, politika güncellemeleri: <strong>Aylık €120&rsquo;den</strong></li>
+</ul>
+<hr>
+<h2 id="iletişime-geçin">İletişime Geçin</h2>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<p><strong>📧 E-posta:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
+<p><em>30 dakikalık ücretsiz teknik ön görüşme. Taahhüt gerekmez.</em></p>
+]]></content:encoded></item><item><title>Cisco ISE &amp; 802.1X NAC — Kurulum, Destek ve Proje Danışmanlığı</title><link>https://barashhelvadzhaoglu.com/tr/services/cisco-ise-8021x/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/services/cisco-ise-8021x/</guid><description>Bağımsız Cisco ISE ve 802.1X danışmanlığı. NAC kurulum, yapılandırma, upgrade ve sürekli destek. Uzaktan hizmet. Ücretsiz teknik ön görüşme.</description><content:encoded><![CDATA[<h1 id="cisco-ise--8021x-nac--bağımsız-danışmanlık-ve-destek">Cisco ISE &amp; 802.1X NAC — Bağımsız Danışmanlık ve Destek</h1>
+<p>Ağ Erişim Kontrolü, kurumsal güvenliğin en karmaşık alanlarından biridir — ve en sık yanlış uygulanan. Cisco ISE projeleri teknoloji yüzünden değil, çevresindeki yapılar yüzünden başarısız olur: Active Directory yapısı, PKI tasarımı, sertifika yaşam döngüsü, VLAN mimarisi ve gerçek kullanıcılara, gerçek cihazlara ve gerçek yardım masası baskısına dayanması gereken endpoint posture politikaları.</p>
+<p>Bankacılık, üretim ve kurumsal ortamlarda Cisco ISE&rsquo;yi sahaya sürmek ve işletmek için <strong>11+ yıllık</strong> uygulamalı deneyimimle; tam zamanlı uzman istihdam etmeden ISE uzmanlığına ihtiyaç duyan kuruluşlara bağımsız danışmanlık, dağıtım desteği ve sürekli yönetilen hizmetler sunuyorum.</p>
+<blockquote>
+<p>💬 <strong>Ücretsiz teknik ön görüşme:</strong> <a href="https://wa.me/4916098665971">WhatsApp</a> veya <a href="mailto:info@barashhelvadzhaoglu.com">E-posta</a></p>
+</blockquote>
+<hr>
+<h2 id="hangi-hizmetleri-sunuyorum">Hangi Hizmetleri Sunuyorum?</h2>
+<h3 id="-cisco-ise-kurulum-ve-yapılandırma">🔐 Cisco ISE Kurulum ve Yapılandırma</h3>
+<ul>
+<li>Sıfırdan ISE kurulumları — mimari tasarım, node boyutlandırma, HA yapılandırması</li>
+<li>Policy Service Node (PSN), Administration Node (PAN), Monitoring Node (MnT) kurulumu</li>
+<li>Kimlik doğrulama politikaları — MAB, dot1x, WebAuth</li>
+<li>Yetkilendirme politikaları — VLAN ataması, dACL, Security Group Tags (SGT)</li>
+<li>Misafir yaşam döngüsü yönetimi — sponsorlu, kendi kendine kayıt, hotspot portalleri</li>
+<li>BYOD onboarding — cihaz kaydı, sertifika sağlama</li>
+<li>Profiling — cihaz sınıflandırma, endpoint görünürlüğü</li>
+<li>Active Directory, LDAP, PKI entegrasyonu</li>
+</ul>
+<h3 id="-8021x-proje-danışmanlığı">📶 802.1X Proje Danışmanlığı</h3>
+<p>802.1X başarısı ağ konfigürasyonunun çok ötesine geçer. Kuruluşların tüm yığını aşmasına yardımcı oluyorum:</p>
+<ul>
+<li><strong>AD &amp; GPO hazırlığı</strong> — makine kimlik doğrulama, sertifika otomatik kayıt</li>
+<li><strong>PKI tasarımı</strong> — dahili CA, sertifika şablonları, BYOD için SCEP/EST</li>
+<li><strong>Switch yapılandırması</strong> — Cisco Catalyst, Aruba, HP — dot1x port yapılandırması, MAB fallback</li>
+<li><strong>Kablosuz entegrasyon</strong> — WPA3-Enterprise, EAP-TLS, PEAP-MSCHAPv2</li>
+<li><strong>Monitor mod → Düşük etki → Kapalı mod</strong> — aşamalı dağıtım planlaması</li>
+<li><strong>Sorun giderme</strong> — RADIUS debug, ISE canlı loglar, switch port teşhis</li>
+</ul>
+<h3 id="-cisco-ise-upgrade-ve-migrasyon">⚙️ Cisco ISE Upgrade ve Migrasyon</h3>
+<ul>
+<li>ISE versiyon upgrade planlaması ve uygulaması (2.x → 3.x → 3.3)</li>
+<li>HA dağıtımları için sıfır kesinti upgrade stratejisi</li>
+<li>Upgrade öncesi sağlık kontrolleri ve sonrası doğrulama</li>
+<li>Eski NAC çözümlerinden migrasyon (Bradford, Aruba ClearPass → ISE)</li>
+</ul>
+<h3 id="-sürekli-ise-yönetimi">🛡️ Sürekli ISE Yönetimi</h3>
+<ul>
+<li>Politika incelemesi ve optimizasyonu</li>
+<li>Sertifika yaşam döngüsü yönetimi</li>
+<li>Yeni endpoint türü onboarding — IoT cihazları, yazıcılar, kameralar</li>
+<li>ISE yamalama ve hotfix uygulaması</li>
+<li>Aylık sağlık raporları</li>
+</ul>
+<hr>
+<h2 id="referans-deneyimlerim">Referans Deneyimlerim</h2>
+<ul>
+<li><strong>Vakıfbank</strong> — çift veri merkezinde 15.000+ kullanıcı için tam ISE dağıtımı, AD, PKI ve Cisco DNA Center ile entegre</li>
+<li><strong>Cisco DNA Center SD-Access</strong> — Türkiye ve Mısır&rsquo;da fabric genelinde 802.1X için politika motoru olarak ISE — <strong>Cisco Success Story olarak yayınlandı</strong></li>
+<li><strong>Global ambalaj üreticisi</strong> — fabrika ortamlarında Cisco ISE, AnyConnect ve Catalyst 9000 ile çok siteli 802.1X dağıtımı</li>
+</ul>
+<hr>
+<h2 id="bağımsız-danışmanlık--üretici-bağımsızlığı">Bağımsız Danışmanlık — Üretici Bağımsızlığı</h2>
+<p>Hiçbir üreticiye bağlı değilim. Ortamınız için ne işe yarıyorsa onu öneriyorum — Cisco ISE, Aruba ClearPass veya hibrit yaklaşım olsun.</p>
+<hr>
+<h2 id="hizmet-modelleri">Hizmet Modelleri</h2>
+<h3 id="proje-bazlı">Proje Bazlı</h3>
+<ul>
+<li>802.1X mimari tasarım ve dağıtım: <strong>€1.500&rsquo;den</strong></li>
+<li>ISE upgrade (node başına): <strong>€500&rsquo;den</strong></li>
+<li>Odaklanmış sorun giderme: <strong>€300&rsquo;den</strong></li>
+<li>Politika denetimi ve temizleme: <strong>€500&rsquo;den</strong></li>
+</ul>
+<h3 id="bakım-anlaşması-aylık">Bakım Anlaşması (Aylık)</h3>
+<ul>
+<li>ISE izleme, sertifika yönetimi, politika güncellemeleri: <strong>Aylık €150&rsquo;den</strong></li>
+</ul>
+<hr>
+<h2 id="iletişime-geçin">İletişime Geçin</h2>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<p><strong>📧 E-posta:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
+<p><em>30 dakikalık ücretsiz teknik ön görüşme. Taahhüt gerekmez.</em></p>
+]]></content:encoded></item><item><title>Cisco Collaboration Destek &amp; Yönetilen Hizmetler</title><link>https://barashhelvadzhaoglu.com/tr/services/cisco-collaboration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/services/cisco-collaboration/</guid><description>Cisco Collaboration altyapınız için uzaktan yönetilen hizmetler. CUCM, IP telefonu, Jabber, Webex destek ve bakım anlaşması. Aylık €50&amp;#39;dan başlayan fiyatlar.</description><content:encoded><![CDATA[<h1 id="cisco-collaboration-altyapınız-için-uzaktan-destek-ve-bakım">Cisco Collaboration Altyapınız İçin Uzaktan Destek ve Bakım</h1>
+<p>Şirketinizin iletişim altyapısı Cisco&rsquo;nun omurgasında çalışıyor — IP telefonlar, Jabber, Webex, video konferans sistemleri. Bu altyapı doğru yönetilmediğinde görünmez bir maliyet merkezi haline gelir; bir sorun çıktığında ise tüm iletişim durur.</p>
+<p><strong>10+ yıl</strong> boyunca bankacılık, üretim, havacılık, petrokimya ve hizmet sektörlerinde onlarca Cisco Collaboration projesinde çalıştım. Tam zamanlı bir mühendis maliyeti olmadan, bakım anlaşmasıyla uzaktan profesyonel destek alabilirsiniz.</p>
+<blockquote>
+<p>💬 <strong>Ücretsiz teknik ön görüşme:</strong> <a href="https://wa.me/4916098665971">WhatsApp</a> veya <a href="mailto:info@barashhelvadzhaoglu.com">E-posta</a></p>
+</blockquote>
+<hr>
+<h2 id="hangi-hizmetleri-sunuyorum">Hangi Hizmetleri Sunuyorum?</h2>
+<h3 id="-cisco-unified-communications-manager-cucm--callmanager">📞 Cisco Unified Communications Manager (CUCM / CallManager)</h3>
+<p>CallManager altyapınızın tam yaşam döngüsü yönetimi:</p>
+<ul>
+<li>Günlük yönetim — kullanıcı, dahili hat, arama planı, hunt group</li>
+<li>Çağrı kalitesi sorunları, kayıt hataları, SIP trunk problemlerinin giderilmesi</li>
+<li><strong>CUCM versiyon yükseltme</strong> (8.x → 10.x → 11.x → 14.x) — sıfır kesinti ile</li>
+<li>Lisans yönetimi ve uyumluluk takibi</li>
+<li>Yedekleme ve felaket kurtarma planlaması</li>
+</ul>
+<h3 id="-cisco-jabber--webex">💬 Cisco Jabber &amp; Webex</h3>
+<ul>
+<li>Jabber kurulumu ve yapılandırması — masaüstü ve mobil</li>
+<li><strong>Expressway Edge/Core</strong> — VPN gerektirmeyen dış erişim kurulumu</li>
+<li>Webex ile şirket içi CUCM hibrit entegrasyonu</li>
+<li>MRA (Mobil ve Uzaktan Erişim) sorun giderme</li>
+<li>Kullanıcı açılışı ve teknik destek</li>
+</ul>
+<h3 id="-video-konferans-sistemleri">📹 Video Konferans Sistemleri</h3>
+<ul>
+<li>Cisco Room sistemleri (Webex Room Kit, Board serisi) kurulum ve yönetim</li>
+<li>Çok noktadan konferans altyapısı kurulumu</li>
+<li>Microsoft Teams ve Zoom birlikte çalışabilirlik entegrasyonu</li>
+<li>Periyodik bakım ve firmware güncellemeleri</li>
+</ul>
+<h3 id="-destek-altyapısı">🔧 Destek Altyapısı</h3>
+<ul>
+<li><strong>Unity Connection:</strong> Sesli mesaj, otomatik karşılama, IVR yapılandırması</li>
+<li><strong>IM &amp; Presence:</strong> Durum bilgisi, federasyon, kalıcı sohbet</li>
+<li><strong>SIP Trunk yönetimi:</strong> Sağlayıcı entegrasyonu, codec müzakeresi, failover</li>
+<li><strong>Ses gateway&rsquo;leri:</strong> MGCP, H.323, SIP gateway yapılandırması</li>
+</ul>
+<hr>
+<h2 id="hizmet-modelleri">Hizmet Modelleri</h2>
+<h3 id="bakım-anlaşması-aylık">Bakım Anlaşması (Aylık)</h3>
+<p>Altyapınızı sizin yerinize ben yönetiyorum — siz işinize odaklanın.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Paket</th>
+          <th>Kapsam</th>
+          <th>Fiyat</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Basic</strong></td>
+          <td>İzleme + olay müdahalesi + aylık 4 saat yönetim</td>
+          <td>Aylık €50&rsquo;dan</td>
+      </tr>
+      <tr>
+          <td><strong>Standard</strong></td>
+          <td>Basic + proaktif bakım + SIP trunk yönetimi + aylık 8 saat</td>
+          <td>Aylık €150&rsquo;dan</td>
+      </tr>
+      <tr>
+          <td><strong>Premium</strong></td>
+          <td>Standard + versiyon yükseltme + DR planlaması + sınırsız olay</td>
+          <td>Aylık €299&rsquo;dan</td>
+      </tr>
+  </tbody>
+</table>
+<p><em>Fiyatlandırma ortam büyüklüğüne göre değişir. 50+ kullanıcılı ortamlar için özel teklif sunulur.</em></p>
+<h3 id="proje-bazlı-çalışma">Proje Bazlı Çalışma</h3>
+<ul>
+<li>Yeni CUCM cluster kurulumu ve yapılandırması</li>
+<li>Eski PBX&rsquo;ten Cisco IP telefon sistemine geçiş</li>
+<li>CUCM versiyon yükseltme (planlama, uygulama, geri alma planı)</li>
+<li>Expressway / MRA kurulumu</li>
+<li>Uzak çalışanlar için Jabber dağıtımı</li>
+</ul>
+<p><strong>Tipik proje yatırımı: €500 – €5.000</strong> — kapsam ve kullanıcı sayısına göre değişir.</p>
+<hr>
+<h2 id="referans-projelerimden">Referans Projelerimden</h2>
+<ul>
+<li><strong>Petrokimya şirketi</strong> — 3.000+ Jabber kullanıcısı, 5 CUCM cluster konsolidasyonu</li>
+<li><strong>Deniz taşımacılığı firması</strong> — tam CUCM yükseltmesi + SIP trunk migrasyonu</li>
+<li><strong>Havacılık şirketi</strong> — 6 yıl operasyonel yönetim, Expressway kurulumu</li>
+<li><strong>Tekstil üreticisi</strong> — 3 ülke, 5 ofis CUCM dağıtımı</li>
+<li><strong>Hukuk bürosu</strong> — CUCM yükseltme + güvenlik entegrasyonu</li>
+</ul>
+<p>Projelerin tamamı uzaktan veya minimum yerinde ziyaretle teslim edildi.</p>
+<hr>
+<h2 id="uzaktan-hizmet-modeli">Uzaktan Hizmet Modeli</h2>
+<p>Tüm hizmetler <strong>uzaktan</strong>, güvenli yönetim erişimi üzerinden sunulmaktadır. Çoğu destek ve yönetim görevi için yerinde ziyaret gerekmez. Bu model, Türkiye&rsquo;nin herhangi bir şehrindeki şirketlerle çalışmamı mümkün kılıyor.</p>
+<hr>
+<h2 id="iletişime-geçin">İletişime Geçin</h2>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<p><strong>📧 E-posta:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
+<p><em>30 dakikalık ücretsiz teknik ön görüşme. Taahhüt gerekmez.</em></p>
+]]></content:encoded></item><item><title>Firewall Yönetimi &amp; Güvenlik Denetimi Hizmetleri</title><link>https://barashhelvadzhaoglu.com/tr/services/firewall-management/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/services/firewall-management/</guid><description>Uzaktan firewall yönetimi, kural optimizasyonu, VPN kurulumu ve güvenlik denetimi. Fortinet, Palo Alto, Cisco, Check Point. Aylık €50&amp;#39;dan veya proje bazlı.</description><content:encoded><![CDATA[<h1 id="firewall-yönetimi--güvenlik-denetimi">Firewall Yönetimi &amp; Güvenlik Denetimi</h1>
+<p>Firewall&rsquo;unuz ilk savunma hattınız — ama yalnızca doğru yapılandırıldığında ve aktif olarak bakımı yapıldığında. Şişirilmiş kural setleri, eski firmware sürümleri, yanlış yapılandırılmış VPN tünelleri ve izlenmeyen açık portlar zamanla biriken sessiz risklerdir.</p>
+<p><strong>11+ yıllık</strong> kurumsal firewall deneyimimle — bankacılık, üretim ve kritik altyapılarda aynı anda 100+ fiziksel ve sanal firewall yönettim — tam zamanlı mühendis maliyeti olmadan uzaktan firewall yönetimi, optimizasyon ve güvenlik denetimi sunuyorum.</p>
+<blockquote>
+<p>💬 <strong>Ücretsiz teknik ön görüşme:</strong> <a href="https://wa.me/4916098665971">WhatsApp</a> veya <a href="mailto:info@barashhelvadzhaoglu.com">E-posta</a></p>
+</blockquote>
+<hr>
+<h2 id="hangi-hizmetleri-sunuyorum">Hangi Hizmetleri Sunuyorum?</h2>
+<h3 id="-firewall-kural-yönetimi">🔥 Firewall Kural Yönetimi</h3>
+<ul>
+<li>Mevcut kural setlerinin gözden geçirilmesi ve temizlenmesi — gereksiz, gölgede kalan veya fazla izin veren kuralların kaldırılması</li>
+<li>Performans ve güvenlik için kural optimizasyonu</li>
+<li>Her değişikliğin değişiklik yönetimi ve dokümantasyonu</li>
+<li>Uyumluluk raporlaması (ISO 27001, PCI DSS, NIS2)</li>
+</ul>
+<h3 id="-vpn-kurulumu--optimizasyonu">🔒 VPN Kurulumu &amp; Optimizasyonu</h3>
+<ul>
+<li><strong>IPsec site-to-site VPN</strong> — yeni kurulum, sorun giderme, failover yapılandırması</li>
+<li><strong>SSL-VPN</strong> — uzak kullanıcı erişimi (Fortinet FortiClient, Palo Alto GlobalProtect, Cisco AnyConnect)</li>
+<li>VPN tünel izleme ve alarm yönetimi</li>
+<li>Çok satıcılı VPN birlikte çalışabilirliği</li>
+</ul>
+<h3 id="-güvenlik-denetimleri">🛡️ Güvenlik Denetimleri</h3>
+<ul>
+<li>Açık port analizi ve gereksiz servis maruziyeti</li>
+<li>En iyi uygulama çerçevelerine karşı firewall politika incelemesi</li>
+<li>Anormal trafik kalıpları için log analizi</li>
+<li>Önceliklendirilmiş bulgularla eyleme geçirilebilir iyileştirme raporu</li>
+</ul>
+<h3 id="-firmware--yama-yönetimi">⚙️ Firmware &amp; Yama Yönetimi</h3>
+<ul>
+<li>Geri alma planlaması ile zamanlanmış firmware güncellemeleri</li>
+<li>Firewall platformunuzdaki bilinen CVE&rsquo;ler için güvenlik açığı değerlendirmesi</li>
+<li>HA ortamlarında sıfır kesinti ile güncelleme uygulaması</li>
+</ul>
+<hr>
+<h2 id="desteklenen-platformlar">Desteklenen Platformlar</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Üretici</th>
+          <th>Ürünler</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Fortinet</strong></td>
+          <td>FortiGate, FortiManager, FortiAnalyzer</td>
+      </tr>
+      <tr>
+          <td><strong>Palo Alto Networks</strong></td>
+          <td>NGFW, Panorama, Prisma Access</td>
+      </tr>
+      <tr>
+          <td><strong>Cisco</strong></td>
+          <td>Firepower, ASA, FMC</td>
+      </tr>
+      <tr>
+          <td><strong>Check Point</strong></td>
+          <td>Security Gateway, SmartConsole</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="hizmet-modelleri">Hizmet Modelleri</h2>
+<h3 id="bakım-anlaşması-aylık">Bakım Anlaşması (Aylık)</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Paket</th>
+          <th>Kapsam</th>
+          <th>Fiyat</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Basic</strong></td>
+          <td>Aylık kural gözden geçirme + olay müdahalesi + 4 saat yönetim</td>
+          <td>Aylık €50&rsquo;dan</td>
+      </tr>
+      <tr>
+          <td><strong>Standard</strong></td>
+          <td>Basic + firmware yönetimi + VPN izleme + 8 saat</td>
+          <td>Aylık €150&rsquo;dan</td>
+      </tr>
+      <tr>
+          <td><strong>Premium</strong></td>
+          <td>Standard + üç aylık denetim + uyumluluk raporları + sınırsız</td>
+          <td>Aylık €299&rsquo;dan</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="proje-bazlı">Proje Bazlı</h3>
+<ul>
+<li>Firewall denetimi ve temizleme: <strong>€500&rsquo;dan</strong></li>
+<li>VPN kurulumu (site-to-site veya uzaktan erişim): <strong>€300&rsquo;dan</strong></li>
+<li>Firewall migrasyonu (üreticiler arası): <strong>€1.500&rsquo;dan</strong></li>
+<li>Raporlu tam güvenlik denetimi: <strong>€800&rsquo;dan</strong></li>
+</ul>
+<hr>
+<h2 id="referans-deneyimlerim">Referans Deneyimlerim</h2>
+<ul>
+<li><strong>Vakıfbank</strong> — 100+ Palo Alto ve Fortinet firewall yönettim, Panorama ve FortiManager ile merkezileştirdim. Kural seti optimizasyonu ile yanlış alarm oranını %40 azalttım.</li>
+<li><strong>30+ firewall migrasyonu</strong> — bankacılık, ilaç, üretim sektörlerinde sıfır kesinti, tamamı belgelenmiş.</li>
+<li><strong>Firewall kural otomasyonu</strong> — ITSM ile entegre Python scriptleri sayesinde kural uygulama süresini 3 saatten 10 dakikaya indirdim.</li>
+</ul>
+<hr>
+<h2 id="uzaktan-hizmet-modeli">Uzaktan Hizmet Modeli</h2>
+<p>Tüm hizmetler <strong>uzaktan</strong>, güvenli erişim üzerinden sunulmaktadır. Rutin yönetim ve denetimler için yerinde ziyaret gerekmez. Türkiye&rsquo;nin herhangi bir şehrindeki şirketlerle çalışabiliyorum.</p>
+<hr>
+<h2 id="iletişime-geçin">İletişime Geçin</h2>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<p><strong>📧 E-posta:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
+<p><em>30 dakikalık ücretsiz teknik ön görüşme. Taahhüt gerekmez.</em></p>
+]]></content:encoded></item><item><title>Kurumsal Ağ Güvenliği ve Altyapı Danışmanlığı</title><link>https://barashhelvadzhaoglu.com/tr/services/network-security-consulting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/services/network-security-consulting/</guid><description>Kurumsal ağ güvenliği danışmanlığı. Firewall migrasyonu, Zero Trust mimarisi ve ağ otomasyonu. Uzaktan destek. Ücretsiz teknik ön görüşme.</description><content:encoded><![CDATA[<h1 id="kurumsal-ağ-güvenliği-ve-altyapı-danışmanlığı">Kurumsal Ağ Güvenliği ve Altyapı Danışmanlığı</h1>
 <p>Günümüzün karmaşık tehdit ortamında, ağ altyapınız sadece &ldquo;çalışıyor&rdquo; olmamalı; dayanıklı, şeffaf ve güvenli olmalıdır. <strong>Kıdemli Ağ Güvenliği Mühendisi</strong> olarak 11 yılı aşkın tecrübemle, kritik altyapınızı küresel standartlara göre modernize ediyorum.</p>
 <p>Münih merkezli olarak; bankacılık ve sanayi gibi yüksek güvenlikli sektörlerdeki uzmanlığımı doğrudan işletmenize getiriyorum.</p>
 <blockquote>
@@ -86,6 +438,98 @@
 <p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
 <p><strong>📧 E-posta:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
 <p><em>İlk görüşme (30 dk) ücretsiz ve bağlayıcı değildir. Sonrasında şeffaf ve net bir teklif alırsınız.</em></p>
+]]></content:encoded></item><item><title>Kurumsal WiFi &amp; Ağ Tasarımı Hizmetleri</title><link>https://barashhelvadzhaoglu.com/tr/services/wifi-network-design/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/services/wifi-network-design/</guid><description>Kurumsal kablosuz ağ tasarımı, LAN/WAN mimarisi ve ofis altyapı projeleri. Cisco ve Aruba uzmanı. Proje bazlı veya bakım anlaşmasıyla uzaktan destek.</description><content:encoded><![CDATA[<h1 id="kurumsal-wifi--ağ-tasarımı">Kurumsal WiFi &amp; Ağ Tasarımı</h1>
+<p>Zayıf kablosuz kapsama, ağ darboğazları ve geçici altyapı kararları zamanla gerçek iş sorunlarına dönüşür — düşen video görüşmeleri, yavaş dosya transferleri, güvenlik açıkları ve canlıya geçişte başarısız olan projeler.</p>
+<p><strong>11+ yıllık</strong> kurumsal ağ ve kablosuz deneyimimle — oteller, fabrikalar, kampüsler, depolar ve kurumsal ofislerde Cisco ve Aruba ortamları tasarlayıp devreye aldım — işini doğru yaptırmak isteyen kuruluşlara ağ tasarımı, kablosuz planlama ve altyapı proje teslimatı sunuyorum.</p>
+<blockquote>
+<p>💬 <strong>Ücretsiz teknik ön görüşme:</strong> <a href="https://wa.me/4916098665971">WhatsApp</a> veya <a href="mailto:info@barashhelvadzhaoglu.com">E-posta</a></p>
+</blockquote>
+<hr>
+<h2 id="hangi-hizmetleri-sunuyorum">Hangi Hizmetleri Sunuyorum?</h2>
+<h3 id="-kurumsal-kablosuz-ağ-wlan-tasarımı">📡 Kurumsal Kablosuz Ağ (WLAN) Tasarımı</h3>
+<ul>
+<li><strong>RF planlama ve kapsama tasarımı</strong> — ısı haritası, kapasite planlaması, AP yerleşimi</li>
+<li>Cisco ve Aruba kablosuz mimarisi (controller tabanlı ve bulut yönetimli)</li>
+<li>Yüksek yoğunluklu ortamlar: oteller, konferans merkezleri, depolar, hastaneler</li>
+<li>Misafir ve personel ağı segmentasyonu (VLAN, SSID izolasyonu)</li>
+<li>Sorunsuz dolaşım (roaming) optimizasyonu</li>
+<li><strong>Ekahau site survey</strong> — tahmine dayalı ve dağıtım sonrası doğrulama</li>
+</ul>
+<h3 id="-ağ-mimarisi--lanwan-tasarımı">🏗️ Ağ Mimarisi &amp; LAN/WAN Tasarımı</h3>
+<ul>
+<li>Kampüs ve şube ağ tasarımı (Core / Distribution / Access)</li>
+<li>VLAN tasarımı ve segmentasyon stratejisi</li>
+<li>Routing protokol seçimi ve yapılandırması (OSPF, BGP, EIGRP)</li>
+<li>SD-WAN tasarımı ve implementasyonu</li>
+<li>Yüksek erişilebilirlik ve yedeklilik planlaması</li>
+</ul>
+<h3 id="-ofis-kurulumu--taşıma-projeleri">🏢 Ofis Kurulumu &amp; Taşıma Projeleri</h3>
+<ul>
+<li>Sıfırdan yeni ofis ağ altyapısı</li>
+<li>Ofis taşıma — ağ geçiş planlaması ve uygulaması</li>
+<li>Mevcut kurumsal altyapıyla entegrasyon</li>
+</ul>
+<h3 id="-bulut-yönetimli-ağ">☁️ Bulut Yönetimli Ağ</h3>
+<ul>
+<li>Cisco Meraki — tam yığın bulut yönetimi (MX/MS/MR)</li>
+<li>Aruba Central — kampüs ve şube için bulut yönetimi</li>
+<li>Merkezi izleme, alarm ve yaşam döngüsü yönetimi</li>
+</ul>
+<hr>
+<h2 id="desteklenen-platformlar">Desteklenen Platformlar</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Kategori</th>
+          <th>Teknolojiler</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Kablosuz</strong></td>
+          <td>Cisco DNA Center, Aruba Mobility Master, Aruba Central, Meraki</td>
+      </tr>
+      <tr>
+          <td><strong>Switching</strong></td>
+          <td>Cisco Catalyst 9000, Aruba, HP Comware</td>
+      </tr>
+      <tr>
+          <td><strong>Routing</strong></td>
+          <td>Cisco, Fortinet SD-WAN, BGP/OSPF</td>
+      </tr>
+      <tr>
+          <td><strong>Site Survey</strong></td>
+          <td>Ekahau</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="referans-projelerimden">Referans Projelerimden</h2>
+<ul>
+<li><strong>Otel</strong> — 200+ Aruba AP, 50+ switch, %99,9 uptime, misafir/personel segmentasyonu</li>
+<li><strong>Fabrika (süt ürünleri)</strong> — tam kablolu ağ yeniden tasarımı, 802.1X, sıfır üretim kesintisi</li>
+<li><strong>Depo</strong> — 200+ AP, yüksek yoğunluklu kapsama, çift WAN VPN yedekliliği</li>
+<li><strong>Eğitim kampüsü</strong> — tam Cisco Meraki dağıtımı (MX/MS/MR/MV), bulut yönetimli</li>
+<li><strong>Global ambalaj üreticisi</strong> — çok siteli kablosuz yenileme, Cisco ISE NAC entegrasyonu</li>
+<li><strong>Alman uluslararası şirket</strong> — Aruba Mobility Master + ClearPass, Ekahau site survey</li>
+</ul>
+<hr>
+<h2 id="proje-süreci">Proje Süreci</h2>
+<ol>
+<li><strong>Keşif</strong> — mevcut altyapınızı inceliyorum, gereksinimleri anlıyorum, boşlukları tespit ediyorum</li>
+<li><strong>Tasarım</strong> — malzeme listeli HLD ve LLD</li>
+<li><strong>Teslimat</strong> — uzaktan yapılandırma + gerektiğinde yerinde koordinasyon</li>
+<li><strong>Devir</strong> — ekibiniz için tam dokümantasyon ve eğitim</li>
+</ol>
+<p><strong>Tipik proje yatırımı: €800 – €8.000</strong> — kapsam ve site sayısına göre değişir.</p>
+<hr>
+<h2 id="uzaktan-hizmet-modeli">Uzaktan Hizmet Modeli</h2>
+<p>Tasarım, yapılandırma ve proje yönetimi tamamen <strong>uzaktan</strong> yapılabilir. Türkiye&rsquo;nin herhangi bir şehrindeki şirketlerle çalışabiliyorum. Fiziksel kurulum gerektiğinde yerel ekibinizle koordineli çalışıyorum.</p>
+<hr>
+<h2 id="iletişime-geçin">İletişime Geçin</h2>
+<p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/4916098665971">wa.me/4916098665971</a></p>
+<p><strong>📧 E-posta:</strong> <a href="mailto:info@barashhelvadzhaoglu.com">info@barashhelvadzhaoglu.com</a></p>
+<p><em>30 dakikalık ücretsiz teknik ön görüşme. Taahhüt gerekmez.</em></p>
 ]]></content:encoded></item><item><title>On-Site IT Care – İşletmeler İçin Yerinde IT Bakım Hizmeti</title><link>https://barashhelvadzhaoglu.com/tr/services/onsite-it-care/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/services/onsite-it-care/</guid><description>Münih&amp;#39;teki KOBİ&amp;#39;ler için profesyonel IT bakım hizmeti. WiFi, NAS, antivirus, kamera, UPS ve PC bakımı — tek muhatap.</description><content:encoded><![CDATA[<h1 id="on-site-it-care--işletmeniz-için-kapsamlı-it-bakım-hizmeti">On-Site IT Care – İşletmeniz İçin Kapsamlı IT Bakım Hizmeti</h1>
 <p>Siz işinize odaklanın — IT&rsquo;nizle ben ilgileneyim.</p>
 <p>Küçük ve orta ölçekli işletmelerin kendi IT departmanına ihtiyacı yok. Bir şey çalışmadığında gelen, bir arıza olmadan önce önlem alan ve ne yaptığını anlaşılır şekilde açıklayan güvenilir bir muhataba ihtiyaçları var.</p>

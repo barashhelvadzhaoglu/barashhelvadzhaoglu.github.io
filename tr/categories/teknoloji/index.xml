@@ -1,4 +1,240 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Teknoloji on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/categories/teknoloji/</link><description>Recent content in Teknoloji on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Wed, 15 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/categories/teknoloji/index.xml" rel="self" type="application/rss+xml"/><item><title>F5 GTM ve GSLB Deep Dive: Global Trafik Yönetimi ve DNS Failover</title><link>https://barashhelvadzhaoglu.com/tr/technology/f5-gtm-deep-dive/</link><pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/f5-gtm-deep-dive/</guid><description>F5 GTM (BIG-IP DNS) teknik inceleme — Wide IP, iQuery, topoloji routing, TTL stratejisi, çok DC failover ve aktif-aktif mimari desenleri.</description><content:encoded><![CDATA[<h1 id="f5-gtm-ve-gslb-deep-dive-global-trafik-yönetimi-ve-dns-failover">F5 GTM ve GSLB Deep Dive: Global Trafik Yönetimi ve DNS Failover</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Teknoloji on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/categories/teknoloji/</link><description>Recent content in Teknoloji on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Fri, 17 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/categories/teknoloji/index.xml" rel="self" type="application/rss+xml"/><item><title>Kurumsal WiFi Controller Mimarisi: Cisco ve Aruba WLAN Tasarımı</title><link>https://barashhelvadzhaoglu.com/tr/technology/wifi-controller/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/wifi-controller/</guid><description>Kurumsal kablosuz controller mimarileri — Cisco WLC ile DNA Center, Aruba Mobility Master ile Central, merkezi ve dağıtık tasarımlar.</description><content:encoded><![CDATA[<h1 id="kurumsal-wifi-controller-mimarisi-cisco-ve-aruba-wlan-tasarımı">Kurumsal WiFi Controller Mimarisi: Cisco ve Aruba WLAN Tasarımı</h1>
+<p>Bu yazı Kurumsal WiFi serisinin bir parçasıdır.</p>
+<blockquote>
+<p><strong>Kurumsal kablosuz ağa yeni misiniz?</strong> Genel bakışla başlayın: <a href="/tr/technology/kurumsal-wifi-mimarisi-tam-rehber/">Kurumsal WiFi Mimarisi: Standartlardan Deployment&rsquo;a</a></p>
+</blockquote>
+<hr>
+<h2 id="controller-mimarisi-neden-önemli">Controller Mimarisi Neden Önemli</h2>
+<p>Bir erişim noktası yalnızca bir radyo vericisidir. Onu kurumsal bir ağın parçası yapan — tutarlı politika, kesintisiz roaming, merkezi yönetim ve güvenlik entegrasyonu ile — arkasındaki controller mimarisiddir.</p>
+<p>Controller mimarisini yanlış kurarsanız şunları elde edersiniz:</p>
+<ul>
+<li>Binalar veya katlar arasında roaming başarısızlıkları</li>
+<li>Farklı AP gruplarında tutarsız güvenlik politikaları</li>
+<li>İstemci bağlantılarını yavaşlatan kimlik doğrulama darboğazları</li>
+<li>Rutin değişiklikleri çok adımlı operasyonlara dönüştüren yönetim karmaşıklığı</li>
+</ul>
+<p>Doğru kurarsanız, kablosuz ağ kablolu altyapının bir uzantısı gibi davranır — tutarlı, yönetilebilir ve kimlik ve güvenlik sistemleriyle entegre.</p>
+<hr>
+<h2 id="üç-mimari-model">Üç Mimari Model</h2>
+<h3 id="model-1-merkezi-controller-geleneksel">Model 1: Merkezi Controller (Geleneksel)</h3>
+<p>Tüm zeka controller&rsquo;da bulunur. AP&rsquo;ler &ldquo;ince&quot;dir — RF iletir ve tüm trafiği controller&rsquo;a yönlendirir:</p>
+<pre tabindex="0"><code>[AP] ──CAPWAP veri tüneli──→ [WLC] → Çekirdek Switch → Ağ
+[AP] ──CAPWAP veri tüneli──→ [WLC]
+[AP] ──CAPWAP veri tüneli──→ [WLC]
+</code></pre><p><strong>CAPWAP (Control and Provisioning of Wireless Access Points)</strong>, AP&rsquo;ler ile controller arasındaki protokoldür. Şunları taşır:</p>
+<ul>
+<li><strong>Kontrol düzlemi:</strong> AP kaydı, yapılandırma, RF yönetimi, roaming kararları</li>
+<li><strong>Veri düzlemi:</strong> İstemci trafiği (merkezi modda, tüm istemci verisi controller&rsquo;dan geçer)</li>
+</ul>
+<p><strong>Avantajlar:</strong></p>
+<ul>
+<li>Tüm istemciler ve trafik üzerinde merkezi görünürlük</li>
+<li>Controller alanı içinde kesintisiz roaming — istemci durumu controller&rsquo;da kalır, AP&rsquo;de değil</li>
+<li>Tutarlı politika uygulaması — her istemci aynı controller&rsquo;dan geçer</li>
+</ul>
+<p><strong>Dezavantajlar:</strong></p>
+<ul>
+<li>WLC tek hata noktasıdır (HA çifti gerektirir)</li>
+<li>Trafik hairpin gecikme ve controller bant genişliği tüketimi ekler</li>
+<li>Ölçeklendirme controller kapasitesi eklemeyi gerektirir</li>
+</ul>
+<p><strong>Kullanıldığı yer:</strong> Şirket içi altyapıya sahip büyük kampüs deployment&rsquo;ları, yerel trafik kontrolü gerektiren düzenlenmiş ortamlar.</p>
+<h3 id="model-2-dağıtık--flexconnect">Model 2: Dağıtık / FlexConnect</h3>
+<p>Controller&rsquo;ın yapılandırma ve politikayı yönettiği, ancak istemci veri trafiğinin AP&rsquo;de veya şube switch&rsquo;inde yerel olarak anahtarlandığı hibrit bir model:</p>
+<pre tabindex="0"><code>Merkezi Site:               Şube Sitesi:
+[WLC]                       [AP FlexConnect] ──yerel switch──→ LAN
+  │                          │
+  └──WAN──────────yalnızca CAPWAP kontrolü──
+</code></pre><p>FlexConnect modunda, AP şubede mevcut olan VLAN&rsquo;lar için yerel anahtarlama yapar. WAN bağlantısı başarısız olursa, istemciler yerel kaynaklara erişmeye devam edebilir — AP önbelleğe alınmış yapılandırmayla bağımsız modda çalışır.</p>
+<p><strong>Kullanıldığı yer:</strong> Tüm trafiği genel merkeze yönlendirmenin pratik olmayacağı, merkezi bir WLC&rsquo;ye WAN üzerinden bağlı şube ofisleri.</p>
+<h3 id="model-3-bulut-yönetimli">Model 3: Bulut Yönetimli</h3>
+<p>Yönetim ve yapılandırma bir bulut platformu tarafından yönetilir. Veri trafiği doğrudan yerel ağa gider — hairpin yok:</p>
+<pre tabindex="0"><code>[AP] ──veri──→ Yerel switch → Ağ (doğrudan, controller hairpin yok)
+[AP] ──yönetim tüneli──→ Bulut Panosu (yapılandırma, izleme)
+</code></pre><p>AP&rsquo;ler yapılandırma ve telemetri için bulutla iletişim kurar, ancak istemci verisi asla yerel ağı terk etmez. Bulut bağlantısı kesilirse, AP&rsquo;ler son bilinen yapılandırmalarıyla çalışmaya devam eder.</p>
+<p><strong>Kullanıldığı yer:</strong> Her sitede özel ağ personeli olmayan çok siteli organizasyonlar, KOBİ ortamları, perakende zincirleri, konaklama.</p>
+<hr>
+<h2 id="cisco-kablosuz-mimarisi">Cisco Kablosuz Mimarisi</h2>
+<h3 id="geleneksel-cisco-wlc--lightweight-apler">Geleneksel: Cisco WLC + Lightweight AP&rsquo;ler</h3>
+<p>Klasik Cisco kurumsal kablosuz mimarisi:</p>
+<ul>
+<li><strong>Cisco WLC (Wireless LAN Controller):</strong> Donanım cihazları (9800 serisi, eski 5508, 8540) veya sanal (C9800-CL). Modele bağlı olarak binlerce AP&rsquo;ye kadar yönetir.</li>
+<li><strong>Lightweight AP&rsquo;ler (LWAPP/CAPWAP):</strong> CAPWAP modunda çalışan Cisco Catalyst ve Aironet AP&rsquo;ler.</li>
+</ul>
+<p><strong>HA yapılandırması:</strong> WLC çiftleri, Stateful Switchover (SSO) ile Aktif-Yedek modunda çalışır. İstemci oturumları yedek WLC&rsquo;ye yansıtılır — failover istemcilere şeffaftır.</p>
+<pre tabindex="0"><code>WLC-Birincil (Aktif)  ←── HA bağlantısı ──→  WLC-İkincil (Yedek)
+       │                                              │
+    [AP&#39;ler]                                       [AP&#39;ler]
+</code></pre><p><strong>Mobilite Grubu:</strong> Aynı kampüsteki birden fazla WLC, Mobilite Grubu oluşturur — istemciler, farklı WLC&rsquo;ler tarafından yönetilen AP&rsquo;ler arasında kesintisiz Katman 2 veya Katman 3 mobilitesiyle dolaşabilir.</p>
+<h3 id="modern-cisco-dna-center--catalyst-center">Modern: Cisco DNA Center + Catalyst Center</h3>
+<p>Cisco&rsquo;nun mevcut kurumsal platformu:</p>
+<ul>
+<li><strong>Catalyst Center (eski adıyla DNA Center):</strong> Yönetim, otomasyon ve güvence platformu. Özel donanım cihazları üzerinde çalışır.</li>
+<li><strong>SD-Access:</strong> Cisco&rsquo;nun kampüs fabric teknolojisi — kablosuz ve kablolu portlar, tutarlı VLAN ve SGT (Security Group Tag) atamasıyla aynı politika fabric&rsquo;ine katılır.</li>
+<li><strong>AI geliştirilmiş RRM:</strong> Tarihsel RF verilerine dayalı kanal ve güç atamalarını optimize etmek için makine öğrenmesi kullanan Radyo Kaynak Yönetimi.</li>
+</ul>
+<p><strong>ISE entegrasyonu:</strong> Cisco Identity Services Engine, 802.1X kimlik doğrulaması ve politika sağlar. Bir istemci bağlandığında, ISE onu doğrular, bir güvenlik grubu atar ve DNA Center karşılık gelen ağ politikasını uygular — istemci kablolu veya kablosuz olsun tutarlı.</p>
+<h3 id="cisco-meraki-bulut-yönetimli-sadelik">Cisco Meraki: Bulut Yönetimli Sadelik</h3>
+<p>Meraki, Cisco&rsquo;nun kurumsal esneklik yerine operasyonel sadelik için tasarlanmış bulut yönetimli platformudur:</p>
+<ul>
+<li><strong>Pano:</strong> Tüm yönetim tek bir bulut portalı üzerinden. Sıfır şirket içi controller donanımı.</li>
+<li><strong>Otomatik sağlama:</strong> Yeni AP&rsquo;ler bağlandığında otomatik olarak sağlanır — manuel yapılandırma yok.</li>
+<li><strong>Entegre güvenlik:</strong> Meraki AP&rsquo;ler yerleşik IDS/IPS, içerik filtreleme ve trafik analitiği içerir.</li>
+<li><strong>MX entegrasyonu:</strong> Meraki kablosuz, Meraki MX güvenlik cihazlarıyla yerel olarak entegre olur — kablolu ve kablosuz arasında birleşik politika.</li>
+</ul>
+<p><strong>Takas noktaları:</strong> Karmaşık kurumsal politikalar için Catalyst Center&rsquo;dan daha az esnek. Tüm yönetim bulut bağlantısı gerektirir (AP&rsquo;ler çevrimdışı olsa da çalışmaya devam eder, ancak yapılandırılamaz). Abonelik tabanlı lisanslama.</p>
+<p><strong>Meraki&rsquo;nin üstün olduğu yer:</strong> Çok siteli perakende, konaklama, KOBİ, şube ofisleri — operasyonel sadelik ve hızlı deployment&rsquo;ın derin kurumsal özelleştirmeden daha önemli olduğu herhangi bir senaryo.</p>
+<hr>
+<h2 id="aruba-kablosuz-mimarisi">Aruba Kablosuz Mimarisi</h2>
+<h3 id="geleneksel-aruba-mobility-master--mobility-controllerlar">Geleneksel: Aruba Mobility Master + Mobility Controller&rsquo;lar</h3>
+<p>Aruba&rsquo;nın şirket içi kurumsal mimarisi:</p>
+<ul>
+<li><strong>Mobility Master (MM):</strong> Üst düzey yönetim ve orkestrasyon platformu. Veri trafiğini iletmez — yalnızca kontrol düzlemi.</li>
+<li><strong>Mobility Controller&rsquo;lar (MC):</strong> Yerel AP&rsquo;leri için AP yönetimini, istemci kimlik doğrulamasını ve veri iletimini yöneten dağıtık controller&rsquo;lar.</li>
+<li><strong>AP&rsquo;ler:</strong> Atanmış controller&rsquo;larına bağlı, &ldquo;kampüs AP&rdquo; modunda Aruba erişim noktaları.</li>
+</ul>
+<pre tabindex="0"><code>[Mobility Master]
+        │
+   ┌────┴────┐
+[MC-1]     [MC-2]      ← Dağıtık controller&#39;lar
+  │           │
+[AP&#39;ler]   [AP&#39;ler]
+</code></pre><p><strong>Mobility Master hiyerarşisi</strong>, yönetim karmaşıklığını veri düzlemi ölçeğinden ayırır. MM, küresel politikayı, yazılım yönetimini ve RF planlamasını yönetir. Controller&rsquo;lar yerel AP yönetimini ve istemci verilerini yönetir. Bu mimari, büyük, çok binali kampüsler için iyi ölçeklenir.</p>
+<p><strong>Küme mobilitesi:</strong> Aynı kümede bulunan controller&rsquo;lar istemci durumunu paylaşır. Aynı kümedeki farklı controller&rsquo;lardaki AP&rsquo;ler arasında roaming kesintisizdir — istemcinin kimlik doğrulaması ve oturumu onunla birlikte taşınır.</p>
+<h3 id="modern-aruba-cx--aos-10">Modern: Aruba CX + AOS 10</h3>
+<p>Aruba&rsquo;nın mevcut mimarisi (AOS 10) dağıtık, fabric entegre bir modele doğru kayıyor:</p>
+<ul>
+<li>AP&rsquo;lerin daha fazla yerel zekası var — kimlik doğrulama ve politika uygulaması, her paket için controller katılımı olmadan AP&rsquo;de gerçekleşebilir</li>
+<li>Birleşik kablolu/kablosuz politika için Aruba CX switching fabric ile entegrasyon</li>
+<li>Yönetim düzlemi olarak Aruba Central — bulut tabanlı, birçok deployment için şirket içi Mobility Master&rsquo;ın yerini alıyor</li>
+</ul>
+<h3 id="aruba-central-bulut-yönetimli-kurumsal">Aruba Central: Bulut Yönetimli Kurumsal</h3>
+<p>Cisco Meraki&rsquo;den farklı olarak (sadelik için tasarlanmış), Aruba Central kurumsal kaliteli bulut yönetimi olarak konumlandırılmıştır:</p>
+<ul>
+<li>Bulut yönetimi aracılığıyla tam kurumsal politika yetenekleri</li>
+<li>AI destekli ağ içgörüleri ve anomali tespiti</li>
+<li>802.1X kimlik doğrulaması için ClearPass entegrasyonu (yalnızca şirket içi değil, bulut bağlantılı)</li>
+<li>Çok büyük deployment&rsquo;lar için destek (binlerce AP, yüzlerce site)</li>
+</ul>
+<p><strong>ClearPass entegrasyonu</strong>, Aruba&rsquo;nın en güçlü farklılaştırıcısıdır: 802.1X, cihaz profillemesi, misafir portalı, posture değerlendirmesi ve dinamik VLAN atamasını yöneten özel bir NAC platformu. ClearPass, kapsamlı kimlik tabanlı ağ erişimi için Active Directory, LDAP ve üçüncü taraf MDM sistemleriyle entegre olur.</p>
+<hr>
+<h2 id="roaming-mimarisi-kritik-tasarım-kararları">Roaming Mimarisi: Kritik Tasarım Kararları</h2>
+<h3 id="katman-2-roaming">Katman 2 Roaming</h3>
+<p>İstemci AP-1&rsquo;den AP-2&rsquo;ye geçer, her ikisi de aynı VLAN&rsquo;da ve aynı controller tarafından yönetilir. İstemcinin IP adresi değişmez. Roaming hızlı ve şeffaftır.</p>
+<pre tabindex="0"><code>AP-1 (VLAN 10) ──→ İstemci dolaşır ──→ AP-2 (VLAN 10)
+Aynı alt ağ, aynı controller, istemci IP değişmez
+</code></pre><h3 id="katman-3-roaming">Katman 3 Roaming</h3>
+<p>İstemci alt ağlar arasında geçer — farklı controller&rsquo;lardaki veya binalardaki farklı VLAN&rsquo;lar. Özel yönetim olmadan, istemcinin yeni bir IP adresine ihtiyacı olur ve aktif oturumlar kesilir.</p>
+<p>Kurumsal controller&rsquo;lar, <strong>mobilite tüneli</strong> aracılığıyla Katman 3 roaming&rsquo;i yönetir — orijinal controller (&ldquo;anchor&rdquo;) istemcinin orijinal IP adresini korur ve trafiği istemcinin mevcut controller&rsquo;ına (&ldquo;foreign&rdquo;) tünel üzerinden iletir:</p>
+<pre tabindex="0"><code>İstemci AP-1&#39;e bağlanır (Bina A, VLAN 10, Controller-1)
+İstemci AP-2&#39;ye dolaşır (Bina B, VLAN 20, Controller-2)
+
+Controller-2 (foreign) ──mobilite tüneli──→ Controller-1 (anchor)
+İstemci IP: hâlâ VLAN 10&#39;dan 192.168.10.x
+Oturum: kesintisiz
+</code></pre><p>Bu ek yük ekler — dolaşan istemcinin trafiği controller&rsquo;lar arası tüneli geçmek zorundadır. Çoğu uygulama için bu ihmal edilebilir düzeydedir. Gecikmeye duyarlı uygulamalar (VoIP, gerçek zamanlı video) için anchor-to-foreign tünel uzunluğunu en aza indirin.</p>
+<h3 id="hızlı-roaming-80211rkv">Hızlı Roaming: 802.11r/k/v</h3>
+<p>Standartlar yazısında ele alındığı gibi, kurumsal deployment&rsquo;ların tüm üç hızlı roaming protokolünü etkinleştirmesi gerekir. Controller perspektifinden:</p>
+<ul>
+<li><strong>802.11r:</strong> Controller, istemci mevcut AP&rsquo;den bağlantısını kesmeden önce hedef AP ile istemciyi önceden doğrular. Controller düzeyinde koordinasyon gerektirir.</li>
+<li><strong>802.11k:</strong> Controller, komşu AP bilgilerini istemcilere sağlar. İstemciler bunu daha iyi roaming kararları vermek için kullanır.</li>
+<li><strong>802.11v:</strong> Controller, bir istemcinin belirli bir AP&rsquo;ye dolaşmasını önerebilir veya talep edebilir — yük dengeleme ve yapışkan istemci yönetimi için kullanışlı.</li>
+</ul>
+<p><strong>Opportunistic Key Caching (OKC):</strong> WPA2-Enterprise (802.1X) kullanan ağlar için OKC, istemcinin yeni bir AP&rsquo;ye dolaşırken önbelleğe alınmış bir PMK&rsquo;yı (Pairwise Master Key) yeniden kullanmasına olanak tanır ve tam 802.1X yeniden doğrulamasını önler. 802.1X ağlarında roaming süresini önemli ölçüde azaltır.</p>
+<hr>
+<h2 id="radyo-kaynak-yönetimi">Radyo Kaynak Yönetimi</h2>
+<p>Kurumsal controller&rsquo;lar, Radyo Kaynak Yönetimi (RRM) aracılığıyla RF ortamını sürekli olarak optimize eder:</p>
+<h3 id="iletim-gücü-kontrolü">İletim Gücü Kontrolü</h3>
+<p>Controller, AP&rsquo;ler arasında RSSI&rsquo;yi (sinyal gücü) izler. Bir AP komşulardan güçlü sinyaller algılarsa, iletim gücünü azaltır — bitişik hücrelerle girişimi azaltırken kapsama alanını korur.</p>
+<p><strong>Kapsama boşluğu tespiti:</strong> Bir istemci düşük RSSI bildirirse, controller kapsama boşluklarını önlemek için AP&rsquo;nin iletim gücünü artırabilir. Bu kapsama boşluklarını önler ancak komşu AP&rsquo;lerle girişim karşı dengelenmelidir.</p>
+<h3 id="dinamik-kanal-atama">Dinamik Kanal Atama</h3>
+<p>Controller RF ortamını tarar ve aynı kanaldaki girişimi en aza indirmek için kanallar atar:</p>
+<ul>
+<li>AP&rsquo;ler komşu AP sinyallerini ve istemci girişimini raporlar</li>
+<li>Controller bir RF topoloji haritası oluşturur</li>
+<li>Kanallar, aynı kanaldaki AP&rsquo;ler arasındaki ayrımı en üst düzeye çıkarmak için atanır</li>
+</ul>
+<p>Cisco&rsquo;da bu <strong>RRM (Radyo Kaynak Yönetimi)</strong>&lsquo;dir. Aruba&rsquo;da ise <strong>ARM (Adaptive Radio Management)</strong>. Her ikisi de özerk çalışır, ancak bilinen RF zorluklarında manuel geçersiz kılmadan yararlanır.</p>
+<h3 id="istemci-yük-dengeleme">İstemci Yük Dengeleme</h3>
+<p>Birden fazla AP aynı alanı kapladığında (örtüşen hücreler), controller istemcileri AP&rsquo;ler arasında dağıtabilir:</p>
+<ul>
+<li>Her ikisi de kapsama alanındayken yeni istemcileri daha az yüklü AP&rsquo;ye yönlendirin</li>
+<li>Aşırı yüklü AP&rsquo;lerden daha az yüklü komşulara istemci taşıyın</li>
+</ul>
+<p>Bu dikkatli ayarlama gerektirir — agresif yük dengeleme istemcilerin gereksiz yere dolaşmasına neden olur.</p>
+<hr>
+<h2 id="controller-mimarisinde-ha-ve-yedeklilik">Controller Mimarisinde HA ve Yedeklilik</h2>
+<h3 id="wlc-ha-cisco">WLC HA (Cisco)</h3>
+<p>Cisco 9800 WLC&rsquo;ler, <strong>High Availability SSO (Stateful Switchover)</strong> destekler:</p>
+<pre tabindex="0"><code>WLC-Aktif ──RP (Yedeklilik Portu)──→ WLC-Yedek
+     │                                      │
+Yapılandırma yansıtıldı              İstemci oturumları yansıtıldı
+</code></pre><p>Aktif WLC başarısız olduğunda, yedek tam istemci oturum durumuyla devralır — istemciler yeniden bağlanmaz. AP&rsquo;ler CAPWAP tünellerini korur; geçiş şeffaftır.</p>
+<p><strong>N+1 yedeklilik:</strong> Büyük deployment&rsquo;larda, birden fazla WLC AP yükünü paylaşır. Biri başarısız olursa, AP&rsquo;leri kalan WLC&rsquo;lere yeniden kaydeder. AP geri dönüş önceliklerini yapılandırmayı gerektirir.</p>
+<h3 id="aruba-controller-ha">Aruba Controller HA</h3>
+<p>Aruba, birden fazla controller&rsquo;ın AP ve istemci yükünü paylaştığı <strong>Aktif-Aktif</strong> küme yapılandırmalarını destekler:</p>
+<pre tabindex="0"><code>[MC-1] ←─ küme ─→ [MC-2] ←─ küme ─→ [MC-3]
+  │                   │                   │
+[AP&#39;ler]           [AP&#39;ler]           [AP&#39;ler]
+</code></pre><p>MC-1 başarısız olursa, AP&rsquo;leri MC-2 ve MC-3&rsquo;e dağıtır. İstemci oturumları küme durum paylaşımı aracılığıyla korunur.</p>
+<h3 id="bulut-yönetimi-dayanıklılığı">Bulut Yönetimi Dayanıklılığı</h3>
+<p>Bulut yönetimli AP&rsquo;ler (Meraki, Aruba Central), bulut bağlantısı kesilmesi sırasında çalışmaya devam eder:</p>
+<ul>
+<li>AP&rsquo;ler son bilinen yapılandırmayı korur</li>
+<li>İstemciler normal şekilde bağlanıp dolaşabilir</li>
+<li>Yönetim operasyonları (yapılandırma değişiklikleri, izleme) bulut bağlantısı gerektirir</li>
+</ul>
+<p>İnternet bağlantısından bağımsız olarak garantili yönetim erişimi gerektiren ortamlar için, şirket içi controller mimarisi daha uygun olmaya devam eder.</p>
+<hr>
+<h2 id="kimlik-sistemleriyle-entegrasyon">Kimlik Sistemleriyle Entegrasyon</h2>
+<h3 id="cisco-ise-entegrasyonu">Cisco ISE Entegrasyonu</h3>
+<p>802.1X için Cisco ISE kullanan deployment&rsquo;lar için:</p>
+<pre tabindex="0"><code>İstemci WiFi&#39;ye bağlanır
+      ↓
+AP, ISE&#39;ye RADIUS isteği gönderir (WLC aracılığıyla)
+      ↓
+ISE, Active Directory&#39;e karşı doğrular
+      ↓
+ISE döndürür: VLAN ataması + Security Group Tag
+      ↓
+WLC politikayı uygular: istemci doğru VLAN&#39;a yerleştirilir
+      ↓
+DNA Center, SGT tabanlı politikayı uçtan uca uygular
+</code></pre><p>ISE posture değerlendirmesi, tam ağ erişimi vermeden önce cihaz uyumluluğunu da kontrol edebilir (AV durumu, işletim sistemi yama seviyesi) — kablolu ve kablosuz istemciler için özdeş davranış.</p>
+<h3 id="aruba-clearpass-entegrasyonu">Aruba ClearPass Entegrasyonu</h3>
+<p>ClearPass, Aruba deployment&rsquo;ları için eşdeğer yetenekler sağlar:</p>
+<ul>
+<li>RADIUS aracılığıyla 802.1X kimlik doğrulaması</li>
+<li>802.1X supplicant&rsquo;ı olmayan cihazlar için MAC Authentication Bypass (MAB)</li>
+<li>Cihaz profilleme — DHCP, HTTP User-Agent ve CDP/LLDP sinyallerine dayalı cihaz türünü (telefon, dizüstü, yazıcı, IoT) tanımlama</li>
+<li>Misafir portalı — kendi kendine kayıt veya sponsor onayı iş akışları</li>
+<li>Kullanıcı kimliğine, cihaz türüne ve posture&rsquo;a dayalı dinamik VLAN ve rol ataması</li>
+</ul>
+<p>ClearPass&rsquo;ın <strong>OnGuard</strong> ajanı posture değerlendirmesi yapar — kurumsal dizüstü bilgisayarların güncel AV, gerekli yamalar ve onaylı yazılıma sahip olup olmadığını kontrol eder.</p>
+<hr>
+<h2 id="temel-çıkarımlar">Temel Çıkarımlar</h2>
+<ul>
+<li>Controller mimarisi roaming kalitesini, politika tutarlılığını ve operasyonel karmaşıklığı belirler — yalnızca yönetim kolaylığını değil.</li>
+<li><strong>Merkezi WLC</strong>, trafik hairpin ve tek hata noktası riski pahasına kesintisiz roaming ve tutarlı politika sağlar (HA ile hafifletilir).</li>
+<li><strong>Bulut yönetimi</strong> (Meraki, Aruba Central), şirket içi donanım olmadan operasyonel sadelik ve çok siteli ölçek sunar.</li>
+<li><strong>Hızlı roaming (802.11r/k/v + OKC)</strong>, ses ve video uygulamaları için controller düzeyinde etkinleştirilmelidir — varsayılan yapılandırma nadiren optimaldir.</li>
+<li><strong>ISE/ClearPass entegrasyonu</strong>, kablosuzu &ldquo;bir ağ&quot;dan &ldquo;kimlik bilincine sahip bir politika uygulama noktası&quot;na dönüştürür — kablolu ve kablosuz için tutarlı davranış, hepsi kimin ve neyin bağlandığına dayalı.</li>
+</ul>
+<hr>
+<h2 id="bu-seri">Bu Seri</h2>
+<ul>
+<li>📖 <a href="/tr/technology/kurumsal-wifi-mimarisi-tam-rehber/">Kurumsal WiFi Mimarisi Genel Bakış</a> ← Buradan başlayın</li>
+<li>📡 <a href="/tr/technology/wifi-80211-standartlari-wifi4-wifi5-wifi6/">802.11 Standartları Deep Dive</a></li>
+<li>🏨 <a href="/tr/technology/wifi-tasarimi-kobi-otel-saglik/">KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı</a></li>
+<li>🔐 <a href="/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/">WiFi Güvenliği: WPA3, 802.1X, Sahte AP, Site Survey</a></li>
+</ul>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<ul>
+<li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Kimlik Tabanlı Mimari Sahada</a> — 802.1X deployment&rsquo;ına derinlemesine bakış</li>
+<li>🏗️ <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Ürünler Koleksiyonu Değildir</a> — Kablosuz için sistem düşüncesi</li>
+<li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">İzleme Doğru Yapıldığında</a> — Kablosuz altyapıyı proaktif olarak izleme</li>
+</ul>
+]]></content:encoded></item><item><title>F5 GTM ve GSLB Deep Dive: Global Trafik Yönetimi ve DNS Failover</title><link>https://barashhelvadzhaoglu.com/tr/technology/f5-gtm-deep-dive/</link><pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/f5-gtm-deep-dive/</guid><description>F5 GTM (BIG-IP DNS) teknik inceleme — Wide IP, iQuery, topoloji routing, TTL stratejisi, çok DC failover ve aktif-aktif mimari desenleri.</description><content:encoded><![CDATA[<h1 id="f5-gtm-ve-gslb-deep-dive-global-trafik-yönetimi-ve-dns-failover">F5 GTM ve GSLB Deep Dive: Global Trafik Yönetimi ve DNS Failover</h1>
 <p>Bu yazı F5 BIG-IP serisinin bir parçasıdır.</p>
 <blockquote>
 <p><strong>F5&rsquo;e yeni misiniz?</strong> Önce platform genel bakışıyla başlayın: <a href="/tr/technology/f5-bigip-uygulama-teslim-platformu-genel-bakis/">F5 BIG-IP Bir Load Balancer Değil — Uygulama Teslim Platformudur</a></p>
