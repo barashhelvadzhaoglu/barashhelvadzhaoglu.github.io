@@ -1,4 +1,190 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>802.1X on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/802.1x/</link><description>Recent content in 802.1X on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Wed, 14 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/802.1x/index.xml" rel="self" type="application/rss+xml"/><item><title>802.1X Projeleri: Kimliği Ağa Taşıyan Mimariyi Sahada Kurmak</title><link>https://barashhelvadzhaoglu.com/tr/technology/identity-based-microsegmentation-8021x/</link><pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/identity-based-microsegmentation-8021x/</guid><description>802.1X projelerinin networkten ziyade AD, PKI ve GPO disiplinine bağlı başarısını ele alan saha tecrübesi dökümanı.</description><content:encoded><![CDATA[<h1 id="8021x-projeleri-kimliği-ağa-taşıyan-mimariyi-sahada-kurmak">802.1X Projeleri: Kimliği Ağa Taşıyan Mimariyi Sahada Kurmak</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>802.1X on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/802.1x/</link><description>Recent content in 802.1X on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>tr</language><lastBuildDate>Mon, 20 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/802.1x/index.xml" rel="self" type="application/rss+xml"/><item><title>Cisco ISE: Mimari, Lisanslama ve Ne Zaman Kullanılır</title><link>https://barashhelvadzhaoglu.com/tr/technology/cisco-ise-architecture/</link><pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/cisco-ise-architecture/</guid><description>Cisco ISE mimari rehberi — deployment modelleri, node rolleri, lisans katmanları, pxGrid entegrasyonları ve ISE&amp;#39;nin ne zaman doğru seçim olduğu.</description><content:encoded><![CDATA[<h1 id="cisco-ise-mimari-lisanslama-ve-ne-zaman-kullanılır">Cisco ISE: Mimari, Lisanslama ve Ne Zaman Kullanılır</h1>
+<p>Cisco Identity Services Engine (ISE), kurumsal ağ erişim kontrolünün politika beynidir. Ağa bağlanmaya çalışan her cihaz için şu soruyu yanıtlayan platformdur: <em>sen kimsin, neysin, sağlıklı mısın ve ne yapabilirsin?</em></p>
+<p><a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X saha rehberini</a> okuduysanız ISE&rsquo;yi zaten iş başında gördünüz: dinamik VLAN ataması döndüren RADIUS sunucusu, cihazları tanımlayan NAC platformu, posture uyumunu zorunlu kılan politika motoru. Bu yazı protokol detaylarından bir adım geri çekilerek ISE&rsquo;ye mimari ve yatırım kararı perspektifinden bakıyor — nasıl yapılandırıldığı, nasıl lisanslandığı ve ne zaman doğru araç olduğu.</p>
+<hr>
+<h2 id="ise-ne-yapar--tek-paragrafta">ISE Ne Yapar — Tek Paragrafta</h2>
+<p>ISE merkezi bir politika platformudur. Ağa bağlanan cihazlar ve kullanıcılar — kablolu, kablosuz veya VPN üzerinden — ISE üzerinden kimlik doğrular. ISE kimliklerini Active Directory&rsquo;ye göre kontrol eder, cihaz türünü ve uyumluluk durumunu değerlendirir ve ağ cihazına bir erişim kararı döndürür: tam erişim ver, karantina VLAN&rsquo;ına al, düzeltme portalına yönlendir veya tamamen reddet. Bu karar VLAN ataması, indirilebilir ACL&rsquo;ler ve kullanıcıyı ağ boyunca izleyen Security Group Tag&rsquo;leri (SGT) içerebilir.</p>
+<p>Tek platform, daha önce birden fazla ayrı araç gerektiren şeyleri üstlenir: RADIUS sunucusu, NAC cihazı, misafir portalı, cihaz profiler, posture motoru.</p>
+<hr>
+<h2 id="deployment-mimarisi">Deployment Mimarisi</h2>
+<h3 id="node-rolleri">Node Rolleri</h3>
+<p>ISE tek parça bir uygulama değildir. İşlevlerini belirgin node rollerine ayırır:</p>
+<p><strong>PAN — Policy Administration Node:</strong> Yönetim arayüzü. Tüm konfigürasyon burada yapılır. Dağıtık deployment&rsquo;ta bir aktif PAN ve bir yedek bulunur.</p>
+<p><strong>PSN — Policy Service Node:</strong> Çalışma zamanı uygulama motoru. Ağ cihazlarının konuştuğu yer burasıdır — RADIUS istekleri, TACACS istekleri, misafir portalı yönlendirmeleri, posture kontrolleri. Büyük ortamlarda birden fazla PSN kimlik doğrulama yükünü dağıtır.</p>
+<p><strong>MnT — Monitoring and Troubleshooting Node:</strong> PSN&rsquo;lerden log toplar ve operasyon panosunu sağlar — kimlik doğrulama raporları, başarısız girişimler, aktif oturumlar, alarmlar. Loglama yükünün kimlik doğrulama performansını etkilememesi için politika node&rsquo;larından ayrıdır.</p>
+<p><strong>pxGrid Controller:</strong> Entegrasyon veri yolu. Aşağıda daha fazla detay var.</p>
+<h3 id="deployment-modelleri">Deployment Modelleri</h3>
+<p><strong>Standalone (tek node):</strong> Tüm roller tek bir VM veya cihazda. Lab, PoC veya çok küçük deployment&rsquo;lar için uygundur. HA yok. Node çökerse kimlik doğrulama durur. ISE&rsquo;ye bağımlı ağ erişimine sahip üretim ortamları için uygun değildir.</p>
+<p><strong>Küçük dağıtık (2 node):</strong> Bir node PAN+MnT, bir node PSN. Temel yedeklilik. Orta ölçekli ve ılımlı kimlik doğrulama yüküne sahip ortamlar için uygundur.</p>
+<p><strong>HA ile tam dağıtık:</strong> Her rol için özel node&rsquo;lar, aktif/yedek PAN, yük dağılımı ve coğrafi yedeklilik için birden fazla PSN. Büyük kurumsal ve düzenlenmiş ortamların ihtiyacı budur. Aynı zamanda önemli ölçüde daha fazla altyapı gerektirir — düzgün yedekli bir deployment için minimum 4–6 VM planlayın.</p>
+<p>Pratik sonuç: ISE &ldquo;boşta duran bir VM&rsquo;e kur&rdquo; türünden bir proje değildir. Üretim kalitesinde dağıtık deployment, özel altyapı, doğru boyutlandırma ve süregelen operasyonel dikkat gerektirir.</p>
+<hr>
+<h2 id="lisanslama-katman-yapısı">Lisanslama: Katman Yapısı</h2>
+<p>ISE lisanslaması yıllar içinde evrildi. Mevcut model, uç nokta başına yıllık abonelik olarak satılan üç katman kullanıyor:</p>
+<h3 id="essentials-eski-adıyla-base">Essentials (eski adıyla Base)</h3>
+<p>Giriş seviyesi katman. Temel 802.1X kullanım senaryosunu kapsar:</p>
+<ul>
+<li>RADIUS kimlik doğrulama (802.1X kablolu ve kablosuz)</li>
+<li>Temel misafir erişimi</li>
+<li>MAB (MAC Authentication Bypass)</li>
+<li>Temel VLAN ataması</li>
+</ul>
+<p>Port kimlik doğrulaması ve temel misafir erişimine ihtiyaç duyan organizasyonlar için yeterlidir. NPS bunların büyük bölümünü ücretsiz yapabilir — Essentials&rsquo;ın NPS&rsquo;e göre değeri öncelikle yönetim arayüzü, ölçeklenebilirlik ve Cisco ekosistemi entegrasyonudur.</p>
+<h3 id="advantage-eski-adıyla-plus">Advantage (eski adıyla Plus)</h3>
+<p>ISE&rsquo;yi NPS&rsquo;ten anlamlı biçimde daha güçlü kılan özellikleri ekler:</p>
+<ul>
+<li><strong>Cihaz profiling</strong> — DHCP, CDP, LLDP, HTTP imzalarından cihaz türünü tanımlama</li>
+<li><strong>Misafir yaşam döngüsü yönetimi</strong> — sponsor portalları, kendi kendine kayıt, süreli erişim</li>
+<li><strong>BYOD onboarding</strong> — kişisel cihazlar için sertifika sağlama</li>
+<li><strong>TrustSec / Security Group Tags (SGT)</strong> — VLAN atamasının ötesinde politika uygulaması</li>
+</ul>
+<p>Advantage, kullanım senaryosu temel port kimlik doğrulamasının ötesine geçtiğinde kurumsal deployment&rsquo;ların çoğunun tercih ettiği katmandır.</p>
+<h3 id="premier-eski-adıyla-apex">Premier (eski adıyla Apex)</h3>
+<p>Posture değerlendirmesi ve gelişmiş tehdit yanıtı ekler:</p>
+<ul>
+<li><strong>Posture</strong> — erişim vermeden önce cihaz sağlığını kontrol etme (AV durumu, işletim sistemi yama seviyesi, disk şifreleme, belirli registry değerleri)</li>
+<li><strong>Threat-centric NAC</strong> — bir cihaz tehlikeye girdiğinde erişim politikasını otomatik olarak değiştirmek için tehdit istihbaratı beslemeleriyle entegrasyon</li>
+<li><strong>Passive Identity</strong> — her port&rsquo;ta 802.1X gerektirmeksizin AD olay loglarından kimlik bilgisi toplama</li>
+</ul>
+<p>Premier, uyumluluk pozisyonunun yasal gereklilik olduğu veya otomatik tehdit yanıtına ihtiyaç duyulan yüksek güvenlik ortamları için uygundur.</p>
+<h3 id="cihaz-yönetimi-tacacs--ayrı-lisans">Cihaz Yönetimi (TACACS+) — Ayrı Lisans</h3>
+<p>Bu yaygın bir karışıklık kaynağıdır: <strong>Ağ cihazı yönetimi için TACACS+, yukarıdaki uç nokta erişim lisanslarından ayrı olarak lisanslanır.</strong></p>
+<p>Uç nokta lisansları (Essentials/Advantage/Premier) ağa bağlanan kullanıcıları ve cihazları kapsar. Cihaz Yönetimi ise ağ mühendislerinin switch&rsquo;lere, router&rsquo;lara ve firewall&rsquo;lara giriş yapmasını kapsar — ISE&rsquo;yi AAA sunucusu olarak kullanarak TACACS+ aracılığıyla kimlik doğrulama, kullanıcı veya grup başına komut yetkilendirmesi.</p>
+<p>ISE&rsquo;nin hem uç nokta erişim kontrolünü hem de ağ cihazı yönetici kimlik doğrulamasını yönetmesini istiyorsanız her iki lisans türüne ihtiyacınız vardır. Pek çok organizasyon ISE&rsquo;yi öncelikle uç nokta erişimi için kullanır ve cihaz yönetimi için ayrı bir TACACS+ çözümü kullanmaya devam eder.</p>
+<hr>
+<h2 id="pxgrid-entegrasyon-platformu">pxGrid: Entegrasyon Platformu</h2>
+<p>pxGrid (Platform Exchange Grid), ISE&rsquo;nin entegrasyon çerçevesidir — dış platformların ISE verilerine abone olmasına ve ISE&rsquo;ye geri olay yayınlamasına olanak tanır.</p>
+<p>Pratikte şu senaryoları mümkün kılar:</p>
+<p><strong>Firewall entegrasyonu:</strong> ISE bir kullanıcının kimliğini doğruladığında ve ona bir Security Group Tag atadığında, firewall (Palo Alto, Cisco Firepower) bu eşlemeyi pxGrid aracılığıyla alabilir. Firewall politikası daha sonra IP adresleri yerine SGT&rsquo;lere göre yazılabilir — kullanıcılar hareket ettikçe değişen IP tabanlı ACL&rsquo;leri sürdürmek yerine &ldquo;Finance SGT&rsquo;nin Finance sunucularına erişimine izin ver.&rdquo;</p>
+<p><strong>SIEM entegrasyonu:</strong> Güvenlik platformları (Splunk, IBM QRadar) ISE oturum verilerine abone olur — kim kimlik doğruladı, nereden, hangi cihazla, ne zaman. Bu, ham ağ loglarının taşımadığı kimlik bağlamıyla güvenlik olayı korelasyonunu zenginleştirir.</p>
+<p><strong>Tehdit yanıtı:</strong> Bir SIEM veya EDR platformu tehlikeye girmiş bir cihaz tespit eder. pxGrid aracılığıyla ISE&rsquo;ye bir tehdit olayı yayınlar. ISE, cihazın erişim politikasını otomatik olarak değiştirir — karantina VLAN&rsquo;ı, düzeltme portalına yönlendirme — insan müdahalesi olmadan.</p>
+<p>pxGrid, ISE&rsquo;yi bir ağ erişim aracından tüm altyapıda bağlamı paylaşan bir güvenlik platformuna dönüştürür. Bu entegrasyon değeri, olgun güvenlik mimarilerinde ISE&rsquo;nin gerekçesinin önemli bir parçasıdır.</p>
+<hr>
+<h2 id="ise--dna-center-entegre-kampüs">ISE + DNA Center: Entegre Kampüs</h2>
+<p>ISE, DNA Center (Catalyst Center) ile birlikte çalıştığında entegrasyon yerli ve derindir. DNA Center, SD-Access fabric deployment&rsquo;ları için ISE&rsquo;yi politika motoru olarak kullanır:</p>
+<ul>
+<li>DNA Center ağ hiyerarşisini ve fabric altyapısını tanımlar</li>
+<li>ISE kimin neye erişebileceğini tanımlar (Security Group politikaları)</li>
+<li>Bir kullanıcı kimlik doğruladığında ISE SGT&rsquo;sini atar</li>
+<li>DNA Center SGT tabanlı politikayı fabric genelinde otomatik olarak yayar</li>
+</ul>
+<p>Sonuç: ISE&rsquo;deki bir politika değişikliği — &ldquo;Finans kullanıcıları artık yeni raporlama sunucusuna erişebilir&rdquo; — bireysel switch konfigürasyonlarına dokunmadan tüm kampüs fabric&rsquo;ine otomatik olarak yansır. Politika bir kez tanımlanır, her yerde uygulanır.</p>
+<p>Bu entegrasyon, DNA Center zaten çalışan ortamlarda ISE için en güçlü argümanlardan biridir. Ayrı ayrı her iki platform da yeteneklidir. Birlikte, kimlik bilincine sahip ağ fabric&rsquo;ini tek başlarına sağlayamadıkları şekilde sunarlar.</p>
+<hr>
+<h2 id="ise-vs-nps-vs-clearpass-ne-zaman-hangisi">ISE vs. NPS vs. ClearPass: Ne Zaman Hangisi</h2>
+<p>Çoğu organizasyonun ISE&rsquo;ye bağlanmadan önce alması gereken karar budur.</p>
+<p><strong>Windows NPS (Network Policy Server)</strong> Windows Server ile ücretsiz gelir. RADIUS kimlik doğrulama, temel VLAN ataması ve 802.1X&rsquo;i yönetir. Active Directory&rsquo;ye karşı temel port kimlik doğrulamasına ihtiyaç duyan organizasyonlar için NPS çalışır. Sınırlılıkları: cihaz profiling yok, misafir portalı yok, posture yok, SGT desteği yok, sınırlı ölçeklenebilirlik ve birden fazla RADIUS sunucusu genelinde merkezi yönetim yok. NPS, basit gereksinimleri ve sınırlı bütçesi olan küçük ortamlar için doğru yanıttır.</p>
+<p><strong>Aruba ClearPass</strong>, ISE&rsquo;nin birincil rakibidir. Eşdeğer özellikler sunar — 802.1X, profiling, misafir portalı, posture, TACACS. ClearPass satıcıdan bağımsızdır (herhangi bir ağ satıcısının switch ve AP&rsquo;leriyle çalışır), güçlü misafir ve BYOD iş akışları nedeniyle güçlü bir üne sahiptir ve Aruba kablosuz ortamlarında veya Cisco ekosistemi bağımlılığının endişe konusu olduğu çok satıcılı ağlarda tercih edilir. Lisanslama da uç nokta başına aboneliktir.</p>
+<p><strong>Cisco ISE</strong> şu durumlarda doğru seçimdir:</p>
+<ul>
+<li>Ortam ağırlıklı olarak Cisco&rsquo;dur (switch&rsquo;ler, AP&rsquo;ler, DNA Center, Firepower) — yerli entegrasyonlar en fazla değeri sunar</li>
+<li>Kampüs genelinde SGT tabanlı politika uygulaması bir gereksinimdir</li>
+<li>Güvenlik platformlarıyla pxGrid entegrasyonları planlanmaktadır</li>
+<li>Ölçek, dağıtık ve HA yetenekli bir platform gerektiriyor</li>
+<li>Posture uygulaması bir uyumluluk gereksinimidir</li>
+</ul>
+<p>Dürüst özet:</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>NPS</th>
+          <th>ClearPass</th>
+          <th>Cisco ISE</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Maliyet</td>
+          <td>Ücretsiz</td>
+          <td>Uç nokta başına abonelik</td>
+          <td>Uç nokta başına abonelik</td>
+      </tr>
+      <tr>
+          <td>802.1X / RADIUS</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>Cihaz profiling</td>
+          <td>❌</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>Misafir portalı</td>
+          <td>Temel</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>Posture</td>
+          <td>❌</td>
+          <td>✅</td>
+          <td>✅ (Premier)</td>
+      </tr>
+      <tr>
+          <td>SGT / TrustSec</td>
+          <td>❌</td>
+          <td>❌</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>DNA Center entegrasyonu</td>
+          <td>❌</td>
+          <td>❌</td>
+          <td>✅ (yerli)</td>
+      </tr>
+      <tr>
+          <td>pxGrid ekosistemi</td>
+          <td>❌</td>
+          <td>Sınırlı</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>Satıcı bağımsızlığı</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>Cisco optimize</td>
+      </tr>
+      <tr>
+          <td>Operasyonel karmaşıklık</td>
+          <td>Düşük</td>
+          <td>Orta</td>
+          <td>Yüksek</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="saha-notları-boyutlandırma-ve-operasyonel-gerçeklik">Saha Notları: Boyutlandırma ve Operasyonel Gerçeklik</h2>
+<p>Üretim deployment&rsquo;larından birkaç gözlem:</p>
+<p><strong>PSN boyutlandırması çoğu ekibin planladığından daha önemlidir.</strong> Kimlik doğrulama istekleri vardiya değişimlerinde, sabah giriş yoğunluklarında ve ağ olaylarında ani artış gösterir. Ortalama yük için doğru boyutlandırılmış PSN&rsquo;ler, zirve anında yetersiz kalabilir. Zirve için boyutlandırın, yeterli boşluk bırakın.</p>
+<p><strong>MnT node&rsquo;u çoğunlukla küçük boyutlandırılır.</strong> Yüzlerce ağ cihazından gelen loglama önemli veri hacmi üretir. Küçük boyutlandırılmış bir MnT node&rsquo;u, sorun giderme görünürlüğü için dar boğaz haline gelir — tam ihtiyaç duyduğunuz anda. Yeterli disk ve bellek sağlayın.</p>
+<p><strong>ISE yükseltmeleri önemli bakım olaylarıdır.</strong> CUCM gibi, ISE yükseltmeleri de belirli bir sırayı izler — önce PAN, sonra MnT, sonra PSN&rsquo;ler — ve bakım pencereleri gerektirir. Eski bir ISE sürümü çalıştırmak güvenlik borcu biriktirir. Operasyon takvimine düzenli yükseltme döngüleri ekleyin.</p>
+<p><strong>İzleme moduyla başlayın.</strong> ISE&rsquo;yi mevcut bir ağda kullanıma alırken, izleme modunda başlayın — ISE kimlik doğrulama isteklerini işler ve ne olacağını loglar, ancak politikayı uygulamaz. Bu, zorunlu kılınmadan önce kimlik doğrulamada başarısız olacak cihazları ortaya koyar. Düşük etkili moda, ardından tam uygulamaya kademeli olarak geçin.</p>
+<p><strong>Uç nokta sayısı insanları şaşırtır.</strong> ISE, eş zamanlı aktif uç noktaların sayısını lisanslar. Her biri dizüstü bilgisayar ve telefon taşıyan 2.000 çalışana sahip bir kampüste bu minimum 4.000 uç nokta demektir — artı yazıcılar, IP telefonlar, kameralar ve IoT cihazları. Lisansı boyutlandırmadan önce doğru bir cihaz sayımı alın.</p>
+<hr>
+<h2 id="temel-çıkarımlar">Temel Çıkarımlar</h2>
+<ul>
+<li><strong>ISE bir platform, ürün değildir</strong> — birden fazla nokta çözümünün (RADIUS sunucusu, NAC, misafir portalı, posture motoru) yerini tek entegre platformla alır.</li>
+<li><strong>Lisanslama uç nokta başına, katmanlıdır</strong> — temel 802.1X için Essentials, profiling ve misafir için Advantage, posture için Premier. Cihaz Yönetimi (TACACS) ayrıdır.</li>
+<li><strong>Üretim için dağıtık HA deployment zorunludur</strong> — özel altyapı ve doğru node boyutlandırması için planlayın.</li>
+<li><strong>pxGrid entegrasyonları ISE&rsquo;nin değerini çarpar</strong> — kimliğe dayalı firewall politikası, oturum bağlamıyla zenginleştirilmiş SIEM, otomatik tehdit yanıtı.</li>
+<li><strong>ISE + DNA Center, eksiksiz kampüs fabric hikayesidir</strong> — SGT tabanlı politika bir kez tanımlanır, her yerde otomatik olarak uygulanır.</li>
+<li><strong>NPS, basit ortamlar için doğru yanıttır</strong> — küçük deployment&rsquo;ları aşırı mühendislik etmeyin.</li>
+<li><strong>ClearPass, çok satıcılı ortamlar için doğru yanıttır</strong> veya Cisco ekosistemi bağlılığının sınırlı olduğu durumlarda.</li>
+<li><strong>İzleme moduyla başlayın</strong> — kimlik doğrulamanın mevcut ortamınıza ne yapacağını doğruladıktan sonra uygulayın.</li>
+</ul>
+<hr>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<ul>
+<li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Projeleri: Kimlik Tabanlı Mimariyi Sahada Kullanıma Almak</a> — ISE&rsquo;nin etkinleştirdiği saha deployment rehberi</li>
+<li>🏛️ <a href="/tr/architecture/cisco-dna-center-catalyst-center-architecture-guide/">Cisco DNA Center / Catalyst Center: Ne Zaman Mantıklıdır</a> — ISE&rsquo;nin entegre olduğu kampüs yönetim platformu</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Kimlik tabanlı erişim kontrolünün arkasındaki felsefe</li>
+<li>🛡️ <a href="/tr/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive</a> — ISE&rsquo;nin L2/L3 uygulamasının yanında tamamlayıcı L7 güvenliği</li>
+</ul>
+]]></content:encoded></item><item><title>802.1X Projeleri: Kimliği Ağa Taşıyan Mimariyi Sahada Kurmak</title><link>https://barashhelvadzhaoglu.com/tr/technology/identity-based-microsegmentation-8021x/</link><pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/identity-based-microsegmentation-8021x/</guid><description>802.1X projelerinin networkten ziyade AD, PKI ve GPO disiplinine bağlı başarısını ele alan saha tecrübesi dökümanı.</description><content:encoded><![CDATA[<h1 id="8021x-projeleri-kimliği-ağa-taşıyan-mimariyi-sahada-kurmak">802.1X Projeleri: Kimliği Ağa Taşıyan Mimariyi Sahada Kurmak</h1>
 <p>802.1X projeleri dışarıdan bakınca <strong>network işi</strong> gibi görünür; çünkü dokunulan yer switch portlarıdır, SSID&rsquo;lerdir, RADIUS&rsquo;tur. Ama gerçek hayatta 802.1X&rsquo;in başarısı çoğu zaman network cihazlarının üzerinde değil; <strong>Active Directory düzeninde</strong>, <strong>sertifika altyapısında (PKI)</strong> ve <strong>uç cihaz yönetiminde</strong> belirlenir. Bunun nedeni basit: 802.1X, portun VLAN&rsquo;ını değil, kurumun <strong>&ldquo;kimlik modelini&rdquo;</strong> konuşmaya zorlar. Yani &ldquo;hangi port hangi VLAN&quot;dan, <strong>&ldquo;hangi kimlik hangi yetkiyle ağa girer&rdquo;</strong> düzenine geçersin.</p>
 <figure>
     <img loading="lazy" src="/img/postimages/8021x-nac-architecture-overview.webp"/> <figcaption>

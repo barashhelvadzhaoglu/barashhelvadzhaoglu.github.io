@@ -1,4 +1,190 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>NAC on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/nac/</link><description>Recent content in NAC on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>de</language><lastBuildDate>Wed, 14 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/nac/index.xml" rel="self" type="application/rss+xml"/><item><title>802.1X-Projekte: Implementierung der identitätsbasierten Architektur in der Praxis</title><link>https://barashhelvadzhaoglu.com/de/technology/identity-based-microsegmentation-8021x/</link><pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/identity-based-microsegmentation-8021x/</guid><description>Ein Praxisdokument, das den Erfolg von 802.1X-Projekten basierend auf AD-, PKI- und GPO-Disziplin statt nur auf Networking diskutiert.</description><content:encoded><![CDATA[<h1 id="8021x-projekte-implementierung-der-identitätsbasierten-architektur-in-der-praxis">802.1X-Projekte: Implementierung der identitätsbasierten Architektur in der Praxis</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>NAC on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/nac/</link><description>Recent content in NAC on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>de</language><lastBuildDate>Mon, 20 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/nac/index.xml" rel="self" type="application/rss+xml"/><item><title>Cisco ISE: Architektur, Lizenzierung und wann es sinnvoll ist</title><link>https://barashhelvadzhaoglu.com/de/technology/cisco-ise-architecture/</link><pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/cisco-ise-architecture/</guid><description>Cisco ISE Architekturleitfaden — Deployment-Modelle, Node-Rollen, Lizenzstufen, pxGrid-Integrationen und wann ISE die richtige Wahl ist.</description><content:encoded><![CDATA[<h1 id="cisco-ise-architektur-lizenzierung-und-wann-es-sinnvoll-ist">Cisco ISE: Architektur, Lizenzierung und wann es sinnvoll ist</h1>
+<p>Die Cisco Identity Services Engine (ISE) ist das Policy-Gehirn hinter der Enterprise-Netzwerkzugangskontrolle. Es ist die Plattform, die für jedes Gerät, das versucht, sich mit dem Netzwerk zu verbinden, folgende Frage beantwortet: <em>Wer bist du, was bist du, bist du gesund und was darfst du tun?</em></p>
+<p>Wenn Sie den <a href="/de/technology/identity-based-microsegmentation-8021x/">802.1X-Feldleitfaden</a> gelesen haben, haben Sie ISE bereits in Aktion gesehen: den RADIUS-Server, der dynamische VLAN-Zuweisungen zurückgibt, die NAC-Plattform, die Geräte profiliert, die Policy-Engine, die Posture-Compliance erzwingt. Dieser Artikel tritt einen Schritt zurück von den Protokolldetails und betrachtet ISE als Architektur- und Investitionsentscheidung — wie es strukturiert ist, wie es lizenziert wird und wann es das richtige Werkzeug ist.</p>
+<hr>
+<h2 id="was-ise-tut--in-einem-absatz">Was ISE tut — in einem Absatz</h2>
+<p>ISE ist eine zentrale Policy-Plattform. Geräte und Benutzer, die sich mit dem Netzwerk verbinden — kabelgebunden, kabellos oder über VPN — authentifizieren sich über ISE. ISE prüft ihre Identität gegen Active Directory, bewertet Gerätetyp und Compliance-Posture und gibt eine Zugriffsentscheidung an das Netzwerkgerät zurück: vollständigen Zugriff gewähren, in Quarantäne-VLAN versetzen, zu einem Remediation-Portal weiterleiten oder vollständig ablehnen. Diese Entscheidung kann VLAN-Zuweisung, herunterladbare ACLs und Security Group Tags (SGTs) umfassen, die den Benutzer durch das Netzwerk verfolgen.</p>
+<p>Eine Plattform übernimmt, was früher mehrere separate Tools erforderte: RADIUS-Server, NAC-Appliance, Gästeportal, Geräte-Profiler, Posture-Engine.</p>
+<hr>
+<h2 id="deployment-architektur">Deployment-Architektur</h2>
+<h3 id="node-rollen">Node-Rollen</h3>
+<p>ISE ist keine einzelne monolithische Anwendung. Es trennt seine Funktionen in unterschiedliche Node-Rollen:</p>
+<p><strong>PAN — Policy Administration Node:</strong> Die Verwaltungsschnittstelle. Alle Konfigurationen erfolgen hier. In einem verteilten Deployment gibt es einen aktiven PAN und einen Standby.</p>
+<p><strong>PSN — Policy Service Node:</strong> Die Laufzeit-Enforcement-Engine. Hier kommunizieren Netzwerkgeräte — RADIUS-Anfragen, TACACS-Anfragen, Gästeportal-Weiterleitungen, Posture-Checks. In großen Umgebungen verteilen mehrere PSNs die Authentifizierungslast.</p>
+<p><strong>MnT — Monitoring and Troubleshooting Node:</strong> Sammelt Logs von PSNs und stellt das Betriebsdashboard bereit — Authentifizierungsberichte, fehlgeschlagene Versuche, aktive Sitzungen, Alarme. Von den Policy-Nodes getrennt, damit die Logging-Last die Authentifizierungsleistung nicht beeinträchtigt.</p>
+<p><strong>pxGrid Controller:</strong> Der Integrationsbus. Mehr dazu weiter unten.</p>
+<h3 id="deployment-modelle">Deployment-Modelle</h3>
+<p><strong>Standalone (einzelner Node):</strong> Alle Rollen auf einer VM oder Appliance. Geeignet für Lab, PoC oder sehr kleine Deployments. Kein HA. Fällt der Node aus, stoppt die Authentifizierung. Nicht geeignet für Produktionsumgebungen, in denen der Netzwerkzugriff von ISE abhängt.</p>
+<p><strong>Klein verteilt (2 Nodes):</strong> Ein Node als PAN+MnT, einer als PSN. Grundlegende Redundanz. Geeignet für mittelgroße Umgebungen mit moderater Authentifizierungslast.</p>
+<p><strong>Vollständig verteilt mit HA:</strong> Dedizierte Nodes für jede Rolle, PAN in Aktiv/Standby, mehrere PSNs für Lastverteilung und geografische Redundanz. Dies ist das, was große Enterprise- und regulierte Umgebungen benötigen. Es erfordert auch deutlich mehr Infrastruktur — planen Sie mindestens 4–6 VMs für ein ordnungsgemäß redundantes Deployment.</p>
+<p>Die praktische Konsequenz: ISE ist kein „auf einer freien VM deployen&quot;-Projekt. Ein produktionstaugliches verteiltes Deployment erfordert dedizierte Infrastruktur, angemessene Dimensionierung und fortlaufende betriebliche Aufmerksamkeit.</p>
+<hr>
+<h2 id="lizenzierung-die-stufenstruktur">Lizenzierung: Die Stufenstruktur</h2>
+<p>Die ISE-Lizenzierung hat sich im Laufe der Jahre weiterentwickelt. Das aktuelle Modell verwendet drei Stufen, die als jährliche Abonnements pro Endpoint verkauft werden:</p>
+<h3 id="essentials-früher-base">Essentials (früher Base)</h3>
+<p>Die Einstiegsstufe. Deckt den grundlegenden 802.1X-Anwendungsfall ab:</p>
+<ul>
+<li>RADIUS-Authentifizierung (802.1X kabelgebunden und kabellos)</li>
+<li>Grundlegender Gastzugang</li>
+<li>MAB (MAC Authentication Bypass)</li>
+<li>Grundlegende VLAN-Zuweisung</li>
+</ul>
+<p>Dies ist ausreichend für Organisationen, die Port-Authentifizierung und grundlegenden Gastzugang benötigen, nicht mehr. NPS kann vieles davon kostenlos — der Mehrwert von Essentials gegenüber NPS liegt hauptsächlich in der Verwaltungsschnittstelle, Skalierbarkeit und Cisco-Ecosystem-Integration.</p>
+<h3 id="advantage-früher-plus">Advantage (früher Plus)</h3>
+<p>Fügt die Funktionen hinzu, die ISE bedeutend leistungsfähiger als NPS machen:</p>
+<ul>
+<li><strong>Geräte-Profiling</strong> — Identifizierung des Gerätetyps anhand von DHCP, CDP, LLDP, HTTP-Signaturen</li>
+<li><strong>Gast-Lebenszyklusmanagement</strong> — Sponsor-Portale, Selbstregistrierung, zeitlich begrenzter Zugang</li>
+<li><strong>BYOD-Onboarding</strong> — Zertifikatsbereitstellung für persönliche Geräte</li>
+<li><strong>TrustSec / Security Group Tags (SGT)</strong> — Policy-Enforcement jenseits der VLAN-Zuweisung</li>
+</ul>
+<p>Advantage ist die Stufe, bei der die meisten Enterprise-Deployments landen, wenn der Anwendungsfall über die grundlegende Port-Authentifizierung hinausgeht.</p>
+<h3 id="premier-früher-apex">Premier (früher Apex)</h3>
+<p>Fügt Posture-Bewertung und erweiterte Bedrohungsreaktion hinzu:</p>
+<ul>
+<li><strong>Posture</strong> — Überprüfung des Gerätezustands vor der Zugriffsgewährung (AV-Status, OS-Patch-Level, Festplattenverschlüsselung, bestimmte Registry-Werte)</li>
+<li><strong>Threat-centric NAC</strong> — Integration mit Bedrohungsintelligenznetzwerken, um die Zugriffsrichtlinie automatisch zu ändern, wenn ein Gerät als kompromittiert identifiziert wird</li>
+<li><strong>Passive Identity</strong> — Sammlung von Identitätsinformationen aus AD-Ereignisprotokollen ohne 802.1X auf jedem Port</li>
+</ul>
+<p>Premier eignet sich für hochsichere Umgebungen, in denen Compliance-Posture eine regulatorische Anforderung ist oder automatisierte Bedrohungsreaktion benötigt wird.</p>
+<h3 id="geräteverwaltung-tacacs--separate-lizenz">Geräteverwaltung (TACACS+) — Separate Lizenz</h3>
+<p>Dies ist eine häufige Verwirrungsquelle: <strong>TACACS+ für die Netzwerkgeräteverwaltung wird separat von den obigen Endpoint-Zugriffslizenzen lizenziert.</strong></p>
+<p>Die Endpoint-Lizenzen (Essentials/Advantage/Premier) decken Benutzer und Geräte ab, die sich mit dem Netzwerk verbinden. Die Geräteverwaltung deckt Netzwerkingenieure ab, die sich in Switches, Router und Firewalls einloggen — Authentifizierung über TACACS+ mit ISE als AAA-Server, Befehlsautorisierung pro Benutzer oder Gruppe.</p>
+<p>Wenn ISE sowohl die Endpoint-Zugangskontrolle als auch die Netzwerkgerät-Admin-Authentifizierung handhaben soll, benötigen Sie beide Lizenztypen. Viele Organisationen deployen ISE primär für den Endpoint-Zugang und verwenden weiterhin eine separate TACACS+-Lösung für die Geräteverwaltung.</p>
+<hr>
+<h2 id="pxgrid-die-integrationsplattform">pxGrid: Die Integrationsplattform</h2>
+<p>pxGrid (Platform Exchange Grid) ist ISEs Integrationsframework — es ermöglicht externen Plattformen, ISE-Daten zu abonnieren und Ereignisse zurück an ISE zu veröffentlichen.</p>
+<p>In der Praxis ermöglicht dies Szenarien wie:</p>
+<p><strong>Firewall-Integration:</strong> Wenn ISE einen Benutzer authentifiziert und ihm einen Security Group Tag zuweist, kann die Firewall (Palo Alto, Cisco Firepower) diese Zuordnung über pxGrid empfangen. Die Firewall-Policy kann dann gegen SGTs statt IP-Adressen geschrieben werden — „Finance-SGT den Zugriff auf Finance-Server erlauben&quot; statt IP-basierte ACLs zu pflegen, die sich ändern, wenn Benutzer sich bewegen.</p>
+<p><strong>SIEM-Integration:</strong> Sicherheitsplattformen (Splunk, IBM QRadar) abonnieren ISE-Sitzungsdaten — wer sich authentifiziert hat, von wo, mit welchem Gerät, wann. Dies bereichert die Sicherheitsereigniskorrelation mit Identitätskontext, den rohe Netzwerklogs nicht transportieren.</p>
+<p><strong>Bedrohungsreaktion:</strong> Eine SIEM- oder EDR-Plattform erkennt ein kompromittiertes Gerät. Über pxGrid veröffentlicht sie ein Bedrohungsereignis an ISE. ISE ändert automatisch die Zugriffsrichtlinie des Geräts — Quarantäne-VLAN, Weiterleitung zum Remediation-Portal — ohne menschliches Eingreifen.</p>
+<p>pxGrid verwandelt ISE von einem Netzwerkzugriffstool in eine Sicherheitsplattform, die Kontext über die gesamte Infrastruktur hinweg teilt. Dieser Integrationswert ist ein wesentlicher Teil der Rechtfertigung für ISE in ausgereiften Sicherheitsarchitekturen.</p>
+<hr>
+<h2 id="ise--dna-center-der-integrierte-campus">ISE + DNA Center: Der integrierte Campus</h2>
+<p>Wenn ISE zusammen mit DNA Center (Catalyst Center) betrieben wird, ist die Integration nativ und tiefgreifend. DNA Center verwendet ISE als Policy-Engine für SD-Access Fabric-Deployments:</p>
+<ul>
+<li>DNA Center definiert die Netzwerkhierarchie und Fabric-Infrastruktur</li>
+<li>ISE definiert, wer auf was zugreifen darf (Security Group Policies)</li>
+<li>Wenn sich ein Benutzer authentifiziert, weist ISE seinen SGT zu</li>
+<li>DNA Center propagiert die SGT-basierte Policy automatisch durch das Fabric</li>
+</ul>
+<p>Das Ergebnis: Eine Policy-Änderung in ISE — „Finance-Benutzer können jetzt auf den neuen Reporting-Server zugreifen&quot; — wird automatisch über das gesamte Campus-Fabric reflektiert, ohne einzelne Switch-Konfigurationen anzufassen. Policy wird einmal definiert und überall durchgesetzt.</p>
+<p>Diese Integration ist eines der stärksten Argumente für ISE in Umgebungen, die bereits DNA Center betreiben. Separat sind beide Plattformen leistungsfähig. Zusammen liefern sie das identitätsbewusste Netzwerk-Fabric, das keine der beiden allein bereitstellen kann.</p>
+<hr>
+<h2 id="ise-vs-nps-vs-clearpass-wann-welches-verwenden">ISE vs. NPS vs. ClearPass: Wann welches verwenden</h2>
+<p>Dies ist die Entscheidung, die die meisten Organisationen treffen müssen, bevor sie sich auf ISE festlegen.</p>
+<p><strong>Windows NPS (Network Policy Server)</strong> ist kostenlos mit Windows Server. Er handhabt RADIUS-Authentifizierung, grundlegende VLAN-Zuweisung und 802.1X. Für Organisationen, die grundlegende Port-Authentifizierung gegen Active Directory benötigen, funktioniert NPS. Seine Einschränkungen: kein Geräte-Profiling, kein Gästeportal, kein Posture, keine SGT-Unterstützung, begrenzte Skalierbarkeit und keine zentralisierte Verwaltung über mehrere RADIUS-Server. NPS ist die richtige Antwort für kleine Umgebungen mit einfachen Anforderungen und begrenztem Budget.</p>
+<p><strong>Aruba ClearPass</strong> ist ISEs primärer Wettbewerber. Es bietet gleichwertige Funktionen — 802.1X, Profiling, Gästeportal, Posture, TACACS. ClearPass ist herstellerneutral (funktioniert mit Switches und APs jedes Netzwerkherstellers), hat einen guten Ruf für starke Gast- und BYOD-Workflows und wird oft in Aruba-Wireless-Umgebungen oder Multi-Vendor-Netzwerken bevorzugt, wo die Abhängigkeit vom Cisco-Ecosystem ein Anliegen ist.</p>
+<p><strong>Cisco ISE</strong> ist die richtige Wahl, wenn:</p>
+<ul>
+<li>Die Umgebung überwiegend Cisco ist (Switches, APs, DNA Center, Firepower) — native Integrationen liefern den größten Mehrwert</li>
+<li>SGT-basierte Policy-Durchsetzung über den Campus eine Anforderung ist</li>
+<li>pxGrid-Integrationen mit Sicherheitsplattformen geplant sind</li>
+<li>Skalierung eine verteilte, HA-fähige Plattform erfordert</li>
+<li>Posture-Durchsetzung eine Compliance-Anforderung ist</li>
+</ul>
+<p>Die ehrliche Zusammenfassung:</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>NPS</th>
+          <th>ClearPass</th>
+          <th>Cisco ISE</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Kosten</td>
+          <td>Kostenlos</td>
+          <td>Pro-Endpoint-Abo</td>
+          <td>Pro-Endpoint-Abo</td>
+      </tr>
+      <tr>
+          <td>802.1X / RADIUS</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>Geräte-Profiling</td>
+          <td>❌</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>Gästeportal</td>
+          <td>Grundlegend</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>Posture</td>
+          <td>❌</td>
+          <td>✅</td>
+          <td>✅ (Premier)</td>
+      </tr>
+      <tr>
+          <td>SGT / TrustSec</td>
+          <td>❌</td>
+          <td>❌</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>DNA Center Integration</td>
+          <td>❌</td>
+          <td>❌</td>
+          <td>✅ (nativ)</td>
+      </tr>
+      <tr>
+          <td>pxGrid-Ecosystem</td>
+          <td>❌</td>
+          <td>Begrenzt</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>Herstellerneutralität</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>Cisco-optimiert</td>
+      </tr>
+      <tr>
+          <td>Betriebskomplexität</td>
+          <td>Niedrig</td>
+          <td>Mittel</td>
+          <td>Hoch</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="praxisnotizen-dimensionierung-und-betriebliche-realität">Praxisnotizen: Dimensionierung und betriebliche Realität</h2>
+<p>Einige Beobachtungen aus Produktions-Deployments:</p>
+<p><strong>PSN-Dimensionierung ist wichtiger als die meisten Teams planen.</strong> Authentifizierungsanfragen steigen bei Schichtwechseln, morgendlichen Login-Fluten und Netzwerkereignissen sprunghaft an. PSNs, die für die Durchschnittslast korrekt dimensioniert sind, können bei Spitzenlast Schwierigkeiten haben. Dimensionieren Sie für den Spitzenbetrieb mit ausreichend Puffer.</p>
+<p><strong>Der MnT-Node wird oft zu klein dimensioniert.</strong> Logging von Hunderten von Netzwerkgeräten erzeugt erhebliches Datenvolumen. Ein unterdimensionierter MnT-Node wird zum Engpass für Troubleshooting-Sichtbarkeit — genau dann, wenn Sie ihn am dringendsten brauchen. Geben Sie ihm ausreichend Festplatte und Arbeitsspeicher.</p>
+<p><strong>ISE-Upgrades sind bedeutende Wartungsereignisse.</strong> Wie CUCM folgen ISE-Upgrades einer bestimmten Reihenfolge — zuerst PAN, dann MnT, dann PSNs — und erfordern Wartungsfenster. Das Betreiben einer alten ISE-Version häuft Sicherheitsschulden an. Bauen Sie regelmäßige Upgrade-Zyklen in den Betriebskalender ein.</p>
+<p><strong>Beginnen Sie im Überwachungsmodus.</strong> Wenn Sie ISE in einem bestehenden Netzwerk deployen, beginnen Sie im Monitor-Modus — ISE verarbeitet Authentifizierungsanfragen und protokolliert, was passieren würde, setzt aber keine Policy durch. Dies zeigt Geräte, die bei der Authentifizierung scheitern würden, bevor die Durchsetzung etwas kapatır. Wechseln Sie schrittweise zu Low-Impact-Modus und dann zu vollständiger Durchsetzung.</p>
+<p><strong>Die Pro-Endpoint-Anzahl überrascht Menschen.</strong> ISE lizenziert die Anzahl gleichzeitig aktiver Endpoints. In einem Campus mit 2.000 Mitarbeitern, die jeweils Laptop und Telefon tragen, sind das mindestens 4.000 Endpoints — plus Drucker, IP-Telefone, Kameras und IoT-Geräte. Holen Sie eine genaue Gerätezählung ein, bevor Sie die Lizenz dimensionieren.</p>
+<hr>
+<h2 id="wichtigste-erkenntnisse">Wichtigste Erkenntnisse</h2>
+<ul>
+<li><strong>ISE ist eine Plattform, kein Produkt</strong> — es ersetzt mehrere Einzellösungen (RADIUS-Server, NAC, Gästeportal, Posture-Engine) durch eine integrierte Plattform.</li>
+<li><strong>Lizenzierung ist pro Endpoint, gestaffelt</strong> — Essentials für grundlegendes 802.1X, Advantage für Profiling und Gäste, Premier für Posture. Geräteverwaltung (TACACS) ist separat.</li>
+<li><strong>Verteiltes HA-Deployment ist für die Produktion nicht optional</strong> — planen Sie für dedizierte Infrastruktur und angemessene Node-Dimensionierung.</li>
+<li><strong>pxGrid-Integrationen multiplizieren ISEs Wert</strong> — Firewall-Policy basierend auf Identität, SIEM mit Sitzungskontext angereichert, automatisierte Bedrohungsreaktion.</li>
+<li><strong>ISE + DNA Center ist die vollständige Campus-Fabric-Geschichte</strong> — SGT-basierte Policy einmal definiert, überall automatisch durchgesetzt.</li>
+<li><strong>NPS ist die richtige Antwort für einfache Umgebungen</strong> — überentwickeln Sie kleine Deployments nicht.</li>
+<li><strong>ClearPass ist die richtige Antwort für Multi-Vendor-Umgebungen</strong> oder wo das Cisco-Ecosystem-Engagement begrenzt ist.</li>
+<li><strong>Beginnen Sie im Überwachungsmodus</strong> — erzwingen Sie erst, nachdem Sie validiert haben, was die Authentifizierung mit Ihrer bestehenden Umgebung machen würde.</li>
+</ul>
+<hr>
+<h2 id="verwandte-artikel">Verwandte Artikel</h2>
+<ul>
+<li>🔐 <a href="/de/technology/identity-based-microsegmentation-8021x/">802.1X-Projekte: Die identitätsbasierte Architektur im Praxiseinsatz</a> — Der Praxiseinsatz-Leitfaden, den ISE ermöglicht</li>
+<li>🏛️ <a href="/de/architecture/cisco-dna-center-catalyst-center-architecture-guide/">Cisco DNA Center / Catalyst Center: Wann es sinnvoll ist</a> — Die Campus-Management-Plattform, mit der ISE integriert</li>
+<li>🔐 <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — Die Philosophie hinter identitätsbasierter Zugangskontrolle</li>
+<li>🛡️ <a href="/de/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive</a> — Ergänzende L7-Sicherheit neben ISEs L2/L3-Durchsetzung</li>
+</ul>
+]]></content:encoded></item><item><title>802.1X-Projekte: Implementierung der identitätsbasierten Architektur in der Praxis</title><link>https://barashhelvadzhaoglu.com/de/technology/identity-based-microsegmentation-8021x/</link><pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/identity-based-microsegmentation-8021x/</guid><description>Ein Praxisdokument, das den Erfolg von 802.1X-Projekten basierend auf AD-, PKI- und GPO-Disziplin statt nur auf Networking diskutiert.</description><content:encoded><![CDATA[<h1 id="8021x-projekte-implementierung-der-identitätsbasierten-architektur-in-der-praxis">802.1X-Projekte: Implementierung der identitätsbasierten Architektur in der Praxis</h1>
 <p>802.1X-Projekte sehen von außen wie ein <strong>Network-Job</strong> aus; weil die Kontaktpunkte Switch-Ports, SSIDs und RADIUS sind. Aber im echten Leben wird der Erfolg von 802.1X oft nicht an den Netzwerkgeräten entschieden, sondern in der <strong>Active Directory-Struktur</strong>, der <strong>Zertifikatsinfrastruktur (PKI)</strong> und dem <strong>Endpoint-Management</strong>. Der Grund ist einfach: 802.1X zwingt die Organisation dazu, über ihr <strong>„Identitätsmodell&quot;</strong> zu sprechen, anstatt nur über das VLAN des Ports. Mit anderen Worten: Man wechselt von „welcher Port gehört zu welchem VLAN&quot; zu einem System von <strong>„welche Identität tritt mit welcher Berechtigung in das Netzwerk ein&quot;.</strong></p>
 <figure>
     <img loading="lazy" src="/img/postimages/8021x-nac-architecture-overview.webp"/> <figcaption>
