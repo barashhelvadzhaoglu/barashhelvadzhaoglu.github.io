@@ -1,4 +1,265 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Modern Technologies &amp; Infrastructure Tools on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/technology/</link><description>Recent content in Modern Technologies &amp; Infrastructure Tools on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>en</language><lastBuildDate>Wed, 22 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/technology/index.xml" rel="self" type="application/rss+xml"/><item><title>F5 WAF Deep Dive: Application Security with ASM and Advanced WAF</title><link>https://barashhelvadzhaoglu.com/en/technology/f5-waf-deep-dive/</link><pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/f5-waf-deep-dive/</guid><description>F5 WAF deep dive — ASM vs Advanced WAF, positive vs negative models, OWASP Top 10, bot defense, and phased transparent-to-blocking deployment.</description><content:encoded><![CDATA[<h1 id="f5-waf-deep-dive-application-security-with-asm-and-advanced-waf">F5 WAF Deep Dive: Application Security with ASM and Advanced WAF</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Modern Technologies &amp; Infrastructure Tools on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/technology/</link><description>Recent content in Modern Technologies &amp; Infrastructure Tools on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>en</language><lastBuildDate>Mon, 27 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/technology/index.xml" rel="self" type="application/rss+xml"/><item><title>WiFi Security: WPA3, 802.1X, Rogue AP Detection, and Site Survey</title><link>https://barashhelvadzhaoglu.com/en/technology/wifi-security/</link><pubDate>Mon, 27 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/wifi-security/</guid><description>Enterprise WiFi security deep dive — WPA3 vs WPA2, 802.1X authentication, rogue AP detection and containment, and Ekahau site survey methodology.</description><content:encoded><![CDATA[<h1 id="wifi-security-wpa3-8021x-rogue-ap-detection-and-site-survey">WiFi Security: WPA3, 802.1X, Rogue AP Detection, and Site Survey</h1>
+<p>This article is part of the Enterprise WiFi series.</p>
+<blockquote>
+<p><strong>New to enterprise wireless?</strong> Start with the overview: <a href="/en/technology/enterprise-wifi-architecture-complete-guide/">Enterprise WiFi Architecture: From Standards to Deployment</a></p>
+</blockquote>
+<hr>
+<h2 id="why-wifi-security-is-different">Why WiFi Security Is Different</h2>
+<p>Wired network security benefits from physical access control — a device must be physically connected to the network to communicate on it. WiFi removes this constraint. Anyone within RF range of your access point can attempt to connect. Your network&rsquo;s perimeter is literally invisible and extends beyond your walls.</p>
+<p>This makes WiFi security fundamentally different from wired security, and it makes the authentication and encryption choices on a wireless network more critical than most teams treat them.</p>
+<hr>
+<h2 id="encryption-from-wep-to-wpa3">Encryption: From WEP to WPA3</h2>
+<h3 id="the-history-that-explains-the-present">The History That Explains the Present</h3>
+<p><strong>WEP (1997):</strong> The original WiFi encryption. Completely broken. RC4 stream cipher with catastrophically weak key reuse. WEP encryption can be cracked in minutes with freely available tools. If you see WEP anywhere, treat it as unencrypted.</p>
+<p><strong>WPA (2003):</strong> Introduced TKIP (Temporal Key Integrity Protocol) as a WEP replacement. Better than WEP but still vulnerable. Not acceptable in any current deployment.</p>
+<p><strong>WPA2 (2004):</strong> Introduced CCMP with AES-128 encryption. WPA2 with a strong PSK or WPA2-Enterprise (802.1X) remains secure for most environments. The KRACK vulnerability (2017) required patching but was mitigated by OS updates.</p>
+<p><strong>WPA3 (2018):</strong> The current standard. Two security improvements matter:</p>
+<h3 id="wpa3-what-actually-changed">WPA3: What Actually Changed</h3>
+<p><strong>SAE (Simultaneous Authentication of Equals)</strong> replaces WPA2&rsquo;s PSK handshake:</p>
+<p>In WPA2-PSK, the 4-way handshake can be captured passively. An attacker captures the handshake and performs offline brute-force attack — testing millions of password combinations against the captured data without any interaction with your network. A weak password can be cracked in hours.</p>
+<p>WPA3-SAE eliminates offline brute-force: each authentication attempt requires active interaction with the AP. Dictionary attacks are impractical. Even if an attacker captures the SAE handshake, they cannot use it for offline cracking.</p>
+<p><strong>Forward Secrecy:</strong> WPA3&rsquo;s most important security improvement. In WPA2, if an attacker captures encrypted traffic and later obtains the network password, they can decrypt all previously captured traffic. WPA3&rsquo;s SAE generates a unique key for each session — obtaining the password does not compromise past sessions.</p>
+<p><strong>WPA3-Enterprise:</strong> Adds 192-bit security mode (GCMP-256 encryption, BIP-GMAC-256 management frame protection) for environments with higher security requirements — financial services, government, healthcare.</p>
+<h3 id="management-frame-protection-80211w">Management Frame Protection (802.11w)</h3>
+<p>WiFi management frames (probe requests, authentication, de-authentication, beacon) were historically unencrypted and unauthenticated — any device could send a forged de-authentication frame and disconnect clients from the network.</p>
+<p>802.11w (Protected Management Frames, PMF) encrypts and authenticates management frames:</p>
+<ul>
+<li>Prevents de-authentication attacks (a common WiFi denial-of-service technique)</li>
+<li>Required for WPA3; optional but recommended for WPA2</li>
+</ul>
+<p>Enable PMF in &ldquo;required&rdquo; mode for WPA3 networks. For WPA2 networks, &ldquo;optional&rdquo; mode provides protection for clients that support it while remaining compatible with older devices.</p>
+<hr>
+<h2 id="authentication-architecture-psk-vs-8021x">Authentication Architecture: PSK vs. 802.1X</h2>
+<h3 id="wpa2wpa3-psk-where-its-acceptable-and-where-it-isnt">WPA2/WPA3-PSK: Where It&rsquo;s Acceptable and Where It Isn&rsquo;t</h3>
+<p>A Pre-Shared Key (PSK) is a single password shared by all users of an SSID. For consumer use and simple SMB deployments, PSK is operationally convenient. For enterprise environments, it has critical weaknesses:</p>
+<ul>
+<li><strong>No individual accountability:</strong> You know someone connected with the PSK, but not who.</li>
+<li><strong>Revocation requires changing the password everywhere:</strong> One departing employee means a password change for the entire organization.</li>
+<li><strong>No dynamic policy:</strong> Every user gets identical access regardless of role or device.</li>
+</ul>
+<p><strong>Where PSK is acceptable:</strong></p>
+<ul>
+<li>Guest networks (where accountability is lower priority and everyone gets the same access)</li>
+<li>IoT device networks (devices often don&rsquo;t support 802.1X)</li>
+<li>Small offices where IT overhead of 802.1X deployment is genuinely disproportionate</li>
+</ul>
+<p><strong>Where PSK is not acceptable:</strong></p>
+<ul>
+<li>Any network carrying sensitive business data</li>
+<li>Any network where individual user accountability is required</li>
+<li>Any regulated industry where authentication logging is mandated</li>
+</ul>
+<h3 id="8021x-enterprise-authentication">802.1X: Enterprise Authentication</h3>
+<p>802.1X provides port-based network access control — a client must authenticate before gaining network access. For wireless, &ldquo;port&rdquo; means the association with an AP.</p>
+<p>The authentication flow:</p>
+<pre tabindex="0"><code>1. Client (Supplicant) associates with AP
+2. AP (Authenticator) blocks all traffic except EAPOL (authentication frames)
+3. AP relays authentication exchange to RADIUS server (Authentication Server)
+4. RADIUS authenticates against identity store (Active Directory, LDAP, certificate store)
+5. RADIUS returns: Access-Accept + VLAN assignment + other attributes
+6. AP grants network access, places client in assigned VLAN
+</code></pre><p><strong>Components required:</strong></p>
+<ul>
+<li><strong>Supplicant:</strong> 802.1X client software on the connecting device. Built into Windows, macOS, iOS, Android.</li>
+<li><strong>Authenticator:</strong> The AP (or WLC in centralized architectures)</li>
+<li><strong>RADIUS server:</strong> Windows NPS, Cisco ISE, Aruba ClearPass, FreeRADIUS</li>
+<li><strong>Identity store:</strong> Active Directory, LDAP directory, certificate authority</li>
+</ul>
+<h3 id="eap-methods-choosing-the-right-one">EAP Methods: Choosing the Right One</h3>
+<p>EAP (Extensible Authentication Protocol) defines the specific authentication exchange. The choice of EAP method determines security strength and deployment complexity:</p>
+<p><strong>PEAP-MSCHAPv2 (Most Common):</strong></p>
+<ul>
+<li>Client authenticates with username/password</li>
+<li>Password is never sent in clear — it&rsquo;s used in an MS-CHAP exchange inside a TLS tunnel</li>
+<li>Server presents a certificate to the client (client must verify it)</li>
+<li>Simple to deploy — no client certificates required</li>
+<li>Weakness: password-based, still vulnerable to credential theft</li>
+</ul>
+<p><strong>EAP-TLS (Strongest):</strong></p>
+<ul>
+<li>Both client and server authenticate with certificates</li>
+<li>No password involved — the certificate is the credential</li>
+<li>Even if a user&rsquo;s AD password is compromised, network access requires the certificate</li>
+<li>Requires PKI infrastructure (Active Directory Certificate Services or similar)</li>
+<li>Client certificates must be distributed to all managed devices (typically via GPO)</li>
+<li>Most secure wireless authentication method</li>
+</ul>
+<p><strong>EAP-TTLS / EAP-FAST:</strong></p>
+<ul>
+<li>Alternatives to PEAP, less commonly deployed in enterprise environments</li>
+<li>EAP-FAST was designed by Cisco as a PEAP alternative; relevant in Cisco-heavy environments</li>
+</ul>
+<p><strong>Field recommendation:</strong> PEAP for most enterprise deployments — straightforward deployment with AD integration. EAP-TLS for environments with high security requirements (banking, healthcare, critical infrastructure) where certificate infrastructure already exists.</p>
+<h3 id="dynamic-vlan-assignment">Dynamic VLAN Assignment</h3>
+<p>One of 802.1X&rsquo;s most powerful features: the RADIUS server can assign clients to different VLANs based on identity, device type, or group membership:</p>
+<pre tabindex="0"><code>User: john.smith (member of Finance group)
+→ RADIUS assigns VLAN 30 (Finance VLAN)
+
+User: jane.doe (member of HR group)
+→ RADIUS assigns VLAN 40 (HR VLAN)
+
+Device: MedDevice-001 (MAC auth bypass, device certificate)
+→ RADIUS assigns VLAN 50 (Medical Device VLAN)
+
+Unknown device (no certificate, no AD account)
+→ RADIUS assigns VLAN 99 (Quarantine VLAN)
+</code></pre><p>This eliminates manual VLAN assignment and ensures consistent policy regardless of which physical AP a user connects through.</p>
+<hr>
+<h2 id="rogue-ap-detection-and-containment">Rogue AP Detection and Containment</h2>
+<h3 id="what-is-a-rogue-ap">What Is a Rogue AP?</h3>
+<p>A rogue AP is any unauthorized access point present in your RF environment. Categories:</p>
+<p><strong>Malicious rogue:</strong> Deliberately planted by an attacker. Often configured with the same SSID as your corporate network to capture credentials (evil twin attack). Provides internet connectivity to attract clients.</p>
+<p><strong>Accidental rogue:</strong> An employee connected a personal router or WiFi extender to the corporate network. Often well-intentioned but creates security bypass — devices connecting to this AP bypass corporate authentication and land directly on the corporate LAN.</p>
+<p><strong>Neighboring AP:</strong> An AP from an adjacent office or building, not connected to your network. Not a security threat, but contributes to interference.</p>
+<p>Enterprise wireless controllers classify detected APs based on whether they are connected to the same wired network as your infrastructure.</p>
+<h3 id="how-detection-works">How Detection Works</h3>
+<p>Enterprise wireless controllers continuously scan the RF environment on all channels in addition to serving clients. This is called <strong>off-channel scanning</strong> or <strong>background scanning</strong>:</p>
+<ul>
+<li>APs briefly switch to neighboring channels to scan for other wireless devices</li>
+<li>Detected APs are reported to the controller with BSSID, SSID, signal strength, and channel</li>
+<li>The controller compares detected APs against the known AP database</li>
+</ul>
+<p><strong>Wired-side detection:</strong> When an AP is detected in the RF environment, the controller checks whether its BSSID appears in the wired network&rsquo;s ARP table or MAC address table. If a detected AP&rsquo;s MAC address is visible on your wired infrastructure, it is classified as a <strong>rogue connected to your network</strong> — a security incident.</p>
+<h3 id="containment-rogue-ap-mitigation">Containment (Rogue AP Mitigation)</h3>
+<p>When a rogue AP is classified as a threat, enterprise controllers can automatically contain it:</p>
+<p><strong>Deauthentication containment:</strong> The controller sends 802.11 de-authentication frames impersonating the rogue AP, instructing connected clients to disconnect. Clients attempting to connect are continuously deauthenticated. This prevents clients from maintaining connections to the rogue AP.</p>
+<p><strong>Legal note:</strong> Active containment (sending deauthentication frames) is legally restricted in many jurisdictions. If the rogue AP belongs to a neighboring business rather than being on your network, active containment may violate telecommunications regulations. Most enterprise controllers allow you to configure automatic containment for APs connected to your network and manual containment only for neighboring APs.</p>
+<h3 id="evil-twin-detection">Evil Twin Detection</h3>
+<p>An evil twin attack is a rogue AP configured with the same SSID as your corporate network, intended to capture credentials from users who connect to it.</p>
+<p>Detection: Your controller sees an AP with your SSID but a different BSSID (MAC address). This is classified as an evil twin and should trigger immediate investigation and containment.</p>
+<p>Mitigation beyond containment: 802.1X authentication makes evil twin attacks against credential capture much harder. Even if a user connects to the evil twin, EAP-TLS requires mutual authentication — the evil twin cannot present a valid server certificate from your CA, so the client&rsquo;s 802.1X supplicant will refuse to authenticate.</p>
+<hr>
+<h2 id="site-survey-methodology-and-process">Site Survey: Methodology and Process</h2>
+<h3 id="why-site-survey-is-not-optional">Why Site Survey Is Not Optional</h3>
+<p>A site survey is the only way to know — not assume, not estimate, but know — that your wireless deployment will meet its requirements before you rely on it. Skipping the survey is common. It&rsquo;s also the most common cause of &ldquo;we deployed WiFi and now it doesn&rsquo;t work properly&rdquo; situations.</p>
+<p>What a site survey reveals:</p>
+<ul>
+<li>Actual RF coverage from each AP position</li>
+<li>Signal strength and data rate at every point in the space</li>
+<li>Channel utilization and interference from neighboring networks</li>
+<li>Roaming behavior between APs</li>
+<li>Coverage gaps that aren&rsquo;t visible on floor plans</li>
+</ul>
+<h3 id="survey-types">Survey Types</h3>
+<p><strong>Predictive Survey (Pre-Deployment):</strong>
+Uses RF simulation software to model coverage before installing APs. You provide a floor plan, specify wall materials and thickness, place virtual APs at proposed locations, and the software calculates expected coverage.</p>
+<p><strong>Ekahau Site Survey</strong> (now called Ekahau Pro) is the industry standard. Cisco and Aruba also have proprietary tools (Cisco DNA Spaces, Aruba Airwave) but Ekahau is vendor-neutral and widely used.</p>
+<p>The predictive survey answers: How many APs do I need? Where should they be placed? What channels should they use? What will coverage look like?</p>
+<p><strong>Validation Survey (Post-Deployment):</strong>
+After APs are installed, you walk the space with a laptop running Ekahau&rsquo;s survey software, collecting actual measurements. The software records your GPS location (based on walking path on the floor plan), the RSSI from every AP, channel utilization, noise floor, and roaming events.</p>
+<p>Compare validation results against the predictive model:</p>
+<ul>
+<li>Coverage matches prediction → deployment is correct</li>
+<li>Coverage gaps exist → adjust AP placement or power levels</li>
+<li>Channel contention found → adjust channel assignments</li>
+<li>Roaming dead zones found → adjust AP placement or enable fast roaming protocols</li>
+</ul>
+<h3 id="running-an-ekahau-survey-process">Running an Ekahau Survey: Process</h3>
+<p><strong>Step 1: Import floor plan</strong>
+Import an accurate floor plan (AutoCAD, PDF, image) into Ekahau. Set the scale — Ekahau needs to know the real-world dimensions to calculate RF propagation distances.</p>
+<p><strong>Step 2: Define wall types</strong>
+Mark walls on the floor plan and assign attenuation values:</p>
+<ul>
+<li>Interior plasterboard/drywall: 3–5 dB per wall</li>
+<li>Brick/concrete: 12–15 dB per wall</li>
+<li>Glass: 2–3 dB per wall</li>
+<li>Metal (elevator shafts, equipment rooms): 20–30 dB</li>
+</ul>
+<p>Accuracy here directly affects predictive survey quality.</p>
+<p><strong>Step 3: Place virtual APs and run simulation</strong>
+Place virtual APs at proposed locations. Set AP model, antenna orientation, and power level. Run the simulation and review coverage heat maps.</p>
+<p>Heat maps show:</p>
+<ul>
+<li><strong>Signal strength (RSSI):</strong> Target -65 dBm or better for high-throughput clients; -70 dBm minimum for basic connectivity</li>
+<li><strong>Data rate:</strong> Expected throughput at each point</li>
+<li><strong>Coverage overlap:</strong> Percentage of the space covered by 2+ APs at threshold RSSI (important for roaming)</li>
+</ul>
+<p><strong>Step 4: Iterate AP placement</strong>
+Adjust AP positions based on simulation results. Add APs in areas with inadequate coverage. Reduce power in areas where cells overlap too much (co-channel interference).</p>
+<p><strong>Step 5: Validation walk</strong>
+After physical installation, walk the space in a systematic pattern using Ekahau&rsquo;s survey mode. Move slowly — Ekahau collects measurements continuously and correlates them with your position on the floor plan.</p>
+<p>Pay special attention to:</p>
+<ul>
+<li>Room corners and edges (often weakest signal)</li>
+<li>Stairwells and elevator lobbies (transition areas, common roaming failure points)</li>
+<li>Conference rooms (high-density scenarios)</li>
+<li>Areas behind obstacles (server racks, large metal cabinets)</li>
+</ul>
+<p><strong>Step 6: Review and remediate</strong>
+Compare validation heatmap against prediction. Document actual versus predicted performance. Adjust AP placement, power levels, or channel assignments for any areas that fall below requirements.</p>
+<h3 id="key-survey-metrics-and-targets">Key Survey Metrics and Targets</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Metric</th>
+          <th>Minimum</th>
+          <th>Target</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>RSSI (signal strength)</td>
+          <td>-70 dBm</td>
+          <td>-65 dBm or better</td>
+      </tr>
+      <tr>
+          <td>SNR (signal-to-noise ratio)</td>
+          <td>20 dB</td>
+          <td>25 dB or better</td>
+      </tr>
+      <tr>
+          <td>Channel overlap</td>
+          <td>15–20%</td>
+          <td>20–25% (sufficient for roaming)</td>
+      </tr>
+      <tr>
+          <td>Co-channel interference</td>
+          <td>&lt; -85 dBm from neighbors</td>
+          <td>&lt; -90 dBm</td>
+      </tr>
+      <tr>
+          <td>Roaming transition time</td>
+          <td>&lt; 150ms (voice)</td>
+          <td>&lt; 50ms (best case with 802.11r)</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="wireless-intrusion-detection-wids">Wireless Intrusion Detection (WIDS)</h2>
+<p>Beyond rogue AP detection, enterprise wireless platforms provide broader wireless intrusion detection:</p>
+<ul>
+<li><strong>De-authentication flood detection:</strong> Alert when a burst of de-authentication frames is detected — indicates a potential WiFi DoS attack</li>
+<li><strong>Probe flood detection:</strong> Unusual volume of probe requests may indicate scanning activity</li>
+<li><strong>Association flood:</strong> Rapid connection attempts that could indicate a brute-force or credential stuffing attempt against the WiFi network</li>
+<li><strong>SSID spoofing:</strong> Detect APs broadcasting SSIDs identical to your network (evil twin)</li>
+<li><strong>Adhoc network detection:</strong> Client-to-client wireless connections that bypass your AP infrastructure</li>
+</ul>
+<p>WIDS events should be integrated into your SIEM or monitoring platform for centralized visibility. An increase in de-authentication flood events alongside network performance degradation, for example, suggests a coordinated WiFi attack.</p>
+<hr>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li><strong>WPA3 SAE</strong> eliminates offline brute-force attacks on PSK networks. <strong>WPA3-Enterprise</strong> adds 192-bit security for high-assurance environments.</li>
+<li><strong>802.1X</strong> provides individual accountability, dynamic VLAN assignment, and policy enforcement that PSK cannot deliver. Use PEAP for most deployments, EAP-TLS where certificate infrastructure exists.</li>
+<li><strong>Rogue AP detection</strong> is built into enterprise wireless platforms — use it. Automatic containment for network-connected rogues, manual review for neighboring APs.</li>
+<li><strong>Evil twin attacks</strong> are significantly mitigated by 802.1X with mutual authentication — clients won&rsquo;t authenticate to a rogue AP that can&rsquo;t present a valid server certificate.</li>
+<li><strong>Site survey is not optional.</strong> Predictive survey before deployment, validation survey after. Ekahau is the industry standard tool.</li>
+<li><strong>WIDS</strong> turns your wireless infrastructure into a sensor for wireless-layer attacks. Integrate events into your monitoring platform.</li>
+</ul>
+<hr>
+<h2 id="this-series">This Series</h2>
+<ul>
+<li>📖 <a href="/en/technology/enterprise-wifi-architecture-complete-guide/">Enterprise WiFi Architecture Overview</a> ← Start here</li>
+<li>📡 <a href="/en/technology/wifi-80211-standards-wifi4-wifi5-wifi6/">802.11 Standards Deep Dive</a></li>
+<li>🏢 <a href="/en/technology/enterprise-wifi-controller-architecture-cisco-aruba/">Enterprise Controller Architecture: Cisco and Aruba</a></li>
+<li>🏨 <a href="/en/technology/wifi-design-smb-hotel-medical/">WiFi Design for SMB, Hotels, and Medical Practices</a></li>
+</ul>
+<h2 id="related-articles">Related Articles</h2>
+<ul>
+<li>🔐 <a href="/en/technology/identity-based-microsegmentation-8021x/">802.1X Identity-Based Architecture in the Field</a> — Deep dive on 802.1X beyond wireless</li>
+<li>🔐 <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture</a> — Where wireless security fits in Zero Trust</li>
+<li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">Monitoring Done Right</a> — Integrating wireless events into proactive monitoring</li>
+</ul>
+]]></content:encoded></item><item><title>F5 WAF Deep Dive: Application Security with ASM and Advanced WAF</title><link>https://barashhelvadzhaoglu.com/en/technology/f5-waf-deep-dive/</link><pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/f5-waf-deep-dive/</guid><description>F5 WAF deep dive — ASM vs Advanced WAF, positive vs negative models, OWASP Top 10, bot defense, and phased transparent-to-blocking deployment.</description><content:encoded><![CDATA[<h1 id="f5-waf-deep-dive-application-security-with-asm-and-advanced-waf">F5 WAF Deep Dive: Application Security with ASM and Advanced WAF</h1>
 <p>This article is part of the F5 BIG-IP series.</p>
 <blockquote>
 <p><strong>New to F5?</strong> Start with the platform overview first: <a href="/en/technology/f5-bigip-application-delivery-platform-overview/">F5 BIG-IP Is Not a Load Balancer — It&rsquo;s an Application Delivery Platform</a></p>
