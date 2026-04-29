@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>WLAN Design on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/wlan-design/</link><description>Recent content in WLAN Design on Barash Helvadzhaoglu</description><generator>Hugo -- 0.161.0</generator><language>en</language><lastBuildDate>Wed, 29 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/wlan-design/index.xml" rel="self" type="application/rss+xml"/><item><title>WiFi Design for SMB, Hotels, and Medical Practices: Field Notes</title><link>https://barashhelvadzhaoglu.com/en/technology/wifi-smb-hotel-medical/</link><pubDate>Wed, 29 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/wifi-smb-hotel-medical/</guid><description>WiFi design for SMBs, hotels, and medical practices — density planning, guest segmentation, PMS integration, and real deployment lessons.</description><content:encoded><![CDATA[<h1 id="wifi-design-for-smb-hotels-and-medical-practices-field-notes">WiFi Design for SMB, Hotels, and Medical Practices: Field Notes</h1>
+<p>This article is part of the Enterprise WiFi series.</p>
+<blockquote>
+<p><strong>New to enterprise wireless?</strong> Start with the overview: <a href="/en/technology/enterprise-wifi-architecture-complete-guide/">Enterprise WiFi Architecture: From Standards to Deployment</a></p>
+</blockquote>
+<hr>
+<h2 id="why-environment-type-matters-more-than-equipment-brand">Why Environment Type Matters More Than Equipment Brand</h2>
+<p>A WiFi 6 AP from any major vendor will outperform a WiFi 5 AP in a lab. In a real building, the difference between a good deployment and a failed one has almost nothing to do with the AP hardware — it comes down to design decisions specific to the environment.</p>
+<p>A hotel has fundamentally different requirements than a medical practice. A logistics warehouse requires a completely different approach than a law firm. The AP is just a radio — the design determines whether it serves its environment.</p>
+<p>This article covers three common deployment scenarios with specific design patterns, common mistakes, and field notes from actual deployments.</p>
+<hr>
+<h2 id="part-1-smb-wifi-design">Part 1: SMB WiFi Design</h2>
+<h3 id="the-just-add-access-points-trap">The &ldquo;Just Add Access Points&rdquo; Trap</h3>
+<p>The most common SMB WiFi failure: someone installs two or three APs based on internet coverage maps, reports that &ldquo;WiFi is everywhere,&rdquo; and three months later everyone complains the WiFi is slow.</p>
+<p>Root causes, almost always:</p>
+<ul>
+<li>APs placed where cables were easy to run, not where coverage is needed</li>
+<li>Single AP trying to cover too large an area at usable data rates (signal strength ≠ throughput)</li>
+<li>No band steering — older phones and printers monopolizing 2.4 GHz</li>
+<li>No QoS — a single user&rsquo;s file backup consumes bandwidth that 10 other users are waiting for</li>
+<li>No guest/staff separation — guests on the corporate network</li>
+</ul>
+<h3 id="coverage-planning-for-smb">Coverage Planning for SMB</h3>
+<p>A rough starting point for typical office environments:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Environment</th>
+          <th>AP Coverage Area</th>
+          <th>Notes</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Open office, low density</td>
+          <td>150–200 m²</td>
+          <td>Modern WiFi 6 APs, moderate client count</td>
+      </tr>
+      <tr>
+          <td>Open office, high density</td>
+          <td>80–100 m²</td>
+          <td>Many clients, video calls, high throughput</td>
+      </tr>
+      <tr>
+          <td>Office with interior walls</td>
+          <td>80–120 m²</td>
+          <td>Walls attenuate signal; test before finalizing</td>
+      </tr>
+      <tr>
+          <td>Corridor / hotel hallway</td>
+          <td>20–25 m per AP</td>
+          <td>Narrow coverage pattern</td>
+      </tr>
+      <tr>
+          <td>Warehouse / large open space</td>
+          <td>300–500 m²</td>
+          <td>Low density, high ceilings, RF propagates well</td>
+      </tr>
+  </tbody>
+</table>
+<p>These are starting points, not rules. The only way to validate coverage is a site survey — predictive before deployment, validation after.</p>
+<h3 id="the-network-segmentation-baseline">The Network Segmentation Baseline</h3>
+<p>Every SMB deployment should have at minimum three SSIDs mapping to three VLANs:</p>
+<pre tabindex="0"><code>SSID: CompanyNet     → VLAN 10 (corporate devices, full LAN access)
+SSID: GuestWiFi      → VLAN 20 (internet only, isolated from VLAN 10)
+SSID: IoT/Printers   → VLAN 30 (printers, cameras, isolated)
+</code></pre><p>The guest VLAN must be <strong>firewall-enforced isolation</strong> — not just a different subnet with no firewall between them. A guest device must be able to reach the internet and nothing else. The firewall rule is explicit: VLAN 20 → internet only, VLAN 20 → VLAN 10 deny.</p>
+<h3 id="band-steering-and-qos">Band Steering and QoS</h3>
+<p><strong>Band steering</strong> in SMB environments: configure APs to steer clients to 5 GHz whenever possible. Most modern business laptops and phones are 5 GHz capable. Printers and older IoT devices often only support 2.4 GHz — placing them on the dedicated IoT SSID handles this without affecting other users.</p>
+<p><strong>QoS basics for SMB:</strong></p>
+<ul>
+<li>Mark or prioritize VoIP/video traffic (DSCP EF for voice, AF41 for video)</li>
+<li>Set per-user bandwidth limits on the guest VLAN (e.g., 10 Mbps down / 5 Mbps up per device)</li>
+<li>Consider application-aware QoS if your AP platform supports it (Meraki, Aruba)</li>
+</ul>
+<h3 id="platform-recommendation-for-smb">Platform Recommendation for SMB</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Size</th>
+          <th>Recommendation</th>
+          <th>Reason</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1–5 APs, no IT staff</td>
+          <td>Aruba Instant On</td>
+          <td>Simple app-based management, solid hardware</td>
+      </tr>
+      <tr>
+          <td>5–20 APs, basic IT staff</td>
+          <td>Cisco Meraki or Aruba Central</td>
+          <td>Cloud management, good visibility</td>
+      </tr>
+      <tr>
+          <td>20+ APs, IT team</td>
+          <td>Aruba Central or Cisco DNA Center</td>
+          <td>Enterprise features, policy integration</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="part-2-hotel-wifi-design">Part 2: Hotel WiFi Design</h2>
+<h3 id="the-hotel-wifi-challenge">The Hotel WiFi Challenge</h3>
+<p>Hotels are one of the most demanding WiFi environments:</p>
+<ul>
+<li><strong>High device density:</strong> Every guest room has 3–5 devices (phone, laptop, tablet, smart TV, smart watch). A 200-room hotel has 600–1000 client devices during peak occupancy.</li>
+<li><strong>Variable demand:</strong> Usage spikes at check-in, after dinner, and in the morning — with very low usage during the day. The network must handle peak load, not average load.</li>
+<li><strong>Revenue dependency:</strong> &ldquo;WiFi doesn&rsquo;t work&rdquo; is a top complaint in hotel reviews. Poor WiFi directly affects guest satisfaction scores.</li>
+<li><strong>Mixed technical sophistication:</strong> The network must work seamlessly for a tech executive and a vacation traveler alike.</li>
+</ul>
+<h3 id="ap-placement-corridor-vs-in-room">AP Placement: Corridor vs. In-Room</h3>
+<p>Two fundamentally different approaches:</p>
+<p><strong>Corridor APs:</strong></p>
+<ul>
+<li>APs mounted in hallways, covering rooms through walls</li>
+<li>Lower AP count, lower installation cost</li>
+<li>Signal must penetrate 2–3 walls to reach guests</li>
+<li>Co-channel interference between corridor APs covering adjacent rooms</li>
+</ul>
+<p><strong>In-Room APs:</strong></p>
+<ul>
+<li>AP inside each room or every other room</li>
+<li>Higher AP count and installation cost</li>
+<li>Excellent signal quality (AP is in the room with the client)</li>
+<li>Better isolation between rooms (lower interference)</li>
+<li>More complex cabling</li>
+</ul>
+<p><strong>Field experience:</strong> In modern hotel construction with concrete walls and metal-framed rooms, corridor APs often provide surprisingly poor coverage — the walls attenuate 5 GHz signals significantly. In-room or every-other-room AP placement typically delivers dramatically better guest experience. For refurbishment projects with existing cabling, corridor APs with WiFi 6 and careful channel planning are often the pragmatic choice.</p>
+<h3 id="bandwidth-management-the-most-critical-hotel-feature">Bandwidth Management: The Most Critical Hotel Feature</h3>
+<p>Without per-user bandwidth management, one guest streaming 4K video on three devices consumes bandwidth that 20 other guests are waiting for. The guest experience becomes entirely dependent on who happens to be online at the same moment.</p>
+<p>Enterprise hotel WiFi controllers support per-user and per-device rate limiting:</p>
+<pre tabindex="0"><code>Guest SSID Policy:
+  Per-device download limit:  25 Mbps
+  Per-device upload limit:    10 Mbps
+  Per-room maximum:           75 Mbps (3 devices × 25 Mbps)
+</code></pre><p>These limits ensure fairness without users noticing in typical usage — 25 Mbps per device is sufficient for HD video streaming, video calls, and normal browsing. 4K streaming requires 15–25 Mbps, still within the limit.</p>
+<p>Premium WiFi tiers (charged additional fee) can have higher limits:</p>
+<pre tabindex="0"><code>Standard Guest: 25 Mbps per device
+Premium Guest:  50 Mbps per device
+Corporate VLAN: Unlimited (staff network)
+</code></pre><h3 id="guest-portal-and-authentication">Guest Portal and Authentication</h3>
+<p>Hotel guest portals serve three functions: identification, terms acceptance, and duration management.</p>
+<p><strong>Common authentication models:</strong></p>
+<ul>
+<li><strong>Open registration:</strong> Guest enters name and email, accepts terms, gets access. Simple, no staff involvement.</li>
+<li><strong>Room-number validation:</strong> Guest enters room number (and optionally surname). Integrates with PMS to verify active reservation.</li>
+<li><strong>Voucher-based:</strong> Reception provides a voucher code. Useful for day visitors, conference attendees.</li>
+</ul>
+<p><strong>PMS (Property Management System) integration</strong> is the professional standard for hotels. The WiFi system queries the PMS to verify that the room number is occupied and the reservation is active. At checkout, the guest&rsquo;s WiFi access is automatically revoked. No manual intervention required.</p>
+<p>Common PMS systems with WiFi integration: Opera, Protel, Mews, Cloudbeds — all have documented integration APIs for major WiFi platforms (Aruba, Cisco, Ruckus).</p>
+<h3 id="network-segmentation-in-hotels">Network Segmentation in Hotels</h3>
+<pre tabindex="0"><code>SSID: HotelGuest     → VLAN 100 (internet only, rate limited)
+SSID: HotelPremium   → VLAN 101 (internet, higher rate limit)
+SSID: HotelStaff     → VLAN 200 (corporate LAN, PMS access)
+SSID: HotelBackOffice → VLAN 300 (management systems, POS)
+SSID: HotelIOT       → VLAN 400 (TVs, thermostats, locks)
+</code></pre><p>Firewall rules: Guest VLANs (100, 101) → internet only. Staff VLAN (200) → LAN + internet. Strict isolation between guest and staff networks — no exceptions.</p>
+<h3 id="conference-and-event-wifi">Conference and Event WiFi</h3>
+<p>Hotels with conference facilities face a separate challenge: temporary high-density deployments for events where 200+ people are in one room with devices.</p>
+<p>Temporary portable APs can supplement permanent coverage for these events — but they must be pre-configured and tested before the event, not deployed during setup. Coordinate with the event organizer for expected client count and usage patterns (light browsing vs. video streaming vs. presentation tools).</p>
+<hr>
+<h2 id="part-3-medical-practice-wifi-design">Part 3: Medical Practice WiFi Design</h2>
+<h3 id="healthcare-specific-requirements">Healthcare-Specific Requirements</h3>
+<p>Medical practices have WiFi requirements that go beyond typical SMB considerations:</p>
+<p><strong>Device diversity:</strong> Clinical environments have an unusual mix of devices — HP laptops on the corporate network, iPads for EHR access, medical devices (infusion pumps, patient monitors, portable imaging equipment), patient smartphones on guest WiFi, and building management systems.</p>
+<p><strong>Compliance:</strong> HIPAA (Health Insurance Portability and Accountability Act) in the US — and equivalent regulations in Germany (DSGVO) and the EU — require that patient health information (PHI) is protected in transit. WiFi must use strong encryption (WPA2-Enterprise or WPA3) for networks carrying PHI. Guest WiFi must be completely isolated from clinical networks.</p>
+<p><strong>Availability:</strong> Clinical workflows depend on network access. A failed WiFi network in a busy medical practice causes genuine operational disruption — doctors cannot access patient records, EHR systems time out, and staff resort to paper workarounds.</p>
+<h3 id="network-segmentation-for-medical-practices">Network Segmentation for Medical Practices</h3>
+<pre tabindex="0"><code>SSID: ClinicStaff    → VLAN 10  (EHR, clinical apps, full access, WPA2-Enterprise)
+SSID: MedDevices     → VLAN 20  (medical devices, isolated, WPA2-PSK)
+SSID: PatientWiFi    → VLAN 30  (internet only, completely isolated)
+SSID: BuildingMgmt   → VLAN 40  (HVAC, access control, isolated)
+</code></pre><p>The medical device VLAN (VLAN 20) is particularly important. Many medical devices use unencrypted protocols internally — they should never share a network segment with general staff or patient devices.</p>
+<h3 id="medical-device-considerations">Medical Device Considerations</h3>
+<p>Medical devices connected to WiFi often have unusual characteristics:</p>
+<ul>
+<li><strong>Legacy operating systems:</strong> Some medical devices run Windows XP or Windows 7 embedded OS. They cannot be updated. They must be network-accessible for clinical use but isolated from everything else.</li>
+<li><strong>Static IPs:</strong> Many medical devices require static IP assignments rather than DHCP. Document these carefully.</li>
+<li><strong>Frequency sensitivity:</strong> Some older medical devices work only on 2.4 GHz and are not 5 GHz capable.</li>
+<li><strong>Regulatory certification:</strong> Medical devices with WiFi must be used exactly as their manufacturer certified them. Changing the WiFi network in ways that affect device connectivity may void certification and create compliance liability. Always verify changes with the device manufacturer.</li>
+</ul>
+<h3 id="hipaa-wireless-compliance-checklist">HIPAA Wireless Compliance Checklist</h3>
+<p>For US medical practices (HIPAA) — and equivalent for EU (DSGVO):</p>
+<ul>
+<li>✅ WPA2-Enterprise or WPA3-Enterprise on clinical networks (individual user credentials, not shared PSK)</li>
+<li>✅ Clinical VLAN completely isolated from guest/patient WiFi</li>
+<li>✅ Wireless traffic on clinical networks encrypted in transit</li>
+<li>✅ Rogue AP detection enabled on the wireless controller</li>
+<li>✅ Authentication logs retained (who connected, when, from where)</li>
+<li>✅ Medical device network isolated from clinical and guest VLANs</li>
+<li>✅ Guest WiFi terms of service documented</li>
+</ul>
+<hr>
+<h2 id="common-mistakes-across-all-environments">Common Mistakes Across All Environments</h2>
+<p><strong>1. Not doing a site survey</strong>
+Planning AP placement based on floor plans without RF measurement is guesswork. Walls, furniture, equipment, and neighboring networks all affect coverage in ways that floor plans don&rsquo;t capture. Always do a predictive survey before installation and a validation survey after.</p>
+<p><strong>2. Using consumer equipment in professional environments</strong>
+Consumer APs (home routers with WiFi) lack band steering, proper roaming support, per-user QoS, VLAN segmentation, and management visibility. They appear to work initially and reveal their limitations under load or over time.</p>
+<p><strong>3. Deploying without VLAN segmentation</strong>
+Guest devices on the same network as corporate devices is a security failure waiting to happen. This is not optional in professional environments.</p>
+<p><strong>4. No monitoring</strong>
+An AP that has rebooted in the middle of the night, a client that has been connected to the wrong AP for a week, a channel change that caused interference — none of these are visible without wireless monitoring. Set up alerts for AP availability, client count anomalies, and channel utilization.</p>
+<p><strong>5. Ignoring power over Ethernet (PoE) planning</strong>
+Enterprise APs require PoE. A Cisco or Aruba WiFi 6 AP with multiple radios draws 20–25 watts. A 48-port switch with all ports providing 25W exceeds the switch&rsquo;s total PoE budget. Plan PoE capacity before buying hardware.</p>
+<hr>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li>WiFi design is environment-specific. The design patterns for a hotel differ fundamentally from an office, which differs from a medical practice.</li>
+<li><strong>Bandwidth management per user</strong> is non-negotiable in hospitality environments — without it, fairness is impossible.</li>
+<li><strong>PMS integration</strong> in hotels automates guest access lifecycle without staff involvement.</li>
+<li><strong>VLAN segmentation</strong> is the baseline for every professional environment — guest, corporate, IoT, and management networks must be isolated.</li>
+<li><strong>Medical device WiFi</strong> requires special handling — legacy OS, static IPs, regulatory certification constraints.</li>
+<li><strong>Site survey</strong> is not optional — it&rsquo;s the only way to validate that a deployment will work before it&rsquo;s relied upon.</li>
+</ul>
+<hr>
+<h2 id="this-series">This Series</h2>
+<ul>
+<li>📖 <a href="/en/technology/enterprise-wifi-architecture-complete-guide/">Enterprise WiFi Architecture Overview</a> ← Start here</li>
+<li>📡 <a href="/en/technology/wifi-80211-standards-wifi4-wifi5-wifi6/">802.11 Standards Deep Dive</a></li>
+<li>🏢 <a href="/en/technology/enterprise-wifi-controller-architecture-cisco-aruba/">Enterprise Controller Architecture: Cisco and Aruba</a></li>
+<li>🔐 <a href="/en/technology/wifi-security-wpa3-8021x-site-survey/">WiFi Security: WPA3, 802.1X, Rogue AP, Site Survey</a></li>
+</ul>
+<h2 id="related-articles">Related Articles</h2>
+<ul>
+<li>📡 <a href="/en/technology/nas-backup-aws-s3-cloud-smb/">NAS Backup with AWS S3 — Data Security for SMBs</a> — SMB data protection alongside WiFi</li>
+<li>🔐 <a href="/en/technology/identity-based-microsegmentation-8021x/">802.1X Identity-Based Architecture in the Field</a> — The identity layer for enterprise wireless</li>
+<li>🏗️ <a href="/en/architecture/it-infrastructure-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a> — Systems thinking in network design</li>
+</ul>
+]]></content:encoded></item></channel></rss>

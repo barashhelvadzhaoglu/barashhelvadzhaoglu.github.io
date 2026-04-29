@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Misafir Ağı on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/misafir-a%C4%9F%C4%B1/</link><description>Recent content in Misafir Ağı on Barash Helvadzhaoglu</description><generator>Hugo -- 0.161.0</generator><language>tr</language><lastBuildDate>Wed, 29 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/misafir-a%C4%9F%C4%B1/index.xml" rel="self" type="application/rss+xml"/><item><title>KOBİ, Oteller ve Muayenehaneler İçin WiFi Tasarımı: Saha Notları</title><link>https://barashhelvadzhaoglu.com/tr/technology/wifi-smb-hotel-medical/</link><pubDate>Wed, 29 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/wifi-smb-hotel-medical/</guid><description>KOBİ, otel ve muayenehaneler için WiFi tasarım rehberi — yoğunluk planlaması, misafir segmentasyonu, bant genişliği yönetimi ve PMS entegrasyonu.</description><content:encoded><![CDATA[<h1 id="kobi-oteller-ve-muayenehaneler-için-wifi-tasarımı-saha-notları">KOBİ, Oteller ve Muayenehaneler İçin WiFi Tasarımı: Saha Notları</h1>
+<p>Bu yazı Kurumsal WiFi serisinin bir parçasıdır.</p>
+<blockquote>
+<p><strong>Kurumsal kablosuz ağa yeni misiniz?</strong> Genel bakışla başlayın: <a href="/tr/technology/kurumsal-wifi-mimarisi-tam-rehber/">Kurumsal WiFi Mimarisi: Standartlardan Deployment&rsquo;a</a></p>
+</blockquote>
+<hr>
+<h2 id="ortam-türü-neden-ekipman-markasından-daha-önemlidir">Ortam Türü Neden Ekipman Markasından Daha Önemlidir</h2>
+<p>Herhangi bir büyük satıcının WiFi 6 AP&rsquo;si, bir laboratuvarda WiFi 5 AP&rsquo;sini geride bırakır. Gerçek bir binada, iyi bir deployment ile başarısız bir deployment arasındaki farkın AP donanımıyla neredeyse hiçbir ilgisi yoktur — ortama özgü tasarım kararlarına bağlıdır.</p>
+<p>Otelin gereksinimleri, muayenehaneden temel olarak farklıdır. Lojistik deposu, bir hukuk bürosundan tamamen farklı bir yaklaşım gerektirir. AP yalnızca bir radyodur — tasarım, ortamına hizmet edip etmediğini belirler.</p>
+<p>Bu yazı, belirli tasarım desenleri, yaygın hatalar ve gerçek deployment&rsquo;lardan saha notlarıyla üç yaygın deployment senaryosunu ele alır.</p>
+<hr>
+<h2 id="bölüm-1-kobi-wifi-tasarımı">Bölüm 1: KOBİ WiFi Tasarımı</h2>
+<h3 id="sadece-erişim-noktası-ekle-tuzağı">&ldquo;Sadece Erişim Noktası Ekle&rdquo; Tuzağı</h3>
+<p>En yaygın KOBİ WiFi başarısızlığı: biri internet kapsama haritalarına dayanarak iki ya da üç AP kurar, &ldquo;WiFi her yerde var&rdquo; diye raporlar ve üç ay sonra herkes WiFi&rsquo;nin yavaş olduğundan şikayet eder.</p>
+<p>Neredeyse her zaman kök nedenler:</p>
+<ul>
+<li>Kabloların çalıştırılmasının kolay olduğu yerlere AP yerleştirme, kapsama alanının gerekli olduğu yerlere değil</li>
+<li>Kullanılabilir veri hızlarında çok büyük bir alanı kapsamaya çalışan tek AP (sinyal gücü ≠ verim)</li>
+<li>Band yönlendirme yok — eski telefonlar ve yazıcılar 2,4 GHz&rsquo;i monopolize ediyor</li>
+<li>QoS yok — tek bir kullanıcının dosya yedeklemesi, 10 diğer kullanıcının beklediği bant genişliğini tüketiyor</li>
+<li>Misafir/personel ayrımı yok — misafirler kurumsal ağda</li>
+</ul>
+<h3 id="kobi-için-kapsama-planlaması">KOBİ İçin Kapsama Planlaması</h3>
+<p>Tipik ofis ortamları için kaba bir başlangıç noktası:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Ortam</th>
+          <th>AP Kapsama Alanı</th>
+          <th>Notlar</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Açık ofis, düşük yoğunluk</td>
+          <td>150–200 m²</td>
+          <td>Modern WiFi 6 AP&rsquo;ler, orta istemci sayısı</td>
+      </tr>
+      <tr>
+          <td>Açık ofis, yüksek yoğunluk</td>
+          <td>80–100 m²</td>
+          <td>Çok istemci, video görüşmeler, yüksek verim</td>
+      </tr>
+      <tr>
+          <td>İç duvarlarla ofis</td>
+          <td>80–120 m²</td>
+          <td>Duvarlar sinyali zayıflatır; sonuçlandırmadan önce test edin</td>
+      </tr>
+      <tr>
+          <td>Koridor / otel koridoru</td>
+          <td>AP başına 20–25 m</td>
+          <td>Dar kapsama deseni</td>
+      </tr>
+      <tr>
+          <td>Depo / büyük açık alan</td>
+          <td>300–500 m²</td>
+          <td>Düşük yoğunluk, yüksek tavanlar, RF iyi yayılır</td>
+      </tr>
+  </tbody>
+</table>
+<p>Bunlar başlangıç noktaları, kural değil. Kapsama alanını doğrulamanın tek yolu site survey — deployment öncesi tahmine dayalı, sonrasında doğrulama.</p>
+<h3 id="ağ-segmentasyonu-taban-çizgisi">Ağ Segmentasyonu Taban Çizgisi</h3>
+<p>Her KOBİ deployment&rsquo;ı en azından üç VLAN&rsquo;a eşlenen üç SSID&rsquo;ye sahip olmalıdır:</p>
+<pre tabindex="0"><code>SSID: ŞirketAğı     → VLAN 10 (kurumsal cihazlar, tam LAN erişimi)
+SSID: MisafirWiFi    → VLAN 20 (yalnızca internet, VLAN 10&#39;dan izole)
+SSID: IoT/Yazıcılar  → VLAN 30 (yazıcılar, kameralar, izole)
+</code></pre><p>Misafir VLAN&rsquo;ı <strong>firewall ile zorunlu kılınan izolasyon</strong> olmalıdır — aralarında firewall olmadan yalnızca farklı alt ağ değil. Misafir cihaz internet&rsquo;e ulaşabilmeli ve başka hiçbir şeye ulaşamamalıdır. Firewall kuralı açıktır: VLAN 20 → yalnızca internet, VLAN 20 → VLAN 10 reddet.</p>
+<h3 id="band-yönlendirme-ve-qos">Band Yönlendirme ve QoS</h3>
+<p><strong>KOBİ ortamlarında band yönlendirme:</strong> AP&rsquo;leri mümkün olduğunda istemcileri 5 GHz&rsquo;e yönlendirecek şekilde yapılandırın. Modern iş dizüstü bilgisayarları ve telefonların çoğu 5 GHz&rsquo;e yeteneklidir. Yazıcılar ve eski IoT cihazları çoğunlukla yalnızca 2,4 GHz&rsquo;i destekler — onları özel IoT SSID&rsquo;sine yerleştirmek, diğer kullanıcıları etkilemeden bunu yönetir.</p>
+<p><strong>KOBİ için temel QoS:</strong></p>
+<ul>
+<li>VoIP/video trafiğini işaretleyin veya önceliklendirin (ses için DSCP EF, video için AF41)</li>
+<li>Misafir VLAN&rsquo;ında kullanıcı başına bant genişliği sınırları belirleyin (örn. cihaz başına 10 Mbps indirme / 5 Mbps yükleme)</li>
+<li>AP platformunuz destekliyorsa uygulama farkında QoS&rsquo;u değerlendirin (Meraki, Aruba)</li>
+</ul>
+<h3 id="kobi-için-platform-önerisi">KOBİ İçin Platform Önerisi</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Boyut</th>
+          <th>Öneri</th>
+          <th>Neden</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1–5 AP, IT personeli yok</td>
+          <td>Aruba Instant On</td>
+          <td>Basit uygulama tabanlı yönetim, sağlam donanım</td>
+      </tr>
+      <tr>
+          <td>5–20 AP, temel IT personeli</td>
+          <td>Cisco Meraki veya Aruba Central</td>
+          <td>Bulut yönetimi, iyi görünürlük</td>
+      </tr>
+      <tr>
+          <td>20+ AP, IT ekibi</td>
+          <td>Aruba Central veya Cisco DNA Center</td>
+          <td>Kurumsal özellikler, politika entegrasyonu</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="bölüm-2-otel-wifi-tasarımı">Bölüm 2: Otel WiFi Tasarımı</h2>
+<h3 id="otel-wifi-zorluğu">Otel WiFi Zorluğu</h3>
+<p>Oteller, en zorlu WiFi ortamlarından biridir:</p>
+<ul>
+<li><strong>Yüksek cihaz yoğunluğu:</strong> Her misafir odası 3–5 cihaza sahip (telefon, dizüstü, tablet, akıllı TV, akıllı saat). 200 odalı bir otel, yoğun kullanım döneminde 600–1000 istemci cihaza sahiptir.</li>
+<li><strong>Değişken talep:</strong> Kullanım; check-in, akşam yemeği sonrası ve sabahın ilk saatlerinde zirveye çıkar — gündüz çok düşük kullanımla. Ağ, ortalama yükü değil, zirve yükü karşılamalıdır.</li>
+<li><strong>Gelir bağımlılığı:</strong> &ldquo;WiFi çalışmıyor&rdquo;, otel incelemelerinde en çok şikayet edilen konudur. Kötü WiFi, misafir memnuniyeti puanlarını doğrudan etkiler.</li>
+<li><strong>Karma teknik yeterlilik:</strong> Ağ, hem bir teknoloji yöneticisi hem de tatile gelen bir gezgin için sorunsuz çalışmalıdır.</li>
+</ul>
+<h3 id="ap-yerleşimi-koridor-veya-oda-içi">AP Yerleşimi: Koridor veya Oda İçi</h3>
+<p>İki temelden farklı yaklaşım:</p>
+<p><strong>Koridor AP&rsquo;leri:</strong></p>
+<ul>
+<li>Koridorlara monte AP&rsquo;ler, odaları duvarların arasından kapsıyor</li>
+<li>Daha az AP sayısı, daha düşük kurulum maliyeti</li>
+<li>Sinyal, misafirlere ulaşmak için 2–3 duvar geçmek zorunda</li>
+<li>Bitişik odaları kapsayan koridor AP&rsquo;leri arasında aynı kanal girişimi</li>
+</ul>
+<p><strong>Oda İçi AP&rsquo;ler:</strong></p>
+<ul>
+<li>Her odada veya diğer her odada AP</li>
+<li>Daha fazla AP sayısı ve kurulum maliyeti</li>
+<li>Mükemmel sinyal kalitesi (AP istemciyle aynı odada)</li>
+<li>Odalar arasında daha iyi izolasyon (daha az girişim)</li>
+<li>Daha karmaşık kablolama</li>
+</ul>
+<p><strong>Saha deneyimi:</strong> Beton duvarlar ve metal çerçeveli odalara sahip modern otel yapısında, koridor AP&rsquo;leri şaşırtıcı derecede kötü kapsama sağlayabilir — duvarlar 5 GHz sinyallerini önemli ölçüde zayıflatır. Oda içi veya diğer oda AP yerleşimi tipik olarak dramatik biçimde daha iyi misafir deneyimi sunar. Mevcut kablolama ile tadilat projelerinde, WiFi 6 ve dikkatli kanal planlamasıyla koridor AP&rsquo;leri çoğunlukla pragmatik seçimdir.</p>
+<h3 id="bant-genişliği-yönetimi-en-kritik-otel-özelliği">Bant Genişliği Yönetimi: En Kritik Otel Özelliği</h3>
+<p>Kullanıcı başına bant genişliği yönetimi olmadan, üç cihazda 4K video izleyen bir misafir, 20 diğer misafirin beklediği bant genişliğini tüketir. Misafir deneyimi tamamen aynı anda çevrimiçi olan kişilere bağlı hale gelir.</p>
+<p>Kurumsal otel WiFi controller&rsquo;ları kullanıcı ve cihaz başına hız sınırlamasını destekler:</p>
+<pre tabindex="0"><code>Misafir SSID Politikası:
+  Cihaz başına indirme sınırı:  25 Mbps
+  Cihaz başına yükleme sınırı:  10 Mbps
+  Oda başına maksimum:          75 Mbps (3 cihaz × 25 Mbps)
+</code></pre><p>Bu sınırlar, tipik kullanımda kullanıcılar fark etmeden adilliği sağlar — cihaz başına 25 Mbps, HD video akışı, video görüşmeler ve normal tarama için yeterlidir. 4K akışı 15–25 Mbps gerektirir, hâlâ sınır içinde.</p>
+<p>Premium WiFi kademeleri (ek ücretli) daha yüksek sınırlara sahip olabilir:</p>
+<pre tabindex="0"><code>Standart Misafir:  Cihaz başına 25 Mbps
+Premium Misafir:   Cihaz başına 50 Mbps
+Kurumsal VLAN:     Sınırsız (personel ağı)
+</code></pre><h3 id="misafir-portalı-ve-kimlik-doğrulama">Misafir Portalı ve Kimlik Doğrulama</h3>
+<p>Otel misafir portalları üç işleve hizmet eder: tanımlama, şartlar kabul ve süre yönetimi.</p>
+<p><strong>Yaygın kimlik doğrulama modelleri:</strong></p>
+<ul>
+<li><strong>Açık kayıt:</strong> Misafir ad ve e-posta girer, şartları kabul eder, erişim alır. Basit, personel müdahalesi yok.</li>
+<li><strong>Oda numarası doğrulama:</strong> Misafir oda numarası girer (ve isteğe bağlı olarak soyad). Aktif rezervasyonu doğrulamak için PMS ile entegre olur.</li>
+<li><strong>Kupon tabanlı:</strong> Resepsiyon kupon kodu sağlar. Günlük ziyaretçiler, konferans katılımcıları için kullanışlı.</li>
+</ul>
+<p><strong>PMS (Otel Yönetim Sistemi) entegrasyonu</strong>, oteller için profesyonel standarttır. WiFi sistemi, oda numarasının dolu olduğunu ve rezervasyonun aktif olduğunu doğrulamak için PMS&rsquo;yi sorgular. Check-out&rsquo;ta misafirin WiFi erişimi otomatik olarak iptal edilir. Manuel müdahale gerekmez.</p>
+<p>WiFi entegrasyonlu yaygın PMS sistemleri: Opera, Protel, Mews, Cloudbeds — tümü büyük WiFi platformları için belgelenmiş entegrasyon API&rsquo;lerine sahiptir (Aruba, Cisco, Ruckus).</p>
+<h3 id="otellerde-ağ-segmentasyonu">Otellerde Ağ Segmentasyonu</h3>
+<pre tabindex="0"><code>SSID: OtelMisafir    → VLAN 100 (yalnızca internet, hız sınırlı)
+SSID: OtelPremium    → VLAN 101 (internet, daha yüksek hız sınırı)
+SSID: OtelPersonel   → VLAN 200 (kurumsal LAN, PMS erişimi)
+SSID: OtelArkaOfis   → VLAN 300 (yönetim sistemleri, POS)
+SSID: OtelIOT        → VLAN 400 (TV&#39;ler, termostatlar, kilitler)
+</code></pre><p>Firewall kuralları: Misafir VLAN&rsquo;ları (100, 101) → yalnızca internet. Personel VLAN&rsquo;ı (200) → LAN + internet. Misafir ve personel ağları arasında katı izolasyon — istisna yok.</p>
+<h3 id="konferans-ve-etkinlik-wifisi">Konferans ve Etkinlik WiFi&rsquo;si</h3>
+<p>Konferans tesisi olan oteller ayrı bir zorlukla karşı karşıyadır: 200&rsquo;den fazla kişinin cihazlarıyla bir odada olduğu etkinlikler için geçici yüksek yoğunluk deployment&rsquo;ları.</p>
+<p>Geçici taşınabilir AP&rsquo;ler, bu etkinlikler için kalıcı kapsama alanını destekleyebilir — ancak etkinlik sırasında değil, etkinlikten önce önceden yapılandırılmış ve test edilmiş olmalıdır. Beklenen istemci sayısı ve kullanım desenleri için (hafif tarama, video akışı veya sunum araçları) etkinlik organizatörüyle koordine edin.</p>
+<hr>
+<h2 id="bölüm-3-muayenehane-wifi-tasarımı">Bölüm 3: Muayenehane WiFi Tasarımı</h2>
+<h3 id="sağlık-hizmetlerine-özgü-gereksinimler">Sağlık Hizmetlerine Özgü Gereksinimler</h3>
+<p>Muayenehanelerin, tipik KOBİ değerlendirmelerinin ötesine geçen WiFi gereksinimleri vardır:</p>
+<p><strong>Cihaz çeşitliliği:</strong> Klinik ortamlar alışılmadık bir cihaz karışımına sahiptir — kurumsal ağdaki HP dizüstü bilgisayarlar, EHR erişimi için iPad&rsquo;ler, tıbbi cihazlar (infüzyon pompaları, hasta monitörleri, taşınabilir görüntüleme ekipmanı), misafir WiFi&rsquo;sindeki hasta akıllı telefonları ve bina yönetim sistemleri.</p>
+<p><strong>Uyumluluk:</strong> ABD&rsquo;de HIPAA (Sağlık Sigortası Taşınabilirlik ve Hesap Verebilirlik Yasası) — ve Almanya&rsquo;da (DSGVO) ve AB&rsquo;de eşdeğer düzenlemeler — hasta sağlık bilgilerinin (PHI) aktarım sırasında korunmasını gerektirir. PHI taşıyan ağlar için WiFi güçlü şifreleme kullanmalıdır (WPA2-Enterprise veya WPA3). Misafir WiFi&rsquo;si, klinik ağlardan tamamen izole edilmelidir.</p>
+<p><strong>Erişilebilirlik:</strong> Klinik iş akışları ağ erişimine bağlıdır. Yoğun bir muayenehanede başarısız WiFi ağı gerçek operasyonel aksamaya neden olur — doktorlar hasta kayıtlarına erişemez, EHR sistemleri zaman aşımına uğrar ve personel kağıt çözümlerine başvurur.</p>
+<h3 id="muayenehaneler-için-ağ-segmentasyonu">Muayenehaneler İçin Ağ Segmentasyonu</h3>
+<pre tabindex="0"><code>SSID: KlinikPersonel  → VLAN 10  (EHR, klinik uygulamalar, tam erişim, WPA2-Enterprise)
+SSID: TibbiCihazlar   → VLAN 20  (tıbbi cihazlar, izole, WPA2-PSK)
+SSID: HastaWiFi       → VLAN 30  (yalnızca internet, tamamen izole)
+SSID: BinaYönetimi    → VLAN 40  (HVAC, erişim kontrolü, izole)
+</code></pre><p>Tıbbi cihaz VLAN&rsquo;ı (VLAN 20) özellikle önemlidir. Birçok tıbbi cihaz dahili olarak şifresiz protokoller kullanır — genel personel veya hasta cihazlarıyla hiçbir zaman ağ segmentini paylaşmamalıdır.</p>
+<h3 id="tıbbi-cihaz-değerlendirmeleri">Tıbbi Cihaz Değerlendirmeleri</h3>
+<p>WiFi&rsquo;ye bağlı tıbbi cihazlar çoğunlukla alışılmadık özelliklere sahiptir:</p>
+<ul>
+<li><strong>Eski işletim sistemleri:</strong> Bazı tıbbi cihazlar gömülü Windows XP veya Windows 7 çalıştırır. Güncellenemezler. Klinik kullanım için ağa erişilebilir olmaları gerekir ancak her şeyden izole edilmelidir.</li>
+<li><strong>Statik IP&rsquo;ler:</strong> Pek çok tıbbi cihaz, DHCP yerine statik IP atamaları gerektirir. Bunları dikkatli biçimde belgeleyin.</li>
+<li><strong>Frekans duyarlılığı:</strong> Bazı eski tıbbi cihazlar yalnızca 2,4 GHz&rsquo;de çalışır ve 5 GHz&rsquo;e yetenekli değildir.</li>
+<li><strong>Düzenleyici sertifikasyon:</strong> WiFi&rsquo;li tıbbi cihazlar, üreticilerinin sertifikalandırdığı şekilde kullanılmalıdır. WiFi ağını cihaz bağlantısını etkileyen biçimlerde değiştirmek sertifikasyonu geçersiz kılabilir ve uyumluluk yükümlülüğü yaratabilir. Değişiklikleri her zaman cihaz üreticisiyle doğrulayın.</li>
+</ul>
+<h3 id="hipaa-kablosuz-uyum-kontrol-listesi">HIPAA Kablosuz Uyum Kontrol Listesi</h3>
+<p>ABD muayenehaneleri için (HIPAA) — ve AB için eşdeğer (DSGVO):</p>
+<ul>
+<li>✅ Klinik ağlarda WPA2-Enterprise veya WPA3-Enterprise (bireysel kullanıcı kimlik bilgileri, paylaşılan PSK değil)</li>
+<li>✅ Klinik VLAN, misafir/hasta WiFi&rsquo;sinden tamamen izole</li>
+<li>✅ Klinik ağlardaki kablosuz trafik aktarım sırasında şifreli</li>
+<li>✅ Kablosuz controller&rsquo;da sahte AP tespiti etkin</li>
+<li>✅ Kimlik doğrulama logları saklanıyor (kim bağlandı, ne zaman, nereden)</li>
+<li>✅ Tıbbi cihaz ağı, klinik ve misafir VLAN&rsquo;larından izole</li>
+<li>✅ Misafir WiFi hizmet şartları belgelenmiş</li>
+</ul>
+<hr>
+<h2 id="tüm-ortamlarda-yaygın-hatalar">Tüm Ortamlarda Yaygın Hatalar</h2>
+<p><strong>1. Site survey yapmama</strong>
+RF ölçümü olmadan kat planlarına dayanarak AP yerleşimi planlamak tahmindir. Duvarlar, mobilyalar, ekipmanlar ve komşu ağlar tümü kapsama alanını kat planlarının yakalayamayacağı biçimlerde etkiler. Kurulumdan önce her zaman tahmine dayalı survey, sonrasında doğrulama survey yapın.</p>
+<p><strong>2. Profesyonel ortamlarda tüketici ekipmanı kullanma</strong>
+Tüketici AP&rsquo;leri (WiFi&rsquo;li ev router&rsquo;ları), band yönlendirmeden, uygun roaming desteğinden, kullanıcı başına QoS&rsquo;tan, VLAN segmentasyonundan ve yönetim görünürlüğünden yoksundur. Başlangıçta çalışıyor gibi görünür ve yük altında veya zamanla sınırlarını ortaya koyarlar.</p>
+<p><strong>3. VLAN segmentasyonu olmadan deployment</strong>
+Kurumsal cihazlarla aynı ağda misafir cihazlar, gerçekleşmeyi bekleyen bir güvenlik başarısızlığıdır. Bu, profesyonel ortamlarda isteğe bağlı değildir.</p>
+<p><strong>4. İzleme yok</strong>
+Gecenin ortasında yeniden başlayan AP, bir hafta boyunca yanlış AP&rsquo;ye bağlı kalan istemci, girişime neden olan kanal değişikliği — bunların hiçbiri kablosuz izleme olmadan görünür değildir. AP kullanılabilirliği, istemci sayısı anomalileri ve kanal kullanımı için uyarılar kurun.</p>
+<p><strong>5. Power over Ethernet (PoE) planlamasını görmezden gelme</strong>
+Kurumsal AP&rsquo;ler PoE gerektirir. Birden fazla radyolu bir Cisco veya Aruba WiFi 6 AP, 20–25 watt çeker. Tüm portlar 25W sağlayan 48 portlu bir switch, switch&rsquo;in toplam PoE bütçesini aşar. Donanım satın almadan önce PoE kapasitesini planlayın.</p>
+<hr>
+<h2 id="temel-çıkarımlar">Temel Çıkarımlar</h2>
+<ul>
+<li>WiFi tasarımı ortama özgüdür. Otel için tasarım desenleri temel olarak ofisten farklıdır; bu da muayenehaneden farklıdır.</li>
+<li><strong>Kullanıcı başına bant genişliği yönetimi</strong>, konaklama ortamlarında pazarlık konusu değildir — onsuz adillik imkânsızdır.</li>
+<li><strong>PMS entegrasyonu</strong>, otellerde personel müdahalesi olmadan misafir erişim yaşam döngüsünü otomatikleştirir.</li>
+<li><strong>VLAN segmentasyonu</strong>, her profesyonel ortam için taban çizgisidir — misafir, kurumsal, IoT ve yönetim ağları izole edilmelidir.</li>
+<li><strong>Tıbbi cihaz WiFi&rsquo;si</strong> özel yönetim gerektirir — eski işletim sistemi, statik IP&rsquo;ler, düzenleyici sertifikasyon kısıtlamaları.</li>
+<li><strong>Site survey</strong> isteğe bağlı değildir — deployment&rsquo;ın güvenilmeden önce çalışacağını doğrulamanın tek yoludur.</li>
+</ul>
+<hr>
+<h2 id="bu-seri">Bu Seri</h2>
+<ul>
+<li>📖 <a href="/tr/technology/kurumsal-wifi-mimarisi-tam-rehber/">Kurumsal WiFi Mimarisi Genel Bakış</a> ← Buradan başlayın</li>
+<li>📡 <a href="/tr/technology/wifi-80211-standartlari-wifi4-wifi5-wifi6/">802.11 Standartları Deep Dive</a></li>
+<li>🏢 <a href="/tr/technology/kurumsal-wifi-controller-mimarisi-cisco-aruba/">Kurumsal Controller Mimarisi: Cisco ve Aruba</a></li>
+<li>🔐 <a href="/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/">WiFi Güvenliği: WPA3, 802.1X, Sahte AP, Site Survey</a></li>
+</ul>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<ul>
+<li>📡 <a href="/tr/technology/nas-backup-aws-s3-cloud-kobi/">NAS Yedekleme ve AWS S3 — KOBİ&rsquo;ler için Veri Güvenliği</a> — WiFi&rsquo;nin yanında KOBİ veri koruma</li>
+<li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Kimlik Tabanlı Mimari Sahada</a> — Kurumsal kablosuz için kimlik katmanı</li>
+<li>🏗️ <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Ürünler Koleksiyonu Değildir</a> — Ağ tasarımında sistem düşüncesi</li>
+</ul>
+]]></content:encoded></item></channel></rss>

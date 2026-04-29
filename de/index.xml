@@ -1,4 +1,234 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Barash Helvadzhaoglu | Senior Network Security Engineer &amp; IT-Berater München on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/</link><description>Recent content in Barash Helvadzhaoglu | Senior Network Security Engineer &amp; IT-Berater München on Barash Helvadzhaoglu</description><generator>Hugo -- 0.160.1</generator><language>de</language><lastBuildDate>Mon, 27 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/index.xml" rel="self" type="application/rss+xml"/><item><title>WiFi Security: WPA3, 802.1X, Rogue AP Detection, and Site Survey</title><link>https://barashhelvadzhaoglu.com/de/technology/wifi-security/</link><pubDate>Mon, 27 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/wifi-security/</guid><description>Enterprise-WLAN-Sicherheit — WPA3 vs. WPA2, 802.1X-Authentifizierung, Rogue-AP-Erkennung und Ekahau Site Survey Methodik.</description><content:encoded><![CDATA[<h1 id="wifi-security-wpa3-8021x-rogue-ap-detection-and-site-survey">WiFi Security: WPA3, 802.1X, Rogue AP Detection, and Site Survey</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Barash Helvadzhaoglu | Senior Network Security Engineer &amp; IT-Berater München on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/</link><description>Recent content in Barash Helvadzhaoglu | Senior Network Security Engineer &amp; IT-Berater München on Barash Helvadzhaoglu</description><generator>Hugo -- 0.161.0</generator><language>de</language><lastBuildDate>Wed, 29 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/index.xml" rel="self" type="application/rss+xml"/><item><title>WiFi-Design für KMU, Hotels und Arztpraxen: Feldnotizen</title><link>https://barashhelvadzhaoglu.com/de/technology/wifi-smb-hotel-medical/</link><pubDate>Wed, 29 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/wifi-smb-hotel-medical/</guid><description>WLAN-Design für KMU, Hotels und Arztpraxen — Dichte-Planung, Gäste-Segmentierung, Bandbreitenmanagement und PMS-Integration.</description><content:encoded><![CDATA[<h1 id="wifi-design-für-kmu-hotels-und-arztpraxen-feldnotizen">WiFi-Design für KMU, Hotels und Arztpraxen: Feldnotizen</h1>
+<p>Dieser Artikel ist Teil der Enterprise-WiFi-Serie.</p>
+<blockquote>
+<p><strong>Neu im Enterprise-Wireless-Bereich?</strong> Beginnen Sie mit der Übersicht: <a href="/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/">Enterprise WiFi-Architektur: Von Standards bis zur Deployment</a></p>
+</blockquote>
+<hr>
+<h2 id="warum-der-umgebungstyp-wichtiger-ist-als-die-gerätemarke">Warum der Umgebungstyp wichtiger ist als die Gerätemarke</h2>
+<p>Ein WiFi-6-AP von jedem großen Anbieter übertrifft einen WiFi-5-AP im Labor. In einem echten Gebäude hat der Unterschied zwischen einer guten und einer fehlgeschlagenen Deployment fast nichts mit der AP-Hardware zu tun — es läuft auf umgebungsspezifische Design-Entscheidungen hinaus.</p>
+<p>Ein Hotel hat grundlegend andere Anforderungen als eine Arztpraxis. Ein Logistiklager erfordert einen völlig anderen Ansatz als eine Anwaltskanzlei. Der AP ist nur ein Radio — das Design bestimmt, ob er seiner Umgebung dient.</p>
+<p>Dieser Artikel behandelt drei häufige Deployment-Szenarien mit spezifischen Design-Mustern, häufigen Fehlern und Feldnotizen aus tatsächlichen Deployments.</p>
+<hr>
+<h2 id="teil-1-kmu-wifi-design">Teil 1: KMU WiFi-Design</h2>
+<h3 id="die-einfach-access-points-hinzufügen-falle">Die „Einfach Access Points hinzufügen&quot;-Falle</h3>
+<p>Der häufigste KMU-WiFi-Fehlschlag: Jemand installiert zwei oder drei APs basierend auf Internet-Abdeckungskarten, meldet, dass „WiFi überall ist&quot;, und drei Monate später beschwert sich jeder, dass das WiFi langsam ist.</p>
+<p>Ursachen, fast immer:</p>
+<ul>
+<li>APs platziert, wo Kabel leicht zu verlegen waren, nicht wo Abdeckung benötigt wird</li>
+<li>Einzelner AP versucht einen zu großen Bereich mit nutzbaren Datenraten abzudecken (Signalstärke ≠ Durchsatz)</li>
+<li>Kein Band Steering — ältere Telefone und Drucker monopolisieren 2,4 GHz</li>
+<li>Kein QoS — das Datei-Backup eines einzelnen Benutzers verbraucht die Bandbreite, auf die 10 andere warten</li>
+<li>Keine Gäste/Personal-Trennung — Gäste im Unternehmensnetzwerk</li>
+</ul>
+<h3 id="abdeckungsplanung-für-kmu">Abdeckungsplanung für KMU</h3>
+<p>Ein grober Ausgangspunkt für typische Büroumgebungen:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Umgebung</th>
+          <th>AP-Abdeckungsbereich</th>
+          <th>Hinweise</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Offenes Büro, niedrige Dichte</td>
+          <td>150–200 m²</td>
+          <td>Moderne WiFi-6-APs, moderate Client-Anzahl</td>
+      </tr>
+      <tr>
+          <td>Offenes Büro, hohe Dichte</td>
+          <td>80–100 m²</td>
+          <td>Viele Clients, Video-Calls, hoher Durchsatz</td>
+      </tr>
+      <tr>
+          <td>Büro mit Innenwänden</td>
+          <td>80–120 m²</td>
+          <td>Wände dämpfen Signal; vor Finalisierung testen</td>
+      </tr>
+      <tr>
+          <td>Korridor / Hotelflur</td>
+          <td>20–25 m pro AP</td>
+          <td>Schmales Abdeckungsmuster</td>
+      </tr>
+      <tr>
+          <td>Lager / großer offener Raum</td>
+          <td>300–500 m²</td>
+          <td>Niedrige Dichte, hohe Decken, RF breitet sich gut aus</td>
+      </tr>
+  </tbody>
+</table>
+<p>Das sind Ausgangspunkte, keine Regeln. Der einzige Weg zur Validierung der Abdeckung ist ein Site Survey — prädiktiv vor Deployment, Validierung danach.</p>
+<h3 id="die-netzwerksegmentierungs-basislinie">Die Netzwerksegmentierungs-Basislinie</h3>
+<p>Jedes KMU-Deployment sollte mindestens drei SSIDs haben, die auf drei VLANs abgebildet sind:</p>
+<pre tabindex="0"><code>SSID: FirmenNetz    → VLAN 10 (Unternehmensgeräte, voller LAN-Zugang)
+SSID: GastWiFi      → VLAN 20 (nur Internet, von VLAN 10 isoliert)
+SSID: IoT/Drucker   → VLAN 30 (Drucker, Kameras, isoliert)
+</code></pre><p>Das Gast-VLAN muss <strong>Firewall-erzwungene Isolation</strong> sein — nicht nur ein anderes Subnetz ohne Firewall dazwischen. Ein Gastgerät muss das Internet erreichen können und sonst nichts. Die Firewall-Regel ist explizit: VLAN 20 → nur Internet, VLAN 20 → VLAN 10 verweigern.</p>
+<h3 id="band-steering-und-qos">Band Steering und QoS</h3>
+<p><strong>Band Steering in KMU-Umgebungen:</strong> APs so konfigurieren, dass sie Clients wann immer möglich zu 5 GHz steuern. Die meisten modernen Geschäfts-Laptops und -Telefone sind 5-GHz-fähig. Drucker und ältere IoT-Geräte unterstützen oft nur 2,4 GHz — sie auf dem dedizierten IoT-SSID zu platzieren handhabt das, ohne andere Benutzer zu beeinflussen.</p>
+<p><strong>QoS-Grundlagen für KMU:</strong></p>
+<ul>
+<li>VoIP/Video-Datenverkehr markieren oder priorisieren (DSCP EF für Sprache, AF41 für Video)</li>
+<li>Per-User-Bandbreitenlimits auf dem Gast-VLAN setzen (z.B. 10 Mbps Down / 5 Mbps Up pro Gerät)</li>
+<li>Anwendungsbewusstes QoS in Betracht ziehen, wenn Ihre AP-Plattform es unterstützt (Meraki, Aruba)</li>
+</ul>
+<h3 id="plattformempfehlung-für-kmu">Plattformempfehlung für KMU</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Größe</th>
+          <th>Empfehlung</th>
+          <th>Grund</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1–5 APs, kein IT-Personal</td>
+          <td>Aruba Instant On</td>
+          <td>Einfaches App-basiertes Management, solide Hardware</td>
+      </tr>
+      <tr>
+          <td>5–20 APs, einfaches IT-Personal</td>
+          <td>Cisco Meraki oder Aruba Central</td>
+          <td>Cloud-Management, gute Sichtbarkeit</td>
+      </tr>
+      <tr>
+          <td>20+ APs, IT-Team</td>
+          <td>Aruba Central oder Cisco DNA Center</td>
+          <td>Enterprise-Features, Richtlinienintegration</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="teil-2-hotel-wifi-design">Teil 2: Hotel WiFi-Design</h2>
+<h3 id="die-hotel-wifi-herausforderung">Die Hotel-WiFi-Herausforderung</h3>
+<p>Hotels gehören zu den anspruchsvollsten WiFi-Umgebungen:</p>
+<ul>
+<li><strong>Hohe Gerätedichte:</strong> Jedes Gästezimmer hat 3–5 Geräte (Telefon, Laptop, Tablet, Smart TV, Smartwatch). Ein 200-Zimmer-Hotel hat 600–1000 Client-Geräte bei Spitzenbelegung.</li>
+<li><strong>Variable Nachfrage:</strong> Nutzung steigt beim Check-in, nach dem Abendessen und morgens — mit sehr niedriger Nutzung tagsüber. Das Netzwerk muss Spitzenlast, nicht Durchschnittslast bewältigen.</li>
+<li><strong>Umsatzabhängigkeit:</strong> „WiFi funktioniert nicht&quot; ist die häufigste Beschwerde in Hotel-Bewertungen. Schlechtes WiFi beeinflusst Gästezufriedenheitswerte direkt.</li>
+<li><strong>Gemischte technische Kompetenz:</strong> Das Netzwerk muss für einen Tech-Manager und einen Urlaubsreisenden gleichermaßen nahtlos funktionieren.</li>
+</ul>
+<h3 id="ap-platzierung-korridor-vs-zimmer">AP-Platzierung: Korridor vs. Zimmer</h3>
+<p>Zwei grundlegend unterschiedliche Ansätze:</p>
+<p><strong>Korridor-APs:</strong></p>
+<ul>
+<li>In Fluren montierte APs, decken Zimmer durch Wände ab</li>
+<li>Geringere AP-Anzahl, niedrigere Installationskosten</li>
+<li>Signal muss 2–3 Wände durchdringen, um Gäste zu erreichen</li>
+<li>Gleichkanal-Interferenz zwischen Korridor-APs, die benachbarte Zimmer abdecken</li>
+</ul>
+<p><strong>Zimmer-APs:</strong></p>
+<ul>
+<li>AP in jedem Zimmer oder jedem zweiten Zimmer</li>
+<li>Höhere AP-Anzahl und Installationskosten</li>
+<li>Ausgezeichnete Signalqualität (AP ist mit dem Client im selben Zimmer)</li>
+<li>Bessere Isolation zwischen Zimmern (weniger Interferenz)</li>
+<li>Komplexere Verkabelung</li>
+</ul>
+<p><strong>Felderfahrung:</strong> In modernem Hotelneubau mit Betonwänden und metallgerahmten Zimmern können Korridor-APs überraschend schlechte Abdeckung liefern — die Wände dämpfen 5-GHz-Signale erheblich. Zimmer-APs oder jedes-zweite-Zimmer-AP-Platzierung liefert typischerweise dramatisch bessere Gästeerfahrung. Bei Renovierungsprojekten mit vorhandener Verkabelung sind Korridor-APs mit WiFi 6 und sorgfältiger Kanalplanung oft die pragmatische Wahl.</p>
+<h3 id="bandbreitenmanagement-die-wichtigste-hotel-funktion">Bandbreitenmanagement: Die wichtigste Hotel-Funktion</h3>
+<p>Ohne Per-User-Bandbreitenmanagement verbraucht ein Gast, der auf drei Geräten 4K-Video streamt, die Bandbreite, auf die 20 andere Gäste warten. Die Gästeerfahrung hängt vollständig davon ab, wer gerade gleichzeitig online ist.</p>
+<p>Enterprise Hotel-WiFi-Controller unterstützen Per-User- und Per-Gerät-Ratenbegrenzung:</p>
+<pre tabindex="0"><code>Gast-SSID-Richtlinie:
+  Per-Gerät-Download-Limit:  25 Mbps
+  Per-Gerät-Upload-Limit:    10 Mbps
+  Zimmer-Maximum:            75 Mbps (3 Geräte × 25 Mbps)
+</code></pre><p>Diese Limits stellen Fairness sicher, ohne dass Benutzer es bei typischer Nutzung merken — 25 Mbps pro Gerät reichen für HD-Video-Streaming, Video-Calls und normales Surfen. 4K-Streaming erfordert 15–25 Mbps, noch innerhalb des Limits.</p>
+<p>Premium-WiFi-Stufen (gegen Aufpreis) können höhere Limits haben:</p>
+<pre tabindex="0"><code>Standard-Gast:  25 Mbps pro Gerät
+Premium-Gast:   50 Mbps pro Gerät
+Unternehmens-VLAN: Unbegrenzt (Personalnetzwerk)
+</code></pre><h3 id="gastportal-und-authentifizierung">Gastportal und Authentifizierung</h3>
+<p>Hotel-Gastportale dienen drei Funktionen: Identifikation, Nutzungsbedingungen-Annahme und Dauerverwaltung.</p>
+<p><strong>Häufige Authentifizierungsmodelle:</strong></p>
+<ul>
+<li><strong>Offene Registrierung:</strong> Gast gibt Name und E-Mail ein, nimmt Bedingungen an, erhält Zugang. Einfach, keine Personalbeteiligung.</li>
+<li><strong>Zimmernummer-Validierung:</strong> Gast gibt Zimmernummer ein (und optional Nachname). Integriert sich mit PMS, um aktive Reservierung zu überprüfen.</li>
+<li><strong>Gutschein-basiert:</strong> Rezeption stellt Gutscheincode bereit. Nützlich für Tagesgäste, Konferenzteilnehmer.</li>
+</ul>
+<p><strong>PMS (Property Management System) Integration</strong> ist der professionelle Standard für Hotels. Das WiFi-System fragt das PMS ab, um zu verifizieren, dass die Zimmernummer belegt und die Reservierung aktiv ist. Beim Check-out wird der WiFi-Zugang des Gastes automatisch widerrufen. Kein manueller Eingriff erforderlich.</p>
+<p>Gängige PMS-Systeme mit WiFi-Integration: Opera, Protel, Mews, Cloudbeds — alle haben dokumentierte Integrations-APIs für große WiFi-Plattformen (Aruba, Cisco, Ruckus).</p>
+<h3 id="netzwerksegmentierung-in-hotels">Netzwerksegmentierung in Hotels</h3>
+<pre tabindex="0"><code>SSID: HotelGast      → VLAN 100 (nur Internet, ratenbegrenzt)
+SSID: HotelPremium   → VLAN 101 (Internet, höheres Ratenlimit)
+SSID: HotelPersonal  → VLAN 200 (Unternehmens-LAN, PMS-Zugang)
+SSID: HotelBackOffice → VLAN 300 (Managementsysteme, POS)
+SSID: HotelIOT       → VLAN 400 (TVs, Thermostate, Schlösser)
+</code></pre><p>Firewall-Regeln: Gast-VLANs (100, 101) → nur Internet. Personal-VLAN (200) → LAN + Internet. Strikte Isolation zwischen Gast- und Personalnetzwerken — keine Ausnahmen.</p>
+<h3 id="konferenz--und-veranstaltungs-wifi">Konferenz- und Veranstaltungs-WiFi</h3>
+<p>Hotels mit Konferenzeinrichtungen stehen vor einer separaten Herausforderung: temporäre Hochdichte-Deployments für Veranstaltungen, bei denen 200+ Personen in einem Raum mit Geräten sind.</p>
+<p>Temporäre tragbare APs können die dauerhafte Abdeckung für diese Veranstaltungen ergänzen — müssen aber vor der Veranstaltung vorkonfiguriert und getestet werden, nicht während des Aufbaus. Mit dem Veranstaltungsorganisator die erwartete Client-Anzahl und Nutzungsmuster koordinieren (leichtes Surfen vs. Video-Streaming vs. Präsentationstools).</p>
+<hr>
+<h2 id="teil-3-arztpraxis-wifi-design">Teil 3: Arztpraxis WiFi-Design</h2>
+<h3 id="gesundheitsspezifische-anforderungen">Gesundheitsspezifische Anforderungen</h3>
+<p>Arztpraxen haben WiFi-Anforderungen, die über typische KMU-Überlegungen hinausgehen:</p>
+<p><strong>Gerätediversität:</strong> Klinische Umgebungen haben eine ungewöhnliche Gerätmischung — HP-Laptops im Unternehmensnetzwerk, iPads für EHR-Zugang, medizinische Geräte (Infusionspumpen, Patientenmonitore, tragbare Bildgebungsgeräte), Patienten-Smartphones im Gast-WiFi und Gebäudemanagementsysteme.</p>
+<p><strong>Compliance:</strong> HIPAA (Health Insurance Portability and Accountability Act) in den USA — und äquivalente Regelungen in Deutschland (DSGVO) und der EU — erfordern, dass Patienten-Gesundheitsinformationen (PHI) bei der Übertragung geschützt werden. WiFi muss starke Verschlüsselung (WPA2-Enterprise oder WPA3) für Netzwerke verwenden, die PHI tragen. Gast-WiFi muss von klinischen Netzwerken vollständig isoliert sein.</p>
+<p><strong>Verfügbarkeit:</strong> Klinische Workflows hängen von Netzwerkzugang ab. Ein ausgefallenes WiFi-Netzwerk in einer belebten Arztpraxis verursacht echte betriebliche Unterbrechungen — Ärzte können nicht auf Patientenakten zugreifen, EHR-Systeme laufen in Timeout, und Personal greift auf Papierlösungen zurück.</p>
+<h3 id="netzwerksegmentierung-für-arztpraxen">Netzwerksegmentierung für Arztpraxen</h3>
+<pre tabindex="0"><code>SSID: KlinikPersonal  → VLAN 10  (EHR, klinische Apps, voller Zugang, WPA2-Enterprise)
+SSID: MedGeräte       → VLAN 20  (medizinische Geräte, isoliert, WPA2-PSK)
+SSID: PatientenWiFi   → VLAN 30  (nur Internet, vollständig isoliert)
+SSID: GebäudeManag    → VLAN 40  (HLK, Zugangskontrolle, isoliert)
+</code></pre><p>Das medizinische Geräte-VLAN (VLAN 20) ist besonders wichtig. Viele medizinische Geräte verwenden intern unverschlüsselte Protokolle — sie sollten niemals ein Netzwerksegment mit allgemeinem Personal oder Patientengeräten teilen.</p>
+<h3 id="überlegungen-zu-medizinischen-geräten">Überlegungen zu medizinischen Geräten</h3>
+<p>Medizinische Geräte, die mit WiFi verbunden sind, haben oft ungewöhnliche Eigenschaften:</p>
+<ul>
+<li><strong>Legacy-Betriebssysteme:</strong> Einige medizinische Geräte laufen auf eingebettetem Windows XP oder Windows 7. Sie können nicht aktualisiert werden. Sie müssen für klinischen Einsatz im Netzwerk erreichbar, aber von allem anderen isoliert sein.</li>
+<li><strong>Statische IPs:</strong> Viele medizinische Geräte erfordern statische IP-Zuweisungen statt DHCP. Diese sorgfältig dokumentieren.</li>
+<li><strong>Frequenzempfindlichkeit:</strong> Einige ältere medizinische Geräte arbeiten nur auf 2,4 GHz und sind nicht 5-GHz-fähig.</li>
+<li><strong>Regulatorische Zertifizierung:</strong> Medizinische Geräte mit WiFi müssen genau so verwendet werden, wie ihr Hersteller sie zertifiziert hat. Änderungen am WiFi-Netzwerk, die die Gerätekonnektivität beeinflussen, können die Zertifizierung ungültig machen und Compliance-Haftung schaffen. Änderungen immer mit dem Gerätehersteller verifizieren.</li>
+</ul>
+<h3 id="hipaa-wireless-compliance-checkliste">HIPAA Wireless Compliance Checkliste</h3>
+<p>Für US-Arztpraxen (HIPAA) — und äquivalent für EU (DSGVO):</p>
+<ul>
+<li>✅ WPA2-Enterprise oder WPA3-Enterprise auf klinischen Netzwerken (individuelle Benutzeranmeldedaten, kein geteilter PSK)</li>
+<li>✅ Klinisches VLAN vollständig von Gast/Patienten-WiFi isoliert</li>
+<li>✅ Wireless-Datenverkehr auf klinischen Netzwerken bei der Übertragung verschlüsselt</li>
+<li>✅ Rogue-AP-Erkennung auf dem Wireless-Controller aktiviert</li>
+<li>✅ Authentifizierungslogs aufbewahrt (wer verbunden, wann, von wo)</li>
+<li>✅ Medizinisches Geräte-Netzwerk von klinischen und Gast-VLANs isoliert</li>
+<li>✅ Gast-WiFi-Nutzungsbedingungen dokumentiert</li>
+</ul>
+<hr>
+<h2 id="häufige-fehler-in-allen-umgebungen">Häufige Fehler in allen Umgebungen</h2>
+<p><strong>1. Kein Site Survey durchführen</strong>
+AP-Platzierung basierend auf Grundrissen ohne RF-Messung zu planen ist Räterei. Wände, Möbel, Ausrüstung und Nachbarnetzwerke beeinflussen alle die Abdeckung auf Weisen, die Grundrisse nicht erfassen. Immer einen Predictive Survey vor der Installation und einen Validierungs-Survey danach durchführen.</p>
+<p><strong>2. Verbrauchergeräte in professionellen Umgebungen verwenden</strong>
+Consumer-APs (Heimrouter mit WiFi) fehlt Band Steering, ordentliche Roaming-Unterstützung, Per-User-QoS, VLAN-Segmentierung und Management-Sichtbarkeit. Sie scheinen anfangs zu funktionieren und zeigen ihre Grenzen unter Last oder mit der Zeit.</p>
+<p><strong>3. Deployment ohne VLAN-Segmentierung</strong>
+Gastgeräte im selben Netzwerk wie Unternehmensgeräte ist ein Sicherheitsversagen, das darauf wartet zu passieren. Das ist in professionellen Umgebungen nicht optional.</p>
+<p><strong>4. Kein Monitoring</strong>
+Ein AP, der in der Nacht neugestartet hat, ein Client, der eine Woche mit dem falschen AP verbunden war, eine Kanaländerung, die Interferenz verursacht hat — nichts davon ist ohne Wireless-Monitoring sichtbar. Benachrichtigungen für AP-Verfügbarkeit, Client-Anzahl-Anomalien und Kanalauslastung einrichten.</p>
+<p><strong>5. Power-over-Ethernet (PoE)-Planung ignorieren</strong>
+Enterprise-APs erfordern PoE. Ein Cisco- oder Aruba-WiFi-6-AP mit mehreren Radios zieht 20–25 Watt. Ein 48-Port-Switch, bei dem alle Ports 25 W liefern, überschreitet das Gesamt-PoE-Budget des Switches. PoE-Kapazität vor dem Hardwarekauf planen.</p>
+<hr>
+<h2 id="wichtigste-erkenntnisse">Wichtigste Erkenntnisse</h2>
+<ul>
+<li>WiFi-Design ist umgebungsspezifisch. Die Design-Muster für ein Hotel unterscheiden sich grundlegend von einem Büro, das sich von einer Arztpraxis unterscheidet.</li>
+<li><strong>Bandbreitenmanagement pro Benutzer</strong> ist in Gastgewerbe-Umgebungen nicht verhandelbar — ohne es ist Fairness unmöglich.</li>
+<li><strong>PMS-Integration</strong> in Hotels automatisiert den Gast-Zugangszyklus ohne Personalbeteiligung.</li>
+<li><strong>VLAN-Segmentierung</strong> ist die Basislinie für jede professionelle Umgebung — Gast-, Unternehmens-, IoT- und Verwaltungsnetzwerke müssen isoliert sein.</li>
+<li><strong>Medizinisches Geräte-WiFi</strong> erfordert spezielle Behandlung — Legacy-OS, statische IPs, regulatorische Zertifizierungsbeschränkungen.</li>
+<li><strong>Site Survey</strong> ist nicht optional — es ist die einzige Möglichkeit zu validieren, dass ein Deployment funktioniert, bevor es darauf vertraut wird.</li>
+</ul>
+<hr>
+<h2 id="diese-serie">Diese Serie</h2>
+<ul>
+<li>📖 <a href="/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/">Enterprise WiFi-Architektur Übersicht</a> ← Beginnen Sie hier</li>
+<li>📡 <a href="/de/technology/wifi-80211-standards-wifi4-wifi5-wifi6/">802.11 Standards Deep Dive</a></li>
+<li>🏢 <a href="/de/technology/enterprise-wlan-controller-architektur-cisco-aruba/">Enterprise Controller-Architektur: Cisco und Aruba</a></li>
+<li>🔐 <a href="/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/">WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey</a></li>
+</ul>
+<h2 id="verwandte-artikel">Verwandte Artikel</h2>
+<ul>
+<li>📡 <a href="/de/technology/nas-backup-aws-s3-cloud-kmu/">NAS-Backup mit AWS S3 — Datensicherheit für KMU</a> — KMU-Datenschutz neben WiFi</li>
+<li>🔐 <a href="/de/technology/identity-based-microsegmentation-8021x/">802.1X Identitätsbasierte Architektur im Praxiseinsatz</a> — Die Identitätsschicht für Enterprise Wireless</li>
+<li>🏗️ <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Systemdenken im Netzwerkdesign</li>
+</ul>
+]]></content:encoded></item><item><title>WiFi Security: WPA3, 802.1X, Rogue AP Detection, and Site Survey</title><link>https://barashhelvadzhaoglu.com/de/technology/wifi-security/</link><pubDate>Mon, 27 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/wifi-security/</guid><description>Enterprise-WLAN-Sicherheit — WPA3 vs. WPA2, 802.1X-Authentifizierung, Rogue-AP-Erkennung und Ekahau Site Survey Methodik.</description><content:encoded><![CDATA[<h1 id="wifi-security-wpa3-8021x-rogue-ap-detection-and-site-survey">WiFi Security: WPA3, 802.1X, Rogue AP Detection, and Site Survey</h1>
 <p>This article is part of the Enterprise WiFi series.</p>
 <blockquote>
 <p><strong>New to enterprise wireless?</strong> Start with the overview: <a href="/en/technology/enterprise-wifi-architecture-complete-guide/">Enterprise WiFi Architecture: From Standards to Deployment</a></p>
