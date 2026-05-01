@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>802.11ax on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/802.11ax/</link><description>Recent content in 802.11ax on Barash Helvadzhaoglu</description><generator>Hugo -- 0.161.1</generator><language>tr</language><lastBuildDate>Fri, 01 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/802.11ax/index.xml" rel="self" type="application/rss+xml"/><item><title>802.11 Standartları Deep Dive: WiFi 4, 5, 6, 6E ve Gerçekte Ne Değişti</title><link>https://barashhelvadzhaoglu.com/tr/technology/wifi-standards/</link><pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/wifi-standards/</guid><description>802.11 kablosuz standartları — n, ac, ax ve be&amp;#39;nin gerçek deployment&amp;#39;lardaki performansı, OFDMA, MU-MIMO, BSS Coloring ve doğru standart seçimi.</description><content:encoded><![CDATA[<h1 id="80211-standartları-deep-dive-wifi-4-5-6-6e-ve-gerçekte-ne-değişti">802.11 Standartları Deep Dive: WiFi 4, 5, 6, 6E ve Gerçekte Ne Değişti</h1>
+<p>Bu yazı Kurumsal WiFi serisinin bir parçasıdır.</p>
+<blockquote>
+<p><strong>Kurumsal kablosuz ağa yeni misiniz?</strong> Genel bakışla başlayın: <a href="/tr/technology/kurumsal-wifi-mimarisi-tam-rehber/">Kurumsal WiFi Mimarisi: Standartlardan Deployment&rsquo;a</a></p>
+</blockquote>
+<hr>
+<h2 id="pazarlama-sayılarının-sorunu">Pazarlama Sayılarının Sorunu</h2>
+<p>Her WiFi nesli etkileyici teorik verim rakamlarıyla gelir. 802.11ac 3,5 Gbps vaat etti. 802.11ax 9,6 Gbps vaat ediyor. Pratikte, gerçek bir ortamdaki tek bir istemci WiFi 5&rsquo;te nadiren 400–600 Mbps&rsquo;i ve WiFi 6&rsquo;da 800 Mbps–1,2 Gbps&rsquo;i aşar.</p>
+<p>Bu bir aldatmaca değildir — ideal koşullar altında teorik hızlar matematiksel olarak doğrudur. Teori ile pratik arasındaki boşluk şundan kaynaklanır:</p>
+<ul>
+<li>Teorik hızlar, aynı anda maksimum kanal genişliği (160 MHz), maksimum uzamsal akış (8) ve maksimum modülasyon (1024-QAM) varsayar</li>
+<li>Gerçek istemcilerin 8 değil, 1–2 uzamsal akışı vardır</li>
+<li>Kanal genişliği, düzenleyici kurallar ve girişimden kaçınma ile sınırlıdır</li>
+<li>Sinyal zayıflaması, artan mesafeyle birlikte modülasyonu daha düşük hızlara düşürür</li>
+</ul>
+<p>Kurumsal kablosuz seçiminde gerçekte önemli olan, zirve verim değildir — standardın yük altında, yoğun istemci ortamlarında ve tıkalı RF koşullarında nasıl davrandığıdır. Nesiller gerçekte burada farklılaşır.</p>
+<hr>
+<h2 id="80211n-wifi-4-temel">802.11n (WiFi 4): Temel</h2>
+<p>2009&rsquo;da yayınlandı. Temel olmaya devam eden iki teknolojiyi tanıttı:</p>
+<p><strong>MIMO (Multiple Input, Multiple Output):</strong> Hem AP&rsquo;de hem de istemcide birden fazla anten, aynı kanalda eş zamanlı olarak iletim ve alım yapar. 2×2 MIMO AP, 2 verici ve 2 alıcı anten kullanarak tek antenli (SISO) tasarımlara kıyasla verimi etkili biçimde ikiye katlar. Kurumsal AP&rsquo;ler yaygın olarak 3×3 veya 4×4 MIMO kullanır.</p>
+<p><strong>5 GHz desteği:</strong> 802.11n hem 2,4 GHz hem de 5 GHz üzerinde çalışan ilk standarttır. 5 GHz bandı, daha fazla örtüşmeyen kanala sahiptir (çoğu bölgede 2,4 GHz&rsquo;deki 3&rsquo;e karşılık 25) ve komşu ağlardan ve mikrodalga fırınlardan daha az girişim yaşar.</p>
+<p><strong>Kanal bağlama:</strong> 40 MHz kanallar (iki 20 MHz kanalın bağlanması), kanal kullanılabilirliği pahasına teorik verimi ikiye katladı.</p>
+<p><strong>2026&rsquo;daki pratik gerçeklik:</strong> 802.11n donanımı kullanım ömrünü tamamlamış. Herhangi bir yeni deployment, en azından 802.11ac kullanmalıdır. 802.11n&rsquo;yi anlamak, birçok kurumsal ortamda hâlâ mevcut olan eski cihazları yönetmek için önemlidir.</p>
+<hr>
+<h2 id="80211ac-wifi-5-5-ghze-geçiş">802.11ac (WiFi 5): 5 GHz&rsquo;e Geçiş</h2>
+<p>2013&rsquo;te (Wave 1), 2016&rsquo;da (Wave 2) yayınlandı. 802.11n üzerinde önemli iyileştirmeler:</p>
+<p><strong>Yalnızca 5 GHz:</strong> 802.11ac yalnızca 5 GHz üzerinde çalışır. Bu, 2,4 GHz bandını eski/IoT kullanımına zorlayarak yüksek verimli istemcileri daha az tıkalı 5 GHz spektrumuna taşıdı.</p>
+<p><strong>Daha geniş kanallar:</strong> 80 MHz kanallar (Wave 1) ve 160 MHz kanallar (Wave 2). 80 MHz kanal, 20 MHz kanalın yaklaşık 4× veri hızını sağlar — ancak 4× spektrum tüketir. Çok sayıda AP&rsquo;li yoğun deployment&rsquo;larda, 80 MHz kanallar ciddi aynı kanal girişimine neden olur. Birçok kurumsal deployment, kanal kullanılabilirliğini korumak için 40 MHz kullanır.</p>
+<p><strong>256-QAM:</strong> 802.11n&rsquo;nin 64-QAM&rsquo;inden daha yüksek modülasyon yoğunluğu. Aynı sinyal gücünde sembol başına daha fazla bit — ancak daha iyi sinyal kalitesi gerektirir.</p>
+<p><strong>MU-MIMO (Wave 2):</strong> 802.11ac Wave 2, <strong>çok kullanıcılı MIMO</strong>&lsquo;yu aşağı yön için tanıttı. Bir seferde tek bir istemciye iletmek (SU-MIMO) yerine, AP farklı istemcilere yönlendirilmiş farklı destekler kullanarak aynı anda 4 istemciye iletim yapabilir.</p>
+<p><strong>MU-MIMO sınırlılığı:</strong> Wave 2 MU-MIMO yalnızca aşağı yönde (AP&rsquo;den istemciye) çalışır. Yukarı yön (istemciden AP&rsquo;ye) hâlâ tek kullanıcılıdır. İstemcilerin MU-MIMO&rsquo;nun etkili çalışması için uzamsal olarak farklı konumlarda olması gerekir — pratikte fayda genellikle teorikten daha az dramatiktir.</p>
+<p><strong>Pratik etki:</strong> WiFi 5, en yaygın deploy edilen kurumsal standart olmaya devam ediyor. 2016 ile 2021 arasında deploy edilen kurumsal AP&rsquo;lerin çoğu 802.11ac Wave 2&rsquo;dir. Tipik ofis iş yükleri için performans mükemmeldir.</p>
+<hr>
+<h2 id="80211ax-wifi-6-yoğunluk-için-tasarlandı">802.11ax (WiFi 6): Yoğunluk İçin Tasarlandı</h2>
+<p>2019&rsquo;da yayınlandı. WiFi 6, öncelikle daha hızlı tek istemci verimi değil — <strong>yüksek yoğunluklu ortamlarda verimlilik</strong> hedefledi. Bu temel ayrımdır.</p>
+<h3 id="ofdma-en-önemli-wifi-6-özelliği">OFDMA: En Önemli WiFi 6 Özelliği</h3>
+<p>802.11n ve 802.11ac&rsquo;da kanal, bir seferde bir istemciye tahsis edilir. Bir istemcinin yalnızca küçük bir onaylama göndermesi gerekmesi durumunda bile, diğer istemciler beklerken kanalı tutar:</p>
+<pre tabindex="0"><code>WiFi 5 (OFDM — zaman bölmesi):
+  Zaman: |─ İstemci A ─|─ İstemci B ─|─ İstemci C ─|─ İstemci A ─|
+  Kanal: Bir seferde bir istemciye %100 tahsis edilmiş
+</code></pre><p>WiFi 6, LTE/5G hücresel ağdan ödünç alınan <strong>OFDMA</strong>&lsquo;yı (Orthogonal Frequency Division Multiple Access) tanıttı. Kanal, <strong>Kaynak Birimleri (RU)</strong> adı verilen alt kanallara bölünür ve birden fazla istemci farklı RU&rsquo;larda eş zamanlı olarak hizmet alabilir:</p>
+<pre tabindex="0"><code>WiFi 6 (OFDMA — frekans + zaman bölmesi):
+  Zaman: |─────────── Tek TXOP ────────────|
+         | İstemci A | İstemci B | İstemci C |
+         | (küçük)   | (küçük)   | (büyük veri) |
+  Kanal: birden fazla istemci arasında eş zamanlı olarak alt bölünmüş
+</code></pre><p><strong>Neden pratikte önemlidir:</strong></p>
+<ul>
+<li>IoT cihazları, telefonlar ve tabletler sık sık küçük paketler gönderir (onaylamalar, yaşatma mesajları, sensör verileri). WiFi 5 altında, bu küçük iletimlerin her biri tam kanalı tutar.</li>
+<li>OFDMA, AP&rsquo;nin bu küçük iletimleri bir araya getirerek, tek bir WiFi 5 iletiminin alacağı sürede birden fazla istemciye hizmet vermesine olanak tanır.</li>
+<li>Yoğun ortamlarda (konferans odaları, sınıflar, açık ofisler), bu, kanal tıkanmasını önemli ölçüde azaltır ve tüm istemciler için genel verimi iyileştirir.</li>
+</ul>
+<p>OFDMA, WiFi 5&rsquo;in yalnızca aşağı yön MU-MIMO&rsquo;sunun aksine, WiFi 6&rsquo;da hem aşağı yöne hem de yukarı yöne uygulanır.</p>
+<h3 id="bss-boyama-aynı-kanal-girişimini-azaltma">BSS Boyama: Aynı Kanal Girişimini Azaltma</h3>
+<p>Yoğun AP deployment&rsquo;larında, komşu AP&rsquo;ler çoğunlukla kanalları paylaşır. 802.11n/ac altında, bir istemci cihazı kanalında etkinlik algıladığında beklemek zorundadır — o etkinlik kesinlikle girişim yapamayacak bitişik binalardaki bir AP&rsquo;den gelse bile.</p>
+<p>WiFi 6 BSS Boyama, her Temel Servis Setine bir &ldquo;renk&rdquo; (sayısal etiket) atar. Cihazlar, kendi BSS&rsquo;lerinden gelen iletimler ile aynı kanalı paylaşan diğer BSS&rsquo;lerden gelen iletimler arasında ayrım yapabilir:</p>
+<pre tabindex="0"><code>BSS Boyama olmadan:
+  İstemci AP-1&#39;i duyar (kendi ağı) → bekler
+  İstemci AP-2&#39;yi duyar (komşu)    → da bekler (gereksiz)
+
+BSS Boyama ile:
+  İstemci AP-1&#39;i duyar (aynı renk)     → bekler (ilgili)
+  İstemci AP-2&#39;yi duyar (farklı renk, düşük RSSI) → iletim yapar (yeniden kullanım)
+</code></pre><p>Pratikte, BSS Boyama yoğun deployment&rsquo;larda uzamsal yeniden kullanımı iyileştirir — daha fazla AP, aşırı girişime neden olmadan örtüşen kanallarda çalışabilir.</p>
+<h3 id="target-wake-time-twt-iot-pil-ömrü">Target Wake Time (TWT): IoT Pil Ömrü</h3>
+<p>WiFi 6, AP&rsquo;lerin IoT ve pil güçlü cihazlar için belirli uyanma zamanları planlamasına olanak tanıyan TWT&rsquo;yi tanıttı. Cihazlar, veri bekleyerek radyolarını sürekli aktif tutmak yerine, yalnızca planlanan aralıklarda uyuyup uyanır.</p>
+<p><strong>Kurumsal ilgi:</strong> Binalar, WiFi bağlantılı sensörleri, kameraları, erişim kontrol okuyucularını ve varlık takip etiketlerini giderek artan oranda bünyesinde barındırıyor. TWT, bu cihazların işlevselliğini etkilemeden pil ömrünü dramatik biçimde uzatır.</p>
+<h3 id="1024-qam-ve-daha-yüksek-verim">1024-QAM ve Daha Yüksek Verim</h3>
+<p>WiFi 6, 1024-QAM (WiFi 5&rsquo;in 256-QAM&rsquo;ına karşılık) destekler — sembol başına 8 bit yerine 10 bit kodlar. Yakın mesafede mükemmel sinyal kalitesiyle yaklaşık %25 verim iyileştirmesi. Çoğu deployment için OFDMA&rsquo;dan daha az önemli.</p>
+<hr>
+<h2 id="80211ax-wifi-6e-6-ghz-bandı">802.11ax (WiFi 6E): 6 GHz Bandı</h2>
+<p>WiFi 6E, <strong>6 GHz bandına</strong> (çoğu bölgede 5,925–7,125 GHz) genişletilmiş 802.11ax&rsquo;tır. 6 GHz bandı şunları sağlar:</p>
+<ul>
+<li><strong>1.200 MHz yeni spektrum</strong> — 5 GHz&rsquo;de mevcut 500 MHz&rsquo;e kıyasla</li>
+<li><strong>59&rsquo;a kadar örtüşmeyen 20 MHz kanalı</strong> — 5 GHz&rsquo;de 25&rsquo;e karşılık (bölgeye bağlı)</li>
+<li><strong>Eski cihaz yok:</strong> 6 GHz bandı yalnızca WiFi 6E/7. 802.11n veya 802.11ac cihazı orada yok. Eski protokollerden girişim yok.</li>
+<li><strong>Tıkanma olmadan geniş kanallar:</strong> 160 MHz kanallar, 5 GHz&rsquo;de neden oldukları kanal tükenmesi olmadan 6 GHz&rsquo;de pratiktir.</li>
+</ul>
+<p><strong>Sınırlılık:</strong> 6 GHz, daha yüksek frekans zayıflaması nedeniyle 5 GHz&rsquo;den daha kısa menzile sahiptir. AP&rsquo;lerin istemcilere yakın olduğu yüksek yoğunluklu iç mekân ortamları için mükemmeldir. Açık hava veya uzun menzilli deployment&rsquo;lar için daha az kullanışlıdır.</p>
+<p><strong>İstemci benimsenmesi:</strong> WiFi 6E yetenekli istemciler (akıllı telefonlar, dizüstü bilgisayarlar) 2026 itibarıyla giderek daha yaygın hale geliyor. 6E destekli kurumsal AP&rsquo;ler tipik olarak üç bantlı çalışır: 2,4 GHz (eski), 5 GHz (ana akım) ve 6 GHz (yüksek verim, düşük tıkanıklık).</p>
+<hr>
+<h2 id="80211be-wifi-7-ortaya-çıkıyor">802.11be (WiFi 7): Ortaya Çıkıyor</h2>
+<p>802.11be / WiFi 7, 2024&rsquo;te tamamlandı ve 2026 itibarıyla erken kurumsal deployment aşamasında. Temel yenilikler:</p>
+<p><strong>Çok Bağlantılı Çalışma (MLO):</strong> Tek bir istemci bağlantısı aynı anda birden fazla bant ve kanalı kullanabilir — örneğin 5 GHz ve 6 GHz üzerinde eş zamanlı iletim. Bu, verim toplamayı iyileştirir ve bağlantı kesilmesi olmadan bantlar arasında kesintisiz roaming sağlar.</p>
+<p><strong>320 MHz kanallar:</strong> 6 GHz&rsquo;de mevcut. WiFi 6E&rsquo;nin 160 MHz maksimumunun kanal genişliğini ikiye katlar.</p>
+<p><strong>4096-QAM:</strong> Mükemmel sinyal koşulları gerektiren daha yüksek modülasyon. Yakın mesafede 1024-QAM üzerinde yaklaşık %20 verim iyileştirmesi.</p>
+<p><strong>Kurumsal hazırlık:</strong> WiFi 7 AP&rsquo;ler Cisco, Aruba ve diğerlerinden temin edilebilir. İstemci desteği büyüyor ancak henüz evrensel değil. Yeni deployment&rsquo;lar için WiFi 7 AP&rsquo;ler, WiFi 5 ve WiFi 6 istemcilerle uyumlu kalırken altyapıyı geleceğe hazırlar.</p>
+<hr>
+<h2 id="kanal-planlaması-teori-gerçeklikle-buluşuyor">Kanal Planlaması: Teori Gerçeklikle Buluşuyor</h2>
+<p>Standartları anlamak yalnızca yarı resimdir. Kanalları nasıl yapılandırdığınız, WiFi 6 deployment&rsquo;ınızın WiFi 5 deployment&rsquo;ınızı geride bırakıp bırakmayacağını belirler.</p>
+<h3 id="24-ghz-yalnızca-3-kullanılabilir-kanal">2,4 GHz: Yalnızca 3 Kullanılabilir Kanal</h3>
+<p>Çoğu bölgede 2,4 GHz&rsquo;in 14 kanalı tanımlı ancak yalnızca <strong>3 örtüşmeyen</strong> kanalı var (kanal 1, 6, 11). Kanal 2, 3, 4, 5 üzerindeki herhangi bir AP, kanal 1 ve 6 ile kısmen örtüşür — girişime neden olur.</p>
+<p>Yoğun deployment&rsquo;larda 2,4 GHz bandı, yüksek verimli istemciler için esasen kullanılamaz. Eski cihazlar ve IoT için ayırın ve yetenekli istemcileri 5 GHz veya 6 GHz&rsquo;e yönlendirin.</p>
+<h3 id="5-ghz-kanal-genişliği-takasları">5 GHz: Kanal Genişliği Takasları</h3>
+<p>5 GHz, 25 örtüşmeyen 20 MHz kanala sahiptir (bölgeye bağlı). Kanal genişlikleri:</p>
+<pre tabindex="0"><code>20 MHz kanallar:   25 örtüşmeyen kanal mevcut
+40 MHz kanallar:   12 örtüşmeyen kanal
+80 MHz kanallar:    6 örtüşmeyen kanal
+160 MHz kanallar:   3 örtüşmeyen kanal
+</code></pre><p>Bir kampüsü kapsayan 20 AP&rsquo;li bir deployment&rsquo;da, 80 MHz kanallar kullanmak yalnızca 6 benzersiz kanalın mevcut olduğu anlamına gelir — her AP, komşusunun da kullandığı bir kanaldadır. Aynı kanal girişimi performansı düşürür.</p>
+<p><strong>Kurumsal öneri:</strong> Yoğun deployment&rsquo;larda, kanal kullanılabilirliğini korumak için 5 GHz&rsquo;de 40 MHz kanallar kullanın. 80 MHz+&lsquo;yı düşük yoğunluklu alanlar veya spektrumun bol olduğu 6 GHz için ayırın.</p>
+<h3 id="otomatik-kanal-ataması-aca">Otomatik Kanal Ataması (ACA)</h3>
+<p>Kurumsal controller&rsquo;lar (Cisco RRM, Aruba ARM), RF ortamı ölçümlerine dayalı olarak kanalları otomatik olarak atar ve iletim gücünü ayarlar. Bu, genellikle başlangıç deployment&rsquo;ı için güvenilirdir, ancak deployment sonrası survey ile doğrulanmalıdır — otomatik algoritmalar bazen karmaşık RF ortamlarında suboptimal seçimler yapar.</p>
+<hr>
+<h2 id="deploymentınız-için-doğru-standardı-seçme">Deployment&rsquo;ınız İçin Doğru Standardı Seçme</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Ortam</th>
+          <th>Öneri</th>
+          <th>Neden</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Yeni kurumsal kampüs</td>
+          <td>Minimum WiFi 6, WiFi 6E tercih edilir</td>
+          <td>OFDMA yoğunluk faydası, geleceğe hazırlık</td>
+      </tr>
+      <tr>
+          <td>Yüksek yoğunluk (konferans, sınıf)</td>
+          <td>WiFi 6 veya 6E</td>
+          <td>OFDMA yoğunluk için gerekli</td>
+      </tr>
+      <tr>
+          <td>IoT ağırlıklı ortam</td>
+          <td>WiFi 6</td>
+          <td>Pil güçlü cihazlar için TWT</td>
+      </tr>
+      <tr>
+          <td>KOBİ / küçük ofis</td>
+          <td>WiFi 6 AP</td>
+          <td>Uygun maliyetli, tüm istemcileri destekler</td>
+      </tr>
+      <tr>
+          <td>Açık hava / uzun menzil</td>
+          <td>WiFi 6 (5 GHz)</td>
+          <td>6 GHz&rsquo;den daha iyi menzil</td>
+      </tr>
+      <tr>
+          <td>Eski cihaz ağırlıklı</td>
+          <td>WiFi 6 AP (geriye dönük uyumlu)</td>
+          <td>Tüm 802.11 standartları geriye dönük uyumlu</td>
+      </tr>
+      <tr>
+          <td>Yeni yapı, geleceğe hazırlık</td>
+          <td>WiFi 7</td>
+          <td>MLO, 6 GHz, 320 MHz kanallar</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Önemli not:</strong> WiFi 6 AP&rsquo;ler tüm önceki istemcileri destekler — 802.11n, 802.11ac, 802.11ax istemcilerin tamamı aynı AP&rsquo;ye bağlanır. AP, her istemciyle karşılıklı desteklenen en iyi yetenekleri müzakere eder.</p>
+<hr>
+<h2 id="temel-çıkarımlar">Temel Çıkarımlar</h2>
+<ul>
+<li>Pazarlama verim rakamları pratikte elde edilemez — standartları zirve hızlarına değil, yoğunluk ve verimlilik iyileştirmelerine göre değerlendirin.</li>
+<li><strong>OFDMA</strong>, kurumsal deployment&rsquo;lar için WiFi 6&rsquo;nın en etkili yeniliğidir — kanalın yüksek yoğunluklu ortamlarda nasıl paylaşıldığını dönüştürür.</li>
+<li><strong>BSS Boyama</strong>, komşu AP&rsquo;ler arasındaki gereksiz kanal çakışmasını azaltır.</li>
+<li><strong>WiFi 6E&rsquo;nin 6 GHz bandı</strong>, tıkanmamış spektrum ve pratik geniş kanallar sağlar — yoğun iç mekân ortamları için en önemli deployment iyileştirmesi.</li>
+<li><strong>Kanal genişliği planlaması</strong>, standart kadar önemlidir — 5 GHz&rsquo;deki 160 MHz kanallar, yoğun deployment&rsquo;larda genellikle yardımdan çok zarar verir.</li>
+<li>WiFi 7 / 802.11be MLO&rsquo;yu tanıtıyor ve erken deployment aşamasında — yeni altyapı yatırımları için değerlendirmeye değer.</li>
+</ul>
+<hr>
+<h2 id="bu-seri">Bu Seri</h2>
+<ul>
+<li>📖 <a href="/tr/technology/kurumsal-wifi-mimarisi-tam-rehber/">Kurumsal WiFi Mimarisi Genel Bakış</a> ← Buradan başlayın</li>
+<li>🏢 <a href="/tr/technology/kurumsal-wifi-controller-mimarisi-cisco-aruba/">Kurumsal Controller Mimarisi: Cisco ve Aruba</a></li>
+<li>🏨 <a href="/tr/technology/wifi-tasarimi-kobi-otel-saglik/">KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı</a></li>
+<li>🔐 <a href="/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/">WiFi Güvenliği: WPA3, 802.1X, Sahte AP, Site Survey</a></li>
+</ul>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<ul>
+<li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Kimlik Tabanlı Mimari Sahada</a> — Kablosuz güvenlik için kimlik katmanı</li>
+<li>🏗️ <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Ürünler Koleksiyonu Değildir</a> — Kablosuz tasarım için sistem düşüncesi</li>
+</ul>
+]]></content:encoded></item></channel></rss>
