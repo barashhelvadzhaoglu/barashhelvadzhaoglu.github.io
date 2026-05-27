@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>WiFi on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/wifi/</link><description>Recent content in WiFi on Barash Helvadzhaoglu</description><generator>Hugo -- 0.161.1</generator><language>tr</language><lastBuildDate>Fri, 01 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/wifi/index.xml" rel="self" type="application/rss+xml"/><item><title>802.11 Standartları Deep Dive: WiFi 4, 5, 6, 6E ve Gerçekte Ne Değişti</title><link>https://barashhelvadzhaoglu.com/tr/technology/wifi-standards/</link><pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/wifi-standards/</guid><description>802.11 kablosuz standartları — n, ac, ax ve be&amp;#39;nin gerçek deployment&amp;#39;lardaki performansı, OFDMA, MU-MIMO, BSS Coloring ve doğru standart seçimi.</description><content:encoded><![CDATA[<h1 id="80211-standartları-deep-dive-wifi-4-5-6-6e-ve-gerçekte-ne-değişti">802.11 Standartları Deep Dive: WiFi 4, 5, 6, 6E ve Gerçekte Ne Değişti</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>WiFi on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/wifi/</link><description>Recent content in WiFi on Barash Helvadzhaoglu</description><generator>Hugo -- 0.162.0</generator><language>tr</language><lastBuildDate>Fri, 01 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/wifi/index.xml" rel="self" type="application/rss+xml"/><item><title>802.11 Standartları Deep Dive: WiFi 4, 5, 6, 6E ve Gerçekte Ne Değişti</title><link>https://barashhelvadzhaoglu.com/tr/technology/wifi-standards/</link><pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/wifi-standards/</guid><description>802.11 kablosuz standartları — n, ac, ax ve be&amp;#39;nin gerçek deployment&amp;#39;lardaki performansı, OFDMA, MU-MIMO, BSS Coloring ve doğru standart seçimi.</description><content:encoded><![CDATA[<h1 id="80211-standartları-deep-dive-wifi-4-5-6-6e-ve-gerçekte-ne-değişti">802.11 Standartları Deep Dive: WiFi 4, 5, 6, 6E ve Gerçekte Ne Değişti</h1>
 <p>Bu yazı Kurumsal WiFi serisinin bir parçasıdır.</p>
 <blockquote>
 <p><strong>Kurumsal kablosuz ağa yeni misiniz?</strong> Genel bakışla başlayın: <a href="/tr/technology/kurumsal-wifi-mimarisi-tam-rehber/">Kurumsal WiFi Mimarisi: Standartlardan Deployment&rsquo;a</a></p>
@@ -104,50 +104,50 @@ BSS Boyama ile:
 <hr>
 <h2 id="deploymentınız-için-doğru-standardı-seçme">Deployment&rsquo;ınız İçin Doğru Standardı Seçme</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Ortam</th>
-          <th>Öneri</th>
-          <th>Neden</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Yeni kurumsal kampüs</td>
-          <td>Minimum WiFi 6, WiFi 6E tercih edilir</td>
-          <td>OFDMA yoğunluk faydası, geleceğe hazırlık</td>
-      </tr>
-      <tr>
-          <td>Yüksek yoğunluk (konferans, sınıf)</td>
-          <td>WiFi 6 veya 6E</td>
-          <td>OFDMA yoğunluk için gerekli</td>
-      </tr>
-      <tr>
-          <td>IoT ağırlıklı ortam</td>
-          <td>WiFi 6</td>
-          <td>Pil güçlü cihazlar için TWT</td>
-      </tr>
-      <tr>
-          <td>KOBİ / küçük ofis</td>
-          <td>WiFi 6 AP</td>
-          <td>Uygun maliyetli, tüm istemcileri destekler</td>
-      </tr>
-      <tr>
-          <td>Açık hava / uzun menzil</td>
-          <td>WiFi 6 (5 GHz)</td>
-          <td>6 GHz&rsquo;den daha iyi menzil</td>
-      </tr>
-      <tr>
-          <td>Eski cihaz ağırlıklı</td>
-          <td>WiFi 6 AP (geriye dönük uyumlu)</td>
-          <td>Tüm 802.11 standartları geriye dönük uyumlu</td>
-      </tr>
-      <tr>
-          <td>Yeni yapı, geleceğe hazırlık</td>
-          <td>WiFi 7</td>
-          <td>MLO, 6 GHz, 320 MHz kanallar</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Ortam</th>
+					<th>Öneri</th>
+					<th>Neden</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Yeni kurumsal kampüs</td>
+					<td>Minimum WiFi 6, WiFi 6E tercih edilir</td>
+					<td>OFDMA yoğunluk faydası, geleceğe hazırlık</td>
+			</tr>
+			<tr>
+					<td>Yüksek yoğunluk (konferans, sınıf)</td>
+					<td>WiFi 6 veya 6E</td>
+					<td>OFDMA yoğunluk için gerekli</td>
+			</tr>
+			<tr>
+					<td>IoT ağırlıklı ortam</td>
+					<td>WiFi 6</td>
+					<td>Pil güçlü cihazlar için TWT</td>
+			</tr>
+			<tr>
+					<td>KOBİ / küçük ofis</td>
+					<td>WiFi 6 AP</td>
+					<td>Uygun maliyetli, tüm istemcileri destekler</td>
+			</tr>
+			<tr>
+					<td>Açık hava / uzun menzil</td>
+					<td>WiFi 6 (5 GHz)</td>
+					<td>6 GHz&rsquo;den daha iyi menzil</td>
+			</tr>
+			<tr>
+					<td>Eski cihaz ağırlıklı</td>
+					<td>WiFi 6 AP (geriye dönük uyumlu)</td>
+					<td>Tüm 802.11 standartları geriye dönük uyumlu</td>
+			</tr>
+			<tr>
+					<td>Yeni yapı, geleceğe hazırlık</td>
+					<td>WiFi 7</td>
+					<td>MLO, 6 GHz, 320 MHz kanallar</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Önemli not:</strong> WiFi 6 AP&rsquo;ler tüm önceki istemcileri destekler — 802.11n, 802.11ac, 802.11ax istemcilerin tamamı aynı AP&rsquo;ye bağlanır. AP, her istemciyle karşılıklı desteklenen en iyi yetenekleri müzakere eder.</p>
 <hr>
@@ -198,40 +198,40 @@ BSS Boyama ile:
 <h3 id="kobi-için-kapsama-planlaması">KOBİ İçin Kapsama Planlaması</h3>
 <p>Tipik ofis ortamları için kaba bir başlangıç noktası:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Ortam</th>
-          <th>AP Kapsama Alanı</th>
-          <th>Notlar</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Açık ofis, düşük yoğunluk</td>
-          <td>150–200 m²</td>
-          <td>Modern WiFi 6 AP&rsquo;ler, orta istemci sayısı</td>
-      </tr>
-      <tr>
-          <td>Açık ofis, yüksek yoğunluk</td>
-          <td>80–100 m²</td>
-          <td>Çok istemci, video görüşmeler, yüksek verim</td>
-      </tr>
-      <tr>
-          <td>İç duvarlarla ofis</td>
-          <td>80–120 m²</td>
-          <td>Duvarlar sinyali zayıflatır; sonuçlandırmadan önce test edin</td>
-      </tr>
-      <tr>
-          <td>Koridor / otel koridoru</td>
-          <td>AP başına 20–25 m</td>
-          <td>Dar kapsama deseni</td>
-      </tr>
-      <tr>
-          <td>Depo / büyük açık alan</td>
-          <td>300–500 m²</td>
-          <td>Düşük yoğunluk, yüksek tavanlar, RF iyi yayılır</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Ortam</th>
+					<th>AP Kapsama Alanı</th>
+					<th>Notlar</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Açık ofis, düşük yoğunluk</td>
+					<td>150–200 m²</td>
+					<td>Modern WiFi 6 AP&rsquo;ler, orta istemci sayısı</td>
+			</tr>
+			<tr>
+					<td>Açık ofis, yüksek yoğunluk</td>
+					<td>80–100 m²</td>
+					<td>Çok istemci, video görüşmeler, yüksek verim</td>
+			</tr>
+			<tr>
+					<td>İç duvarlarla ofis</td>
+					<td>80–120 m²</td>
+					<td>Duvarlar sinyali zayıflatır; sonuçlandırmadan önce test edin</td>
+			</tr>
+			<tr>
+					<td>Koridor / otel koridoru</td>
+					<td>AP başına 20–25 m</td>
+					<td>Dar kapsama deseni</td>
+			</tr>
+			<tr>
+					<td>Depo / büyük açık alan</td>
+					<td>300–500 m²</td>
+					<td>Düşük yoğunluk, yüksek tavanlar, RF iyi yayılır</td>
+			</tr>
+	</tbody>
 </table>
 <p>Bunlar başlangıç noktaları, kural değil. Kapsama alanını doğrulamanın tek yolu site survey — deployment öncesi tahmine dayalı, sonrasında doğrulama.</p>
 <h3 id="ağ-segmentasyonu-taban-çizgisi">Ağ Segmentasyonu Taban Çizgisi</h3>
@@ -250,30 +250,30 @@ SSID: IoT/Yazıcılar  → VLAN 30 (yazıcılar, kameralar, izole)
 </ul>
 <h3 id="kobi-için-platform-önerisi">KOBİ İçin Platform Önerisi</h3>
 <table>
-  <thead>
-      <tr>
-          <th>Boyut</th>
-          <th>Öneri</th>
-          <th>Neden</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>1–5 AP, IT personeli yok</td>
-          <td>Aruba Instant On</td>
-          <td>Basit uygulama tabanlı yönetim, sağlam donanım</td>
-      </tr>
-      <tr>
-          <td>5–20 AP, temel IT personeli</td>
-          <td>Cisco Meraki veya Aruba Central</td>
-          <td>Bulut yönetimi, iyi görünürlük</td>
-      </tr>
-      <tr>
-          <td>20+ AP, IT ekibi</td>
-          <td>Aruba Central veya Cisco DNA Center</td>
-          <td>Kurumsal özellikler, politika entegrasyonu</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Boyut</th>
+					<th>Öneri</th>
+					<th>Neden</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>1–5 AP, IT personeli yok</td>
+					<td>Aruba Instant On</td>
+					<td>Basit uygulama tabanlı yönetim, sağlam donanım</td>
+			</tr>
+			<tr>
+					<td>5–20 AP, temel IT personeli</td>
+					<td>Cisco Meraki veya Aruba Central</td>
+					<td>Bulut yönetimi, iyi görünürlük</td>
+			</tr>
+			<tr>
+					<td>20+ AP, IT ekibi</td>
+					<td>Aruba Central veya Cisco DNA Center</td>
+					<td>Kurumsal özellikler, politika entegrasyonu</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="bölüm-2-otel-wifi-tasarımı">Bölüm 2: Otel WiFi Tasarımı</h2>
@@ -594,40 +594,40 @@ After physical installation, walk the space in a systematic pattern using Ekahau
 Compare validation heatmap against prediction. Document actual versus predicted performance. Adjust AP placement, power levels, or channel assignments for any areas that fall below requirements.</p>
 <h3 id="key-survey-metrics-and-targets">Key Survey Metrics and Targets</h3>
 <table>
-  <thead>
-      <tr>
-          <th>Metric</th>
-          <th>Minimum</th>
-          <th>Target</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>RSSI (signal strength)</td>
-          <td>-70 dBm</td>
-          <td>-65 dBm or better</td>
-      </tr>
-      <tr>
-          <td>SNR (signal-to-noise ratio)</td>
-          <td>20 dB</td>
-          <td>25 dB or better</td>
-      </tr>
-      <tr>
-          <td>Channel overlap</td>
-          <td>15–20%</td>
-          <td>20–25% (sufficient for roaming)</td>
-      </tr>
-      <tr>
-          <td>Co-channel interference</td>
-          <td>&lt; -85 dBm from neighbors</td>
-          <td>&lt; -90 dBm</td>
-      </tr>
-      <tr>
-          <td>Roaming transition time</td>
-          <td>&lt; 150ms (voice)</td>
-          <td>&lt; 50ms (best case with 802.11r)</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Metric</th>
+					<th>Minimum</th>
+					<th>Target</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>RSSI (signal strength)</td>
+					<td>-70 dBm</td>
+					<td>-65 dBm or better</td>
+			</tr>
+			<tr>
+					<td>SNR (signal-to-noise ratio)</td>
+					<td>20 dB</td>
+					<td>25 dB or better</td>
+			</tr>
+			<tr>
+					<td>Channel overlap</td>
+					<td>15–20%</td>
+					<td>20–25% (sufficient for roaming)</td>
+			</tr>
+			<tr>
+					<td>Co-channel interference</td>
+					<td>&lt; -85 dBm from neighbors</td>
+					<td>&lt; -90 dBm</td>
+			</tr>
+			<tr>
+					<td>Roaming transition time</td>
+					<td>&lt; 150ms (voice)</td>
+					<td>&lt; 50ms (best case with 802.11r)</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="wireless-intrusion-detection-wids">Wireless Intrusion Detection (WIDS)</h2>
@@ -932,46 +932,46 @@ DNA Center, SGT tabanlı politikayı uçtan uca uygular
 <h2 id="80211-standartları-gerçekte-ne-değişti">802.11 Standartları: Gerçekte Ne Değişti</h2>
 <p>IEEE 802.11 standardı, her biri pazarlama amacıyla farklı biçimde markalanmış birden fazla nesil geçirdi:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Standart</th>
-          <th>Pazarlama Adı</th>
-          <th>Maks Teorik Hız</th>
-          <th>Temel İyileştirme</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>802.11n</td>
-          <td>WiFi 4</td>
-          <td>600 Mbps</td>
-          <td>MIMO, 5 GHz desteği</td>
-      </tr>
-      <tr>
-          <td>802.11ac</td>
-          <td>WiFi 5</td>
-          <td>3,5 Gbps</td>
-          <td>MU-MIMO, daha geniş kanallar (80/160 MHz)</td>
-      </tr>
-      <tr>
-          <td>802.11ax</td>
-          <td>WiFi 6</td>
-          <td>9,6 Gbps</td>
-          <td>OFDMA, BSS Boyama, TWT, yüksek yoğunluk</td>
-      </tr>
-      <tr>
-          <td>802.11ax (6 GHz)</td>
-          <td>WiFi 6E</td>
-          <td>9,6 Gbps</td>
-          <td>Yeni 6 GHz bandı, daha az tıkanıklık</td>
-      </tr>
-      <tr>
-          <td>802.11be</td>
-          <td>WiFi 7</td>
-          <td>46 Gbps</td>
-          <td>Çok Bağlantılı Çalışma, 320 MHz kanallar</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Standart</th>
+					<th>Pazarlama Adı</th>
+					<th>Maks Teorik Hız</th>
+					<th>Temel İyileştirme</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>802.11n</td>
+					<td>WiFi 4</td>
+					<td>600 Mbps</td>
+					<td>MIMO, 5 GHz desteği</td>
+			</tr>
+			<tr>
+					<td>802.11ac</td>
+					<td>WiFi 5</td>
+					<td>3,5 Gbps</td>
+					<td>MU-MIMO, daha geniş kanallar (80/160 MHz)</td>
+			</tr>
+			<tr>
+					<td>802.11ax</td>
+					<td>WiFi 6</td>
+					<td>9,6 Gbps</td>
+					<td>OFDMA, BSS Boyama, TWT, yüksek yoğunluk</td>
+			</tr>
+			<tr>
+					<td>802.11ax (6 GHz)</td>
+					<td>WiFi 6E</td>
+					<td>9,6 Gbps</td>
+					<td>Yeni 6 GHz bandı, daha az tıkanıklık</td>
+			</tr>
+			<tr>
+					<td>802.11be</td>
+					<td>WiFi 7</td>
+					<td>46 Gbps</td>
+					<td>Çok Bağlantılı Çalışma, 320 MHz kanallar</td>
+			</tr>
+	</tbody>
 </table>
 <p>Pazarlama materyallerindeki teorik hızlar pratikte hiçbir zaman ulaşılmaz. Gerçek deployment&rsquo;larda önemli olan her nesil için farklıdır:</p>
 <p><strong>WiFi 6 (802.11ax)</strong>, yoğun ortamlarda gerçekten önemli iki yetenek getirdi:</p>
@@ -1090,42 +1090,42 @@ DNA Center, SGT tabanlı politikayı uçtan uca uygular
 <hr>
 <h2 id="doğru-platformu-seçme">Doğru Platformu Seçme</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Senaryo</th>
-          <th>Önerilen Platform</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Küçük ofis, basit yönetim</td>
-          <td>Aruba Instant On, Cisco Business, Meraki Go</td>
-      </tr>
-      <tr>
-          <td>IT personeli olan KOBİ</td>
-          <td>Cisco Meraki, Aruba Central (bulut yönetimli)</td>
-      </tr>
-      <tr>
-          <td>Kurumsal kampüs, karmaşık politika</td>
-          <td>Aruba Mobility Master, Cisco DNA Center</td>
-      </tr>
-      <tr>
-          <td>Otel / konaklama</td>
-          <td>Aruba, Cisco Meraki (PMS entegrasyonu ile)</td>
-      </tr>
-      <tr>
-          <td>Sağlık / düzenlenmiş ortam</td>
-          <td>Aruba ClearPass + Mobility Master, Cisco ISE + WLC</td>
-      </tr>
-      <tr>
-          <td>Yüksek yoğunluklu mekanlar</td>
-          <td>Cisco (Catalyst Center), Aruba (AOS 10)</td>
-      </tr>
-      <tr>
-          <td>Çok siteli, merkezi yönetim</td>
-          <td>Cisco Meraki, Aruba Central</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Senaryo</th>
+					<th>Önerilen Platform</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Küçük ofis, basit yönetim</td>
+					<td>Aruba Instant On, Cisco Business, Meraki Go</td>
+			</tr>
+			<tr>
+					<td>IT personeli olan KOBİ</td>
+					<td>Cisco Meraki, Aruba Central (bulut yönetimli)</td>
+			</tr>
+			<tr>
+					<td>Kurumsal kampüs, karmaşık politika</td>
+					<td>Aruba Mobility Master, Cisco DNA Center</td>
+			</tr>
+			<tr>
+					<td>Otel / konaklama</td>
+					<td>Aruba, Cisco Meraki (PMS entegrasyonu ile)</td>
+			</tr>
+			<tr>
+					<td>Sağlık / düzenlenmiş ortam</td>
+					<td>Aruba ClearPass + Mobility Master, Cisco ISE + WLC</td>
+			</tr>
+			<tr>
+					<td>Yüksek yoğunluklu mekanlar</td>
+					<td>Cisco (Catalyst Center), Aruba (AOS 10)</td>
+			</tr>
+			<tr>
+					<td>Çok siteli, merkezi yönetim</td>
+					<td>Cisco Meraki, Aruba Central</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="bu-seri">Bu Seri</h2>

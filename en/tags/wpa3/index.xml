@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>WPA3 on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/wpa3/</link><description>Recent content in WPA3 on Barash Helvadzhaoglu</description><generator>Hugo -- 0.161.1</generator><language>en</language><lastBuildDate>Mon, 27 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/wpa3/index.xml" rel="self" type="application/rss+xml"/><item><title>WiFi Security: WPA3, 802.1X, Rogue AP Detection, and Site Survey</title><link>https://barashhelvadzhaoglu.com/en/technology/wifi-security/</link><pubDate>Mon, 27 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/wifi-security/</guid><description>Enterprise WiFi security deep dive — WPA3 vs WPA2, 802.1X authentication, rogue AP detection and containment, and Ekahau site survey methodology.</description><content:encoded><![CDATA[<h1 id="wifi-security-wpa3-8021x-rogue-ap-detection-and-site-survey">WiFi Security: WPA3, 802.1X, Rogue AP Detection, and Site Survey</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>WPA3 on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/wpa3/</link><description>Recent content in WPA3 on Barash Helvadzhaoglu</description><generator>Hugo -- 0.162.0</generator><language>en</language><lastBuildDate>Mon, 27 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/wpa3/index.xml" rel="self" type="application/rss+xml"/><item><title>WiFi Security: WPA3, 802.1X, Rogue AP Detection, and Site Survey</title><link>https://barashhelvadzhaoglu.com/en/technology/wifi-security/</link><pubDate>Mon, 27 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/wifi-security/</guid><description>Enterprise WiFi security deep dive — WPA3 vs WPA2, 802.1X authentication, rogue AP detection and containment, and Ekahau site survey methodology.</description><content:encoded><![CDATA[<h1 id="wifi-security-wpa3-8021x-rogue-ap-detection-and-site-survey">WiFi Security: WPA3, 802.1X, Rogue AP Detection, and Site Survey</h1>
 <p>This article is part of the Enterprise WiFi series.</p>
 <blockquote>
 <p><strong>New to enterprise wireless?</strong> Start with the overview: <a href="/en/technology/enterprise-wifi-architecture-complete-guide/">Enterprise WiFi Architecture: From Standards to Deployment</a></p>
@@ -189,40 +189,40 @@ After physical installation, walk the space in a systematic pattern using Ekahau
 Compare validation heatmap against prediction. Document actual versus predicted performance. Adjust AP placement, power levels, or channel assignments for any areas that fall below requirements.</p>
 <h3 id="key-survey-metrics-and-targets">Key Survey Metrics and Targets</h3>
 <table>
-  <thead>
-      <tr>
-          <th>Metric</th>
-          <th>Minimum</th>
-          <th>Target</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>RSSI (signal strength)</td>
-          <td>-70 dBm</td>
-          <td>-65 dBm or better</td>
-      </tr>
-      <tr>
-          <td>SNR (signal-to-noise ratio)</td>
-          <td>20 dB</td>
-          <td>25 dB or better</td>
-      </tr>
-      <tr>
-          <td>Channel overlap</td>
-          <td>15–20%</td>
-          <td>20–25% (sufficient for roaming)</td>
-      </tr>
-      <tr>
-          <td>Co-channel interference</td>
-          <td>&lt; -85 dBm from neighbors</td>
-          <td>&lt; -90 dBm</td>
-      </tr>
-      <tr>
-          <td>Roaming transition time</td>
-          <td>&lt; 150ms (voice)</td>
-          <td>&lt; 50ms (best case with 802.11r)</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Metric</th>
+					<th>Minimum</th>
+					<th>Target</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>RSSI (signal strength)</td>
+					<td>-70 dBm</td>
+					<td>-65 dBm or better</td>
+			</tr>
+			<tr>
+					<td>SNR (signal-to-noise ratio)</td>
+					<td>20 dB</td>
+					<td>25 dB or better</td>
+			</tr>
+			<tr>
+					<td>Channel overlap</td>
+					<td>15–20%</td>
+					<td>20–25% (sufficient for roaming)</td>
+			</tr>
+			<tr>
+					<td>Co-channel interference</td>
+					<td>&lt; -85 dBm from neighbors</td>
+					<td>&lt; -90 dBm</td>
+			</tr>
+			<tr>
+					<td>Roaming transition time</td>
+					<td>&lt; 150ms (voice)</td>
+					<td>&lt; 50ms (best case with 802.11r)</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="wireless-intrusion-detection-wids">Wireless Intrusion Detection (WIDS)</h2>

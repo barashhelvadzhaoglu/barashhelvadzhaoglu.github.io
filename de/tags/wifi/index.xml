@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>WiFi on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/wifi/</link><description>Recent content in WiFi on Barash Helvadzhaoglu</description><generator>Hugo -- 0.161.1</generator><language>de</language><lastBuildDate>Fri, 01 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/wifi/index.xml" rel="self" type="application/rss+xml"/><item><title>802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E und was sich wirklich geändert hat</title><link>https://barashhelvadzhaoglu.com/de/technology/wifi-standards/</link><pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/wifi-standards/</guid><description>802.11 Wireless-Standards Deep Dive — was n, ac, ax und be liefern, OFDMA, MU-MIMO, BSS Coloring und die richtige Standardwahl.</description><content:encoded><![CDATA[<h1 id="80211-standards-deep-dive-wifi-4-5-6-6e-und-was-sich-wirklich-geändert-hat">802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E und was sich wirklich geändert hat</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>WiFi on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/wifi/</link><description>Recent content in WiFi on Barash Helvadzhaoglu</description><generator>Hugo -- 0.162.0</generator><language>de</language><lastBuildDate>Fri, 01 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/wifi/index.xml" rel="self" type="application/rss+xml"/><item><title>802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E und was sich wirklich geändert hat</title><link>https://barashhelvadzhaoglu.com/de/technology/wifi-standards/</link><pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/wifi-standards/</guid><description>802.11 Wireless-Standards Deep Dive — was n, ac, ax und be liefern, OFDMA, MU-MIMO, BSS Coloring und die richtige Standardwahl.</description><content:encoded><![CDATA[<h1 id="80211-standards-deep-dive-wifi-4-5-6-6e-und-was-sich-wirklich-geändert-hat">802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E und was sich wirklich geändert hat</h1>
 <p>Dieser Artikel ist Teil der Enterprise-WiFi-Serie.</p>
 <blockquote>
 <p><strong>Neu im Enterprise-Wireless-Bereich?</strong> Beginnen Sie mit der Übersicht: <a href="/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/">Enterprise WiFi-Architektur: Von Standards bis zur Deployment</a></p>
@@ -104,50 +104,50 @@ Mit BSS Coloring:
 <hr>
 <h2 id="den-richtigen-standard-für-ihr-deployment-wählen">Den richtigen Standard für Ihr Deployment wählen</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Umgebung</th>
-          <th>Empfehlung</th>
-          <th>Grund</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Neuer Enterprise-Campus</td>
-          <td>WiFi 6 Minimum, WiFi 6E bevorzugt</td>
-          <td>OFDMA-Dichtevorteil, Zukunftssicherheit</td>
-      </tr>
-      <tr>
-          <td>Hohe Dichte (Konferenz, Klassenraum)</td>
-          <td>WiFi 6 oder 6E</td>
-          <td>OFDMA für Dichte essentiell</td>
-      </tr>
-      <tr>
-          <td>IoT-lastige Umgebung</td>
-          <td>WiFi 6</td>
-          <td>TWT für akkubetriebene Geräte</td>
-      </tr>
-      <tr>
-          <td>KMU / kleines Büro</td>
-          <td>WiFi-6-AP</td>
-          <td>Kostengünstig, unterstützt alle Clients</td>
-      </tr>
-      <tr>
-          <td>Außen / Langstrecke</td>
-          <td>WiFi 6 (5 GHz)</td>
-          <td>Bessere Reichweite als 6 GHz</td>
-      </tr>
-      <tr>
-          <td>Legacy-Gerät-lastig</td>
-          <td>WiFi-6-AP (abwärtskompatibel)</td>
-          <td>Alle 802.11-Standards abwärtskompatibel</td>
-      </tr>
-      <tr>
-          <td>Neubau, zukunftssicher</td>
-          <td>WiFi 7</td>
-          <td>MLO, 6 GHz, 320-MHz-Kanäle</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Umgebung</th>
+					<th>Empfehlung</th>
+					<th>Grund</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Neuer Enterprise-Campus</td>
+					<td>WiFi 6 Minimum, WiFi 6E bevorzugt</td>
+					<td>OFDMA-Dichtevorteil, Zukunftssicherheit</td>
+			</tr>
+			<tr>
+					<td>Hohe Dichte (Konferenz, Klassenraum)</td>
+					<td>WiFi 6 oder 6E</td>
+					<td>OFDMA für Dichte essentiell</td>
+			</tr>
+			<tr>
+					<td>IoT-lastige Umgebung</td>
+					<td>WiFi 6</td>
+					<td>TWT für akkubetriebene Geräte</td>
+			</tr>
+			<tr>
+					<td>KMU / kleines Büro</td>
+					<td>WiFi-6-AP</td>
+					<td>Kostengünstig, unterstützt alle Clients</td>
+			</tr>
+			<tr>
+					<td>Außen / Langstrecke</td>
+					<td>WiFi 6 (5 GHz)</td>
+					<td>Bessere Reichweite als 6 GHz</td>
+			</tr>
+			<tr>
+					<td>Legacy-Gerät-lastig</td>
+					<td>WiFi-6-AP (abwärtskompatibel)</td>
+					<td>Alle 802.11-Standards abwärtskompatibel</td>
+			</tr>
+			<tr>
+					<td>Neubau, zukunftssicher</td>
+					<td>WiFi 7</td>
+					<td>MLO, 6 GHz, 320-MHz-Kanäle</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Wichtiger Hinweis:</strong> WiFi-6-APs unterstützen alle vorherigen Clients — 802.11n-, 802.11ac-, 802.11ax-Clients verbinden sich alle mit demselben AP. Der AP handelt die besten gegenseitig unterstützten Fähigkeiten mit jedem Client aus.</p>
 <hr>
@@ -198,40 +198,40 @@ Mit BSS Coloring:
 <h3 id="abdeckungsplanung-für-kmu">Abdeckungsplanung für KMU</h3>
 <p>Ein grober Ausgangspunkt für typische Büroumgebungen:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Umgebung</th>
-          <th>AP-Abdeckungsbereich</th>
-          <th>Hinweise</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Offenes Büro, niedrige Dichte</td>
-          <td>150–200 m²</td>
-          <td>Moderne WiFi-6-APs, moderate Client-Anzahl</td>
-      </tr>
-      <tr>
-          <td>Offenes Büro, hohe Dichte</td>
-          <td>80–100 m²</td>
-          <td>Viele Clients, Video-Calls, hoher Durchsatz</td>
-      </tr>
-      <tr>
-          <td>Büro mit Innenwänden</td>
-          <td>80–120 m²</td>
-          <td>Wände dämpfen Signal; vor Finalisierung testen</td>
-      </tr>
-      <tr>
-          <td>Korridor / Hotelflur</td>
-          <td>20–25 m pro AP</td>
-          <td>Schmales Abdeckungsmuster</td>
-      </tr>
-      <tr>
-          <td>Lager / großer offener Raum</td>
-          <td>300–500 m²</td>
-          <td>Niedrige Dichte, hohe Decken, RF breitet sich gut aus</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Umgebung</th>
+					<th>AP-Abdeckungsbereich</th>
+					<th>Hinweise</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Offenes Büro, niedrige Dichte</td>
+					<td>150–200 m²</td>
+					<td>Moderne WiFi-6-APs, moderate Client-Anzahl</td>
+			</tr>
+			<tr>
+					<td>Offenes Büro, hohe Dichte</td>
+					<td>80–100 m²</td>
+					<td>Viele Clients, Video-Calls, hoher Durchsatz</td>
+			</tr>
+			<tr>
+					<td>Büro mit Innenwänden</td>
+					<td>80–120 m²</td>
+					<td>Wände dämpfen Signal; vor Finalisierung testen</td>
+			</tr>
+			<tr>
+					<td>Korridor / Hotelflur</td>
+					<td>20–25 m pro AP</td>
+					<td>Schmales Abdeckungsmuster</td>
+			</tr>
+			<tr>
+					<td>Lager / großer offener Raum</td>
+					<td>300–500 m²</td>
+					<td>Niedrige Dichte, hohe Decken, RF breitet sich gut aus</td>
+			</tr>
+	</tbody>
 </table>
 <p>Das sind Ausgangspunkte, keine Regeln. Der einzige Weg zur Validierung der Abdeckung ist ein Site Survey — prädiktiv vor Deployment, Validierung danach.</p>
 <h3 id="die-netzwerksegmentierungs-basislinie">Die Netzwerksegmentierungs-Basislinie</h3>
@@ -250,30 +250,30 @@ SSID: IoT/Drucker   → VLAN 30 (Drucker, Kameras, isoliert)
 </ul>
 <h3 id="plattformempfehlung-für-kmu">Plattformempfehlung für KMU</h3>
 <table>
-  <thead>
-      <tr>
-          <th>Größe</th>
-          <th>Empfehlung</th>
-          <th>Grund</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>1–5 APs, kein IT-Personal</td>
-          <td>Aruba Instant On</td>
-          <td>Einfaches App-basiertes Management, solide Hardware</td>
-      </tr>
-      <tr>
-          <td>5–20 APs, einfaches IT-Personal</td>
-          <td>Cisco Meraki oder Aruba Central</td>
-          <td>Cloud-Management, gute Sichtbarkeit</td>
-      </tr>
-      <tr>
-          <td>20+ APs, IT-Team</td>
-          <td>Aruba Central oder Cisco DNA Center</td>
-          <td>Enterprise-Features, Richtlinienintegration</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Größe</th>
+					<th>Empfehlung</th>
+					<th>Grund</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>1–5 APs, kein IT-Personal</td>
+					<td>Aruba Instant On</td>
+					<td>Einfaches App-basiertes Management, solide Hardware</td>
+			</tr>
+			<tr>
+					<td>5–20 APs, einfaches IT-Personal</td>
+					<td>Cisco Meraki oder Aruba Central</td>
+					<td>Cloud-Management, gute Sichtbarkeit</td>
+			</tr>
+			<tr>
+					<td>20+ APs, IT-Team</td>
+					<td>Aruba Central oder Cisco DNA Center</td>
+					<td>Enterprise-Features, Richtlinienintegration</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="teil-2-hotel-wifi-design">Teil 2: Hotel WiFi-Design</h2>
@@ -594,40 +594,40 @@ After physical installation, walk the space in a systematic pattern using Ekahau
 Compare validation heatmap against prediction. Document actual versus predicted performance. Adjust AP placement, power levels, or channel assignments for any areas that fall below requirements.</p>
 <h3 id="key-survey-metrics-and-targets">Key Survey Metrics and Targets</h3>
 <table>
-  <thead>
-      <tr>
-          <th>Metric</th>
-          <th>Minimum</th>
-          <th>Target</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>RSSI (signal strength)</td>
-          <td>-70 dBm</td>
-          <td>-65 dBm or better</td>
-      </tr>
-      <tr>
-          <td>SNR (signal-to-noise ratio)</td>
-          <td>20 dB</td>
-          <td>25 dB or better</td>
-      </tr>
-      <tr>
-          <td>Channel overlap</td>
-          <td>15–20%</td>
-          <td>20–25% (sufficient for roaming)</td>
-      </tr>
-      <tr>
-          <td>Co-channel interference</td>
-          <td>&lt; -85 dBm from neighbors</td>
-          <td>&lt; -90 dBm</td>
-      </tr>
-      <tr>
-          <td>Roaming transition time</td>
-          <td>&lt; 150ms (voice)</td>
-          <td>&lt; 50ms (best case with 802.11r)</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Metric</th>
+					<th>Minimum</th>
+					<th>Target</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>RSSI (signal strength)</td>
+					<td>-70 dBm</td>
+					<td>-65 dBm or better</td>
+			</tr>
+			<tr>
+					<td>SNR (signal-to-noise ratio)</td>
+					<td>20 dB</td>
+					<td>25 dB or better</td>
+			</tr>
+			<tr>
+					<td>Channel overlap</td>
+					<td>15–20%</td>
+					<td>20–25% (sufficient for roaming)</td>
+			</tr>
+			<tr>
+					<td>Co-channel interference</td>
+					<td>&lt; -85 dBm from neighbors</td>
+					<td>&lt; -90 dBm</td>
+			</tr>
+			<tr>
+					<td>Roaming transition time</td>
+					<td>&lt; 150ms (voice)</td>
+					<td>&lt; 50ms (best case with 802.11r)</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="wireless-intrusion-detection-wids">Wireless Intrusion Detection (WIDS)</h2>
@@ -931,46 +931,46 @@ DNA Center setzt SGT-basierte Richtlinie Ende-zu-Ende durch
 <h2 id="die-80211-standards-was-sich-wirklich-geändert-hat">Die 802.11-Standards: Was sich wirklich geändert hat</h2>
 <p>Der IEEE 802.11-Standard hat mehrere Generationen durchlaufen, jede für Marketingzwecke unterschiedlich gebrandmarkt:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Standard</th>
-          <th>Marketingname</th>
-          <th>Max. theoretische Rate</th>
-          <th>Wichtigste Verbesserung</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>802.11n</td>
-          <td>WiFi 4</td>
-          <td>600 Mbps</td>
-          <td>MIMO, 5-GHz-Unterstützung</td>
-      </tr>
-      <tr>
-          <td>802.11ac</td>
-          <td>WiFi 5</td>
-          <td>3,5 Gbps</td>
-          <td>MU-MIMO, breitere Kanäle (80/160 MHz)</td>
-      </tr>
-      <tr>
-          <td>802.11ax</td>
-          <td>WiFi 6</td>
-          <td>9,6 Gbps</td>
-          <td>OFDMA, BSS-Coloring, TWT, hohe Dichte</td>
-      </tr>
-      <tr>
-          <td>802.11ax (6 GHz)</td>
-          <td>WiFi 6E</td>
-          <td>9,6 Gbps</td>
-          <td>Neues 6-GHz-Band, weniger Überlastung</td>
-      </tr>
-      <tr>
-          <td>802.11be</td>
-          <td>WiFi 7</td>
-          <td>46 Gbps</td>
-          <td>Multi-Link-Operation, 320-MHz-Kanäle</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Standard</th>
+					<th>Marketingname</th>
+					<th>Max. theoretische Rate</th>
+					<th>Wichtigste Verbesserung</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>802.11n</td>
+					<td>WiFi 4</td>
+					<td>600 Mbps</td>
+					<td>MIMO, 5-GHz-Unterstützung</td>
+			</tr>
+			<tr>
+					<td>802.11ac</td>
+					<td>WiFi 5</td>
+					<td>3,5 Gbps</td>
+					<td>MU-MIMO, breitere Kanäle (80/160 MHz)</td>
+			</tr>
+			<tr>
+					<td>802.11ax</td>
+					<td>WiFi 6</td>
+					<td>9,6 Gbps</td>
+					<td>OFDMA, BSS-Coloring, TWT, hohe Dichte</td>
+			</tr>
+			<tr>
+					<td>802.11ax (6 GHz)</td>
+					<td>WiFi 6E</td>
+					<td>9,6 Gbps</td>
+					<td>Neues 6-GHz-Band, weniger Überlastung</td>
+			</tr>
+			<tr>
+					<td>802.11be</td>
+					<td>WiFi 7</td>
+					<td>46 Gbps</td>
+					<td>Multi-Link-Operation, 320-MHz-Kanäle</td>
+			</tr>
+	</tbody>
 </table>
 <p>Die theoretischen Raten in Marketingmaterialien werden in der Praxis nie erreicht. Was bei echten Deployments wichtig ist, unterscheidet sich für jede Generation:</p>
 <p><strong>WiFi 6 (802.11ax)</strong> führte zwei Fähigkeiten ein, die in dichten Umgebungen wirklich wichtig sind:</p>
@@ -1089,42 +1089,42 @@ DNA Center setzt SGT-basierte Richtlinie Ende-zu-Ende durch
 <hr>
 <h2 id="die-richtige-plattform-wählen">Die richtige Plattform wählen</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Szenario</th>
-          <th>Empfohlene Plattform</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Kleines Büro, einfaches Management</td>
-          <td>Aruba Instant On, Cisco Business, Meraki Go</td>
-      </tr>
-      <tr>
-          <td>KMU mit IT-Personal</td>
-          <td>Cisco Meraki, Aruba Central (Cloud-verwaltet)</td>
-      </tr>
-      <tr>
-          <td>Enterprise-Campus, komplexe Richtlinien</td>
-          <td>Aruba Mobility Master, Cisco DNA Center</td>
-      </tr>
-      <tr>
-          <td>Hotel / Gastgewerbe</td>
-          <td>Aruba, Cisco Meraki (mit PMS-Integration)</td>
-      </tr>
-      <tr>
-          <td>Gesundheitswesen / regulierte Umgebung</td>
-          <td>Aruba ClearPass + Mobility Master, Cisco ISE + WLC</td>
-      </tr>
-      <tr>
-          <td>Hochdichte-Venues</td>
-          <td>Cisco (Catalyst Center), Aruba (AOS 10)</td>
-      </tr>
-      <tr>
-          <td>Multi-Site, zentralisiertes Management</td>
-          <td>Cisco Meraki, Aruba Central</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Szenario</th>
+					<th>Empfohlene Plattform</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Kleines Büro, einfaches Management</td>
+					<td>Aruba Instant On, Cisco Business, Meraki Go</td>
+			</tr>
+			<tr>
+					<td>KMU mit IT-Personal</td>
+					<td>Cisco Meraki, Aruba Central (Cloud-verwaltet)</td>
+			</tr>
+			<tr>
+					<td>Enterprise-Campus, komplexe Richtlinien</td>
+					<td>Aruba Mobility Master, Cisco DNA Center</td>
+			</tr>
+			<tr>
+					<td>Hotel / Gastgewerbe</td>
+					<td>Aruba, Cisco Meraki (mit PMS-Integration)</td>
+			</tr>
+			<tr>
+					<td>Gesundheitswesen / regulierte Umgebung</td>
+					<td>Aruba ClearPass + Mobility Master, Cisco ISE + WLC</td>
+			</tr>
+			<tr>
+					<td>Hochdichte-Venues</td>
+					<td>Cisco (Catalyst Center), Aruba (AOS 10)</td>
+			</tr>
+			<tr>
+					<td>Multi-Site, zentralisiertes Management</td>
+					<td>Cisco Meraki, Aruba Central</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="diese-serie">Diese Serie</h2>

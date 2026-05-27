@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Digitalbonus Bayern on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/digitalbonus-bayern/</link><description>Recent content in Digitalbonus Bayern on Barash Helvadzhaoglu</description><generator>Hugo -- 0.161.1</generator><language>tr</language><lastBuildDate>Fri, 17 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/digitalbonus-bayern/index.xml" rel="self" type="application/rss+xml"/><item><title>Bavyera'daki Küçük İşletmeler İçin BT Güvenlik Yükümlülükleri — ve Digitalbonus Bayern'in Maliyetlerin %50'sine Kadarını Nasıl Karşıladığı</title><link>https://barashhelvadzhaoglu.com/tr/posts/digitalbonus-comprehensive/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/digitalbonus-comprehensive/</guid><description>Bavyera&amp;#39;da yasal olarak hangi BT güvenlik önlemleri zorunludur? Firewall, ağ ayırma, e-posta koruması, yedekleme — yasal dayanaklar ve 7.500 €&amp;#39;ya kadar teşvikle.</description><content:encoded><![CDATA[<h1 id="küçük-işletmeler-için-bt-güvenlik-yükümlülükleri--ve-digitalbonus-bayern-50ye-kadarını-nasıl-üstleniyor">Küçük İşletmeler İçin BT Güvenlik Yükümlülükleri — ve Digitalbonus Bayern %50&rsquo;ye Kadarını Nasıl Üstleniyor</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Digitalbonus Bayern on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/digitalbonus-bayern/</link><description>Recent content in Digitalbonus Bayern on Barash Helvadzhaoglu</description><generator>Hugo -- 0.162.0</generator><language>tr</language><lastBuildDate>Fri, 17 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/digitalbonus-bayern/index.xml" rel="self" type="application/rss+xml"/><item><title>Bavyera'daki Küçük İşletmeler İçin BT Güvenlik Yükümlülükleri — ve Digitalbonus Bayern'in Maliyetlerin %50'sine Kadarını Nasıl Karşıladığı</title><link>https://barashhelvadzhaoglu.com/tr/posts/digitalbonus-comprehensive/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/digitalbonus-comprehensive/</guid><description>Bavyera&amp;#39;da yasal olarak hangi BT güvenlik önlemleri zorunludur? Firewall, ağ ayırma, e-posta koruması, yedekleme — yasal dayanaklar ve 7.500 €&amp;#39;ya kadar teşvikle.</description><content:encoded><![CDATA[<h1 id="küçük-işletmeler-için-bt-güvenlik-yükümlülükleri--ve-digitalbonus-bayern-50ye-kadarını-nasıl-üstleniyor">Küçük İşletmeler İçin BT Güvenlik Yükümlülükleri — ve Digitalbonus Bayern %50&rsquo;ye Kadarını Nasıl Üstleniyor</h1>
 <p>Bavyera&rsquo;daki birçok küçük işletme, BT güvenliğinin büyük şirketleri ilgilendiren bir konu olduğuna inanıyor. Gerçek ise farklıdır: DSGVO (Genel Veri Koruma Yönetmeliği), kişisel veri işleyen <strong>herkes</strong> için geçerlidir — perakendeciden doktor muayenehanesine, otelden kafeye kadar. Ve gereksinimler somut, bağlayıcı ve para cezalarıyla desteklenmiştir.</p>
 <p>İyi haber: <strong>Digitalbonus Bayern</strong>, firewall, ağ ayırma, e-posta güvenliği, yedekleme ve daha fazlası için <strong>yatırım maliyetlerinin %50&rsquo;sine kadarını</strong> iade ediyor. Program Aralık 2027&rsquo;ye kadar devam etmektedir.</p>
 <blockquote>
@@ -50,40 +50,40 @@ Resmi olarak gönüllüdür — ancak: DSGVO &ldquo;teknolojinin güncel durumun
 <p><strong>Pratikte ne anlama gelir:</strong></p>
 <p>Aşağıdaki cihaz sınıfları <strong>ayrı ağlarda (VLAN&rsquo;lar)</strong> çalıştırılmalıdır:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Ağ Segmenti</th>
-          <th>İçinde Ne Yer Alır</th>
-          <th>Ayrım Olmazsa Risk</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Çalışan Ağı</strong></td>
-          <td>PC&rsquo;ler, Laptoplar</td>
-          <td>Müşteri verilerine erişim</td>
-      </tr>
-      <tr>
-          <td><strong>Sunucu / NAS</strong></td>
-          <td>Dosya sunucusu, Yedekleme sistemi</td>
-          <td>Saldırı anında veri kaybı</td>
-      </tr>
-      <tr>
-          <td><strong>IoT Cihazları</strong></td>
-          <td>Yazıcılar, IP Kameralar, Smart-TV, UPS</td>
-          <td>Bilinen açıklar, güncelleme yok</td>
-      </tr>
-      <tr>
-          <td><strong>Misafir WLAN</strong></td>
-          <td>Müşteriler, Hastalar, Otel misafirleri</td>
-          <td>Dahili sistemlere erişim</td>
-      </tr>
-      <tr>
-          <td><strong>Kasa / POS</strong></td>
-          <td>Kart terminali, Kasa sistemi</td>
-          <td>PCI DSS yükümlülüğü, ödeme verileri</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Ağ Segmenti</th>
+					<th>İçinde Ne Yer Alır</th>
+					<th>Ayrım Olmazsa Risk</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Çalışan Ağı</strong></td>
+					<td>PC&rsquo;ler, Laptoplar</td>
+					<td>Müşteri verilerine erişim</td>
+			</tr>
+			<tr>
+					<td><strong>Sunucu / NAS</strong></td>
+					<td>Dosya sunucusu, Yedekleme sistemi</td>
+					<td>Saldırı anında veri kaybı</td>
+			</tr>
+			<tr>
+					<td><strong>IoT Cihazları</strong></td>
+					<td>Yazıcılar, IP Kameralar, Smart-TV, UPS</td>
+					<td>Bilinen açıklar, güncelleme yok</td>
+			</tr>
+			<tr>
+					<td><strong>Misafir WLAN</strong></td>
+					<td>Müşteriler, Hastalar, Otel misafirleri</td>
+					<td>Dahili sistemlere erişim</td>
+			</tr>
+			<tr>
+					<td><strong>Kasa / POS</strong></td>
+					<td>Kart terminali, Kasa sistemi</td>
+					<td>PCI DSS yükümlülüğü, ödeme verileri</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Yazıcılar neden tehlikelidir:</strong>
 IP yazıcılar genellikle eski donanım yazılımlarına sahiptir ve otomatik güvenlik güncellemeleri yoktur. Muhasebe PC&rsquo;si ile aynı ağdaki ele geçirilmiş bir yazıcı, saldırganlara tüm verilere doğrudan erişim sağlar.</p>
@@ -206,117 +206,117 @@ AWS S3 Frankfurt&rsquo;a (AB veri merkezi, DSGVO uyumlu) otomatik şifreli senkr
 <strong>Süre:</strong> 31 Aralık 2027&rsquo;ye kadar
 <strong>Başvuru:</strong> Sadece ELSTER kurumsal hesabı üzerinden dijital olarak</p>
 <table>
-  <thead>
-      <tr>
-          <th>Önlem</th>
-          <th>Teşvik Edilebilir mi</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Firewall (Donanım + Lisans + Yapılandırma)</td>
-          <td>✅ Evet</td>
-      </tr>
-      <tr>
-          <td>VLAN ayırımı için Yönetilebilir Switch</td>
-          <td>✅ Evet</td>
-      </tr>
-      <tr>
-          <td>WLAN Access Pointler</td>
-          <td>✅ Evet</td>
-      </tr>
-      <tr>
-          <td>NAS + şifreli Bulut Yedekleme</td>
-          <td>✅ Evet</td>
-      </tr>
-      <tr>
-          <td>E-posta güvenlik lisansı (18 aya kadar)</td>
-          <td>✅ Evet</td>
-      </tr>
-      <tr>
-          <td>Antivirüs/EDR lisansları (18 aya kadar)</td>
-          <td>✅ Evet</td>
-      </tr>
-      <tr>
-          <td>Kurulum ve yapılandırma hizmeti</td>
-          <td>✅ Evet</td>
-      </tr>
-      <tr>
-          <td>Bakım sözleşmesi (18 aya kadar)</td>
-          <td>✅ Evet</td>
-      </tr>
-      <tr>
-          <td>Danışmanlık hizmeti (Toplam maliyetin %50&rsquo;sine kadar)</td>
-          <td>✅ Evet</td>
-      </tr>
-      <tr>
-          <td>Standart PC&rsquo;ler, Laptoplar, Yazıcılar</td>
-          <td>❌ Hayır</td>
-      </tr>
-      <tr>
-          <td>Standart ofis yazılımları (Office, Windows)</td>
-          <td>❌ Hayır</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Önlem</th>
+					<th>Teşvik Edilebilir mi</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Firewall (Donanım + Lisans + Yapılandırma)</td>
+					<td>✅ Evet</td>
+			</tr>
+			<tr>
+					<td>VLAN ayırımı için Yönetilebilir Switch</td>
+					<td>✅ Evet</td>
+			</tr>
+			<tr>
+					<td>WLAN Access Pointler</td>
+					<td>✅ Evet</td>
+			</tr>
+			<tr>
+					<td>NAS + şifreli Bulut Yedekleme</td>
+					<td>✅ Evet</td>
+			</tr>
+			<tr>
+					<td>E-posta güvenlik lisansı (18 aya kadar)</td>
+					<td>✅ Evet</td>
+			</tr>
+			<tr>
+					<td>Antivirüs/EDR lisansları (18 aya kadar)</td>
+					<td>✅ Evet</td>
+			</tr>
+			<tr>
+					<td>Kurulum ve yapılandırma hizmeti</td>
+					<td>✅ Evet</td>
+			</tr>
+			<tr>
+					<td>Bakım sözleşmesi (18 aya kadar)</td>
+					<td>✅ Evet</td>
+			</tr>
+			<tr>
+					<td>Danışmanlık hizmeti (Toplam maliyetin %50&rsquo;sine kadar)</td>
+					<td>✅ Evet</td>
+			</tr>
+			<tr>
+					<td>Standart PC&rsquo;ler, Laptoplar, Yazıcılar</td>
+					<td>❌ Hayır</td>
+			</tr>
+			<tr>
+					<td>Standart ofis yazılımları (Office, Windows)</td>
+					<td>❌ Hayır</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Önemli Şart:</strong> Başvuru, proje <strong>başlamadan önce</strong> yapılmalıdır. Başvuru onayı alınmadan ne sipariş verilmeli ne de sözlü iş emri verilmelidir.</p>
 <hr>
 <h2 id="örnek-hesaplama-küçük-bir-otel-10-oda-5-çalışan">Örnek Hesaplama: Küçük Bir Otel (10 Oda, 5 Çalışan)</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Önlem</th>
-          <th>Maliyet</th>
-          <th>Teşvik Sonrası (%50)</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>FortiGate Firewall + 1 yıllık lisans</td>
-          <td>1.000 €</td>
-          <td>500 €</td>
-      </tr>
-      <tr>
-          <td>Yönetilebilir Switch (VLAN uyumlu)</td>
-          <td>500 €</td>
-          <td>250 €</td>
-      </tr>
-      <tr>
-          <td>3× WLAN Access Point</td>
-          <td>900 €</td>
-          <td>450 €</td>
-      </tr>
-      <tr>
-          <td>NAS + AWS Yedekleme kurulumu</td>
-          <td>500 €</td>
-          <td>250 €</td>
-      </tr>
-      <tr>
-          <td>E-posta Güvenliği (18 ay)</td>
-          <td>400 €</td>
-          <td>200 €</td>
-      </tr>
-      <tr>
-          <td>Antivirüs/EDR 5 cihaz (18 ay)</td>
-          <td>300 €</td>
-          <td>150 €</td>
-      </tr>
-      <tr>
-          <td>Kurulum &amp; Yapılandırma</td>
-          <td>1.000 €</td>
-          <td>500 €</td>
-      </tr>
-      <tr>
-          <td>18 aylık Bakım</td>
-          <td>900 €</td>
-          <td>450 €</td>
-      </tr>
-      <tr>
-          <td><strong>Toplam</strong></td>
-          <td><strong>5.500 €</strong></td>
-          <td><strong>2.750 €</strong></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Önlem</th>
+					<th>Maliyet</th>
+					<th>Teşvik Sonrası (%50)</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>FortiGate Firewall + 1 yıllık lisans</td>
+					<td>1.000 €</td>
+					<td>500 €</td>
+			</tr>
+			<tr>
+					<td>Yönetilebilir Switch (VLAN uyumlu)</td>
+					<td>500 €</td>
+					<td>250 €</td>
+			</tr>
+			<tr>
+					<td>3× WLAN Access Point</td>
+					<td>900 €</td>
+					<td>450 €</td>
+			</tr>
+			<tr>
+					<td>NAS + AWS Yedekleme kurulumu</td>
+					<td>500 €</td>
+					<td>250 €</td>
+			</tr>
+			<tr>
+					<td>E-posta Güvenliği (18 ay)</td>
+					<td>400 €</td>
+					<td>200 €</td>
+			</tr>
+			<tr>
+					<td>Antivirüs/EDR 5 cihaz (18 ay)</td>
+					<td>300 €</td>
+					<td>150 €</td>
+			</tr>
+			<tr>
+					<td>Kurulum &amp; Yapılandırma</td>
+					<td>1.000 €</td>
+					<td>500 €</td>
+			</tr>
+			<tr>
+					<td>18 aylık Bakım</td>
+					<td>900 €</td>
+					<td>450 €</td>
+			</tr>
+			<tr>
+					<td><strong>Toplam</strong></td>
+					<td><strong>5.500 €</strong></td>
+					<td><strong>2.750 €</strong></td>
+			</tr>
+	</tbody>
 </table>
 <p>Otel <strong>2.750 €</strong> öder — Bavyera Eyaleti <strong>2.750 €</strong>&lsquo;yu üstlenir.</p>
 <hr>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>SMB on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/smb/</link><description>Recent content in SMB on Barash Helvadzhaoglu</description><generator>Hugo -- 0.161.1</generator><language>en</language><lastBuildDate>Wed, 29 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/smb/index.xml" rel="self" type="application/rss+xml"/><item><title>WiFi Design for SMB, Hotels, and Medical Practices: Field Notes</title><link>https://barashhelvadzhaoglu.com/en/technology/wifi-smb-hotel-medical/</link><pubDate>Wed, 29 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/wifi-smb-hotel-medical/</guid><description>WiFi design for SMBs, hotels, and medical practices — density planning, guest segmentation, PMS integration, and real deployment lessons.</description><content:encoded><![CDATA[<h1 id="wifi-design-for-smb-hotels-and-medical-practices-field-notes">WiFi Design for SMB, Hotels, and Medical Practices: Field Notes</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>SMB on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/smb/</link><description>Recent content in SMB on Barash Helvadzhaoglu</description><generator>Hugo -- 0.162.0</generator><language>en</language><lastBuildDate>Wed, 29 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/smb/index.xml" rel="self" type="application/rss+xml"/><item><title>WiFi Design for SMB, Hotels, and Medical Practices: Field Notes</title><link>https://barashhelvadzhaoglu.com/en/technology/wifi-smb-hotel-medical/</link><pubDate>Wed, 29 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/wifi-smb-hotel-medical/</guid><description>WiFi design for SMBs, hotels, and medical practices — density planning, guest segmentation, PMS integration, and real deployment lessons.</description><content:encoded><![CDATA[<h1 id="wifi-design-for-smb-hotels-and-medical-practices-field-notes">WiFi Design for SMB, Hotels, and Medical Practices: Field Notes</h1>
 <p>This article is part of the Enterprise WiFi series.</p>
 <blockquote>
 <p><strong>New to enterprise wireless?</strong> Start with the overview: <a href="/en/technology/enterprise-wifi-architecture-complete-guide/">Enterprise WiFi Architecture: From Standards to Deployment</a></p>
@@ -23,40 +23,40 @@
 <h3 id="coverage-planning-for-smb">Coverage Planning for SMB</h3>
 <p>A rough starting point for typical office environments:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Environment</th>
-          <th>AP Coverage Area</th>
-          <th>Notes</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Open office, low density</td>
-          <td>150–200 m²</td>
-          <td>Modern WiFi 6 APs, moderate client count</td>
-      </tr>
-      <tr>
-          <td>Open office, high density</td>
-          <td>80–100 m²</td>
-          <td>Many clients, video calls, high throughput</td>
-      </tr>
-      <tr>
-          <td>Office with interior walls</td>
-          <td>80–120 m²</td>
-          <td>Walls attenuate signal; test before finalizing</td>
-      </tr>
-      <tr>
-          <td>Corridor / hotel hallway</td>
-          <td>20–25 m per AP</td>
-          <td>Narrow coverage pattern</td>
-      </tr>
-      <tr>
-          <td>Warehouse / large open space</td>
-          <td>300–500 m²</td>
-          <td>Low density, high ceilings, RF propagates well</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Environment</th>
+					<th>AP Coverage Area</th>
+					<th>Notes</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Open office, low density</td>
+					<td>150–200 m²</td>
+					<td>Modern WiFi 6 APs, moderate client count</td>
+			</tr>
+			<tr>
+					<td>Open office, high density</td>
+					<td>80–100 m²</td>
+					<td>Many clients, video calls, high throughput</td>
+			</tr>
+			<tr>
+					<td>Office with interior walls</td>
+					<td>80–120 m²</td>
+					<td>Walls attenuate signal; test before finalizing</td>
+			</tr>
+			<tr>
+					<td>Corridor / hotel hallway</td>
+					<td>20–25 m per AP</td>
+					<td>Narrow coverage pattern</td>
+			</tr>
+			<tr>
+					<td>Warehouse / large open space</td>
+					<td>300–500 m²</td>
+					<td>Low density, high ceilings, RF propagates well</td>
+			</tr>
+	</tbody>
 </table>
 <p>These are starting points, not rules. The only way to validate coverage is a site survey — predictive before deployment, validation after.</p>
 <h3 id="the-network-segmentation-baseline">The Network Segmentation Baseline</h3>
@@ -75,30 +75,30 @@ SSID: IoT/Printers   → VLAN 30 (printers, cameras, isolated)
 </ul>
 <h3 id="platform-recommendation-for-smb">Platform Recommendation for SMB</h3>
 <table>
-  <thead>
-      <tr>
-          <th>Size</th>
-          <th>Recommendation</th>
-          <th>Reason</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>1–5 APs, no IT staff</td>
-          <td>Aruba Instant On</td>
-          <td>Simple app-based management, solid hardware</td>
-      </tr>
-      <tr>
-          <td>5–20 APs, basic IT staff</td>
-          <td>Cisco Meraki or Aruba Central</td>
-          <td>Cloud management, good visibility</td>
-      </tr>
-      <tr>
-          <td>20+ APs, IT team</td>
-          <td>Aruba Central or Cisco DNA Center</td>
-          <td>Enterprise features, policy integration</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Size</th>
+					<th>Recommendation</th>
+					<th>Reason</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>1–5 APs, no IT staff</td>
+					<td>Aruba Instant On</td>
+					<td>Simple app-based management, solid hardware</td>
+			</tr>
+			<tr>
+					<td>5–20 APs, basic IT staff</td>
+					<td>Cisco Meraki or Aruba Central</td>
+					<td>Cloud management, good visibility</td>
+			</tr>
+			<tr>
+					<td>20+ APs, IT team</td>
+					<td>Aruba Central or Cisco DNA Center</td>
+					<td>Enterprise features, policy integration</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="part-2-hotel-wifi-design">Part 2: Hotel WiFi Design</h2>
@@ -411,40 +411,40 @@ Your data: secure, encrypted, redundant
 </code></pre><p>Synology NAS devices have a built-in &ldquo;Hyper Backup&rdquo; application. You configure it once, and every night it automatically sends changed files to S3. Your backup runs while you sleep.</p>
 <h2 id="aws-s3-storage-tiers--which-one-is-right-for-you">AWS S3 Storage Tiers — Which One Is Right for You?</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Tier</th>
-          <th>Best for</th>
-          <th>Access</th>
-          <th>Cost</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>S3 Standard</strong></td>
-          <td>Frequently accessed data</td>
-          <td>Instant</td>
-          <td>~€23/TB/month</td>
-      </tr>
-      <tr>
-          <td><strong>S3 Infrequent Access</strong></td>
-          <td>A few times per month</td>
-          <td>Instant</td>
-          <td>~€12/TB/month</td>
-      </tr>
-      <tr>
-          <td><strong>S3 Glacier Instant</strong></td>
-          <td>Rarely accessed archives</td>
-          <td>Milliseconds</td>
-          <td>~€4/TB/month</td>
-      </tr>
-      <tr>
-          <td><strong>S3 Glacier Deep Archive</strong></td>
-          <td>Long-term archiving</td>
-          <td>12 hours</td>
-          <td>~€1/TB/month</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Tier</th>
+					<th>Best for</th>
+					<th>Access</th>
+					<th>Cost</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>S3 Standard</strong></td>
+					<td>Frequently accessed data</td>
+					<td>Instant</td>
+					<td>~€23/TB/month</td>
+			</tr>
+			<tr>
+					<td><strong>S3 Infrequent Access</strong></td>
+					<td>A few times per month</td>
+					<td>Instant</td>
+					<td>~€12/TB/month</td>
+			</tr>
+			<tr>
+					<td><strong>S3 Glacier Instant</strong></td>
+					<td>Rarely accessed archives</td>
+					<td>Milliseconds</td>
+					<td>~€4/TB/month</td>
+			</tr>
+			<tr>
+					<td><strong>S3 Glacier Deep Archive</strong></td>
+					<td>Long-term archiving</td>
+					<td>12 hours</td>
+					<td>~€1/TB/month</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Recommendation for SMBs:</strong>
 Active business data: <strong>S3 Infrequent Access</strong> — affordable, instant access when needed.

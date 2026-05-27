@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Advanced WAF on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/advanced-waf/</link><description>Recent content in Advanced WAF on Barash Helvadzhaoglu</description><generator>Hugo -- 0.161.1</generator><language>tr</language><lastBuildDate>Wed, 22 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/advanced-waf/index.xml" rel="self" type="application/rss+xml"/><item><title>F5 WAF Deep Dive: ASM ve Advanced WAF ile Uygulama Güvenliği</title><link>https://barashhelvadzhaoglu.com/tr/technology/f5-waf-deep-dive/</link><pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/f5-waf-deep-dive/</guid><description>F5 WAF teknik inceleme — ASM ve Advanced WAF, pozitif ve negatif güvenlik modelleri, OWASP Top 10, bot savunması ve L7 DoS koruması.</description><content:encoded><![CDATA[<h1 id="f5-waf-deep-dive-asm-ve-advanced-waf-ile-uygulama-güvenliği">F5 WAF Deep Dive: ASM ve Advanced WAF ile Uygulama Güvenliği</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Advanced WAF on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/advanced-waf/</link><description>Recent content in Advanced WAF on Barash Helvadzhaoglu</description><generator>Hugo -- 0.162.0</generator><language>tr</language><lastBuildDate>Wed, 22 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/advanced-waf/index.xml" rel="self" type="application/rss+xml"/><item><title>F5 WAF Deep Dive: ASM ve Advanced WAF ile Uygulama Güvenliği</title><link>https://barashhelvadzhaoglu.com/tr/technology/f5-waf-deep-dive/</link><pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/f5-waf-deep-dive/</guid><description>F5 WAF teknik inceleme — ASM ve Advanced WAF, pozitif ve negatif güvenlik modelleri, OWASP Top 10, bot savunması ve L7 DoS koruması.</description><content:encoded><![CDATA[<h1 id="f5-waf-deep-dive-asm-ve-advanced-waf-ile-uygulama-güvenliği">F5 WAF Deep Dive: ASM ve Advanced WAF ile Uygulama Güvenliği</h1>
 <p>Bu yazı F5 BIG-IP serisinin bir parçasıdır.</p>
 <blockquote>
 <p><strong>F5&rsquo;e yeni misiniz?</strong> Önce platform genel bakışıyla başlayın: <a href="/tr/technology/f5-bigip-uygulama-teslim-platformu-genel-bakis/">F5 BIG-IP Bir Load Balancer Değil — Uygulama Teslim Platformudur</a></p>
@@ -19,65 +19,65 @@ WAF:   HTTP/HTTPS içerik incelemesi — SQL injection, XSS, parametre tampering
 <p><strong>ASM (Application Security Manager)</strong> — orijinal modül. Öncelikle imza tabanlı. OWASP Top 10, parametre zorunluluğu, çerez koruması ve temel bot tespitini kapsar. Birçok standart BIG-IP lisansına dahildir.</p>
 <p><strong>Advanced WAF (AWAF)</strong> — ASM&rsquo;nin sahip olmadığı davranışsal yeteneklere sahip yeni modül:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Özellik</th>
-          <th>ASM</th>
-          <th>Advanced WAF</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>İmza tabanlı saldırı tespiti</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>OWASP Top 10 kapsamı</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Parametre ve çerez zorunluluğu</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Temel bot tespiti (imzalar)</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Davranışsal bot savunması</td>
-          <td>❌</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Credential stuffing koruması</td>
-          <td>❌</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>JavaScript challenge / CAPTCHA</td>
-          <td>Sınırlı</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>L7 davranışsal DoS azaltma</td>
-          <td>Sınırlı</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>API güvenliği (OpenAPI / Swagger)</td>
-          <td>Sınırlı</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>DataSafe (istemci tarafı şifreleme)</td>
-          <td>❌</td>
-          <td>✅</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Özellik</th>
+					<th>ASM</th>
+					<th>Advanced WAF</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>İmza tabanlı saldırı tespiti</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>OWASP Top 10 kapsamı</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Parametre ve çerez zorunluluğu</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Temel bot tespiti (imzalar)</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Davranışsal bot savunması</td>
+					<td>❌</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Credential stuffing koruması</td>
+					<td>❌</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>JavaScript challenge / CAPTCHA</td>
+					<td>Sınırlı</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>L7 davranışsal DoS azaltma</td>
+					<td>Sınırlı</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>API güvenliği (OpenAPI / Swagger)</td>
+					<td>Sınırlı</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>DataSafe (istemci tarafı şifreleme)</td>
+					<td>❌</td>
+					<td>✅</td>
+			</tr>
+	</tbody>
 </table>
 <p>Dahili kurumsal uygulamalar için ASM sağlam kapsam sağlar. Yüksek bot maruziyeti, credential stuffing riski veya agresif L7 DoS olan kamuya açık uygulamalar için Advanced WAF önemli ölçüde daha etkilidir.</p>
 <hr>

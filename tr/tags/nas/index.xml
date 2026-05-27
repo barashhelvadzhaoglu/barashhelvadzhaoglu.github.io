@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>NAS on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/nas/</link><description>Recent content in NAS on Barash Helvadzhaoglu</description><generator>Hugo -- 0.161.1</generator><language>tr</language><lastBuildDate>Mon, 23 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/nas/index.xml" rel="self" type="application/rss+xml"/><item><title>Elektrik Kesilince Ne Olur? Bir UPS Yalnızca Bilgisayarınızı Değil — Tüm Ofisinizi Korur</title><link>https://barashhelvadzhaoglu.com/tr/posts/ups-office/</link><pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/ups-office/</guid><description>Elektrik kesintisi tüm ofis cihazlarını tehdit eder. NAS, switch, modem ve kameralarınızı doğru UPS seçimiyle koruyun.</description><content:encoded><![CDATA[<p>&ldquo;UPS mu? Evet var — bilgisayarın yanında duruyor.&rdquo;</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>NAS on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/nas/</link><description>Recent content in NAS on Barash Helvadzhaoglu</description><generator>Hugo -- 0.162.0</generator><language>tr</language><lastBuildDate>Mon, 23 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/nas/index.xml" rel="self" type="application/rss+xml"/><item><title>Elektrik Kesilince Ne Olur? Bir UPS Yalnızca Bilgisayarınızı Değil — Tüm Ofisinizi Korur</title><link>https://barashhelvadzhaoglu.com/tr/posts/ups-office/</link><pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/ups-office/</guid><description>Elektrik kesintisi tüm ofis cihazlarını tehdit eder. NAS, switch, modem ve kameralarınızı doğru UPS seçimiyle koruyun.</description><content:encoded><![CDATA[<p>&ldquo;UPS mu? Evet var — bilgisayarın yanında duruyor.&rdquo;</p>
 <p>Bunu sürekli duyuyorum. Ve her seferinde sormak istiyorum: Peki NAS&rsquo;ınız? Switch&rsquo;iniz? Modeminiz? Ödeme terminaliniz?</p>
 <p>Çoğu işletme UPS&rsquo;i yalnızca bilgisayarın aniden kapanmaması için bir önlem olarak görür. Oysa bir elektrik kesintisinde ofisinizdeki düzinelerce cihaz risk altındadır — ve bilgisayar bunların en az kritik olanıdır.</p>
 <figure>
@@ -111,40 +111,40 @@ Verileriniz: güvenli, şifreli, yedekli
 </code></pre><p>Synology NAS cihazlarında yerleşik &ldquo;Hyper Backup&rdquo; uygulaması bulunur. Bir kez yapılandırırsınız ve her gece değişen dosyaları otomatik olarak S3&rsquo;e gönderir. Siz uyurken yedeklemeniz çalışır.</p>
 <h2 id="aws-s3-depolama-katmanları--hangisi-size-uygun">AWS S3 Depolama Katmanları — Hangisi Size Uygun?</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Katman</th>
-          <th>En iyi kullanım</th>
-          <th>Erişim</th>
-          <th>Maliyet</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>S3 Standard</strong></td>
-          <td>Sık erişilen veriler</td>
-          <td>Anında</td>
-          <td>~€23/TB/ay</td>
-      </tr>
-      <tr>
-          <td><strong>S3 Infrequent Access</strong></td>
-          <td>Ayda birkaç kez</td>
-          <td>Anında</td>
-          <td>~€12/TB/ay</td>
-      </tr>
-      <tr>
-          <td><strong>S3 Glacier Instant</strong></td>
-          <td>Nadiren erişilen arşivler</td>
-          <td>Milisaniye</td>
-          <td>~€4/TB/ay</td>
-      </tr>
-      <tr>
-          <td><strong>S3 Glacier Deep Archive</strong></td>
-          <td>Uzun süreli arşivleme</td>
-          <td>12 saat</td>
-          <td>~€1/TB/ay</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Katman</th>
+					<th>En iyi kullanım</th>
+					<th>Erişim</th>
+					<th>Maliyet</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>S3 Standard</strong></td>
+					<td>Sık erişilen veriler</td>
+					<td>Anında</td>
+					<td>~€23/TB/ay</td>
+			</tr>
+			<tr>
+					<td><strong>S3 Infrequent Access</strong></td>
+					<td>Ayda birkaç kez</td>
+					<td>Anında</td>
+					<td>~€12/TB/ay</td>
+			</tr>
+			<tr>
+					<td><strong>S3 Glacier Instant</strong></td>
+					<td>Nadiren erişilen arşivler</td>
+					<td>Milisaniye</td>
+					<td>~€4/TB/ay</td>
+			</tr>
+			<tr>
+					<td><strong>S3 Glacier Deep Archive</strong></td>
+					<td>Uzun süreli arşivleme</td>
+					<td>12 saat</td>
+					<td>~€1/TB/ay</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>KOBİ&rsquo;ler için öneri:</strong>
 Aktif iş verileri: <strong>S3 Infrequent Access</strong> — uygun fiyat, gerektiğinde anında erişim.

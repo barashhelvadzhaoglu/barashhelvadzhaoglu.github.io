@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Enterprise Network on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/enterprise-network/</link><description>Recent content in Enterprise Network on Barash Helvadzhaoglu</description><generator>Hugo -- 0.161.1</generator><language>en</language><lastBuildDate>Wed, 01 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/enterprise-network/index.xml" rel="self" type="application/rss+xml"/><item><title>Enterprise WiFi Architecture: From Standards to Deployment — A Complete Guide</title><link>https://barashhelvadzhaoglu.com/en/technology/wifi-master/</link><pubDate>Wed, 01 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/wifi-master/</guid><description>Master guide to enterprise wireless — 802.11 standards, controller architectures, SMB and hotel design, roaming, security, and site survey.</description><content:encoded><![CDATA[<h1 id="enterprise-wifi-architecture-from-standards-to-deployment">Enterprise WiFi Architecture: From Standards to Deployment</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Enterprise Network on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/enterprise-network/</link><description>Recent content in Enterprise Network on Barash Helvadzhaoglu</description><generator>Hugo -- 0.162.0</generator><language>en</language><lastBuildDate>Wed, 01 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/enterprise-network/index.xml" rel="self" type="application/rss+xml"/><item><title>Enterprise WiFi Architecture: From Standards to Deployment — A Complete Guide</title><link>https://barashhelvadzhaoglu.com/en/technology/wifi-master/</link><pubDate>Wed, 01 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/wifi-master/</guid><description>Master guide to enterprise wireless — 802.11 standards, controller architectures, SMB and hotel design, roaming, security, and site survey.</description><content:encoded><![CDATA[<h1 id="enterprise-wifi-architecture-from-standards-to-deployment">Enterprise WiFi Architecture: From Standards to Deployment</h1>
 <p>WiFi is the most visible part of any network. When it works, nobody mentions it. When it doesn&rsquo;t — within minutes the IT team hears about it from every corner of the building.</p>
 <p>But wireless networking is deceptively complex. What looks like &ldquo;just WiFi&rdquo; to a user is a stack of interacting decisions: which 802.11 standard, which frequency band, how many access points, which controller architecture, how authentication is handled, how roaming behaves, how the RF environment is managed. Get any of these wrong and the network that looked good on paper fails in production.</p>
 <p>I&rsquo;ve designed and deployed wireless networks across banking headquarters, manufacturing facilities, hotels, logistics warehouses, and medical practices — using Aruba, Cisco Meraki, and Cisco enterprise platforms. This series documents what actually matters in each of those scenarios.</p>
@@ -30,46 +30,46 @@
 <h2 id="the-80211-standards-what-actually-changed">The 802.11 Standards: What Actually Changed</h2>
 <p>The IEEE 802.11 standard has gone through multiple generations, each branded differently for marketing purposes:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Standard</th>
-          <th>Marketing Name</th>
-          <th>Max Theoretical Rate</th>
-          <th>Key Improvement</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>802.11n</td>
-          <td>WiFi 4</td>
-          <td>600 Mbps</td>
-          <td>MIMO, 5 GHz support</td>
-      </tr>
-      <tr>
-          <td>802.11ac</td>
-          <td>WiFi 5</td>
-          <td>3.5 Gbps</td>
-          <td>MU-MIMO, wider channels (80/160 MHz)</td>
-      </tr>
-      <tr>
-          <td>802.11ax</td>
-          <td>WiFi 6</td>
-          <td>9.6 Gbps</td>
-          <td>OFDMA, BSS Coloring, TWT, high-density</td>
-      </tr>
-      <tr>
-          <td>802.11ax (6 GHz)</td>
-          <td>WiFi 6E</td>
-          <td>9.6 Gbps</td>
-          <td>New 6 GHz band, less congestion</td>
-      </tr>
-      <tr>
-          <td>802.11be</td>
-          <td>WiFi 7</td>
-          <td>46 Gbps</td>
-          <td>Multi-Link Operation, 320 MHz channels</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Standard</th>
+					<th>Marketing Name</th>
+					<th>Max Theoretical Rate</th>
+					<th>Key Improvement</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>802.11n</td>
+					<td>WiFi 4</td>
+					<td>600 Mbps</td>
+					<td>MIMO, 5 GHz support</td>
+			</tr>
+			<tr>
+					<td>802.11ac</td>
+					<td>WiFi 5</td>
+					<td>3.5 Gbps</td>
+					<td>MU-MIMO, wider channels (80/160 MHz)</td>
+			</tr>
+			<tr>
+					<td>802.11ax</td>
+					<td>WiFi 6</td>
+					<td>9.6 Gbps</td>
+					<td>OFDMA, BSS Coloring, TWT, high-density</td>
+			</tr>
+			<tr>
+					<td>802.11ax (6 GHz)</td>
+					<td>WiFi 6E</td>
+					<td>9.6 Gbps</td>
+					<td>New 6 GHz band, less congestion</td>
+			</tr>
+			<tr>
+					<td>802.11be</td>
+					<td>WiFi 7</td>
+					<td>46 Gbps</td>
+					<td>Multi-Link Operation, 320 MHz channels</td>
+			</tr>
+	</tbody>
 </table>
 <p>The theoretical rates in marketing materials are never achieved in practice. What matters in real deployments is different for each generation:</p>
 <p><strong>WiFi 6 (802.11ax)</strong> introduced two capabilities that genuinely matter in dense environments:</p>
@@ -188,42 +188,42 @@
 <hr>
 <h2 id="choosing-the-right-platform">Choosing the Right Platform</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Scenario</th>
-          <th>Recommended Platform</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Small office, simple management</td>
-          <td>Aruba Instant On, Cisco Business, Meraki Go</td>
-      </tr>
-      <tr>
-          <td>SMB with IT staff</td>
-          <td>Cisco Meraki, Aruba Central (cloud-managed)</td>
-      </tr>
-      <tr>
-          <td>Enterprise campus, complex policy</td>
-          <td>Aruba Mobility Master, Cisco DNA Center</td>
-      </tr>
-      <tr>
-          <td>Hotel / hospitality</td>
-          <td>Aruba, Cisco Meraki (with PMS integration)</td>
-      </tr>
-      <tr>
-          <td>Healthcare / regulated environment</td>
-          <td>Aruba ClearPass + Mobility Master, Cisco ISE + WLC</td>
-      </tr>
-      <tr>
-          <td>High-density venues</td>
-          <td>Cisco (Catalyst Center), Aruba (AOS 10)</td>
-      </tr>
-      <tr>
-          <td>Multi-site, centralized management</td>
-          <td>Cisco Meraki, Aruba Central</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Scenario</th>
+					<th>Recommended Platform</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Small office, simple management</td>
+					<td>Aruba Instant On, Cisco Business, Meraki Go</td>
+			</tr>
+			<tr>
+					<td>SMB with IT staff</td>
+					<td>Cisco Meraki, Aruba Central (cloud-managed)</td>
+			</tr>
+			<tr>
+					<td>Enterprise campus, complex policy</td>
+					<td>Aruba Mobility Master, Cisco DNA Center</td>
+			</tr>
+			<tr>
+					<td>Hotel / hospitality</td>
+					<td>Aruba, Cisco Meraki (with PMS integration)</td>
+			</tr>
+			<tr>
+					<td>Healthcare / regulated environment</td>
+					<td>Aruba ClearPass + Mobility Master, Cisco ISE + WLC</td>
+			</tr>
+			<tr>
+					<td>High-density venues</td>
+					<td>Cisco (Catalyst Center), Aruba (AOS 10)</td>
+			</tr>
+			<tr>
+					<td>Multi-site, centralized management</td>
+					<td>Cisco Meraki, Aruba Central</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="this-series">This Series</h2>

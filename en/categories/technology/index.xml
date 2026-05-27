@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Technology on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/categories/technology/</link><description>Recent content in Technology on Barash Helvadzhaoglu</description><generator>Hugo -- 0.161.1</generator><language>en</language><lastBuildDate>Fri, 01 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/categories/technology/index.xml" rel="self" type="application/rss+xml"/><item><title>802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E and What Actually Changed</title><link>https://barashhelvadzhaoglu.com/en/technology/wifi-standards/</link><pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/wifi-standards/</guid><description>802.11 standards deep dive — what n, ac, ax, and be deliver in real deployments, OFDMA, MU-MIMO, BSS Coloring, and how to choose.</description><content:encoded><![CDATA[<h1 id="80211-standards-deep-dive-wifi-4-5-6-6e-and-what-actually-changed">802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E and What Actually Changed</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Technology on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/categories/technology/</link><description>Recent content in Technology on Barash Helvadzhaoglu</description><generator>Hugo -- 0.162.0</generator><language>en</language><lastBuildDate>Fri, 01 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/categories/technology/index.xml" rel="self" type="application/rss+xml"/><item><title>802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E and What Actually Changed</title><link>https://barashhelvadzhaoglu.com/en/technology/wifi-standards/</link><pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/wifi-standards/</guid><description>802.11 standards deep dive — what n, ac, ax, and be deliver in real deployments, OFDMA, MU-MIMO, BSS Coloring, and how to choose.</description><content:encoded><![CDATA[<h1 id="80211-standards-deep-dive-wifi-4-5-6-6e-and-what-actually-changed">802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E and What Actually Changed</h1>
 <p>This article is part of the Enterprise WiFi series.</p>
 <blockquote>
 <p><strong>New to enterprise wireless?</strong> Start with the overview: <a href="/en/technology/enterprise-wifi-architecture-complete-guide/">Enterprise WiFi Architecture: From Standards to Deployment</a></p>
@@ -104,50 +104,50 @@ With BSS Coloring:
 <hr>
 <h2 id="choosing-the-right-standard-for-your-deployment">Choosing the Right Standard for Your Deployment</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Environment</th>
-          <th>Recommendation</th>
-          <th>Reason</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>New enterprise campus</td>
-          <td>WiFi 6 minimum, WiFi 6E preferred</td>
-          <td>OFDMA density benefit, future-proofing</td>
-      </tr>
-      <tr>
-          <td>High-density (conference, classroom)</td>
-          <td>WiFi 6 or 6E</td>
-          <td>OFDMA essential for density</td>
-      </tr>
-      <tr>
-          <td>IoT-heavy environment</td>
-          <td>WiFi 6</td>
-          <td>TWT for battery-powered devices</td>
-      </tr>
-      <tr>
-          <td>SMB / small office</td>
-          <td>WiFi 6 AP</td>
-          <td>Cost-effective, supports all clients</td>
-      </tr>
-      <tr>
-          <td>Outdoor / long range</td>
-          <td>WiFi 6 (5 GHz)</td>
-          <td>Better range than 6 GHz</td>
-      </tr>
-      <tr>
-          <td>Legacy device heavy</td>
-          <td>WiFi 6 AP (backward compatible)</td>
-          <td>All 802.11 standards backward compatible</td>
-      </tr>
-      <tr>
-          <td>New build, future-proof</td>
-          <td>WiFi 7</td>
-          <td>MLO, 6 GHz, 320 MHz channels</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Environment</th>
+					<th>Recommendation</th>
+					<th>Reason</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>New enterprise campus</td>
+					<td>WiFi 6 minimum, WiFi 6E preferred</td>
+					<td>OFDMA density benefit, future-proofing</td>
+			</tr>
+			<tr>
+					<td>High-density (conference, classroom)</td>
+					<td>WiFi 6 or 6E</td>
+					<td>OFDMA essential for density</td>
+			</tr>
+			<tr>
+					<td>IoT-heavy environment</td>
+					<td>WiFi 6</td>
+					<td>TWT for battery-powered devices</td>
+			</tr>
+			<tr>
+					<td>SMB / small office</td>
+					<td>WiFi 6 AP</td>
+					<td>Cost-effective, supports all clients</td>
+			</tr>
+			<tr>
+					<td>Outdoor / long range</td>
+					<td>WiFi 6 (5 GHz)</td>
+					<td>Better range than 6 GHz</td>
+			</tr>
+			<tr>
+					<td>Legacy device heavy</td>
+					<td>WiFi 6 AP (backward compatible)</td>
+					<td>All 802.11 standards backward compatible</td>
+			</tr>
+			<tr>
+					<td>New build, future-proof</td>
+					<td>WiFi 7</td>
+					<td>MLO, 6 GHz, 320 MHz channels</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Important note:</strong> WiFi 6 APs support all previous clients — 802.11n, 802.11ac, 802.11ax clients all connect to the same AP. The AP negotiates the best mutually supported capabilities with each client.</p>
 <hr>
@@ -198,40 +198,40 @@ With BSS Coloring:
 <h3 id="coverage-planning-for-smb">Coverage Planning for SMB</h3>
 <p>A rough starting point for typical office environments:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Environment</th>
-          <th>AP Coverage Area</th>
-          <th>Notes</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Open office, low density</td>
-          <td>150–200 m²</td>
-          <td>Modern WiFi 6 APs, moderate client count</td>
-      </tr>
-      <tr>
-          <td>Open office, high density</td>
-          <td>80–100 m²</td>
-          <td>Many clients, video calls, high throughput</td>
-      </tr>
-      <tr>
-          <td>Office with interior walls</td>
-          <td>80–120 m²</td>
-          <td>Walls attenuate signal; test before finalizing</td>
-      </tr>
-      <tr>
-          <td>Corridor / hotel hallway</td>
-          <td>20–25 m per AP</td>
-          <td>Narrow coverage pattern</td>
-      </tr>
-      <tr>
-          <td>Warehouse / large open space</td>
-          <td>300–500 m²</td>
-          <td>Low density, high ceilings, RF propagates well</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Environment</th>
+					<th>AP Coverage Area</th>
+					<th>Notes</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Open office, low density</td>
+					<td>150–200 m²</td>
+					<td>Modern WiFi 6 APs, moderate client count</td>
+			</tr>
+			<tr>
+					<td>Open office, high density</td>
+					<td>80–100 m²</td>
+					<td>Many clients, video calls, high throughput</td>
+			</tr>
+			<tr>
+					<td>Office with interior walls</td>
+					<td>80–120 m²</td>
+					<td>Walls attenuate signal; test before finalizing</td>
+			</tr>
+			<tr>
+					<td>Corridor / hotel hallway</td>
+					<td>20–25 m per AP</td>
+					<td>Narrow coverage pattern</td>
+			</tr>
+			<tr>
+					<td>Warehouse / large open space</td>
+					<td>300–500 m²</td>
+					<td>Low density, high ceilings, RF propagates well</td>
+			</tr>
+	</tbody>
 </table>
 <p>These are starting points, not rules. The only way to validate coverage is a site survey — predictive before deployment, validation after.</p>
 <h3 id="the-network-segmentation-baseline">The Network Segmentation Baseline</h3>
@@ -250,30 +250,30 @@ SSID: IoT/Printers   → VLAN 30 (printers, cameras, isolated)
 </ul>
 <h3 id="platform-recommendation-for-smb">Platform Recommendation for SMB</h3>
 <table>
-  <thead>
-      <tr>
-          <th>Size</th>
-          <th>Recommendation</th>
-          <th>Reason</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>1–5 APs, no IT staff</td>
-          <td>Aruba Instant On</td>
-          <td>Simple app-based management, solid hardware</td>
-      </tr>
-      <tr>
-          <td>5–20 APs, basic IT staff</td>
-          <td>Cisco Meraki or Aruba Central</td>
-          <td>Cloud management, good visibility</td>
-      </tr>
-      <tr>
-          <td>20+ APs, IT team</td>
-          <td>Aruba Central or Cisco DNA Center</td>
-          <td>Enterprise features, policy integration</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Size</th>
+					<th>Recommendation</th>
+					<th>Reason</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>1–5 APs, no IT staff</td>
+					<td>Aruba Instant On</td>
+					<td>Simple app-based management, solid hardware</td>
+			</tr>
+			<tr>
+					<td>5–20 APs, basic IT staff</td>
+					<td>Cisco Meraki or Aruba Central</td>
+					<td>Cloud management, good visibility</td>
+			</tr>
+			<tr>
+					<td>20+ APs, IT team</td>
+					<td>Aruba Central or Cisco DNA Center</td>
+					<td>Enterprise features, policy integration</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="part-2-hotel-wifi-design">Part 2: Hotel WiFi Design</h2>
@@ -594,40 +594,40 @@ After physical installation, walk the space in a systematic pattern using Ekahau
 Compare validation heatmap against prediction. Document actual versus predicted performance. Adjust AP placement, power levels, or channel assignments for any areas that fall below requirements.</p>
 <h3 id="key-survey-metrics-and-targets">Key Survey Metrics and Targets</h3>
 <table>
-  <thead>
-      <tr>
-          <th>Metric</th>
-          <th>Minimum</th>
-          <th>Target</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>RSSI (signal strength)</td>
-          <td>-70 dBm</td>
-          <td>-65 dBm or better</td>
-      </tr>
-      <tr>
-          <td>SNR (signal-to-noise ratio)</td>
-          <td>20 dB</td>
-          <td>25 dB or better</td>
-      </tr>
-      <tr>
-          <td>Channel overlap</td>
-          <td>15–20%</td>
-          <td>20–25% (sufficient for roaming)</td>
-      </tr>
-      <tr>
-          <td>Co-channel interference</td>
-          <td>&lt; -85 dBm from neighbors</td>
-          <td>&lt; -90 dBm</td>
-      </tr>
-      <tr>
-          <td>Roaming transition time</td>
-          <td>&lt; 150ms (voice)</td>
-          <td>&lt; 50ms (best case with 802.11r)</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Metric</th>
+					<th>Minimum</th>
+					<th>Target</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>RSSI (signal strength)</td>
+					<td>-70 dBm</td>
+					<td>-65 dBm or better</td>
+			</tr>
+			<tr>
+					<td>SNR (signal-to-noise ratio)</td>
+					<td>20 dB</td>
+					<td>25 dB or better</td>
+			</tr>
+			<tr>
+					<td>Channel overlap</td>
+					<td>15–20%</td>
+					<td>20–25% (sufficient for roaming)</td>
+			</tr>
+			<tr>
+					<td>Co-channel interference</td>
+					<td>&lt; -85 dBm from neighbors</td>
+					<td>&lt; -90 dBm</td>
+			</tr>
+			<tr>
+					<td>Roaming transition time</td>
+					<td>&lt; 150ms (voice)</td>
+					<td>&lt; 50ms (best case with 802.11r)</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="wireless-intrusion-detection-wids">Wireless Intrusion Detection (WIDS)</h2>
@@ -685,65 +685,65 @@ WAF:   HTTP/HTTPS content inspection — SQL injection, XSS, parameter tampering
 <p><strong>ASM (Application Security Manager)</strong> — the original module. Primarily signature-based. Covers OWASP Top 10, parameter enforcement, cookie protection, and basic bot detection. Included in many standard BIG-IP licenses.</p>
 <p><strong>Advanced WAF (AWAF)</strong> — the newer module with behavioral capabilities ASM lacks:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Capability</th>
-          <th>ASM</th>
-          <th>Advanced WAF</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Signature-based attack detection</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>OWASP Top 10 coverage</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Parameter and cookie enforcement</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Basic bot detection (signatures)</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Behavioral bot defense</td>
-          <td>❌</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Credential stuffing protection</td>
-          <td>❌</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>JavaScript challenge / CAPTCHA</td>
-          <td>Limited</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>L7 behavioral DoS mitigation</td>
-          <td>Limited</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>API security (OpenAPI / Swagger)</td>
-          <td>Limited</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>DataSafe (client-side encryption)</td>
-          <td>❌</td>
-          <td>✅</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Capability</th>
+					<th>ASM</th>
+					<th>Advanced WAF</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Signature-based attack detection</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>OWASP Top 10 coverage</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Parameter and cookie enforcement</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Basic bot detection (signatures)</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Behavioral bot defense</td>
+					<td>❌</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Credential stuffing protection</td>
+					<td>❌</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>JavaScript challenge / CAPTCHA</td>
+					<td>Limited</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>L7 behavioral DoS mitigation</td>
+					<td>Limited</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>API security (OpenAPI / Swagger)</td>
+					<td>Limited</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>DataSafe (client-side encryption)</td>
+					<td>❌</td>
+					<td>✅</td>
+			</tr>
+	</tbody>
 </table>
 <p>For internal enterprise applications, ASM provides solid coverage. For public-facing applications with high bot exposure, credential stuffing risk, or aggressive L7 DoS — Advanced WAF is significantly more effective.</p>
 <hr>
@@ -1274,40 +1274,40 @@ ltm-dc2 / vs_webapp_443  Ratio: 3  ← 30% of DNS responses
 <p>TTL controls how quickly <strong>new DNS lookups</strong> reflect the current infrastructure state.</p>
 <h3 id="ttl-trade-offs">TTL Trade-offs</h3>
 <table>
-  <thead>
-      <tr>
-          <th>TTL</th>
-          <th>Failover visibility</th>
-          <th>DNS query load</th>
-          <th>Use case</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>30 sec</td>
-          <td>Fast</td>
-          <td>High</td>
-          <td>Critical payment systems, auth services</td>
-      </tr>
-      <tr>
-          <td>60 sec</td>
-          <td>Good</td>
-          <td>Moderate</td>
-          <td>Most production applications</td>
-      </tr>
-      <tr>
-          <td>300 sec</td>
-          <td>Moderate</td>
-          <td>Low</td>
-          <td>Internal tools, monitoring</td>
-      </tr>
-      <tr>
-          <td>3600 sec</td>
-          <td>Slow</td>
-          <td>Very low</td>
-          <td>Static content, rarely-changing records</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>TTL</th>
+					<th>Failover visibility</th>
+					<th>DNS query load</th>
+					<th>Use case</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>30 sec</td>
+					<td>Fast</td>
+					<td>High</td>
+					<td>Critical payment systems, auth services</td>
+			</tr>
+			<tr>
+					<td>60 sec</td>
+					<td>Good</td>
+					<td>Moderate</td>
+					<td>Most production applications</td>
+			</tr>
+			<tr>
+					<td>300 sec</td>
+					<td>Moderate</td>
+					<td>Low</td>
+					<td>Internal tools, monitoring</td>
+			</tr>
+			<tr>
+					<td>3600 sec</td>
+					<td>Slow</td>
+					<td>Very low</td>
+					<td>Static content, rarely-changing records</td>
+			</tr>
+	</tbody>
 </table>
 <p>In the banking environment:</p>
 <ul>
@@ -1591,75 +1591,75 @@ Session Properties → Terminal → Emulation → Expect Scripts:
 <hr>
 <h2 id="securecrt-vs-superputty-when-to-use-which">SecureCRT vs. SuperPutty: When to Use Which</h2>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th>SecureCRT</th>
-          <th>SuperPutty</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Cost</td>
-          <td>Commercial license (~$99–150/seat)</td>
-          <td>Free</td>
-      </tr>
-      <tr>
-          <td>Automatic session logging</td>
-          <td>✅ Built-in, global</td>
-          <td>❌ Per-session PuTTY logging only</td>
-      </tr>
-      <tr>
-          <td>Session portability</td>
-          <td>✅ File-based, easy export</td>
-          <td>✅ XML-based, importable</td>
-      </tr>
-      <tr>
-          <td>PuTTY session import</td>
-          <td>❌ Not applicable</td>
-          <td>✅ Direct import from Registry</td>
-      </tr>
-      <tr>
-          <td>Tabbed interface</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Tiled sessions</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Scripting (Python/VBScript)</td>
-          <td>✅ Built-in engine</td>
-          <td>❌</td>
-      </tr>
-      <tr>
-          <td>Credential storage (encrypted)</td>
-          <td>✅ AES-256</td>
-          <td>⚠️ Basic only</td>
-      </tr>
-      <tr>
-          <td>Serial/console support</td>
-          <td>✅</td>
-          <td>✅ (via PuTTY)</td>
-      </tr>
-      <tr>
-          <td>RDP support</td>
-          <td>✅</td>
-          <td>✅ (via PuTTY/mRemoteNG)</td>
-      </tr>
-      <tr>
-          <td>SecureFX integration</td>
-          <td>✅</td>
-          <td>❌</td>
-      </tr>
-      <tr>
-          <td>Active commercial support</td>
-          <td>✅</td>
-          <td>Community only</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th>SecureCRT</th>
+					<th>SuperPutty</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Cost</td>
+					<td>Commercial license (~$99–150/seat)</td>
+					<td>Free</td>
+			</tr>
+			<tr>
+					<td>Automatic session logging</td>
+					<td>✅ Built-in, global</td>
+					<td>❌ Per-session PuTTY logging only</td>
+			</tr>
+			<tr>
+					<td>Session portability</td>
+					<td>✅ File-based, easy export</td>
+					<td>✅ XML-based, importable</td>
+			</tr>
+			<tr>
+					<td>PuTTY session import</td>
+					<td>❌ Not applicable</td>
+					<td>✅ Direct import from Registry</td>
+			</tr>
+			<tr>
+					<td>Tabbed interface</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Tiled sessions</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Scripting (Python/VBScript)</td>
+					<td>✅ Built-in engine</td>
+					<td>❌</td>
+			</tr>
+			<tr>
+					<td>Credential storage (encrypted)</td>
+					<td>✅ AES-256</td>
+					<td>⚠️ Basic only</td>
+			</tr>
+			<tr>
+					<td>Serial/console support</td>
+					<td>✅</td>
+					<td>✅ (via PuTTY)</td>
+			</tr>
+			<tr>
+					<td>RDP support</td>
+					<td>✅</td>
+					<td>✅ (via PuTTY/mRemoteNG)</td>
+			</tr>
+			<tr>
+					<td>SecureFX integration</td>
+					<td>✅</td>
+					<td>❌</td>
+			</tr>
+			<tr>
+					<td>Active commercial support</td>
+					<td>✅</td>
+					<td>Community only</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Use SecureCRT when:</strong></p>
 <ul>
@@ -2591,46 +2591,46 @@ Cisco&rsquo;s OT-focused management and security platform, integrating with Cisc
 <h2 id="the-80211-standards-what-actually-changed">The 802.11 Standards: What Actually Changed</h2>
 <p>The IEEE 802.11 standard has gone through multiple generations, each branded differently for marketing purposes:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Standard</th>
-          <th>Marketing Name</th>
-          <th>Max Theoretical Rate</th>
-          <th>Key Improvement</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>802.11n</td>
-          <td>WiFi 4</td>
-          <td>600 Mbps</td>
-          <td>MIMO, 5 GHz support</td>
-      </tr>
-      <tr>
-          <td>802.11ac</td>
-          <td>WiFi 5</td>
-          <td>3.5 Gbps</td>
-          <td>MU-MIMO, wider channels (80/160 MHz)</td>
-      </tr>
-      <tr>
-          <td>802.11ax</td>
-          <td>WiFi 6</td>
-          <td>9.6 Gbps</td>
-          <td>OFDMA, BSS Coloring, TWT, high-density</td>
-      </tr>
-      <tr>
-          <td>802.11ax (6 GHz)</td>
-          <td>WiFi 6E</td>
-          <td>9.6 Gbps</td>
-          <td>New 6 GHz band, less congestion</td>
-      </tr>
-      <tr>
-          <td>802.11be</td>
-          <td>WiFi 7</td>
-          <td>46 Gbps</td>
-          <td>Multi-Link Operation, 320 MHz channels</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Standard</th>
+					<th>Marketing Name</th>
+					<th>Max Theoretical Rate</th>
+					<th>Key Improvement</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>802.11n</td>
+					<td>WiFi 4</td>
+					<td>600 Mbps</td>
+					<td>MIMO, 5 GHz support</td>
+			</tr>
+			<tr>
+					<td>802.11ac</td>
+					<td>WiFi 5</td>
+					<td>3.5 Gbps</td>
+					<td>MU-MIMO, wider channels (80/160 MHz)</td>
+			</tr>
+			<tr>
+					<td>802.11ax</td>
+					<td>WiFi 6</td>
+					<td>9.6 Gbps</td>
+					<td>OFDMA, BSS Coloring, TWT, high-density</td>
+			</tr>
+			<tr>
+					<td>802.11ax (6 GHz)</td>
+					<td>WiFi 6E</td>
+					<td>9.6 Gbps</td>
+					<td>New 6 GHz band, less congestion</td>
+			</tr>
+			<tr>
+					<td>802.11be</td>
+					<td>WiFi 7</td>
+					<td>46 Gbps</td>
+					<td>Multi-Link Operation, 320 MHz channels</td>
+			</tr>
+	</tbody>
 </table>
 <p>The theoretical rates in marketing materials are never achieved in practice. What matters in real deployments is different for each generation:</p>
 <p><strong>WiFi 6 (802.11ax)</strong> introduced two capabilities that genuinely matter in dense environments:</p>
@@ -2749,42 +2749,42 @@ Cisco&rsquo;s OT-focused management and security platform, integrating with Cisc
 <hr>
 <h2 id="choosing-the-right-platform">Choosing the Right Platform</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Scenario</th>
-          <th>Recommended Platform</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Small office, simple management</td>
-          <td>Aruba Instant On, Cisco Business, Meraki Go</td>
-      </tr>
-      <tr>
-          <td>SMB with IT staff</td>
-          <td>Cisco Meraki, Aruba Central (cloud-managed)</td>
-      </tr>
-      <tr>
-          <td>Enterprise campus, complex policy</td>
-          <td>Aruba Mobility Master, Cisco DNA Center</td>
-      </tr>
-      <tr>
-          <td>Hotel / hospitality</td>
-          <td>Aruba, Cisco Meraki (with PMS integration)</td>
-      </tr>
-      <tr>
-          <td>Healthcare / regulated environment</td>
-          <td>Aruba ClearPass + Mobility Master, Cisco ISE + WLC</td>
-      </tr>
-      <tr>
-          <td>High-density venues</td>
-          <td>Cisco (Catalyst Center), Aruba (AOS 10)</td>
-      </tr>
-      <tr>
-          <td>Multi-site, centralized management</td>
-          <td>Cisco Meraki, Aruba Central</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Scenario</th>
+					<th>Recommended Platform</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Small office, simple management</td>
+					<td>Aruba Instant On, Cisco Business, Meraki Go</td>
+			</tr>
+			<tr>
+					<td>SMB with IT staff</td>
+					<td>Cisco Meraki, Aruba Central (cloud-managed)</td>
+			</tr>
+			<tr>
+					<td>Enterprise campus, complex policy</td>
+					<td>Aruba Mobility Master, Cisco DNA Center</td>
+			</tr>
+			<tr>
+					<td>Hotel / hospitality</td>
+					<td>Aruba, Cisco Meraki (with PMS integration)</td>
+			</tr>
+			<tr>
+					<td>Healthcare / regulated environment</td>
+					<td>Aruba ClearPass + Mobility Master, Cisco ISE + WLC</td>
+			</tr>
+			<tr>
+					<td>High-density venues</td>
+					<td>Cisco (Catalyst Center), Aruba (AOS 10)</td>
+			</tr>
+			<tr>
+					<td>Multi-site, centralized management</td>
+					<td>Cisco Meraki, Aruba Central</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="this-series">This Series</h2>
@@ -2969,70 +2969,70 @@ Microsoft&rsquo;s offering for Azure-hosted resources. Standard tier provides ad
 <hr>
 <h2 id="comparing-the-three-approaches">Comparing the Three Approaches</h2>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th>ISP Scrubbing</th>
-          <th>On-Premise Appliance</th>
-          <th>Cloud Service</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Volumetric protection</td>
-          <td>✅</td>
-          <td>❌ (limited by link)</td>
-          <td>✅✅</td>
-      </tr>
-      <tr>
-          <td>Protocol attack protection</td>
-          <td>✅</td>
-          <td>✅✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Application layer (L7)</td>
-          <td>❌</td>
-          <td>✅ (advanced models)</td>
-          <td>✅✅</td>
-      </tr>
-      <tr>
-          <td>Activation time</td>
-          <td>Minutes (on-demand)</td>
-          <td>Immediate</td>
-          <td>Immediate</td>
-      </tr>
-      <tr>
-          <td>Traffic visibility</td>
-          <td>Limited</td>
-          <td>Full</td>
-          <td>Provider-dependent</td>
-      </tr>
-      <tr>
-          <td>Compliance / data residency</td>
-          <td>✅</td>
-          <td>✅✅</td>
-          <td>Requires review</td>
-      </tr>
-      <tr>
-          <td>CapEx</td>
-          <td>Low</td>
-          <td>High</td>
-          <td>None</td>
-      </tr>
-      <tr>
-          <td>OpEx</td>
-          <td>Medium</td>
-          <td>Medium</td>
-          <td>Medium–High</td>
-      </tr>
-      <tr>
-          <td>Scalability</td>
-          <td>ISP capacity</td>
-          <td>Fixed hardware</td>
-          <td>Near-unlimited</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th>ISP Scrubbing</th>
+					<th>On-Premise Appliance</th>
+					<th>Cloud Service</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Volumetric protection</td>
+					<td>✅</td>
+					<td>❌ (limited by link)</td>
+					<td>✅✅</td>
+			</tr>
+			<tr>
+					<td>Protocol attack protection</td>
+					<td>✅</td>
+					<td>✅✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Application layer (L7)</td>
+					<td>❌</td>
+					<td>✅ (advanced models)</td>
+					<td>✅✅</td>
+			</tr>
+			<tr>
+					<td>Activation time</td>
+					<td>Minutes (on-demand)</td>
+					<td>Immediate</td>
+					<td>Immediate</td>
+			</tr>
+			<tr>
+					<td>Traffic visibility</td>
+					<td>Limited</td>
+					<td>Full</td>
+					<td>Provider-dependent</td>
+			</tr>
+			<tr>
+					<td>Compliance / data residency</td>
+					<td>✅</td>
+					<td>✅✅</td>
+					<td>Requires review</td>
+			</tr>
+			<tr>
+					<td>CapEx</td>
+					<td>Low</td>
+					<td>High</td>
+					<td>None</td>
+			</tr>
+			<tr>
+					<td>OpEx</td>
+					<td>Medium</td>
+					<td>Medium</td>
+					<td>Medium–High</td>
+			</tr>
+			<tr>
+					<td>Scalability</td>
+					<td>ISP capacity</td>
+					<td>Fixed hardware</td>
+					<td>Near-unlimited</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="the-hybrid-model-how-serious-organizations-combine-all-three">The Hybrid Model: How Serious Organizations Combine All Three</h2>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>WiFi 6 on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/wifi-6/</link><description>Recent content in WiFi 6 on Barash Helvadzhaoglu</description><generator>Hugo -- 0.161.1</generator><language>de</language><lastBuildDate>Fri, 01 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/wifi-6/index.xml" rel="self" type="application/rss+xml"/><item><title>802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E und was sich wirklich geändert hat</title><link>https://barashhelvadzhaoglu.com/de/technology/wifi-standards/</link><pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/wifi-standards/</guid><description>802.11 Wireless-Standards Deep Dive — was n, ac, ax und be liefern, OFDMA, MU-MIMO, BSS Coloring und die richtige Standardwahl.</description><content:encoded><![CDATA[<h1 id="80211-standards-deep-dive-wifi-4-5-6-6e-und-was-sich-wirklich-geändert-hat">802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E und was sich wirklich geändert hat</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>WiFi 6 on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/wifi-6/</link><description>Recent content in WiFi 6 on Barash Helvadzhaoglu</description><generator>Hugo -- 0.162.0</generator><language>de</language><lastBuildDate>Fri, 01 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/wifi-6/index.xml" rel="self" type="application/rss+xml"/><item><title>802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E und was sich wirklich geändert hat</title><link>https://barashhelvadzhaoglu.com/de/technology/wifi-standards/</link><pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/wifi-standards/</guid><description>802.11 Wireless-Standards Deep Dive — was n, ac, ax und be liefern, OFDMA, MU-MIMO, BSS Coloring und die richtige Standardwahl.</description><content:encoded><![CDATA[<h1 id="80211-standards-deep-dive-wifi-4-5-6-6e-und-was-sich-wirklich-geändert-hat">802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E und was sich wirklich geändert hat</h1>
 <p>Dieser Artikel ist Teil der Enterprise-WiFi-Serie.</p>
 <blockquote>
 <p><strong>Neu im Enterprise-Wireless-Bereich?</strong> Beginnen Sie mit der Übersicht: <a href="/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/">Enterprise WiFi-Architektur: Von Standards bis zur Deployment</a></p>
@@ -104,50 +104,50 @@ Mit BSS Coloring:
 <hr>
 <h2 id="den-richtigen-standard-für-ihr-deployment-wählen">Den richtigen Standard für Ihr Deployment wählen</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Umgebung</th>
-          <th>Empfehlung</th>
-          <th>Grund</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Neuer Enterprise-Campus</td>
-          <td>WiFi 6 Minimum, WiFi 6E bevorzugt</td>
-          <td>OFDMA-Dichtevorteil, Zukunftssicherheit</td>
-      </tr>
-      <tr>
-          <td>Hohe Dichte (Konferenz, Klassenraum)</td>
-          <td>WiFi 6 oder 6E</td>
-          <td>OFDMA für Dichte essentiell</td>
-      </tr>
-      <tr>
-          <td>IoT-lastige Umgebung</td>
-          <td>WiFi 6</td>
-          <td>TWT für akkubetriebene Geräte</td>
-      </tr>
-      <tr>
-          <td>KMU / kleines Büro</td>
-          <td>WiFi-6-AP</td>
-          <td>Kostengünstig, unterstützt alle Clients</td>
-      </tr>
-      <tr>
-          <td>Außen / Langstrecke</td>
-          <td>WiFi 6 (5 GHz)</td>
-          <td>Bessere Reichweite als 6 GHz</td>
-      </tr>
-      <tr>
-          <td>Legacy-Gerät-lastig</td>
-          <td>WiFi-6-AP (abwärtskompatibel)</td>
-          <td>Alle 802.11-Standards abwärtskompatibel</td>
-      </tr>
-      <tr>
-          <td>Neubau, zukunftssicher</td>
-          <td>WiFi 7</td>
-          <td>MLO, 6 GHz, 320-MHz-Kanäle</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Umgebung</th>
+					<th>Empfehlung</th>
+					<th>Grund</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Neuer Enterprise-Campus</td>
+					<td>WiFi 6 Minimum, WiFi 6E bevorzugt</td>
+					<td>OFDMA-Dichtevorteil, Zukunftssicherheit</td>
+			</tr>
+			<tr>
+					<td>Hohe Dichte (Konferenz, Klassenraum)</td>
+					<td>WiFi 6 oder 6E</td>
+					<td>OFDMA für Dichte essentiell</td>
+			</tr>
+			<tr>
+					<td>IoT-lastige Umgebung</td>
+					<td>WiFi 6</td>
+					<td>TWT für akkubetriebene Geräte</td>
+			</tr>
+			<tr>
+					<td>KMU / kleines Büro</td>
+					<td>WiFi-6-AP</td>
+					<td>Kostengünstig, unterstützt alle Clients</td>
+			</tr>
+			<tr>
+					<td>Außen / Langstrecke</td>
+					<td>WiFi 6 (5 GHz)</td>
+					<td>Bessere Reichweite als 6 GHz</td>
+			</tr>
+			<tr>
+					<td>Legacy-Gerät-lastig</td>
+					<td>WiFi-6-AP (abwärtskompatibel)</td>
+					<td>Alle 802.11-Standards abwärtskompatibel</td>
+			</tr>
+			<tr>
+					<td>Neubau, zukunftssicher</td>
+					<td>WiFi 7</td>
+					<td>MLO, 6 GHz, 320-MHz-Kanäle</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Wichtiger Hinweis:</strong> WiFi-6-APs unterstützen alle vorherigen Clients — 802.11n-, 802.11ac-, 802.11ax-Clients verbinden sich alle mit demselben AP. Der AP handelt die besten gegenseitig unterstützten Fähigkeiten mit jedem Client aus.</p>
 <hr>

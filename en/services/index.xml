@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>IT Services &amp; Consulting on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/services/</link><description>Recent content in IT Services &amp; Consulting on Barash Helvadzhaoglu</description><generator>Hugo -- 0.161.1</generator><language>en</language><lastBuildDate>Fri, 17 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/services/index.xml" rel="self" type="application/rss+xml"/><item><title>Aruba ClearPass — NAC Installation, 802.1X &amp; Managed Services</title><link>https://barashhelvadzhaoglu.com/en/services/aruba-clearpass/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/services/aruba-clearpass/</guid><description>Independent Aruba ClearPass consulting. NAC deployment, 802.1X configuration, guest management and ongoing support. Remote delivery. Free technical consultation.</description><content:encoded><![CDATA[<h1 id="aruba-clearpass--independent-nac-consulting--support">Aruba ClearPass — Independent NAC Consulting &amp; Support</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>IT Services &amp; Consulting on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/services/</link><description>Recent content in IT Services &amp; Consulting on Barash Helvadzhaoglu</description><generator>Hugo -- 0.162.0</generator><language>en</language><lastBuildDate>Fri, 17 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/services/index.xml" rel="self" type="application/rss+xml"/><item><title>Aruba ClearPass — NAC Installation, 802.1X &amp; Managed Services</title><link>https://barashhelvadzhaoglu.com/en/services/aruba-clearpass/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/services/aruba-clearpass/</guid><description>Independent Aruba ClearPass consulting. NAC deployment, 802.1X configuration, guest management and ongoing support. Remote delivery. Free technical consultation.</description><content:encoded><![CDATA[<h1 id="aruba-clearpass--independent-nac-consulting--support">Aruba ClearPass — Independent NAC Consulting &amp; Support</h1>
 <p>Aruba ClearPass is one of the most capable Network Access Control platforms available — but its flexibility also makes it complex to implement correctly. A ClearPass deployment that works in a lab often breaks in production because of edge cases: non-802.1X devices, legacy printers, BYOD certificate failures, or guest portal redirects that do not behave as expected on mobile devices.</p>
 <p>With <strong>11+ years</strong> of enterprise NAC experience — deploying ClearPass alongside Aruba wireless, Cisco switching, and HP infrastructure — I provide independent consulting, deployment support, and managed services for organizations that need ClearPass expertise without a full-time specialist.</p>
 <blockquote>
@@ -218,30 +218,30 @@ I work through all of these systematically before touching ISE policy. The netwo
 <h2 id="service-models">Service Models</h2>
 <h3 id="managed-services-monthly">Managed Services (Monthly)</h3>
 <table>
-  <thead>
-      <tr>
-          <th>Package</th>
-          <th>Coverage</th>
-          <th>Price</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Basic</strong></td>
-          <td>Monitoring + incident response + 4 hrs/month administration</td>
-          <td>From €50/month</td>
-      </tr>
-      <tr>
-          <td><strong>Standard</strong></td>
-          <td>Basic + proactive maintenance + SIP trunk management + 8 hrs/month</td>
-          <td>From €150/month</td>
-      </tr>
-      <tr>
-          <td><strong>Premium</strong></td>
-          <td>Standard + upgrades + DR planning + unlimited incidents</td>
-          <td>From €299/month</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Package</th>
+					<th>Coverage</th>
+					<th>Price</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Basic</strong></td>
+					<td>Monitoring + incident response + 4 hrs/month administration</td>
+					<td>From €50/month</td>
+			</tr>
+			<tr>
+					<td><strong>Standard</strong></td>
+					<td>Basic + proactive maintenance + SIP trunk management + 8 hrs/month</td>
+					<td>From €150/month</td>
+			</tr>
+			<tr>
+					<td><strong>Premium</strong></td>
+					<td>Standard + upgrades + DR planning + unlimited incidents</td>
+					<td>From €299/month</td>
+			</tr>
+	</tbody>
 </table>
 <p><em>Pricing scales with environment size. Custom quotes for 50+ user environments.</em></p>
 <h3 id="project-based-work">Project-Based Work</h3>
@@ -313,30 +313,30 @@ I work through all of these systematically before touching ISE policy. The netwo
 <hr>
 <h2 id="supported-platforms">Supported Platforms</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Category</th>
-          <th>Technologies</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Wireless</strong></td>
-          <td>Cisco Catalyst Center (DNA), Aruba Mobility Master, Aruba Central, Meraki</td>
-      </tr>
-      <tr>
-          <td><strong>Switching</strong></td>
-          <td>Cisco Catalyst 9000, Aruba, HP Comware</td>
-      </tr>
-      <tr>
-          <td><strong>Routing</strong></td>
-          <td>Cisco, Fortinet SD-WAN, BGP/OSPF</td>
-      </tr>
-      <tr>
-          <td><strong>Site Survey</strong></td>
-          <td>Ekahau</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Category</th>
+					<th>Technologies</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Wireless</strong></td>
+					<td>Cisco Catalyst Center (DNA), Aruba Mobility Master, Aruba Central, Meraki</td>
+			</tr>
+			<tr>
+					<td><strong>Switching</strong></td>
+					<td>Cisco Catalyst 9000, Aruba, HP Comware</td>
+			</tr>
+			<tr>
+					<td><strong>Routing</strong></td>
+					<td>Cisco, Fortinet SD-WAN, BGP/OSPF</td>
+			</tr>
+			<tr>
+					<td><strong>Site Survey</strong></td>
+					<td>Ekahau</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="project-experience">Project Experience</h2>
@@ -400,59 +400,59 @@ I work through all of these systematically before touching ISE policy. The netwo
 <hr>
 <h2 id="supported-platforms">Supported Platforms</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Vendor</th>
-          <th>Products</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Fortinet</strong></td>
-          <td>FortiGate, FortiManager, FortiAnalyzer</td>
-      </tr>
-      <tr>
-          <td><strong>Palo Alto Networks</strong></td>
-          <td>NGFW, Panorama, Prisma Access</td>
-      </tr>
-      <tr>
-          <td><strong>Cisco</strong></td>
-          <td>Firepower, ASA, FMC</td>
-      </tr>
-      <tr>
-          <td><strong>Check Point</strong></td>
-          <td>Security Gateway, SmartConsole</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Vendor</th>
+					<th>Products</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Fortinet</strong></td>
+					<td>FortiGate, FortiManager, FortiAnalyzer</td>
+			</tr>
+			<tr>
+					<td><strong>Palo Alto Networks</strong></td>
+					<td>NGFW, Panorama, Prisma Access</td>
+			</tr>
+			<tr>
+					<td><strong>Cisco</strong></td>
+					<td>Firepower, ASA, FMC</td>
+			</tr>
+			<tr>
+					<td><strong>Check Point</strong></td>
+					<td>Security Gateway, SmartConsole</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="service-models">Service Models</h2>
 <h3 id="managed-services-monthly">Managed Services (Monthly)</h3>
 <table>
-  <thead>
-      <tr>
-          <th>Package</th>
-          <th>Coverage</th>
-          <th>Price</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Basic</strong></td>
-          <td>Monthly rule review + incident response + 4 hrs admin</td>
-          <td>From €50/month</td>
-      </tr>
-      <tr>
-          <td><strong>Standard</strong></td>
-          <td>Basic + firmware management + VPN monitoring + 8 hrs</td>
-          <td>From €150/month</td>
-      </tr>
-      <tr>
-          <td><strong>Premium</strong></td>
-          <td>Standard + quarterly audit + compliance reports + unlimited</td>
-          <td>From €299/month</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Package</th>
+					<th>Coverage</th>
+					<th>Price</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Basic</strong></td>
+					<td>Monthly rule review + incident response + 4 hrs admin</td>
+					<td>From €50/month</td>
+			</tr>
+			<tr>
+					<td><strong>Standard</strong></td>
+					<td>Basic + firmware management + VPN monitoring + 8 hrs</td>
+					<td>From €150/month</td>
+			</tr>
+			<tr>
+					<td><strong>Premium</strong></td>
+					<td>Standard + quarterly audit + compliance reports + unlimited</td>
+					<td>From €299/month</td>
+			</tr>
+	</tbody>
 </table>
 <h3 id="project-based">Project-Based</h3>
 <ul>
@@ -515,40 +515,40 @@ I work through all of these systematically before touching ISE policy. The netwo
 <h2 id="typical-project-sizes--investment">Typical Project Sizes &amp; Investment</h2>
 <p>Every business is different—here is an orientation framework:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Project Type</th>
-          <th>Scope</th>
-          <th>Investment</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Firewall Audit &amp; Optimization</td>
-          <td>1-2 Days</td>
-          <td><strong>from €500</strong></td>
-      </tr>
-      <tr>
-          <td>WLAN Planning (up to 50 APs)</td>
-          <td>3-5 Days</td>
-          <td><strong>from €900</strong></td>
-      </tr>
-      <tr>
-          <td>Firewall Migration (Palo Alto / Fortinet)</td>
-          <td>5-10 Days</td>
-          <td><strong>from €2,000</strong></td>
-      </tr>
-      <tr>
-          <td>Zero Trust Architecture</td>
-          <td>Project-based</td>
-          <td><strong>On Request</strong></td>
-      </tr>
-      <tr>
-          <td>Monthly Managed Security Monitoring</td>
-          <td>Ongoing</td>
-          <td><strong>from €199/mo</strong></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Project Type</th>
+					<th>Scope</th>
+					<th>Investment</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Firewall Audit &amp; Optimization</td>
+					<td>1-2 Days</td>
+					<td><strong>from €500</strong></td>
+			</tr>
+			<tr>
+					<td>WLAN Planning (up to 50 APs)</td>
+					<td>3-5 Days</td>
+					<td><strong>from €900</strong></td>
+			</tr>
+			<tr>
+					<td>Firewall Migration (Palo Alto / Fortinet)</td>
+					<td>5-10 Days</td>
+					<td><strong>from €2,000</strong></td>
+			</tr>
+			<tr>
+					<td>Zero Trust Architecture</td>
+					<td>Project-based</td>
+					<td><strong>On Request</strong></td>
+			</tr>
+			<tr>
+					<td>Monthly Managed Security Monitoring</td>
+					<td>Ongoing</td>
+					<td><strong>from €199/mo</strong></td>
+			</tr>
+	</tbody>
 </table>
 <p><em>Free estimate provided after a 30-minute initial call. No hidden costs.</em></p>
 <hr>
@@ -584,30 +584,30 @@ I work through all of these systematically before touching ISE policy. The netwo
 </ul>
 <p><strong>Suitable for:</strong> Cafés, restaurants, medical practices, law firms, small offices, hotels</p>
 <table>
-  <thead>
-      <tr>
-          <th>Service</th>
-          <th>Price</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Site survey (signal analysis)</td>
-          <td>Free</td>
-      </tr>
-      <tr>
-          <td>Installation 1x Aruba AP</td>
-          <td>From €99 + hardware</td>
-      </tr>
-      <tr>
-          <td>Installation 2x AP (Mesh)</td>
-          <td>From €149 + hardware</td>
-      </tr>
-      <tr>
-          <td>Monthly monitoring</td>
-          <td>€19/month</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Service</th>
+					<th>Price</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Site survey (signal analysis)</td>
+					<td>Free</td>
+			</tr>
+			<tr>
+					<td>Installation 1x Aruba AP</td>
+					<td>From €99 + hardware</td>
+			</tr>
+			<tr>
+					<td>Installation 2x AP (Mesh)</td>
+					<td>From €149 + hardware</td>
+			</tr>
+			<tr>
+					<td>Monthly monitoring</td>
+					<td>€19/month</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h3 id="-nas-backup--data-security-aws-s3">💾 NAS Backup &amp; Data Security (AWS S3)</h3>
@@ -622,30 +622,30 @@ I work through all of these systematically before touching ISE policy. The netwo
 </ul>
 <p><strong>For medical practices &amp; law firms:</strong> I prepare a Data Processing Agreement (AVV) — legally clean and GDPR-compliant.</p>
 <table>
-  <thead>
-      <tr>
-          <th>Service</th>
-          <th>Price</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>AWS account setup</td>
-          <td>€49 one-time</td>
-      </tr>
-      <tr>
-          <td>Backup configuration (Hyper Backup)</td>
-          <td>€49 one-time</td>
-      </tr>
-      <tr>
-          <td>AVV preparation (for medical practices)</td>
-          <td>€29 one-time</td>
-      </tr>
-      <tr>
-          <td>Monthly monitoring &amp; control</td>
-          <td>€19/month</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Service</th>
+					<th>Price</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>AWS account setup</td>
+					<td>€49 one-time</td>
+			</tr>
+			<tr>
+					<td>Backup configuration (Hyper Backup)</td>
+					<td>€49 one-time</td>
+			</tr>
+			<tr>
+					<td>AVV preparation (for medical practices)</td>
+					<td>€29 one-time</td>
+			</tr>
+			<tr>
+					<td>Monthly monitoring &amp; control</td>
+					<td>€19/month</td>
+			</tr>
+	</tbody>
 </table>
 <p><em>AWS costs (~€2-5/month) are billed directly through your AWS account.</em></p>
 <hr>
@@ -668,30 +668,30 @@ No data loss, no damage
 <li><strong>Annual battery check:</strong> I check the battery condition once a year</li>
 </ul>
 <table>
-  <thead>
-      <tr>
-          <th>Service</th>
-          <th>Price</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>UPS needs analysis</td>
-          <td>Free</td>
-      </tr>
-      <tr>
-          <td>Installation &amp; NAS integration</td>
-          <td>€59 labor</td>
-      </tr>
-      <tr>
-          <td>UPS hardware (APC 650VA)</td>
-          <td>~€80-120 + margin</td>
-      </tr>
-      <tr>
-          <td>Annual battery check</td>
-          <td>€29/year</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Service</th>
+					<th>Price</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>UPS needs analysis</td>
+					<td>Free</td>
+			</tr>
+			<tr>
+					<td>Installation &amp; NAS integration</td>
+					<td>€59 labor</td>
+			</tr>
+			<tr>
+					<td>UPS hardware (APC 650VA)</td>
+					<td>~€80-120 + margin</td>
+			</tr>
+			<tr>
+					<td>Annual battery check</td>
+					<td>€29/year</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h3 id="-antivirus--endpoint-protection-centrally-managed">🛡️ Antivirus &amp; Endpoint Protection (Centrally Managed)</h3>
@@ -704,26 +704,26 @@ No data loss, no damage
 <li><strong>Monthly report:</strong> You receive a monthly overview of detected threats</li>
 </ul>
 <table>
-  <thead>
-      <tr>
-          <th>Service</th>
-          <th>Price</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Setup &amp; installation (up to 5 PCs)</td>
-          <td>€59 one-time</td>
-      </tr>
-      <tr>
-          <td>License per device</td>
-          <td>From €3-5/month</td>
-      </tr>
-      <tr>
-          <td>Monthly management &amp; report</td>
-          <td>Included in package</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Service</th>
+					<th>Price</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Setup &amp; installation (up to 5 PCs)</td>
+					<td>€59 one-time</td>
+			</tr>
+			<tr>
+					<td>License per device</td>
+					<td>From €3-5/month</td>
+			</tr>
+			<tr>
+					<td>Monthly management &amp; report</td>
+					<td>Included in package</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h3 id="-camera-system--video-surveillance">📹 Camera System &amp; Video Surveillance</h3>
@@ -736,30 +736,30 @@ No data loss, no damage
 <li><strong>GDPR:</strong> I help with correct signage and privacy policy</li>
 </ul>
 <table>
-  <thead>
-      <tr>
-          <th>Service</th>
-          <th>Price</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Consultation &amp; planning</td>
-          <td>Free</td>
-      </tr>
-      <tr>
-          <td>Installation per camera</td>
-          <td>From €49 labor</td>
-      </tr>
-      <tr>
-          <td>Synology Surveillance Station setup</td>
-          <td>€59 one-time</td>
-      </tr>
-      <tr>
-          <td>Additional camera license (Synology)</td>
-          <td>~€50 one-time</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Service</th>
+					<th>Price</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Consultation &amp; planning</td>
+					<td>Free</td>
+			</tr>
+			<tr>
+					<td>Installation per camera</td>
+					<td>From €49 labor</td>
+			</tr>
+			<tr>
+					<td>Synology Surveillance Station setup</td>
+					<td>€59 one-time</td>
+			</tr>
+			<tr>
+					<td>Additional camera license (Synology)</td>
+					<td>~€50 one-time</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h3 id="-pc--server-maintenance">💻 PC &amp; Server Maintenance</h3>
@@ -773,109 +773,109 @@ No data loss, no damage
 <li><strong>Remote support:</strong> Simple problems solved via AnyDesk without an on-site visit</li>
 </ul>
 <table>
-  <thead>
-      <tr>
-          <th>Service</th>
-          <th>Price</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>PC diagnosis</td>
-          <td>Free</td>
-      </tr>
-      <tr>
-          <td>Windows reinstallation</td>
-          <td>From €49</td>
-      </tr>
-      <tr>
-          <td>SSD/RAM upgrade</td>
-          <td>From €49 + hardware</td>
-      </tr>
-      <tr>
-          <td>Server maintenance (on-site)</td>
-          <td>€59/hour</td>
-      </tr>
-      <tr>
-          <td>Remote support</td>
-          <td>€29/hour</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Service</th>
+					<th>Price</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>PC diagnosis</td>
+					<td>Free</td>
+			</tr>
+			<tr>
+					<td>Windows reinstallation</td>
+					<td>From €49</td>
+			</tr>
+			<tr>
+					<td>SSD/RAM upgrade</td>
+					<td>From €49 + hardware</td>
+			</tr>
+			<tr>
+					<td>Server maintenance (on-site)</td>
+					<td>€59/hour</td>
+			</tr>
+			<tr>
+					<td>Remote support</td>
+					<td>€29/hour</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="monthly-care-packages">Monthly Care Packages</h2>
 <p>Instead of individual jobs, I also offer monthly care contracts — so you always have a fixed contact person and predictable IT costs:</p>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th><strong>Basic</strong></th>
-          <th><strong>Business</strong></th>
-          <th><strong>Premium</strong></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Antivirus (up to 5 devices)</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Windows Update management</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Remote support (hrs/month)</td>
-          <td>1 hr</td>
-          <td>2 hrs</td>
-          <td>4 hrs</td>
-      </tr>
-      <tr>
-          <td>NAS backup monitoring</td>
-          <td>–</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>WiFi monitoring</td>
-          <td>–</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>On-site visit/month</td>
-          <td>–</td>
-          <td>1x</td>
-          <td>2x</td>
-      </tr>
-      <tr>
-          <td>UPS annual check</td>
-          <td>–</td>
-          <td>–</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Monthly report</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Response time</td>
-          <td>48 hrs</td>
-          <td>24 hrs</td>
-          <td>4 hrs</td>
-      </tr>
-      <tr>
-          <td><strong>Price</strong></td>
-          <td><strong>€49/month</strong></td>
-          <td><strong>€89/month</strong></td>
-          <td><strong>€149/month</strong></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th><strong>Basic</strong></th>
+					<th><strong>Business</strong></th>
+					<th><strong>Premium</strong></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Antivirus (up to 5 devices)</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Windows Update management</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Remote support (hrs/month)</td>
+					<td>1 hr</td>
+					<td>2 hrs</td>
+					<td>4 hrs</td>
+			</tr>
+			<tr>
+					<td>NAS backup monitoring</td>
+					<td>–</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>WiFi monitoring</td>
+					<td>–</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>On-site visit/month</td>
+					<td>–</td>
+					<td>1x</td>
+					<td>2x</td>
+			</tr>
+			<tr>
+					<td>UPS annual check</td>
+					<td>–</td>
+					<td>–</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Monthly report</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Response time</td>
+					<td>48 hrs</td>
+					<td>24 hrs</td>
+					<td>4 hrs</td>
+			</tr>
+			<tr>
+					<td><strong>Price</strong></td>
+					<td><strong>€49/month</strong></td>
+					<td><strong>€89/month</strong></td>
+					<td><strong>€149/month</strong></td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="your-data--always-under-your-control">Your Data — Always Under Your Control</h2>
@@ -981,70 +981,70 @@ No data loss, no damage
 <hr>
 <h2 id="packages--pricing">Packages &amp; Pricing</h2>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th><strong>Starter</strong></th>
-          <th><strong>Business</strong></th>
-          <th><strong>Premium</strong></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>SSL Certificate</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>WAF Protection</td>
-          <td>Basic</td>
-          <td>Advanced</td>
-          <td>Full</td>
-      </tr>
-      <tr>
-          <td>DDoS Protection</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Monthly Report</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Free Hosting</td>
-          <td>–</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>WordPress Updates</td>
-          <td>–</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Monthly Backup</td>
-          <td>–</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Support Response</td>
-          <td>48 hrs</td>
-          <td>24 hrs</td>
-          <td>4 hrs</td>
-      </tr>
-      <tr>
-          <td><strong>Price</strong></td>
-          <td><strong>€19/month</strong></td>
-          <td><strong>€29/month</strong></td>
-          <td><strong>€49/month</strong></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th><strong>Starter</strong></th>
+					<th><strong>Business</strong></th>
+					<th><strong>Premium</strong></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>SSL Certificate</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>WAF Protection</td>
+					<td>Basic</td>
+					<td>Advanced</td>
+					<td>Full</td>
+			</tr>
+			<tr>
+					<td>DDoS Protection</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Monthly Report</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Free Hosting</td>
+					<td>–</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>WordPress Updates</td>
+					<td>–</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Monthly Backup</td>
+					<td>–</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Support Response</td>
+					<td>48 hrs</td>
+					<td>24 hrs</td>
+					<td>4 hrs</td>
+			</tr>
+			<tr>
+					<td><strong>Price</strong></td>
+					<td><strong>€19/month</strong></td>
+					<td><strong>€29/month</strong></td>
+					<td><strong>€49/month</strong></td>
+			</tr>
+	</tbody>
 </table>
 <p><em>One-time setup fee: €49 (waived in the first month with annual contract)</em></p>
 <hr>
@@ -1100,62 +1100,62 @@ Use the collected contacts for newsletters, promotions, or loyalty discounts.</p
 <hr>
 <h2 id="who-is-this-for">Who is this for?</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Industry</th>
-          <th>Benefit</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Cafes &amp; Restaurants</strong></td>
-          <td>Win loyal customers, promote specials</td>
-      </tr>
-      <tr>
-          <td><strong>Hotels &amp; Guesthouses</strong></td>
-          <td>Guest retention, request reviews</td>
-      </tr>
-      <tr>
-          <td><strong>Language Schools</strong></td>
-          <td>Inform students, promote new courses</td>
-      </tr>
-      <tr>
-          <td><strong>Retail Shops</strong></td>
-          <td>Digital replacement for loyalty cards</td>
-      </tr>
-      <tr>
-          <td><strong>Medical &amp; Law Offices</strong></td>
-          <td>Appointment reminders, news</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Industry</th>
+					<th>Benefit</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Cafes &amp; Restaurants</strong></td>
+					<td>Win loyal customers, promote specials</td>
+			</tr>
+			<tr>
+					<td><strong>Hotels &amp; Guesthouses</strong></td>
+					<td>Guest retention, request reviews</td>
+			</tr>
+			<tr>
+					<td><strong>Language Schools</strong></td>
+					<td>Inform students, promote new courses</td>
+			</tr>
+			<tr>
+					<td><strong>Retail Shops</strong></td>
+					<td>Digital replacement for loyalty cards</td>
+			</tr>
+			<tr>
+					<td><strong>Medical &amp; Law Offices</strong></td>
+					<td>Appointment reminders, news</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="packages--pricing">Packages &amp; Pricing</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Package</th>
-          <th>Content</th>
-          <th>Price</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Starter</strong></td>
-          <td>Installation + Portal Setup + Dashboard</td>
-          <td>One-time €79</td>
-      </tr>
-      <tr>
-          <td><strong>Basic</strong></td>
-          <td>Starter + Monthly Report + Support</td>
-          <td>€29/month</td>
-      </tr>
-      <tr>
-          <td><strong>Pro</strong></td>
-          <td>Basic + Email Campaigns + Custom Branding</td>
-          <td>€59/month</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Package</th>
+					<th>Content</th>
+					<th>Price</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Starter</strong></td>
+					<td>Installation + Portal Setup + Dashboard</td>
+					<td>One-time €79</td>
+			</tr>
+			<tr>
+					<td><strong>Basic</strong></td>
+					<td>Starter + Monthly Report + Support</td>
+					<td>€29/month</td>
+			</tr>
+			<tr>
+					<td><strong>Pro</strong></td>
+					<td>Basic + Email Campaigns + Custom Branding</td>
+					<td>€59/month</td>
+			</tr>
+	</tbody>
 </table>
 <p><em>Already have a WiFi device? No problem — we will check compatibility for free.</em></p>
 <p><em>All packages are GDPR compliant. No hidden costs.</em></p>

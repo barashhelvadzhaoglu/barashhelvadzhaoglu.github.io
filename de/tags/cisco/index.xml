@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Cisco on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/cisco/</link><description>Recent content in Cisco on Barash Helvadzhaoglu</description><generator>Hugo -- 0.161.1</generator><language>de</language><lastBuildDate>Fri, 17 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/cisco/index.xml" rel="self" type="application/rss+xml"/><item><title>Enterprise WLAN-Controller-Architektur: Cisco und Aruba WLAN-Design</title><link>https://barashhelvadzhaoglu.com/de/technology/wifi-controller/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/wifi-controller/</guid><description>Enterprise-WLAN-Controller Deep Dive — Cisco WLC vs. DNA Center, Aruba Mobility Master vs. Central, zentrale vs. verteilte Designs.</description><content:encoded><![CDATA[<h1 id="enterprise-wlan-controller-architektur-cisco-und-aruba-wlan-design">Enterprise WLAN-Controller-Architektur: Cisco und Aruba WLAN-Design</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Cisco on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/cisco/</link><description>Recent content in Cisco on Barash Helvadzhaoglu</description><generator>Hugo -- 0.162.0</generator><language>de</language><lastBuildDate>Fri, 17 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/cisco/index.xml" rel="self" type="application/rss+xml"/><item><title>Enterprise WLAN-Controller-Architektur: Cisco und Aruba WLAN-Design</title><link>https://barashhelvadzhaoglu.com/de/technology/wifi-controller/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/wifi-controller/</guid><description>Enterprise-WLAN-Controller Deep Dive — Cisco WLC vs. DNA Center, Aruba Mobility Master vs. Central, zentrale vs. verteilte Designs.</description><content:encoded><![CDATA[<h1 id="enterprise-wlan-controller-architektur-cisco-und-aruba-wlan-design">Enterprise WLAN-Controller-Architektur: Cisco und Aruba WLAN-Design</h1>
 <p>Dieser Artikel ist Teil der Enterprise-WiFi-Serie.</p>
 <blockquote>
 <p><strong>Neu im Enterprise-Wireless-Bereich?</strong> Beginnen Sie mit der Übersicht: <a href="/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/">Enterprise WiFi-Architektur: Von Standards bis zur Deployment</a></p>
@@ -423,46 +423,46 @@ Cisco IP-Telefone (7900er-Serie, 8800er-Serie)
 <h2 id="die-80211-standards-was-sich-wirklich-geändert-hat">Die 802.11-Standards: Was sich wirklich geändert hat</h2>
 <p>Der IEEE 802.11-Standard hat mehrere Generationen durchlaufen, jede für Marketingzwecke unterschiedlich gebrandmarkt:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Standard</th>
-          <th>Marketingname</th>
-          <th>Max. theoretische Rate</th>
-          <th>Wichtigste Verbesserung</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>802.11n</td>
-          <td>WiFi 4</td>
-          <td>600 Mbps</td>
-          <td>MIMO, 5-GHz-Unterstützung</td>
-      </tr>
-      <tr>
-          <td>802.11ac</td>
-          <td>WiFi 5</td>
-          <td>3,5 Gbps</td>
-          <td>MU-MIMO, breitere Kanäle (80/160 MHz)</td>
-      </tr>
-      <tr>
-          <td>802.11ax</td>
-          <td>WiFi 6</td>
-          <td>9,6 Gbps</td>
-          <td>OFDMA, BSS-Coloring, TWT, hohe Dichte</td>
-      </tr>
-      <tr>
-          <td>802.11ax (6 GHz)</td>
-          <td>WiFi 6E</td>
-          <td>9,6 Gbps</td>
-          <td>Neues 6-GHz-Band, weniger Überlastung</td>
-      </tr>
-      <tr>
-          <td>802.11be</td>
-          <td>WiFi 7</td>
-          <td>46 Gbps</td>
-          <td>Multi-Link-Operation, 320-MHz-Kanäle</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Standard</th>
+					<th>Marketingname</th>
+					<th>Max. theoretische Rate</th>
+					<th>Wichtigste Verbesserung</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>802.11n</td>
+					<td>WiFi 4</td>
+					<td>600 Mbps</td>
+					<td>MIMO, 5-GHz-Unterstützung</td>
+			</tr>
+			<tr>
+					<td>802.11ac</td>
+					<td>WiFi 5</td>
+					<td>3,5 Gbps</td>
+					<td>MU-MIMO, breitere Kanäle (80/160 MHz)</td>
+			</tr>
+			<tr>
+					<td>802.11ax</td>
+					<td>WiFi 6</td>
+					<td>9,6 Gbps</td>
+					<td>OFDMA, BSS-Coloring, TWT, hohe Dichte</td>
+			</tr>
+			<tr>
+					<td>802.11ax (6 GHz)</td>
+					<td>WiFi 6E</td>
+					<td>9,6 Gbps</td>
+					<td>Neues 6-GHz-Band, weniger Überlastung</td>
+			</tr>
+			<tr>
+					<td>802.11be</td>
+					<td>WiFi 7</td>
+					<td>46 Gbps</td>
+					<td>Multi-Link-Operation, 320-MHz-Kanäle</td>
+			</tr>
+	</tbody>
 </table>
 <p>Die theoretischen Raten in Marketingmaterialien werden in der Praxis nie erreicht. Was bei echten Deployments wichtig ist, unterscheidet sich für jede Generation:</p>
 <p><strong>WiFi 6 (802.11ax)</strong> führte zwei Fähigkeiten ein, die in dichten Umgebungen wirklich wichtig sind:</p>
@@ -581,42 +581,42 @@ Cisco IP-Telefone (7900er-Serie, 8800er-Serie)
 <hr>
 <h2 id="die-richtige-plattform-wählen">Die richtige Plattform wählen</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Szenario</th>
-          <th>Empfohlene Plattform</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Kleines Büro, einfaches Management</td>
-          <td>Aruba Instant On, Cisco Business, Meraki Go</td>
-      </tr>
-      <tr>
-          <td>KMU mit IT-Personal</td>
-          <td>Cisco Meraki, Aruba Central (Cloud-verwaltet)</td>
-      </tr>
-      <tr>
-          <td>Enterprise-Campus, komplexe Richtlinien</td>
-          <td>Aruba Mobility Master, Cisco DNA Center</td>
-      </tr>
-      <tr>
-          <td>Hotel / Gastgewerbe</td>
-          <td>Aruba, Cisco Meraki (mit PMS-Integration)</td>
-      </tr>
-      <tr>
-          <td>Gesundheitswesen / regulierte Umgebung</td>
-          <td>Aruba ClearPass + Mobility Master, Cisco ISE + WLC</td>
-      </tr>
-      <tr>
-          <td>Hochdichte-Venues</td>
-          <td>Cisco (Catalyst Center), Aruba (AOS 10)</td>
-      </tr>
-      <tr>
-          <td>Multi-Site, zentralisiertes Management</td>
-          <td>Cisco Meraki, Aruba Central</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Szenario</th>
+					<th>Empfohlene Plattform</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Kleines Büro, einfaches Management</td>
+					<td>Aruba Instant On, Cisco Business, Meraki Go</td>
+			</tr>
+			<tr>
+					<td>KMU mit IT-Personal</td>
+					<td>Cisco Meraki, Aruba Central (Cloud-verwaltet)</td>
+			</tr>
+			<tr>
+					<td>Enterprise-Campus, komplexe Richtlinien</td>
+					<td>Aruba Mobility Master, Cisco DNA Center</td>
+			</tr>
+			<tr>
+					<td>Hotel / Gastgewerbe</td>
+					<td>Aruba, Cisco Meraki (mit PMS-Integration)</td>
+			</tr>
+			<tr>
+					<td>Gesundheitswesen / regulierte Umgebung</td>
+					<td>Aruba ClearPass + Mobility Master, Cisco ISE + WLC</td>
+			</tr>
+			<tr>
+					<td>Hochdichte-Venues</td>
+					<td>Cisco (Catalyst Center), Aruba (AOS 10)</td>
+			</tr>
+			<tr>
+					<td>Multi-Site, zentralisiertes Management</td>
+					<td>Cisco Meraki, Aruba Central</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="diese-serie">Diese Serie</h2>

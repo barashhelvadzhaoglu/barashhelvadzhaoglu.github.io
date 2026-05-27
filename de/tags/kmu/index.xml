@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>KMU on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/kmu/</link><description>Recent content in KMU on Barash Helvadzhaoglu</description><generator>Hugo -- 0.161.1</generator><language>de</language><lastBuildDate>Wed, 29 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/kmu/index.xml" rel="self" type="application/rss+xml"/><item><title>WiFi-Design für KMU, Hotels und Arztpraxen: Feldnotizen</title><link>https://barashhelvadzhaoglu.com/de/technology/wifi-smb-hotel-medical/</link><pubDate>Wed, 29 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/wifi-smb-hotel-medical/</guid><description>WLAN-Design für KMU, Hotels und Arztpraxen — Dichte-Planung, Gäste-Segmentierung, Bandbreitenmanagement und PMS-Integration.</description><content:encoded><![CDATA[<h1 id="wifi-design-für-kmu-hotels-und-arztpraxen-feldnotizen">WiFi-Design für KMU, Hotels und Arztpraxen: Feldnotizen</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>KMU on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/kmu/</link><description>Recent content in KMU on Barash Helvadzhaoglu</description><generator>Hugo -- 0.162.0</generator><language>de</language><lastBuildDate>Wed, 29 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/kmu/index.xml" rel="self" type="application/rss+xml"/><item><title>WiFi-Design für KMU, Hotels und Arztpraxen: Feldnotizen</title><link>https://barashhelvadzhaoglu.com/de/technology/wifi-smb-hotel-medical/</link><pubDate>Wed, 29 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/wifi-smb-hotel-medical/</guid><description>WLAN-Design für KMU, Hotels und Arztpraxen — Dichte-Planung, Gäste-Segmentierung, Bandbreitenmanagement und PMS-Integration.</description><content:encoded><![CDATA[<h1 id="wifi-design-für-kmu-hotels-und-arztpraxen-feldnotizen">WiFi-Design für KMU, Hotels und Arztpraxen: Feldnotizen</h1>
 <p>Dieser Artikel ist Teil der Enterprise-WiFi-Serie.</p>
 <blockquote>
 <p><strong>Neu im Enterprise-Wireless-Bereich?</strong> Beginnen Sie mit der Übersicht: <a href="/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/">Enterprise WiFi-Architektur: Von Standards bis zur Deployment</a></p>
@@ -23,40 +23,40 @@
 <h3 id="abdeckungsplanung-für-kmu">Abdeckungsplanung für KMU</h3>
 <p>Ein grober Ausgangspunkt für typische Büroumgebungen:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Umgebung</th>
-          <th>AP-Abdeckungsbereich</th>
-          <th>Hinweise</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Offenes Büro, niedrige Dichte</td>
-          <td>150–200 m²</td>
-          <td>Moderne WiFi-6-APs, moderate Client-Anzahl</td>
-      </tr>
-      <tr>
-          <td>Offenes Büro, hohe Dichte</td>
-          <td>80–100 m²</td>
-          <td>Viele Clients, Video-Calls, hoher Durchsatz</td>
-      </tr>
-      <tr>
-          <td>Büro mit Innenwänden</td>
-          <td>80–120 m²</td>
-          <td>Wände dämpfen Signal; vor Finalisierung testen</td>
-      </tr>
-      <tr>
-          <td>Korridor / Hotelflur</td>
-          <td>20–25 m pro AP</td>
-          <td>Schmales Abdeckungsmuster</td>
-      </tr>
-      <tr>
-          <td>Lager / großer offener Raum</td>
-          <td>300–500 m²</td>
-          <td>Niedrige Dichte, hohe Decken, RF breitet sich gut aus</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Umgebung</th>
+					<th>AP-Abdeckungsbereich</th>
+					<th>Hinweise</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Offenes Büro, niedrige Dichte</td>
+					<td>150–200 m²</td>
+					<td>Moderne WiFi-6-APs, moderate Client-Anzahl</td>
+			</tr>
+			<tr>
+					<td>Offenes Büro, hohe Dichte</td>
+					<td>80–100 m²</td>
+					<td>Viele Clients, Video-Calls, hoher Durchsatz</td>
+			</tr>
+			<tr>
+					<td>Büro mit Innenwänden</td>
+					<td>80–120 m²</td>
+					<td>Wände dämpfen Signal; vor Finalisierung testen</td>
+			</tr>
+			<tr>
+					<td>Korridor / Hotelflur</td>
+					<td>20–25 m pro AP</td>
+					<td>Schmales Abdeckungsmuster</td>
+			</tr>
+			<tr>
+					<td>Lager / großer offener Raum</td>
+					<td>300–500 m²</td>
+					<td>Niedrige Dichte, hohe Decken, RF breitet sich gut aus</td>
+			</tr>
+	</tbody>
 </table>
 <p>Das sind Ausgangspunkte, keine Regeln. Der einzige Weg zur Validierung der Abdeckung ist ein Site Survey — prädiktiv vor Deployment, Validierung danach.</p>
 <h3 id="die-netzwerksegmentierungs-basislinie">Die Netzwerksegmentierungs-Basislinie</h3>
@@ -75,30 +75,30 @@ SSID: IoT/Drucker   → VLAN 30 (Drucker, Kameras, isoliert)
 </ul>
 <h3 id="plattformempfehlung-für-kmu">Plattformempfehlung für KMU</h3>
 <table>
-  <thead>
-      <tr>
-          <th>Größe</th>
-          <th>Empfehlung</th>
-          <th>Grund</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>1–5 APs, kein IT-Personal</td>
-          <td>Aruba Instant On</td>
-          <td>Einfaches App-basiertes Management, solide Hardware</td>
-      </tr>
-      <tr>
-          <td>5–20 APs, einfaches IT-Personal</td>
-          <td>Cisco Meraki oder Aruba Central</td>
-          <td>Cloud-Management, gute Sichtbarkeit</td>
-      </tr>
-      <tr>
-          <td>20+ APs, IT-Team</td>
-          <td>Aruba Central oder Cisco DNA Center</td>
-          <td>Enterprise-Features, Richtlinienintegration</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Größe</th>
+					<th>Empfehlung</th>
+					<th>Grund</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>1–5 APs, kein IT-Personal</td>
+					<td>Aruba Instant On</td>
+					<td>Einfaches App-basiertes Management, solide Hardware</td>
+			</tr>
+			<tr>
+					<td>5–20 APs, einfaches IT-Personal</td>
+					<td>Cisco Meraki oder Aruba Central</td>
+					<td>Cloud-Management, gute Sichtbarkeit</td>
+			</tr>
+			<tr>
+					<td>20+ APs, IT-Team</td>
+					<td>Aruba Central oder Cisco DNA Center</td>
+					<td>Enterprise-Features, Richtlinienintegration</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="teil-2-hotel-wifi-design">Teil 2: Hotel WiFi-Design</h2>
@@ -412,40 +412,40 @@ Ihre Daten: sicher, verschlüsselt, redundant
 <h2 id="aws-s3-storage-tiers--was-passt-zu-ihnen">AWS S3 Storage-Tiers — Was passt zu Ihnen?</h2>
 <p>AWS S3 bietet verschiedene Speicherebenen mit unterschiedlichen Preisen und Zugriffszeiten:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Tier</th>
-          <th>Am besten für</th>
-          <th>Zugriff</th>
-          <th>Kosten</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>S3 Standard</strong></td>
-          <td>Häufig abgerufene Daten</td>
-          <td>Sofort</td>
-          <td>~€23/TB/Monat</td>
-      </tr>
-      <tr>
-          <td><strong>S3 Infrequent Access</strong></td>
-          <td>Einige Male pro Monat</td>
-          <td>Sofort</td>
-          <td>~€12/TB/Monat</td>
-      </tr>
-      <tr>
-          <td><strong>S3 Glacier Instant</strong></td>
-          <td>Selten abgerufene Archive</td>
-          <td>Millisekunden</td>
-          <td>~€4/TB/Monat</td>
-      </tr>
-      <tr>
-          <td><strong>S3 Glacier Deep Archive</strong></td>
-          <td>Langzeitarchivierung</td>
-          <td>12 Stunden</td>
-          <td>~€1/TB/Monat</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Tier</th>
+					<th>Am besten für</th>
+					<th>Zugriff</th>
+					<th>Kosten</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>S3 Standard</strong></td>
+					<td>Häufig abgerufene Daten</td>
+					<td>Sofort</td>
+					<td>~€23/TB/Monat</td>
+			</tr>
+			<tr>
+					<td><strong>S3 Infrequent Access</strong></td>
+					<td>Einige Male pro Monat</td>
+					<td>Sofort</td>
+					<td>~€12/TB/Monat</td>
+			</tr>
+			<tr>
+					<td><strong>S3 Glacier Instant</strong></td>
+					<td>Selten abgerufene Archive</td>
+					<td>Millisekunden</td>
+					<td>~€4/TB/Monat</td>
+			</tr>
+			<tr>
+					<td><strong>S3 Glacier Deep Archive</strong></td>
+					<td>Langzeitarchivierung</td>
+					<td>12 Stunden</td>
+					<td>~€1/TB/Monat</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Empfehlung für KMU:</strong>
 Aktive Geschäftsdaten: <strong>S3 Infrequent Access</strong> — günstiger Preis, sofortiger Zugriff bei Bedarf.

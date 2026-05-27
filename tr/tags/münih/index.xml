@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Münih on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/m%C3%BCnih/</link><description>Recent content in Münih on Barash Helvadzhaoglu</description><generator>Hugo -- 0.161.1</generator><language>tr</language><lastBuildDate>Wed, 25 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/m%C3%BCnih/index.xml" rel="self" type="application/rss+xml"/><item><title>Wi-Fi Sorunları mı? Kablo Gerektirmeyen Kalıcı Mesh Çözümü — Ofisler, Villalar ve Lüks Mülkler için</title><link>https://barashhelvadzhaoglu.com/tr/posts/wifi-mesh-solution/</link><pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/wifi-mesh-solution/</guid><description>Wi-Fi her odaya ulaşmıyor mu? Aruba Instant On Mesh ve ClientMatch&amp;#39;in kablo gerektirmeden kalıcı çözüm sunduğunu öğrenin.</description><content:encoded><![CDATA[<p>Tanıdık geliyor mu? Ön ofiste veya resepsiyonda Wi-Fi mükemmel — ama toplantı odasına, mutfağa veya arka bölüme geçince bağlantı düşüyor ya da verimli çalışmayı imkânsız kılacak kadar yavaşlıyor.</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Münih on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/m%C3%BCnih/</link><description>Recent content in Münih on Barash Helvadzhaoglu</description><generator>Hugo -- 0.162.0</generator><language>tr</language><lastBuildDate>Wed, 25 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/m%C3%BCnih/index.xml" rel="self" type="application/rss+xml"/><item><title>Wi-Fi Sorunları mı? Kablo Gerektirmeyen Kalıcı Mesh Çözümü — Ofisler, Villalar ve Lüks Mülkler için</title><link>https://barashhelvadzhaoglu.com/tr/posts/wifi-mesh-solution/</link><pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/wifi-mesh-solution/</guid><description>Wi-Fi her odaya ulaşmıyor mu? Aruba Instant On Mesh ve ClientMatch&amp;#39;in kablo gerektirmeden kalıcı çözüm sunduğunu öğrenin.</description><content:encoded><![CDATA[<p>Tanıdık geliyor mu? Ön ofiste veya resepsiyonda Wi-Fi mükemmel — ama toplantı odasına, mutfağa veya arka bölüme geçince bağlantı düşüyor ya da verimli çalışmayı imkânsız kılacak kadar yavaşlıyor.</p>
 <p>Ya da evde: Oturma odasında Netflix akıcı çalışıyor, ama üst katta veya bahçede bağlantı gelip gidiyor. Üç katlı bir villada veya su kenarındaki lüks bir mülkte her odada güçlü Wi-Fi bir hayal gibi görünüyor.</p>
 <p>Değil. Ve en güzel yanı: Sorun kalıcı olarak çözülebilir — <strong>tek bir metre kablo döşemeden.</strong></p>
 <figure>
@@ -246,40 +246,40 @@ Verileriniz: güvenli, şifreli, yedekli
 </code></pre><p>Synology NAS cihazlarında yerleşik &ldquo;Hyper Backup&rdquo; uygulaması bulunur. Bir kez yapılandırırsınız ve her gece değişen dosyaları otomatik olarak S3&rsquo;e gönderir. Siz uyurken yedeklemeniz çalışır.</p>
 <h2 id="aws-s3-depolama-katmanları--hangisi-size-uygun">AWS S3 Depolama Katmanları — Hangisi Size Uygun?</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Katman</th>
-          <th>En iyi kullanım</th>
-          <th>Erişim</th>
-          <th>Maliyet</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>S3 Standard</strong></td>
-          <td>Sık erişilen veriler</td>
-          <td>Anında</td>
-          <td>~€23/TB/ay</td>
-      </tr>
-      <tr>
-          <td><strong>S3 Infrequent Access</strong></td>
-          <td>Ayda birkaç kez</td>
-          <td>Anında</td>
-          <td>~€12/TB/ay</td>
-      </tr>
-      <tr>
-          <td><strong>S3 Glacier Instant</strong></td>
-          <td>Nadiren erişilen arşivler</td>
-          <td>Milisaniye</td>
-          <td>~€4/TB/ay</td>
-      </tr>
-      <tr>
-          <td><strong>S3 Glacier Deep Archive</strong></td>
-          <td>Uzun süreli arşivleme</td>
-          <td>12 saat</td>
-          <td>~€1/TB/ay</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Katman</th>
+					<th>En iyi kullanım</th>
+					<th>Erişim</th>
+					<th>Maliyet</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>S3 Standard</strong></td>
+					<td>Sık erişilen veriler</td>
+					<td>Anında</td>
+					<td>~€23/TB/ay</td>
+			</tr>
+			<tr>
+					<td><strong>S3 Infrequent Access</strong></td>
+					<td>Ayda birkaç kez</td>
+					<td>Anında</td>
+					<td>~€12/TB/ay</td>
+			</tr>
+			<tr>
+					<td><strong>S3 Glacier Instant</strong></td>
+					<td>Nadiren erişilen arşivler</td>
+					<td>Milisaniye</td>
+					<td>~€4/TB/ay</td>
+			</tr>
+			<tr>
+					<td><strong>S3 Glacier Deep Archive</strong></td>
+					<td>Uzun süreli arşivleme</td>
+					<td>12 saat</td>
+					<td>~€1/TB/ay</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>KOBİ&rsquo;ler için öneri:</strong>
 Aktif iş verileri: <strong>S3 Infrequent Access</strong> — uygun fiyat, gerektiğinde anında erişim.

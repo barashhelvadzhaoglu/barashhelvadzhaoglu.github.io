@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>GDPR on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/gdpr/</link><description>Recent content in GDPR on Barash Helvadzhaoglu</description><generator>Hugo -- 0.161.1</generator><language>en</language><lastBuildDate>Fri, 17 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/gdpr/index.xml" rel="self" type="application/rss+xml"/><item><title>IT Security Obligations for Small Businesses in Bavaria — and How Digitalbonus Bayern Covers Up to 50% of the Costs</title><link>https://barashhelvadzhaoglu.com/en/posts/digitalbonus-comprehensive/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/posts/digitalbonus-comprehensive/</guid><description>Which IT security measures are legally required in Bavaria? Firewall, network separation, email protection, backup — with legal references and grants up to €7,500.</description><content:encoded><![CDATA[<h1 id="it-security-obligations-for-small-businesses--and-how-digitalbonus-bayern-covers-up-to-50">IT Security Obligations for Small Businesses — and How Digitalbonus Bayern Covers Up to 50%</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>GDPR on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/gdpr/</link><description>Recent content in GDPR on Barash Helvadzhaoglu</description><generator>Hugo -- 0.162.0</generator><language>en</language><lastBuildDate>Fri, 17 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/gdpr/index.xml" rel="self" type="application/rss+xml"/><item><title>IT Security Obligations for Small Businesses in Bavaria — and How Digitalbonus Bayern Covers Up to 50% of the Costs</title><link>https://barashhelvadzhaoglu.com/en/posts/digitalbonus-comprehensive/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/posts/digitalbonus-comprehensive/</guid><description>Which IT security measures are legally required in Bavaria? Firewall, network separation, email protection, backup — with legal references and grants up to €7,500.</description><content:encoded><![CDATA[<h1 id="it-security-obligations-for-small-businesses--and-how-digitalbonus-bayern-covers-up-to-50">IT Security Obligations for Small Businesses — and How Digitalbonus Bayern Covers Up to 50%</h1>
 <p>Many small businesses in Bavaria believe that IT security is a topic for large corporations. The reality is different: The GDPR applies to <strong>everyone</strong> who processes personal data — from retailers and medical practices to hotels. And the requirements are concrete, binding, and enforced with fines.</p>
 <p>The good news: The <strong>Digitalbonus Bayern</strong> reimburses up to <strong>50% of the investment costs</strong> — for firewalls, network separation, email security, backup, and more. The program runs until December 2027.</p>
 <blockquote>
@@ -50,40 +50,40 @@ Formally, it is voluntary — but: The GDPR prescribes the &ldquo;state of the a
 <p><strong>What this means in practice:</strong></p>
 <p>The following device classes must be operated in <strong>separate networks (VLANs)</strong>:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Network Segment</th>
-          <th>What belongs in it</th>
-          <th>Risk without separation</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Employee Net</strong></td>
-          <td>PCs, Laptops</td>
-          <td>Access to customer data</td>
-      </tr>
-      <tr>
-          <td><strong>Server / NAS</strong></td>
-          <td>File server, Backup system</td>
-          <td>Data loss during attack</td>
-      </tr>
-      <tr>
-          <td><strong>IoT Devices</strong></td>
-          <td>Printers, IP Cameras, Smart TV, UPS</td>
-          <td>Known security gaps, no updates</td>
-      </tr>
-      <tr>
-          <td><strong>Guest WLAN</strong></td>
-          <td>Customers, Patients, Hotel guests</td>
-          <td>Access to internal systems</td>
-      </tr>
-      <tr>
-          <td><strong>POS / Checkout</strong></td>
-          <td>Card terminal, Checkout system</td>
-          <td>PCI DSS obligation, payment data</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Network Segment</th>
+					<th>What belongs in it</th>
+					<th>Risk without separation</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Employee Net</strong></td>
+					<td>PCs, Laptops</td>
+					<td>Access to customer data</td>
+			</tr>
+			<tr>
+					<td><strong>Server / NAS</strong></td>
+					<td>File server, Backup system</td>
+					<td>Data loss during attack</td>
+			</tr>
+			<tr>
+					<td><strong>IoT Devices</strong></td>
+					<td>Printers, IP Cameras, Smart TV, UPS</td>
+					<td>Known security gaps, no updates</td>
+			</tr>
+			<tr>
+					<td><strong>Guest WLAN</strong></td>
+					<td>Customers, Patients, Hotel guests</td>
+					<td>Access to internal systems</td>
+			</tr>
+			<tr>
+					<td><strong>POS / Checkout</strong></td>
+					<td>Card terminal, Checkout system</td>
+					<td>PCI DSS obligation, payment data</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Why printers are dangerous:</strong>
 IP printers often have outdated firmware and no automatic security updates. A compromised printer on the same network as the accounting PC gives attackers direct access to all data.</p>
@@ -206,117 +206,117 @@ NAS device (e.g., Synology) with automatic encrypted synchronization to AWS S3 F
 <strong>Duration:</strong> until December 31, 2027
 <strong>Application:</strong> Exclusively digital via ELSTER business account</p>
 <table>
-  <thead>
-      <tr>
-          <th>Measure</th>
-          <th>Eligible</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Firewall (Hardware + License + Configuration)</td>
-          <td>✅ Yes</td>
-      </tr>
-      <tr>
-          <td>Managed Switch for VLAN separation</td>
-          <td>✅ Yes</td>
-      </tr>
-      <tr>
-          <td>WLAN Access Points</td>
-          <td>✅ Yes</td>
-      </tr>
-      <tr>
-          <td>NAS + encrypted Cloud backup</td>
-          <td>✅ Yes</td>
-      </tr>
-      <tr>
-          <td>Email security license (up to 18 months)</td>
-          <td>✅ Yes</td>
-      </tr>
-      <tr>
-          <td>Antivirus/EDR licenses (up to 18 months)</td>
-          <td>✅ Yes</td>
-      </tr>
-      <tr>
-          <td>Installation and configuration services</td>
-          <td>✅ Yes</td>
-      </tr>
-      <tr>
-          <td>Maintenance contract (up to 18 months)</td>
-          <td>✅ Yes</td>
-      </tr>
-      <tr>
-          <td>Consulting services (up to 50% of total costs)</td>
-          <td>✅ Yes</td>
-      </tr>
-      <tr>
-          <td>Standard PCs, Laptops, Printers</td>
-          <td>❌ No</td>
-      </tr>
-      <tr>
-          <td>Standard office software (Office, Windows)</td>
-          <td>❌ No</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Measure</th>
+					<th>Eligible</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Firewall (Hardware + License + Configuration)</td>
+					<td>✅ Yes</td>
+			</tr>
+			<tr>
+					<td>Managed Switch for VLAN separation</td>
+					<td>✅ Yes</td>
+			</tr>
+			<tr>
+					<td>WLAN Access Points</td>
+					<td>✅ Yes</td>
+			</tr>
+			<tr>
+					<td>NAS + encrypted Cloud backup</td>
+					<td>✅ Yes</td>
+			</tr>
+			<tr>
+					<td>Email security license (up to 18 months)</td>
+					<td>✅ Yes</td>
+			</tr>
+			<tr>
+					<td>Antivirus/EDR licenses (up to 18 months)</td>
+					<td>✅ Yes</td>
+			</tr>
+			<tr>
+					<td>Installation and configuration services</td>
+					<td>✅ Yes</td>
+			</tr>
+			<tr>
+					<td>Maintenance contract (up to 18 months)</td>
+					<td>✅ Yes</td>
+			</tr>
+			<tr>
+					<td>Consulting services (up to 50% of total costs)</td>
+					<td>✅ Yes</td>
+			</tr>
+			<tr>
+					<td>Standard PCs, Laptops, Printers</td>
+					<td>❌ No</td>
+			</tr>
+			<tr>
+					<td>Standard office software (Office, Windows)</td>
+					<td>❌ No</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Important Condition:</strong> The application must be submitted <strong>before</strong> the start of the project. Neither the order nor the verbal assignment may take place before receipt of the application confirmation.</p>
 <hr>
 <h2 id="example-calculation-small-hotel-10-rooms-5-employees">Example Calculation: Small Hotel (10 rooms, 5 employees)</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Measure</th>
-          <th>Costs</th>
-          <th>After Funding (50%)</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>FortiGate Firewall + 1-year license</td>
-          <td>€1,000</td>
-          <td>€500</td>
-      </tr>
-      <tr>
-          <td>Managed Switch (VLAN-capable)</td>
-          <td>€500</td>
-          <td>€250</td>
-      </tr>
-      <tr>
-          <td>3× WLAN Access Points</td>
-          <td>€900</td>
-          <td>€450</td>
-      </tr>
-      <tr>
-          <td>NAS + AWS Backup setup</td>
-          <td>€500</td>
-          <td>€250</td>
-      </tr>
-      <tr>
-          <td>Email Security (18 months)</td>
-          <td>€400</td>
-          <td>€200</td>
-      </tr>
-      <tr>
-          <td>Antivirus/EDR 5 devices (18 months)</td>
-          <td>€300</td>
-          <td>€150</td>
-      </tr>
-      <tr>
-          <td>Installation &amp; Configuration</td>
-          <td>€1,000</td>
-          <td>€500</td>
-      </tr>
-      <tr>
-          <td>18 months maintenance</td>
-          <td>€900</td>
-          <td>€450</td>
-      </tr>
-      <tr>
-          <td><strong>Total</strong></td>
-          <td><strong>€5,500</strong></td>
-          <td><strong>€2,750</strong></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Measure</th>
+					<th>Costs</th>
+					<th>After Funding (50%)</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>FortiGate Firewall + 1-year license</td>
+					<td>€1,000</td>
+					<td>€500</td>
+			</tr>
+			<tr>
+					<td>Managed Switch (VLAN-capable)</td>
+					<td>€500</td>
+					<td>€250</td>
+			</tr>
+			<tr>
+					<td>3× WLAN Access Points</td>
+					<td>€900</td>
+					<td>€450</td>
+			</tr>
+			<tr>
+					<td>NAS + AWS Backup setup</td>
+					<td>€500</td>
+					<td>€250</td>
+			</tr>
+			<tr>
+					<td>Email Security (18 months)</td>
+					<td>€400</td>
+					<td>€200</td>
+			</tr>
+			<tr>
+					<td>Antivirus/EDR 5 devices (18 months)</td>
+					<td>€300</td>
+					<td>€150</td>
+			</tr>
+			<tr>
+					<td>Installation &amp; Configuration</td>
+					<td>€1,000</td>
+					<td>€500</td>
+			</tr>
+			<tr>
+					<td>18 months maintenance</td>
+					<td>€900</td>
+					<td>€450</td>
+			</tr>
+			<tr>
+					<td><strong>Total</strong></td>
+					<td><strong>€5,500</strong></td>
+					<td><strong>€2,750</strong></td>
+			</tr>
+	</tbody>
 </table>
 <p>The hotel pays <strong>€2,750</strong> — the Free State of Bavaria takes over <strong>€2,750</strong>.</p>
 <hr>

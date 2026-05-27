@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Barash Helvadzhaoglu | Senior Network Security Engineer &amp; IT Consultant Munich on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/</link><description>Recent content in Barash Helvadzhaoglu | Senior Network Security Engineer &amp; IT Consultant Munich on Barash Helvadzhaoglu</description><generator>Hugo -- 0.161.1</generator><language>en</language><lastBuildDate>Fri, 01 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/index.xml" rel="self" type="application/rss+xml"/><item><title>802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E and What Actually Changed</title><link>https://barashhelvadzhaoglu.com/en/technology/wifi-standards/</link><pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/wifi-standards/</guid><description>802.11 standards deep dive — what n, ac, ax, and be deliver in real deployments, OFDMA, MU-MIMO, BSS Coloring, and how to choose.</description><content:encoded><![CDATA[<h1 id="80211-standards-deep-dive-wifi-4-5-6-6e-and-what-actually-changed">802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E and What Actually Changed</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Barash Helvadzhaoglu | Senior Network Security Engineer &amp; IT Consultant Munich on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/</link><description>Recent content in Barash Helvadzhaoglu | Senior Network Security Engineer &amp; IT Consultant Munich on Barash Helvadzhaoglu</description><generator>Hugo -- 0.162.0</generator><language>en</language><lastBuildDate>Fri, 01 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/index.xml" rel="self" type="application/rss+xml"/><item><title>802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E and What Actually Changed</title><link>https://barashhelvadzhaoglu.com/en/technology/wifi-standards/</link><pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/wifi-standards/</guid><description>802.11 standards deep dive — what n, ac, ax, and be deliver in real deployments, OFDMA, MU-MIMO, BSS Coloring, and how to choose.</description><content:encoded><![CDATA[<h1 id="80211-standards-deep-dive-wifi-4-5-6-6e-and-what-actually-changed">802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E and What Actually Changed</h1>
 <p>This article is part of the Enterprise WiFi series.</p>
 <blockquote>
 <p><strong>New to enterprise wireless?</strong> Start with the overview: <a href="/en/technology/enterprise-wifi-architecture-complete-guide/">Enterprise WiFi Architecture: From Standards to Deployment</a></p>
@@ -104,50 +104,50 @@ With BSS Coloring:
 <hr>
 <h2 id="choosing-the-right-standard-for-your-deployment">Choosing the Right Standard for Your Deployment</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Environment</th>
-          <th>Recommendation</th>
-          <th>Reason</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>New enterprise campus</td>
-          <td>WiFi 6 minimum, WiFi 6E preferred</td>
-          <td>OFDMA density benefit, future-proofing</td>
-      </tr>
-      <tr>
-          <td>High-density (conference, classroom)</td>
-          <td>WiFi 6 or 6E</td>
-          <td>OFDMA essential for density</td>
-      </tr>
-      <tr>
-          <td>IoT-heavy environment</td>
-          <td>WiFi 6</td>
-          <td>TWT for battery-powered devices</td>
-      </tr>
-      <tr>
-          <td>SMB / small office</td>
-          <td>WiFi 6 AP</td>
-          <td>Cost-effective, supports all clients</td>
-      </tr>
-      <tr>
-          <td>Outdoor / long range</td>
-          <td>WiFi 6 (5 GHz)</td>
-          <td>Better range than 6 GHz</td>
-      </tr>
-      <tr>
-          <td>Legacy device heavy</td>
-          <td>WiFi 6 AP (backward compatible)</td>
-          <td>All 802.11 standards backward compatible</td>
-      </tr>
-      <tr>
-          <td>New build, future-proof</td>
-          <td>WiFi 7</td>
-          <td>MLO, 6 GHz, 320 MHz channels</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Environment</th>
+					<th>Recommendation</th>
+					<th>Reason</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>New enterprise campus</td>
+					<td>WiFi 6 minimum, WiFi 6E preferred</td>
+					<td>OFDMA density benefit, future-proofing</td>
+			</tr>
+			<tr>
+					<td>High-density (conference, classroom)</td>
+					<td>WiFi 6 or 6E</td>
+					<td>OFDMA essential for density</td>
+			</tr>
+			<tr>
+					<td>IoT-heavy environment</td>
+					<td>WiFi 6</td>
+					<td>TWT for battery-powered devices</td>
+			</tr>
+			<tr>
+					<td>SMB / small office</td>
+					<td>WiFi 6 AP</td>
+					<td>Cost-effective, supports all clients</td>
+			</tr>
+			<tr>
+					<td>Outdoor / long range</td>
+					<td>WiFi 6 (5 GHz)</td>
+					<td>Better range than 6 GHz</td>
+			</tr>
+			<tr>
+					<td>Legacy device heavy</td>
+					<td>WiFi 6 AP (backward compatible)</td>
+					<td>All 802.11 standards backward compatible</td>
+			</tr>
+			<tr>
+					<td>New build, future-proof</td>
+					<td>WiFi 7</td>
+					<td>MLO, 6 GHz, 320 MHz channels</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Important note:</strong> WiFi 6 APs support all previous clients — 802.11n, 802.11ac, 802.11ax clients all connect to the same AP. The AP negotiates the best mutually supported capabilities with each client.</p>
 <hr>
@@ -198,40 +198,40 @@ With BSS Coloring:
 <h3 id="coverage-planning-for-smb">Coverage Planning for SMB</h3>
 <p>A rough starting point for typical office environments:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Environment</th>
-          <th>AP Coverage Area</th>
-          <th>Notes</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Open office, low density</td>
-          <td>150–200 m²</td>
-          <td>Modern WiFi 6 APs, moderate client count</td>
-      </tr>
-      <tr>
-          <td>Open office, high density</td>
-          <td>80–100 m²</td>
-          <td>Many clients, video calls, high throughput</td>
-      </tr>
-      <tr>
-          <td>Office with interior walls</td>
-          <td>80–120 m²</td>
-          <td>Walls attenuate signal; test before finalizing</td>
-      </tr>
-      <tr>
-          <td>Corridor / hotel hallway</td>
-          <td>20–25 m per AP</td>
-          <td>Narrow coverage pattern</td>
-      </tr>
-      <tr>
-          <td>Warehouse / large open space</td>
-          <td>300–500 m²</td>
-          <td>Low density, high ceilings, RF propagates well</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Environment</th>
+					<th>AP Coverage Area</th>
+					<th>Notes</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Open office, low density</td>
+					<td>150–200 m²</td>
+					<td>Modern WiFi 6 APs, moderate client count</td>
+			</tr>
+			<tr>
+					<td>Open office, high density</td>
+					<td>80–100 m²</td>
+					<td>Many clients, video calls, high throughput</td>
+			</tr>
+			<tr>
+					<td>Office with interior walls</td>
+					<td>80–120 m²</td>
+					<td>Walls attenuate signal; test before finalizing</td>
+			</tr>
+			<tr>
+					<td>Corridor / hotel hallway</td>
+					<td>20–25 m per AP</td>
+					<td>Narrow coverage pattern</td>
+			</tr>
+			<tr>
+					<td>Warehouse / large open space</td>
+					<td>300–500 m²</td>
+					<td>Low density, high ceilings, RF propagates well</td>
+			</tr>
+	</tbody>
 </table>
 <p>These are starting points, not rules. The only way to validate coverage is a site survey — predictive before deployment, validation after.</p>
 <h3 id="the-network-segmentation-baseline">The Network Segmentation Baseline</h3>
@@ -250,30 +250,30 @@ SSID: IoT/Printers   → VLAN 30 (printers, cameras, isolated)
 </ul>
 <h3 id="platform-recommendation-for-smb">Platform Recommendation for SMB</h3>
 <table>
-  <thead>
-      <tr>
-          <th>Size</th>
-          <th>Recommendation</th>
-          <th>Reason</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>1–5 APs, no IT staff</td>
-          <td>Aruba Instant On</td>
-          <td>Simple app-based management, solid hardware</td>
-      </tr>
-      <tr>
-          <td>5–20 APs, basic IT staff</td>
-          <td>Cisco Meraki or Aruba Central</td>
-          <td>Cloud management, good visibility</td>
-      </tr>
-      <tr>
-          <td>20+ APs, IT team</td>
-          <td>Aruba Central or Cisco DNA Center</td>
-          <td>Enterprise features, policy integration</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Size</th>
+					<th>Recommendation</th>
+					<th>Reason</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>1–5 APs, no IT staff</td>
+					<td>Aruba Instant On</td>
+					<td>Simple app-based management, solid hardware</td>
+			</tr>
+			<tr>
+					<td>5–20 APs, basic IT staff</td>
+					<td>Cisco Meraki or Aruba Central</td>
+					<td>Cloud management, good visibility</td>
+			</tr>
+			<tr>
+					<td>20+ APs, IT team</td>
+					<td>Aruba Central or Cisco DNA Center</td>
+					<td>Enterprise features, policy integration</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="part-2-hotel-wifi-design">Part 2: Hotel WiFi Design</h2>
@@ -594,40 +594,40 @@ After physical installation, walk the space in a systematic pattern using Ekahau
 Compare validation heatmap against prediction. Document actual versus predicted performance. Adjust AP placement, power levels, or channel assignments for any areas that fall below requirements.</p>
 <h3 id="key-survey-metrics-and-targets">Key Survey Metrics and Targets</h3>
 <table>
-  <thead>
-      <tr>
-          <th>Metric</th>
-          <th>Minimum</th>
-          <th>Target</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>RSSI (signal strength)</td>
-          <td>-70 dBm</td>
-          <td>-65 dBm or better</td>
-      </tr>
-      <tr>
-          <td>SNR (signal-to-noise ratio)</td>
-          <td>20 dB</td>
-          <td>25 dB or better</td>
-      </tr>
-      <tr>
-          <td>Channel overlap</td>
-          <td>15–20%</td>
-          <td>20–25% (sufficient for roaming)</td>
-      </tr>
-      <tr>
-          <td>Co-channel interference</td>
-          <td>&lt; -85 dBm from neighbors</td>
-          <td>&lt; -90 dBm</td>
-      </tr>
-      <tr>
-          <td>Roaming transition time</td>
-          <td>&lt; 150ms (voice)</td>
-          <td>&lt; 50ms (best case with 802.11r)</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Metric</th>
+					<th>Minimum</th>
+					<th>Target</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>RSSI (signal strength)</td>
+					<td>-70 dBm</td>
+					<td>-65 dBm or better</td>
+			</tr>
+			<tr>
+					<td>SNR (signal-to-noise ratio)</td>
+					<td>20 dB</td>
+					<td>25 dB or better</td>
+			</tr>
+			<tr>
+					<td>Channel overlap</td>
+					<td>15–20%</td>
+					<td>20–25% (sufficient for roaming)</td>
+			</tr>
+			<tr>
+					<td>Co-channel interference</td>
+					<td>&lt; -85 dBm from neighbors</td>
+					<td>&lt; -90 dBm</td>
+			</tr>
+			<tr>
+					<td>Roaming transition time</td>
+					<td>&lt; 150ms (voice)</td>
+					<td>&lt; 50ms (best case with 802.11r)</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="wireless-intrusion-detection-wids">Wireless Intrusion Detection (WIDS)</h2>
@@ -836,65 +836,65 @@ WAF:   HTTP/HTTPS content inspection — SQL injection, XSS, parameter tampering
 <p><strong>ASM (Application Security Manager)</strong> — the original module. Primarily signature-based. Covers OWASP Top 10, parameter enforcement, cookie protection, and basic bot detection. Included in many standard BIG-IP licenses.</p>
 <p><strong>Advanced WAF (AWAF)</strong> — the newer module with behavioral capabilities ASM lacks:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Capability</th>
-          <th>ASM</th>
-          <th>Advanced WAF</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Signature-based attack detection</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>OWASP Top 10 coverage</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Parameter and cookie enforcement</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Basic bot detection (signatures)</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Behavioral bot defense</td>
-          <td>❌</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Credential stuffing protection</td>
-          <td>❌</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>JavaScript challenge / CAPTCHA</td>
-          <td>Limited</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>L7 behavioral DoS mitigation</td>
-          <td>Limited</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>API security (OpenAPI / Swagger)</td>
-          <td>Limited</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>DataSafe (client-side encryption)</td>
-          <td>❌</td>
-          <td>✅</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Capability</th>
+					<th>ASM</th>
+					<th>Advanced WAF</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Signature-based attack detection</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>OWASP Top 10 coverage</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Parameter and cookie enforcement</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Basic bot detection (signatures)</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Behavioral bot defense</td>
+					<td>❌</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Credential stuffing protection</td>
+					<td>❌</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>JavaScript challenge / CAPTCHA</td>
+					<td>Limited</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>L7 behavioral DoS mitigation</td>
+					<td>Limited</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>API security (OpenAPI / Swagger)</td>
+					<td>Limited</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>DataSafe (client-side encryption)</td>
+					<td>❌</td>
+					<td>✅</td>
+			</tr>
+	</tbody>
 </table>
 <p>For internal enterprise applications, ASM provides solid coverage. For public-facing applications with high bot exposure, credential stuffing risk, or aggressive L7 DoS — Advanced WAF is significantly more effective.</p>
 <hr>
@@ -1165,76 +1165,76 @@ Support ID:         12345678901234
 </ul>
 <p>The honest summary:</p>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th>NPS</th>
-          <th>ClearPass</th>
-          <th>Cisco ISE</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Cost</td>
-          <td>Free</td>
-          <td>Per-endpoint subscription</td>
-          <td>Per-endpoint subscription</td>
-      </tr>
-      <tr>
-          <td>802.1X / RADIUS</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Device profiling</td>
-          <td>❌</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Guest portal</td>
-          <td>Basic</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Posture</td>
-          <td>❌</td>
-          <td>✅</td>
-          <td>✅ (Premier)</td>
-      </tr>
-      <tr>
-          <td>SGT / TrustSec</td>
-          <td>❌</td>
-          <td>❌</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>DNA Center integration</td>
-          <td>❌</td>
-          <td>❌</td>
-          <td>✅ (native)</td>
-      </tr>
-      <tr>
-          <td>pxGrid ecosystem</td>
-          <td>❌</td>
-          <td>Limited</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Vendor neutrality</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>Cisco-optimized</td>
-      </tr>
-      <tr>
-          <td>Operational complexity</td>
-          <td>Low</td>
-          <td>Medium</td>
-          <td>High</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th>NPS</th>
+					<th>ClearPass</th>
+					<th>Cisco ISE</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Cost</td>
+					<td>Free</td>
+					<td>Per-endpoint subscription</td>
+					<td>Per-endpoint subscription</td>
+			</tr>
+			<tr>
+					<td>802.1X / RADIUS</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Device profiling</td>
+					<td>❌</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Guest portal</td>
+					<td>Basic</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Posture</td>
+					<td>❌</td>
+					<td>✅</td>
+					<td>✅ (Premier)</td>
+			</tr>
+			<tr>
+					<td>SGT / TrustSec</td>
+					<td>❌</td>
+					<td>❌</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>DNA Center integration</td>
+					<td>❌</td>
+					<td>❌</td>
+					<td>✅ (native)</td>
+			</tr>
+			<tr>
+					<td>pxGrid ecosystem</td>
+					<td>❌</td>
+					<td>Limited</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Vendor neutrality</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>Cisco-optimized</td>
+			</tr>
+			<tr>
+					<td>Operational complexity</td>
+					<td>Low</td>
+					<td>Medium</td>
+					<td>High</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="field-notes-sizing-and-operational-reality">Field Notes: Sizing and Operational Reality</h2>
@@ -1729,40 +1729,40 @@ Formally, it is voluntary — but: The GDPR prescribes the &ldquo;state of the a
 <p><strong>What this means in practice:</strong></p>
 <p>The following device classes must be operated in <strong>separate networks (VLANs)</strong>:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Network Segment</th>
-          <th>What belongs in it</th>
-          <th>Risk without separation</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Employee Net</strong></td>
-          <td>PCs, Laptops</td>
-          <td>Access to customer data</td>
-      </tr>
-      <tr>
-          <td><strong>Server / NAS</strong></td>
-          <td>File server, Backup system</td>
-          <td>Data loss during attack</td>
-      </tr>
-      <tr>
-          <td><strong>IoT Devices</strong></td>
-          <td>Printers, IP Cameras, Smart TV, UPS</td>
-          <td>Known security gaps, no updates</td>
-      </tr>
-      <tr>
-          <td><strong>Guest WLAN</strong></td>
-          <td>Customers, Patients, Hotel guests</td>
-          <td>Access to internal systems</td>
-      </tr>
-      <tr>
-          <td><strong>POS / Checkout</strong></td>
-          <td>Card terminal, Checkout system</td>
-          <td>PCI DSS obligation, payment data</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Network Segment</th>
+					<th>What belongs in it</th>
+					<th>Risk without separation</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Employee Net</strong></td>
+					<td>PCs, Laptops</td>
+					<td>Access to customer data</td>
+			</tr>
+			<tr>
+					<td><strong>Server / NAS</strong></td>
+					<td>File server, Backup system</td>
+					<td>Data loss during attack</td>
+			</tr>
+			<tr>
+					<td><strong>IoT Devices</strong></td>
+					<td>Printers, IP Cameras, Smart TV, UPS</td>
+					<td>Known security gaps, no updates</td>
+			</tr>
+			<tr>
+					<td><strong>Guest WLAN</strong></td>
+					<td>Customers, Patients, Hotel guests</td>
+					<td>Access to internal systems</td>
+			</tr>
+			<tr>
+					<td><strong>POS / Checkout</strong></td>
+					<td>Card terminal, Checkout system</td>
+					<td>PCI DSS obligation, payment data</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Why printers are dangerous:</strong>
 IP printers often have outdated firmware and no automatic security updates. A compromised printer on the same network as the accounting PC gives attackers direct access to all data.</p>
@@ -1885,117 +1885,117 @@ NAS device (e.g., Synology) with automatic encrypted synchronization to AWS S3 F
 <strong>Duration:</strong> until December 31, 2027
 <strong>Application:</strong> Exclusively digital via ELSTER business account</p>
 <table>
-  <thead>
-      <tr>
-          <th>Measure</th>
-          <th>Eligible</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Firewall (Hardware + License + Configuration)</td>
-          <td>✅ Yes</td>
-      </tr>
-      <tr>
-          <td>Managed Switch for VLAN separation</td>
-          <td>✅ Yes</td>
-      </tr>
-      <tr>
-          <td>WLAN Access Points</td>
-          <td>✅ Yes</td>
-      </tr>
-      <tr>
-          <td>NAS + encrypted Cloud backup</td>
-          <td>✅ Yes</td>
-      </tr>
-      <tr>
-          <td>Email security license (up to 18 months)</td>
-          <td>✅ Yes</td>
-      </tr>
-      <tr>
-          <td>Antivirus/EDR licenses (up to 18 months)</td>
-          <td>✅ Yes</td>
-      </tr>
-      <tr>
-          <td>Installation and configuration services</td>
-          <td>✅ Yes</td>
-      </tr>
-      <tr>
-          <td>Maintenance contract (up to 18 months)</td>
-          <td>✅ Yes</td>
-      </tr>
-      <tr>
-          <td>Consulting services (up to 50% of total costs)</td>
-          <td>✅ Yes</td>
-      </tr>
-      <tr>
-          <td>Standard PCs, Laptops, Printers</td>
-          <td>❌ No</td>
-      </tr>
-      <tr>
-          <td>Standard office software (Office, Windows)</td>
-          <td>❌ No</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Measure</th>
+					<th>Eligible</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Firewall (Hardware + License + Configuration)</td>
+					<td>✅ Yes</td>
+			</tr>
+			<tr>
+					<td>Managed Switch for VLAN separation</td>
+					<td>✅ Yes</td>
+			</tr>
+			<tr>
+					<td>WLAN Access Points</td>
+					<td>✅ Yes</td>
+			</tr>
+			<tr>
+					<td>NAS + encrypted Cloud backup</td>
+					<td>✅ Yes</td>
+			</tr>
+			<tr>
+					<td>Email security license (up to 18 months)</td>
+					<td>✅ Yes</td>
+			</tr>
+			<tr>
+					<td>Antivirus/EDR licenses (up to 18 months)</td>
+					<td>✅ Yes</td>
+			</tr>
+			<tr>
+					<td>Installation and configuration services</td>
+					<td>✅ Yes</td>
+			</tr>
+			<tr>
+					<td>Maintenance contract (up to 18 months)</td>
+					<td>✅ Yes</td>
+			</tr>
+			<tr>
+					<td>Consulting services (up to 50% of total costs)</td>
+					<td>✅ Yes</td>
+			</tr>
+			<tr>
+					<td>Standard PCs, Laptops, Printers</td>
+					<td>❌ No</td>
+			</tr>
+			<tr>
+					<td>Standard office software (Office, Windows)</td>
+					<td>❌ No</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Important Condition:</strong> The application must be submitted <strong>before</strong> the start of the project. Neither the order nor the verbal assignment may take place before receipt of the application confirmation.</p>
 <hr>
 <h2 id="example-calculation-small-hotel-10-rooms-5-employees">Example Calculation: Small Hotel (10 rooms, 5 employees)</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Measure</th>
-          <th>Costs</th>
-          <th>After Funding (50%)</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>FortiGate Firewall + 1-year license</td>
-          <td>€1,000</td>
-          <td>€500</td>
-      </tr>
-      <tr>
-          <td>Managed Switch (VLAN-capable)</td>
-          <td>€500</td>
-          <td>€250</td>
-      </tr>
-      <tr>
-          <td>3× WLAN Access Points</td>
-          <td>€900</td>
-          <td>€450</td>
-      </tr>
-      <tr>
-          <td>NAS + AWS Backup setup</td>
-          <td>€500</td>
-          <td>€250</td>
-      </tr>
-      <tr>
-          <td>Email Security (18 months)</td>
-          <td>€400</td>
-          <td>€200</td>
-      </tr>
-      <tr>
-          <td>Antivirus/EDR 5 devices (18 months)</td>
-          <td>€300</td>
-          <td>€150</td>
-      </tr>
-      <tr>
-          <td>Installation &amp; Configuration</td>
-          <td>€1,000</td>
-          <td>€500</td>
-      </tr>
-      <tr>
-          <td>18 months maintenance</td>
-          <td>€900</td>
-          <td>€450</td>
-      </tr>
-      <tr>
-          <td><strong>Total</strong></td>
-          <td><strong>€5,500</strong></td>
-          <td><strong>€2,750</strong></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Measure</th>
+					<th>Costs</th>
+					<th>After Funding (50%)</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>FortiGate Firewall + 1-year license</td>
+					<td>€1,000</td>
+					<td>€500</td>
+			</tr>
+			<tr>
+					<td>Managed Switch (VLAN-capable)</td>
+					<td>€500</td>
+					<td>€250</td>
+			</tr>
+			<tr>
+					<td>3× WLAN Access Points</td>
+					<td>€900</td>
+					<td>€450</td>
+			</tr>
+			<tr>
+					<td>NAS + AWS Backup setup</td>
+					<td>€500</td>
+					<td>€250</td>
+			</tr>
+			<tr>
+					<td>Email Security (18 months)</td>
+					<td>€400</td>
+					<td>€200</td>
+			</tr>
+			<tr>
+					<td>Antivirus/EDR 5 devices (18 months)</td>
+					<td>€300</td>
+					<td>€150</td>
+			</tr>
+			<tr>
+					<td>Installation &amp; Configuration</td>
+					<td>€1,000</td>
+					<td>€500</td>
+			</tr>
+			<tr>
+					<td>18 months maintenance</td>
+					<td>€900</td>
+					<td>€450</td>
+			</tr>
+			<tr>
+					<td><strong>Total</strong></td>
+					<td><strong>€5,500</strong></td>
+					<td><strong>€2,750</strong></td>
+			</tr>
+	</tbody>
 </table>
 <p>The hotel pays <strong>€2,750</strong> — the Free State of Bavaria takes over <strong>€2,750</strong>.</p>
 <hr>
@@ -2144,40 +2144,40 @@ ltm-dc2 / vs_webapp_443  Ratio: 3  ← 30% of DNS responses
 <p>TTL controls how quickly <strong>new DNS lookups</strong> reflect the current infrastructure state.</p>
 <h3 id="ttl-trade-offs">TTL Trade-offs</h3>
 <table>
-  <thead>
-      <tr>
-          <th>TTL</th>
-          <th>Failover visibility</th>
-          <th>DNS query load</th>
-          <th>Use case</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>30 sec</td>
-          <td>Fast</td>
-          <td>High</td>
-          <td>Critical payment systems, auth services</td>
-      </tr>
-      <tr>
-          <td>60 sec</td>
-          <td>Good</td>
-          <td>Moderate</td>
-          <td>Most production applications</td>
-      </tr>
-      <tr>
-          <td>300 sec</td>
-          <td>Moderate</td>
-          <td>Low</td>
-          <td>Internal tools, monitoring</td>
-      </tr>
-      <tr>
-          <td>3600 sec</td>
-          <td>Slow</td>
-          <td>Very low</td>
-          <td>Static content, rarely-changing records</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>TTL</th>
+					<th>Failover visibility</th>
+					<th>DNS query load</th>
+					<th>Use case</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>30 sec</td>
+					<td>Fast</td>
+					<td>High</td>
+					<td>Critical payment systems, auth services</td>
+			</tr>
+			<tr>
+					<td>60 sec</td>
+					<td>Good</td>
+					<td>Moderate</td>
+					<td>Most production applications</td>
+			</tr>
+			<tr>
+					<td>300 sec</td>
+					<td>Moderate</td>
+					<td>Low</td>
+					<td>Internal tools, monitoring</td>
+			</tr>
+			<tr>
+					<td>3600 sec</td>
+					<td>Slow</td>
+					<td>Very low</td>
+					<td>Static content, rarely-changing records</td>
+			</tr>
+	</tbody>
 </table>
 <p>In the banking environment:</p>
 <ul>
@@ -2461,75 +2461,75 @@ Session Properties → Terminal → Emulation → Expect Scripts:
 <hr>
 <h2 id="securecrt-vs-superputty-when-to-use-which">SecureCRT vs. SuperPutty: When to Use Which</h2>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th>SecureCRT</th>
-          <th>SuperPutty</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Cost</td>
-          <td>Commercial license (~$99–150/seat)</td>
-          <td>Free</td>
-      </tr>
-      <tr>
-          <td>Automatic session logging</td>
-          <td>✅ Built-in, global</td>
-          <td>❌ Per-session PuTTY logging only</td>
-      </tr>
-      <tr>
-          <td>Session portability</td>
-          <td>✅ File-based, easy export</td>
-          <td>✅ XML-based, importable</td>
-      </tr>
-      <tr>
-          <td>PuTTY session import</td>
-          <td>❌ Not applicable</td>
-          <td>✅ Direct import from Registry</td>
-      </tr>
-      <tr>
-          <td>Tabbed interface</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Tiled sessions</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Scripting (Python/VBScript)</td>
-          <td>✅ Built-in engine</td>
-          <td>❌</td>
-      </tr>
-      <tr>
-          <td>Credential storage (encrypted)</td>
-          <td>✅ AES-256</td>
-          <td>⚠️ Basic only</td>
-      </tr>
-      <tr>
-          <td>Serial/console support</td>
-          <td>✅</td>
-          <td>✅ (via PuTTY)</td>
-      </tr>
-      <tr>
-          <td>RDP support</td>
-          <td>✅</td>
-          <td>✅ (via PuTTY/mRemoteNG)</td>
-      </tr>
-      <tr>
-          <td>SecureFX integration</td>
-          <td>✅</td>
-          <td>❌</td>
-      </tr>
-      <tr>
-          <td>Active commercial support</td>
-          <td>✅</td>
-          <td>Community only</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th>SecureCRT</th>
+					<th>SuperPutty</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Cost</td>
+					<td>Commercial license (~$99–150/seat)</td>
+					<td>Free</td>
+			</tr>
+			<tr>
+					<td>Automatic session logging</td>
+					<td>✅ Built-in, global</td>
+					<td>❌ Per-session PuTTY logging only</td>
+			</tr>
+			<tr>
+					<td>Session portability</td>
+					<td>✅ File-based, easy export</td>
+					<td>✅ XML-based, importable</td>
+			</tr>
+			<tr>
+					<td>PuTTY session import</td>
+					<td>❌ Not applicable</td>
+					<td>✅ Direct import from Registry</td>
+			</tr>
+			<tr>
+					<td>Tabbed interface</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Tiled sessions</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Scripting (Python/VBScript)</td>
+					<td>✅ Built-in engine</td>
+					<td>❌</td>
+			</tr>
+			<tr>
+					<td>Credential storage (encrypted)</td>
+					<td>✅ AES-256</td>
+					<td>⚠️ Basic only</td>
+			</tr>
+			<tr>
+					<td>Serial/console support</td>
+					<td>✅</td>
+					<td>✅ (via PuTTY)</td>
+			</tr>
+			<tr>
+					<td>RDP support</td>
+					<td>✅</td>
+					<td>✅ (via PuTTY/mRemoteNG)</td>
+			</tr>
+			<tr>
+					<td>SecureFX integration</td>
+					<td>✅</td>
+					<td>❌</td>
+			</tr>
+			<tr>
+					<td>Active commercial support</td>
+					<td>✅</td>
+					<td>Community only</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Use SecureCRT when:</strong></p>
 <ul>
@@ -3461,46 +3461,46 @@ Cisco&rsquo;s OT-focused management and security platform, integrating with Cisc
 <h2 id="the-80211-standards-what-actually-changed">The 802.11 Standards: What Actually Changed</h2>
 <p>The IEEE 802.11 standard has gone through multiple generations, each branded differently for marketing purposes:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Standard</th>
-          <th>Marketing Name</th>
-          <th>Max Theoretical Rate</th>
-          <th>Key Improvement</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>802.11n</td>
-          <td>WiFi 4</td>
-          <td>600 Mbps</td>
-          <td>MIMO, 5 GHz support</td>
-      </tr>
-      <tr>
-          <td>802.11ac</td>
-          <td>WiFi 5</td>
-          <td>3.5 Gbps</td>
-          <td>MU-MIMO, wider channels (80/160 MHz)</td>
-      </tr>
-      <tr>
-          <td>802.11ax</td>
-          <td>WiFi 6</td>
-          <td>9.6 Gbps</td>
-          <td>OFDMA, BSS Coloring, TWT, high-density</td>
-      </tr>
-      <tr>
-          <td>802.11ax (6 GHz)</td>
-          <td>WiFi 6E</td>
-          <td>9.6 Gbps</td>
-          <td>New 6 GHz band, less congestion</td>
-      </tr>
-      <tr>
-          <td>802.11be</td>
-          <td>WiFi 7</td>
-          <td>46 Gbps</td>
-          <td>Multi-Link Operation, 320 MHz channels</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Standard</th>
+					<th>Marketing Name</th>
+					<th>Max Theoretical Rate</th>
+					<th>Key Improvement</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>802.11n</td>
+					<td>WiFi 4</td>
+					<td>600 Mbps</td>
+					<td>MIMO, 5 GHz support</td>
+			</tr>
+			<tr>
+					<td>802.11ac</td>
+					<td>WiFi 5</td>
+					<td>3.5 Gbps</td>
+					<td>MU-MIMO, wider channels (80/160 MHz)</td>
+			</tr>
+			<tr>
+					<td>802.11ax</td>
+					<td>WiFi 6</td>
+					<td>9.6 Gbps</td>
+					<td>OFDMA, BSS Coloring, TWT, high-density</td>
+			</tr>
+			<tr>
+					<td>802.11ax (6 GHz)</td>
+					<td>WiFi 6E</td>
+					<td>9.6 Gbps</td>
+					<td>New 6 GHz band, less congestion</td>
+			</tr>
+			<tr>
+					<td>802.11be</td>
+					<td>WiFi 7</td>
+					<td>46 Gbps</td>
+					<td>Multi-Link Operation, 320 MHz channels</td>
+			</tr>
+	</tbody>
 </table>
 <p>The theoretical rates in marketing materials are never achieved in practice. What matters in real deployments is different for each generation:</p>
 <p><strong>WiFi 6 (802.11ax)</strong> introduced two capabilities that genuinely matter in dense environments:</p>
@@ -3619,42 +3619,42 @@ Cisco&rsquo;s OT-focused management and security platform, integrating with Cisc
 <hr>
 <h2 id="choosing-the-right-platform">Choosing the Right Platform</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Scenario</th>
-          <th>Recommended Platform</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Small office, simple management</td>
-          <td>Aruba Instant On, Cisco Business, Meraki Go</td>
-      </tr>
-      <tr>
-          <td>SMB with IT staff</td>
-          <td>Cisco Meraki, Aruba Central (cloud-managed)</td>
-      </tr>
-      <tr>
-          <td>Enterprise campus, complex policy</td>
-          <td>Aruba Mobility Master, Cisco DNA Center</td>
-      </tr>
-      <tr>
-          <td>Hotel / hospitality</td>
-          <td>Aruba, Cisco Meraki (with PMS integration)</td>
-      </tr>
-      <tr>
-          <td>Healthcare / regulated environment</td>
-          <td>Aruba ClearPass + Mobility Master, Cisco ISE + WLC</td>
-      </tr>
-      <tr>
-          <td>High-density venues</td>
-          <td>Cisco (Catalyst Center), Aruba (AOS 10)</td>
-      </tr>
-      <tr>
-          <td>Multi-site, centralized management</td>
-          <td>Cisco Meraki, Aruba Central</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Scenario</th>
+					<th>Recommended Platform</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Small office, simple management</td>
+					<td>Aruba Instant On, Cisco Business, Meraki Go</td>
+			</tr>
+			<tr>
+					<td>SMB with IT staff</td>
+					<td>Cisco Meraki, Aruba Central (cloud-managed)</td>
+			</tr>
+			<tr>
+					<td>Enterprise campus, complex policy</td>
+					<td>Aruba Mobility Master, Cisco DNA Center</td>
+			</tr>
+			<tr>
+					<td>Hotel / hospitality</td>
+					<td>Aruba, Cisco Meraki (with PMS integration)</td>
+			</tr>
+			<tr>
+					<td>Healthcare / regulated environment</td>
+					<td>Aruba ClearPass + Mobility Master, Cisco ISE + WLC</td>
+			</tr>
+			<tr>
+					<td>High-density venues</td>
+					<td>Cisco (Catalyst Center), Aruba (AOS 10)</td>
+			</tr>
+			<tr>
+					<td>Multi-site, centralized management</td>
+					<td>Cisco Meraki, Aruba Central</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="this-series">This Series</h2>
@@ -3839,70 +3839,70 @@ Microsoft&rsquo;s offering for Azure-hosted resources. Standard tier provides ad
 <hr>
 <h2 id="comparing-the-three-approaches">Comparing the Three Approaches</h2>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th>ISP Scrubbing</th>
-          <th>On-Premise Appliance</th>
-          <th>Cloud Service</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Volumetric protection</td>
-          <td>✅</td>
-          <td>❌ (limited by link)</td>
-          <td>✅✅</td>
-      </tr>
-      <tr>
-          <td>Protocol attack protection</td>
-          <td>✅</td>
-          <td>✅✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Application layer (L7)</td>
-          <td>❌</td>
-          <td>✅ (advanced models)</td>
-          <td>✅✅</td>
-      </tr>
-      <tr>
-          <td>Activation time</td>
-          <td>Minutes (on-demand)</td>
-          <td>Immediate</td>
-          <td>Immediate</td>
-      </tr>
-      <tr>
-          <td>Traffic visibility</td>
-          <td>Limited</td>
-          <td>Full</td>
-          <td>Provider-dependent</td>
-      </tr>
-      <tr>
-          <td>Compliance / data residency</td>
-          <td>✅</td>
-          <td>✅✅</td>
-          <td>Requires review</td>
-      </tr>
-      <tr>
-          <td>CapEx</td>
-          <td>Low</td>
-          <td>High</td>
-          <td>None</td>
-      </tr>
-      <tr>
-          <td>OpEx</td>
-          <td>Medium</td>
-          <td>Medium</td>
-          <td>Medium–High</td>
-      </tr>
-      <tr>
-          <td>Scalability</td>
-          <td>ISP capacity</td>
-          <td>Fixed hardware</td>
-          <td>Near-unlimited</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th>ISP Scrubbing</th>
+					<th>On-Premise Appliance</th>
+					<th>Cloud Service</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Volumetric protection</td>
+					<td>✅</td>
+					<td>❌ (limited by link)</td>
+					<td>✅✅</td>
+			</tr>
+			<tr>
+					<td>Protocol attack protection</td>
+					<td>✅</td>
+					<td>✅✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Application layer (L7)</td>
+					<td>❌</td>
+					<td>✅ (advanced models)</td>
+					<td>✅✅</td>
+			</tr>
+			<tr>
+					<td>Activation time</td>
+					<td>Minutes (on-demand)</td>
+					<td>Immediate</td>
+					<td>Immediate</td>
+			</tr>
+			<tr>
+					<td>Traffic visibility</td>
+					<td>Limited</td>
+					<td>Full</td>
+					<td>Provider-dependent</td>
+			</tr>
+			<tr>
+					<td>Compliance / data residency</td>
+					<td>✅</td>
+					<td>✅✅</td>
+					<td>Requires review</td>
+			</tr>
+			<tr>
+					<td>CapEx</td>
+					<td>Low</td>
+					<td>High</td>
+					<td>None</td>
+			</tr>
+			<tr>
+					<td>OpEx</td>
+					<td>Medium</td>
+					<td>Medium</td>
+					<td>Medium–High</td>
+			</tr>
+			<tr>
+					<td>Scalability</td>
+					<td>ISP capacity</td>
+					<td>Fixed hardware</td>
+					<td>Near-unlimited</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="the-hybrid-model-how-serious-organizations-combine-all-three">The Hybrid Model: How Serious Organizations Combine All Three</h2>
@@ -4456,40 +4456,40 @@ Your data: secure, encrypted, redundant
 </code></pre><p>Synology NAS devices have a built-in &ldquo;Hyper Backup&rdquo; application. You configure it once, and every night it automatically sends changed files to S3. Your backup runs while you sleep.</p>
 <h2 id="aws-s3-storage-tiers--which-one-is-right-for-you">AWS S3 Storage Tiers — Which One Is Right for You?</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Tier</th>
-          <th>Best for</th>
-          <th>Access</th>
-          <th>Cost</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>S3 Standard</strong></td>
-          <td>Frequently accessed data</td>
-          <td>Instant</td>
-          <td>~€23/TB/month</td>
-      </tr>
-      <tr>
-          <td><strong>S3 Infrequent Access</strong></td>
-          <td>A few times per month</td>
-          <td>Instant</td>
-          <td>~€12/TB/month</td>
-      </tr>
-      <tr>
-          <td><strong>S3 Glacier Instant</strong></td>
-          <td>Rarely accessed archives</td>
-          <td>Milliseconds</td>
-          <td>~€4/TB/month</td>
-      </tr>
-      <tr>
-          <td><strong>S3 Glacier Deep Archive</strong></td>
-          <td>Long-term archiving</td>
-          <td>12 hours</td>
-          <td>~€1/TB/month</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Tier</th>
+					<th>Best for</th>
+					<th>Access</th>
+					<th>Cost</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>S3 Standard</strong></td>
+					<td>Frequently accessed data</td>
+					<td>Instant</td>
+					<td>~€23/TB/month</td>
+			</tr>
+			<tr>
+					<td><strong>S3 Infrequent Access</strong></td>
+					<td>A few times per month</td>
+					<td>Instant</td>
+					<td>~€12/TB/month</td>
+			</tr>
+			<tr>
+					<td><strong>S3 Glacier Instant</strong></td>
+					<td>Rarely accessed archives</td>
+					<td>Milliseconds</td>
+					<td>~€4/TB/month</td>
+			</tr>
+			<tr>
+					<td><strong>S3 Glacier Deep Archive</strong></td>
+					<td>Long-term archiving</td>
+					<td>12 hours</td>
+					<td>~€1/TB/month</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Recommendation for SMBs:</strong>
 Active business data: <strong>S3 Infrequent Access</strong> — affordable, instant access when needed.
@@ -5756,46 +5756,46 @@ This version expands the architectural foundation for the series.</p>
 <hr>
 <h2 id="technologies--vendors">Technologies &amp; Vendors</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Category</th>
-          <th>Technologies</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Firewall</td>
-          <td>Cisco Firepower, Fortinet FortiGate, Palo Alto NGFW, Check Point</td>
-      </tr>
-      <tr>
-          <td>Switching</td>
-          <td>Cisco Catalyst 9K, Nexus 9K, HP Comware, Aruba</td>
-      </tr>
-      <tr>
-          <td>Security &amp; NAC</td>
-          <td>Cisco ISE, Aruba ClearPass, 802.1X, FortiEMS</td>
-      </tr>
-      <tr>
-          <td>VPN &amp; Remote Access</td>
-          <td>GlobalProtect, FortiClient, AnyConnect, ZTNA</td>
-      </tr>
-      <tr>
-          <td>Automation</td>
-          <td>Python, Bash, Cisco DNA Center, FortiManager</td>
-      </tr>
-      <tr>
-          <td>Monitoring</td>
-          <td>SolarWinds, Splunk, Zabbix, Grafana, FortiAnalyzer</td>
-      </tr>
-      <tr>
-          <td>Load Balancing</td>
-          <td>F5 LTM, F5 GTM</td>
-      </tr>
-      <tr>
-          <td>Wireless</td>
-          <td>Aruba, Cisco Meraki, Cisco WLC</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Category</th>
+					<th>Technologies</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Firewall</td>
+					<td>Cisco Firepower, Fortinet FortiGate, Palo Alto NGFW, Check Point</td>
+			</tr>
+			<tr>
+					<td>Switching</td>
+					<td>Cisco Catalyst 9K, Nexus 9K, HP Comware, Aruba</td>
+			</tr>
+			<tr>
+					<td>Security &amp; NAC</td>
+					<td>Cisco ISE, Aruba ClearPass, 802.1X, FortiEMS</td>
+			</tr>
+			<tr>
+					<td>VPN &amp; Remote Access</td>
+					<td>GlobalProtect, FortiClient, AnyConnect, ZTNA</td>
+			</tr>
+			<tr>
+					<td>Automation</td>
+					<td>Python, Bash, Cisco DNA Center, FortiManager</td>
+			</tr>
+			<tr>
+					<td>Monitoring</td>
+					<td>SolarWinds, Splunk, Zabbix, Grafana, FortiAnalyzer</td>
+			</tr>
+			<tr>
+					<td>Load Balancing</td>
+					<td>F5 LTM, F5 GTM</td>
+			</tr>
+			<tr>
+					<td>Wireless</td>
+					<td>Aruba, Cisco Meraki, Cisco WLC</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <p><em>A professional reference letter from senior management is available upon request.</em><br>
@@ -5954,50 +5954,50 @@ This version expands the architectural foundation for the series.</p>
 <hr>
 <h3 id="tech-stack-at-a-glance">Tech Stack at a Glance</h3>
 <table>
-  <thead>
-      <tr>
-          <th style="text-align: left">Category</th>
-          <th style="text-align: left">Technologies</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: left"><strong>Security</strong></td>
-          <td style="text-align: left">Cisco ISE, ClearPass, Firepower, FortiGate, Palo Alto NGFW, Check Point</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>Networking</strong></td>
-          <td style="text-align: left">Cisco Catalyst/Nexus, Aruba CX, HP Comware, BGP, OSPF, VLAN, STP</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>Wi-Fi</strong></td>
-          <td style="text-align: left">Aruba Mobility Master/Central, Cisco Meraki MR, Ekahau, 802.1X, Guest Wi-Fi</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>Data Center</strong></td>
-          <td style="text-align: left">VXLAN/BGP-EVPN, Cisco NDFC, Nexus 9000, FabricPath, HA Clustering</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>Firewall &amp; ZTNA</strong></td>
-          <td style="text-align: left">Palo Alto NGFW, FortiGate, Check Point, Cisco Firepower, Fortinet ZTNA, Cloudflare Zero Trust</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>Delivery</strong></td>
-          <td style="text-align: left">F5 BIG-IP LTM/GTM, SSL Offloading, GSLB</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>Automation &amp; IaC</strong></td>
-          <td style="text-align: left">Python, Bash, Ansible, Terraform (AWS, Cloudflare), Git, NetDevOps</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>Cloud</strong></td>
-          <td style="text-align: left">AWS (VPC, Transit Gateway, Advanced Networking), Azure (vNet, NSG)</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>Monitoring</strong></td>
-          <td style="text-align: left">SolarWinds, ManageEngine OpManager, Zabbix, Splunk SIEM</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th style="text-align: left">Category</th>
+					<th style="text-align: left">Technologies</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td style="text-align: left"><strong>Security</strong></td>
+					<td style="text-align: left">Cisco ISE, ClearPass, Firepower, FortiGate, Palo Alto NGFW, Check Point</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Networking</strong></td>
+					<td style="text-align: left">Cisco Catalyst/Nexus, Aruba CX, HP Comware, BGP, OSPF, VLAN, STP</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Wi-Fi</strong></td>
+					<td style="text-align: left">Aruba Mobility Master/Central, Cisco Meraki MR, Ekahau, 802.1X, Guest Wi-Fi</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Data Center</strong></td>
+					<td style="text-align: left">VXLAN/BGP-EVPN, Cisco NDFC, Nexus 9000, FabricPath, HA Clustering</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Firewall &amp; ZTNA</strong></td>
+					<td style="text-align: left">Palo Alto NGFW, FortiGate, Check Point, Cisco Firepower, Fortinet ZTNA, Cloudflare Zero Trust</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Delivery</strong></td>
+					<td style="text-align: left">F5 BIG-IP LTM/GTM, SSL Offloading, GSLB</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Automation &amp; IaC</strong></td>
+					<td style="text-align: left">Python, Bash, Ansible, Terraform (AWS, Cloudflare), Git, NetDevOps</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Cloud</strong></td>
+					<td style="text-align: left">AWS (VPC, Transit Gateway, Advanced Networking), Azure (vNet, NSG)</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Monitoring</strong></td>
+					<td style="text-align: left">SolarWinds, ManageEngine OpManager, Zabbix, Splunk SIEM</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h3 id="certifications">Certifications</h3>
@@ -6061,30 +6061,30 @@ This version expands the architectural foundation for the series.</p>
 <h2 id="service-models">Service Models</h2>
 <h3 id="managed-services-monthly">Managed Services (Monthly)</h3>
 <table>
-  <thead>
-      <tr>
-          <th>Package</th>
-          <th>Coverage</th>
-          <th>Price</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Basic</strong></td>
-          <td>Monitoring + incident response + 4 hrs/month administration</td>
-          <td>From €50/month</td>
-      </tr>
-      <tr>
-          <td><strong>Standard</strong></td>
-          <td>Basic + proactive maintenance + SIP trunk management + 8 hrs/month</td>
-          <td>From €150/month</td>
-      </tr>
-      <tr>
-          <td><strong>Premium</strong></td>
-          <td>Standard + upgrades + DR planning + unlimited incidents</td>
-          <td>From €299/month</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Package</th>
+					<th>Coverage</th>
+					<th>Price</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Basic</strong></td>
+					<td>Monitoring + incident response + 4 hrs/month administration</td>
+					<td>From €50/month</td>
+			</tr>
+			<tr>
+					<td><strong>Standard</strong></td>
+					<td>Basic + proactive maintenance + SIP trunk management + 8 hrs/month</td>
+					<td>From €150/month</td>
+			</tr>
+			<tr>
+					<td><strong>Premium</strong></td>
+					<td>Standard + upgrades + DR planning + unlimited incidents</td>
+					<td>From €299/month</td>
+			</tr>
+	</tbody>
 </table>
 <p><em>Pricing scales with environment size. Custom quotes for 50+ user environments.</em></p>
 <h3 id="project-based-work">Project-Based Work</h3>
@@ -6156,30 +6156,30 @@ This version expands the architectural foundation for the series.</p>
 <hr>
 <h2 id="supported-platforms">Supported Platforms</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Category</th>
-          <th>Technologies</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Wireless</strong></td>
-          <td>Cisco Catalyst Center (DNA), Aruba Mobility Master, Aruba Central, Meraki</td>
-      </tr>
-      <tr>
-          <td><strong>Switching</strong></td>
-          <td>Cisco Catalyst 9000, Aruba, HP Comware</td>
-      </tr>
-      <tr>
-          <td><strong>Routing</strong></td>
-          <td>Cisco, Fortinet SD-WAN, BGP/OSPF</td>
-      </tr>
-      <tr>
-          <td><strong>Site Survey</strong></td>
-          <td>Ekahau</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Category</th>
+					<th>Technologies</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Wireless</strong></td>
+					<td>Cisco Catalyst Center (DNA), Aruba Mobility Master, Aruba Central, Meraki</td>
+			</tr>
+			<tr>
+					<td><strong>Switching</strong></td>
+					<td>Cisco Catalyst 9000, Aruba, HP Comware</td>
+			</tr>
+			<tr>
+					<td><strong>Routing</strong></td>
+					<td>Cisco, Fortinet SD-WAN, BGP/OSPF</td>
+			</tr>
+			<tr>
+					<td><strong>Site Survey</strong></td>
+					<td>Ekahau</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="project-experience">Project Experience</h2>
@@ -6243,59 +6243,59 @@ This version expands the architectural foundation for the series.</p>
 <hr>
 <h2 id="supported-platforms">Supported Platforms</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Vendor</th>
-          <th>Products</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Fortinet</strong></td>
-          <td>FortiGate, FortiManager, FortiAnalyzer</td>
-      </tr>
-      <tr>
-          <td><strong>Palo Alto Networks</strong></td>
-          <td>NGFW, Panorama, Prisma Access</td>
-      </tr>
-      <tr>
-          <td><strong>Cisco</strong></td>
-          <td>Firepower, ASA, FMC</td>
-      </tr>
-      <tr>
-          <td><strong>Check Point</strong></td>
-          <td>Security Gateway, SmartConsole</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Vendor</th>
+					<th>Products</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Fortinet</strong></td>
+					<td>FortiGate, FortiManager, FortiAnalyzer</td>
+			</tr>
+			<tr>
+					<td><strong>Palo Alto Networks</strong></td>
+					<td>NGFW, Panorama, Prisma Access</td>
+			</tr>
+			<tr>
+					<td><strong>Cisco</strong></td>
+					<td>Firepower, ASA, FMC</td>
+			</tr>
+			<tr>
+					<td><strong>Check Point</strong></td>
+					<td>Security Gateway, SmartConsole</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="service-models">Service Models</h2>
 <h3 id="managed-services-monthly">Managed Services (Monthly)</h3>
 <table>
-  <thead>
-      <tr>
-          <th>Package</th>
-          <th>Coverage</th>
-          <th>Price</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Basic</strong></td>
-          <td>Monthly rule review + incident response + 4 hrs admin</td>
-          <td>From €50/month</td>
-      </tr>
-      <tr>
-          <td><strong>Standard</strong></td>
-          <td>Basic + firmware management + VPN monitoring + 8 hrs</td>
-          <td>From €150/month</td>
-      </tr>
-      <tr>
-          <td><strong>Premium</strong></td>
-          <td>Standard + quarterly audit + compliance reports + unlimited</td>
-          <td>From €299/month</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Package</th>
+					<th>Coverage</th>
+					<th>Price</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Basic</strong></td>
+					<td>Monthly rule review + incident response + 4 hrs admin</td>
+					<td>From €50/month</td>
+			</tr>
+			<tr>
+					<td><strong>Standard</strong></td>
+					<td>Basic + firmware management + VPN monitoring + 8 hrs</td>
+					<td>From €150/month</td>
+			</tr>
+			<tr>
+					<td><strong>Premium</strong></td>
+					<td>Standard + quarterly audit + compliance reports + unlimited</td>
+					<td>From €299/month</td>
+			</tr>
+	</tbody>
 </table>
 <h3 id="project-based">Project-Based</h3>
 <ul>
@@ -6358,40 +6358,40 @@ This version expands the architectural foundation for the series.</p>
 <h2 id="typical-project-sizes--investment">Typical Project Sizes &amp; Investment</h2>
 <p>Every business is different—here is an orientation framework:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Project Type</th>
-          <th>Scope</th>
-          <th>Investment</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Firewall Audit &amp; Optimization</td>
-          <td>1-2 Days</td>
-          <td><strong>from €500</strong></td>
-      </tr>
-      <tr>
-          <td>WLAN Planning (up to 50 APs)</td>
-          <td>3-5 Days</td>
-          <td><strong>from €900</strong></td>
-      </tr>
-      <tr>
-          <td>Firewall Migration (Palo Alto / Fortinet)</td>
-          <td>5-10 Days</td>
-          <td><strong>from €2,000</strong></td>
-      </tr>
-      <tr>
-          <td>Zero Trust Architecture</td>
-          <td>Project-based</td>
-          <td><strong>On Request</strong></td>
-      </tr>
-      <tr>
-          <td>Monthly Managed Security Monitoring</td>
-          <td>Ongoing</td>
-          <td><strong>from €199/mo</strong></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Project Type</th>
+					<th>Scope</th>
+					<th>Investment</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Firewall Audit &amp; Optimization</td>
+					<td>1-2 Days</td>
+					<td><strong>from €500</strong></td>
+			</tr>
+			<tr>
+					<td>WLAN Planning (up to 50 APs)</td>
+					<td>3-5 Days</td>
+					<td><strong>from €900</strong></td>
+			</tr>
+			<tr>
+					<td>Firewall Migration (Palo Alto / Fortinet)</td>
+					<td>5-10 Days</td>
+					<td><strong>from €2,000</strong></td>
+			</tr>
+			<tr>
+					<td>Zero Trust Architecture</td>
+					<td>Project-based</td>
+					<td><strong>On Request</strong></td>
+			</tr>
+			<tr>
+					<td>Monthly Managed Security Monitoring</td>
+					<td>Ongoing</td>
+					<td><strong>from €199/mo</strong></td>
+			</tr>
+	</tbody>
 </table>
 <p><em>Free estimate provided after a 30-minute initial call. No hidden costs.</em></p>
 <hr>
@@ -6427,30 +6427,30 @@ This version expands the architectural foundation for the series.</p>
 </ul>
 <p><strong>Suitable for:</strong> Cafés, restaurants, medical practices, law firms, small offices, hotels</p>
 <table>
-  <thead>
-      <tr>
-          <th>Service</th>
-          <th>Price</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Site survey (signal analysis)</td>
-          <td>Free</td>
-      </tr>
-      <tr>
-          <td>Installation 1x Aruba AP</td>
-          <td>From €99 + hardware</td>
-      </tr>
-      <tr>
-          <td>Installation 2x AP (Mesh)</td>
-          <td>From €149 + hardware</td>
-      </tr>
-      <tr>
-          <td>Monthly monitoring</td>
-          <td>€19/month</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Service</th>
+					<th>Price</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Site survey (signal analysis)</td>
+					<td>Free</td>
+			</tr>
+			<tr>
+					<td>Installation 1x Aruba AP</td>
+					<td>From €99 + hardware</td>
+			</tr>
+			<tr>
+					<td>Installation 2x AP (Mesh)</td>
+					<td>From €149 + hardware</td>
+			</tr>
+			<tr>
+					<td>Monthly monitoring</td>
+					<td>€19/month</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h3 id="-nas-backup--data-security-aws-s3">💾 NAS Backup &amp; Data Security (AWS S3)</h3>
@@ -6465,30 +6465,30 @@ This version expands the architectural foundation for the series.</p>
 </ul>
 <p><strong>For medical practices &amp; law firms:</strong> I prepare a Data Processing Agreement (AVV) — legally clean and GDPR-compliant.</p>
 <table>
-  <thead>
-      <tr>
-          <th>Service</th>
-          <th>Price</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>AWS account setup</td>
-          <td>€49 one-time</td>
-      </tr>
-      <tr>
-          <td>Backup configuration (Hyper Backup)</td>
-          <td>€49 one-time</td>
-      </tr>
-      <tr>
-          <td>AVV preparation (for medical practices)</td>
-          <td>€29 one-time</td>
-      </tr>
-      <tr>
-          <td>Monthly monitoring &amp; control</td>
-          <td>€19/month</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Service</th>
+					<th>Price</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>AWS account setup</td>
+					<td>€49 one-time</td>
+			</tr>
+			<tr>
+					<td>Backup configuration (Hyper Backup)</td>
+					<td>€49 one-time</td>
+			</tr>
+			<tr>
+					<td>AVV preparation (for medical practices)</td>
+					<td>€29 one-time</td>
+			</tr>
+			<tr>
+					<td>Monthly monitoring &amp; control</td>
+					<td>€19/month</td>
+			</tr>
+	</tbody>
 </table>
 <p><em>AWS costs (~€2-5/month) are billed directly through your AWS account.</em></p>
 <hr>
@@ -6511,30 +6511,30 @@ No data loss, no damage
 <li><strong>Annual battery check:</strong> I check the battery condition once a year</li>
 </ul>
 <table>
-  <thead>
-      <tr>
-          <th>Service</th>
-          <th>Price</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>UPS needs analysis</td>
-          <td>Free</td>
-      </tr>
-      <tr>
-          <td>Installation &amp; NAS integration</td>
-          <td>€59 labor</td>
-      </tr>
-      <tr>
-          <td>UPS hardware (APC 650VA)</td>
-          <td>~€80-120 + margin</td>
-      </tr>
-      <tr>
-          <td>Annual battery check</td>
-          <td>€29/year</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Service</th>
+					<th>Price</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>UPS needs analysis</td>
+					<td>Free</td>
+			</tr>
+			<tr>
+					<td>Installation &amp; NAS integration</td>
+					<td>€59 labor</td>
+			</tr>
+			<tr>
+					<td>UPS hardware (APC 650VA)</td>
+					<td>~€80-120 + margin</td>
+			</tr>
+			<tr>
+					<td>Annual battery check</td>
+					<td>€29/year</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h3 id="-antivirus--endpoint-protection-centrally-managed">🛡️ Antivirus &amp; Endpoint Protection (Centrally Managed)</h3>
@@ -6547,26 +6547,26 @@ No data loss, no damage
 <li><strong>Monthly report:</strong> You receive a monthly overview of detected threats</li>
 </ul>
 <table>
-  <thead>
-      <tr>
-          <th>Service</th>
-          <th>Price</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Setup &amp; installation (up to 5 PCs)</td>
-          <td>€59 one-time</td>
-      </tr>
-      <tr>
-          <td>License per device</td>
-          <td>From €3-5/month</td>
-      </tr>
-      <tr>
-          <td>Monthly management &amp; report</td>
-          <td>Included in package</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Service</th>
+					<th>Price</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Setup &amp; installation (up to 5 PCs)</td>
+					<td>€59 one-time</td>
+			</tr>
+			<tr>
+					<td>License per device</td>
+					<td>From €3-5/month</td>
+			</tr>
+			<tr>
+					<td>Monthly management &amp; report</td>
+					<td>Included in package</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h3 id="-camera-system--video-surveillance">📹 Camera System &amp; Video Surveillance</h3>
@@ -6579,30 +6579,30 @@ No data loss, no damage
 <li><strong>GDPR:</strong> I help with correct signage and privacy policy</li>
 </ul>
 <table>
-  <thead>
-      <tr>
-          <th>Service</th>
-          <th>Price</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Consultation &amp; planning</td>
-          <td>Free</td>
-      </tr>
-      <tr>
-          <td>Installation per camera</td>
-          <td>From €49 labor</td>
-      </tr>
-      <tr>
-          <td>Synology Surveillance Station setup</td>
-          <td>€59 one-time</td>
-      </tr>
-      <tr>
-          <td>Additional camera license (Synology)</td>
-          <td>~€50 one-time</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Service</th>
+					<th>Price</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Consultation &amp; planning</td>
+					<td>Free</td>
+			</tr>
+			<tr>
+					<td>Installation per camera</td>
+					<td>From €49 labor</td>
+			</tr>
+			<tr>
+					<td>Synology Surveillance Station setup</td>
+					<td>€59 one-time</td>
+			</tr>
+			<tr>
+					<td>Additional camera license (Synology)</td>
+					<td>~€50 one-time</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h3 id="-pc--server-maintenance">💻 PC &amp; Server Maintenance</h3>
@@ -6616,109 +6616,109 @@ No data loss, no damage
 <li><strong>Remote support:</strong> Simple problems solved via AnyDesk without an on-site visit</li>
 </ul>
 <table>
-  <thead>
-      <tr>
-          <th>Service</th>
-          <th>Price</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>PC diagnosis</td>
-          <td>Free</td>
-      </tr>
-      <tr>
-          <td>Windows reinstallation</td>
-          <td>From €49</td>
-      </tr>
-      <tr>
-          <td>SSD/RAM upgrade</td>
-          <td>From €49 + hardware</td>
-      </tr>
-      <tr>
-          <td>Server maintenance (on-site)</td>
-          <td>€59/hour</td>
-      </tr>
-      <tr>
-          <td>Remote support</td>
-          <td>€29/hour</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Service</th>
+					<th>Price</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>PC diagnosis</td>
+					<td>Free</td>
+			</tr>
+			<tr>
+					<td>Windows reinstallation</td>
+					<td>From €49</td>
+			</tr>
+			<tr>
+					<td>SSD/RAM upgrade</td>
+					<td>From €49 + hardware</td>
+			</tr>
+			<tr>
+					<td>Server maintenance (on-site)</td>
+					<td>€59/hour</td>
+			</tr>
+			<tr>
+					<td>Remote support</td>
+					<td>€29/hour</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="monthly-care-packages">Monthly Care Packages</h2>
 <p>Instead of individual jobs, I also offer monthly care contracts — so you always have a fixed contact person and predictable IT costs:</p>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th><strong>Basic</strong></th>
-          <th><strong>Business</strong></th>
-          <th><strong>Premium</strong></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Antivirus (up to 5 devices)</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Windows Update management</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Remote support (hrs/month)</td>
-          <td>1 hr</td>
-          <td>2 hrs</td>
-          <td>4 hrs</td>
-      </tr>
-      <tr>
-          <td>NAS backup monitoring</td>
-          <td>–</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>WiFi monitoring</td>
-          <td>–</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>On-site visit/month</td>
-          <td>–</td>
-          <td>1x</td>
-          <td>2x</td>
-      </tr>
-      <tr>
-          <td>UPS annual check</td>
-          <td>–</td>
-          <td>–</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Monthly report</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Response time</td>
-          <td>48 hrs</td>
-          <td>24 hrs</td>
-          <td>4 hrs</td>
-      </tr>
-      <tr>
-          <td><strong>Price</strong></td>
-          <td><strong>€49/month</strong></td>
-          <td><strong>€89/month</strong></td>
-          <td><strong>€149/month</strong></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th><strong>Basic</strong></th>
+					<th><strong>Business</strong></th>
+					<th><strong>Premium</strong></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Antivirus (up to 5 devices)</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Windows Update management</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Remote support (hrs/month)</td>
+					<td>1 hr</td>
+					<td>2 hrs</td>
+					<td>4 hrs</td>
+			</tr>
+			<tr>
+					<td>NAS backup monitoring</td>
+					<td>–</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>WiFi monitoring</td>
+					<td>–</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>On-site visit/month</td>
+					<td>–</td>
+					<td>1x</td>
+					<td>2x</td>
+			</tr>
+			<tr>
+					<td>UPS annual check</td>
+					<td>–</td>
+					<td>–</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Monthly report</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Response time</td>
+					<td>48 hrs</td>
+					<td>24 hrs</td>
+					<td>4 hrs</td>
+			</tr>
+			<tr>
+					<td><strong>Price</strong></td>
+					<td><strong>€49/month</strong></td>
+					<td><strong>€89/month</strong></td>
+					<td><strong>€149/month</strong></td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="your-data--always-under-your-control">Your Data — Always Under Your Control</h2>
@@ -6824,70 +6824,70 @@ No data loss, no damage
 <hr>
 <h2 id="packages--pricing">Packages &amp; Pricing</h2>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th><strong>Starter</strong></th>
-          <th><strong>Business</strong></th>
-          <th><strong>Premium</strong></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>SSL Certificate</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>WAF Protection</td>
-          <td>Basic</td>
-          <td>Advanced</td>
-          <td>Full</td>
-      </tr>
-      <tr>
-          <td>DDoS Protection</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Monthly Report</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Free Hosting</td>
-          <td>–</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>WordPress Updates</td>
-          <td>–</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Monthly Backup</td>
-          <td>–</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Support Response</td>
-          <td>48 hrs</td>
-          <td>24 hrs</td>
-          <td>4 hrs</td>
-      </tr>
-      <tr>
-          <td><strong>Price</strong></td>
-          <td><strong>€19/month</strong></td>
-          <td><strong>€29/month</strong></td>
-          <td><strong>€49/month</strong></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th><strong>Starter</strong></th>
+					<th><strong>Business</strong></th>
+					<th><strong>Premium</strong></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>SSL Certificate</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>WAF Protection</td>
+					<td>Basic</td>
+					<td>Advanced</td>
+					<td>Full</td>
+			</tr>
+			<tr>
+					<td>DDoS Protection</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Monthly Report</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Free Hosting</td>
+					<td>–</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>WordPress Updates</td>
+					<td>–</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Monthly Backup</td>
+					<td>–</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Support Response</td>
+					<td>48 hrs</td>
+					<td>24 hrs</td>
+					<td>4 hrs</td>
+			</tr>
+			<tr>
+					<td><strong>Price</strong></td>
+					<td><strong>€19/month</strong></td>
+					<td><strong>€29/month</strong></td>
+					<td><strong>€49/month</strong></td>
+			</tr>
+	</tbody>
 </table>
 <p><em>One-time setup fee: €49 (waived in the first month with annual contract)</em></p>
 <hr>
@@ -6943,62 +6943,62 @@ Use the collected contacts for newsletters, promotions, or loyalty discounts.</p
 <hr>
 <h2 id="who-is-this-for">Who is this for?</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Industry</th>
-          <th>Benefit</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Cafes &amp; Restaurants</strong></td>
-          <td>Win loyal customers, promote specials</td>
-      </tr>
-      <tr>
-          <td><strong>Hotels &amp; Guesthouses</strong></td>
-          <td>Guest retention, request reviews</td>
-      </tr>
-      <tr>
-          <td><strong>Language Schools</strong></td>
-          <td>Inform students, promote new courses</td>
-      </tr>
-      <tr>
-          <td><strong>Retail Shops</strong></td>
-          <td>Digital replacement for loyalty cards</td>
-      </tr>
-      <tr>
-          <td><strong>Medical &amp; Law Offices</strong></td>
-          <td>Appointment reminders, news</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Industry</th>
+					<th>Benefit</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Cafes &amp; Restaurants</strong></td>
+					<td>Win loyal customers, promote specials</td>
+			</tr>
+			<tr>
+					<td><strong>Hotels &amp; Guesthouses</strong></td>
+					<td>Guest retention, request reviews</td>
+			</tr>
+			<tr>
+					<td><strong>Language Schools</strong></td>
+					<td>Inform students, promote new courses</td>
+			</tr>
+			<tr>
+					<td><strong>Retail Shops</strong></td>
+					<td>Digital replacement for loyalty cards</td>
+			</tr>
+			<tr>
+					<td><strong>Medical &amp; Law Offices</strong></td>
+					<td>Appointment reminders, news</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="packages--pricing">Packages &amp; Pricing</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Package</th>
-          <th>Content</th>
-          <th>Price</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Starter</strong></td>
-          <td>Installation + Portal Setup + Dashboard</td>
-          <td>One-time €79</td>
-      </tr>
-      <tr>
-          <td><strong>Basic</strong></td>
-          <td>Starter + Monthly Report + Support</td>
-          <td>€29/month</td>
-      </tr>
-      <tr>
-          <td><strong>Pro</strong></td>
-          <td>Basic + Email Campaigns + Custom Branding</td>
-          <td>€59/month</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Package</th>
+					<th>Content</th>
+					<th>Price</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Starter</strong></td>
+					<td>Installation + Portal Setup + Dashboard</td>
+					<td>One-time €79</td>
+			</tr>
+			<tr>
+					<td><strong>Basic</strong></td>
+					<td>Starter + Monthly Report + Support</td>
+					<td>€29/month</td>
+			</tr>
+			<tr>
+					<td><strong>Pro</strong></td>
+					<td>Basic + Email Campaigns + Custom Branding</td>
+					<td>€59/month</td>
+			</tr>
+	</tbody>
 </table>
 <p><em>Already have a WiFi device? No problem — we will check compatibility for free.</em></p>
 <p><em>All packages are GDPR compliant. No hidden costs.</em></p>

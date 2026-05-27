@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Web Security on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/web-security/</link><description>Recent content in Web Security on Barash Helvadzhaoglu</description><generator>Hugo -- 0.161.1</generator><language>en</language><lastBuildDate>Wed, 22 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/web-security/index.xml" rel="self" type="application/rss+xml"/><item><title>F5 WAF Deep Dive: Application Security with ASM and Advanced WAF</title><link>https://barashhelvadzhaoglu.com/en/technology/f5-waf-deep-dive/</link><pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/f5-waf-deep-dive/</guid><description>F5 WAF deep dive — ASM vs Advanced WAF, positive vs negative models, OWASP Top 10, bot defense, and phased transparent-to-blocking deployment.</description><content:encoded><![CDATA[<h1 id="f5-waf-deep-dive-application-security-with-asm-and-advanced-waf">F5 WAF Deep Dive: Application Security with ASM and Advanced WAF</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Web Security on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/web-security/</link><description>Recent content in Web Security on Barash Helvadzhaoglu</description><generator>Hugo -- 0.162.0</generator><language>en</language><lastBuildDate>Wed, 22 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/web-security/index.xml" rel="self" type="application/rss+xml"/><item><title>F5 WAF Deep Dive: Application Security with ASM and Advanced WAF</title><link>https://barashhelvadzhaoglu.com/en/technology/f5-waf-deep-dive/</link><pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/f5-waf-deep-dive/</guid><description>F5 WAF deep dive — ASM vs Advanced WAF, positive vs negative models, OWASP Top 10, bot defense, and phased transparent-to-blocking deployment.</description><content:encoded><![CDATA[<h1 id="f5-waf-deep-dive-application-security-with-asm-and-advanced-waf">F5 WAF Deep Dive: Application Security with ASM and Advanced WAF</h1>
 <p>This article is part of the F5 BIG-IP series.</p>
 <blockquote>
 <p><strong>New to F5?</strong> Start with the platform overview first: <a href="/en/technology/f5-bigip-application-delivery-platform-overview/">F5 BIG-IP Is Not a Load Balancer — It&rsquo;s an Application Delivery Platform</a></p>
@@ -19,65 +19,65 @@ WAF:   HTTP/HTTPS content inspection — SQL injection, XSS, parameter tampering
 <p><strong>ASM (Application Security Manager)</strong> — the original module. Primarily signature-based. Covers OWASP Top 10, parameter enforcement, cookie protection, and basic bot detection. Included in many standard BIG-IP licenses.</p>
 <p><strong>Advanced WAF (AWAF)</strong> — the newer module with behavioral capabilities ASM lacks:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Capability</th>
-          <th>ASM</th>
-          <th>Advanced WAF</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Signature-based attack detection</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>OWASP Top 10 coverage</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Parameter and cookie enforcement</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Basic bot detection (signatures)</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Behavioral bot defense</td>
-          <td>❌</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Credential stuffing protection</td>
-          <td>❌</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>JavaScript challenge / CAPTCHA</td>
-          <td>Limited</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>L7 behavioral DoS mitigation</td>
-          <td>Limited</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>API security (OpenAPI / Swagger)</td>
-          <td>Limited</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>DataSafe (client-side encryption)</td>
-          <td>❌</td>
-          <td>✅</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Capability</th>
+					<th>ASM</th>
+					<th>Advanced WAF</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Signature-based attack detection</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>OWASP Top 10 coverage</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Parameter and cookie enforcement</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Basic bot detection (signatures)</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Behavioral bot defense</td>
+					<td>❌</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Credential stuffing protection</td>
+					<td>❌</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>JavaScript challenge / CAPTCHA</td>
+					<td>Limited</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>L7 behavioral DoS mitigation</td>
+					<td>Limited</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>API security (OpenAPI / Swagger)</td>
+					<td>Limited</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>DataSafe (client-side encryption)</td>
+					<td>❌</td>
+					<td>✅</td>
+			</tr>
+	</tbody>
 </table>
 <p>For internal enterprise applications, ASM provides solid coverage. For public-facing applications with high bot exposure, credential stuffing risk, or aggressive L7 DoS — Advanced WAF is significantly more effective.</p>
 <hr>

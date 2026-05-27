@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Zero Trust on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/zero-trust/</link><description>Recent content in Zero Trust on Barash Helvadzhaoglu</description><generator>Hugo -- 0.161.1</generator><language>en</language><lastBuildDate>Mon, 20 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/zero-trust/index.xml" rel="self" type="application/rss+xml"/><item><title>Cisco ISE: Architecture, Licensing, and When to Use It</title><link>https://barashhelvadzhaoglu.com/en/technology/cisco-ise-architecture/</link><pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/cisco-ise-architecture/</guid><description>Cisco ISE architectural guide — deployment models, node roles, licensing tiers, pxGrid integrations, and when ISE is right over simpler alternatives.</description><content:encoded><![CDATA[<h1 id="cisco-ise-architecture-licensing-and-when-to-use-it">Cisco ISE: Architecture, Licensing, and When to Use It</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Zero Trust on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/zero-trust/</link><description>Recent content in Zero Trust on Barash Helvadzhaoglu</description><generator>Hugo -- 0.162.0</generator><language>en</language><lastBuildDate>Mon, 20 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/zero-trust/index.xml" rel="self" type="application/rss+xml"/><item><title>Cisco ISE: Architecture, Licensing, and When to Use It</title><link>https://barashhelvadzhaoglu.com/en/technology/cisco-ise-architecture/</link><pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/cisco-ise-architecture/</guid><description>Cisco ISE architectural guide — deployment models, node roles, licensing tiers, pxGrid integrations, and when ISE is right over simpler alternatives.</description><content:encoded><![CDATA[<h1 id="cisco-ise-architecture-licensing-and-when-to-use-it">Cisco ISE: Architecture, Licensing, and When to Use It</h1>
 <p>Cisco Identity Services Engine (ISE) is the policy brain behind enterprise network access control. It&rsquo;s the platform that answers the question — for every device trying to connect to the network — of <em>who are you, what are you, are you healthy, and what are you allowed to do?</em></p>
 <p>If you&rsquo;ve read the <a href="/en/technology/identity-based-microsegmentation-8021x/">802.1X field guide</a>, you&rsquo;ve already seen ISE in action: it&rsquo;s the RADIUS server that returns dynamic VLAN assignments, the NAC platform that profiles devices, the policy engine that enforces posture compliance. This article steps back from the protocol details and looks at ISE as an architectural and investment decision — how it&rsquo;s structured, how it&rsquo;s licensed, and when it&rsquo;s the right tool.</p>
 <hr>
@@ -85,76 +85,76 @@
 </ul>
 <p>The honest summary:</p>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th>NPS</th>
-          <th>ClearPass</th>
-          <th>Cisco ISE</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Cost</td>
-          <td>Free</td>
-          <td>Per-endpoint subscription</td>
-          <td>Per-endpoint subscription</td>
-      </tr>
-      <tr>
-          <td>802.1X / RADIUS</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Device profiling</td>
-          <td>❌</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Guest portal</td>
-          <td>Basic</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Posture</td>
-          <td>❌</td>
-          <td>✅</td>
-          <td>✅ (Premier)</td>
-      </tr>
-      <tr>
-          <td>SGT / TrustSec</td>
-          <td>❌</td>
-          <td>❌</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>DNA Center integration</td>
-          <td>❌</td>
-          <td>❌</td>
-          <td>✅ (native)</td>
-      </tr>
-      <tr>
-          <td>pxGrid ecosystem</td>
-          <td>❌</td>
-          <td>Limited</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Vendor neutrality</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>Cisco-optimized</td>
-      </tr>
-      <tr>
-          <td>Operational complexity</td>
-          <td>Low</td>
-          <td>Medium</td>
-          <td>High</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th>NPS</th>
+					<th>ClearPass</th>
+					<th>Cisco ISE</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Cost</td>
+					<td>Free</td>
+					<td>Per-endpoint subscription</td>
+					<td>Per-endpoint subscription</td>
+			</tr>
+			<tr>
+					<td>802.1X / RADIUS</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Device profiling</td>
+					<td>❌</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Guest portal</td>
+					<td>Basic</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Posture</td>
+					<td>❌</td>
+					<td>✅</td>
+					<td>✅ (Premier)</td>
+			</tr>
+			<tr>
+					<td>SGT / TrustSec</td>
+					<td>❌</td>
+					<td>❌</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>DNA Center integration</td>
+					<td>❌</td>
+					<td>❌</td>
+					<td>✅ (native)</td>
+			</tr>
+			<tr>
+					<td>pxGrid ecosystem</td>
+					<td>❌</td>
+					<td>Limited</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Vendor neutrality</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>Cisco-optimized</td>
+			</tr>
+			<tr>
+					<td>Operational complexity</td>
+					<td>Low</td>
+					<td>Medium</td>
+					<td>High</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="field-notes-sizing-and-operational-reality">Field Notes: Sizing and Operational Reality</h2>

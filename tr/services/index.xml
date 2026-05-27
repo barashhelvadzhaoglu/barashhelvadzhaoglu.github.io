@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>IT Hizmetleri ve Danışmanlık on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/services/</link><description>Recent content in IT Hizmetleri ve Danışmanlık on Barash Helvadzhaoglu</description><generator>Hugo -- 0.161.1</generator><language>tr</language><lastBuildDate>Fri, 17 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/services/index.xml" rel="self" type="application/rss+xml"/><item><title>Aruba ClearPass — NAC Kurulum, 802.1X ve Yönetilen Hizmetler</title><link>https://barashhelvadzhaoglu.com/tr/services/aruba-clearpass/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/services/aruba-clearpass/</guid><description>Bağımsız Aruba ClearPass danışmanlığı. NAC kurulum, 802.1X yapılandırma, misafir yönetimi ve sürekli destek. Uzaktan hizmet. Ücretsiz teknik ön görüşme.</description><content:encoded><![CDATA[<h1 id="aruba-clearpass--bağımsız-nac-danışmanlığı-ve-desteği">Aruba ClearPass — Bağımsız NAC Danışmanlığı ve Desteği</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>IT Hizmetleri ve Danışmanlık on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/services/</link><description>Recent content in IT Hizmetleri ve Danışmanlık on Barash Helvadzhaoglu</description><generator>Hugo -- 0.162.0</generator><language>tr</language><lastBuildDate>Fri, 17 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/services/index.xml" rel="self" type="application/rss+xml"/><item><title>Aruba ClearPass — NAC Kurulum, 802.1X ve Yönetilen Hizmetler</title><link>https://barashhelvadzhaoglu.com/tr/services/aruba-clearpass/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/services/aruba-clearpass/</guid><description>Bağımsız Aruba ClearPass danışmanlığı. NAC kurulum, 802.1X yapılandırma, misafir yönetimi ve sürekli destek. Uzaktan hizmet. Ücretsiz teknik ön görüşme.</description><content:encoded><![CDATA[<h1 id="aruba-clearpass--bağımsız-nac-danışmanlığı-ve-desteği">Aruba ClearPass — Bağımsız NAC Danışmanlığı ve Desteği</h1>
 <p>Aruba ClearPass mevcut en yetenekli Ağ Erişim Kontrolü platformlarından biridir — ancak esnekliği aynı zamanda doğru uygulamayı karmaşık kılar. Laboratuvarda çalışan bir ClearPass dağıtımı üretimde sıklıkla bozulur: 802.1X desteklemeyen cihazlar, eski yazıcılar, BYOD sertifika hataları veya mobil cihazlarda beklendiği gibi çalışmayan misafir portal yönlendirmeleri.</p>
 <p>Aruba kablosuz, Cisco switching ve HP altyapısıyla birlikte ClearPass&rsquo;i sahaya sürmek için <strong>11+ yıllık</strong> kurumsal NAC deneyimimle; tam zamanlı uzman istihdam etmeden ClearPass uzmanlığına ihtiyaç duyan kuruluşlara bağımsız danışmanlık, dağıtım desteği ve yönetilen hizmetler sunuyorum.</p>
 <blockquote>
@@ -183,30 +183,30 @@
 <h3 id="bakım-anlaşması-aylık">Bakım Anlaşması (Aylık)</h3>
 <p>Altyapınızı sizin yerinize ben yönetiyorum — siz işinize odaklanın.</p>
 <table>
-  <thead>
-      <tr>
-          <th>Paket</th>
-          <th>Kapsam</th>
-          <th>Fiyat</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Basic</strong></td>
-          <td>İzleme + olay müdahalesi + aylık 4 saat yönetim</td>
-          <td>Aylık €50&rsquo;dan</td>
-      </tr>
-      <tr>
-          <td><strong>Standard</strong></td>
-          <td>Basic + proaktif bakım + SIP trunk yönetimi + aylık 8 saat</td>
-          <td>Aylık €150&rsquo;dan</td>
-      </tr>
-      <tr>
-          <td><strong>Premium</strong></td>
-          <td>Standard + versiyon yükseltme + DR planlaması + sınırsız olay</td>
-          <td>Aylık €299&rsquo;dan</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Paket</th>
+					<th>Kapsam</th>
+					<th>Fiyat</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Basic</strong></td>
+					<td>İzleme + olay müdahalesi + aylık 4 saat yönetim</td>
+					<td>Aylık €50&rsquo;dan</td>
+			</tr>
+			<tr>
+					<td><strong>Standard</strong></td>
+					<td>Basic + proaktif bakım + SIP trunk yönetimi + aylık 8 saat</td>
+					<td>Aylık €150&rsquo;dan</td>
+			</tr>
+			<tr>
+					<td><strong>Premium</strong></td>
+					<td>Standard + versiyon yükseltme + DR planlaması + sınırsız olay</td>
+					<td>Aylık €299&rsquo;dan</td>
+			</tr>
+	</tbody>
 </table>
 <p><em>Fiyatlandırma ortam büyüklüğüne göre değişir. 50+ kullanıcılı ortamlar için özel teklif sunulur.</em></p>
 <h3 id="proje-bazlı-çalışma">Proje Bazlı Çalışma</h3>
@@ -274,59 +274,59 @@
 <hr>
 <h2 id="desteklenen-platformlar">Desteklenen Platformlar</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Üretici</th>
-          <th>Ürünler</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Fortinet</strong></td>
-          <td>FortiGate, FortiManager, FortiAnalyzer</td>
-      </tr>
-      <tr>
-          <td><strong>Palo Alto Networks</strong></td>
-          <td>NGFW, Panorama, Prisma Access</td>
-      </tr>
-      <tr>
-          <td><strong>Cisco</strong></td>
-          <td>Firepower, ASA, FMC</td>
-      </tr>
-      <tr>
-          <td><strong>Check Point</strong></td>
-          <td>Security Gateway, SmartConsole</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Üretici</th>
+					<th>Ürünler</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Fortinet</strong></td>
+					<td>FortiGate, FortiManager, FortiAnalyzer</td>
+			</tr>
+			<tr>
+					<td><strong>Palo Alto Networks</strong></td>
+					<td>NGFW, Panorama, Prisma Access</td>
+			</tr>
+			<tr>
+					<td><strong>Cisco</strong></td>
+					<td>Firepower, ASA, FMC</td>
+			</tr>
+			<tr>
+					<td><strong>Check Point</strong></td>
+					<td>Security Gateway, SmartConsole</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="hizmet-modelleri">Hizmet Modelleri</h2>
 <h3 id="bakım-anlaşması-aylık">Bakım Anlaşması (Aylık)</h3>
 <table>
-  <thead>
-      <tr>
-          <th>Paket</th>
-          <th>Kapsam</th>
-          <th>Fiyat</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Basic</strong></td>
-          <td>Aylık kural gözden geçirme + olay müdahalesi + 4 saat yönetim</td>
-          <td>Aylık €50&rsquo;dan</td>
-      </tr>
-      <tr>
-          <td><strong>Standard</strong></td>
-          <td>Basic + firmware yönetimi + VPN izleme + 8 saat</td>
-          <td>Aylık €150&rsquo;dan</td>
-      </tr>
-      <tr>
-          <td><strong>Premium</strong></td>
-          <td>Standard + üç aylık denetim + uyumluluk raporları + sınırsız</td>
-          <td>Aylık €299&rsquo;dan</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Paket</th>
+					<th>Kapsam</th>
+					<th>Fiyat</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Basic</strong></td>
+					<td>Aylık kural gözden geçirme + olay müdahalesi + 4 saat yönetim</td>
+					<td>Aylık €50&rsquo;dan</td>
+			</tr>
+			<tr>
+					<td><strong>Standard</strong></td>
+					<td>Basic + firmware yönetimi + VPN izleme + 8 saat</td>
+					<td>Aylık €150&rsquo;dan</td>
+			</tr>
+			<tr>
+					<td><strong>Premium</strong></td>
+					<td>Standard + üç aylık denetim + uyumluluk raporları + sınırsız</td>
+					<td>Aylık €299&rsquo;dan</td>
+			</tr>
+	</tbody>
 </table>
 <h3 id="proje-bazlı">Proje Bazlı</h3>
 <ul>
@@ -389,40 +389,40 @@
 <h2 id="tipik-proje-kapsamları-ve-yatırım-rehberi">Tipik Proje Kapsamları ve Yatırım Rehberi</h2>
 <p>Her işletme farklıdır; işte bir fikir vermesi için genel çerçeve:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Proje Tipi</th>
-          <th>Kapsam</th>
-          <th>Yatırım</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Firewall Denetimi ve Optimizasyonu</td>
-          <td>1-2 Gün</td>
-          <td><strong>500€&lsquo;dan başlayan</strong></td>
-      </tr>
-      <tr>
-          <td>WLAN Planlama (50 AP&rsquo;ye kadar)</td>
-          <td>3-5 Gün</td>
-          <td><strong>900€&lsquo;dan başlayan</strong></td>
-      </tr>
-      <tr>
-          <td>Firewall Migrasyonu (Palo Alto / Fortinet)</td>
-          <td>5-10 Gün</td>
-          <td><strong>2.000€&lsquo;dan başlayan</strong></td>
-      </tr>
-      <tr>
-          <td>Zero Trust Mimarisi</td>
-          <td>Proje bazlı</td>
-          <td><strong>Teklif isteyin</strong></td>
-      </tr>
-      <tr>
-          <td>Aylık Yönetilen Güvenlik İzleme</td>
-          <td>Sürekli</td>
-          <td><strong>199€/Ay&rsquo;dan başlayan</strong></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Proje Tipi</th>
+					<th>Kapsam</th>
+					<th>Yatırım</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Firewall Denetimi ve Optimizasyonu</td>
+					<td>1-2 Gün</td>
+					<td><strong>500€&lsquo;dan başlayan</strong></td>
+			</tr>
+			<tr>
+					<td>WLAN Planlama (50 AP&rsquo;ye kadar)</td>
+					<td>3-5 Gün</td>
+					<td><strong>900€&lsquo;dan başlayan</strong></td>
+			</tr>
+			<tr>
+					<td>Firewall Migrasyonu (Palo Alto / Fortinet)</td>
+					<td>5-10 Gün</td>
+					<td><strong>2.000€&lsquo;dan başlayan</strong></td>
+			</tr>
+			<tr>
+					<td>Zero Trust Mimarisi</td>
+					<td>Proje bazlı</td>
+					<td><strong>Teklif isteyin</strong></td>
+			</tr>
+			<tr>
+					<td>Aylık Yönetilen Güvenlik İzleme</td>
+					<td>Sürekli</td>
+					<td><strong>199€/Ay&rsquo;dan başlayan</strong></td>
+			</tr>
+	</tbody>
 </table>
 <p><em>30 dakikalık ilk görüşmeden sonra ücretsiz fiyat teklifi sunulur. Gizli maliyet yoktur.</em></p>
 <hr>
@@ -478,30 +478,30 @@
 <hr>
 <h2 id="desteklenen-platformlar">Desteklenen Platformlar</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Kategori</th>
-          <th>Teknolojiler</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Kablosuz</strong></td>
-          <td>Cisco DNA Center, Aruba Mobility Master, Aruba Central, Meraki</td>
-      </tr>
-      <tr>
-          <td><strong>Switching</strong></td>
-          <td>Cisco Catalyst 9000, Aruba, HP Comware</td>
-      </tr>
-      <tr>
-          <td><strong>Routing</strong></td>
-          <td>Cisco, Fortinet SD-WAN, BGP/OSPF</td>
-      </tr>
-      <tr>
-          <td><strong>Site Survey</strong></td>
-          <td>Ekahau</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Kategori</th>
+					<th>Teknolojiler</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Kablosuz</strong></td>
+					<td>Cisco DNA Center, Aruba Mobility Master, Aruba Central, Meraki</td>
+			</tr>
+			<tr>
+					<td><strong>Switching</strong></td>
+					<td>Cisco Catalyst 9000, Aruba, HP Comware</td>
+			</tr>
+			<tr>
+					<td><strong>Routing</strong></td>
+					<td>Cisco, Fortinet SD-WAN, BGP/OSPF</td>
+			</tr>
+			<tr>
+					<td><strong>Site Survey</strong></td>
+					<td>Ekahau</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="referans-projelerimden">Referans Projelerimden</h2>
@@ -550,30 +550,30 @@
 </ul>
 <p><strong>Uygun olduğu yerler:</strong> Kafeler, restoranlar, muayenehaneler, avukatlık büroları, küçük ofisler, oteller</p>
 <table>
-  <thead>
-      <tr>
-          <th>Hizmet</th>
-          <th>Fiyat</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Saha analizi (site survey)</td>
-          <td>Ücretsiz</td>
-      </tr>
-      <tr>
-          <td>1x Aruba AP kurulum</td>
-          <td>€99&rsquo;dan + donanım</td>
-      </tr>
-      <tr>
-          <td>2x AP mesh kurulum</td>
-          <td>€149&rsquo;dan + donanım</td>
-      </tr>
-      <tr>
-          <td>Aylık izleme</td>
-          <td>€19/ay</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Hizmet</th>
+					<th>Fiyat</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Saha analizi (site survey)</td>
+					<td>Ücretsiz</td>
+			</tr>
+			<tr>
+					<td>1x Aruba AP kurulum</td>
+					<td>€99&rsquo;dan + donanım</td>
+			</tr>
+			<tr>
+					<td>2x AP mesh kurulum</td>
+					<td>€149&rsquo;dan + donanım</td>
+			</tr>
+			<tr>
+					<td>Aylık izleme</td>
+					<td>€19/ay</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h3 id="-nas-yedekleme-ve-veri-güvenliği-aws-s3">💾 NAS Yedekleme ve Veri Güvenliği (AWS S3)</h3>
@@ -588,30 +588,30 @@
 </ul>
 <p><strong>Muayenehaneler ve avukatlık büroları için:</strong> Veri İşleme Sözleşmesi (AVV) hazırlıyorum — yasal olarak temiz ve GDPR uyumlu.</p>
 <table>
-  <thead>
-      <tr>
-          <th>Hizmet</th>
-          <th>Fiyat</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>AWS hesabı kurulumu</td>
-          <td>€29 tek seferlik</td>
-      </tr>
-      <tr>
-          <td>Yedekleme yapılandırması (Hyper Backup)</td>
-          <td>€29 tek seferlik</td>
-      </tr>
-      <tr>
-          <td>AVV hazırlama (muayenehaneler için)</td>
-          <td>€29 tek seferlik</td>
-      </tr>
-      <tr>
-          <td>Aylık izleme ve kontrol</td>
-          <td>€19/ay</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Hizmet</th>
+					<th>Fiyat</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>AWS hesabı kurulumu</td>
+					<td>€29 tek seferlik</td>
+			</tr>
+			<tr>
+					<td>Yedekleme yapılandırması (Hyper Backup)</td>
+					<td>€29 tek seferlik</td>
+			</tr>
+			<tr>
+					<td>AVV hazırlama (muayenehaneler için)</td>
+					<td>€29 tek seferlik</td>
+			</tr>
+			<tr>
+					<td>Aylık izleme ve kontrol</td>
+					<td>€19/ay</td>
+			</tr>
+	</tbody>
 </table>
 <p><em>AWS maliyetleri (~€2-5/ay) doğrudan sizin AWS hesabınızdan faturalandırılır.</em></p>
 <hr>
@@ -634,30 +634,30 @@ Veri kaybı yok, hasar yok
 <li><strong>Yıllık batarya kontrolü:</strong> Batarya durumunu yılda bir kontrol ediyorum</li>
 </ul>
 <table>
-  <thead>
-      <tr>
-          <th>Hizmet</th>
-          <th>Fiyat</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>UPS ihtiyaç analizi</td>
-          <td>Ücretsiz</td>
-      </tr>
-      <tr>
-          <td>Kurulum ve NAS entegrasyonu</td>
-          <td>€59 işçilik</td>
-      </tr>
-      <tr>
-          <td>UPS donanımı (APC 650VA)</td>
-          <td>~€80-120 + kar marjı</td>
-      </tr>
-      <tr>
-          <td>Yıllık batarya kontrolü</td>
-          <td>€29/yıl</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Hizmet</th>
+					<th>Fiyat</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>UPS ihtiyaç analizi</td>
+					<td>Ücretsiz</td>
+			</tr>
+			<tr>
+					<td>Kurulum ve NAS entegrasyonu</td>
+					<td>€59 işçilik</td>
+			</tr>
+			<tr>
+					<td>UPS donanımı (APC 650VA)</td>
+					<td>~€80-120 + kar marjı</td>
+			</tr>
+			<tr>
+					<td>Yıllık batarya kontrolü</td>
+					<td>€29/yıl</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h3 id="-antivirus-ve-endpoint-koruması-merkezi-yönetim">🛡️ Antivirus ve Endpoint Koruması (Merkezi Yönetim)</h3>
@@ -670,26 +670,26 @@ Veri kaybı yok, hasar yok
 <li><strong>Aylık rapor:</strong> Her ay tespit edilen tehditlerin özetini alıyorsunuz</li>
 </ul>
 <table>
-  <thead>
-      <tr>
-          <th>Hizmet</th>
-          <th>Fiyat</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Kurulum (5 PC&rsquo;ye kadar)</td>
-          <td>€29 tek seferlik</td>
-      </tr>
-      <tr>
-          <td>Cihaz başına lisans</td>
-          <td>€3-5/ay&rsquo;dan</td>
-      </tr>
-      <tr>
-          <td>Aylık yönetim ve rapor</td>
-          <td>Pakete dahil</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Hizmet</th>
+					<th>Fiyat</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Kurulum (5 PC&rsquo;ye kadar)</td>
+					<td>€29 tek seferlik</td>
+			</tr>
+			<tr>
+					<td>Cihaz başına lisans</td>
+					<td>€3-5/ay&rsquo;dan</td>
+			</tr>
+			<tr>
+					<td>Aylık yönetim ve rapor</td>
+					<td>Pakete dahil</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h3 id="-kamera-sistemi-ve-video-gözetleme">📹 Kamera Sistemi ve Video Gözetleme</h3>
@@ -702,30 +702,30 @@ Veri kaybı yok, hasar yok
 <li><strong>GDPR:</strong> Doğru işaret levhası ve gizlilik politikası konusunda yardımcı oluyorum</li>
 </ul>
 <table>
-  <thead>
-      <tr>
-          <th>Hizmet</th>
-          <th>Fiyat</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Danışmanlık ve planlama</td>
-          <td>Ücretsiz</td>
-      </tr>
-      <tr>
-          <td>Kamera başına kurulum</td>
-          <td>€49&rsquo;dan işçilik</td>
-      </tr>
-      <tr>
-          <td>Synology Surveillance Station kurulumu</td>
-          <td>€29 tek seferlik</td>
-      </tr>
-      <tr>
-          <td>Ek kamera lisansı (Synology)</td>
-          <td>~€50 tek seferlik</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Hizmet</th>
+					<th>Fiyat</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Danışmanlık ve planlama</td>
+					<td>Ücretsiz</td>
+			</tr>
+			<tr>
+					<td>Kamera başına kurulum</td>
+					<td>€49&rsquo;dan işçilik</td>
+			</tr>
+			<tr>
+					<td>Synology Surveillance Station kurulumu</td>
+					<td>€29 tek seferlik</td>
+			</tr>
+			<tr>
+					<td>Ek kamera lisansı (Synology)</td>
+					<td>~€50 tek seferlik</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h3 id="-pc-ve-server-bakımı">💻 PC ve Server Bakımı</h3>
@@ -739,109 +739,109 @@ Veri kaybı yok, hasar yok
 <li><strong>Uzaktan destek:</strong> Basit sorunları yerinde ziyaret olmadan AnyDesk ile çözüyorum</li>
 </ul>
 <table>
-  <thead>
-      <tr>
-          <th>Hizmet</th>
-          <th>Fiyat</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>PC tanılama</td>
-          <td>Ücretsiz</td>
-      </tr>
-      <tr>
-          <td>Windows yeniden kurulumu</td>
-          <td>€49&rsquo;dan</td>
-      </tr>
-      <tr>
-          <td>SSD/RAM yükseltme</td>
-          <td>€49&rsquo;dan + donanım</td>
-      </tr>
-      <tr>
-          <td>Server bakımı (yerinde)</td>
-          <td>€59/saat</td>
-      </tr>
-      <tr>
-          <td>Uzaktan destek</td>
-          <td>€29/saat</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Hizmet</th>
+					<th>Fiyat</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>PC tanılama</td>
+					<td>Ücretsiz</td>
+			</tr>
+			<tr>
+					<td>Windows yeniden kurulumu</td>
+					<td>€49&rsquo;dan</td>
+			</tr>
+			<tr>
+					<td>SSD/RAM yükseltme</td>
+					<td>€49&rsquo;dan + donanım</td>
+			</tr>
+			<tr>
+					<td>Server bakımı (yerinde)</td>
+					<td>€59/saat</td>
+			</tr>
+			<tr>
+					<td>Uzaktan destek</td>
+					<td>€29/saat</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="aylık-bakım-paketleri">Aylık Bakım Paketleri</h2>
 <p>Tek seferlik işler yerine aylık bakım sözleşmeleri de sunuyorum — böylece her zaman sabit bir muhatabınız olur ve IT maliyetleriniz öngörülebilir hale gelir:</p>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th><strong>Basic</strong></th>
-          <th><strong>Business</strong></th>
-          <th><strong>Premium</strong></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Antivirus (5 cihaza kadar)</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Windows Update yönetimi</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Uzaktan destek (saat/ay)</td>
-          <td>1 saat</td>
-          <td>2 saat</td>
-          <td>4 saat</td>
-      </tr>
-      <tr>
-          <td>NAS yedekleme izleme</td>
-          <td>–</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>WiFi izleme</td>
-          <td>–</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Yerinde ziyaret/ay</td>
-          <td>–</td>
-          <td>1x</td>
-          <td>2x</td>
-      </tr>
-      <tr>
-          <td>UPS yıllık kontrolü</td>
-          <td>–</td>
-          <td>–</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Aylık rapor</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Yanıt süresi</td>
-          <td>48 saat</td>
-          <td>24 saat</td>
-          <td>4 saat</td>
-      </tr>
-      <tr>
-          <td><strong>Fiyat</strong></td>
-          <td><strong>€49/ay</strong></td>
-          <td><strong>€89/ay</strong></td>
-          <td><strong>€149/ay</strong></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th><strong>Basic</strong></th>
+					<th><strong>Business</strong></th>
+					<th><strong>Premium</strong></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Antivirus (5 cihaza kadar)</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Windows Update yönetimi</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Uzaktan destek (saat/ay)</td>
+					<td>1 saat</td>
+					<td>2 saat</td>
+					<td>4 saat</td>
+			</tr>
+			<tr>
+					<td>NAS yedekleme izleme</td>
+					<td>–</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>WiFi izleme</td>
+					<td>–</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Yerinde ziyaret/ay</td>
+					<td>–</td>
+					<td>1x</td>
+					<td>2x</td>
+			</tr>
+			<tr>
+					<td>UPS yıllık kontrolü</td>
+					<td>–</td>
+					<td>–</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Aylık rapor</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Yanıt süresi</td>
+					<td>48 saat</td>
+					<td>24 saat</td>
+					<td>4 saat</td>
+			</tr>
+			<tr>
+					<td><strong>Fiyat</strong></td>
+					<td><strong>€49/ay</strong></td>
+					<td><strong>€89/ay</strong></td>
+					<td><strong>€149/ay</strong></td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="verileriniz--her-zaman-sizin-kontrolünüzde">Verileriniz — Her Zaman Sizin Kontrolünüzde</h2>
@@ -947,70 +947,70 @@ Veri kaybı yok, hasar yok
 <hr>
 <h2 id="paketler-ve-fiyatlar">Paketler ve Fiyatlar</h2>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th><strong>Starter</strong></th>
-          <th><strong>Business</strong></th>
-          <th><strong>Premium</strong></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>SSL Sertifikası</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>WAF Koruması</td>
-          <td>Temel</td>
-          <td>Gelişmiş</td>
-          <td>Tam</td>
-      </tr>
-      <tr>
-          <td>DDoS Koruması</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Aylık Rapor</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Ücretsiz Hosting</td>
-          <td>–</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>WordPress Güncellemeleri</td>
-          <td>–</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Aylık Yedekleme</td>
-          <td>–</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Destek Yanıt Süresi</td>
-          <td>48 saat</td>
-          <td>24 saat</td>
-          <td>4 saat</td>
-      </tr>
-      <tr>
-          <td><strong>Fiyat</strong></td>
-          <td><strong>€19/ay</strong></td>
-          <td><strong>€29/ay</strong></td>
-          <td><strong>€49/ay</strong></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th><strong>Starter</strong></th>
+					<th><strong>Business</strong></th>
+					<th><strong>Premium</strong></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>SSL Sertifikası</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>WAF Koruması</td>
+					<td>Temel</td>
+					<td>Gelişmiş</td>
+					<td>Tam</td>
+			</tr>
+			<tr>
+					<td>DDoS Koruması</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Aylık Rapor</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Ücretsiz Hosting</td>
+					<td>–</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>WordPress Güncellemeleri</td>
+					<td>–</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Aylık Yedekleme</td>
+					<td>–</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Destek Yanıt Süresi</td>
+					<td>48 saat</td>
+					<td>24 saat</td>
+					<td>4 saat</td>
+			</tr>
+			<tr>
+					<td><strong>Fiyat</strong></td>
+					<td><strong>€19/ay</strong></td>
+					<td><strong>€29/ay</strong></td>
+					<td><strong>€49/ay</strong></td>
+			</tr>
+	</tbody>
 </table>
 <p><em>Tek seferlik kurulum ücreti: €49 (yıllık sözleşmede ilk ay geçerli değildir)</em></p>
 <hr>
@@ -1066,62 +1066,62 @@ Toplanan kişileri bültenler, kampanyalar veya sadık müşteri indirimleri iç
 <hr>
 <h2 id="bu-çözüm-kimler-için">Bu Çözüm Kimler İçin?</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Sektör</th>
-          <th>Fayda</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Kafeler &amp; Restoranlar</strong></td>
-          <td>Sadık müşteri kazanımı, kampanya duyuruları</td>
-      </tr>
-      <tr>
-          <td><strong>Oteller &amp; Pansiyonlar</strong></td>
-          <td>Müşteri bağlılığı, yorum talepleri</td>
-      </tr>
-      <tr>
-          <td><strong>Dil Okulları &amp; Kurslar</strong></td>
-          <td>Katılımcıları bilgilendirme, yeni kurs tanıtımları</td>
-      </tr>
-      <tr>
-          <td><strong>Perakende Mağazalar</strong></td>
-          <td>Dijital sadakat kartı çözümü</td>
-      </tr>
-      <tr>
-          <td><strong>Muayenehaneler &amp; Ofisler</strong></td>
-          <td>Randevu hatırlatmaları, duyurular</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Sektör</th>
+					<th>Fayda</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Kafeler &amp; Restoranlar</strong></td>
+					<td>Sadık müşteri kazanımı, kampanya duyuruları</td>
+			</tr>
+			<tr>
+					<td><strong>Oteller &amp; Pansiyonlar</strong></td>
+					<td>Müşteri bağlılığı, yorum talepleri</td>
+			</tr>
+			<tr>
+					<td><strong>Dil Okulları &amp; Kurslar</strong></td>
+					<td>Katılımcıları bilgilendirme, yeni kurs tanıtımları</td>
+			</tr>
+			<tr>
+					<td><strong>Perakende Mağazalar</strong></td>
+					<td>Dijital sadakat kartı çözümü</td>
+			</tr>
+			<tr>
+					<td><strong>Muayenehaneler &amp; Ofisler</strong></td>
+					<td>Randevu hatırlatmaları, duyurular</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="paketler--fiyatlandırma">Paketler &amp; Fiyatlandırma</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Paket</th>
-          <th>İçerik</th>
-          <th>Fiyat</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Starter</strong></td>
-          <td>Kurulum + Portal Yapılandırma + Dashboard</td>
-          <td>Tek Seferlik €79</td>
-      </tr>
-      <tr>
-          <td><strong>Basic</strong></td>
-          <td>Starter + Aylık Raporlama + Destek</td>
-          <td>€29/Ay</td>
-      </tr>
-      <tr>
-          <td><strong>Pro</strong></td>
-          <td>Basic + E-posta Kampanyaları + Özel Branding</td>
-          <td>€59/Ay</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Paket</th>
+					<th>İçerik</th>
+					<th>Fiyat</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Starter</strong></td>
+					<td>Kurulum + Portal Yapılandırma + Dashboard</td>
+					<td>Tek Seferlik €79</td>
+			</tr>
+			<tr>
+					<td><strong>Basic</strong></td>
+					<td>Starter + Aylık Raporlama + Destek</td>
+					<td>€29/Ay</td>
+			</tr>
+			<tr>
+					<td><strong>Pro</strong></td>
+					<td>Basic + E-posta Kampanyaları + Özel Branding</td>
+					<td>€59/Ay</td>
+			</tr>
+	</tbody>
 </table>
 <p><em>Mevcut bir WiFi cihazınız mı var? Sorun değil — uyumluluğunu ücretsiz kontrol ediyoruz.</em></p>
 <p><em>Tüm paketler DSGVO uyumludur. Gizli maliyet yoktur.</em></p>

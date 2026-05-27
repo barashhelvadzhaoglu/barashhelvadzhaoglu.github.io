@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Netzwerksicherheit on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/netzwerksicherheit/</link><description>Recent content in Netzwerksicherheit on Barash Helvadzhaoglu</description><generator>Hugo -- 0.161.1</generator><language>de</language><lastBuildDate>Mon, 20 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/netzwerksicherheit/index.xml" rel="self" type="application/rss+xml"/><item><title>Cisco ISE: Architektur, Lizenzierung und wann es sinnvoll ist</title><link>https://barashhelvadzhaoglu.com/de/technology/cisco-ise-architecture/</link><pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/cisco-ise-architecture/</guid><description>Cisco ISE Architekturleitfaden — Deployment-Modelle, Node-Rollen, Lizenzstufen, pxGrid-Integrationen und wann ISE die richtige Wahl ist.</description><content:encoded><![CDATA[<h1 id="cisco-ise-architektur-lizenzierung-und-wann-es-sinnvoll-ist">Cisco ISE: Architektur, Lizenzierung und wann es sinnvoll ist</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Netzwerksicherheit on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/netzwerksicherheit/</link><description>Recent content in Netzwerksicherheit on Barash Helvadzhaoglu</description><generator>Hugo -- 0.162.0</generator><language>de</language><lastBuildDate>Mon, 20 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/netzwerksicherheit/index.xml" rel="self" type="application/rss+xml"/><item><title>Cisco ISE: Architektur, Lizenzierung und wann es sinnvoll ist</title><link>https://barashhelvadzhaoglu.com/de/technology/cisco-ise-architecture/</link><pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/cisco-ise-architecture/</guid><description>Cisco ISE Architekturleitfaden — Deployment-Modelle, Node-Rollen, Lizenzstufen, pxGrid-Integrationen und wann ISE die richtige Wahl ist.</description><content:encoded><![CDATA[<h1 id="cisco-ise-architektur-lizenzierung-und-wann-es-sinnvoll-ist">Cisco ISE: Architektur, Lizenzierung und wann es sinnvoll ist</h1>
 <p>Die Cisco Identity Services Engine (ISE) ist das Policy-Gehirn hinter der Enterprise-Netzwerkzugangskontrolle. Es ist die Plattform, die für jedes Gerät, das versucht, sich mit dem Netzwerk zu verbinden, folgende Frage beantwortet: <em>Wer bist du, was bist du, bist du gesund und was darfst du tun?</em></p>
 <p>Wenn Sie den <a href="/de/technology/identity-based-microsegmentation-8021x/">802.1X-Feldleitfaden</a> gelesen haben, haben Sie ISE bereits in Aktion gesehen: den RADIUS-Server, der dynamische VLAN-Zuweisungen zurückgibt, die NAC-Plattform, die Geräte profiliert, die Policy-Engine, die Posture-Compliance erzwingt. Dieser Artikel tritt einen Schritt zurück von den Protokolldetails und betrachtet ISE als Architektur- und Investitionsentscheidung — wie es strukturiert ist, wie es lizenziert wird und wann es das richtige Werkzeug ist.</p>
 <hr>
@@ -85,76 +85,76 @@
 </ul>
 <p>Die ehrliche Zusammenfassung:</p>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th>NPS</th>
-          <th>ClearPass</th>
-          <th>Cisco ISE</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Kosten</td>
-          <td>Kostenlos</td>
-          <td>Pro-Endpoint-Abo</td>
-          <td>Pro-Endpoint-Abo</td>
-      </tr>
-      <tr>
-          <td>802.1X / RADIUS</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Geräte-Profiling</td>
-          <td>❌</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Gästeportal</td>
-          <td>Grundlegend</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Posture</td>
-          <td>❌</td>
-          <td>✅</td>
-          <td>✅ (Premier)</td>
-      </tr>
-      <tr>
-          <td>SGT / TrustSec</td>
-          <td>❌</td>
-          <td>❌</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>DNA Center Integration</td>
-          <td>❌</td>
-          <td>❌</td>
-          <td>✅ (nativ)</td>
-      </tr>
-      <tr>
-          <td>pxGrid-Ecosystem</td>
-          <td>❌</td>
-          <td>Begrenzt</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Herstellerneutralität</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>Cisco-optimiert</td>
-      </tr>
-      <tr>
-          <td>Betriebskomplexität</td>
-          <td>Niedrig</td>
-          <td>Mittel</td>
-          <td>Hoch</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th>NPS</th>
+					<th>ClearPass</th>
+					<th>Cisco ISE</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Kosten</td>
+					<td>Kostenlos</td>
+					<td>Pro-Endpoint-Abo</td>
+					<td>Pro-Endpoint-Abo</td>
+			</tr>
+			<tr>
+					<td>802.1X / RADIUS</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Geräte-Profiling</td>
+					<td>❌</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Gästeportal</td>
+					<td>Grundlegend</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Posture</td>
+					<td>❌</td>
+					<td>✅</td>
+					<td>✅ (Premier)</td>
+			</tr>
+			<tr>
+					<td>SGT / TrustSec</td>
+					<td>❌</td>
+					<td>❌</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>DNA Center Integration</td>
+					<td>❌</td>
+					<td>❌</td>
+					<td>✅ (nativ)</td>
+			</tr>
+			<tr>
+					<td>pxGrid-Ecosystem</td>
+					<td>❌</td>
+					<td>Begrenzt</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Herstellerneutralität</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>Cisco-optimiert</td>
+			</tr>
+			<tr>
+					<td>Betriebskomplexität</td>
+					<td>Niedrig</td>
+					<td>Mittel</td>
+					<td>Hoch</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="praxisnotizen-dimensionierung-und-betriebliche-realität">Praxisnotizen: Dimensionierung und betriebliche Realität</h2>
@@ -236,40 +236,40 @@ Formal ist er freiwillig — aber: Die DSGVO schreibt „Stand der Technik&quot;
 <p><strong>Was das in der Praxis bedeutet:</strong></p>
 <p>Folgende Geräteklassen müssen in <strong>getrennten Netzwerken (VLANs)</strong> betrieben werden:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Netzwerk-Segment</th>
-          <th>Was gehört hinein</th>
-          <th>Risiko ohne Trennung</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Mitarbeiter-Netz</strong></td>
-          <td>PCs, Laptops</td>
-          <td>Zugriff auf Kundendaten</td>
-      </tr>
-      <tr>
-          <td><strong>Server / NAS</strong></td>
-          <td>Dateiserver, Backup-System</td>
-          <td>Datenverlust bei Angriff</td>
-      </tr>
-      <tr>
-          <td><strong>IoT-Geräte</strong></td>
-          <td>Drucker, IP-Kameras, Smart-TV, UPS</td>
-          <td>Bekannte Sicherheitslücken, kein Update</td>
-      </tr>
-      <tr>
-          <td><strong>Gäste-WLAN</strong></td>
-          <td>Kunden, Patienten, Hotelgäste</td>
-          <td>Zugriff auf interne Systeme</td>
-      </tr>
-      <tr>
-          <td><strong>Kasse / POS</strong></td>
-          <td>Kartenterminal, Kassensystem</td>
-          <td>PCI DSS Pflicht, Zahlungsdaten</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Netzwerk-Segment</th>
+					<th>Was gehört hinein</th>
+					<th>Risiko ohne Trennung</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Mitarbeiter-Netz</strong></td>
+					<td>PCs, Laptops</td>
+					<td>Zugriff auf Kundendaten</td>
+			</tr>
+			<tr>
+					<td><strong>Server / NAS</strong></td>
+					<td>Dateiserver, Backup-System</td>
+					<td>Datenverlust bei Angriff</td>
+			</tr>
+			<tr>
+					<td><strong>IoT-Geräte</strong></td>
+					<td>Drucker, IP-Kameras, Smart-TV, UPS</td>
+					<td>Bekannte Sicherheitslücken, kein Update</td>
+			</tr>
+			<tr>
+					<td><strong>Gäste-WLAN</strong></td>
+					<td>Kunden, Patienten, Hotelgäste</td>
+					<td>Zugriff auf interne Systeme</td>
+			</tr>
+			<tr>
+					<td><strong>Kasse / POS</strong></td>
+					<td>Kartenterminal, Kassensystem</td>
+					<td>PCI DSS Pflicht, Zahlungsdaten</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Warum Drucker gefährlich sind:</strong>
 IP-Drucker haben oft veraltete Firmware und keine automatischen Sicherheitsupdates. Ein kompromittierter Drucker im gleichen Netzwerk wie der Buchhaltungs-PC gibt Angreifern direkten Zugriff auf alle Daten.</p>
@@ -392,117 +392,117 @@ NAS-Gerät (z. B. Synology) mit automatischer verschlüsselter Synchronisation z
 <strong>Laufzeit:</strong> bis 31. Dezember 2027
 <strong>Antragstellung:</strong> ausschließlich digital über ELSTER-Unternehmenskonto</p>
 <table>
-  <thead>
-      <tr>
-          <th>Maßnahme</th>
-          <th>Förderfähig</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Firewall (Hardware + Lizenz + Konfiguration)</td>
-          <td>✅ Ja</td>
-      </tr>
-      <tr>
-          <td>Managed Switch für VLAN-Trennung</td>
-          <td>✅ Ja</td>
-      </tr>
-      <tr>
-          <td>WLAN Access Points</td>
-          <td>✅ Ja</td>
-      </tr>
-      <tr>
-          <td>NAS + verschlüsseltes Cloud-Backup</td>
-          <td>✅ Ja</td>
-      </tr>
-      <tr>
-          <td>E-Mail-Sicherheitslizenz (bis 18 Monate)</td>
-          <td>✅ Ja</td>
-      </tr>
-      <tr>
-          <td>Antivirus/EDR-Lizenzen (bis 18 Monate)</td>
-          <td>✅ Ja</td>
-      </tr>
-      <tr>
-          <td>Installations- und Konfigurationsleistung</td>
-          <td>✅ Ja</td>
-      </tr>
-      <tr>
-          <td>Wartungsvertrag (bis 18 Monate)</td>
-          <td>✅ Ja</td>
-      </tr>
-      <tr>
-          <td>Beratungsleistung (bis 50% der Gesamtkosten)</td>
-          <td>✅ Ja</td>
-      </tr>
-      <tr>
-          <td>Standard-PCs, Laptops, Drucker</td>
-          <td>❌ Nein</td>
-      </tr>
-      <tr>
-          <td>Standard-Bürosoftware (Office, Windows)</td>
-          <td>❌ Nein</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Maßnahme</th>
+					<th>Förderfähig</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Firewall (Hardware + Lizenz + Konfiguration)</td>
+					<td>✅ Ja</td>
+			</tr>
+			<tr>
+					<td>Managed Switch für VLAN-Trennung</td>
+					<td>✅ Ja</td>
+			</tr>
+			<tr>
+					<td>WLAN Access Points</td>
+					<td>✅ Ja</td>
+			</tr>
+			<tr>
+					<td>NAS + verschlüsseltes Cloud-Backup</td>
+					<td>✅ Ja</td>
+			</tr>
+			<tr>
+					<td>E-Mail-Sicherheitslizenz (bis 18 Monate)</td>
+					<td>✅ Ja</td>
+			</tr>
+			<tr>
+					<td>Antivirus/EDR-Lizenzen (bis 18 Monate)</td>
+					<td>✅ Ja</td>
+			</tr>
+			<tr>
+					<td>Installations- und Konfigurationsleistung</td>
+					<td>✅ Ja</td>
+			</tr>
+			<tr>
+					<td>Wartungsvertrag (bis 18 Monate)</td>
+					<td>✅ Ja</td>
+			</tr>
+			<tr>
+					<td>Beratungsleistung (bis 50% der Gesamtkosten)</td>
+					<td>✅ Ja</td>
+			</tr>
+			<tr>
+					<td>Standard-PCs, Laptops, Drucker</td>
+					<td>❌ Nein</td>
+			</tr>
+			<tr>
+					<td>Standard-Bürosoftware (Office, Windows)</td>
+					<td>❌ Nein</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Wichtige Bedingung:</strong> Der Antrag muss <strong>vor</strong> Projektbeginn gestellt werden. Weder Bestellung noch mündliche Auftragserteilung dürfen vor Eingang der Antragsbestätigung erfolgen.</p>
 <hr>
 <h2 id="beispielrechnung-kleines-hotel-10-zimmer-5-mitarbeiter">Beispielrechnung: Kleines Hotel (10 Zimmer, 5 Mitarbeiter)</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Maßnahme</th>
-          <th>Kosten</th>
-          <th>Nach Förderung (50%)</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>FortiGate Firewall + 1 Jahr Lizenz</td>
-          <td>€1.000</td>
-          <td>€500</td>
-      </tr>
-      <tr>
-          <td>Managed Switch (VLAN-fähig)</td>
-          <td>€500</td>
-          <td>€250</td>
-      </tr>
-      <tr>
-          <td>3× WLAN Access Points</td>
-          <td>€900</td>
-          <td>€450</td>
-      </tr>
-      <tr>
-          <td>NAS + AWS Backup-Einrichtung</td>
-          <td>€500</td>
-          <td>€250</td>
-      </tr>
-      <tr>
-          <td>E-Mail-Sicherheit (18 Monate)</td>
-          <td>€400</td>
-          <td>€200</td>
-      </tr>
-      <tr>
-          <td>Antivirus/EDR 5 Geräte (18 Monate)</td>
-          <td>€300</td>
-          <td>€150</td>
-      </tr>
-      <tr>
-          <td>Installation &amp; Konfiguration</td>
-          <td>€1.000</td>
-          <td>€500</td>
-      </tr>
-      <tr>
-          <td>18 Monate Wartung</td>
-          <td>€900</td>
-          <td>€450</td>
-      </tr>
-      <tr>
-          <td><strong>Gesamt</strong></td>
-          <td><strong>€5.500</strong></td>
-          <td><strong>€2.750</strong></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Maßnahme</th>
+					<th>Kosten</th>
+					<th>Nach Förderung (50%)</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>FortiGate Firewall + 1 Jahr Lizenz</td>
+					<td>€1.000</td>
+					<td>€500</td>
+			</tr>
+			<tr>
+					<td>Managed Switch (VLAN-fähig)</td>
+					<td>€500</td>
+					<td>€250</td>
+			</tr>
+			<tr>
+					<td>3× WLAN Access Points</td>
+					<td>€900</td>
+					<td>€450</td>
+			</tr>
+			<tr>
+					<td>NAS + AWS Backup-Einrichtung</td>
+					<td>€500</td>
+					<td>€250</td>
+			</tr>
+			<tr>
+					<td>E-Mail-Sicherheit (18 Monate)</td>
+					<td>€400</td>
+					<td>€200</td>
+			</tr>
+			<tr>
+					<td>Antivirus/EDR 5 Geräte (18 Monate)</td>
+					<td>€300</td>
+					<td>€150</td>
+			</tr>
+			<tr>
+					<td>Installation &amp; Konfiguration</td>
+					<td>€1.000</td>
+					<td>€500</td>
+			</tr>
+			<tr>
+					<td>18 Monate Wartung</td>
+					<td>€900</td>
+					<td>€450</td>
+			</tr>
+			<tr>
+					<td><strong>Gesamt</strong></td>
+					<td><strong>€5.500</strong></td>
+					<td><strong>€2.750</strong></td>
+			</tr>
+	</tbody>
 </table>
 <p>Das Hotel zahlt <strong>€2.750</strong> — der Freistaat Bayern übernimmt <strong>€2.750</strong>.</p>
 <hr>
@@ -959,46 +959,46 @@ Das sind keine traditionellen Firewalls — sie sind OT-spezifische Sicherheits�
 <h2 id="die-80211-standards-was-sich-wirklich-geändert-hat">Die 802.11-Standards: Was sich wirklich geändert hat</h2>
 <p>Der IEEE 802.11-Standard hat mehrere Generationen durchlaufen, jede für Marketingzwecke unterschiedlich gebrandmarkt:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Standard</th>
-          <th>Marketingname</th>
-          <th>Max. theoretische Rate</th>
-          <th>Wichtigste Verbesserung</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>802.11n</td>
-          <td>WiFi 4</td>
-          <td>600 Mbps</td>
-          <td>MIMO, 5-GHz-Unterstützung</td>
-      </tr>
-      <tr>
-          <td>802.11ac</td>
-          <td>WiFi 5</td>
-          <td>3,5 Gbps</td>
-          <td>MU-MIMO, breitere Kanäle (80/160 MHz)</td>
-      </tr>
-      <tr>
-          <td>802.11ax</td>
-          <td>WiFi 6</td>
-          <td>9,6 Gbps</td>
-          <td>OFDMA, BSS-Coloring, TWT, hohe Dichte</td>
-      </tr>
-      <tr>
-          <td>802.11ax (6 GHz)</td>
-          <td>WiFi 6E</td>
-          <td>9,6 Gbps</td>
-          <td>Neues 6-GHz-Band, weniger Überlastung</td>
-      </tr>
-      <tr>
-          <td>802.11be</td>
-          <td>WiFi 7</td>
-          <td>46 Gbps</td>
-          <td>Multi-Link-Operation, 320-MHz-Kanäle</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Standard</th>
+					<th>Marketingname</th>
+					<th>Max. theoretische Rate</th>
+					<th>Wichtigste Verbesserung</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>802.11n</td>
+					<td>WiFi 4</td>
+					<td>600 Mbps</td>
+					<td>MIMO, 5-GHz-Unterstützung</td>
+			</tr>
+			<tr>
+					<td>802.11ac</td>
+					<td>WiFi 5</td>
+					<td>3,5 Gbps</td>
+					<td>MU-MIMO, breitere Kanäle (80/160 MHz)</td>
+			</tr>
+			<tr>
+					<td>802.11ax</td>
+					<td>WiFi 6</td>
+					<td>9,6 Gbps</td>
+					<td>OFDMA, BSS-Coloring, TWT, hohe Dichte</td>
+			</tr>
+			<tr>
+					<td>802.11ax (6 GHz)</td>
+					<td>WiFi 6E</td>
+					<td>9,6 Gbps</td>
+					<td>Neues 6-GHz-Band, weniger Überlastung</td>
+			</tr>
+			<tr>
+					<td>802.11be</td>
+					<td>WiFi 7</td>
+					<td>46 Gbps</td>
+					<td>Multi-Link-Operation, 320-MHz-Kanäle</td>
+			</tr>
+	</tbody>
 </table>
 <p>Die theoretischen Raten in Marketingmaterialien werden in der Praxis nie erreicht. Was bei echten Deployments wichtig ist, unterscheidet sich für jede Generation:</p>
 <p><strong>WiFi 6 (802.11ax)</strong> führte zwei Fähigkeiten ein, die in dichten Umgebungen wirklich wichtig sind:</p>
@@ -1117,42 +1117,42 @@ Das sind keine traditionellen Firewalls — sie sind OT-spezifische Sicherheits�
 <hr>
 <h2 id="die-richtige-plattform-wählen">Die richtige Plattform wählen</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Szenario</th>
-          <th>Empfohlene Plattform</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Kleines Büro, einfaches Management</td>
-          <td>Aruba Instant On, Cisco Business, Meraki Go</td>
-      </tr>
-      <tr>
-          <td>KMU mit IT-Personal</td>
-          <td>Cisco Meraki, Aruba Central (Cloud-verwaltet)</td>
-      </tr>
-      <tr>
-          <td>Enterprise-Campus, komplexe Richtlinien</td>
-          <td>Aruba Mobility Master, Cisco DNA Center</td>
-      </tr>
-      <tr>
-          <td>Hotel / Gastgewerbe</td>
-          <td>Aruba, Cisco Meraki (mit PMS-Integration)</td>
-      </tr>
-      <tr>
-          <td>Gesundheitswesen / regulierte Umgebung</td>
-          <td>Aruba ClearPass + Mobility Master, Cisco ISE + WLC</td>
-      </tr>
-      <tr>
-          <td>Hochdichte-Venues</td>
-          <td>Cisco (Catalyst Center), Aruba (AOS 10)</td>
-      </tr>
-      <tr>
-          <td>Multi-Site, zentralisiertes Management</td>
-          <td>Cisco Meraki, Aruba Central</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Szenario</th>
+					<th>Empfohlene Plattform</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Kleines Büro, einfaches Management</td>
+					<td>Aruba Instant On, Cisco Business, Meraki Go</td>
+			</tr>
+			<tr>
+					<td>KMU mit IT-Personal</td>
+					<td>Cisco Meraki, Aruba Central (Cloud-verwaltet)</td>
+			</tr>
+			<tr>
+					<td>Enterprise-Campus, komplexe Richtlinien</td>
+					<td>Aruba Mobility Master, Cisco DNA Center</td>
+			</tr>
+			<tr>
+					<td>Hotel / Gastgewerbe</td>
+					<td>Aruba, Cisco Meraki (mit PMS-Integration)</td>
+			</tr>
+			<tr>
+					<td>Gesundheitswesen / regulierte Umgebung</td>
+					<td>Aruba ClearPass + Mobility Master, Cisco ISE + WLC</td>
+			</tr>
+			<tr>
+					<td>Hochdichte-Venues</td>
+					<td>Cisco (Catalyst Center), Aruba (AOS 10)</td>
+			</tr>
+			<tr>
+					<td>Multi-Site, zentralisiertes Management</td>
+					<td>Cisco Meraki, Aruba Central</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="diese-serie">Diese Serie</h2>
@@ -1308,70 +1308,70 @@ Microsofts Angebot für Azure-gehostete Ressourcen. Am relevantesten für Organi
 <hr>
 <h2 id="vergleich-der-drei-ansätze">Vergleich der drei Ansätze</h2>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th>ISP-Scrubbing</th>
-          <th>On-Premise-Appliance</th>
-          <th>Cloud-Dienst</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Volumetrischer Schutz</td>
-          <td>✅</td>
-          <td>❌ (durch Link begrenzt)</td>
-          <td>✅✅</td>
-      </tr>
-      <tr>
-          <td>Protokollangriff-Schutz</td>
-          <td>✅</td>
-          <td>✅✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Anwendungsschicht (L7)</td>
-          <td>❌</td>
-          <td>✅ (fortgeschrittene Modelle)</td>
-          <td>✅✅</td>
-      </tr>
-      <tr>
-          <td>Aktivierungszeit</td>
-          <td>Minuten (On-Demand)</td>
-          <td>Sofort</td>
-          <td>Sofort</td>
-      </tr>
-      <tr>
-          <td>Datenverkehrssichtbarkeit</td>
-          <td>Begrenzt</td>
-          <td>Vollständig</td>
-          <td>Anbieterabhängig</td>
-      </tr>
-      <tr>
-          <td>Compliance / Datenresidenz</td>
-          <td>✅</td>
-          <td>✅✅</td>
-          <td>Prüfung erforderlich</td>
-      </tr>
-      <tr>
-          <td>CapEx</td>
-          <td>Niedrig</td>
-          <td>Hoch</td>
-          <td>Keine</td>
-      </tr>
-      <tr>
-          <td>OpEx</td>
-          <td>Mittel</td>
-          <td>Mittel</td>
-          <td>Mittel–Hoch</td>
-      </tr>
-      <tr>
-          <td>Skalierbarkeit</td>
-          <td>ISP-Kapazität</td>
-          <td>Feste Hardware</td>
-          <td>Nahezu unbegrenzt</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th>ISP-Scrubbing</th>
+					<th>On-Premise-Appliance</th>
+					<th>Cloud-Dienst</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Volumetrischer Schutz</td>
+					<td>✅</td>
+					<td>❌ (durch Link begrenzt)</td>
+					<td>✅✅</td>
+			</tr>
+			<tr>
+					<td>Protokollangriff-Schutz</td>
+					<td>✅</td>
+					<td>✅✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Anwendungsschicht (L7)</td>
+					<td>❌</td>
+					<td>✅ (fortgeschrittene Modelle)</td>
+					<td>✅✅</td>
+			</tr>
+			<tr>
+					<td>Aktivierungszeit</td>
+					<td>Minuten (On-Demand)</td>
+					<td>Sofort</td>
+					<td>Sofort</td>
+			</tr>
+			<tr>
+					<td>Datenverkehrssichtbarkeit</td>
+					<td>Begrenzt</td>
+					<td>Vollständig</td>
+					<td>Anbieterabhängig</td>
+			</tr>
+			<tr>
+					<td>Compliance / Datenresidenz</td>
+					<td>✅</td>
+					<td>✅✅</td>
+					<td>Prüfung erforderlich</td>
+			</tr>
+			<tr>
+					<td>CapEx</td>
+					<td>Niedrig</td>
+					<td>Hoch</td>
+					<td>Keine</td>
+			</tr>
+			<tr>
+					<td>OpEx</td>
+					<td>Mittel</td>
+					<td>Mittel</td>
+					<td>Mittel–Hoch</td>
+			</tr>
+			<tr>
+					<td>Skalierbarkeit</td>
+					<td>ISP-Kapazität</td>
+					<td>Feste Hardware</td>
+					<td>Nahezu unbegrenzt</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="das-hybride-modell-wie-ernsthafte-organisationen-alle-drei-kombinieren">Das hybride Modell: Wie ernsthafte Organisationen alle drei kombinieren</h2>

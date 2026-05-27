@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Barış Helvacıoğlu | Senior Ağ Güvenliği Mühendisi &amp; BT Danışmanı Münih on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/</link><description>Recent content in Barış Helvacıoğlu | Senior Ağ Güvenliği Mühendisi &amp; BT Danışmanı Münih on Barash Helvadzhaoglu</description><generator>Hugo -- 0.161.1</generator><language>tr</language><lastBuildDate>Fri, 01 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/index.xml" rel="self" type="application/rss+xml"/><item><title>802.11 Standartları Deep Dive: WiFi 4, 5, 6, 6E ve Gerçekte Ne Değişti</title><link>https://barashhelvadzhaoglu.com/tr/technology/wifi-standards/</link><pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/wifi-standards/</guid><description>802.11 kablosuz standartları — n, ac, ax ve be&amp;#39;nin gerçek deployment&amp;#39;lardaki performansı, OFDMA, MU-MIMO, BSS Coloring ve doğru standart seçimi.</description><content:encoded><![CDATA[<h1 id="80211-standartları-deep-dive-wifi-4-5-6-6e-ve-gerçekte-ne-değişti">802.11 Standartları Deep Dive: WiFi 4, 5, 6, 6E ve Gerçekte Ne Değişti</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Barış Helvacıoğlu | Senior Ağ Güvenliği Mühendisi &amp; BT Danışmanı Münih on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/</link><description>Recent content in Barış Helvacıoğlu | Senior Ağ Güvenliği Mühendisi &amp; BT Danışmanı Münih on Barash Helvadzhaoglu</description><generator>Hugo -- 0.162.0</generator><language>tr</language><lastBuildDate>Fri, 01 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/index.xml" rel="self" type="application/rss+xml"/><item><title>802.11 Standartları Deep Dive: WiFi 4, 5, 6, 6E ve Gerçekte Ne Değişti</title><link>https://barashhelvadzhaoglu.com/tr/technology/wifi-standards/</link><pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/wifi-standards/</guid><description>802.11 kablosuz standartları — n, ac, ax ve be&amp;#39;nin gerçek deployment&amp;#39;lardaki performansı, OFDMA, MU-MIMO, BSS Coloring ve doğru standart seçimi.</description><content:encoded><![CDATA[<h1 id="80211-standartları-deep-dive-wifi-4-5-6-6e-ve-gerçekte-ne-değişti">802.11 Standartları Deep Dive: WiFi 4, 5, 6, 6E ve Gerçekte Ne Değişti</h1>
 <p>Bu yazı Kurumsal WiFi serisinin bir parçasıdır.</p>
 <blockquote>
 <p><strong>Kurumsal kablosuz ağa yeni misiniz?</strong> Genel bakışla başlayın: <a href="/tr/technology/kurumsal-wifi-mimarisi-tam-rehber/">Kurumsal WiFi Mimarisi: Standartlardan Deployment&rsquo;a</a></p>
@@ -104,50 +104,50 @@ BSS Boyama ile:
 <hr>
 <h2 id="deploymentınız-için-doğru-standardı-seçme">Deployment&rsquo;ınız İçin Doğru Standardı Seçme</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Ortam</th>
-          <th>Öneri</th>
-          <th>Neden</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Yeni kurumsal kampüs</td>
-          <td>Minimum WiFi 6, WiFi 6E tercih edilir</td>
-          <td>OFDMA yoğunluk faydası, geleceğe hazırlık</td>
-      </tr>
-      <tr>
-          <td>Yüksek yoğunluk (konferans, sınıf)</td>
-          <td>WiFi 6 veya 6E</td>
-          <td>OFDMA yoğunluk için gerekli</td>
-      </tr>
-      <tr>
-          <td>IoT ağırlıklı ortam</td>
-          <td>WiFi 6</td>
-          <td>Pil güçlü cihazlar için TWT</td>
-      </tr>
-      <tr>
-          <td>KOBİ / küçük ofis</td>
-          <td>WiFi 6 AP</td>
-          <td>Uygun maliyetli, tüm istemcileri destekler</td>
-      </tr>
-      <tr>
-          <td>Açık hava / uzun menzil</td>
-          <td>WiFi 6 (5 GHz)</td>
-          <td>6 GHz&rsquo;den daha iyi menzil</td>
-      </tr>
-      <tr>
-          <td>Eski cihaz ağırlıklı</td>
-          <td>WiFi 6 AP (geriye dönük uyumlu)</td>
-          <td>Tüm 802.11 standartları geriye dönük uyumlu</td>
-      </tr>
-      <tr>
-          <td>Yeni yapı, geleceğe hazırlık</td>
-          <td>WiFi 7</td>
-          <td>MLO, 6 GHz, 320 MHz kanallar</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Ortam</th>
+					<th>Öneri</th>
+					<th>Neden</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Yeni kurumsal kampüs</td>
+					<td>Minimum WiFi 6, WiFi 6E tercih edilir</td>
+					<td>OFDMA yoğunluk faydası, geleceğe hazırlık</td>
+			</tr>
+			<tr>
+					<td>Yüksek yoğunluk (konferans, sınıf)</td>
+					<td>WiFi 6 veya 6E</td>
+					<td>OFDMA yoğunluk için gerekli</td>
+			</tr>
+			<tr>
+					<td>IoT ağırlıklı ortam</td>
+					<td>WiFi 6</td>
+					<td>Pil güçlü cihazlar için TWT</td>
+			</tr>
+			<tr>
+					<td>KOBİ / küçük ofis</td>
+					<td>WiFi 6 AP</td>
+					<td>Uygun maliyetli, tüm istemcileri destekler</td>
+			</tr>
+			<tr>
+					<td>Açık hava / uzun menzil</td>
+					<td>WiFi 6 (5 GHz)</td>
+					<td>6 GHz&rsquo;den daha iyi menzil</td>
+			</tr>
+			<tr>
+					<td>Eski cihaz ağırlıklı</td>
+					<td>WiFi 6 AP (geriye dönük uyumlu)</td>
+					<td>Tüm 802.11 standartları geriye dönük uyumlu</td>
+			</tr>
+			<tr>
+					<td>Yeni yapı, geleceğe hazırlık</td>
+					<td>WiFi 7</td>
+					<td>MLO, 6 GHz, 320 MHz kanallar</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Önemli not:</strong> WiFi 6 AP&rsquo;ler tüm önceki istemcileri destekler — 802.11n, 802.11ac, 802.11ax istemcilerin tamamı aynı AP&rsquo;ye bağlanır. AP, her istemciyle karşılıklı desteklenen en iyi yetenekleri müzakere eder.</p>
 <hr>
@@ -198,40 +198,40 @@ BSS Boyama ile:
 <h3 id="kobi-için-kapsama-planlaması">KOBİ İçin Kapsama Planlaması</h3>
 <p>Tipik ofis ortamları için kaba bir başlangıç noktası:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Ortam</th>
-          <th>AP Kapsama Alanı</th>
-          <th>Notlar</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Açık ofis, düşük yoğunluk</td>
-          <td>150–200 m²</td>
-          <td>Modern WiFi 6 AP&rsquo;ler, orta istemci sayısı</td>
-      </tr>
-      <tr>
-          <td>Açık ofis, yüksek yoğunluk</td>
-          <td>80–100 m²</td>
-          <td>Çok istemci, video görüşmeler, yüksek verim</td>
-      </tr>
-      <tr>
-          <td>İç duvarlarla ofis</td>
-          <td>80–120 m²</td>
-          <td>Duvarlar sinyali zayıflatır; sonuçlandırmadan önce test edin</td>
-      </tr>
-      <tr>
-          <td>Koridor / otel koridoru</td>
-          <td>AP başına 20–25 m</td>
-          <td>Dar kapsama deseni</td>
-      </tr>
-      <tr>
-          <td>Depo / büyük açık alan</td>
-          <td>300–500 m²</td>
-          <td>Düşük yoğunluk, yüksek tavanlar, RF iyi yayılır</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Ortam</th>
+					<th>AP Kapsama Alanı</th>
+					<th>Notlar</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Açık ofis, düşük yoğunluk</td>
+					<td>150–200 m²</td>
+					<td>Modern WiFi 6 AP&rsquo;ler, orta istemci sayısı</td>
+			</tr>
+			<tr>
+					<td>Açık ofis, yüksek yoğunluk</td>
+					<td>80–100 m²</td>
+					<td>Çok istemci, video görüşmeler, yüksek verim</td>
+			</tr>
+			<tr>
+					<td>İç duvarlarla ofis</td>
+					<td>80–120 m²</td>
+					<td>Duvarlar sinyali zayıflatır; sonuçlandırmadan önce test edin</td>
+			</tr>
+			<tr>
+					<td>Koridor / otel koridoru</td>
+					<td>AP başına 20–25 m</td>
+					<td>Dar kapsama deseni</td>
+			</tr>
+			<tr>
+					<td>Depo / büyük açık alan</td>
+					<td>300–500 m²</td>
+					<td>Düşük yoğunluk, yüksek tavanlar, RF iyi yayılır</td>
+			</tr>
+	</tbody>
 </table>
 <p>Bunlar başlangıç noktaları, kural değil. Kapsama alanını doğrulamanın tek yolu site survey — deployment öncesi tahmine dayalı, sonrasında doğrulama.</p>
 <h3 id="ağ-segmentasyonu-taban-çizgisi">Ağ Segmentasyonu Taban Çizgisi</h3>
@@ -250,30 +250,30 @@ SSID: IoT/Yazıcılar  → VLAN 30 (yazıcılar, kameralar, izole)
 </ul>
 <h3 id="kobi-için-platform-önerisi">KOBİ İçin Platform Önerisi</h3>
 <table>
-  <thead>
-      <tr>
-          <th>Boyut</th>
-          <th>Öneri</th>
-          <th>Neden</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>1–5 AP, IT personeli yok</td>
-          <td>Aruba Instant On</td>
-          <td>Basit uygulama tabanlı yönetim, sağlam donanım</td>
-      </tr>
-      <tr>
-          <td>5–20 AP, temel IT personeli</td>
-          <td>Cisco Meraki veya Aruba Central</td>
-          <td>Bulut yönetimi, iyi görünürlük</td>
-      </tr>
-      <tr>
-          <td>20+ AP, IT ekibi</td>
-          <td>Aruba Central veya Cisco DNA Center</td>
-          <td>Kurumsal özellikler, politika entegrasyonu</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Boyut</th>
+					<th>Öneri</th>
+					<th>Neden</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>1–5 AP, IT personeli yok</td>
+					<td>Aruba Instant On</td>
+					<td>Basit uygulama tabanlı yönetim, sağlam donanım</td>
+			</tr>
+			<tr>
+					<td>5–20 AP, temel IT personeli</td>
+					<td>Cisco Meraki veya Aruba Central</td>
+					<td>Bulut yönetimi, iyi görünürlük</td>
+			</tr>
+			<tr>
+					<td>20+ AP, IT ekibi</td>
+					<td>Aruba Central veya Cisco DNA Center</td>
+					<td>Kurumsal özellikler, politika entegrasyonu</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="bölüm-2-otel-wifi-tasarımı">Bölüm 2: Otel WiFi Tasarımı</h2>
@@ -594,40 +594,40 @@ After physical installation, walk the space in a systematic pattern using Ekahau
 Compare validation heatmap against prediction. Document actual versus predicted performance. Adjust AP placement, power levels, or channel assignments for any areas that fall below requirements.</p>
 <h3 id="key-survey-metrics-and-targets">Key Survey Metrics and Targets</h3>
 <table>
-  <thead>
-      <tr>
-          <th>Metric</th>
-          <th>Minimum</th>
-          <th>Target</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>RSSI (signal strength)</td>
-          <td>-70 dBm</td>
-          <td>-65 dBm or better</td>
-      </tr>
-      <tr>
-          <td>SNR (signal-to-noise ratio)</td>
-          <td>20 dB</td>
-          <td>25 dB or better</td>
-      </tr>
-      <tr>
-          <td>Channel overlap</td>
-          <td>15–20%</td>
-          <td>20–25% (sufficient for roaming)</td>
-      </tr>
-      <tr>
-          <td>Co-channel interference</td>
-          <td>&lt; -85 dBm from neighbors</td>
-          <td>&lt; -90 dBm</td>
-      </tr>
-      <tr>
-          <td>Roaming transition time</td>
-          <td>&lt; 150ms (voice)</td>
-          <td>&lt; 50ms (best case with 802.11r)</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Metric</th>
+					<th>Minimum</th>
+					<th>Target</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>RSSI (signal strength)</td>
+					<td>-70 dBm</td>
+					<td>-65 dBm or better</td>
+			</tr>
+			<tr>
+					<td>SNR (signal-to-noise ratio)</td>
+					<td>20 dB</td>
+					<td>25 dB or better</td>
+			</tr>
+			<tr>
+					<td>Channel overlap</td>
+					<td>15–20%</td>
+					<td>20–25% (sufficient for roaming)</td>
+			</tr>
+			<tr>
+					<td>Co-channel interference</td>
+					<td>&lt; -85 dBm from neighbors</td>
+					<td>&lt; -90 dBm</td>
+			</tr>
+			<tr>
+					<td>Roaming transition time</td>
+					<td>&lt; 150ms (voice)</td>
+					<td>&lt; 50ms (best case with 802.11r)</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="wireless-intrusion-detection-wids">Wireless Intrusion Detection (WIDS)</h2>
@@ -685,65 +685,65 @@ WAF:   HTTP/HTTPS içerik incelemesi — SQL injection, XSS, parametre tampering
 <p><strong>ASM (Application Security Manager)</strong> — orijinal modül. Öncelikle imza tabanlı. OWASP Top 10, parametre zorunluluğu, çerez koruması ve temel bot tespitini kapsar. Birçok standart BIG-IP lisansına dahildir.</p>
 <p><strong>Advanced WAF (AWAF)</strong> — ASM&rsquo;nin sahip olmadığı davranışsal yeteneklere sahip yeni modül:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Özellik</th>
-          <th>ASM</th>
-          <th>Advanced WAF</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>İmza tabanlı saldırı tespiti</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>OWASP Top 10 kapsamı</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Parametre ve çerez zorunluluğu</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Temel bot tespiti (imzalar)</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Davranışsal bot savunması</td>
-          <td>❌</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Credential stuffing koruması</td>
-          <td>❌</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>JavaScript challenge / CAPTCHA</td>
-          <td>Sınırlı</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>L7 davranışsal DoS azaltma</td>
-          <td>Sınırlı</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>API güvenliği (OpenAPI / Swagger)</td>
-          <td>Sınırlı</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>DataSafe (istemci tarafı şifreleme)</td>
-          <td>❌</td>
-          <td>✅</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Özellik</th>
+					<th>ASM</th>
+					<th>Advanced WAF</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>İmza tabanlı saldırı tespiti</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>OWASP Top 10 kapsamı</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Parametre ve çerez zorunluluğu</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Temel bot tespiti (imzalar)</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Davranışsal bot savunması</td>
+					<td>❌</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Credential stuffing koruması</td>
+					<td>❌</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>JavaScript challenge / CAPTCHA</td>
+					<td>Sınırlı</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>L7 davranışsal DoS azaltma</td>
+					<td>Sınırlı</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>API güvenliği (OpenAPI / Swagger)</td>
+					<td>Sınırlı</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>DataSafe (istemci tarafı şifreleme)</td>
+					<td>❌</td>
+					<td>✅</td>
+			</tr>
+	</tbody>
 </table>
 <p>Dahili kurumsal uygulamalar için ASM sağlam kapsam sağlar. Yüksek bot maruziyeti, credential stuffing riski veya agresif L7 DoS olan kamuya açık uygulamalar için Advanced WAF önemli ölçüde daha etkilidir.</p>
 <hr>
@@ -1014,76 +1014,76 @@ Destek ID:          12345678901234
 </ul>
 <p>Dürüst özet:</p>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th>NPS</th>
-          <th>ClearPass</th>
-          <th>Cisco ISE</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Maliyet</td>
-          <td>Ücretsiz</td>
-          <td>Uç nokta başına abonelik</td>
-          <td>Uç nokta başına abonelik</td>
-      </tr>
-      <tr>
-          <td>802.1X / RADIUS</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Cihaz profiling</td>
-          <td>❌</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Misafir portalı</td>
-          <td>Temel</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Posture</td>
-          <td>❌</td>
-          <td>✅</td>
-          <td>✅ (Premier)</td>
-      </tr>
-      <tr>
-          <td>SGT / TrustSec</td>
-          <td>❌</td>
-          <td>❌</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>DNA Center entegrasyonu</td>
-          <td>❌</td>
-          <td>❌</td>
-          <td>✅ (yerli)</td>
-      </tr>
-      <tr>
-          <td>pxGrid ekosistemi</td>
-          <td>❌</td>
-          <td>Sınırlı</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Satıcı bağımsızlığı</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>Cisco optimize</td>
-      </tr>
-      <tr>
-          <td>Operasyonel karmaşıklık</td>
-          <td>Düşük</td>
-          <td>Orta</td>
-          <td>Yüksek</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th>NPS</th>
+					<th>ClearPass</th>
+					<th>Cisco ISE</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Maliyet</td>
+					<td>Ücretsiz</td>
+					<td>Uç nokta başına abonelik</td>
+					<td>Uç nokta başına abonelik</td>
+			</tr>
+			<tr>
+					<td>802.1X / RADIUS</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Cihaz profiling</td>
+					<td>❌</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Misafir portalı</td>
+					<td>Temel</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Posture</td>
+					<td>❌</td>
+					<td>✅</td>
+					<td>✅ (Premier)</td>
+			</tr>
+			<tr>
+					<td>SGT / TrustSec</td>
+					<td>❌</td>
+					<td>❌</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>DNA Center entegrasyonu</td>
+					<td>❌</td>
+					<td>❌</td>
+					<td>✅ (yerli)</td>
+			</tr>
+			<tr>
+					<td>pxGrid ekosistemi</td>
+					<td>❌</td>
+					<td>Sınırlı</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Satıcı bağımsızlığı</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>Cisco optimize</td>
+			</tr>
+			<tr>
+					<td>Operasyonel karmaşıklık</td>
+					<td>Düşük</td>
+					<td>Orta</td>
+					<td>Yüksek</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="saha-notları-boyutlandırma-ve-operasyonel-gerçeklik">Saha Notları: Boyutlandırma ve Operasyonel Gerçeklik</h2>
@@ -1234,40 +1234,40 @@ Resmi olarak gönüllüdür — ancak: DSGVO &ldquo;teknolojinin güncel durumun
 <p><strong>Pratikte ne anlama gelir:</strong></p>
 <p>Aşağıdaki cihaz sınıfları <strong>ayrı ağlarda (VLAN&rsquo;lar)</strong> çalıştırılmalıdır:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Ağ Segmenti</th>
-          <th>İçinde Ne Yer Alır</th>
-          <th>Ayrım Olmazsa Risk</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Çalışan Ağı</strong></td>
-          <td>PC&rsquo;ler, Laptoplar</td>
-          <td>Müşteri verilerine erişim</td>
-      </tr>
-      <tr>
-          <td><strong>Sunucu / NAS</strong></td>
-          <td>Dosya sunucusu, Yedekleme sistemi</td>
-          <td>Saldırı anında veri kaybı</td>
-      </tr>
-      <tr>
-          <td><strong>IoT Cihazları</strong></td>
-          <td>Yazıcılar, IP Kameralar, Smart-TV, UPS</td>
-          <td>Bilinen açıklar, güncelleme yok</td>
-      </tr>
-      <tr>
-          <td><strong>Misafir WLAN</strong></td>
-          <td>Müşteriler, Hastalar, Otel misafirleri</td>
-          <td>Dahili sistemlere erişim</td>
-      </tr>
-      <tr>
-          <td><strong>Kasa / POS</strong></td>
-          <td>Kart terminali, Kasa sistemi</td>
-          <td>PCI DSS yükümlülüğü, ödeme verileri</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Ağ Segmenti</th>
+					<th>İçinde Ne Yer Alır</th>
+					<th>Ayrım Olmazsa Risk</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Çalışan Ağı</strong></td>
+					<td>PC&rsquo;ler, Laptoplar</td>
+					<td>Müşteri verilerine erişim</td>
+			</tr>
+			<tr>
+					<td><strong>Sunucu / NAS</strong></td>
+					<td>Dosya sunucusu, Yedekleme sistemi</td>
+					<td>Saldırı anında veri kaybı</td>
+			</tr>
+			<tr>
+					<td><strong>IoT Cihazları</strong></td>
+					<td>Yazıcılar, IP Kameralar, Smart-TV, UPS</td>
+					<td>Bilinen açıklar, güncelleme yok</td>
+			</tr>
+			<tr>
+					<td><strong>Misafir WLAN</strong></td>
+					<td>Müşteriler, Hastalar, Otel misafirleri</td>
+					<td>Dahili sistemlere erişim</td>
+			</tr>
+			<tr>
+					<td><strong>Kasa / POS</strong></td>
+					<td>Kart terminali, Kasa sistemi</td>
+					<td>PCI DSS yükümlülüğü, ödeme verileri</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Yazıcılar neden tehlikelidir:</strong>
 IP yazıcılar genellikle eski donanım yazılımlarına sahiptir ve otomatik güvenlik güncellemeleri yoktur. Muhasebe PC&rsquo;si ile aynı ağdaki ele geçirilmiş bir yazıcı, saldırganlara tüm verilere doğrudan erişim sağlar.</p>
@@ -1390,117 +1390,117 @@ AWS S3 Frankfurt&rsquo;a (AB veri merkezi, DSGVO uyumlu) otomatik şifreli senkr
 <strong>Süre:</strong> 31 Aralık 2027&rsquo;ye kadar
 <strong>Başvuru:</strong> Sadece ELSTER kurumsal hesabı üzerinden dijital olarak</p>
 <table>
-  <thead>
-      <tr>
-          <th>Önlem</th>
-          <th>Teşvik Edilebilir mi</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Firewall (Donanım + Lisans + Yapılandırma)</td>
-          <td>✅ Evet</td>
-      </tr>
-      <tr>
-          <td>VLAN ayırımı için Yönetilebilir Switch</td>
-          <td>✅ Evet</td>
-      </tr>
-      <tr>
-          <td>WLAN Access Pointler</td>
-          <td>✅ Evet</td>
-      </tr>
-      <tr>
-          <td>NAS + şifreli Bulut Yedekleme</td>
-          <td>✅ Evet</td>
-      </tr>
-      <tr>
-          <td>E-posta güvenlik lisansı (18 aya kadar)</td>
-          <td>✅ Evet</td>
-      </tr>
-      <tr>
-          <td>Antivirüs/EDR lisansları (18 aya kadar)</td>
-          <td>✅ Evet</td>
-      </tr>
-      <tr>
-          <td>Kurulum ve yapılandırma hizmeti</td>
-          <td>✅ Evet</td>
-      </tr>
-      <tr>
-          <td>Bakım sözleşmesi (18 aya kadar)</td>
-          <td>✅ Evet</td>
-      </tr>
-      <tr>
-          <td>Danışmanlık hizmeti (Toplam maliyetin %50&rsquo;sine kadar)</td>
-          <td>✅ Evet</td>
-      </tr>
-      <tr>
-          <td>Standart PC&rsquo;ler, Laptoplar, Yazıcılar</td>
-          <td>❌ Hayır</td>
-      </tr>
-      <tr>
-          <td>Standart ofis yazılımları (Office, Windows)</td>
-          <td>❌ Hayır</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Önlem</th>
+					<th>Teşvik Edilebilir mi</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Firewall (Donanım + Lisans + Yapılandırma)</td>
+					<td>✅ Evet</td>
+			</tr>
+			<tr>
+					<td>VLAN ayırımı için Yönetilebilir Switch</td>
+					<td>✅ Evet</td>
+			</tr>
+			<tr>
+					<td>WLAN Access Pointler</td>
+					<td>✅ Evet</td>
+			</tr>
+			<tr>
+					<td>NAS + şifreli Bulut Yedekleme</td>
+					<td>✅ Evet</td>
+			</tr>
+			<tr>
+					<td>E-posta güvenlik lisansı (18 aya kadar)</td>
+					<td>✅ Evet</td>
+			</tr>
+			<tr>
+					<td>Antivirüs/EDR lisansları (18 aya kadar)</td>
+					<td>✅ Evet</td>
+			</tr>
+			<tr>
+					<td>Kurulum ve yapılandırma hizmeti</td>
+					<td>✅ Evet</td>
+			</tr>
+			<tr>
+					<td>Bakım sözleşmesi (18 aya kadar)</td>
+					<td>✅ Evet</td>
+			</tr>
+			<tr>
+					<td>Danışmanlık hizmeti (Toplam maliyetin %50&rsquo;sine kadar)</td>
+					<td>✅ Evet</td>
+			</tr>
+			<tr>
+					<td>Standart PC&rsquo;ler, Laptoplar, Yazıcılar</td>
+					<td>❌ Hayır</td>
+			</tr>
+			<tr>
+					<td>Standart ofis yazılımları (Office, Windows)</td>
+					<td>❌ Hayır</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Önemli Şart:</strong> Başvuru, proje <strong>başlamadan önce</strong> yapılmalıdır. Başvuru onayı alınmadan ne sipariş verilmeli ne de sözlü iş emri verilmelidir.</p>
 <hr>
 <h2 id="örnek-hesaplama-küçük-bir-otel-10-oda-5-çalışan">Örnek Hesaplama: Küçük Bir Otel (10 Oda, 5 Çalışan)</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Önlem</th>
-          <th>Maliyet</th>
-          <th>Teşvik Sonrası (%50)</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>FortiGate Firewall + 1 yıllık lisans</td>
-          <td>1.000 €</td>
-          <td>500 €</td>
-      </tr>
-      <tr>
-          <td>Yönetilebilir Switch (VLAN uyumlu)</td>
-          <td>500 €</td>
-          <td>250 €</td>
-      </tr>
-      <tr>
-          <td>3× WLAN Access Point</td>
-          <td>900 €</td>
-          <td>450 €</td>
-      </tr>
-      <tr>
-          <td>NAS + AWS Yedekleme kurulumu</td>
-          <td>500 €</td>
-          <td>250 €</td>
-      </tr>
-      <tr>
-          <td>E-posta Güvenliği (18 ay)</td>
-          <td>400 €</td>
-          <td>200 €</td>
-      </tr>
-      <tr>
-          <td>Antivirüs/EDR 5 cihaz (18 ay)</td>
-          <td>300 €</td>
-          <td>150 €</td>
-      </tr>
-      <tr>
-          <td>Kurulum &amp; Yapılandırma</td>
-          <td>1.000 €</td>
-          <td>500 €</td>
-      </tr>
-      <tr>
-          <td>18 aylık Bakım</td>
-          <td>900 €</td>
-          <td>450 €</td>
-      </tr>
-      <tr>
-          <td><strong>Toplam</strong></td>
-          <td><strong>5.500 €</strong></td>
-          <td><strong>2.750 €</strong></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Önlem</th>
+					<th>Maliyet</th>
+					<th>Teşvik Sonrası (%50)</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>FortiGate Firewall + 1 yıllık lisans</td>
+					<td>1.000 €</td>
+					<td>500 €</td>
+			</tr>
+			<tr>
+					<td>Yönetilebilir Switch (VLAN uyumlu)</td>
+					<td>500 €</td>
+					<td>250 €</td>
+			</tr>
+			<tr>
+					<td>3× WLAN Access Point</td>
+					<td>900 €</td>
+					<td>450 €</td>
+			</tr>
+			<tr>
+					<td>NAS + AWS Yedekleme kurulumu</td>
+					<td>500 €</td>
+					<td>250 €</td>
+			</tr>
+			<tr>
+					<td>E-posta Güvenliği (18 ay)</td>
+					<td>400 €</td>
+					<td>200 €</td>
+			</tr>
+			<tr>
+					<td>Antivirüs/EDR 5 cihaz (18 ay)</td>
+					<td>300 €</td>
+					<td>150 €</td>
+			</tr>
+			<tr>
+					<td>Kurulum &amp; Yapılandırma</td>
+					<td>1.000 €</td>
+					<td>500 €</td>
+			</tr>
+			<tr>
+					<td>18 aylık Bakım</td>
+					<td>900 €</td>
+					<td>450 €</td>
+			</tr>
+			<tr>
+					<td><strong>Toplam</strong></td>
+					<td><strong>5.500 €</strong></td>
+					<td><strong>2.750 €</strong></td>
+			</tr>
+	</tbody>
 </table>
 <p>Otel <strong>2.750 €</strong> öder — Bavyera Eyaleti <strong>2.750 €</strong>&lsquo;yu üstlenir.</p>
 <hr>
@@ -1957,40 +1957,40 @@ ltm-dc2 / vs_webapp_443  Ratio: 3  ← DNS yanıtlarının %30&#39;u
 <p>TTL, <strong>yeni DNS sorgularının</strong> mevcut altyapı durumunu ne kadar hızlı yansıtacağını kontrol eder.</p>
 <h3 id="ttl-takas-değerlendirmeleri">TTL Takas Değerlendirmeleri</h3>
 <table>
-  <thead>
-      <tr>
-          <th>TTL</th>
-          <th>Failover görünürlüğü</th>
-          <th>DNS sorgu yükü</th>
-          <th>Kullanım alanı</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>30 sn</td>
-          <td>Hızlı</td>
-          <td>Yüksek</td>
-          <td>Kritik ödeme sistemleri, kimlik doğrulama servisleri</td>
-      </tr>
-      <tr>
-          <td>60 sn</td>
-          <td>İyi</td>
-          <td>Orta</td>
-          <td>Çoğu üretim uygulaması</td>
-      </tr>
-      <tr>
-          <td>300 sn</td>
-          <td>Orta</td>
-          <td>Düşük</td>
-          <td>Dahili araçlar, izleme</td>
-      </tr>
-      <tr>
-          <td>3600 sn</td>
-          <td>Yavaş</td>
-          <td>Çok düşük</td>
-          <td>Statik içerik, nadiren değişen kayıtlar</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>TTL</th>
+					<th>Failover görünürlüğü</th>
+					<th>DNS sorgu yükü</th>
+					<th>Kullanım alanı</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>30 sn</td>
+					<td>Hızlı</td>
+					<td>Yüksek</td>
+					<td>Kritik ödeme sistemleri, kimlik doğrulama servisleri</td>
+			</tr>
+			<tr>
+					<td>60 sn</td>
+					<td>İyi</td>
+					<td>Orta</td>
+					<td>Çoğu üretim uygulaması</td>
+			</tr>
+			<tr>
+					<td>300 sn</td>
+					<td>Orta</td>
+					<td>Düşük</td>
+					<td>Dahili araçlar, izleme</td>
+			</tr>
+			<tr>
+					<td>3600 sn</td>
+					<td>Yavaş</td>
+					<td>Çok düşük</td>
+					<td>Statik içerik, nadiren değişen kayıtlar</td>
+			</tr>
+	</tbody>
 </table>
 <p>Bankacılık ortamında:</p>
 <ul>
@@ -2274,75 +2274,75 @@ Oturum Özellikleri → Terminal → Emülasyon → Expect Scriptleri:
 <hr>
 <h2 id="securecrt-vs-superputty-ne-zaman-hangisi">SecureCRT vs. SuperPutty: Ne Zaman Hangisi</h2>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th>SecureCRT</th>
-          <th>SuperPutty</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Maliyet</td>
-          <td>Ticari lisans (~99–150 $/koltuk)</td>
-          <td>Ücretsiz</td>
-      </tr>
-      <tr>
-          <td>Otomatik oturum loglama</td>
-          <td>✅ Yerleşik, küresel</td>
-          <td>❌ Yalnızca oturum başına PuTTY loglaması</td>
-      </tr>
-      <tr>
-          <td>Oturum taşınabilirliği</td>
-          <td>✅ Dosya tabanlı, kolay dışa aktarma</td>
-          <td>✅ XML tabanlı, içe aktarılabilir</td>
-      </tr>
-      <tr>
-          <td>PuTTY oturum içe aktarma</td>
-          <td>❌ Geçerli değil</td>
-          <td>✅ Registry&rsquo;den doğrudan içe aktarma</td>
-      </tr>
-      <tr>
-          <td>Sekmeli arayüz</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Döşenmiş oturumlar</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Scripting (Python/VBScript)</td>
-          <td>✅ Yerleşik motor</td>
-          <td>❌</td>
-      </tr>
-      <tr>
-          <td>Kimlik bilgisi depolama (şifreli)</td>
-          <td>✅ AES-256</td>
-          <td>⚠️ Yalnızca temel</td>
-      </tr>
-      <tr>
-          <td>Seri/konsol desteği</td>
-          <td>✅</td>
-          <td>✅ (PuTTY aracılığıyla)</td>
-      </tr>
-      <tr>
-          <td>RDP desteği</td>
-          <td>✅</td>
-          <td>✅ (PuTTY/mRemoteNG aracılığıyla)</td>
-      </tr>
-      <tr>
-          <td>SecureFX entegrasyonu</td>
-          <td>✅</td>
-          <td>❌</td>
-      </tr>
-      <tr>
-          <td>Aktif ticari destek</td>
-          <td>✅</td>
-          <td>Yalnızca topluluk</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th>SecureCRT</th>
+					<th>SuperPutty</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Maliyet</td>
+					<td>Ticari lisans (~99–150 $/koltuk)</td>
+					<td>Ücretsiz</td>
+			</tr>
+			<tr>
+					<td>Otomatik oturum loglama</td>
+					<td>✅ Yerleşik, küresel</td>
+					<td>❌ Yalnızca oturum başına PuTTY loglaması</td>
+			</tr>
+			<tr>
+					<td>Oturum taşınabilirliği</td>
+					<td>✅ Dosya tabanlı, kolay dışa aktarma</td>
+					<td>✅ XML tabanlı, içe aktarılabilir</td>
+			</tr>
+			<tr>
+					<td>PuTTY oturum içe aktarma</td>
+					<td>❌ Geçerli değil</td>
+					<td>✅ Registry&rsquo;den doğrudan içe aktarma</td>
+			</tr>
+			<tr>
+					<td>Sekmeli arayüz</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Döşenmiş oturumlar</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Scripting (Python/VBScript)</td>
+					<td>✅ Yerleşik motor</td>
+					<td>❌</td>
+			</tr>
+			<tr>
+					<td>Kimlik bilgisi depolama (şifreli)</td>
+					<td>✅ AES-256</td>
+					<td>⚠️ Yalnızca temel</td>
+			</tr>
+			<tr>
+					<td>Seri/konsol desteği</td>
+					<td>✅</td>
+					<td>✅ (PuTTY aracılığıyla)</td>
+			</tr>
+			<tr>
+					<td>RDP desteği</td>
+					<td>✅</td>
+					<td>✅ (PuTTY/mRemoteNG aracılığıyla)</td>
+			</tr>
+			<tr>
+					<td>SecureFX entegrasyonu</td>
+					<td>✅</td>
+					<td>❌</td>
+			</tr>
+			<tr>
+					<td>Aktif ticari destek</td>
+					<td>✅</td>
+					<td>Yalnızca topluluk</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>SecureCRT kullanın:</strong></p>
 <ul>
@@ -3266,46 +3266,46 @@ Cisco&rsquo;nun OT odaklı yönetim ve güvenlik platformu, OT ağı görünürl
 <h2 id="80211-standartları-gerçekte-ne-değişti">802.11 Standartları: Gerçekte Ne Değişti</h2>
 <p>IEEE 802.11 standardı, her biri pazarlama amacıyla farklı biçimde markalanmış birden fazla nesil geçirdi:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Standart</th>
-          <th>Pazarlama Adı</th>
-          <th>Maks Teorik Hız</th>
-          <th>Temel İyileştirme</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>802.11n</td>
-          <td>WiFi 4</td>
-          <td>600 Mbps</td>
-          <td>MIMO, 5 GHz desteği</td>
-      </tr>
-      <tr>
-          <td>802.11ac</td>
-          <td>WiFi 5</td>
-          <td>3,5 Gbps</td>
-          <td>MU-MIMO, daha geniş kanallar (80/160 MHz)</td>
-      </tr>
-      <tr>
-          <td>802.11ax</td>
-          <td>WiFi 6</td>
-          <td>9,6 Gbps</td>
-          <td>OFDMA, BSS Boyama, TWT, yüksek yoğunluk</td>
-      </tr>
-      <tr>
-          <td>802.11ax (6 GHz)</td>
-          <td>WiFi 6E</td>
-          <td>9,6 Gbps</td>
-          <td>Yeni 6 GHz bandı, daha az tıkanıklık</td>
-      </tr>
-      <tr>
-          <td>802.11be</td>
-          <td>WiFi 7</td>
-          <td>46 Gbps</td>
-          <td>Çok Bağlantılı Çalışma, 320 MHz kanallar</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Standart</th>
+					<th>Pazarlama Adı</th>
+					<th>Maks Teorik Hız</th>
+					<th>Temel İyileştirme</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>802.11n</td>
+					<td>WiFi 4</td>
+					<td>600 Mbps</td>
+					<td>MIMO, 5 GHz desteği</td>
+			</tr>
+			<tr>
+					<td>802.11ac</td>
+					<td>WiFi 5</td>
+					<td>3,5 Gbps</td>
+					<td>MU-MIMO, daha geniş kanallar (80/160 MHz)</td>
+			</tr>
+			<tr>
+					<td>802.11ax</td>
+					<td>WiFi 6</td>
+					<td>9,6 Gbps</td>
+					<td>OFDMA, BSS Boyama, TWT, yüksek yoğunluk</td>
+			</tr>
+			<tr>
+					<td>802.11ax (6 GHz)</td>
+					<td>WiFi 6E</td>
+					<td>9,6 Gbps</td>
+					<td>Yeni 6 GHz bandı, daha az tıkanıklık</td>
+			</tr>
+			<tr>
+					<td>802.11be</td>
+					<td>WiFi 7</td>
+					<td>46 Gbps</td>
+					<td>Çok Bağlantılı Çalışma, 320 MHz kanallar</td>
+			</tr>
+	</tbody>
 </table>
 <p>Pazarlama materyallerindeki teorik hızlar pratikte hiçbir zaman ulaşılmaz. Gerçek deployment&rsquo;larda önemli olan her nesil için farklıdır:</p>
 <p><strong>WiFi 6 (802.11ax)</strong>, yoğun ortamlarda gerçekten önemli iki yetenek getirdi:</p>
@@ -3424,42 +3424,42 @@ Cisco&rsquo;nun OT odaklı yönetim ve güvenlik platformu, OT ağı görünürl
 <hr>
 <h2 id="doğru-platformu-seçme">Doğru Platformu Seçme</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Senaryo</th>
-          <th>Önerilen Platform</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Küçük ofis, basit yönetim</td>
-          <td>Aruba Instant On, Cisco Business, Meraki Go</td>
-      </tr>
-      <tr>
-          <td>IT personeli olan KOBİ</td>
-          <td>Cisco Meraki, Aruba Central (bulut yönetimli)</td>
-      </tr>
-      <tr>
-          <td>Kurumsal kampüs, karmaşık politika</td>
-          <td>Aruba Mobility Master, Cisco DNA Center</td>
-      </tr>
-      <tr>
-          <td>Otel / konaklama</td>
-          <td>Aruba, Cisco Meraki (PMS entegrasyonu ile)</td>
-      </tr>
-      <tr>
-          <td>Sağlık / düzenlenmiş ortam</td>
-          <td>Aruba ClearPass + Mobility Master, Cisco ISE + WLC</td>
-      </tr>
-      <tr>
-          <td>Yüksek yoğunluklu mekanlar</td>
-          <td>Cisco (Catalyst Center), Aruba (AOS 10)</td>
-      </tr>
-      <tr>
-          <td>Çok siteli, merkezi yönetim</td>
-          <td>Cisco Meraki, Aruba Central</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Senaryo</th>
+					<th>Önerilen Platform</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Küçük ofis, basit yönetim</td>
+					<td>Aruba Instant On, Cisco Business, Meraki Go</td>
+			</tr>
+			<tr>
+					<td>IT personeli olan KOBİ</td>
+					<td>Cisco Meraki, Aruba Central (bulut yönetimli)</td>
+			</tr>
+			<tr>
+					<td>Kurumsal kampüs, karmaşık politika</td>
+					<td>Aruba Mobility Master, Cisco DNA Center</td>
+			</tr>
+			<tr>
+					<td>Otel / konaklama</td>
+					<td>Aruba, Cisco Meraki (PMS entegrasyonu ile)</td>
+			</tr>
+			<tr>
+					<td>Sağlık / düzenlenmiş ortam</td>
+					<td>Aruba ClearPass + Mobility Master, Cisco ISE + WLC</td>
+			</tr>
+			<tr>
+					<td>Yüksek yoğunluklu mekanlar</td>
+					<td>Cisco (Catalyst Center), Aruba (AOS 10)</td>
+			</tr>
+			<tr>
+					<td>Çok siteli, merkezi yönetim</td>
+					<td>Cisco Meraki, Aruba Central</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="bu-seri">Bu Seri</h2>
@@ -3615,70 +3615,70 @@ Azure barındırmalı kaynaklar için Microsoft&rsquo;un teklifi. Azure&rsquo;da
 <hr>
 <h2 id="üç-yaklaşımın-karşılaştırması">Üç Yaklaşımın Karşılaştırması</h2>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th>ISP Scrubbing</th>
-          <th>On-Premise Cihaz</th>
-          <th>Bulut Servisi</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Volumetrik koruma</td>
-          <td>✅</td>
-          <td>❌ (bağlantıyla sınırlı)</td>
-          <td>✅✅</td>
-      </tr>
-      <tr>
-          <td>Protokol saldırısı koruması</td>
-          <td>✅</td>
-          <td>✅✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Uygulama katmanı (L7)</td>
-          <td>❌</td>
-          <td>✅ (gelişmiş modeller)</td>
-          <td>✅✅</td>
-      </tr>
-      <tr>
-          <td>Aktivasyon süresi</td>
-          <td>Dakikalar (istek üzerine)</td>
-          <td>Anında</td>
-          <td>Anında</td>
-      </tr>
-      <tr>
-          <td>Trafik görünürlüğü</td>
-          <td>Sınırlı</td>
-          <td>Tam</td>
-          <td>Sağlayıcıya bağlı</td>
-      </tr>
-      <tr>
-          <td>Uyumluluk / veri yerelliği</td>
-          <td>✅</td>
-          <td>✅✅</td>
-          <td>İnceleme gerektirir</td>
-      </tr>
-      <tr>
-          <td>CapEx</td>
-          <td>Düşük</td>
-          <td>Yüksek</td>
-          <td>Yok</td>
-      </tr>
-      <tr>
-          <td>OpEx</td>
-          <td>Orta</td>
-          <td>Orta</td>
-          <td>Orta–Yüksek</td>
-      </tr>
-      <tr>
-          <td>Ölçeklenebilirlik</td>
-          <td>ISP kapasitesi</td>
-          <td>Sabit donanım</td>
-          <td>Neredeyse sınırsız</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th>ISP Scrubbing</th>
+					<th>On-Premise Cihaz</th>
+					<th>Bulut Servisi</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Volumetrik koruma</td>
+					<td>✅</td>
+					<td>❌ (bağlantıyla sınırlı)</td>
+					<td>✅✅</td>
+			</tr>
+			<tr>
+					<td>Protokol saldırısı koruması</td>
+					<td>✅</td>
+					<td>✅✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Uygulama katmanı (L7)</td>
+					<td>❌</td>
+					<td>✅ (gelişmiş modeller)</td>
+					<td>✅✅</td>
+			</tr>
+			<tr>
+					<td>Aktivasyon süresi</td>
+					<td>Dakikalar (istek üzerine)</td>
+					<td>Anında</td>
+					<td>Anında</td>
+			</tr>
+			<tr>
+					<td>Trafik görünürlüğü</td>
+					<td>Sınırlı</td>
+					<td>Tam</td>
+					<td>Sağlayıcıya bağlı</td>
+			</tr>
+			<tr>
+					<td>Uyumluluk / veri yerelliği</td>
+					<td>✅</td>
+					<td>✅✅</td>
+					<td>İnceleme gerektirir</td>
+			</tr>
+			<tr>
+					<td>CapEx</td>
+					<td>Düşük</td>
+					<td>Yüksek</td>
+					<td>Yok</td>
+			</tr>
+			<tr>
+					<td>OpEx</td>
+					<td>Orta</td>
+					<td>Orta</td>
+					<td>Orta–Yüksek</td>
+			</tr>
+			<tr>
+					<td>Ölçeklenebilirlik</td>
+					<td>ISP kapasitesi</td>
+					<td>Sabit donanım</td>
+					<td>Neredeyse sınırsız</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="hibrit-model-ciddi-organizasyonlar-üçünü-nasıl-birleştirir">Hibrit Model: Ciddi Organizasyonlar Üçünü Nasıl Birleştirir</h2>
@@ -4235,40 +4235,40 @@ Verileriniz: güvenli, şifreli, yedekli
 </code></pre><p>Synology NAS cihazlarında yerleşik &ldquo;Hyper Backup&rdquo; uygulaması bulunur. Bir kez yapılandırırsınız ve her gece değişen dosyaları otomatik olarak S3&rsquo;e gönderir. Siz uyurken yedeklemeniz çalışır.</p>
 <h2 id="aws-s3-depolama-katmanları--hangisi-size-uygun">AWS S3 Depolama Katmanları — Hangisi Size Uygun?</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Katman</th>
-          <th>En iyi kullanım</th>
-          <th>Erişim</th>
-          <th>Maliyet</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>S3 Standard</strong></td>
-          <td>Sık erişilen veriler</td>
-          <td>Anında</td>
-          <td>~€23/TB/ay</td>
-      </tr>
-      <tr>
-          <td><strong>S3 Infrequent Access</strong></td>
-          <td>Ayda birkaç kez</td>
-          <td>Anında</td>
-          <td>~€12/TB/ay</td>
-      </tr>
-      <tr>
-          <td><strong>S3 Glacier Instant</strong></td>
-          <td>Nadiren erişilen arşivler</td>
-          <td>Milisaniye</td>
-          <td>~€4/TB/ay</td>
-      </tr>
-      <tr>
-          <td><strong>S3 Glacier Deep Archive</strong></td>
-          <td>Uzun süreli arşivleme</td>
-          <td>12 saat</td>
-          <td>~€1/TB/ay</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Katman</th>
+					<th>En iyi kullanım</th>
+					<th>Erişim</th>
+					<th>Maliyet</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>S3 Standard</strong></td>
+					<td>Sık erişilen veriler</td>
+					<td>Anında</td>
+					<td>~€23/TB/ay</td>
+			</tr>
+			<tr>
+					<td><strong>S3 Infrequent Access</strong></td>
+					<td>Ayda birkaç kez</td>
+					<td>Anında</td>
+					<td>~€12/TB/ay</td>
+			</tr>
+			<tr>
+					<td><strong>S3 Glacier Instant</strong></td>
+					<td>Nadiren erişilen arşivler</td>
+					<td>Milisaniye</td>
+					<td>~€4/TB/ay</td>
+			</tr>
+			<tr>
+					<td><strong>S3 Glacier Deep Archive</strong></td>
+					<td>Uzun süreli arşivleme</td>
+					<td>12 saat</td>
+					<td>~€1/TB/ay</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>KOBİ&rsquo;ler için öneri:</strong>
 Aktif iş verileri: <strong>S3 Infrequent Access</strong> — uygun fiyat, gerektiğinde anında erişim.
@@ -5481,46 +5481,46 @@ Gönder →
 <hr>
 <h2 id="teknolojiler--üreticiler">Teknolojiler &amp; Üreticiler</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Kategori</th>
-          <th>Teknolojiler</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Firewall</td>
-          <td>Cisco Firepower, Fortinet FortiGate, Palo Alto NGFW, Check Point</td>
-      </tr>
-      <tr>
-          <td>Switching</td>
-          <td>Cisco Catalyst 9K, Nexus 9K, HP Comware, Aruba</td>
-      </tr>
-      <tr>
-          <td>Güvenlik &amp; NAC</td>
-          <td>Cisco ISE, Aruba ClearPass, 802.1X, FortiEMS</td>
-      </tr>
-      <tr>
-          <td>VPN &amp; Uzaktan Erişim</td>
-          <td>GlobalProtect, FortiClient, AnyConnect, ZTNA</td>
-      </tr>
-      <tr>
-          <td>Otomasyon</td>
-          <td>Python, Bash, Cisco DNA Center, FortiManager</td>
-      </tr>
-      <tr>
-          <td>İzleme</td>
-          <td>SolarWinds, Splunk, Zabbix, Grafana, FortiAnalyzer</td>
-      </tr>
-      <tr>
-          <td>Yük Dengeleme</td>
-          <td>F5 LTM, F5 GTM</td>
-      </tr>
-      <tr>
-          <td>Kablosuz</td>
-          <td>Aruba, Cisco Meraki, Cisco WLC</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Kategori</th>
+					<th>Teknolojiler</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Firewall</td>
+					<td>Cisco Firepower, Fortinet FortiGate, Palo Alto NGFW, Check Point</td>
+			</tr>
+			<tr>
+					<td>Switching</td>
+					<td>Cisco Catalyst 9K, Nexus 9K, HP Comware, Aruba</td>
+			</tr>
+			<tr>
+					<td>Güvenlik &amp; NAC</td>
+					<td>Cisco ISE, Aruba ClearPass, 802.1X, FortiEMS</td>
+			</tr>
+			<tr>
+					<td>VPN &amp; Uzaktan Erişim</td>
+					<td>GlobalProtect, FortiClient, AnyConnect, ZTNA</td>
+			</tr>
+			<tr>
+					<td>Otomasyon</td>
+					<td>Python, Bash, Cisco DNA Center, FortiManager</td>
+			</tr>
+			<tr>
+					<td>İzleme</td>
+					<td>SolarWinds, Splunk, Zabbix, Grafana, FortiAnalyzer</td>
+			</tr>
+			<tr>
+					<td>Yük Dengeleme</td>
+					<td>F5 LTM, F5 GTM</td>
+			</tr>
+			<tr>
+					<td>Kablosuz</td>
+					<td>Aruba, Cisco Meraki, Cisco WLC</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <p><em>Üst yönetim kademesinden profesyonel bir referans mektubu talep üzerine sunulabilir.</em><br>
@@ -5694,30 +5694,30 @@ Gönder →
 <h3 id="bakım-anlaşması-aylık">Bakım Anlaşması (Aylık)</h3>
 <p>Altyapınızı sizin yerinize ben yönetiyorum — siz işinize odaklanın.</p>
 <table>
-  <thead>
-      <tr>
-          <th>Paket</th>
-          <th>Kapsam</th>
-          <th>Fiyat</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Basic</strong></td>
-          <td>İzleme + olay müdahalesi + aylık 4 saat yönetim</td>
-          <td>Aylık €50&rsquo;dan</td>
-      </tr>
-      <tr>
-          <td><strong>Standard</strong></td>
-          <td>Basic + proaktif bakım + SIP trunk yönetimi + aylık 8 saat</td>
-          <td>Aylık €150&rsquo;dan</td>
-      </tr>
-      <tr>
-          <td><strong>Premium</strong></td>
-          <td>Standard + versiyon yükseltme + DR planlaması + sınırsız olay</td>
-          <td>Aylık €299&rsquo;dan</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Paket</th>
+					<th>Kapsam</th>
+					<th>Fiyat</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Basic</strong></td>
+					<td>İzleme + olay müdahalesi + aylık 4 saat yönetim</td>
+					<td>Aylık €50&rsquo;dan</td>
+			</tr>
+			<tr>
+					<td><strong>Standard</strong></td>
+					<td>Basic + proaktif bakım + SIP trunk yönetimi + aylık 8 saat</td>
+					<td>Aylık €150&rsquo;dan</td>
+			</tr>
+			<tr>
+					<td><strong>Premium</strong></td>
+					<td>Standard + versiyon yükseltme + DR planlaması + sınırsız olay</td>
+					<td>Aylık €299&rsquo;dan</td>
+			</tr>
+	</tbody>
 </table>
 <p><em>Fiyatlandırma ortam büyüklüğüne göre değişir. 50+ kullanıcılı ortamlar için özel teklif sunulur.</em></p>
 <h3 id="proje-bazlı-çalışma">Proje Bazlı Çalışma</h3>
@@ -5785,59 +5785,59 @@ Gönder →
 <hr>
 <h2 id="desteklenen-platformlar">Desteklenen Platformlar</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Üretici</th>
-          <th>Ürünler</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Fortinet</strong></td>
-          <td>FortiGate, FortiManager, FortiAnalyzer</td>
-      </tr>
-      <tr>
-          <td><strong>Palo Alto Networks</strong></td>
-          <td>NGFW, Panorama, Prisma Access</td>
-      </tr>
-      <tr>
-          <td><strong>Cisco</strong></td>
-          <td>Firepower, ASA, FMC</td>
-      </tr>
-      <tr>
-          <td><strong>Check Point</strong></td>
-          <td>Security Gateway, SmartConsole</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Üretici</th>
+					<th>Ürünler</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Fortinet</strong></td>
+					<td>FortiGate, FortiManager, FortiAnalyzer</td>
+			</tr>
+			<tr>
+					<td><strong>Palo Alto Networks</strong></td>
+					<td>NGFW, Panorama, Prisma Access</td>
+			</tr>
+			<tr>
+					<td><strong>Cisco</strong></td>
+					<td>Firepower, ASA, FMC</td>
+			</tr>
+			<tr>
+					<td><strong>Check Point</strong></td>
+					<td>Security Gateway, SmartConsole</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="hizmet-modelleri">Hizmet Modelleri</h2>
 <h3 id="bakım-anlaşması-aylık">Bakım Anlaşması (Aylık)</h3>
 <table>
-  <thead>
-      <tr>
-          <th>Paket</th>
-          <th>Kapsam</th>
-          <th>Fiyat</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Basic</strong></td>
-          <td>Aylık kural gözden geçirme + olay müdahalesi + 4 saat yönetim</td>
-          <td>Aylık €50&rsquo;dan</td>
-      </tr>
-      <tr>
-          <td><strong>Standard</strong></td>
-          <td>Basic + firmware yönetimi + VPN izleme + 8 saat</td>
-          <td>Aylık €150&rsquo;dan</td>
-      </tr>
-      <tr>
-          <td><strong>Premium</strong></td>
-          <td>Standard + üç aylık denetim + uyumluluk raporları + sınırsız</td>
-          <td>Aylık €299&rsquo;dan</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Paket</th>
+					<th>Kapsam</th>
+					<th>Fiyat</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Basic</strong></td>
+					<td>Aylık kural gözden geçirme + olay müdahalesi + 4 saat yönetim</td>
+					<td>Aylık €50&rsquo;dan</td>
+			</tr>
+			<tr>
+					<td><strong>Standard</strong></td>
+					<td>Basic + firmware yönetimi + VPN izleme + 8 saat</td>
+					<td>Aylık €150&rsquo;dan</td>
+			</tr>
+			<tr>
+					<td><strong>Premium</strong></td>
+					<td>Standard + üç aylık denetim + uyumluluk raporları + sınırsız</td>
+					<td>Aylık €299&rsquo;dan</td>
+			</tr>
+	</tbody>
 </table>
 <h3 id="proje-bazlı">Proje Bazlı</h3>
 <ul>
@@ -5889,50 +5889,50 @@ Gönder →
 <hr>
 <h3 id="teknik-yetkinliklere-genel-bakış">Teknik Yetkinliklere Genel Bakış</h3>
 <table>
-  <thead>
-      <tr>
-          <th style="text-align: left">Kategori</th>
-          <th style="text-align: left">Teknolojiler</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: left"><strong>Güvenlik</strong></td>
-          <td style="text-align: left">Cisco ISE, ClearPass, Firepower, FortiGate, Palo Alto NGFW, Check Point</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>Ağ</strong></td>
-          <td style="text-align: left">Cisco Catalyst/Nexus, Aruba CX, HP Comware, BGP, OSPF, VLAN, STP</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>Wi-Fi</strong></td>
-          <td style="text-align: left">Aruba Mobility Master/Central, Cisco Meraki MR, Ekahau, 802.1X, Misafir Wi-Fi</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>Veri Merkezi</strong></td>
-          <td style="text-align: left">VXLAN/BGP-EVPN, Cisco NDFC, Nexus 9000, FabricPath, HA Clustering</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>Firewall &amp; ZTNA</strong></td>
-          <td style="text-align: left">Palo Alto NGFW, FortiGate, Check Point, Cisco Firepower, Fortinet ZTNA, Cloudflare Zero Trust</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>Teslimat</strong></td>
-          <td style="text-align: left">F5 BIG-IP LTM/GTM, SSL Offloading, GSLB</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>Otomasyon &amp; IaC</strong></td>
-          <td style="text-align: left">Python, Bash, Ansible, Terraform (AWS, Cloudflare), Git, NetDevOps</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>Bulut</strong></td>
-          <td style="text-align: left">AWS (VPC, Transit Gateway, Advanced Networking), Azure (vNet, NSG)</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>İzleme</strong></td>
-          <td style="text-align: left">SolarWinds, ManageEngine OpManager, Zabbix, Splunk SIEM</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th style="text-align: left">Kategori</th>
+					<th style="text-align: left">Teknolojiler</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td style="text-align: left"><strong>Güvenlik</strong></td>
+					<td style="text-align: left">Cisco ISE, ClearPass, Firepower, FortiGate, Palo Alto NGFW, Check Point</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Ağ</strong></td>
+					<td style="text-align: left">Cisco Catalyst/Nexus, Aruba CX, HP Comware, BGP, OSPF, VLAN, STP</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Wi-Fi</strong></td>
+					<td style="text-align: left">Aruba Mobility Master/Central, Cisco Meraki MR, Ekahau, 802.1X, Misafir Wi-Fi</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Veri Merkezi</strong></td>
+					<td style="text-align: left">VXLAN/BGP-EVPN, Cisco NDFC, Nexus 9000, FabricPath, HA Clustering</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Firewall &amp; ZTNA</strong></td>
+					<td style="text-align: left">Palo Alto NGFW, FortiGate, Check Point, Cisco Firepower, Fortinet ZTNA, Cloudflare Zero Trust</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Teslimat</strong></td>
+					<td style="text-align: left">F5 BIG-IP LTM/GTM, SSL Offloading, GSLB</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Otomasyon &amp; IaC</strong></td>
+					<td style="text-align: left">Python, Bash, Ansible, Terraform (AWS, Cloudflare), Git, NetDevOps</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Bulut</strong></td>
+					<td style="text-align: left">AWS (VPC, Transit Gateway, Advanced Networking), Azure (vNet, NSG)</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>İzleme</strong></td>
+					<td style="text-align: left">SolarWinds, ManageEngine OpManager, Zabbix, Splunk SIEM</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h3 id="sertifikalar">Sertifikalar</h3>
@@ -5992,40 +5992,40 @@ Gönder →
 <h2 id="tipik-proje-kapsamları-ve-yatırım-rehberi">Tipik Proje Kapsamları ve Yatırım Rehberi</h2>
 <p>Her işletme farklıdır; işte bir fikir vermesi için genel çerçeve:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Proje Tipi</th>
-          <th>Kapsam</th>
-          <th>Yatırım</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Firewall Denetimi ve Optimizasyonu</td>
-          <td>1-2 Gün</td>
-          <td><strong>500€&lsquo;dan başlayan</strong></td>
-      </tr>
-      <tr>
-          <td>WLAN Planlama (50 AP&rsquo;ye kadar)</td>
-          <td>3-5 Gün</td>
-          <td><strong>900€&lsquo;dan başlayan</strong></td>
-      </tr>
-      <tr>
-          <td>Firewall Migrasyonu (Palo Alto / Fortinet)</td>
-          <td>5-10 Gün</td>
-          <td><strong>2.000€&lsquo;dan başlayan</strong></td>
-      </tr>
-      <tr>
-          <td>Zero Trust Mimarisi</td>
-          <td>Proje bazlı</td>
-          <td><strong>Teklif isteyin</strong></td>
-      </tr>
-      <tr>
-          <td>Aylık Yönetilen Güvenlik İzleme</td>
-          <td>Sürekli</td>
-          <td><strong>199€/Ay&rsquo;dan başlayan</strong></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Proje Tipi</th>
+					<th>Kapsam</th>
+					<th>Yatırım</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Firewall Denetimi ve Optimizasyonu</td>
+					<td>1-2 Gün</td>
+					<td><strong>500€&lsquo;dan başlayan</strong></td>
+			</tr>
+			<tr>
+					<td>WLAN Planlama (50 AP&rsquo;ye kadar)</td>
+					<td>3-5 Gün</td>
+					<td><strong>900€&lsquo;dan başlayan</strong></td>
+			</tr>
+			<tr>
+					<td>Firewall Migrasyonu (Palo Alto / Fortinet)</td>
+					<td>5-10 Gün</td>
+					<td><strong>2.000€&lsquo;dan başlayan</strong></td>
+			</tr>
+			<tr>
+					<td>Zero Trust Mimarisi</td>
+					<td>Proje bazlı</td>
+					<td><strong>Teklif isteyin</strong></td>
+			</tr>
+			<tr>
+					<td>Aylık Yönetilen Güvenlik İzleme</td>
+					<td>Sürekli</td>
+					<td><strong>199€/Ay&rsquo;dan başlayan</strong></td>
+			</tr>
+	</tbody>
 </table>
 <p><em>30 dakikalık ilk görüşmeden sonra ücretsiz fiyat teklifi sunulur. Gizli maliyet yoktur.</em></p>
 <hr>
@@ -6081,30 +6081,30 @@ Gönder →
 <hr>
 <h2 id="desteklenen-platformlar">Desteklenen Platformlar</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Kategori</th>
-          <th>Teknolojiler</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Kablosuz</strong></td>
-          <td>Cisco DNA Center, Aruba Mobility Master, Aruba Central, Meraki</td>
-      </tr>
-      <tr>
-          <td><strong>Switching</strong></td>
-          <td>Cisco Catalyst 9000, Aruba, HP Comware</td>
-      </tr>
-      <tr>
-          <td><strong>Routing</strong></td>
-          <td>Cisco, Fortinet SD-WAN, BGP/OSPF</td>
-      </tr>
-      <tr>
-          <td><strong>Site Survey</strong></td>
-          <td>Ekahau</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Kategori</th>
+					<th>Teknolojiler</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Kablosuz</strong></td>
+					<td>Cisco DNA Center, Aruba Mobility Master, Aruba Central, Meraki</td>
+			</tr>
+			<tr>
+					<td><strong>Switching</strong></td>
+					<td>Cisco Catalyst 9000, Aruba, HP Comware</td>
+			</tr>
+			<tr>
+					<td><strong>Routing</strong></td>
+					<td>Cisco, Fortinet SD-WAN, BGP/OSPF</td>
+			</tr>
+			<tr>
+					<td><strong>Site Survey</strong></td>
+					<td>Ekahau</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="referans-projelerimden">Referans Projelerimden</h2>
@@ -6153,30 +6153,30 @@ Gönder →
 </ul>
 <p><strong>Uygun olduğu yerler:</strong> Kafeler, restoranlar, muayenehaneler, avukatlık büroları, küçük ofisler, oteller</p>
 <table>
-  <thead>
-      <tr>
-          <th>Hizmet</th>
-          <th>Fiyat</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Saha analizi (site survey)</td>
-          <td>Ücretsiz</td>
-      </tr>
-      <tr>
-          <td>1x Aruba AP kurulum</td>
-          <td>€99&rsquo;dan + donanım</td>
-      </tr>
-      <tr>
-          <td>2x AP mesh kurulum</td>
-          <td>€149&rsquo;dan + donanım</td>
-      </tr>
-      <tr>
-          <td>Aylık izleme</td>
-          <td>€19/ay</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Hizmet</th>
+					<th>Fiyat</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Saha analizi (site survey)</td>
+					<td>Ücretsiz</td>
+			</tr>
+			<tr>
+					<td>1x Aruba AP kurulum</td>
+					<td>€99&rsquo;dan + donanım</td>
+			</tr>
+			<tr>
+					<td>2x AP mesh kurulum</td>
+					<td>€149&rsquo;dan + donanım</td>
+			</tr>
+			<tr>
+					<td>Aylık izleme</td>
+					<td>€19/ay</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h3 id="-nas-yedekleme-ve-veri-güvenliği-aws-s3">💾 NAS Yedekleme ve Veri Güvenliği (AWS S3)</h3>
@@ -6191,30 +6191,30 @@ Gönder →
 </ul>
 <p><strong>Muayenehaneler ve avukatlık büroları için:</strong> Veri İşleme Sözleşmesi (AVV) hazırlıyorum — yasal olarak temiz ve GDPR uyumlu.</p>
 <table>
-  <thead>
-      <tr>
-          <th>Hizmet</th>
-          <th>Fiyat</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>AWS hesabı kurulumu</td>
-          <td>€29 tek seferlik</td>
-      </tr>
-      <tr>
-          <td>Yedekleme yapılandırması (Hyper Backup)</td>
-          <td>€29 tek seferlik</td>
-      </tr>
-      <tr>
-          <td>AVV hazırlama (muayenehaneler için)</td>
-          <td>€29 tek seferlik</td>
-      </tr>
-      <tr>
-          <td>Aylık izleme ve kontrol</td>
-          <td>€19/ay</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Hizmet</th>
+					<th>Fiyat</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>AWS hesabı kurulumu</td>
+					<td>€29 tek seferlik</td>
+			</tr>
+			<tr>
+					<td>Yedekleme yapılandırması (Hyper Backup)</td>
+					<td>€29 tek seferlik</td>
+			</tr>
+			<tr>
+					<td>AVV hazırlama (muayenehaneler için)</td>
+					<td>€29 tek seferlik</td>
+			</tr>
+			<tr>
+					<td>Aylık izleme ve kontrol</td>
+					<td>€19/ay</td>
+			</tr>
+	</tbody>
 </table>
 <p><em>AWS maliyetleri (~€2-5/ay) doğrudan sizin AWS hesabınızdan faturalandırılır.</em></p>
 <hr>
@@ -6237,30 +6237,30 @@ Veri kaybı yok, hasar yok
 <li><strong>Yıllık batarya kontrolü:</strong> Batarya durumunu yılda bir kontrol ediyorum</li>
 </ul>
 <table>
-  <thead>
-      <tr>
-          <th>Hizmet</th>
-          <th>Fiyat</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>UPS ihtiyaç analizi</td>
-          <td>Ücretsiz</td>
-      </tr>
-      <tr>
-          <td>Kurulum ve NAS entegrasyonu</td>
-          <td>€59 işçilik</td>
-      </tr>
-      <tr>
-          <td>UPS donanımı (APC 650VA)</td>
-          <td>~€80-120 + kar marjı</td>
-      </tr>
-      <tr>
-          <td>Yıllık batarya kontrolü</td>
-          <td>€29/yıl</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Hizmet</th>
+					<th>Fiyat</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>UPS ihtiyaç analizi</td>
+					<td>Ücretsiz</td>
+			</tr>
+			<tr>
+					<td>Kurulum ve NAS entegrasyonu</td>
+					<td>€59 işçilik</td>
+			</tr>
+			<tr>
+					<td>UPS donanımı (APC 650VA)</td>
+					<td>~€80-120 + kar marjı</td>
+			</tr>
+			<tr>
+					<td>Yıllık batarya kontrolü</td>
+					<td>€29/yıl</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h3 id="-antivirus-ve-endpoint-koruması-merkezi-yönetim">🛡️ Antivirus ve Endpoint Koruması (Merkezi Yönetim)</h3>
@@ -6273,26 +6273,26 @@ Veri kaybı yok, hasar yok
 <li><strong>Aylık rapor:</strong> Her ay tespit edilen tehditlerin özetini alıyorsunuz</li>
 </ul>
 <table>
-  <thead>
-      <tr>
-          <th>Hizmet</th>
-          <th>Fiyat</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Kurulum (5 PC&rsquo;ye kadar)</td>
-          <td>€29 tek seferlik</td>
-      </tr>
-      <tr>
-          <td>Cihaz başına lisans</td>
-          <td>€3-5/ay&rsquo;dan</td>
-      </tr>
-      <tr>
-          <td>Aylık yönetim ve rapor</td>
-          <td>Pakete dahil</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Hizmet</th>
+					<th>Fiyat</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Kurulum (5 PC&rsquo;ye kadar)</td>
+					<td>€29 tek seferlik</td>
+			</tr>
+			<tr>
+					<td>Cihaz başına lisans</td>
+					<td>€3-5/ay&rsquo;dan</td>
+			</tr>
+			<tr>
+					<td>Aylık yönetim ve rapor</td>
+					<td>Pakete dahil</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h3 id="-kamera-sistemi-ve-video-gözetleme">📹 Kamera Sistemi ve Video Gözetleme</h3>
@@ -6305,30 +6305,30 @@ Veri kaybı yok, hasar yok
 <li><strong>GDPR:</strong> Doğru işaret levhası ve gizlilik politikası konusunda yardımcı oluyorum</li>
 </ul>
 <table>
-  <thead>
-      <tr>
-          <th>Hizmet</th>
-          <th>Fiyat</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Danışmanlık ve planlama</td>
-          <td>Ücretsiz</td>
-      </tr>
-      <tr>
-          <td>Kamera başına kurulum</td>
-          <td>€49&rsquo;dan işçilik</td>
-      </tr>
-      <tr>
-          <td>Synology Surveillance Station kurulumu</td>
-          <td>€29 tek seferlik</td>
-      </tr>
-      <tr>
-          <td>Ek kamera lisansı (Synology)</td>
-          <td>~€50 tek seferlik</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Hizmet</th>
+					<th>Fiyat</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Danışmanlık ve planlama</td>
+					<td>Ücretsiz</td>
+			</tr>
+			<tr>
+					<td>Kamera başına kurulum</td>
+					<td>€49&rsquo;dan işçilik</td>
+			</tr>
+			<tr>
+					<td>Synology Surveillance Station kurulumu</td>
+					<td>€29 tek seferlik</td>
+			</tr>
+			<tr>
+					<td>Ek kamera lisansı (Synology)</td>
+					<td>~€50 tek seferlik</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h3 id="-pc-ve-server-bakımı">💻 PC ve Server Bakımı</h3>
@@ -6342,109 +6342,109 @@ Veri kaybı yok, hasar yok
 <li><strong>Uzaktan destek:</strong> Basit sorunları yerinde ziyaret olmadan AnyDesk ile çözüyorum</li>
 </ul>
 <table>
-  <thead>
-      <tr>
-          <th>Hizmet</th>
-          <th>Fiyat</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>PC tanılama</td>
-          <td>Ücretsiz</td>
-      </tr>
-      <tr>
-          <td>Windows yeniden kurulumu</td>
-          <td>€49&rsquo;dan</td>
-      </tr>
-      <tr>
-          <td>SSD/RAM yükseltme</td>
-          <td>€49&rsquo;dan + donanım</td>
-      </tr>
-      <tr>
-          <td>Server bakımı (yerinde)</td>
-          <td>€59/saat</td>
-      </tr>
-      <tr>
-          <td>Uzaktan destek</td>
-          <td>€29/saat</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Hizmet</th>
+					<th>Fiyat</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>PC tanılama</td>
+					<td>Ücretsiz</td>
+			</tr>
+			<tr>
+					<td>Windows yeniden kurulumu</td>
+					<td>€49&rsquo;dan</td>
+			</tr>
+			<tr>
+					<td>SSD/RAM yükseltme</td>
+					<td>€49&rsquo;dan + donanım</td>
+			</tr>
+			<tr>
+					<td>Server bakımı (yerinde)</td>
+					<td>€59/saat</td>
+			</tr>
+			<tr>
+					<td>Uzaktan destek</td>
+					<td>€29/saat</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="aylık-bakım-paketleri">Aylık Bakım Paketleri</h2>
 <p>Tek seferlik işler yerine aylık bakım sözleşmeleri de sunuyorum — böylece her zaman sabit bir muhatabınız olur ve IT maliyetleriniz öngörülebilir hale gelir:</p>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th><strong>Basic</strong></th>
-          <th><strong>Business</strong></th>
-          <th><strong>Premium</strong></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Antivirus (5 cihaza kadar)</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Windows Update yönetimi</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Uzaktan destek (saat/ay)</td>
-          <td>1 saat</td>
-          <td>2 saat</td>
-          <td>4 saat</td>
-      </tr>
-      <tr>
-          <td>NAS yedekleme izleme</td>
-          <td>–</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>WiFi izleme</td>
-          <td>–</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Yerinde ziyaret/ay</td>
-          <td>–</td>
-          <td>1x</td>
-          <td>2x</td>
-      </tr>
-      <tr>
-          <td>UPS yıllık kontrolü</td>
-          <td>–</td>
-          <td>–</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Aylık rapor</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Yanıt süresi</td>
-          <td>48 saat</td>
-          <td>24 saat</td>
-          <td>4 saat</td>
-      </tr>
-      <tr>
-          <td><strong>Fiyat</strong></td>
-          <td><strong>€49/ay</strong></td>
-          <td><strong>€89/ay</strong></td>
-          <td><strong>€149/ay</strong></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th><strong>Basic</strong></th>
+					<th><strong>Business</strong></th>
+					<th><strong>Premium</strong></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Antivirus (5 cihaza kadar)</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Windows Update yönetimi</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Uzaktan destek (saat/ay)</td>
+					<td>1 saat</td>
+					<td>2 saat</td>
+					<td>4 saat</td>
+			</tr>
+			<tr>
+					<td>NAS yedekleme izleme</td>
+					<td>–</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>WiFi izleme</td>
+					<td>–</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Yerinde ziyaret/ay</td>
+					<td>–</td>
+					<td>1x</td>
+					<td>2x</td>
+			</tr>
+			<tr>
+					<td>UPS yıllık kontrolü</td>
+					<td>–</td>
+					<td>–</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Aylık rapor</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Yanıt süresi</td>
+					<td>48 saat</td>
+					<td>24 saat</td>
+					<td>4 saat</td>
+			</tr>
+			<tr>
+					<td><strong>Fiyat</strong></td>
+					<td><strong>€49/ay</strong></td>
+					<td><strong>€89/ay</strong></td>
+					<td><strong>€149/ay</strong></td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="verileriniz--her-zaman-sizin-kontrolünüzde">Verileriniz — Her Zaman Sizin Kontrolünüzde</h2>
@@ -6550,70 +6550,70 @@ Veri kaybı yok, hasar yok
 <hr>
 <h2 id="paketler-ve-fiyatlar">Paketler ve Fiyatlar</h2>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th><strong>Starter</strong></th>
-          <th><strong>Business</strong></th>
-          <th><strong>Premium</strong></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>SSL Sertifikası</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>WAF Koruması</td>
-          <td>Temel</td>
-          <td>Gelişmiş</td>
-          <td>Tam</td>
-      </tr>
-      <tr>
-          <td>DDoS Koruması</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Aylık Rapor</td>
-          <td>✅</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Ücretsiz Hosting</td>
-          <td>–</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>WordPress Güncellemeleri</td>
-          <td>–</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Aylık Yedekleme</td>
-          <td>–</td>
-          <td>✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Destek Yanıt Süresi</td>
-          <td>48 saat</td>
-          <td>24 saat</td>
-          <td>4 saat</td>
-      </tr>
-      <tr>
-          <td><strong>Fiyat</strong></td>
-          <td><strong>€19/ay</strong></td>
-          <td><strong>€29/ay</strong></td>
-          <td><strong>€49/ay</strong></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th><strong>Starter</strong></th>
+					<th><strong>Business</strong></th>
+					<th><strong>Premium</strong></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>SSL Sertifikası</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>WAF Koruması</td>
+					<td>Temel</td>
+					<td>Gelişmiş</td>
+					<td>Tam</td>
+			</tr>
+			<tr>
+					<td>DDoS Koruması</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Aylık Rapor</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Ücretsiz Hosting</td>
+					<td>–</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>WordPress Güncellemeleri</td>
+					<td>–</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Aylık Yedekleme</td>
+					<td>–</td>
+					<td>✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Destek Yanıt Süresi</td>
+					<td>48 saat</td>
+					<td>24 saat</td>
+					<td>4 saat</td>
+			</tr>
+			<tr>
+					<td><strong>Fiyat</strong></td>
+					<td><strong>€19/ay</strong></td>
+					<td><strong>€29/ay</strong></td>
+					<td><strong>€49/ay</strong></td>
+			</tr>
+	</tbody>
 </table>
 <p><em>Tek seferlik kurulum ücreti: €49 (yıllık sözleşmede ilk ay geçerli değildir)</em></p>
 <hr>
@@ -6669,62 +6669,62 @@ Toplanan kişileri bültenler, kampanyalar veya sadık müşteri indirimleri iç
 <hr>
 <h2 id="bu-çözüm-kimler-için">Bu Çözüm Kimler İçin?</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Sektör</th>
-          <th>Fayda</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Kafeler &amp; Restoranlar</strong></td>
-          <td>Sadık müşteri kazanımı, kampanya duyuruları</td>
-      </tr>
-      <tr>
-          <td><strong>Oteller &amp; Pansiyonlar</strong></td>
-          <td>Müşteri bağlılığı, yorum talepleri</td>
-      </tr>
-      <tr>
-          <td><strong>Dil Okulları &amp; Kurslar</strong></td>
-          <td>Katılımcıları bilgilendirme, yeni kurs tanıtımları</td>
-      </tr>
-      <tr>
-          <td><strong>Perakende Mağazalar</strong></td>
-          <td>Dijital sadakat kartı çözümü</td>
-      </tr>
-      <tr>
-          <td><strong>Muayenehaneler &amp; Ofisler</strong></td>
-          <td>Randevu hatırlatmaları, duyurular</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Sektör</th>
+					<th>Fayda</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Kafeler &amp; Restoranlar</strong></td>
+					<td>Sadık müşteri kazanımı, kampanya duyuruları</td>
+			</tr>
+			<tr>
+					<td><strong>Oteller &amp; Pansiyonlar</strong></td>
+					<td>Müşteri bağlılığı, yorum talepleri</td>
+			</tr>
+			<tr>
+					<td><strong>Dil Okulları &amp; Kurslar</strong></td>
+					<td>Katılımcıları bilgilendirme, yeni kurs tanıtımları</td>
+			</tr>
+			<tr>
+					<td><strong>Perakende Mağazalar</strong></td>
+					<td>Dijital sadakat kartı çözümü</td>
+			</tr>
+			<tr>
+					<td><strong>Muayenehaneler &amp; Ofisler</strong></td>
+					<td>Randevu hatırlatmaları, duyurular</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="paketler--fiyatlandırma">Paketler &amp; Fiyatlandırma</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Paket</th>
-          <th>İçerik</th>
-          <th>Fiyat</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Starter</strong></td>
-          <td>Kurulum + Portal Yapılandırma + Dashboard</td>
-          <td>Tek Seferlik €79</td>
-      </tr>
-      <tr>
-          <td><strong>Basic</strong></td>
-          <td>Starter + Aylık Raporlama + Destek</td>
-          <td>€29/Ay</td>
-      </tr>
-      <tr>
-          <td><strong>Pro</strong></td>
-          <td>Basic + E-posta Kampanyaları + Özel Branding</td>
-          <td>€59/Ay</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Paket</th>
+					<th>İçerik</th>
+					<th>Fiyat</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Starter</strong></td>
+					<td>Kurulum + Portal Yapılandırma + Dashboard</td>
+					<td>Tek Seferlik €79</td>
+			</tr>
+			<tr>
+					<td><strong>Basic</strong></td>
+					<td>Starter + Aylık Raporlama + Destek</td>
+					<td>€29/Ay</td>
+			</tr>
+			<tr>
+					<td><strong>Pro</strong></td>
+					<td>Basic + E-posta Kampanyaları + Özel Branding</td>
+					<td>€59/Ay</td>
+			</tr>
+	</tbody>
 </table>
 <p><em>Mevcut bir WiFi cihazınız mı var? Sorun değil — uyumluluğunu ücretsiz kontrol ediyoruz.</em></p>
 <p><em>Tüm paketler DSGVO uyumludur. Gizli maliyet yoktur.</em></p>

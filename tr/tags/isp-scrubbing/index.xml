@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>ISP Scrubbing on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/isp-scrubbing/</link><description>Recent content in ISP Scrubbing on Barash Helvadzhaoglu</description><generator>Hugo -- 0.161.1</generator><language>tr</language><lastBuildDate>Mon, 30 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/isp-scrubbing/index.xml" rel="self" type="application/rss+xml"/><item><title>DDoS Koruma Stratejileri: ISP Scrubbing, On-Premise Cihazlar ve Bulut Servisleri</title><link>https://barashhelvadzhaoglu.com/tr/technology/ddos-protection-strategies/</link><pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/ddos-protection-strategies/</guid><description>DDoS koruması rehberi — saldırı türleri, ISP scrubbing, on-premise cihazlar, bulut servisleri ve organizasyonunuz için doğru kombinasyon.</description><content:encoded><![CDATA[<h1 id="ddos-koruma-stratejileri-isp-scrubbing-on-premise-cihazlar-ve-bulut-servisleri">DDoS Koruma Stratejileri: ISP Scrubbing, On-Premise Cihazlar ve Bulut Servisleri</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>ISP Scrubbing on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/isp-scrubbing/</link><description>Recent content in ISP Scrubbing on Barash Helvadzhaoglu</description><generator>Hugo -- 0.162.0</generator><language>tr</language><lastBuildDate>Mon, 30 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/isp-scrubbing/index.xml" rel="self" type="application/rss+xml"/><item><title>DDoS Koruma Stratejileri: ISP Scrubbing, On-Premise Cihazlar ve Bulut Servisleri</title><link>https://barashhelvadzhaoglu.com/tr/technology/ddos-protection-strategies/</link><pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/ddos-protection-strategies/</guid><description>DDoS koruması rehberi — saldırı türleri, ISP scrubbing, on-premise cihazlar, bulut servisleri ve organizasyonunuz için doğru kombinasyon.</description><content:encoded><![CDATA[<h1 id="ddos-koruma-stratejileri-isp-scrubbing-on-premise-cihazlar-ve-bulut-servisleri">DDoS Koruma Stratejileri: ISP Scrubbing, On-Premise Cihazlar ve Bulut Servisleri</h1>
 <p>Bir DDoS (Dağıtılmış Hizmet Reddi) saldırısı sistemlerinizi ele geçirmek zorunda değildir. Sadece erişilemez hale getirmesi yeterlidir. Ve diğer güvenlik tehditlerinin aksine, hasar anlık ve tamamen görünürdür — uygulamanız çalışmayı durdurur, müşteriler size ulaşamaz ve gelir durur.</p>
 <p>DDoS&rsquo;u benzersiz biçimde zorlaştıran şey, saldırı trafiğinin paket düzeyinde meşru görünmesidir. Milyonlarca geçerli TCP SYN paketi, milyonlarca geçerli DNS sorgusu, milyonlarca geçerli HTTP isteği — hepsi mükemmel biçimlendirilmiş, hepsi tamamen kasıtlı. Ağınız bunları gerçek trafikle aynı şekilde işler, ve bu tam olarak sorunun ta kendisidir.</p>
 <p>DDoS korumasının yasal bir gereklilik olduğu — sadece en iyi uygulama değil — bankacılık altyapısında çalışmış biri olarak, organizasyonların kendilerini gerçekte nasıl koruduğunu aktarmak istiyorum: üç ana yaklaşımın ne olduğu, her birinin ne yapıp yapamadığı ve pratikte nasıl bir araya geldikleri.</p>
@@ -137,70 +137,70 @@ Azure barındırmalı kaynaklar için Microsoft&rsquo;un teklifi. Azure&rsquo;da
 <hr>
 <h2 id="üç-yaklaşımın-karşılaştırması">Üç Yaklaşımın Karşılaştırması</h2>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th>ISP Scrubbing</th>
-          <th>On-Premise Cihaz</th>
-          <th>Bulut Servisi</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Volumetrik koruma</td>
-          <td>✅</td>
-          <td>❌ (bağlantıyla sınırlı)</td>
-          <td>✅✅</td>
-      </tr>
-      <tr>
-          <td>Protokol saldırısı koruması</td>
-          <td>✅</td>
-          <td>✅✅</td>
-          <td>✅</td>
-      </tr>
-      <tr>
-          <td>Uygulama katmanı (L7)</td>
-          <td>❌</td>
-          <td>✅ (gelişmiş modeller)</td>
-          <td>✅✅</td>
-      </tr>
-      <tr>
-          <td>Aktivasyon süresi</td>
-          <td>Dakikalar (istek üzerine)</td>
-          <td>Anında</td>
-          <td>Anında</td>
-      </tr>
-      <tr>
-          <td>Trafik görünürlüğü</td>
-          <td>Sınırlı</td>
-          <td>Tam</td>
-          <td>Sağlayıcıya bağlı</td>
-      </tr>
-      <tr>
-          <td>Uyumluluk / veri yerelliği</td>
-          <td>✅</td>
-          <td>✅✅</td>
-          <td>İnceleme gerektirir</td>
-      </tr>
-      <tr>
-          <td>CapEx</td>
-          <td>Düşük</td>
-          <td>Yüksek</td>
-          <td>Yok</td>
-      </tr>
-      <tr>
-          <td>OpEx</td>
-          <td>Orta</td>
-          <td>Orta</td>
-          <td>Orta–Yüksek</td>
-      </tr>
-      <tr>
-          <td>Ölçeklenebilirlik</td>
-          <td>ISP kapasitesi</td>
-          <td>Sabit donanım</td>
-          <td>Neredeyse sınırsız</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th>ISP Scrubbing</th>
+					<th>On-Premise Cihaz</th>
+					<th>Bulut Servisi</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Volumetrik koruma</td>
+					<td>✅</td>
+					<td>❌ (bağlantıyla sınırlı)</td>
+					<td>✅✅</td>
+			</tr>
+			<tr>
+					<td>Protokol saldırısı koruması</td>
+					<td>✅</td>
+					<td>✅✅</td>
+					<td>✅</td>
+			</tr>
+			<tr>
+					<td>Uygulama katmanı (L7)</td>
+					<td>❌</td>
+					<td>✅ (gelişmiş modeller)</td>
+					<td>✅✅</td>
+			</tr>
+			<tr>
+					<td>Aktivasyon süresi</td>
+					<td>Dakikalar (istek üzerine)</td>
+					<td>Anında</td>
+					<td>Anında</td>
+			</tr>
+			<tr>
+					<td>Trafik görünürlüğü</td>
+					<td>Sınırlı</td>
+					<td>Tam</td>
+					<td>Sağlayıcıya bağlı</td>
+			</tr>
+			<tr>
+					<td>Uyumluluk / veri yerelliği</td>
+					<td>✅</td>
+					<td>✅✅</td>
+					<td>İnceleme gerektirir</td>
+			</tr>
+			<tr>
+					<td>CapEx</td>
+					<td>Düşük</td>
+					<td>Yüksek</td>
+					<td>Yok</td>
+			</tr>
+			<tr>
+					<td>OpEx</td>
+					<td>Orta</td>
+					<td>Orta</td>
+					<td>Orta–Yüksek</td>
+			</tr>
+			<tr>
+					<td>Ölçeklenebilirlik</td>
+					<td>ISP kapasitesi</td>
+					<td>Sabit donanım</td>
+					<td>Neredeyse sınırsız</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="hibrit-model-ciddi-organizasyonlar-üçünü-nasıl-birleştirir">Hibrit Model: Ciddi Organizasyonlar Üçünü Nasıl Birleştirir</h2>

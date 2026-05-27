@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>BSI IT-Grundschutz on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/bsi-it-grundschutz/</link><description>Recent content in BSI IT-Grundschutz on Barash Helvadzhaoglu</description><generator>Hugo -- 0.161.1</generator><language>de</language><lastBuildDate>Fri, 17 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/bsi-it-grundschutz/index.xml" rel="self" type="application/rss+xml"/><item><title>IT-Sicherheitspflichten für kleine Unternehmen in Bayern — und wie der Digitalbonus Bayern bis zu 50% der Kosten übernimmt</title><link>https://barashhelvadzhaoglu.com/de/posts/digitalbonus-comprehensive/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/posts/digitalbonus-comprehensive/</guid><description>Welche IT-Sicherheitsmaßnahmen sind in Bayern gesetzlich vorgeschrieben? Firewall, Netzwerktrennung, E-Mail-Schutz, Backup — mit Gesetzesangaben und Förderung bis €7.500.</description><content:encoded><![CDATA[<h1 id="it-sicherheitspflichten-für-kleine-unternehmen--und-wie-der-digitalbonus-bayern-bis-zu-50-übernimmt">IT-Sicherheitspflichten für kleine Unternehmen — und wie der Digitalbonus Bayern bis zu 50% übernimmt</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>BSI IT-Grundschutz on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/bsi-it-grundschutz/</link><description>Recent content in BSI IT-Grundschutz on Barash Helvadzhaoglu</description><generator>Hugo -- 0.162.0</generator><language>de</language><lastBuildDate>Fri, 17 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/bsi-it-grundschutz/index.xml" rel="self" type="application/rss+xml"/><item><title>IT-Sicherheitspflichten für kleine Unternehmen in Bayern — und wie der Digitalbonus Bayern bis zu 50% der Kosten übernimmt</title><link>https://barashhelvadzhaoglu.com/de/posts/digitalbonus-comprehensive/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/posts/digitalbonus-comprehensive/</guid><description>Welche IT-Sicherheitsmaßnahmen sind in Bayern gesetzlich vorgeschrieben? Firewall, Netzwerktrennung, E-Mail-Schutz, Backup — mit Gesetzesangaben und Förderung bis €7.500.</description><content:encoded><![CDATA[<h1 id="it-sicherheitspflichten-für-kleine-unternehmen--und-wie-der-digitalbonus-bayern-bis-zu-50-übernimmt">IT-Sicherheitspflichten für kleine Unternehmen — und wie der Digitalbonus Bayern bis zu 50% übernimmt</h1>
 <p>Viele kleine Unternehmen in Bayern glauben, IT-Sicherheit sei ein Thema für große Konzerne. Die Realität ist eine andere: Die DSGVO gilt für <strong>jeden</strong>, der personenbezogene Daten verarbeitet — vom Einzelhändler über die Arztpraxis bis zum Hotel. Und die Anforderungen sind konkret, verbindlich und mit Bußgeldern bewehrt.</p>
 <p>Die gute Nachricht: Der <strong>Digitalbonus Bayern</strong> erstattet bis zu <strong>50% der Investitionskosten</strong> — für Firewall, Netzwerktrennung, E-Mail-Sicherheit, Backup und mehr. Das Programm läuft bis Dezember 2027.</p>
 <blockquote>
@@ -50,40 +50,40 @@ Formal ist er freiwillig — aber: Die DSGVO schreibt „Stand der Technik&quot;
 <p><strong>Was das in der Praxis bedeutet:</strong></p>
 <p>Folgende Geräteklassen müssen in <strong>getrennten Netzwerken (VLANs)</strong> betrieben werden:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Netzwerk-Segment</th>
-          <th>Was gehört hinein</th>
-          <th>Risiko ohne Trennung</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Mitarbeiter-Netz</strong></td>
-          <td>PCs, Laptops</td>
-          <td>Zugriff auf Kundendaten</td>
-      </tr>
-      <tr>
-          <td><strong>Server / NAS</strong></td>
-          <td>Dateiserver, Backup-System</td>
-          <td>Datenverlust bei Angriff</td>
-      </tr>
-      <tr>
-          <td><strong>IoT-Geräte</strong></td>
-          <td>Drucker, IP-Kameras, Smart-TV, UPS</td>
-          <td>Bekannte Sicherheitslücken, kein Update</td>
-      </tr>
-      <tr>
-          <td><strong>Gäste-WLAN</strong></td>
-          <td>Kunden, Patienten, Hotelgäste</td>
-          <td>Zugriff auf interne Systeme</td>
-      </tr>
-      <tr>
-          <td><strong>Kasse / POS</strong></td>
-          <td>Kartenterminal, Kassensystem</td>
-          <td>PCI DSS Pflicht, Zahlungsdaten</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Netzwerk-Segment</th>
+					<th>Was gehört hinein</th>
+					<th>Risiko ohne Trennung</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Mitarbeiter-Netz</strong></td>
+					<td>PCs, Laptops</td>
+					<td>Zugriff auf Kundendaten</td>
+			</tr>
+			<tr>
+					<td><strong>Server / NAS</strong></td>
+					<td>Dateiserver, Backup-System</td>
+					<td>Datenverlust bei Angriff</td>
+			</tr>
+			<tr>
+					<td><strong>IoT-Geräte</strong></td>
+					<td>Drucker, IP-Kameras, Smart-TV, UPS</td>
+					<td>Bekannte Sicherheitslücken, kein Update</td>
+			</tr>
+			<tr>
+					<td><strong>Gäste-WLAN</strong></td>
+					<td>Kunden, Patienten, Hotelgäste</td>
+					<td>Zugriff auf interne Systeme</td>
+			</tr>
+			<tr>
+					<td><strong>Kasse / POS</strong></td>
+					<td>Kartenterminal, Kassensystem</td>
+					<td>PCI DSS Pflicht, Zahlungsdaten</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Warum Drucker gefährlich sind:</strong>
 IP-Drucker haben oft veraltete Firmware und keine automatischen Sicherheitsupdates. Ein kompromittierter Drucker im gleichen Netzwerk wie der Buchhaltungs-PC gibt Angreifern direkten Zugriff auf alle Daten.</p>
@@ -206,117 +206,117 @@ NAS-Gerät (z. B. Synology) mit automatischer verschlüsselter Synchronisation z
 <strong>Laufzeit:</strong> bis 31. Dezember 2027
 <strong>Antragstellung:</strong> ausschließlich digital über ELSTER-Unternehmenskonto</p>
 <table>
-  <thead>
-      <tr>
-          <th>Maßnahme</th>
-          <th>Förderfähig</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Firewall (Hardware + Lizenz + Konfiguration)</td>
-          <td>✅ Ja</td>
-      </tr>
-      <tr>
-          <td>Managed Switch für VLAN-Trennung</td>
-          <td>✅ Ja</td>
-      </tr>
-      <tr>
-          <td>WLAN Access Points</td>
-          <td>✅ Ja</td>
-      </tr>
-      <tr>
-          <td>NAS + verschlüsseltes Cloud-Backup</td>
-          <td>✅ Ja</td>
-      </tr>
-      <tr>
-          <td>E-Mail-Sicherheitslizenz (bis 18 Monate)</td>
-          <td>✅ Ja</td>
-      </tr>
-      <tr>
-          <td>Antivirus/EDR-Lizenzen (bis 18 Monate)</td>
-          <td>✅ Ja</td>
-      </tr>
-      <tr>
-          <td>Installations- und Konfigurationsleistung</td>
-          <td>✅ Ja</td>
-      </tr>
-      <tr>
-          <td>Wartungsvertrag (bis 18 Monate)</td>
-          <td>✅ Ja</td>
-      </tr>
-      <tr>
-          <td>Beratungsleistung (bis 50% der Gesamtkosten)</td>
-          <td>✅ Ja</td>
-      </tr>
-      <tr>
-          <td>Standard-PCs, Laptops, Drucker</td>
-          <td>❌ Nein</td>
-      </tr>
-      <tr>
-          <td>Standard-Bürosoftware (Office, Windows)</td>
-          <td>❌ Nein</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Maßnahme</th>
+					<th>Förderfähig</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Firewall (Hardware + Lizenz + Konfiguration)</td>
+					<td>✅ Ja</td>
+			</tr>
+			<tr>
+					<td>Managed Switch für VLAN-Trennung</td>
+					<td>✅ Ja</td>
+			</tr>
+			<tr>
+					<td>WLAN Access Points</td>
+					<td>✅ Ja</td>
+			</tr>
+			<tr>
+					<td>NAS + verschlüsseltes Cloud-Backup</td>
+					<td>✅ Ja</td>
+			</tr>
+			<tr>
+					<td>E-Mail-Sicherheitslizenz (bis 18 Monate)</td>
+					<td>✅ Ja</td>
+			</tr>
+			<tr>
+					<td>Antivirus/EDR-Lizenzen (bis 18 Monate)</td>
+					<td>✅ Ja</td>
+			</tr>
+			<tr>
+					<td>Installations- und Konfigurationsleistung</td>
+					<td>✅ Ja</td>
+			</tr>
+			<tr>
+					<td>Wartungsvertrag (bis 18 Monate)</td>
+					<td>✅ Ja</td>
+			</tr>
+			<tr>
+					<td>Beratungsleistung (bis 50% der Gesamtkosten)</td>
+					<td>✅ Ja</td>
+			</tr>
+			<tr>
+					<td>Standard-PCs, Laptops, Drucker</td>
+					<td>❌ Nein</td>
+			</tr>
+			<tr>
+					<td>Standard-Bürosoftware (Office, Windows)</td>
+					<td>❌ Nein</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Wichtige Bedingung:</strong> Der Antrag muss <strong>vor</strong> Projektbeginn gestellt werden. Weder Bestellung noch mündliche Auftragserteilung dürfen vor Eingang der Antragsbestätigung erfolgen.</p>
 <hr>
 <h2 id="beispielrechnung-kleines-hotel-10-zimmer-5-mitarbeiter">Beispielrechnung: Kleines Hotel (10 Zimmer, 5 Mitarbeiter)</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Maßnahme</th>
-          <th>Kosten</th>
-          <th>Nach Förderung (50%)</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>FortiGate Firewall + 1 Jahr Lizenz</td>
-          <td>€1.000</td>
-          <td>€500</td>
-      </tr>
-      <tr>
-          <td>Managed Switch (VLAN-fähig)</td>
-          <td>€500</td>
-          <td>€250</td>
-      </tr>
-      <tr>
-          <td>3× WLAN Access Points</td>
-          <td>€900</td>
-          <td>€450</td>
-      </tr>
-      <tr>
-          <td>NAS + AWS Backup-Einrichtung</td>
-          <td>€500</td>
-          <td>€250</td>
-      </tr>
-      <tr>
-          <td>E-Mail-Sicherheit (18 Monate)</td>
-          <td>€400</td>
-          <td>€200</td>
-      </tr>
-      <tr>
-          <td>Antivirus/EDR 5 Geräte (18 Monate)</td>
-          <td>€300</td>
-          <td>€150</td>
-      </tr>
-      <tr>
-          <td>Installation &amp; Konfiguration</td>
-          <td>€1.000</td>
-          <td>€500</td>
-      </tr>
-      <tr>
-          <td>18 Monate Wartung</td>
-          <td>€900</td>
-          <td>€450</td>
-      </tr>
-      <tr>
-          <td><strong>Gesamt</strong></td>
-          <td><strong>€5.500</strong></td>
-          <td><strong>€2.750</strong></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Maßnahme</th>
+					<th>Kosten</th>
+					<th>Nach Förderung (50%)</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>FortiGate Firewall + 1 Jahr Lizenz</td>
+					<td>€1.000</td>
+					<td>€500</td>
+			</tr>
+			<tr>
+					<td>Managed Switch (VLAN-fähig)</td>
+					<td>€500</td>
+					<td>€250</td>
+			</tr>
+			<tr>
+					<td>3× WLAN Access Points</td>
+					<td>€900</td>
+					<td>€450</td>
+			</tr>
+			<tr>
+					<td>NAS + AWS Backup-Einrichtung</td>
+					<td>€500</td>
+					<td>€250</td>
+			</tr>
+			<tr>
+					<td>E-Mail-Sicherheit (18 Monate)</td>
+					<td>€400</td>
+					<td>€200</td>
+			</tr>
+			<tr>
+					<td>Antivirus/EDR 5 Geräte (18 Monate)</td>
+					<td>€300</td>
+					<td>€150</td>
+			</tr>
+			<tr>
+					<td>Installation &amp; Konfiguration</td>
+					<td>€1.000</td>
+					<td>€500</td>
+			</tr>
+			<tr>
+					<td>18 Monate Wartung</td>
+					<td>€900</td>
+					<td>€450</td>
+			</tr>
+			<tr>
+					<td><strong>Gesamt</strong></td>
+					<td><strong>€5.500</strong></td>
+					<td><strong>€2.750</strong></td>
+			</tr>
+	</tbody>
 </table>
 <p>Das Hotel zahlt <strong>€2.750</strong> — der Freistaat Bayern übernimmt <strong>€2.750</strong>.</p>
 <hr>
