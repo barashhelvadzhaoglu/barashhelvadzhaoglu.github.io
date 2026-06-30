@@ -1,4 +1,85 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>SD-WAN on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/sd-wan/</link><description>Recent content in SD-WAN on Barash Helvadzhaoglu</description><generator>Hugo -- 0.163.3</generator><language>tr</language><lastBuildDate>Tue, 23 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/sd-wan/index.xml" rel="self" type="application/rss+xml"/><item><title>Fortinet SD-WAN: Security-Driven Networking in Practice</title><link>https://barashhelvadzhaoglu.com/tr/technology/fortinet-sd-wan/</link><pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/fortinet-sd-wan/</guid><description>An in-depth look at Fortinet&amp;#39;s SD-WAN approach: FortiOS integration, security-driven networking, Gartner Magic Quadrant positioning, and how it compares to dedicated SD-WAN vendors.</description><content:encoded><![CDATA[<h1 id="fortinet-sd-wan-security-driven-networking-in-practice">Fortinet SD-WAN: Security-Driven Networking in Practice</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>SD-WAN on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/sd-wan/</link><description>Recent content in SD-WAN on Barash Helvadzhaoglu</description><generator>Hugo -- 0.163.3</generator><language>tr</language><lastBuildDate>Tue, 30 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/sd-wan/index.xml" rel="self" type="application/rss+xml"/><item><title>Cisco SD-WAN: Catalyst SD-WAN and the Enterprise Architecture Approach</title><link>https://barashhelvadzhaoglu.com/tr/technology/cisco-sd-wan/</link><pubDate>Tue, 30 Jun 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/cisco-sd-wan/</guid><description>A detailed look at Cisco&amp;#39;s SD-WAN platform: the Viptela acquisition, Catalyst SD-WAN architecture, vManage, and how Cisco&amp;#39;s approach compares to competitors in enterprise environments.</description><content:encoded><![CDATA[<h1 id="cisco-sd-wan-catalyst-sd-wan-and-the-enterprise-architecture-approach">Cisco SD-WAN: Catalyst SD-WAN and the Enterprise Architecture Approach</h1>
+<p>Cisco&rsquo;s path to SD-WAN runs through one of the more significant enterprise networking acquisitions of the last decade. In 2017, Cisco acquired Viptela — a purpose-built SD-WAN startup — for approximately $610 million. That acquisition became the foundation of what Cisco now calls <strong>Catalyst SD-WAN</strong> (previously known as Cisco SD-WAN, and before that Viptela SD-WAN). Understanding the Viptela heritage helps explain both the architectural strengths and the operational complexity that characterizes Cisco&rsquo;s platform today.</p>
+<hr>
+<h2 id="the-viptela-architecture">The Viptela Architecture</h2>
+<p>Viptela was built from the ground up as a distributed, scalable SD-WAN fabric. Its core design separated the WAN architecture into four functional planes:</p>
+<p><strong>vManage</strong> — the centralized management and orchestration layer. A single dashboard for configuration, monitoring, and policy management across all SD-WAN sites. vManage is the primary interface for network administrators.</p>
+<p><strong>vSmart Controller</strong> — the control plane. Distributes routing information and SD-WAN policies to all edge devices using the Overlay Management Protocol (OMP). vSmart does not forward data traffic — it only controls where data traffic goes.</p>
+<p><strong>vBond</strong> — the orchestration plane. Facilitates the initial connection between edge devices and the rest of the SD-WAN fabric, handling NAT traversal and authentication. Once edges are onboarded, vBond&rsquo;s role is minimal.</p>
+<p><strong>vEdge / Catalyst SD-WAN Router</strong> — the data plane at each site. Cisco now offers SD-WAN functionality on its Catalyst 8000 series routers and ISR routers (via SD-WAN software), as well as virtual appliances for cloud deployments.</p>
+<p>This four-component architecture is more complex than some competing platforms — Fortinet&rsquo;s FortiOS, for example, embeds all SD-WAN functions into a single OS image. But it was designed for scale. Very large deployments with thousands of sites benefit from the separation of concerns: the control plane scales horizontally without impacting data plane performance.</p>
+<hr>
+<h2 id="omp-the-fabric-protocol">OMP: The Fabric Protocol</h2>
+<p>OMP (Overlay Management Protocol) is the protocol that ties the Cisco SD-WAN fabric together. It runs between vSmart controllers and all vEdge/Catalyst routers, distributing:</p>
+<ul>
+<li>Routing information (similar to BGP route advertisements)</li>
+<li>SD-WAN policies (application-aware routing rules, data policies)</li>
+<li>Security information (security associations for IPsec tunnels)</li>
+</ul>
+<p>This centralized distribution model means that policy changes propagate quickly and consistently across all sites. When a network engineer modifies an application-aware routing policy in vManage, vSmart pushes the updated policy to all affected edges automatically. There is no need to touch individual devices.</p>
+<p>The IPsec tunnels between edges are built based on information distributed by OMP, and they support <strong>BFD (Bidirectional Forwarding Detection)</strong> for sub-second link quality monitoring — the mechanism that enables fast path failover when a WAN link degrades.</p>
+<hr>
+<h2 id="application-aware-routing-in-catalyst-sd-wan">Application-Aware Routing in Catalyst SD-WAN</h2>
+<p>Cisco&rsquo;s application-aware routing works similarly to other SD-WAN vendors at the conceptual level but has some distinctive implementation characteristics:</p>
+<p><strong>Application identification</strong> uses Cisco&rsquo;s NBAR2 (Network-Based Application Recognition) engine — one of the most mature application classification technologies in the industry, with a library of thousands of application signatures continuously updated. NBAR2 can identify applications that use dynamic ports, encrypted protocols, and cloud application variants.</p>
+<p><strong>SLA classes</strong> define acceptable performance thresholds (latency, jitter, packet loss) for each category of traffic. If a WAN tunnel&rsquo;s measured performance degrades below the SLA threshold, affected traffic automatically fails over to a tunnel that meets the requirement.</p>
+<p><strong>Data policies</strong> provide fine-grained traffic steering beyond simple SLA matching — they can steer traffic based on source/destination, application, DSCP value, or a combination, and can enforce direct internet access, service chaining through security appliances, or backhauling through a hub.</p>
+<hr>
+<h2 id="thousandeyes-integration-visibility-beyond-the-wan">ThousandEyes Integration: Visibility Beyond the WAN</h2>
+<p>One differentiating capability in Cisco&rsquo;s SD-WAN platform is the integration with <strong>ThousandEyes</strong> — the internet and cloud intelligence platform Cisco acquired in 2020.</p>
+<p>ThousandEyes provides end-to-end visibility across the internet and cloud provider networks, not just the enterprise WAN. In the context of SD-WAN, this means Cisco customers can see not just that their MPLS link to Frankfurt has 5% packet loss, but also that the Azure ExpressRoute peering in Frankfurt is experiencing congestion, affecting Microsoft 365 performance for all users at a site — before the helpdesk starts receiving tickets.</p>
+<p>This visibility layer extends application performance monitoring beyond what any on-premises SD-WAN platform can see by itself. For large enterprises with complex cloud dependencies, ThousandEyes integration provides troubleshooting context that competing SD-WAN vendors cannot match with their native tooling.</p>
+<hr>
+<h2 id="catalyst-8000-series-hardware-platform">Catalyst 8000 Series: Hardware Platform</h2>
+<p>Cisco&rsquo;s primary hardware platform for SD-WAN edge deployments is the <strong>Catalyst 8000 series</strong>, which replaced the ISR 4000 series in Cisco&rsquo;s branch portfolio. The Catalyst 8000 runs IOS XE with the SD-WAN software stack, combining the familiar Cisco IOS routing feature set with SD-WAN overlay capabilities.</p>
+<p>Key advantages of running SD-WAN on Catalyst 8000:</p>
+<ul>
+<li>Full IOS XE feature set alongside SD-WAN: OSPF, BGP, EIGRP for underlay routing; HSRP/VRRP for LAN redundancy; QoS with MQC</li>
+<li>Hardware-based forwarding with Cisco&rsquo;s QuantumFlow processors</li>
+<li>Same device can serve as WAN router, SD-WAN edge, and LAN distribution router in smaller sites</li>
+<li>Familiar operational model for organizations with existing Cisco IOS expertise</li>
+</ul>
+<p>Cisco also offers <strong>Catalyst SD-WAN Virtual</strong> (formerly vEdge Cloud) for deployments in AWS, Azure, and Google Cloud — allowing the SD-WAN fabric to extend natively into cloud environments.</p>
+<hr>
+<h2 id="cisco-sase-umbrella-and-meraki-integration">Cisco SASE: Umbrella and Meraki Integration</h2>
+<p>Cisco&rsquo;s SASE strategy centers on <strong>Cisco Umbrella</strong> for cloud-delivered security (DNS security, secure web gateway, CASB, ZTNA) combined with Catalyst SD-WAN for the WAN edge. The integration allows SD-WAN policies to steer internet-bound traffic from branch sites to the nearest Umbrella PoP for inspection, without requiring a backhaul to a central data center.</p>
+<p>For simpler deployments, Cisco Meraki offers a cloud-managed SD-WAN alternative with a much simpler operational model, though with fewer advanced features than Catalyst SD-WAN. Meraki targets the mid-market and distributed retail/hospitality segment where operational simplicity outweighs feature depth.</p>
+<hr>
+<h2 id="where-cisco-sd-wan-excels">Where Cisco SD-WAN Excels</h2>
+<p><strong>Large enterprise environments with existing Cisco infrastructure</strong>
+Organizations running Cisco Catalyst switching, Cisco wireless (DNA Center), Cisco ISE for NAC, and Cisco firewalls get the most value from Catalyst SD-WAN. The integration between SD-WAN and Cisco DNA Center enables intent-based networking across the campus and WAN simultaneously. Policy defined once in DNA Center flows consistently from the access layer to the WAN edge.</p>
+<p><strong>Complex routing requirements</strong>
+Catalyst SD-WAN retains the full IOS XE routing stack. Branch sites with complex underlay routing requirements — BGP peering with multiple ISPs, complex policy-based routing, MPLS VPN integration — are better served by Cisco&rsquo;s platform than by vendors whose edge devices have limited non-SD-WAN routing capabilities.</p>
+<p><strong>Visibility and troubleshooting at scale</strong>
+The combination of vManage analytics and ThousandEyes gives Cisco SD-WAN a troubleshooting capability that is difficult to match. For network operations teams managing WAN performance for thousands of users, the visibility tools justify significant platform investment.</p>
+<p><strong>Regulated industries with compliance requirements</strong>
+Cisco&rsquo;s enterprise positioning, audit trail capabilities in vManage, and broad compliance documentation make Catalyst SD-WAN a comfortable choice for financial services, healthcare, and public sector organizations with strict procurement and compliance requirements.</p>
+<hr>
+<h2 id="where-cisco-sd-wan-has-limitations">Where Cisco SD-WAN Has Limitations</h2>
+<p><strong>Operational complexity</strong>
+The four-component architecture (vManage, vSmart, vBond, edges) requires more operational overhead than simpler platforms. Managing vSmart redundancy, certificate lifecycles, and controller software updates adds complexity that smaller organizations or those with limited network engineering staff may find burdensome.</p>
+<p><strong>Cost</strong>
+Cisco SD-WAN licensing is not cheap. The platform licensing model (DNA Software subscription tiers) combined with hardware costs positions Catalyst SD-WAN at the higher end of the market. Small and mid-market organizations often find better value elsewhere.</p>
+<p><strong>Security integration</strong>
+Unlike Fortinet, where SD-WAN and NGFW are a single OS, Cisco&rsquo;s SD-WAN and security are separate products that integrate through APIs and policy coordination. The integration works, but it is not as seamless as Fortinet&rsquo;s unified approach. Organizations that need deep security inspection at every branch need to deploy and manage separate security appliances or cloud-delivered security — adding cost and complexity.</p>
+<hr>
+<h2 id="typical-deployment-architecture">Typical Deployment Architecture</h2>
+<p>A standard Cisco Catalyst SD-WAN deployment:</p>
+<ul>
+<li><strong>vManage / vSmart / vBond</strong> hosted as cloud services (Cisco-hosted or self-hosted on-premises/cloud)</li>
+<li><strong>Hub sites:</strong> Catalyst 8300 or 8500 series with multiple WAN links, serving as regional hubs for spoke sites</li>
+<li><strong>Branch sites:</strong> Catalyst 8200 or 8300 series with dual WAN (MPLS + broadband), zero-touch provisioned via vManage</li>
+<li><strong>Cloud sites:</strong> Catalyst SD-WAN Virtual in AWS/Azure, enabling consistent policy across on-premises and cloud workloads</li>
+<li><strong>Remote users:</strong> Cisco AnyConnect or Cisco Secure Client with Umbrella for cloud-delivered security</li>
+</ul>
+<hr>
+<h2 id="summary">Summary</h2>
+<p>Cisco Catalyst SD-WAN is an enterprise-grade platform with a depth of capability that reflects both the Viptela heritage and Cisco&rsquo;s ongoing investment in the architecture. It excels in large, complex environments where routing sophistication, end-to-end visibility, and integration with a broader Cisco infrastructure matter.</p>
+<p>The trade-off is cost and complexity. Organizations that need a simpler operational model, tighter security integration, or a lower per-site cost may find Fortinet, HPE Aruba, or Palo Alto a better fit for their specific requirements.</p>
+<p>For enterprises already deep in the Cisco ecosystem — DNA Center, ISE, Umbrella, Catalyst switching — Catalyst SD-WAN delivers a level of architectural coherence that is hard to replicate with a different WAN vendor.</p>
+<hr>
+<p><em>Next in this series: <a href="/en/posts/hpe-aruba-sd-wan/">HPE Aruba SD-WAN — EdgeConnect and the WAN Optimization Legacy</a></em></p>
+]]></content:encoded></item><item><title>Fortinet SD-WAN: Security-Driven Networking in Practice</title><link>https://barashhelvadzhaoglu.com/tr/technology/fortinet-sd-wan/</link><pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/fortinet-sd-wan/</guid><description>An in-depth look at Fortinet&amp;#39;s SD-WAN approach: FortiOS integration, security-driven networking, Gartner Magic Quadrant positioning, and how it compares to dedicated SD-WAN vendors.</description><content:encoded><![CDATA[<h1 id="fortinet-sd-wan-security-driven-networking-in-practice">Fortinet SD-WAN: Security-Driven Networking in Practice</h1>
 <p>Fortinet occupies an unusual position in the SD-WAN market. It did not build a standalone SD-WAN product and later add security to it — nor did it acquire a WAN optimization vendor and rebrand the technology. Instead, Fortinet embedded SD-WAN capabilities directly into FortiOS, the same operating system that runs its NGFW, IPS, SSL inspection, and application control functions. The result is an architecture the company calls <strong>security-driven networking</strong>, and it has made Fortinet one of the leading positions in Gartner&rsquo;s SD-WAN Magic Quadrant for multiple consecutive years.</p>
 <p>This article examines what Fortinet&rsquo;s approach actually delivers, where it is strongest, and what trade-offs it involves.</p>
 <hr>
