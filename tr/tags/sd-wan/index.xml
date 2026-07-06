@@ -1,4 +1,84 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>SD-WAN on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/sd-wan/</link><description>Recent content in SD-WAN on Barash Helvadzhaoglu</description><generator>Hugo -- 0.163.3</generator><language>tr</language><lastBuildDate>Tue, 30 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/sd-wan/index.xml" rel="self" type="application/rss+xml"/><item><title>Cisco SD-WAN: Catalyst SD-WAN and the Enterprise Architecture Approach</title><link>https://barashhelvadzhaoglu.com/tr/technology/cisco-sd-wan/</link><pubDate>Tue, 30 Jun 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/cisco-sd-wan/</guid><description>A detailed look at Cisco&amp;#39;s SD-WAN platform: the Viptela acquisition, Catalyst SD-WAN architecture, vManage, and how Cisco&amp;#39;s approach compares to competitors in enterprise environments.</description><content:encoded><![CDATA[<h1 id="cisco-sd-wan-catalyst-sd-wan-and-the-enterprise-architecture-approach">Cisco SD-WAN: Catalyst SD-WAN and the Enterprise Architecture Approach</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>SD-WAN on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/sd-wan/</link><description>Recent content in SD-WAN on Barash Helvadzhaoglu</description><generator>Hugo -- 0.163.3</generator><language>tr</language><lastBuildDate>Mon, 06 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/sd-wan/index.xml" rel="self" type="application/rss+xml"/><item><title>HPE Aruba SD-WAN: EdgeConnect and the WAN Optimization Legacy</title><link>https://barashhelvadzhaoglu.com/tr/technology/hpe-aruba-sd-wan/</link><pubDate>Mon, 06 Jul 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/hpe-aruba-sd-wan/</guid><description>An in-depth look at HPE Aruba&amp;#39;s SD-WAN platform: the Silver Peak acquisition, EdgeConnect architecture, application-defined WAN, and how Aruba differentiates in the enterprise market.</description><content:encoded><![CDATA[<h1 id="hpe-aruba-sd-wan-edgeconnect-and-the-wan-optimization-legacy">HPE Aruba SD-WAN: EdgeConnect and the WAN Optimization Legacy</h1>
+<p>HPE Aruba&rsquo;s SD-WAN story starts not with a networking giant but with a WAN optimization specialist. Silver Peak Systems spent years solving the hard problems of enterprise WAN performance — deduplication, compression, TCP optimization, application acceleration — before pivoting to SD-WAN as the technology shift made the market ripe for a new architecture. HPE acquired Silver Peak in 2020 for approximately $925 million, integrating the technology into the Aruba portfolio as <strong>Aruba EdgeConnect SD-WAN</strong>.</p>
+<p>The Silver Peak heritage matters because it explains what distinguishes Aruba&rsquo;s SD-WAN from competitors: a WAN optimization foundation that most pure-play SD-WAN vendors built later or not at all, combined with Aruba&rsquo;s campus and wireless infrastructure for end-to-end visibility.</p>
+<hr>
+<h2 id="edgeconnect-architecture">EdgeConnect Architecture</h2>
+<p>Aruba EdgeConnect is the physical and virtual appliance that forms the SD-WAN data plane at each site. The architecture separates management and data functions:</p>
+<p><strong>Aruba Orchestrator</strong> (formerly Silver Peak Unity Orchestrator) — the centralized management and policy platform. Cloud-hosted or on-premises, Orchestrator provides intent-based policy definition, zero-touch provisioning, and real-time topology visualization. Network engineers define business intent — &ldquo;Microsoft 365 traffic requires low latency and high reliability&rdquo; — and Orchestrator translates that intent into SD-WAN configuration distributed to all EdgeConnect appliances.</p>
+<p><strong>Aruba EdgeConnect Appliances</strong> — the edge devices at each site. Available as hardware appliances (EC-US, EC-S, EC-M, EC-L, EC-XL tiers for different throughput requirements), virtual appliances (for AWS, Azure, Google Cloud), and software-only deployments on standard x86 hardware.</p>
+<p><strong>Aruba Central</strong> — the unified management portal that extends visibility beyond SD-WAN to Aruba&rsquo;s wireless (APs), wired switching (CX series), and security infrastructure. For organizations using Aruba across campus, branch, and WAN, Central provides a single operational view.</p>
+<hr>
+<h2 id="application-defined-wan-the-core-differentiator">Application-Defined WAN: The Core Differentiator</h2>
+<p>Aruba&rsquo;s marketing term for its SD-WAN approach is <strong>application-defined WAN (AD-WAN)</strong>. The concept is essentially the same as application-aware routing in other vendors — traffic is identified by application and steered based on real-time link quality — but the implementation reflects Silver Peak&rsquo;s WAN optimization roots.</p>
+<p><strong>Deep packet inspection and application classification</strong>
+EdgeConnect uses DPI to classify thousands of application signatures. Unlike some SD-WAN platforms that rely primarily on destination IP or basic port matching, EdgeConnect&rsquo;s classification engine can identify applications within encrypted flows using statistical analysis and flow metadata, not just packet inspection of cleartext headers.</p>
+<p><strong>Continuous link quality monitoring with microsecond granularity</strong>
+EdgeConnect probes each WAN tunnel continuously using sub-second measurement intervals. The system maintains a rolling view of latency, jitter, and packet loss for every active tunnel, enabling path selection decisions based on near real-time data rather than periodic polling averages. This is a direct legacy of Silver Peak&rsquo;s work on WAN optimization, where latency measurement granularity directly affected TCP optimization decisions.</p>
+<p><strong>First-packet application identification</strong>
+A practical limitation of some SD-WAN platforms is that path selection only kicks in after the application has been identified — which can require multiple packets. Aruba&rsquo;s EdgeConnect can make path selection decisions on the first packet for known applications based on destination and port, with DPI refining the classification for subsequent traffic. For latency-sensitive applications like VoIP, this matters: the first few packets of a call do not get routed sub-optimally while the system identifies the flow.</p>
+<hr>
+<h2 id="wan-optimization-what-silver-peak-added">WAN Optimization: What Silver Peak Added</h2>
+<p>The most technically differentiated capability in Aruba&rsquo;s SD-WAN versus most competitors is the <strong>WAN optimization stack</strong> inherited from Silver Peak.</p>
+<p><strong>Data reduction (deduplication and compression)</strong>
+EdgeConnect maintains a shared data store between tunnel endpoints. When the same data block has been seen before — a common occurrence with file transfers, backup traffic, and application data that frequently references shared objects — only a hash reference is transmitted rather than the full data. This can reduce WAN bandwidth consumption by 50-90% for appropriate workloads.</p>
+<p><strong>TCP optimization</strong>
+Standard TCP was designed for local area networks with low latency and low packet loss. Over high-latency WAN links or links with bursty packet loss, TCP&rsquo;s congestion control mechanisms cause significant throughput degradation. EdgeConnect&rsquo;s TCP optimization engine acts as a TCP proxy, presenting a local TCP endpoint to the application on each side of the WAN link while using an optimized transport protocol between EdgeConnect devices. Applications see near-LAN TCP performance regardless of actual WAN conditions.</p>
+<p><strong>Application acceleration</strong>
+For specific applications (CIFS/SMB file transfers, MAPI for on-premises Exchange, Oracle Forms, and others), EdgeConnect includes protocol-specific acceleration modules that go beyond generic TCP optimization. These modules understand application-layer protocols and prefetch or cache data intelligently.</p>
+<p>It is worth noting that as more enterprise applications move to cloud-native architectures with built-in CDN acceleration and cloud-optimized protocols, the value of traditional WAN optimization has shifted. SaaS applications like Microsoft 365 are already optimized for internet delivery. The WAN optimization stack remains most valuable for applications with legacy WAN-sensitive protocols and for site-to-site data replication workloads.</p>
+<hr>
+<h2 id="boost-packet-level-reliability-enhancement">Boost: Packet-Level Reliability Enhancement</h2>
+<p>Aruba&rsquo;s <strong>Boost</strong> capability addresses WAN reliability at the packet level rather than the application level. It includes:</p>
+<p><strong>Forward Error Correction (FEC):</strong> adds redundant parity packets to the stream so that the receiver can reconstruct dropped packets without retransmission. For links with moderate packet loss (1-3%), FEC can restore near-zero effective loss without the round-trip delay of TCP retransmission.</p>
+<p><strong>Packet Order Correction:</strong> reorders out-of-sequence packets at the receiver before delivering them to the application. Relevant for broadband links that occasionally deliver packets out of order.</p>
+<p><strong>High Availability (HA) tunneling:</strong> simultaneously forwards copies of latency-sensitive packets over two different WAN paths and delivers whichever copy arrives first. Effective packet loss approaches zero; latency is bounded by the better of the two paths.</p>
+<p>These capabilities are most relevant for voice and video applications over internet broadband where packet loss and jitter are unpredictable.</p>
+<hr>
+<h2 id="aruba-sse-and-sase-integration">Aruba SSE and SASE Integration</h2>
+<p>HPE Aruba&rsquo;s SASE strategy is built around <strong>Aruba SSE</strong> (Security Service Edge) — a cloud-delivered security platform providing:</p>
+<ul>
+<li>Secure Web Gateway (SWG)</li>
+<li>Cloud Access Security Broker (CASB)</li>
+<li>Zero Trust Network Access (ZTNA)</li>
+<li>Digital Experience Monitoring (DEM)</li>
+</ul>
+<p>EdgeConnect SD-WAN integrates with Aruba SSE to steer internet-bound traffic from branch sites to the nearest SSE PoP for inspection, enabling direct internet breakout without backhauling traffic to a central data center firewall.</p>
+<p>Aruba Central provides unified management across EdgeConnect SD-WAN and Aruba SSE, with a single policy model for both WAN routing and cloud security. This is Aruba&rsquo;s answer to the management fragmentation problem that affects most SASE architectures built from separate products.</p>
+<hr>
+<h2 id="where-hpe-aruba-sd-wan-excels">Where HPE Aruba SD-WAN Excels</h2>
+<p><strong>WAN optimization requirements</strong>
+Organizations with significant site-to-site data replication, legacy application traffic sensitive to WAN performance, or frequent large file transfers between sites get measurable value from EdgeConnect&rsquo;s WAN optimization stack that most competing SD-WAN platforms cannot replicate.</p>
+<p><strong>High-reliability requirements for broadband-dependent sites</strong>
+The combination of Boost FEC, packet order correction, and HA tunneling makes EdgeConnect well-suited for sites where internet broadband is the primary or only WAN transport and packet loss or jitter is a concern — retail environments, distributed hospitality, sites in regions with lower-quality ISP infrastructure.</p>
+<p><strong>Unified Aruba campus and WAN management</strong>
+Organizations using Aruba CX switching and Aruba wireless (managed through Aruba Central) get operational consistency by extending EdgeConnect into the WAN. The same Aruba Central portal that manages campus switching and wireless also provides WAN visibility, reducing the number of management planes the network operations team must monitor.</p>
+<p><strong>Intent-based management model</strong>
+Orchestrator&rsquo;s intent-based policy model is among the most intuitive in the SD-WAN market. Defining business policy — &ldquo;prioritize unified communications traffic, use cloud path for SaaS, protect ERP over MPLS&rdquo; — and having the system translate that into device configuration removes much of the manual per-device configuration complexity. Teams with limited SD-WAN experience can reach a working deployment more quickly than with platforms requiring more explicit technical policy definition.</p>
+<hr>
+<h2 id="where-hpe-aruba-sd-wan-has-limitations">Where HPE Aruba SD-WAN Has Limitations</h2>
+<p><strong>Security integration</strong>
+Unlike Fortinet&rsquo;s integrated NGFW+SD-WAN model, EdgeConnect does not include a full-featured NGFW. Branch security requires either Aruba SSE (cloud-delivered) or integration with a third-party firewall. For organizations that need stateful firewall and IPS at every branch, this adds a component to the architecture that Fortinet handles natively.</p>
+<p><strong>Market presence and ecosystem</strong>
+Fortinet and Cisco have larger installed bases and broader partner ecosystems than Aruba in the SD-WAN market. Aruba&rsquo;s SD-WAN is strong technically but less commonly encountered in European enterprise environments than Cisco or Fortinet deployments, which can affect the availability of experienced implementation partners.</p>
+<p><strong>Complexity at small scale</strong>
+For very small deployments (under 20 sites), the Orchestrator licensing and operational overhead may not be justified. The platform is designed to scale to thousands of sites; at small scale, simpler platforms may deliver a better operational experience.</p>
+<hr>
+<h2 id="typical-deployment-architecture">Typical Deployment Architecture</h2>
+<p>A standard HPE Aruba EdgeConnect SD-WAN deployment:</p>
+<ul>
+<li><strong>Orchestrator:</strong> cloud-hosted (Aruba-managed) or on-premises virtual appliance</li>
+<li><strong>Hub sites:</strong> EdgeConnect XL or EC-L appliances at data center locations, terminating spoke tunnels and providing regional breakout</li>
+<li><strong>Branch sites:</strong> EdgeConnect EC-S or EC-M appliances with dual WAN, zero-touch provisioned via Orchestrator. Boost enabled for voice/video traffic over broadband</li>
+<li><strong>Cloud connectivity:</strong> EdgeConnect Virtual in AWS/Azure for consistent policy in cloud environments</li>
+<li><strong>Internet security:</strong> Aruba SSE with local steering from EdgeConnect edges</li>
+</ul>
+<hr>
+<h2 id="summary">Summary</h2>
+<p>HPE Aruba EdgeConnect SD-WAN brings the most mature WAN optimization capability in the market to a modern SD-WAN architecture. For organizations where WAN optimization remains relevant — site-to-site replication, latency-sensitive legacy applications, high-reliability requirements over broadband — the Silver Peak heritage provides genuine technical differentiation.</p>
+<p>The Aruba integration gives campus-and-branch organizations a path to unified management across wireless, wired, and WAN infrastructure that is operationally compelling. For pure SD-WAN deployments in environments without existing Aruba infrastructure and without strong WAN optimization requirements, the differentiation over Cisco or Fortinet narrows.</p>
+<hr>
+<p><em>Next in this series: <a href="/en/posts/palo-alto-sd-wan/">Palo Alto SD-WAN — Prisma SD-WAN and the Security-First Approach</a></em></p>
+]]></content:encoded></item><item><title>Cisco SD-WAN: Catalyst SD-WAN and the Enterprise Architecture Approach</title><link>https://barashhelvadzhaoglu.com/tr/technology/cisco-sd-wan/</link><pubDate>Tue, 30 Jun 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/cisco-sd-wan/</guid><description>A detailed look at Cisco&amp;#39;s SD-WAN platform: the Viptela acquisition, Catalyst SD-WAN architecture, vManage, and how Cisco&amp;#39;s approach compares to competitors in enterprise environments.</description><content:encoded><![CDATA[<h1 id="cisco-sd-wan-catalyst-sd-wan-and-the-enterprise-architecture-approach">Cisco SD-WAN: Catalyst SD-WAN and the Enterprise Architecture Approach</h1>
 <p>Cisco&rsquo;s path to SD-WAN runs through one of the more significant enterprise networking acquisitions of the last decade. In 2017, Cisco acquired Viptela — a purpose-built SD-WAN startup — for approximately $610 million. That acquisition became the foundation of what Cisco now calls <strong>Catalyst SD-WAN</strong> (previously known as Cisco SD-WAN, and before that Viptela SD-WAN). Understanding the Viptela heritage helps explain both the architectural strengths and the operational complexity that characterizes Cisco&rsquo;s platform today.</p>
 <hr>
 <h2 id="the-viptela-architecture">The Viptela Architecture</h2>
