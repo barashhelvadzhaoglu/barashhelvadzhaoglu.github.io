@@ -1,4 +1,93 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Modern Teknolojiler ve Altyapı Araçları on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/technology/</link><description>Recent content in Modern Teknolojiler ve Altyapı Araçları on Barash Helvadzhaoglu</description><generator>Hugo -- 0.164.0</generator><language>tr</language><lastBuildDate>Mon, 06 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/technology/index.xml" rel="self" type="application/rss+xml"/><item><title>HPE Aruba SD-WAN: EdgeConnect and the WAN Optimization Legacy</title><link>https://barashhelvadzhaoglu.com/tr/technology/hpe-aruba-sd-wan/</link><pubDate>Mon, 06 Jul 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/hpe-aruba-sd-wan/</guid><description>An in-depth look at HPE Aruba&amp;#39;s SD-WAN platform: the Silver Peak acquisition, EdgeConnect architecture, application-defined WAN, and how Aruba differentiates in the enterprise market.</description><content:encoded><![CDATA[<h1 id="hpe-aruba-sd-wan-edgeconnect-and-the-wan-optimization-legacy">HPE Aruba SD-WAN: EdgeConnect and the WAN Optimization Legacy</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Modern Teknolojiler ve Altyapı Araçları on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/technology/</link><description>Recent content in Modern Teknolojiler ve Altyapı Araçları on Barash Helvadzhaoglu</description><generator>Hugo -- 0.164.0</generator><language>tr</language><lastBuildDate>Sun, 12 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/technology/index.xml" rel="self" type="application/rss+xml"/><item><title>Palo Alto Networks SD-WAN: Prisma SD-WAN and the Security-First Approach</title><link>https://barashhelvadzhaoglu.com/tr/technology/palo-alto-sd-wan/</link><pubDate>Sun, 12 Jul 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/palo-alto-sd-wan/</guid><description>A detailed analysis of Palo Alto Networks&amp;#39; SD-WAN platform: Prisma SD-WAN architecture, Autonomous Digital Experience Management, SASE integration, and how it compares to Fortinet and Cisco.</description><content:encoded><![CDATA[<h1 id="palo-alto-networks-sd-wan-prisma-sd-wan-and-the-security-first-approach">Palo Alto Networks SD-WAN: Prisma SD-WAN and the Security-First Approach</h1>
+<p>Palo Alto Networks entered the SD-WAN market through acquisition rather than organic development. In 2019, the company acquired CloudGenix — a purpose-built SD-WAN startup with a cloud-native architecture and a strong focus on application-defined networking — for approximately $420 million. The CloudGenix technology became <strong>Prisma SD-WAN</strong>, integrated into Palo Alto&rsquo;s Prisma SASE platform alongside Prisma Access (cloud-delivered security).</p>
+<p>What makes Palo Alto&rsquo;s approach distinctive is not the SD-WAN technology itself — CloudGenix was technically competitive but not dramatically differentiated from Silver Peak or Viptela at acquisition. The differentiation is the integration strategy: Prisma SD-WAN is not sold as a standalone WAN product but as a component of a unified SASE architecture. Understanding Palo Alto&rsquo;s SD-WAN means understanding where it sits within that broader security and networking strategy.</p>
+<hr>
+<h2 id="prisma-sd-wan-architecture">Prisma SD-WAN Architecture</h2>
+<p>The Prisma SD-WAN architecture follows a clean separation of planes:</p>
+<p><strong>Controller (cloud-native):</strong> Prisma SD-WAN&rsquo;s controller is fully cloud-native, running as a SaaS service on Palo Alto&rsquo;s cloud infrastructure. There is no option to self-host the controller on-premises — a deliberate architectural decision that ensures all customers run the same controller version and eliminates controller maintenance overhead. This is a differentiating position from Cisco (which offers both cloud-hosted and on-premises controllers) and Fortinet (which offers FortiManager on-premises).</p>
+<p><strong>ION Devices (Intelligent On-ramp Nodes):</strong> the edge appliances at each site. Available as hardware appliances (ION 1200, 2000, 3000, 7000 series) and virtual appliances for cloud deployments. ION devices handle the data plane — tunnel establishment, traffic classification, path selection, and local security policy enforcement.</p>
+<p><strong>Prisma SD-WAN Portal:</strong> the management interface, accessed through the cloud. Provides topology visualization, policy management, real-time monitoring, and integration with Prisma Access for unified SASE policy management.</p>
+<p>The controller-to-edge communication uses a proprietary protocol over HTTPS, meaning ION devices only need outbound connectivity to the controller — no inbound ports required, which simplifies firewall policy at edge sites.</p>
+<hr>
+<h2 id="application-identification-the-cloudgenix-approach">Application Identification: The CloudGenix Approach</h2>
+<p>CloudGenix built its application identification engine around a key insight: for cloud applications, the destination matters as much as the protocol. A Microsoft 365 Teams call, a SharePoint file sync, and a Teams background update have the same destination IPs but radically different performance requirements. Generic DPI that identifies &ldquo;Microsoft 365 traffic&rdquo; as a single category is not sufficient.</p>
+<p>Prisma SD-WAN&rsquo;s application library maintains granular signatures for cloud applications, decomposing major SaaS applications into their constituent traffic types. The steering engine can differentiate:</p>
+<ul>
+<li>Teams real-time audio/video (latency-critical, loss-sensitive)</li>
+<li>Teams file transfer (throughput-sensitive, loss-tolerant)</li>
+<li>SharePoint background sync (best-effort)</li>
+</ul>
+<p>Each sub-type can have independent path steering policies, enabling genuinely granular QoS without manual DSCP configuration or custom ACLs.</p>
+<hr>
+<h2 id="autonomous-digital-experience-management-adem">Autonomous Digital Experience Management (ADEM)</h2>
+<p><strong>ADEM</strong> (Autonomous Digital Experience Management) is one of the more distinctive capabilities Palo Alto has built into the Prisma platform. It is a synthetic monitoring and troubleshooting system that continuously measures application experience from the end-user perspective.</p>
+<p>ADEM agents run on endpoint devices (Windows, macOS) and on ION appliances. They send synthetic test traffic to application endpoints — Microsoft 365, Salesforce, SAP, custom internal applications — and measure:</p>
+<ul>
+<li>Round-trip latency to the application endpoint</li>
+<li>Packet loss along each hop</li>
+<li>Connection setup time</li>
+<li>HTTP response time (for web applications)</li>
+</ul>
+<p>The monitoring data is correlated with network topology information — which WAN link, which SD-WAN tunnel, which internet path — to pinpoint where application degradation is occurring. When a user reports that Teams is choppy, ADEM shows whether the problem is the WAN link, the internet path to Microsoft, Microsoft&rsquo;s own infrastructure, or the user&rsquo;s local network.</p>
+<p>This troubleshooting capability is comparable to Cisco&rsquo;s ThousandEyes integration, and it is natively integrated into Prisma SD-WAN rather than requiring a separate product purchase. For network operations teams that spend significant time troubleshooting application performance complaints, ADEM reduces mean time to resolution measurably.</p>
+<hr>
+<h2 id="prisma-sase-the-integration-advantage">Prisma SASE: The Integration Advantage</h2>
+<p>The strategic reason to choose Prisma SD-WAN over a competing platform is the integration with <strong>Prisma Access</strong> — Palo Alto&rsquo;s cloud-delivered security platform.</p>
+<p>Prisma Access provides:</p>
+<ul>
+<li>Next-Generation Firewall inspection in the cloud (the same NGFW that runs on Palo Alto&rsquo;s hardware appliances, now delivered as a service)</li>
+<li>Secure Web Gateway with URL filtering and threat prevention</li>
+<li>Cloud Access Security Broker (CASB) for SaaS application control</li>
+<li>Zero Trust Network Access (ZTNA) for application-level remote access</li>
+<li>DNS Security</li>
+</ul>
+<p>When Prisma SD-WAN steers internet-bound traffic from a branch ION appliance to Prisma Access for inspection, the inspection engine is a full Palo Alto NGFW — not a lightweight cloud proxy. SSL decryption, threat prevention, URL filtering, and application control all run in the cloud before traffic exits to the internet.</p>
+<p>The unified policy model is the key operational benefit. Security policy defined in Panorama (Palo Alto&rsquo;s central management platform) applies consistently whether traffic is flowing from an on-premises branch through Prisma SD-WAN, from a remote user through Prisma Access, or from a cloud workload protected by VM-Series firewalls. Security administrators manage one policy model across all traffic paths — not separate products with separate policy languages.</p>
+<p>For enterprises that have standardized on Palo Alto NGFW and are looking to extend consistent security to SD-WAN and remote access, this policy coherence is a genuine operational advantage that Cisco (separate SD-WAN and security products) and HPE Aruba (EdgeConnect plus Aruba SSE) do not fully match.</p>
+<hr>
+<h2 id="cloudblades-ecosystem-integration">CloudBlades: Ecosystem Integration</h2>
+<p><strong>CloudBlades</strong> is Palo Alto&rsquo;s platform for integrating third-party services into the Prisma SD-WAN fabric without requiring appliances at each branch. CloudBlades are cloud-resident service connectors that can insert traffic into third-party platforms — security services, SD-WAN overlays, cloud connectivity services — as a function of SD-WAN policy.</p>
+<p>Current CloudBlade integrations include connections to major cloud providers&rsquo; SD-WAN on-ramps (AWS, Azure, Google Cloud) and third-party security services. The concept allows branch traffic to be steered through partner security services without deploying hardware at each site, extending the service mesh beyond Palo Alto&rsquo;s own stack.</p>
+<p>This is an architectural differentiator for organizations that need specific third-party capabilities alongside SD-WAN — though in practice, the Prisma Access + Prisma SD-WAN combination covers the security requirements of most enterprise deployments without needing CloudBlades for security services.</p>
+<hr>
+<h2 id="where-palo-alto-sd-wan-excels">Where Palo Alto SD-WAN Excels</h2>
+<p><strong>Palo Alto NGFW installed base</strong>
+Organizations already running Palo Alto NGFWs as their primary security platform get the most value from Prisma SD-WAN. The Panorama policy model extends to SD-WAN and cloud security. Security teams familiar with Palo Alto policy syntax do not need to learn a new security toolset. The investment in Palo Alto expertise, security policy development, and Panorama management scales to cover the WAN.</p>
+<p><strong>SASE-first strategy</strong>
+Enterprises that have made a strategic decision to move toward SASE — reducing the physical security appliance footprint at branches while increasing cloud-delivered security — find Prisma SD-WAN a natural choice. The cloud-native controller aligns with a cloud-first operational model.</p>
+<p><strong>Application experience visibility</strong>
+ADEM provides end-to-end application performance visibility that is natively integrated, without requiring a separate monitoring product purchase. For organizations where application performance SLAs matter and helpdesk teams spend significant time on network-related performance complaints, ADEM is a concrete operational benefit.</p>
+<p><strong>Regulatory environments requiring enterprise-grade NGFW inspection</strong>
+Industries where inspecting internet-bound branch traffic through an enterprise-grade NGFW (not a lightweight proxy) is a compliance or policy requirement benefit from Prisma Access&rsquo;s full NGFW inspection in the cloud. This is qualitatively different from cloud security vendors whose inspection engines are proxy-based rather than NGFW-based.</p>
+<hr>
+<h2 id="where-palo-alto-sd-wan-has-limitations">Where Palo Alto SD-WAN Has Limitations</h2>
+<p><strong>No on-premises controller option</strong>
+The cloud-only controller model is an architectural commitment. Organizations with strict data sovereignty requirements, regulated environments where traffic metadata cannot leave on-premises infrastructure, or connectivity constraints that make cloud controller communication unreliable face a genuine limitation that Cisco&rsquo;s on-premises controller option addresses.</p>
+<p><strong>Not the WAN optimization leader</strong>
+Prisma SD-WAN does not include the WAN optimization stack (deduplication, TCP optimization) that HPE Aruba EdgeConnect inherits from Silver Peak. For workloads where WAN optimization delivers measurable value, Aruba has a technical advantage.</p>
+<p><strong>Cost at full SASE stack</strong>
+The Prisma SASE bundle — SD-WAN plus Prisma Access plus ADEM — is priced as an enterprise platform. Organizations that need basic SD-WAN connectivity without the full SASE stack will find the Prisma platform&rsquo;s cost harder to justify relative to Fortinet or simpler SD-WAN vendors.</p>
+<p><strong>Smaller hardware portfolio</strong>
+Cisco&rsquo;s Catalyst 8000 series and Fortinet&rsquo;s FortiGate line cover a broader range of hardware tiers and use cases than Palo Alto&rsquo;s ION appliances. Organizations with specific form factor requirements — DIN-rail industrial, ultra-compact retail — may find the ION portfolio less flexible.</p>
+<hr>
+<h2 id="typical-deployment-architecture">Typical Deployment Architecture</h2>
+<p>A standard Prisma SD-WAN deployment within the SASE model:</p>
+<ul>
+<li><strong>Controller:</strong> Palo Alto cloud (SaaS), no on-premises deployment</li>
+<li><strong>Hub sites:</strong> ION 7000 series at data center locations; or hub-less topology steering all internet traffic through Prisma Access</li>
+<li><strong>Branch sites:</strong> ION 1200 or 2000 series with dual WAN. Internet-bound traffic steered to nearest Prisma Access PoP for NGFW inspection and SaaS optimization</li>
+<li><strong>Cloud sites:</strong> ION Virtual in AWS/Azure for cloud workload connectivity with consistent policy</li>
+<li><strong>Remote users:</strong> Prisma Access GlobalProtect for consistent security policy regardless of location</li>
+<li><strong>Management:</strong> Panorama for unified security policy; Prisma SD-WAN portal for WAN topology and performance</li>
+</ul>
+<hr>
+<h2 id="summary">Summary</h2>
+<p>Palo Alto&rsquo;s Prisma SD-WAN is best evaluated as a component of the Prisma SASE platform rather than as a standalone WAN product. The CloudGenix-derived SD-WAN technology is competent and the ADEM visibility capability is genuinely differentiated, but the primary reason to choose Prisma SD-WAN over Cisco, Fortinet, or HPE Aruba is the integration with Prisma Access and the unified Palo Alto policy model.</p>
+<p>For enterprises that have standardized on Palo Alto security and are extending that standardization to the WAN, Prisma SD-WAN eliminates a major architectural fragmentation. For organizations without existing Palo Alto investment, the platform requires a more comprehensive platform commitment than purchasing a best-of-breed SD-WAN product would imply.</p>
+<p>The cloud-native architecture, SASE integration, and application experience monitoring make Prisma SD-WAN a strong choice for security-first, cloud-first enterprises. The limitations — no on-premises controller, no WAN optimization, higher entry cost — define the scenarios where competing platforms may be a better fit.</p>
+<hr>
+<p><em>This concludes the SD-WAN vendor series. For consulting on SD-WAN architecture selection and deployment, <a href="/en/contact/">get in touch</a>.</em></p>
+]]></content:encoded></item><item><title>HPE Aruba SD-WAN: EdgeConnect and the WAN Optimization Legacy</title><link>https://barashhelvadzhaoglu.com/tr/technology/hpe-aruba-sd-wan/</link><pubDate>Mon, 06 Jul 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/hpe-aruba-sd-wan/</guid><description>An in-depth look at HPE Aruba&amp;#39;s SD-WAN platform: the Silver Peak acquisition, EdgeConnect architecture, application-defined WAN, and how Aruba differentiates in the enterprise market.</description><content:encoded><![CDATA[<h1 id="hpe-aruba-sd-wan-edgeconnect-and-the-wan-optimization-legacy">HPE Aruba SD-WAN: EdgeConnect and the WAN Optimization Legacy</h1>
 <p>HPE Aruba&rsquo;s SD-WAN story starts not with a networking giant but with a WAN optimization specialist. Silver Peak Systems spent years solving the hard problems of enterprise WAN performance — deduplication, compression, TCP optimization, application acceleration — before pivoting to SD-WAN as the technology shift made the market ripe for a new architecture. HPE acquired Silver Peak in 2020 for approximately $925 million, integrating the technology into the Aruba portfolio as <strong>Aruba EdgeConnect SD-WAN</strong>.</p>
 <p>The Silver Peak heritage matters because it explains what distinguishes Aruba&rsquo;s SD-WAN from competitors: a WAN optimization foundation that most pure-play SD-WAN vendors built later or not at all, combined with Aruba&rsquo;s campus and wireless infrastructure for end-to-end visibility.</p>
 <hr>
