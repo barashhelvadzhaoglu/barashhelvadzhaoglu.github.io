@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Monitoring on Barash Helvadzhaoglu</title>
+    <link>http://localhost:1313/en/tags/monitoring/</link>
+    <description>Recent content in Monitoring on Barash Helvadzhaoglu</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 04 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/en/tags/monitoring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Monitoring Done Right: How to Build a Proactive IT Operations Culture</title>
+      <link>http://localhost:1313/en/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/</link>
+      <pubDate>Sun, 04 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/</guid>
+      <description>Monitoring is not just a dashboard. It is the discipline of understanding infrastructure, catching problems early, and building proactive operations.</description>
+    </item>
+  </channel>
+</rss>

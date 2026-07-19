@@ -1,0 +1,40 @@
+# i18n/tr.yaml
+btn_upload: "Yükle"
+btn_exit: "Çıkış"
+search_placeholder: "Ara..."
+quick_select: "Hızlı Seçim:"
+select_all: "Hepsi"
+custom_range: "Veya Özel Aralık Seçin:"
+start_btn: "Seçili Aralığı Başlat"
+format_title: "Dosya Formatı ve Örnekler:"
+format_example: "das Haar, İsim, Saç, Sie hat çok uzun sarı saçları var.\nöffnen, Fiil, Açmak, Lütfen pencereyi ****.\ngesund, Sıfat, Sağlıklı, Meyve ve sebze çok ****."
+btn_check: "Kontrol Et"
+btn_next: "Sonraki"
+retry_errors: "Yanlışları Tekrar Et"
+repeat_set: "Seti Tekrarla"
+home_btn: "Ana Sayfa"
+stats_correct: "Doğru"
+stats_wrong: "Yanlış"
+feedback_correct: "Doğru! 🎉"
+feedback_wrong: "Yanlış:"
+result_success: "Tebrikler, hepsini bildin!"
+result_done: "Set Tamamlandı!"
+back_btn: "Geri Dön"
+
+# Hugo site strings
+recentPosts:
+  other: "Son Yazılar"
+seeAll:
+  other: "Tümünü gör"
+heroBio:
+  other: "Bankacılık, üretim ve kritik altyapı sektörlerinde 11+ yıl kurumsal ağ tasarımı ve güvenliği deneyimi. Gerçek dünya mimari kararları, vendor karşılaştırmaları ve sahadaki dersler üzerine yazıyorum."
+statYears:
+  other: "Yıl Deneyim"
+statSectors:
+  other: "Sektör"
+statLangs:
+  other: "Dil"
+btnProjects:
+  other: "Projeler"
+btnContact:
+  other: "İletişim"

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>OOBM on Barash Helvadzhaoglu</title>
+    <link>http://localhost:1313/en/tags/oobm/</link>
+    <description>Recent content in OOBM on Barash Helvadzhaoglu</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 22 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/en/tags/oobm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>🛠️ The Backdoor of the Network: Next-Gen Console Server (Terminal Server) Architecture</title>
+      <link>http://localhost:1313/en/posts/next-gen-console-server-terminal-server-architecture/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/posts/next-gen-console-server-terminal-server-architecture/</guid>
+      <description>Survival guide for lost IP access to critical infrastructure. Out-of-Band Management, HTML5 CLI, and automation-ready console servers explained.</description>
+    </item>
+  </channel>
+</rss>

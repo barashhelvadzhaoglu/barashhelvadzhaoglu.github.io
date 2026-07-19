@@ -1,0 +1,21 @@
+.site-logo {
+  display: flex;
+  justify-content: center;
+  margin: 12px 0 6px;
+}
+
+.site-logo img {
+  width: 120px;
+  height: auto;
+  transition: transform 0.2s ease;
+}
+
+.site-logo img:hover {
+  transform: scale(1.03);
+}
+
+@media (max-width: 768px) {
+  .site-logo img {
+    width: 90px;
+  }
+}

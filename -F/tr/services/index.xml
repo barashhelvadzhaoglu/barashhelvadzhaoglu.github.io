@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>IT Hizmetleri ve Danışmanlık on Barash Helvadzhaoglu</title>
+    <link>http://localhost:1313/tr/services/</link>
+    <description>Recent content in IT Hizmetleri ve Danışmanlık on Barash Helvadzhaoglu</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>tr</language>
+    <atom:link href="http://localhost:1313/tr/services/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kurumsal Ağ Güvenliği ve Altyapı Danışmanlığı</title>
+      <link>http://localhost:1313/tr/services/network-security-consulting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tr/services/network-security-consulting/</guid>
+      <description>Münih&amp;#39;te kurumsal ağ güvenliği danışmanlığı. Firewall migrasyonu, Zero Trust mimarisi ve otomasyon. Ücretsiz teknik ön görüşme.</description>
+    </item>
+    <item>
+      <title>On-Site IT Care – İşletmeler İçin Yerinde IT Bakım Hizmeti</title>
+      <link>http://localhost:1313/tr/services/onsite-it-care/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tr/services/onsite-it-care/</guid>
+      <description>Münih&amp;#39;teki KOBİ&amp;#39;ler için profesyonel IT bakım hizmeti. WiFi, NAS, antivirus, kamera, UPS ve PC bakımı — tek muhatap.</description>
+    </item>
+    <item>
+      <title>Web Shield – Web Sitesi Koruma ve Yönetim Hizmeti</title>
+      <link>http://localhost:1313/tr/services/web-shield/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tr/services/web-shield/</guid>
+      <description>Münih&amp;#39;te profesyonel web sitesi yönetimi. SSL, WAF, DDoS koruması, ücretsiz hosting ve aylık güvenlik raporları. Tüm erişimler sizde kalır.</description>
+    </item>
+    <item>
+      <title>WLAN Pazarlama &amp; Captive Portal Münih</title>
+      <link>http://localhost:1313/tr/services/wifi-marketing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tr/services/wifi-marketing/</guid>
+      <description>Misafir WiFi&amp;#39;nizi pazarlama aracına dönüştürün. Otomatik e-posta ve telefon toplama, KVKK/DSGVO uyumlu — Münih kafe, otel ve restoranlar için.</description>
+    </item>
+  </channel>
+</rss>

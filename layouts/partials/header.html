@@ -1,0 +1,80 @@
+<header class="header">
+  <nav class="nav nav-2row">
+
+    <!-- ÜST SATIR: Logo + Site Adı -->
+    <div class="nav-top">
+      {{- $label_text := (site.Params.label.text | default site.Title) }}
+
+      <div class="logo">
+        {{- if site.Title }}
+        <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)">
+          {{- if site.Params.label.icon }}
+            {{- $img := resources.Get site.Params.label.icon }}
+            {{- if $img }}
+              {{- if site.Params.label.iconHeight }}
+                {{- $img = $img.Resize (printf "x%d" site.Params.label.iconHeight) }}
+              {{- end }}
+              <img src="{{ $img.Permalink }}" alt="" aria-label="logo"
+                height="{{- site.Params.label.iconHeight | default "30" -}}">
+            {{- else }}
+              <img src="{{- site.Params.label.icon | absURL -}}" alt="" aria-label="logo"
+                height="{{- site.Params.label.iconHeight | default "30" -}}">
+            {{- end -}}
+          {{- end -}}
+          {{- $label_text -}}
+        </a>
+        {{- end }}
+      </div>
+    </div>
+
+    <!-- ALT SATIR: Menü (sol) + Tema/Dil (sağ) -->
+    <div class="nav-bottom">
+
+      {{- $currentPage := . }}
+      <ul id="menu">
+        {{- range site.Menus.main }}
+        {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
+        {{- $page_url:= $currentPage.Permalink | absLangURL }}
+        <li>
+          <a href="{{ .URL | absLangURL }}">
+            <span {{- if eq $menu_item_url $page_url }} class="active" {{- end }}>
+              {{- .Name -}}
+            </span>
+          </a>
+        </li>
+        {{- end }}
+      </ul>
+
+      <div class="nav-switches">
+        {{- if (not site.Params.disableThemeToggle) }}
+        <button id="theme-toggle" aria-label="Toggle theme">
+          <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="22" height="18"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="22" height="18"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+          </svg>
+        </button>
+        {{- end }}
+
+        {{- if (not site.Params.disableLangToggle) }}
+        {{- with site.Home.Translations }}
+        <ul class="lang-switch">
+          <li>|</li>
+          {{- range . -}}
+          {{- if ne $.Lang .Lang }}
+          <li>
+            <a href="{{ .Permalink }}">{{ .Lang | upper }}</a>
+          </li>
+          {{- end -}}
+          {{- end }}
+        </ul>
+        {{- end }}
+        {{- end }}
+      </div>
+
+    </div>
+  </nav>
+</header>

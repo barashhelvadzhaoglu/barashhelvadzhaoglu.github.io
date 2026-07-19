@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on Barash Helvadzhaoglu</title>
+    <link>http://localhost:1313/en/tags/</link>
+    <description>Recent content in Tags on Barash Helvadzhaoglu</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 23 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/en/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Munich</title>
+      <link>http://localhost:1313/en/tags/munich/</link>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/munich/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>NAS</title>
+      <link>http://localhost:1313/en/tags/nas/</link>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/nas/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Office IT</title>
+      <link>http://localhost:1313/en/tags/office-it/</link>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/office-it/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Power Protection</title>
+      <link>http://localhost:1313/en/tags/power-protection/</link>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/power-protection/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SMB</title>
+      <link>http://localhost:1313/en/tags/smb/</link>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/smb/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>UPS</title>
+      <link>http://localhost:1313/en/tags/ups/</link>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/ups/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cloudflare</title>
+      <link>http://localhost:1313/en/tags/cloudflare/</link>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/cloudflare/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SSL</title>
+      <link>http://localhost:1313/en/tags/ssl/</link>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/ssl/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>WAF</title>
+      <link>http://localhost:1313/en/tags/waf/</link>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/waf/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Website</title>
+      <link>http://localhost:1313/en/tags/website/</link>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/website/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Website Security</title>
+      <link>http://localhost:1313/en/tags/website-security/</link>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/website-security/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Arista</title>
+      <link>http://localhost:1313/en/tags/arista/</link>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/arista/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Aruba</title>
+      <link>http://localhost:1313/en/tags/aruba/</link>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/aruba/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Career Guide</title>
+      <link>http://localhost:1313/en/tags/career-guide/</link>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/career-guide/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CCNA</title>
+      <link>http://localhost:1313/en/tags/ccna/</link>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/ccna/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cisco</title>
+      <link>http://localhost:1313/en/tags/cisco/</link>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/cisco/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fortinet</title>
+      <link>http://localhost:1313/en/tags/fortinet/</link>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/fortinet/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Juniper</title>
+      <link>http://localhost:1313/en/tags/juniper/</link>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/juniper/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Network Engineering</title>
+      <link>http://localhost:1313/en/tags/network-engineering/</link>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/network-engineering/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Palo Alto</title>
+      <link>http://localhost:1313/en/tags/palo-alto/</link>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/palo-alto/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AWS S3</title>
+      <link>http://localhost:1313/en/tags/aws-s3/</link>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/aws-s3/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Backup</title>
+      <link>http://localhost:1313/en/tags/backup/</link>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/backup/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Data Security</title>
+      <link>http://localhost:1313/en/tags/data-security/</link>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/data-security/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Automation</title>
+      <link>http://localhost:1313/en/tags/automation/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/automation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Console Server</title>
+      <link>http://localhost:1313/en/tags/console-server/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/console-server/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Data Center</title>
+      <link>http://localhost:1313/en/tags/data-center/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/data-center/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Lantronix</title>
+      <link>http://localhost:1313/en/tags/lantronix/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/lantronix/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>OOBM</title>
+      <link>http://localhost:1313/en/tags/oobm/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/oobm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Opengear</title>
+      <link>http://localhost:1313/en/tags/opengear/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/opengear/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SecureCRT</title>
+      <link>http://localhost:1313/en/tags/securecrt/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/securecrt/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cybersecurity</title>
+      <link>http://localhost:1313/en/tags/cybersecurity/</link>
+      <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/cybersecurity/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>DLP</title>
+      <link>http://localhost:1313/en/tags/dlp/</link>
+      <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/dlp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gigamon</title>
+      <link>http://localhost:1313/en/tags/gigamon/</link>
+      <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/gigamon/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ixia</title>
+      <link>http://localhost:1313/en/tags/ixia/</link>
+      <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/ixia/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>NIAC</title>
+      <link>http://localhost:1313/en/tags/niac/</link>
+      <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/niac/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>NPB</title>
+      <link>http://localhost:1313/en/tags/npb/</link>
+      <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/npb/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Riverbed</title>
+      <link>http://localhost:1313/en/tags/riverbed/</link>
+      <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/riverbed/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Career Advice</title>
+      <link>http://localhost:1313/en/tags/career-advice/</link>
+      <pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/career-advice/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>IT Management</title>
+      <link>http://localhost:1313/en/tags/it-management/</link>
+      <pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/it-management/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Network Strategy</title>
+      <link>http://localhost:1313/en/tags/network-strategy/</link>
+      <pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/network-strategy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Standardization</title>
+      <link>http://localhost:1313/en/tags/standardization/</link>
+      <pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/standardization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>802.1X</title>
+      <link>http://localhost:1313/en/tags/802.1x/</link>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/802.1x/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Active Directory</title>
+      <link>http://localhost:1313/en/tags/active-directory/</link>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/active-directory/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>NAC</title>
+      <link>http://localhost:1313/en/tags/nac/</link>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/nac/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Network Security</title>
+      <link>http://localhost:1313/en/tags/network-security/</link>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/network-security/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PKI</title>
+      <link>http://localhost:1313/en/tags/pki/</link>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/pki/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Zero Trust</title>
+      <link>http://localhost:1313/en/tags/zero-trust/</link>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/zero-trust/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>IT Infrastructure</title>
+      <link>http://localhost:1313/en/tags/it-infrastructure/</link>
+      <pubDate>Sun, 04 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/it-infrastructure/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ITSM</title>
+      <link>http://localhost:1313/en/tags/itsm/</link>
+      <pubDate>Sun, 04 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/itsm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Monitoring</title>
+      <link>http://localhost:1313/en/tags/monitoring/</link>
+      <pubDate>Sun, 04 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/monitoring/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Network Monitoring</title>
+      <link>http://localhost:1313/en/tags/network-monitoring/</link>
+      <pubDate>Sun, 04 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/network-monitoring/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Observability</title>
+      <link>http://localhost:1313/en/tags/observability/</link>
+      <pubDate>Sun, 04 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/observability/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Proactive IT</title>
+      <link>http://localhost:1313/en/tags/proactive-it/</link>
+      <pubDate>Sun, 04 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/proactive-it/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Server Monitoring</title>
+      <link>http://localhost:1313/en/tags/server-monitoring/</link>
+      <pubDate>Sun, 04 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/server-monitoring/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SNMP</title>
+      <link>http://localhost:1313/en/tags/snmp/</link>
+      <pubDate>Sun, 04 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/snmp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Zabbix</title>
+      <link>http://localhost:1313/en/tags/zabbix/</link>
+      <pubDate>Sun, 04 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/zabbix/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Access Control</title>
+      <link>http://localhost:1313/en/tags/access-control/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/access-control/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Architecture</title>
+      <link>http://localhost:1313/en/tags/architecture/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/architecture/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Identity Verification</title>
+      <link>http://localhost:1313/en/tags/identity-verification/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/identity-verification/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MFA</title>
+      <link>http://localhost:1313/en/tags/mfa/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/mfa/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>VPN</title>
+      <link>http://localhost:1313/en/tags/vpn/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/vpn/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Access Point</title>
+      <link>http://localhost:1313/en/tags/access-point/</link>
+      <pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/access-point/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Capacity Planning</title>
+      <link>http://localhost:1313/en/tags/capacity-planning/</link>
+      <pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/capacity-planning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Core Network</title>
+      <link>http://localhost:1313/en/tags/core-network/</link>
+      <pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/core-network/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Enterprise Network</title>
+      <link>http://localhost:1313/en/tags/enterprise-network/</link>
+      <pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/enterprise-network/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Field Experience</title>
+      <link>http://localhost:1313/en/tags/field-experience/</link>
+      <pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/field-experience/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Firewall</title>
+      <link>http://localhost:1313/en/tags/firewall/</link>
+      <pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/firewall/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Network Architecture</title>
+      <link>http://localhost:1313/en/tags/network-architecture/</link>
+      <pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/network-architecture/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Network Design</title>
+      <link>http://localhost:1313/en/tags/network-design/</link>
+      <pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/network-design/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Product Selection</title>
+      <link>http://localhost:1313/en/tags/product-selection/</link>
+      <pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/product-selection/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Switching</title>
+      <link>http://localhost:1313/en/tags/switching/</link>
+      <pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/switching/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vendor Evaluation</title>
+      <link>http://localhost:1313/en/tags/vendor-evaluation/</link>
+      <pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/vendor-evaluation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vendor Selection</title>
+      <link>http://localhost:1313/en/tags/vendor-selection/</link>
+      <pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/vendor-selection/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Enterprise Design</title>
+      <link>http://localhost:1313/en/tags/enterprise-design/</link>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/enterprise-design/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Operational Architecture</title>
+      <link>http://localhost:1313/en/tags/operational-architecture/</link>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/operational-architecture/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Operations</title>
+      <link>http://localhost:1313/en/tags/operations/</link>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/operations/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Systems Thinking</title>
+      <link>http://localhost:1313/en/tags/systems-thinking/</link>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/systems-thinking/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Network</title>
+      <link>http://localhost:1313/en/tags/network/</link>
+      <pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/network/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Nexus</title>
+      <link>http://localhost:1313/en/tags/nexus/</link>
+      <pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/nexus/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>NX-OS</title>
+      <link>http://localhost:1313/en/tags/nx-os/</link>
+      <pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/nx-os/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Upgrade</title>
+      <link>http://localhost:1313/en/tags/upgrade/</link>
+      <pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/upgrade/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

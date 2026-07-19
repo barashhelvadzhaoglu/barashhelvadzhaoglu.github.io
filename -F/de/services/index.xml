@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>IT-Services &amp; Beratung on Barash Helvadzhaoglu</title>
+    <link>http://localhost:1313/de/services/</link>
+    <description>Recent content in IT-Services &amp; Beratung on Barash Helvadzhaoglu</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>de</language>
+    <atom:link href="http://localhost:1313/de/services/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Netzwerksicherheit &amp; Infrastruktur-Beratung für Unternehmen</title>
+      <link>http://localhost:1313/de/services/network-security-consulting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/de/services/network-security-consulting/</guid>
+      <description>Sicherheitsberatung für Unternehmensnetzwerke in München. Firewall-Migration, Zero Trust und Netzwerk-Automatisierung. Kostenlose Erstberatung.</description>
+    </item>
+    <item>
+      <title>On-Site IT Care – Vor-Ort IT-Betreuung für Unternehmen</title>
+      <link>http://localhost:1313/de/services/onsite-it-care/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/de/services/onsite-it-care/</guid>
+      <description>Professionelle IT-Betreuung für KMU in München. WLAN, NAS-Backup, Antivirus, Kamerasysteme, USV und PC-Wartung — ein Ansprechpartner.</description>
+    </item>
+    <item>
+      <title>Web Shield – Website-Schutz &amp; Management</title>
+      <link>http://localhost:1313/de/services/web-shield/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/de/services/web-shield/</guid>
+      <description>Website-Management in München. SSL, WAF, DDoS-Schutz, kostenloses Hosting und monatliche Sicherheitsberichte. Alle Zugangsdaten bleiben bei Ihnen.</description>
+    </item>
+    <item>
+      <title>WLAN Marketing &amp; Captive Portal München</title>
+      <link>http://localhost:1313/de/services/wifi-marketing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/de/services/wifi-marketing/</guid>
+      <description>Gäste-WLAN als Marketing-Tool. E-Mail &amp;amp; Telefonnummer-Erfassung, DSGVO-konform — für Cafés, Hotels und Restaurants in München.</description>
+    </item>
+  </channel>
+</rss>

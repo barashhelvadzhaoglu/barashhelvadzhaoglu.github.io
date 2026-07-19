@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>IT-Management on Barash Helvadzhaoglu</title>
+    <link>http://localhost:1313/de/tags/it-management/</link>
+    <description>Recent content in IT-Management on Barash Helvadzhaoglu</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>de</language>
+    <lastBuildDate>Sun, 15 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/de/tags/it-management/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Die produktzentrierte Falle in der IT: Standards vs. Marken</title>
+      <link>http://localhost:1313/de/posts/it-management-produktzentrierte-falle-standards-vs-marken/</link>
+      <pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/de/posts/it-management-produktzentrierte-falle-standards-vs-marken/</guid>
+      <description>Häufige Missverständnisse bei IT-Recruiting: Warum Ingenieurdenken und Dokumentation spezifisches Produktwissen überwiegen.</description>
+    </item>
+  </channel>
+</rss>

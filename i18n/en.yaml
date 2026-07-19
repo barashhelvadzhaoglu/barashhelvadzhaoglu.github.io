@@ -1,0 +1,40 @@
+# i18n/en.yaml
+btn_upload: "Upload"
+btn_exit: "Exit"
+search_placeholder: "Search..."
+quick_select: "Quick Select:"
+select_all: "All"
+custom_range: "Or Select Custom Range:"
+start_btn: "Start Selected Range"
+format_title: "File Format and Examples:"
+format_example: "das Haar, Noun, Hair, She has very long blonde hair.\nöffnen, Verb, To open, Please **** the window.\ngesund, Adjective, Healthy, Fruit and vegetables are very ****."
+btn_check: "Check"
+btn_next: "Next"
+retry_errors: "Retry Errors"
+repeat_set: "Repeat Set"
+home_btn: "Home"
+stats_correct: "Correct"
+stats_wrong: "Wrong"
+feedback_correct: "Correct! 🎉"
+feedback_wrong: "Wrong:"
+result_success: "Congratulations, you got them all!"
+result_done: "Set Completed!"
+back_btn: "Back"
+
+# Hugo site strings
+recentPosts:
+  other: "Recent Posts"
+seeAll:
+  other: "See all"
+heroBio:
+  other: "11+ years designing and securing enterprise networks across banking, manufacturing, and critical infrastructure. I write about real-world architecture decisions, vendor tradeoffs, and lessons learned in the field."
+statYears:
+  other: "Years Experience"
+statSectors:
+  other: "Industry Sectors"
+statLangs:
+  other: "Languages"
+btnProjects:
+  other: "Projects"
+btnContact:
+  other: "Contact"

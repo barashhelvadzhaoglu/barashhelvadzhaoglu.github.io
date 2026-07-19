@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="robots" content="index, follow">
+<title>Cisco Nexus NX-OS Software Upgrade Guide: Field-Tested Step by Step | Barash Helvadzhaoglu</title>
+    <link rel="alternate" hreflang="en" href="http://localhost:1313/en/posts/cisco-nexus-nxos-upgrade-guide/" />
+    <link rel="alternate" hreflang="tr" href="http://localhost:1313/tr/posts/cisco-nexus-nxos-yazilim-guncelleme-rehberi/" />
+    <link rel="alternate" hreflang="de" href="http://localhost:1313/de/posts/cisco-nexus-nxos-software-upgrade-leitfaden/" />
+    <link rel="alternate" hreflang="x-default" href="http://localhost:1313/en/posts/cisco-nexus-nxos-upgrade-guide/" />
+<meta name="keywords" content="Cisco Nexus upgrade, NX-OS upgrade guide, Nexus software update, NX-OS ROMMON recovery, Nexus upgrade path, Cisco Nexus rollback, NX-OS install all, Nexus bootflash upgrade, Cisco data center upgrade, NX-OS MD5 verification">
+<meta name="description" content="Field-tested guide for upgrading Cisco Nexus NX-OS — preparation, upgrade path, file transfer, rollback, and ROMMON recovery scenarios.">
+<meta name="author" content="Barash Helvadzhaoglu">
+<link rel="canonical" href="http://localhost:1313/en/posts/cisco-nexus-nxos-upgrade-guide/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7c0c12055103e18c29582c79e11c12c652cd0f1f35faa0a73b24c8c888f4ada5.css" integrity="sha256-fAwSBVED4YwpWCx54RwSxlLNDx81&#43;qCnOyTIyIj0raU=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.webp">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.webp">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.webp">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/en/posts/cisco-nexus-nxos-upgrade-guide/">
+<link rel="alternate" hreflang="tr" href="http://localhost:1313/tr/posts/cisco-nexus-nxos-yazilim-guncelleme-rehberi/">
+<link rel="alternate" hreflang="de" href="http://localhost:1313/de/posts/cisco-nexus-nxos-software-upgrade-leitfaden/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://localhost:1313/en/posts/cisco-nexus-nxos-upgrade-guide/">
+  <meta property="og:site_name" content="Barash Helvadzhaoglu">
+  <meta property="og:title" content="Cisco Nexus NX-OS Software Upgrade Guide: Field-Tested Step by Step">
+  <meta property="og:description" content="Field-tested guide for upgrading Cisco Nexus NX-OS — preparation, upgrade path, file transfer, rollback, and ROMMON recovery scenarios.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-12-30T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-12-30T00:00:00+00:00">
+    <meta property="article:tag" content="Cisco">
+    <meta property="article:tag" content="Nexus">
+    <meta property="article:tag" content="NX-OS">
+    <meta property="article:tag" content="Network">
+    <meta property="article:tag" content="Upgrade">
+    <meta property="article:tag" content="Data Center">
+    <meta property="og:image" content="http://localhost:1313/img/postimages/nexus-nxos-upgrade-cover.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/img/postimages/nexus-nxos-upgrade-cover.webp">
+<meta name="twitter:title" content="Cisco Nexus NX-OS Software Upgrade Guide: Field-Tested Step by Step">
+<meta name="twitter:description" content="Field-tested guide for upgrading Cisco Nexus NX-OS — preparation, upgrade path, file transfer, rollback, and ROMMON recovery scenarios.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "\"Cisco Nexus NX-OS Software Upgrade Guide: Field-Tested Step by Step\"",
+  "description": "\"Field-tested guide for upgrading Cisco Nexus NX-OS — preparation, upgrade path, file transfer, rollback, and ROMMON recovery scenarios.\"",
+  "author": {
+    "@type": "Person",
+    "name": "Barash Helvadzhaoglu",
+    "@id": "https://barashhelvadzhaoglu.com/#person"
+  },
+  "publisher": {
+    "@id": "https://barashhelvadzhaoglu.com/#business"
+  },
+  "datePublished": "\"2025-12-30\"",
+  "dateModified": "\"2025-12-30\"",
+  "url": "\"http://localhost:1313/en/posts/cisco-nexus-nxos-upgrade-guide/\""
+}
+</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4697582628476361" crossorigin="anonymous"></script>
+
+</head>
+<body id="top">
+    <header class="header">
+  <nav class="nav nav-2row">
+
+    
+    <div class="nav-top">
+
+      <div class="logo">
+        <a href="http://localhost:1313/en/" accesskey="h" title="Barash Helvadzhaoglu (Alt + H)">
+              <img src="http://localhost:1313/img/logo-mark.webp" alt="" aria-label="logo"
+                height="36">Barash Helvadzhaoglu</a>
+      </div>
+    </div>
+
+    
+    <div class="nav-bottom">
+      <ul id="menu">
+        <li>
+          <a href="http://localhost:1313/en/services/">
+            <span>Services</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://localhost:1313/en/architecture/">
+            <span>Architecture</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://localhost:1313/en/technology/">
+            <span>Technology</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://localhost:1313/en/posts/">
+            <span>Posts</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://localhost:1313/en/projects/">
+            <span>Projects</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://localhost:1313/en/about/">
+            <span>About</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://localhost:1313/en/contact/">
+            <span>Contact</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://localhost:1313/en/search/">
+            <span>🔍</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="nav-switches">
+        <button id="theme-toggle" aria-label="Toggle theme">
+          <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="22" height="18"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="22" height="18"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+          </svg>
+        </button>
+        <ul class="lang-switch">
+          <li>|</li>
+          <li>
+            <a href="http://localhost:1313/tr/">TR</a>
+          </li>
+          <li>
+            <a href="http://localhost:1313/de/">DE</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/en/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/en/posts/">Technology Blog | Network Security and Automation</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Cisco Nexus NX-OS Software Upgrade Guide: Field-Tested Step by Step
+    </h1>
+    <div class="post-description">
+      Field-tested guide for upgrading Cisco Nexus NX-OS — preparation, upgrade path, file transfer, rollback, and ROMMON recovery scenarios.
+    </div>
+    <div class="post-meta"><span title='2025-12-30 00:00:00 +0000 UTC'>December 30, 2025</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Barash Helvadzhaoglu</span>&nbsp;|&nbsp;<span>Translations:</span>
+<ul class="i18n_list">
+    <li>
+        <a href="http://localhost:1313/tr/posts/cisco-nexus-nxos-yazilim-guncelleme-rehberi/">Tr</a>
+    </li>
+    <li>
+        <a href="http://localhost:1313/de/posts/cisco-nexus-nxos-software-upgrade-leitfaden/">De</a>
+    </li>
+</ul>
+
+</div>
+  </header> 
+<figure class="entry-cover">
+        <img loading="eager" src="http://localhost:1313/img/postimages/nexus-nxos-upgrade-cover.webp" alt="Cisco Nexus NX-OS Software Upgrade Guide">
+        
+</figure><div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#1-pre-upgrade-checks" aria-label="1. Pre-Upgrade Checks">1. Pre-Upgrade Checks</a><ul>
+                        
+                <li>
+                    <a href="#configuration-backup" aria-label="Configuration Backup">Configuration Backup</a></li>
+                <li>
+                    <a href="#verify-switch-model-and-current-software-version" aria-label="Verify Switch Model and Current Software Version">Verify Switch Model and Current Software Version</a></li></ul>
+                </li>
+                <li>
+                    <a href="#2-download-the-software-image" aria-label="2. Download the Software Image">2. Download the Software Image</a></li>
+                <li>
+                    <a href="#3-verify-the-upgrade-path" aria-label="3. Verify the Upgrade Path">3. Verify the Upgrade Path</a></li>
+                <li>
+                    <a href="#4-copy-the-software-file-to-the-switch" aria-label="4. Copy the Software File to the Switch">4. Copy the Software File to the Switch</a><ul>
+                        
+                <li>
+                    <a href="#option-a-ftp-transfer" aria-label="Option A: FTP Transfer">Option A: FTP Transfer</a></li>
+                <li>
+                    <a href="#option-b-usb-transfer-recommended" aria-label="Option B: USB Transfer (Recommended)">Option B: USB Transfer (Recommended)</a></li>
+                <li>
+                    <a href="#md5-hash-verification" aria-label="MD5 Hash Verification">MD5 Hash Verification</a></li></ul>
+                </li>
+                <li>
+                    <a href="#5-run-the-upgrade" aria-label="5. Run the Upgrade">5. Run the Upgrade</a></li>
+                <li>
+                    <a href="#6-rollback-and-recovery-scenarios" aria-label="6. Rollback and Recovery Scenarios">6. Rollback and Recovery Scenarios</a><ul>
+                        
+                <li>
+                    <a href="#rommon-mode-entry" aria-label="ROMMON Mode Entry">ROMMON Mode Entry</a></li>
+                <li>
+                    <a href="#boot-via-tftp-from-rommon" aria-label="Boot via TFTP from ROMMON">Boot via TFTP from ROMMON</a></li>
+                <li>
+                    <a href="#boot-via-usb-from-rommon" aria-label="Boot via USB from ROMMON">Boot via USB from ROMMON</a></li></ul>
+                </li>
+                <li>
+                    <a href="#critical-warning" aria-label="Critical Warning">Critical Warning</a></li>
+                <li>
+                    <a href="#related-articles" aria-label="Related Articles">Related Articles</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>This guide covers the <strong>Cisco Nexus NX-OS software upgrade process</strong> in a practical, step-by-step manner — including <strong>rollback and recovery scenarios</strong>. The goal is to minimize service disruption and ensure the device can always be recovered in case of failure.</p>
+<p>Most upgrade failures are not caused by the upgrade itself — they are caused by skipping preparation steps. This guide treats preparation as seriously as execution.</p>
+<figure>
+    <img loading="lazy" src="/img/postimages/nexus-nxos-upgrade-cover.webp"/> <figcaption>
+            Cisco Nexus NX-OS Upgrade Process
+        </figcaption>
+</figure>
+
+<blockquote>
+<p>For out-of-band access during upgrade failures, see: <a href="/en/posts/next-gen-console-server-architecture/">The Backdoor of the Network: Next-Gen Console Server Architecture</a></p>
+</blockquote>
+<h2 id="1-pre-upgrade-checks">1. Pre-Upgrade Checks<a hidden class="anchor" aria-hidden="true" href="#1-pre-upgrade-checks">#</a></h2>
+<p>Before starting the software upgrade, you must complete the preparation steps below. This phase is the most commonly skipped — and the most common source of problems.</p>
+<h3 id="configuration-backup">Configuration Backup<a hidden class="anchor" aria-hidden="true" href="#configuration-backup">#</a></h3>
+<ul>
+<li>Take a <strong>backup of the current configuration</strong> before anything else.</li>
+<li>Store the backup on your own computer or an <strong>external location</strong> such as FTP/SFTP — not on the switch itself.</li>
+<li>If the upgrade fails or a rollback is needed, this backup is critical.</li>
+</ul>
+<h3 id="verify-switch-model-and-current-software-version">Verify Switch Model and Current Software Version<a hidden class="anchor" aria-hidden="true" href="#verify-switch-model-and-current-software-version">#</a></h3>
+<p>Check the switch model and the running NX-OS version with these commands:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>show version
+</span></span><span style="display:flex;"><span>show module
+</span></span><span style="display:flex;"><span>show inventory
+</span></span></code></pre></div><p>These outputs are required to select the correct NX-OS image, determine the upgrade path, and verify hardware compatibility.</p>
+<h2 id="2-download-the-software-image">2. Download the Software Image<a hidden class="anchor" aria-hidden="true" href="#2-download-the-software-image">#</a></h2>
+<ul>
+<li>Download the correct NX-OS image for your switch model from Cisco&rsquo;s official portal:
+<a href="https://software.cisco.com/download/home">https://software.cisco.com/download/home</a></li>
+<li>A valid <strong>Cisco account with the appropriate entitlements</strong> is required.</li>
+<li>After downloading, <strong>note the MD5 hash value</strong> — you will need it to verify file integrity after transfer.</li>
+</ul>
+<blockquote>
+<p>MD5 verification confirms the file was not corrupted during download. This step is not optional.</p>
+</blockquote>
+<h2 id="3-verify-the-upgrade-path">3. Verify the Upgrade Path<a hidden class="anchor" aria-hidden="true" href="#3-verify-the-upgrade-path">#</a></h2>
+<p>A direct upgrade from your current NX-OS version to the target version is <strong>not always supported</strong>. Some version combinations require intermediate steps.</p>
+<p>Use Cisco&rsquo;s official tools to verify:</p>
+<ul>
+<li><strong>Nexus Upgrade Matrix Tools</strong></li>
+<li>Nexus 9000 / 3000 Series</li>
+<li>Nexus 7000 Series</li>
+</ul>
+<blockquote>
+<p>If multiple upgrade steps are required, download <strong>all intermediate images</strong> before starting the process.</p>
+</blockquote>
+<h2 id="4-copy-the-software-file-to-the-switch">4. Copy the Software File to the Switch<a hidden class="anchor" aria-hidden="true" href="#4-copy-the-software-file-to-the-switch">#</a></h2>
+<h3 id="option-a-ftp-transfer">Option A: FTP Transfer<a hidden class="anchor" aria-hidden="true" href="#option-a-ftp-transfer">#</a></h3>
+<p>FTP is one of the most common methods. Note that NX-OS images can be close to 2 GB, so transfer time depends on network speed.</p>
+<p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>copy ftp://user1:Qazwsx@10.10.10.5/nxos.9.3.10.bin bootflash:
+</span></span></code></pre></div><p>If multiple VRFs are configured on the Nexus, you will be asked which VRF to use for the transfer. Since the management interface typically uses the management VRF, select management VRF.</p>
+<h3 id="option-b-usb-transfer-recommended">Option B: USB Transfer (Recommended)<a hidden class="anchor" aria-hidden="true" href="#option-b-usb-transfer-recommended">#</a></h3>
+<p>USB transfer is my preferred method when:</p>
+<ul>
+<li>No FTP server is readily available</li>
+<li>You have time constraints</li>
+<li>You want to avoid any network transfer risk</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>copy usb1:nxos.9.3.10.bin bootflash:
+</span></span></code></pre></div><p>Ensure the USB filesystem format is supported by the Nexus device before proceeding.</p>
+<h3 id="md5-hash-verification">MD5 Hash Verification<a hidden class="anchor" aria-hidden="true" href="#md5-hash-verification">#</a></h3>
+<p>After the transfer, verify file integrity:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>show file bootflash:nxos.9.3.10.bin md5sum
+</span></span></code></pre></div><p>The output must exactly match the MD5 hash from the Cisco download portal.</p>
+<h2 id="5-run-the-upgrade">5. Run the Upgrade<a hidden class="anchor" aria-hidden="true" href="#5-run-the-upgrade">#</a></h2>
+<p>Once all checks are complete, start the upgrade:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>install all nxos bootflash:nxos.9.3.10.bin
+</span></span></code></pre></div><ul>
+<li>The switch automatically saves the current configuration before installation.</li>
+<li>You will be prompted for confirmation before the reboot.</li>
+<li>After confirmation, the device reboots and the upgrade begins.</li>
+</ul>
+<p>Upgrade duration varies depending on the device model and software size.</p>
+<h2 id="6-rollback-and-recovery-scenarios">6. Rollback and Recovery Scenarios<a hidden class="anchor" aria-hidden="true" href="#6-rollback-and-recovery-scenarios">#</a></h2>
+<figure>
+    <img loading="lazy" src="/img/postimages/nexus-upgrade-rollback.webp"/> <figcaption>
+            Nexus Upgrade Rollback and Recovery Path
+        </figcaption>
+</figure>
+
+<h3 id="rommon-mode-entry">ROMMON Mode Entry<a hidden class="anchor" aria-hidden="true" href="#rommon-mode-entry">#</a></h3>
+<p>If the installation fails or the device does not boot:</p>
+<ul>
+<li>During device startup, press <strong>CTRL + L</strong> or <strong>CTRL + C</strong> via console connection to enter <strong>ROMMON mode</strong>.</li>
+</ul>
+<h3 id="boot-via-tftp-from-rommon">Boot via TFTP from ROMMON<a hidden class="anchor" aria-hidden="true" href="#boot-via-tftp-from-rommon">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>set ip 10.10.10.2 255.255.255.0
+</span></span><span style="display:flex;"><span>set gw 10.10.10.1
+</span></span><span style="display:flex;"><span>cmdline recoverymode<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>boot tftp://10.10.10.2/tftpboot/nxos.9.3.10.bin
+</span></span><span style="display:flex;"><span>init system
+</span></span><span style="display:flex;"><span>reload-nxos
+</span></span></code></pre></div><h3 id="boot-via-usb-from-rommon">Boot via USB from ROMMON<a hidden class="anchor" aria-hidden="true" href="#boot-via-usb-from-rommon">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>boot usb1:nxos.9.3.10.bin bootflash:
+</span></span><span style="display:flex;"><span>set ip 10.10.10.2 255.255.255.0
+</span></span><span style="display:flex;"><span>set gw 10.10.10.1
+</span></span><span style="display:flex;"><span>cmdline recoverymode<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>boot usb1:nxos.9.3.10.bin
+</span></span><span style="display:flex;"><span>init system
+</span></span><span style="display:flex;"><span>reload-nxos
+</span></span></code></pre></div><p>After booting from TFTP or USB, verify and correct the boot settings:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>show boot
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>configure terminal
+</span></span><span style="display:flex;"><span>  boot nxos bootflash:/nxos.9.3.10.bin
+</span></span></code></pre></div><h2 id="critical-warning">Critical Warning<a hidden class="anchor" aria-hidden="true" href="#critical-warning">#</a></h2>
+<p>During the software upgrade:</p>
+<ul>
+<li><strong>Do not interrupt the network connection</strong></li>
+<li><strong>Do not interrupt the power supply</strong></li>
+</ul>
+<p>Either condition can render the device unrecoverable without physical intervention.</p>
+<hr>
+<h2 id="related-articles">Related Articles<a hidden class="anchor" aria-hidden="true" href="#related-articles">#</a></h2>
+<p><strong>Architecture &amp; Operations</strong></p>
+<ul>
+<li>🛠️ <a href="/en/posts/next-gen-console-server-architecture/">The Backdoor of the Network: Next-Gen Console Server Architecture</a> — Out-of-band access when IP management is lost</li>
+<li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">Monitoring Done Right: How to Build a Proactive IT Operations Culture</a> — Catching problems before they escalate</li>
+<li>🏗️ <a href="/en/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough</a> — Architecture-first core network design</li>
+<li>🎯 <a href="/en/architecture/network-product-selection-strategy/">Network Infrastructure Product Selection: Strategic Criteria</a> — Evaluating vendors strategically</li>
+</ul>
+<p><strong>Practical Engineering</strong></p>
+<ul>
+<li>🛡️ <a href="/en/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Traffic visibility and security strategy</li>
+<li>🔐 <a href="/en/technology/identity-based-microsegmentation-8021x/">802.1X Field Deployment Guide</a> — Identity-based network access control</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/en/tags/cisco/">Cisco</a></li>
+      <li><a href="http://localhost:1313/en/tags/nexus/">Nexus</a></li>
+      <li><a href="http://localhost:1313/en/tags/nx-os/">NX-OS</a></li>
+      <li><a href="http://localhost:1313/en/tags/network/">Network</a></li>
+      <li><a href="http://localhost:1313/en/tags/upgrade/">Upgrade</a></li>
+      <li><a href="http://localhost:1313/en/tags/data-center/">Data Center</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/en/posts/8021x-field-deployment-teaser/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Unlocking Success in 802.1X Projects: Field Insights</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/en/">Barash Helvadzhaoglu</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

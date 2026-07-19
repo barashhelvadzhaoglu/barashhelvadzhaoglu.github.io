@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>PKI on Barash Helvadzhaoglu</title>
+    <link>http://localhost:1313/en/tags/pki/</link>
+    <description>Recent content in PKI on Barash Helvadzhaoglu</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 14 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/en/tags/pki/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>802.1X Projects: Deploying the Identity-Based Architecture in the Field</title>
+      <link>http://localhost:1313/en/technology/identity-based-microsegmentation-8021x/</link>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/technology/identity-based-microsegmentation-8021x/</guid>
+      <description>A field experience document discussing the success of 802.1X projects based on AD, PKI, and GPO discipline rather than just networking.</description>
+    </item>
+  </channel>
+</rss>

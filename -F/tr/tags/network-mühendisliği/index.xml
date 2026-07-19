@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Network Mühendisliği on Barash Helvadzhaoglu</title>
+    <link>http://localhost:1313/tr/tags/network-m%C3%BChendisli%C4%9Fi/</link>
+    <description>Recent content in Network Mühendisliği on Barash Helvadzhaoglu</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>tr</language>
+    <lastBuildDate>Wed, 18 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tr/tags/network-m%C3%BChendisli%C4%9Fi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>🚀 Mezun Rehberi: Bir Network Mühendisi Aslında Ne Yapar?</title>
+      <link>http://localhost:1313/tr/posts/mezun-rehberi-network-muhendisi-ne-yapar/</link>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tr/posts/mezun-rehberi-network-muhendisi-ne-yapar/</guid>
+      <description>Yeni mezunlar için ağ mühendisliği kariyer rehberi. Endüstriyel altyapı, günlük operasyonlar ve profesyonelleşme yol haritası.</description>
+    </item>
+    <item>
+      <title>🛠️ Ağın Arka Kapısı: Next-Gen Console Server (Terminal Server) Mimarisi</title>
+      <link>http://localhost:1313/tr/posts/yeni-nesil-konsol-sunucu-terminal-server-mimarisi/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tr/posts/yeni-nesil-konsol-sunucu-terminal-server-mimarisi/</guid>
+      <description>Kritik ağ altyapısına IP erişimi kesildiğinde hayatta kalma rehberi. Out-of-Band Management (OOBM), HTML5 CLI ve otomasyon destekli console server&amp;#39;lar.</description>
+    </item>
+    <item>
+      <title>🛡️ Kurumsal Ağlarda Görünürlük ve Güvenlik Stratejisi: Network Packet Broker (NPB) Masterclass</title>
+      <link>http://localhost:1313/tr/posts/network-packet-broker-npb-masterclass-kurumsal-ag/</link>
+      <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tr/posts/network-packet-broker-npb-masterclass-kurumsal-ag/</guid>
+      <description>Kurumsal ağlarda trafik yönetimi, siber güvenlik ve uçtan uca görünürlük için stratejik rehber. NPB nedir? NIAC prensipleriyle nasıl yönetilir?</description>
+    </item>
+  </channel>
+</rss>

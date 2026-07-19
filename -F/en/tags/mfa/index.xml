@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>MFA on Barash Helvadzhaoglu</title>
+    <link>http://localhost:1313/en/tags/mfa/</link>
+    <description>Recent content in MFA on Barash Helvadzhaoglu</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 03 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/en/tags/mfa/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product</title>
+      <link>http://localhost:1313/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/</guid>
+      <description>Zero Trust is an architectural approach, not a product. How user and device verification, continuous access control, and modern security work beyond VPN.</description>
+    </item>
+  </channel>
+</rss>

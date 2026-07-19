@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Aruba on Barash Helvadzhaoglu</title>
+    <link>http://localhost:1313/tr/tags/aruba/</link>
+    <description>Recent content in Aruba on Barash Helvadzhaoglu</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>tr</language>
+    <lastBuildDate>Wed, 18 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tr/tags/aruba/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>🚀 Mezun Rehberi: Bir Network Mühendisi Aslında Ne Yapar?</title>
+      <link>http://localhost:1313/tr/posts/mezun-rehberi-network-muhendisi-ne-yapar/</link>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tr/posts/mezun-rehberi-network-muhendisi-ne-yapar/</guid>
+      <description>Yeni mezunlar için ağ mühendisliği kariyer rehberi. Endüstriyel altyapı, günlük operasyonlar ve profesyonelleşme yol haritası.</description>
+    </item>
+  </channel>
+</rss>

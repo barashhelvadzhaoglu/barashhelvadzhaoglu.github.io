@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Saha Deneyimi on Barash Helvadzhaoglu</title>
+    <link>http://localhost:1313/tr/tags/saha-deneyimi/</link>
+    <description>Recent content in Saha Deneyimi on Barash Helvadzhaoglu</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>tr</language>
+    <lastBuildDate>Fri, 02 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tr/tags/saha-deneyimi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler ve Saha Deneyimleri</title>
+      <link>http://localhost:1313/tr/architecture/ag-altyapisi-urun-secimi-stratejik-kriterler/</link>
+      <pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tr/architecture/ag-altyapisi-urun-secimi-stratejik-kriterler/</guid>
+      <description>Kurumsal ağlarda ürün seçimi bir kontrol listesinden fazlasıdır. Firewall, switch ve AP değerlendirmesi için saha testi yapılmış çerçeve.</description>
+    </item>
+  </channel>
+</rss>

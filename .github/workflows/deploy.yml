@@ -1,0 +1,45 @@
+name: Auto Deploy Kariyer Site
+
+on:
+  schedule:
+    # 21:40 TSİ (18:40 UTC) için ayarlandı
+    - cron: '30 1 * * *'
+
+  workflow_dispatch: # Manuel tetikleme (Actions sekmesinden başlatabilirsin)
+
+  push: # Main branch'e her push yaptığında çalışır
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build
+        run: hugo --gc --minify --buildFuture=false
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages
+          keep_files: false
+          cname: barashhelvadzhaoglu.com

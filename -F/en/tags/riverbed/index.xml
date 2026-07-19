@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Riverbed on Barash Helvadzhaoglu</title>
+    <link>http://localhost:1313/en/tags/riverbed/</link>
+    <description>Recent content in Riverbed on Barash Helvadzhaoglu</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 21 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/en/tags/riverbed/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>🛡️ Visibility and Security Strategy in Enterprise Networks: Network Packet Broker (NPB) Masterclass</title>
+      <link>http://localhost:1313/en/posts/network-packet-broker-npb-masterclass/</link>
+      <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/posts/network-packet-broker-npb-masterclass/</guid>
+      <description>Strategic guide for traffic management, cybersecurity, and end-to-end visibility in enterprise networks. What is NPB? How to manage it with NIAC principles?</description>
+    </item>
+  </channel>
+</rss>

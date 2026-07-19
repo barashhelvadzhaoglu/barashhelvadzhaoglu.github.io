@@ -1,0 +1,40 @@
+# i18n/de.yaml
+btn_upload: "Hochladen"
+btn_exit: "Beenden"
+search_placeholder: "Suchen..."
+quick_select: "Schnellauswahl:"
+select_all: "Alle"
+custom_range: "Oder eigenen Bereich wählen:"
+start_btn: "Ausgewählten Bereich starten"
+format_title: "Dateiformat und Beispiele:"
+format_example: "das Haar, Nomen, Haar, Sie hat sehr lange blonde Haare.\nöffnen, Verb, Öffnen, Bitte **** das Fenster.\ngesund, Adjektiv, Gesund, Obst und Gemüse sind sehr ****."
+btn_check: "Prüfen"
+btn_next: "Weiter"
+retry_errors: "Fehler wiederholen"
+repeat_set: "Set wiederholen"
+home_btn: "Startseite"
+stats_correct: "Richtig"
+stats_wrong: "Falsch"
+feedback_correct: "Richtig! 🎉"
+feedback_wrong: "Falsch:"
+result_success: "Herzlichen Glückwunsch, du hast alles gewusst!"
+result_done: "Set abgeschlossen!"
+back_btn: "Zurück"
+
+# Hugo site strings
+recentPosts:
+  other: "Neueste Beiträge"
+seeAll:
+  other: "Alle anzeigen"
+heroBio:
+  other: "Über 11 Jahre Erfahrung in der Planung und Absicherung von Unternehmensnetzwerken in Banking, Fertigung und kritischer Infrastruktur. Ich schreibe über Architekturentscheidungen aus der Praxis, Vendor-Vergleiche und Erfahrungen aus dem Feld."
+statYears:
+  other: "Jahre Erfahrung"
+statSectors:
+  other: "Branchen"
+statLangs:
+  other: "Sprachen"
+btnProjects:
+  other: "Projekte"
+btnContact:
+  other: "Kontakt"

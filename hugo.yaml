@@ -1,0 +1,182 @@
+baseURL: "https://barashhelvadzhaoglu.com/"
+title: "Barash Helvadzhaoglu"
+theme: "PaperMod"
+enableRobotsTXT: true
+uglyURLs: false
+canonifyURLs: false
+
+pagination:
+  pagerSize: 10
+
+sitemap:
+  changefreq: weekly
+  priority: 0.5
+  filename: sitemap.xml
+
+taxonomies:
+  tag: tags
+  category: categories
+
+outputs:
+  home: [HTML, RSS, JSON]
+  section: [HTML, RSS, JSON]
+  page: [HTML]
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+params:
+  env: production
+  title: "Barash Helvadzhaoglu"
+  description: "Senior Network Security Engineer. Network architecture, security, automation, and real-world engineering notes."
+  author: "Barash Helvadzhaoglu"
+
+  label:
+    text: "Barash Helvadzhaoglu"
+    icon: "img/logo.webp"
+    iconHeight: 60
+
+  ShowReadingTime: true
+  ShowBreadCrumbs: true
+  ShowPostNavLinks: true
+  ShowCodeCopyButtons: true
+  ShowFullTextContent: true
+  ShowFullTextinRSS: true
+  displayFullPost: false
+  ShowShareButtons: false
+  ShowToc: true
+  TocOpen: true
+
+  profileMode:
+    enabled: false
+
+  socialIcons:
+    - name: linkedin
+      url: "https://www.linkedin.com/in/barashhelvadzhaoglu/"
+    - name: xing
+      url: "https://www.xing.com/profile/Barash_Helvadzhaoglu/"
+    - name: rss
+      url: "/index.xml"
+
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 2
+    keys:
+      - title
+      - permalink
+      - summary
+      - content
+      - tags
+
+  assets:
+    favicon: "/favicon.ico"
+    favicon16x16: "/favicon-16x16.webp"
+    favicon32x32: "/favicon-32x32.webp"
+    apple_touch_icon: "/apple-touch-icon.webp"
+
+defaultContentLanguage: en
+defaultContentLanguageInSubdir: true
+
+languages:
+
+  en:
+    languageCode: "en"
+    languageName: "EN"
+    contentDir: "content/en"
+    weight: 1
+    params:
+      author: "Barash Helvadzhaoglu"
+      description: "Senior Network Security Engineer. Network architecture, security, automation, and real-world engineering notes."
+    menu:
+      main:
+        - name: Architecture
+          url: /architecture/
+          weight: 20
+        - name: Technology
+          url: /technology/
+          weight: 30
+        - name: Posts
+          url: /posts/
+          weight: 40
+        - name: Projects
+          url: /projects/
+          weight: 45
+        - name: About
+          url: /about/
+          weight: 50
+        - name: Contact
+          url: /contact/
+          weight: 60
+        - name: 🔍
+          url: /search/
+          weight: 70
+
+  tr:
+    languageCode: "tr"
+    languageName: "TR"
+    contentDir: "content/tr"
+    weight: 2
+    params:
+      author: "Barış Helvacıoğlu"
+      description: "Kıdemli Ağ Güvenliği Mühendisi. Ağ mimarisi, güvenlik, otomasyon ve saha notları."
+    menu:
+      main:
+        - name: Mimari
+          url: /architecture/
+          weight: 20
+        - name: Teknoloji
+          url: /technology/
+          weight: 30
+        - name: Yazılar
+          url: /posts/
+          weight: 40
+        - name: Projeler
+          url: /projects/
+          weight: 45
+        - name: Hakkımda
+          url: /about/
+          weight: 50
+        - name: İletişim
+          url: /contact/
+          weight: 60
+        - name: 🔍
+          url: /search/
+          weight: 70
+
+  de:
+    languageCode: "de"
+    languageName: "DE"
+    contentDir: "content/de"
+    weight: 3
+    params:
+      author: "Barash Helvadzhaoglu"
+      description: "Senior Network Security Engineer. Netzwerkarchitektur, Sicherheit, Automatisierung und Praxisnotizen."
+    menu:
+      main:
+        - name: Architektur
+          url: /architecture/
+          weight: 20
+        - name: Technologie
+          url: /technology/
+          weight: 30
+        - name: Beiträge
+          url: /posts/
+          weight: 40
+        - name: Projekte
+          url: /projects/
+          weight: 45
+        - name: Über mich
+          url: /about/
+          weight: 50
+        - name: Kontakt
+          url: /contact/
+          weight: 60
+        - name: 🔍
+          url: /search/
+          weight: 70
