@@ -76,9 +76,7 @@ params:
 
   assets:
     favicon: "/favicon.ico"
-    favicon16x16: "/favicon-16x16.webp"
-    favicon32x32: "/favicon-32x32.webp"
-    apple_touch_icon: "/apple-touch-icon.webp"
+    apple_touch_icon: "/apple-touch-icon.png"
 
 defaultContentLanguage: en
 defaultContentLanguageInSubdir: true
