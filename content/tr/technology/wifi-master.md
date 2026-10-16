@@ -25,6 +25,8 @@ keywords:
 
 showToc: true
 TocOpen: false
+aliases:
+  - "/tr/technology/kurumsal-wifi-mimarisi-tam-rehber/"
 ---
 
 # Kurumsal WiFi Mimarisi: Standartlardan Deployment'a

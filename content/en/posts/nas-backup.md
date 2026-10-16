@@ -15,6 +15,7 @@ keywords: ["NAS backup AWS S3", "NAS without RAID risk", "Hyper Backup Synology"
 showToc: true
 TocOpen: true
 aliases:
+  - "/en/technology/nas-backup-aws-s3-cloud-smb/"
   - "/en/posts/nas-backup-aws-s3-cloud-solution/"
 ---
 

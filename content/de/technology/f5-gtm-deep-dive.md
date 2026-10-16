@@ -25,6 +25,8 @@ keywords:
 
 showToc: true
 TocOpen: true
+aliases:
+  - "/de/technology/f5-gtm-gslb-global-traffic-management/"
 ---
 
 # F5 GTM & GSLB Deep Dive: Globales Traffic-Management und DNS-Failover

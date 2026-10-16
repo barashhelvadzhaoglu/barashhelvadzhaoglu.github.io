@@ -15,6 +15,7 @@ keywords: ["NAS yedekleme AWS S3", "RAID olmayan NAS riski", "Hyper Backup Synol
 showToc: true
 TocOpen: true
 aliases:
+  - "/tr/technology/nas-backup-aws-s3-cloud-kobi/"
   - "/tr/posts/nas-backup-aws-s3-cloud-solution/"
   - "/tr/posts/nas-yedekleme-aws-s3-bulut-cozumu/"
 ---

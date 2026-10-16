@@ -38,6 +38,8 @@ keywords:
   - infrastructure lifecycle management
 
 toc: true
+aliases:
+  - "/en/architecture/it-infrastructure-is-not-a-collection-of-products/"
 ---
 
 # IT Infrastructure Is Not a Collection of Products — It's a System

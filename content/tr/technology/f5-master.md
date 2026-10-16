@@ -25,6 +25,9 @@ keywords:
 
 showToc: true
 TocOpen: false
+aliases:
+  - "/tr/technology/f5-bigip-application-delivery-platform-overview/"
+  - "/tr/technology/f5-bigip-uygulama-teslim-platformu-genel-bakis/"
 ---
 
 # F5 BIG-IP: Bir Uygulama Teslim Platformudur

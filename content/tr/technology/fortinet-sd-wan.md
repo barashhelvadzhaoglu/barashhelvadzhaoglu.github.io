@@ -17,6 +17,8 @@ tags:
   - Fortinet
   - Security
 draft: false
+aliases:
+  - "/tr/posts/fortinet-sd-wan/"
 ---
 
 # Fortinet SD-WAN: Security-Driven Networking in Practice

@@ -14,6 +14,8 @@ categories: ["IT İpuçları"]
 keywords: ["Wi-Fi mesh ofis Münih", "Aruba Instant On", "ClientMatch teknolojisi", "villa Wi-Fi çözümü", "yapışkan istemci sorunu", "PoE switch kameralar", "kablosuz Wi-Fi", "profesyonel Wi-Fi KOBİ", "Aruba PoE Münih", "kablosuz mesh ağ"]
 showToc: true
 TocOpen: true
+aliases:
+  - "/tr/posts/wifi-mesh-solution-office-villa-aruba/"
 ---
 
 Tanıdık geliyor mu? Ön ofiste veya resepsiyonda Wi-Fi mükemmel — ama toplantı odasına, mutfağa veya arka bölüme geçince bağlantı düşüyor ya da verimli çalışmayı imkânsız kılacak kadar yavaşlıyor.

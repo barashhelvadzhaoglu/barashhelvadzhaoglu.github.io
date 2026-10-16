@@ -25,6 +25,8 @@ keywords:
 
 showToc: true
 TocOpen: true
+aliases:
+  - "/tr/technology/f5-waf-asm-advanced-waf-uygulama-guvenligi/"
 ---
 
 # F5 WAF Deep Dive: ASM ve Advanced WAF ile Uygulama Güvenliği

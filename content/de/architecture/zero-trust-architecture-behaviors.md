@@ -45,6 +45,7 @@ keywords:
 toc: true
 tocopen: true
 aliases:
+  - "/de/architecture/zero-trust-kein-produkt/"
   - "/de/architecture/zero-trust-denkweise-sicherheit-als-architektur/"
   - "/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/"
 ---

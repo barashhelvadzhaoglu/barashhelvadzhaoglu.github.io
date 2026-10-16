@@ -6,6 +6,7 @@ summary: "Ist 802.1X nur ein Protokoll oder eine Identitätsarchitektur? Unser n
 keywords: ["802.1X", "NAC", "Netzwerksicherheit"]
 draft: false
 aliases:
+  - "/de/posts/unlocking-success-in-802-1x-projects-field-insights/"
   - "/de/posts/8021x-praxisleitfaden-teaser/"
 ---
 

@@ -25,6 +25,8 @@ keywords:
 
 showToc: true
 TocOpen: true
+aliases:
+  - "/de/technology/enterprise-wlan-controller-architektur-cisco-aruba/"
 ---
 
 # Enterprise WLAN-Controller-Architektur: Cisco und Aruba WLAN-Design

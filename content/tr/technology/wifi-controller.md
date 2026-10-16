@@ -25,6 +25,8 @@ keywords:
 
 showToc: true
 TocOpen: true
+aliases:
+  - "/tr/technology/kurumsal-wifi-controller-mimarisi-cisco-aruba/"
 ---
 
 # Kurumsal WiFi Controller Mimarisi: Cisco ve Aruba WLAN Tasarımı

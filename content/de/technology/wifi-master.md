@@ -25,6 +25,8 @@ keywords:
 
 showToc: true
 TocOpen: false
+aliases:
+  - "/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/"
 ---
 
 # Enterprise WiFi-Architektur: Von Standards bis zur Deployment

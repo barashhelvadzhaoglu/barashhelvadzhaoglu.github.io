@@ -25,6 +25,8 @@ keywords:
 
 showToc: true
 TocOpen: true
+aliases:
+  - "/de/technology/wifi-80211-standards-wifi4-wifi5-wifi6/"
 ---
 
 # 802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E und was sich wirklich geändert hat

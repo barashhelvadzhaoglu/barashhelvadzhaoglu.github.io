@@ -25,6 +25,8 @@ keywords:
 
 showToc: true
 TocOpen: false
+aliases:
+  - "/tr/architecture/cisco-dna-center-catalyst-center-architecture-guide/"
 ---
 
 # Cisco DNA Center / Catalyst Center: When It Makes Sense and When It Doesn't

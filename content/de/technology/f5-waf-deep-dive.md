@@ -25,6 +25,9 @@ keywords:
 
 showToc: true
 TocOpen: true
+aliases:
+  - "/de/technology/f5-waf-asm-advanced-waf-application-security/"
+  - "/de/technology/f5-waf-asm-advanced-waf-anwendungssicherheit/"
 ---
 
 # F5 WAF Deep Dive: Anwendungssicherheit mit ASM und Advanced WAF

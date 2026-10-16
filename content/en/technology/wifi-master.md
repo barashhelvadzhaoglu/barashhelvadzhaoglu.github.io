@@ -25,6 +25,8 @@ keywords:
 
 showToc: true
 TocOpen: false
+aliases:
+  - "/en/technology/enterprise-wifi-architecture-complete-guide/"
 ---
 
 # Enterprise WiFi Architecture: From Standards to Deployment

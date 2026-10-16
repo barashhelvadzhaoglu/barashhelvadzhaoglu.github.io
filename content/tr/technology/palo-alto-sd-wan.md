@@ -18,6 +18,8 @@ tags:
   - Security
   - SASE
 draft: false
+aliases:
+  - "/en/posts/palo-alto-sd-wan/"
 ---
 
 # Palo Alto Networks SD-WAN: Prisma SD-WAN and the Security-First Approach

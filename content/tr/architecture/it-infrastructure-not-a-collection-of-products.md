@@ -39,6 +39,7 @@ keywords:
 
 toc: true
 aliases:
+  - "/tr/architecture/it-infrastructure-is-not-a-collection-of-products/"
   - "/tr/architecture/bt-altyapisi-urun-koleksiyonu-degil-sistem/"
 ---
 

@@ -25,6 +25,8 @@ keywords:
 
 showToc: true
 TocOpen: true
+aliases:
+  - "/en/technology/securecrt-superputty-network-engineer-guide/"
 ---
 
 # SecureCRT and SuperPutty: Terminal Tools Every Network Engineer Should Know

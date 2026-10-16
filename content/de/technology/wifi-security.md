@@ -25,6 +25,8 @@ keywords:
 
 showToc: true
 TocOpen: true
+aliases:
+  - "/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/"
 ---
 
 # WiFi Security: WPA3, 802.1X, Rogue AP Detection, and Site Survey

@@ -15,6 +15,8 @@ categories: ["IT-Tipps"]
 keywords: ["USV Büro KMU", "Stromausfall NAS Schutz", "USV NAS Integration", "APC USV München", "PoE Switch USV", "Büro Stromschutz", "NAS Festplattenkorruption verhindern", "USV Typen Vergleich", "Synology USV", "unterbrechungsfreie Stromversorgung Büro"]
 showToc: true
 TocOpen: true
+aliases:
+  - "/de/posts/usv-buero-stromschutz-nas-switch/"
 ---
 
 "USV? Ja, haben wir — die steht neben dem Computer."

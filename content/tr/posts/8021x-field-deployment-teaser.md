@@ -6,6 +6,7 @@ keywords: ["802.1X", "Network Güvenliği", "Saha Tecrübesi"]
 draft: false
 date: 2026-01-14
 aliases:
+  - "/tr/posts/unlocking-success-in-802-1x-projects-field-insights/"
   - "/tr/posts/8021x-saha-tecrubesi-tanitim/"
 ---
 

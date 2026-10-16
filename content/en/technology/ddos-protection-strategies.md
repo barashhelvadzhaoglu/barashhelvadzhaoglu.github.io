@@ -25,6 +25,8 @@ keywords:
 
 showToc: true
 TocOpen: false
+aliases:
+  - "/en/technology/ddos-protection-strategies-isp-scrubbing-on-premise-cloud/"
 ---
 
 # DDoS Protection Strategies: ISP Scrubbing, On-Premise Appliances, and Cloud Services

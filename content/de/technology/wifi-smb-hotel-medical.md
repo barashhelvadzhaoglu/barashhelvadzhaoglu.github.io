@@ -25,6 +25,8 @@ keywords:
 
 showToc: true
 TocOpen: true
+aliases:
+  - "/de/technology/wifi-design-kmu-hotel-gesundheit/"
 ---
 
 # WiFi-Design für KMU, Hotels und Arztpraxen: Feldnotizen

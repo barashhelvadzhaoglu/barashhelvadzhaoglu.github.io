@@ -14,6 +14,8 @@ categories: ["IT İpuçları"]
 keywords: ["UPS ofis KOBİ", "elektrik kesintisi NAS koruması", "UPS NAS entegrasyonu", "APC UPS Münih", "PoE switch UPS", "ofis güç koruması", "NAS dosya sistemi bozulmasını önleme", "UPS türleri karşılaştırma", "Synology UPS", "kesintisiz güç kaynağı ofis"]
 showToc: true
 TocOpen: true
+aliases:
+  - "/tr/posts/ups-office-power-protection-nas-switch/"
 ---
 
 "UPS mu? Evet var — bilgisayarın yanında duruyor."

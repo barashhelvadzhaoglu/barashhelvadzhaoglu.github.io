@@ -25,6 +25,8 @@ keywords:
 
 showToc: true
 TocOpen: true
+aliases:
+  - "/de/technology/f5-ltm-virtual-server-irules-ssl-offloading-ha/"
 ---
 
 # F5 LTM Deep Dive: Virtual Server, iRules, SSL Offloading & HA

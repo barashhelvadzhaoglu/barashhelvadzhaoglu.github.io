@@ -14,6 +14,8 @@ categories: ["IT-Tipps"]
 keywords: ["WLAN Mesh Büro München", "Aruba Instant On", "ClientMatch Technologie", "WLAN Villa Lösung", "Sticky Client Problem", "PoE Switch Kameras", "WLAN ohne Kabel", "professionelles WLAN KMU", "Aruba PoE München", "kabelloses Mesh Netzwerk"]
 showToc: true
 TocOpen: true
+aliases:
+  - "/de/posts/wlan-mesh-loesung-buero-villa-aruba/"
 ---
 
 Kennen Sie das? Im vorderen Büroraum oder an der Rezeption ist das WLAN perfekt — aber sobald man ins Besprechungszimmer, in die Küche oder in den hinteren Bereich geht, bricht die Verbindung ab.

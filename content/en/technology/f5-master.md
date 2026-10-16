@@ -25,6 +25,8 @@ keywords:
 
 showToc: true
 TocOpen: false
+aliases:
+  - "/en/technology/f5-bigip-application-delivery-platform-overview/"
 ---
 
 # F5 BIG-IP: It is an Application Delivery Platform

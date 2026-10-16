@@ -18,6 +18,8 @@ tags:
   - HPE
   - Networking
 draft: false
+aliases:
+  - "/en/posts/hpe-aruba-sd-wan/"
 ---
 
 # HPE Aruba SD-WAN: EdgeConnect and the WAN Optimization Legacy

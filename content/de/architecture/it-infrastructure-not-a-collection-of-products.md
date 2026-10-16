@@ -39,6 +39,7 @@ keywords:
 
 toc: true
 aliases:
+  - "/de/architecture/it-infrastructure-is-not-a-collection-of-products/"
   - "/de/architecture/it-infrastruktur-keine-produktsammlung-ein-system/"
 ---
 

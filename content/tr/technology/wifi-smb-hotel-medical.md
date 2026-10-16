@@ -25,6 +25,8 @@ keywords:
 
 showToc: true
 TocOpen: true
+aliases:
+  - "/tr/technology/wifi-tasarimi-kobi-otel-saglik/"
 ---
 
 # KOBİ, Oteller ve Muayenehaneler İçin WiFi Tasarımı: Saha Notları

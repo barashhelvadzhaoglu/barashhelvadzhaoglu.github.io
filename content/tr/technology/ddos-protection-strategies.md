@@ -25,6 +25,8 @@ keywords:
 
 showToc: true
 TocOpen: false
+aliases:
+  - "/tr/technology/ddos-koruma-stratejileri-isp-scrubbing-on-premise-bulut/"
 ---
 
 # DDoS Koruma Stratejileri: ISP Scrubbing, On-Premise Cihazlar ve Bulut Servisleri

@@ -25,6 +25,8 @@ keywords:
 
 showToc: true
 TocOpen: true
+aliases:
+  - "/en/technology/wifi-design-smb-hotel-medical/"
 ---
 
 # WiFi Design for SMB, Hotels, and Medical Practices: Field Notes

@@ -5,6 +5,8 @@ description: "802.1X success depends on AD, PKI, and GPO discipline — not just
 summary: "Is 802.1X just a protocol or an identity architecture? Explore our latest guide on AD, PKI, and NAC field deployments."
 keywords: ["802.1X", "NAC Deployment", "Network Security"]
 draft: false
+aliases:
+  - "/en/posts/unlocking-success-in-802-1x-projects-field-insights/"
 ---
 
 Success in 802.1X projects depends more on **Active Directory**, **PKI**, and **GPO** discipline than just networking. 
