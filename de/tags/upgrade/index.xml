@@ -1,4 +1,140 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Upgrade on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/upgrade/</link><description>Recent content in Upgrade on Barash Helvadzhaoglu</description><generator>Hugo -- 0.168.0</generator><language>de</language><lastBuildDate>Tue, 30 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/upgrade/index.xml" rel="self" type="application/rss+xml"/><item><title>Cisco Nexus NX-OS Software-Upgrade-Leitfaden: Praxiserprobter Schritt-für-Schritt</title><link>https://barashhelvadzhaoglu.com/de/posts/cisco-nexus-nxos-upgrade-guide/</link><pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/posts/cisco-nexus-nxos-upgrade-guide/</guid><description>Praxisleitfaden für Cisco Nexus NX-OS Upgrades — Vorbereitung, Upgrade-Pfad, Dateiübertragung, Rollback und ROMMON-Wiederherstellung.</description><content:encoded><![CDATA[<p>Dieser Leitfaden behandelt den <strong>Cisco Nexus NX-OS Software-Upgrade-Prozess</strong> auf praktische, schrittweise Weise — einschließlich <strong>Rollback- und Wiederherstellungsszenarien</strong>. Das Ziel ist es, Serviceunterbrechungen zu minimieren und sicherzustellen, dass das Gerät im Fehlerfall immer wiederhergestellt werden kann.</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Upgrade on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/upgrade/</link><description>Recent content in Upgrade on Barash Helvadzhaoglu</description><generator>Hugo -- 0.168.0</generator><language>de</language><lastBuildDate>Fri, 16 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/upgrade/index.xml" rel="self" type="application/rss+xml"/><item><title>Cisco Catalyst 3560 IOS-Upgrade: Zwei Methoden und Verifizierung</title><link>https://barashhelvadzhaoglu.com/de/posts/catalyst-3560-ios-upgrade/</link><pubDate>Fri, 16 Oct 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/posts/catalyst-3560-ios-upgrade/</guid><description>IOS-Upgrade auf einem Cisco Catalyst 3560 — archive download-sw oder manuelles Kopieren mit boot system, Flash-Speicher, MD5-Prüfung und Rollback.</description><content:encoded><![CDATA[<p>Ein IOS-Upgrade auf einem Catalyst 3560 ist nicht kompliziert, aber die Details zählen: welches Dateiformat Sie herunterladen, wie viel Platz im Flash frei ist und ob die Boot-Variable auf das richtige Image zeigt. Ein Fehler an einer dieser Stellen, und der Switch startet in den Boot Loader statt in IOS.</p>
+<p>Es gibt zwei Wege:</p>
+<ul>
+<li><strong>Methode A: <code>archive download-sw</code> mit einer <code>.tar</code>-Datei.</strong> Der Switch entpackt das Image und die Web-Device-Manager-Dateien und setzt die Boot-Variable selbst.</li>
+<li><strong>Methode B: Manuelles Upgrade mit einer <code>.bin</code>-Datei.</strong> Sie kopieren das Image, prüfen es, setzen <code>boot system</code> und starten neu.</li>
+</ul>
+<blockquote>
+<p><strong>Lab-Hinweis:</strong> Ich aktualisiere meinen eigenen Catalyst 3560 mit 8 PoE-Ports mit beiden Methoden. Konsolenausgaben und Zeiten aus diesem Lab werden ergänzt.</p>
+</blockquote>
+<h2 id="1-vorbereitung">1. Vorbereitung</h2>
+<h3 id="konfiguration-sichern">Konfiguration sichern</h3>
+<pre tabindex="0"><code>Switch# copy running-config startup-config
+Switch# copy startup-config tftp:
+</code></pre><p>Bewahren Sie das Backup außerhalb des Switches auf: auf Ihrem Laptop, einem TFTP- oder SCP-Server oder in Ihrem Konfigurationsmanagement.</p>
+<h3 id="modell-version-und-feature-set-ermitteln">Modell, Version und Feature Set ermitteln</h3>
+<pre tabindex="0"><code>Switch# show version
+Switch# show inventory
+</code></pre><p>Notieren Sie drei Dinge:</p>
+<ul>
+<li><strong>Genaues Modell</strong>, zum Beispiel <code>WS-C3560-8PC-S</code>. Das Image muss zur Plattform passen.</li>
+<li><strong>Aktuelle IOS-Version</strong>.</li>
+<li><strong>Feature Set</strong>, zum Beispiel IP Base (<code>ipbasek9</code>) oder IP Services (<code>ipservicesk9</code>). Wählen Sie für das neue Image dasselbe Feature Set, außer Sie wollen es bewusst ändern.</li>
+</ul>
+<h3 id="boot-einstellungen-und-flash-speicher-prüfen">Boot-Einstellungen und Flash-Speicher prüfen</h3>
+<pre tabindex="0"><code>Switch# show boot
+Switch# dir flash:
+</code></pre><p><code>show boot</code> zeigt, welches Image der Switch beim nächsten Neustart lädt. <code>dir flash:</code> zeigt die Dateien und ganz unten den freien Speicher. Kompakte Switches wie der 3560 mit 8 Ports haben wenig Flash. Oft reicht der Platz nicht für zwei Images gleichzeitig.</p>
+<h3 id="image-herunterladen">Image herunterladen</h3>
+<p>Laden Sie das Image über Cisco Software Download herunter. Dafür ist ein Servicevertrag nötig. Sie finden zwei Dateitypen:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Datei</th>
+					<th>Inhalt</th>
+					<th>Verwendung</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>.tar</code></td>
+					<td>IOS-Image plus Web-Device-Manager-Dateien</td>
+					<td><code>archive download-sw</code> (Methode A)</td>
+			</tr>
+			<tr>
+					<td><code>.bin</code></td>
+					<td>Nur das IOS-Image</td>
+					<td>Manuelles Kopieren und <code>boot system</code> (Methode B)</td>
+			</tr>
+	</tbody>
+</table>
+<p>Notieren Sie die <strong>MD5-Prüfsumme</strong> von der Download-Seite. Sie vergleichen sie später auf dem Switch.</p>
+<p>Der klassische Catalyst 3560 ist End of Life. Das neueste Release auf der Download-Seite ist also das letzte für diese Plattform.</p>
+<h2 id="2-methode-a-archive-download-sw">2. Methode A: archive download-sw</h2>
+<p>Das ist die von Cisco empfohlene Methode für diese Switch-Familie. Ein Befehl überträgt die <code>.tar</code>-Datei, entpackt sie in ein neues Verzeichnis im Flash, aktualisiert die Boot-Variable und startet bei Bedarf neu.</p>
+<pre tabindex="0"><code>Switch# archive download-sw /overwrite /reload tftp://192.0.2.10/c3560-ipservicesk9-tar.&lt;version&gt;.tar
+</code></pre><p>Die wichtigsten Optionen:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Option</th>
+					<th>Wirkung</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>/overwrite</code></td>
+					<td>Ersetzt das aktuelle Image, wenn nicht genug Platz für beide ist</td>
+			</tr>
+			<tr>
+					<td><code>/leave-old-sw</code></td>
+					<td>Behält das alte Image (nur wenn der Flash für beide reicht)</td>
+			</tr>
+			<tr>
+					<td><code>/reload</code></td>
+					<td>Startet den Switch nach erfolgreichem Download neu</td>
+			</tr>
+			<tr>
+					<td><code>/imageonly</code></td>
+					<td>Installiert nur das IOS-Image ohne Web-Device-Manager-Dateien</td>
+			</tr>
+	</tbody>
+</table>
+<p>Wenn Platz für beide Images ist, verwenden Sie <code>/leave-old-sw</code> statt <code>/overwrite</code>. Ein Rollback ist dann nur eine Änderung der Boot-Variable.</p>
+<p>Ohne <code>/reload</code> prüfen Sie das Ergebnis vor dem Neustart:</p>
+<pre tabindex="0"><code>Switch# show boot
+Switch# dir flash:
+Switch# reload
+</code></pre><h2 id="3-methode-b-manuelles-upgrade-mit-einer-bin-datei">3. Methode B: Manuelles Upgrade mit einer .bin-Datei</h2>
+<p>Die manuelle Methode gibt Ihnen volle Kontrolle über jeden Schritt. Sie ist nützlich, wenn Sie nur eine <code>.bin</code>-Datei haben oder das Image prüfen wollen, bevor Sie die Boot-Variable ändern.</p>
+<h3 id="image-kopieren">Image kopieren</h3>
+<pre tabindex="0"><code>Switch# copy tftp://192.0.2.10/c3560-ipservicesk9-mz.&lt;version&gt;.bin flash:
+</code></pre><p>Reicht der Platz nicht, müssen Sie zuerst das alte Image löschen. Damit verlieren Sie die Rollback-Option auf dem Switch. Stellen Sie sicher, dass das alte Image auf Ihrem TFTP-Server liegt und eine Konsolenverbindung bereitsteht.</p>
+<p>TFTP funktioniert für kleine Dateien, ist aber langsam und über große Entfernungen unzuverlässig. Wenn Ihre IOS-Version es unterstützt, sind SCP oder FTP schneller.</p>
+<h3 id="prüfsumme-verifizieren">Prüfsumme verifizieren</h3>
+<pre tabindex="0"><code>Switch# verify /md5 flash:c3560-ipservicesk9-mz.&lt;version&gt;.bin
+</code></pre><p>Vergleichen Sie das Ergebnis mit dem MD5-Wert von der Cisco-Download-Seite. Stimmen sie nicht überein, löschen Sie die Datei und kopieren sie erneut. Starten Sie nie ein Image, dessen Prüfung fehlgeschlagen ist.</p>
+<h3 id="boot-variable-setzen-und-neu-starten">Boot-Variable setzen und neu starten</h3>
+<pre tabindex="0"><code>Switch# configure terminal
+Switch(config)# boot system flash:c3560-ipservicesk9-mz.&lt;version&gt;.bin
+Switch(config)# end
+Switch# copy running-config startup-config
+Switch# show boot
+Switch# reload
+</code></pre><p>Prüfen Sie <code>show boot</code> vor dem Neustart. Die <code>BOOT path-list</code> muss auf das neue Image zeigen, mit korrektem Dateinamen und Pfad.</p>
+<h2 id="4-nach-dem-upgrade">4. Nach dem Upgrade</h2>
+<pre tabindex="0"><code>Switch# show version
+Switch# show interfaces status
+Switch# show power inline
+Switch# show logging
+</code></pre><ul>
+<li><code>show version</code>: Die neue IOS-Version läuft.</li>
+<li><code>show interfaces status</code>: Alle erwarteten Ports sind aktiv.</li>
+<li><code>show power inline</code>: PoE-Geräte werden wieder versorgt.</li>
+<li><code>show logging</code>: Keine Fehler beim Start.</li>
+</ul>
+<p>Wenn die neue Version sicher funktioniert, löschen Sie das alte Image, um Platz zu schaffen, außer Sie wollen es für einen Rollback behalten.</p>
+<h2 id="5-rollback">5. Rollback</h2>
+<ul>
+<li><strong>Altes Image noch im Flash:</strong> Boot-Variable mit <code>boot system flash:&lt;altes-image&gt;</code> zurückstellen, speichern und neu starten.</li>
+<li><strong>Altes Image gelöscht:</strong> Vom TFTP-Server zurückkopieren, MD5 prüfen und Boot-Variable setzen.</li>
+<li><strong>Switch startet IOS gar nicht:</strong> Er bleibt am Prompt <code>switch:</code> stehen. Das behandelt der Artikel <a href="/de/posts/catalyst-3560-boot-loader-recovery/">Wenn ein Catalyst 3560 nicht startet: Wiederherstellung über den Boot Loader</a>.</li>
+</ul>
+<h2 id="häufige-fehler">Häufige Fehler</h2>
+<ul>
+<li><strong>Falsche Plattform oder falsches Feature Set.</strong> Ein Image für ein anderes Modell startet nicht.</li>
+<li><strong>Altes Image löschen, bevor das neue geprüft ist.</strong> Ist die Kopie beschädigt, gibt es nichts mehr zu starten.</li>
+<li><strong>Tippfehler in <code>boot system</code>.</strong> Der Switch findet das Image nicht und bleibt im Boot Loader stehen.</li>
+<li><strong>Keine Konsolenverbindung während des Neustarts.</strong> Wenn etwas schiefgeht, sehen Sie es nur über die Konsole.</li>
+</ul>
+<h2 id="verwandte-artikel">Verwandte Artikel</h2>
+<ul>
+<li><a href="/de/posts/catalyst-3560-password-recovery/">Cisco Catalyst 3560 Passwort-Wiederherstellung: Zwei Methoden</a></li>
+<li><a href="/de/posts/catalyst-3560-boot-loader-recovery/">Wenn ein Catalyst 3560 nicht startet: Wiederherstellung über den Boot Loader</a></li>
+<li><a href="/de/posts/cisco-nexus-nxos-upgrade-guide/">Cisco Nexus NX-OS Software-Upgrade-Leitfaden</a></li>
+<li><a href="/de/technology/securecrt-superputty/">SecureCRT und SuperPuTTY für Netzwerk-Engineers</a></li>
+</ul>
+]]></content:encoded></item><item><title>Cisco Nexus NX-OS Software-Upgrade-Leitfaden: Praxiserprobter Schritt-für-Schritt</title><link>https://barashhelvadzhaoglu.com/de/posts/cisco-nexus-nxos-upgrade-guide/</link><pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/posts/cisco-nexus-nxos-upgrade-guide/</guid><description>Praxisleitfaden für Cisco Nexus NX-OS Upgrades — Vorbereitung, Upgrade-Pfad, Dateiübertragung, Rollback und ROMMON-Wiederherstellung.</description><content:encoded><![CDATA[<p>Dieser Leitfaden behandelt den <strong>Cisco Nexus NX-OS Software-Upgrade-Prozess</strong> auf praktische, schrittweise Weise — einschließlich <strong>Rollback- und Wiederherstellungsszenarien</strong>. Das Ziel ist es, Serviceunterbrechungen zu minimieren und sicherzustellen, dass das Gerät im Fehlerfall immer wiederhergestellt werden kann.</p>
 <p>Die meisten Upgrade-Fehler werden nicht durch das Upgrade selbst verursacht — sie entstehen durch das Überspringen von Vorbereitungsschritten. Dieser Leitfaden behandelt die Vorbereitung genauso ernst wie die Ausführung.</p>
 <figure>
     <img loading="lazy" src="/img/postimages/nexus-nxos-upgrade-cover.webp"/> <figcaption>

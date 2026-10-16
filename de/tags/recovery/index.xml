@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Recovery on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/recovery/</link><description>Recent content in Recovery on Barash Helvadzhaoglu</description><generator>Hugo -- 0.168.0</generator><language>de</language><lastBuildDate>Fri, 16 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/recovery/index.xml" rel="self" type="application/rss+xml"/><item><title>Wenn ein Catalyst 3560 nicht startet: Wiederherstellung über den Boot Loader</title><link>https://barashhelvadzhaoglu.com/de/posts/catalyst-3560-boot-loader-recovery/</link><pubDate>Fri, 16 Oct 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/posts/catalyst-3560-boot-loader-recovery/</guid><description>Einen Cisco Catalyst 3560 wiederherstellen, der am Prompt switch: hängt — Boot-Loader-Variablen, ein anderes Image starten und ein neues IOS-Image per Xmodem über die Konsole übertragen.</description><content:encoded><![CDATA[<p>Früher oder später erlebt es jeder Netzwerk-Engineer: Nach einem Neustart kommt der Switch nicht zurück. Auf der Konsole steht nur der Prompt <code>switch:</code>. Das IOS-Image fehlt, ist beschädigt, oder die Boot-Variable zeigt auf eine Datei, die es nicht gibt.</p>
+<p>Das ist kein Grund, den Switch zu tauschen. Der Boot Loader des Catalyst 3560 hat alles, was Sie brauchen, um IOS wieder zum Laufen zu bringen, selbst wenn das Image im Flash fehlt. Dieser Leitfaden behandelt:</p>
+<ul>
+<li>Wie Sie die Boot-Loader-Umgebung lesen und warum der Switch dort stehen geblieben ist</li>
+<li>Wie Sie ein Image starten, das schon im Flash liegt</li>
+<li>Wie Sie ein neues Image per <strong>Xmodem</strong> über die Konsole übertragen, wenn der Flash leer ist</li>
+<li>Wie Sie die Lösung dauerhaft machen</li>
+</ul>
+<blockquote>
+<p><strong>Lab-Hinweis:</strong> Ich teste diese Szenarien auf meinem eigenen Catalyst 3560 mit 8 PoE-Ports. Konsolenausgaben und Übertragungszeiten aus diesem Lab werden ergänzt.</p>
+</blockquote>
+<h2 id="warum-der-switch-im-boot-loader-stehen-bleibt">Warum der Switch im Boot Loader stehen bleibt</h2>
+<p>Der Boot Loader startet IOS von dem Image, das in der Variable <code>BOOT</code> steht. Schlägt das fehl, oder ist keine <code>BOOT</code>-Variable gesetzt und der Boot Loader findet selbst kein startfähiges Image, bleibt der Switch am Prompt <code>switch:</code> stehen. Typische Ursachen:</p>
+<ul>
+<li>Das Upgrade ist schiefgegangen: ein Tippfehler in <code>boot system</code>, oder das alte Image wurde gelöscht, bevor das neue bereitstand.</li>
+<li>Die Image-Datei ist beschädigt, zum Beispiel nach einem abgebrochenen Kopiervorgang.</li>
+<li>Die Variable <code>MANUAL_BOOT</code> steht auf <code>yes</code>, der Switch wartet also immer am Prompt.</li>
+<li>Das Flash-Dateisystem ist beschädigt.</li>
+</ul>
+<p>Ein weiteres Symptom ist eine <strong>Boot-Schleife</strong>: Der Switch beginnt IOS zu laden, stürzt ab und startet immer wieder neu. Um die Schleife zu unterbrechen, halten Sie beim Einschalten die Mode-Taste gedrückt. Das Vorgehen steht im <a href="/de/posts/catalyst-3560-password-recovery/">Leitfaden zur Passwort-Wiederherstellung</a>.</p>
+<h2 id="schritt-1-bestandsaufnahme">Schritt 1: Bestandsaufnahme</h2>
+<p>Flash initialisieren und den Inhalt anzeigen:</p>
+<pre tabindex="0"><code>switch: flash_init
+switch: dir flash:
+</code></pre><p>Dann die Umgebungsvariablen des Boot Loaders anzeigen:</p>
+<pre tabindex="0"><code>switch: set
+</code></pre><p>Die wichtigsten Variablen:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Variable</th>
+					<th>Bedeutung</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>BOOT</code></td>
+					<td>Image(s), die der Switch zu starten versucht, durch Semikolon getrennt</td>
+			</tr>
+			<tr>
+					<td><code>MANUAL_BOOT</code></td>
+					<td><code>yes</code> = immer am Boot-Loader-Prompt anhalten</td>
+			</tr>
+			<tr>
+					<td><code>BAUD</code></td>
+					<td>Konsolengeschwindigkeit. Standard ist 9600, wenn die Variable nicht gesetzt ist</td>
+			</tr>
+			<tr>
+					<td><code>CONFIG_FILE</code></td>
+					<td>Name der Konfigurationsdatei, Standard <code>config.text</code></td>
+			</tr>
+	</tbody>
+</table>
+<p>Mit <code>help</code> sehen Sie, welche Befehle Ihre Boot-Loader-Version unterstützt.</p>
+<h2 id="schritt-2-ein-image-aus-dem-flash-starten">Schritt 2: Ein Image aus dem Flash starten</h2>
+<p>Zeigt <code>dir flash:</code> ein gültiges IOS-Image, können Sie es direkt starten. Images, die mit <code>archive download-sw</code> installiert wurden, liegen in einem Unterverzeichnis. Prüfen Sie also den vollständigen Pfad:</p>
+<pre tabindex="0"><code>switch: dir flash:c3560-ipservicesk9-mz.&lt;version&gt;
+switch: boot flash:c3560-ipservicesk9-mz.&lt;version&gt;/c3560-ipservicesk9-mz.&lt;version&gt;.bin
+</code></pre><p>War <code>MANUAL_BOOT</code> das Problem, korrigieren Sie es:</p>
+<pre tabindex="0"><code>switch: set MANUAL_BOOT no
+</code></pre><p>Sobald IOS läuft, setzen Sie die Boot-Variable dauerhaft:</p>
+<pre tabindex="0"><code>Switch# configure terminal
+Switch(config)# boot system flash:&lt;pfad&gt;/&lt;image&gt;.bin
+Switch(config)# end
+Switch# copy running-config startup-config
+Switch# show boot
+</code></pre><h2 id="schritt-3-flash-ist-leer-image-per-xmodem-übertragen">Schritt 3: Flash ist leer: Image per Xmodem übertragen</h2>
+<p>Gibt es kein brauchbares Image im Flash, müssen Sie eines übertragen. Beim klassischen Catalyst 3560 hat der Boot Loader keinen Netzwerk-Stack und der Switch keinen USB-Speicheranschluss. Der Weg führt also über die Konsole. Das Protokoll ist <strong>Xmodem</strong>, das jedes ernsthafte Terminalprogramm unterstützt.</p>
+<h3 id="image-vorbereiten">Image vorbereiten</h3>
+<p>Verwenden Sie die <code>.bin</code>-Datei, nicht die <code>.tar</code>-Datei. Xmodem überträgt eine einzelne Datei, und der Boot Loader kann keine Archive entpacken. Prüfen Sie die MD5-Prüfsumme vorher auf Ihrem PC, denn die Übertragung dauert lange und Sie wollen sie nicht wiederholen.</p>
+<h3 id="konsolengeschwindigkeit-erhöhen">Konsolengeschwindigkeit erhöhen</h3>
+<p>Bei 9600 Baud dauert die Übertragung eines IOS-Images dieser Größe mehrere Stunden. Erhöhen Sie zuerst die Geschwindigkeit:</p>
+<pre tabindex="0"><code>switch: set BAUD 115200
+</code></pre><p>Die Konsolenausgabe wird sofort unlesbar. Stellen Sie Ihr Terminalprogramm auf 115200 Baud um und drücken Sie Enter, bis der Prompt <code>switch:</code> wieder erscheint.</p>
+<h3 id="übertragung-starten">Übertragung starten</h3>
+<pre tabindex="0"><code>switch: copy xmodem: flash:c3560-ipservicesk9-mz.&lt;version&gt;.bin
+</code></pre><p>Der Switch wartet auf die Datei. Starten Sie in Ihrem Terminalprogramm einen Xmodem-Versand:</p>
+<ul>
+<li><strong>SecureCRT:</strong> Transfer &gt; Send Xmodem</li>
+<li><strong>Tera Term:</strong> File &gt; Transfer &gt; XMODEM &gt; Send</li>
+<li><strong>minicom / screen:</strong> <code>sx</code> aus dem Paket <code>lrzsz</code></li>
+</ul>
+<p>Bei 115200 Baud rechnen Sie je nach Image-Größe und Terminalprogramm mit einer halben bis einer Stunde. Berühren Sie die Konsolensitzung während der Übertragung nicht.</p>
+<h3 id="neues-image-starten">Neues Image starten</h3>
+<pre tabindex="0"><code>switch: dir flash:
+switch: boot flash:c3560-ipservicesk9-mz.&lt;version&gt;.bin
+</code></pre><h2 id="schritt-4-aufräumen">Schritt 4: Aufräumen</h2>
+<p>Sobald IOS läuft:</p>
+<ol>
+<li>Image prüfen: <code>verify /md5 flash:&lt;image&gt;.bin</code></li>
+<li><code>boot system</code> auf das neue Image setzen und speichern, wie in Schritt 2.</li>
+<li><strong>Konsolengeschwindigkeit zurücksetzen.</strong> Bleibt <code>BAUD</code> im Boot Loader auf 115200, behält auch die Konsole diese Geschwindigkeit. Wer sich später mit den üblichen 9600 Baud verbindet, sieht nur Zeichensalat. Setzen Sie den Wert im Boot Loader zurück (<code>set BAUD 9600</code>) oder stellen Sie sicher, dass die Konsolengeschwindigkeit in IOS dem entspricht, was Ihr Team erwartet.</li>
+<li>Einmal neu starten, um zu bestätigen, dass der Switch ohne Hilfe startet.</li>
+</ol>
+<h2 id="was-ist-mit-tftp-und-usb">Was ist mit TFTP und USB?</h2>
+<p>Auf neueren Catalyst-Plattformen kann der Boot Loader mehr. Manche Modelle haben einen USB-Speicheranschluss (<code>usbflash0:</code>) oder können ein Image über den Management-Port aus dem Netzwerk starten. Das ist viel schneller als Xmodem. Beim klassischen 3560 gibt es diese Optionen nicht, Xmodem ist bei leerem Flash also der einzige Weg. Mit <code>help</code> am Prompt <code>switch:</code> sehen Sie, was Ihre Plattform unterstützt.</p>
+<p>Dieselbe Idee, also von TFTP oder USB starten, wenn das Gerät nicht hochkommt, behandelt der <a href="/de/posts/cisco-nexus-nxos-upgrade-guide/">Nexus NX-OS Upgrade-Leitfaden</a> für Rechenzentrums-Switches.</p>
+<h2 id="vorbeugung">Vorbeugung</h2>
+<ul>
+<li>Bewahren Sie das aktuelle und das vorherige Image auf einem erreichbaren TFTP-Server auf.</li>
+<li>Prüfen Sie die MD5-Prüfsumme vor jedem Neustart nach einem Upgrade.</li>
+<li>Prüfen Sie <code>show boot</code> vor jedem geplanten Neustart.</li>
+<li>Halten Sie bei jedem Upgrade einen Konsolenzugang bereit. Ein Konsolenserver macht das auch aus der Ferne möglich: <a href="/de/posts/next-gen-console-server-architecture/">Next-Gen Console Server Architektur</a>.</li>
+</ul>
+<h2 id="verwandte-artikel">Verwandte Artikel</h2>
+<ul>
+<li><a href="/de/posts/catalyst-3560-password-recovery/">Cisco Catalyst 3560 Passwort-Wiederherstellung: Zwei Methoden</a></li>
+<li><a href="/de/posts/catalyst-3560-ios-upgrade/">Catalyst 3560 IOS-Upgrade: Zwei Methoden und Verifizierung</a></li>
+<li><a href="/de/posts/cisco-nexus-nxos-upgrade-guide/">Cisco Nexus NX-OS Software-Upgrade-Leitfaden</a></li>
+</ul>
+]]></content:encoded></item></channel></rss>

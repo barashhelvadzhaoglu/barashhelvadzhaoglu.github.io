@@ -1,4 +1,140 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Upgrade on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/upgrade/</link><description>Recent content in Upgrade on Barash Helvadzhaoglu</description><generator>Hugo -- 0.168.0</generator><language>tr</language><lastBuildDate>Tue, 30 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/upgrade/index.xml" rel="self" type="application/rss+xml"/><item><title>Cisco Nexus NX-OS Yazılım Güncelleme Rehberi: Sahada Test Edilmiş Adım Adım</title><link>https://barashhelvadzhaoglu.com/tr/posts/cisco-nexus-nxos-upgrade-guide/</link><pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/cisco-nexus-nxos-upgrade-guide/</guid><description>Cisco Nexus NX-OS güncelleme rehberi — hazırlık, güncelleme yolu, dosya transferi, rollback ve ROMMON kurtarma senaryoları.</description><content:encoded><![CDATA[<p>Bu rehber, Cisco Nexus switch&rsquo;lerde yazılım (NX-OS) güncelleme sürecini <strong>sahada uygulanabilir</strong>, <strong>adım adım</strong> ve <strong>geri dönüş senaryoları dahil</strong> olacak şekilde ele alır. Amaç; güncelleme sırasında servis kesintisi riskini azaltmak ve olası bir hatada cihazı hızlıca ayağa kaldırabilmektir.</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Upgrade on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/upgrade/</link><description>Recent content in Upgrade on Barash Helvadzhaoglu</description><generator>Hugo -- 0.168.0</generator><language>tr</language><lastBuildDate>Fri, 16 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/upgrade/index.xml" rel="self" type="application/rss+xml"/><item><title>Cisco Catalyst 3560 IOS Güncelleme: İki Yöntem ve Doğrulama</title><link>https://barashhelvadzhaoglu.com/tr/posts/catalyst-3560-ios-upgrade/</link><pubDate>Fri, 16 Oct 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/catalyst-3560-ios-upgrade/</guid><description>Cisco Catalyst 3560&amp;#39;ta IOS güncelleme — archive download-sw ile manuel kopyalama ve boot system karşılaştırması, flash alanı, MD5 doğrulama ve rollback.</description><content:encoded><![CDATA[<p>Catalyst 3560&rsquo;ta IOS güncellemek karmaşık değil ama ayrıntılar önemli: hangi dosya formatını indirdiğiniz, flash&rsquo;ta ne kadar yer kaldığı ve boot değişkeninin doğru imajı gösterip göstermediği. Bunlardan birinde yapılan hata, switch&rsquo;in IOS yerine boot loader&rsquo;da açılmasıyla sonuçlanır.</p>
+<p>İki yol var:</p>
+<ul>
+<li><strong>Yöntem A: <code>.tar</code> dosyasıyla <code>archive download-sw</code>.</strong> Switch imajı ve web device manager dosyalarını kendisi açar, boot değişkenini de kendisi ayarlar.</li>
+<li><strong>Yöntem B: <code>.bin</code> dosyasıyla manuel güncelleme.</strong> İmajı kopyalar, doğrular, <code>boot system</code>&lsquo;i ayarlar ve reload edersiniz.</li>
+</ul>
+<blockquote>
+<p><strong>Lab notu:</strong> Kendi 8 portlu PoE Catalyst 3560 switch&rsquo;imi iki yöntemle de güncelliyorum. Lab&rsquo;dan alınan konsol çıktıları ve süreler bu rehbere eklenecek.</p>
+</blockquote>
+<h2 id="1-başlamadan-önce">1. Başlamadan Önce</h2>
+<h3 id="konfigürasyonu-yedekleyin">Konfigürasyonu Yedekleyin</h3>
+<pre tabindex="0"><code>Switch# copy running-config startup-config
+Switch# copy startup-config tftp:
+</code></pre><p>Yedeği switch&rsquo;in dışında tutun: laptopunuzda, bir TFTP ya da SCP sunucusunda veya konfigürasyon yönetim aracınızda.</p>
+<h3 id="modeli-sürümü-ve-feature-seti-belirleyin">Modeli, Sürümü ve Feature Set&rsquo;i Belirleyin</h3>
+<pre tabindex="0"><code>Switch# show version
+Switch# show inventory
+</code></pre><p>Üç şeyi not edin:</p>
+<ul>
+<li><strong>Tam model</strong>, örneğin <code>WS-C3560-8PC-S</code>. İmaj platformla uyumlu olmalı.</li>
+<li><strong>Mevcut IOS sürümü</strong>.</li>
+<li><strong>Feature set</strong>, örneğin IP Base (<code>ipbasek9</code>) ya da IP Services (<code>ipservicesk9</code>). Bilinçli olarak değiştirmiyorsanız yeni imaj için aynı feature set&rsquo;i seçin.</li>
+</ul>
+<h3 id="boot-ayarlarını-ve-flash-alanını-kontrol-edin">Boot Ayarlarını ve Flash Alanını Kontrol Edin</h3>
+<pre tabindex="0"><code>Switch# show boot
+Switch# dir flash:
+</code></pre><p><code>show boot</code>, switch&rsquo;in bir sonraki reload&rsquo;da hangi imajı yükleyeceğini gösterir. <code>dir flash:</code> dosyaları ve en altta boş alanı gösterir. 8 portlu 3560 gibi kompakt switch&rsquo;lerde flash az. Çoğu zaman iki imajı aynı anda tutacak yer olmaz.</p>
+<h3 id="imajı-indirin">İmajı İndirin</h3>
+<p>İmajı Cisco Software Download&rsquo;dan indirin. Bunun için servis sözleşmesi gerekiyor. İki dosya tipi göreceksiniz:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Dosya</th>
+					<th>İçerik</th>
+					<th>Kullanım</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>.tar</code></td>
+					<td>IOS imajı ve web device manager dosyaları</td>
+					<td><code>archive download-sw</code> (Yöntem A)</td>
+			</tr>
+			<tr>
+					<td><code>.bin</code></td>
+					<td>Yalnızca IOS imajı</td>
+					<td>Manuel kopyalama ve <code>boot system</code> (Yöntem B)</td>
+			</tr>
+	</tbody>
+</table>
+<p>İndirme sayfasındaki <strong>MD5 checksum</strong> değerini not edin. Switch üzerinde bununla karşılaştıracaksınız.</p>
+<p>Klasik Catalyst 3560 end of life oldu. İndirme sayfasındaki en yeni sürüm bu platform için son sürüm.</p>
+<h2 id="2-yöntem-a-archive-download-sw">2. Yöntem A: archive download-sw</h2>
+<p>Cisco&rsquo;nun bu switch ailesi için önerdiği yöntem bu. Tek komut <code>.tar</code> dosyasını aktarır, flash&rsquo;ta yeni bir dizine açar, boot değişkenini günceller ve isterseniz reload eder.</p>
+<pre tabindex="0"><code>Switch# archive download-sw /overwrite /reload tftp://192.0.2.10/c3560-ipservicesk9-tar.&lt;surum&gt;.tar
+</code></pre><p>En kullanışlı seçenekler:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Seçenek</th>
+					<th>Etkisi</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>/overwrite</code></td>
+					<td>İki imaja yer yoksa mevcut imajın yerine yazar</td>
+			</tr>
+			<tr>
+					<td><code>/leave-old-sw</code></td>
+					<td>Eski imajı tutar (yalnızca flash ikisine de yetiyorsa)</td>
+			</tr>
+			<tr>
+					<td><code>/reload</code></td>
+					<td>Başarılı indirmeden sonra switch&rsquo;i reload eder</td>
+			</tr>
+			<tr>
+					<td><code>/imageonly</code></td>
+					<td>Web device manager dosyaları olmadan yalnızca IOS imajını kurar</td>
+			</tr>
+	</tbody>
+</table>
+<p>İki imaja yer varsa <code>/overwrite</code> yerine <code>/leave-old-sw</code> kullanın. Rollback o zaman sadece boot değişkenini değiştirmekten ibaret olur.</p>
+<p><code>/reload</code> kullanmadıysanız reload&rsquo;dan önce sonucu kontrol edin:</p>
+<pre tabindex="0"><code>Switch# show boot
+Switch# dir flash:
+Switch# reload
+</code></pre><h2 id="3-yöntem-b-bin-dosyasıyla-manuel-güncelleme">3. Yöntem B: .bin Dosyasıyla Manuel Güncelleme</h2>
+<p>Manuel yöntem her adımda tam kontrol sağlar. Elinizde yalnızca <code>.bin</code> dosyası varsa ya da boot değişkenine dokunmadan önce imajı doğrulamak istiyorsanız işe yarar.</p>
+<h3 id="imajı-kopyalayın">İmajı Kopyalayın</h3>
+<pre tabindex="0"><code>Switch# copy tftp://192.0.2.10/c3560-ipservicesk9-mz.&lt;surum&gt;.bin flash:
+</code></pre><p>Yer yetmiyorsa önce eski imajı silmeniz gerekir. Bu, switch üzerindeki rollback seçeneğinizi ortadan kaldırır. Eski imajın TFTP sunucunuzda olduğundan ve konsol bağlantısının hazır olduğundan emin olun.</p>
+<p>TFTP küçük dosyalar için iş görür ama yavaştır ve uzak mesafelerde güvenilir değildir. IOS sürümünüz destekliyorsa SCP ya da FTP daha hızlı.</p>
+<h3 id="checksumı-doğrulayın">Checksum&rsquo;ı Doğrulayın</h3>
+<pre tabindex="0"><code>Switch# verify /md5 flash:c3560-ipservicesk9-mz.&lt;surum&gt;.bin
+</code></pre><p>Sonucu Cisco indirme sayfasındaki MD5 değeriyle karşılaştırın. Farklıysa dosyayı silip yeniden kopyalayın. Doğrulamadan geçmeyen bir imajla asla açılış yapmayın.</p>
+<h3 id="boot-değişkenini-ayarlayın-ve-reload-edin">Boot Değişkenini Ayarlayın ve Reload Edin</h3>
+<pre tabindex="0"><code>Switch# configure terminal
+Switch(config)# boot system flash:c3560-ipservicesk9-mz.&lt;surum&gt;.bin
+Switch(config)# end
+Switch# copy running-config startup-config
+Switch# show boot
+Switch# reload
+</code></pre><p>Reload&rsquo;dan önce <code>show boot</code>&lsquo;u kontrol edin. <code>BOOT path-list</code> doğru dosya adı ve yolla yeni imajı göstermeli.</p>
+<h2 id="4-güncellemeden-sonra">4. Güncellemeden Sonra</h2>
+<pre tabindex="0"><code>Switch# show version
+Switch# show interfaces status
+Switch# show power inline
+Switch# show logging
+</code></pre><ul>
+<li><code>show version</code>: Yeni IOS sürümü çalışıyor.</li>
+<li><code>show interfaces status</code>: Beklenen tüm portlar açık.</li>
+<li><code>show power inline</code>: PoE cihazları yeniden besleniyor.</li>
+<li><code>show logging</code>: Açılışta hata yok.</li>
+</ul>
+<p>Yeni sürümün sorunsuz çalıştığından emin olduğunuzda, rollback için tutmak istemiyorsanız eski imajı silerek yer açın.</p>
+<h2 id="5-rollback">5. Rollback</h2>
+<ul>
+<li><strong>Eski imaj hâlâ flash&rsquo;ta:</strong> Boot değişkenini <code>boot system flash:&lt;eski-imaj&gt;</code> ile geri alın, kaydedin ve reload edin.</li>
+<li><strong>Eski imaj silindi:</strong> TFTP sunucusundan geri kopyalayın, MD5&rsquo;i doğrulayın ve boot değişkenini ayarlayın.</li>
+<li><strong>Switch IOS&rsquo;u hiç açamıyor:</strong> <code>switch:</code> prompt&rsquo;unda kalır. Bu durum <a href="/tr/posts/catalyst-3560-boot-loader-recovery/">Catalyst 3560 Açılmıyorsa: Boot Loader ile Kurtarma</a> yazısında anlatılıyor.</li>
+</ul>
+<h2 id="sık-yapılan-hatalar">Sık Yapılan Hatalar</h2>
+<ul>
+<li><strong>Yanlış platform ya da feature set.</strong> Başka bir modelin imajı açılmaz.</li>
+<li><strong>Yeni imaj doğrulanmadan eskisini silmek.</strong> Kopya bozuksa açılacak hiçbir şey kalmaz.</li>
+<li><strong><code>boot system</code>&lsquo;de yazım hatası.</strong> Switch imajı bulamaz ve boot loader&rsquo;da kalır.</li>
+<li><strong>Reload sırasında konsol bağlantısı olmaması.</strong> Bir şey ters giderse bunu yalnızca konsoldan görebilirsiniz.</li>
+</ul>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<ul>
+<li><a href="/tr/posts/catalyst-3560-password-recovery/">Cisco Catalyst 3560 Şifre Kurtarma: İki Yöntem</a></li>
+<li><a href="/tr/posts/catalyst-3560-boot-loader-recovery/">Catalyst 3560 Açılmıyorsa: Boot Loader ile Kurtarma</a></li>
+<li><a href="/tr/posts/cisco-nexus-nxos-upgrade-guide/">Cisco Nexus NX-OS Yazılım Güncelleme Rehberi</a></li>
+<li><a href="/tr/technology/securecrt-superputty/">Network Mühendisleri için SecureCRT ve SuperPuTTY</a></li>
+</ul>
+]]></content:encoded></item><item><title>Cisco Nexus NX-OS Yazılım Güncelleme Rehberi: Sahada Test Edilmiş Adım Adım</title><link>https://barashhelvadzhaoglu.com/tr/posts/cisco-nexus-nxos-upgrade-guide/</link><pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/cisco-nexus-nxos-upgrade-guide/</guid><description>Cisco Nexus NX-OS güncelleme rehberi — hazırlık, güncelleme yolu, dosya transferi, rollback ve ROMMON kurtarma senaryoları.</description><content:encoded><![CDATA[<p>Bu rehber, Cisco Nexus switch&rsquo;lerde yazılım (NX-OS) güncelleme sürecini <strong>sahada uygulanabilir</strong>, <strong>adım adım</strong> ve <strong>geri dönüş senaryoları dahil</strong> olacak şekilde ele alır. Amaç; güncelleme sırasında servis kesintisi riskini azaltmak ve olası bir hatada cihazı hızlıca ayağa kaldırabilmektir.</p>
 <p>Yaşanan upgrade problemlerinin büyük bölümü güncellemenin kendisinden değil — hazırlık adımlarının atlanmasından kaynaklanır. Bu rehber hazırlığı, uygulama kadar ciddiye alır.</p>
 <figure>
     <img loading="lazy" src="/img/postimages/nexus-nxos-upgrade-cover.webp"/> <figcaption>

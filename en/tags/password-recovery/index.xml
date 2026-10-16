@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Password Recovery on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/password-recovery/</link><description>Recent content in Password Recovery on Barash Helvadzhaoglu</description><generator>Hugo -- 0.168.0</generator><language>en</language><lastBuildDate>Fri, 16 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/password-recovery/index.xml" rel="self" type="application/rss+xml"/><item><title>Cisco Catalyst 3560 Password Recovery: Two Methods, Step by Step</title><link>https://barashhelvadzhaoglu.com/en/posts/catalyst-3560-password-recovery/</link><pubDate>Fri, 16 Oct 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/posts/catalyst-3560-password-recovery/</guid><description>How to recover a lost enable or console password on a Cisco Catalyst 3560 — keep the configuration with the boot loader method, or reset when password recovery is disabled.</description><content:encoded><![CDATA[<p>You inherit a switch, the documentation is gone, and nobody knows the enable password. Or a lab switch comes back from storage and the console asks for a password you never set. On a Cisco Catalyst 3560 you can recover from both without losing the configuration, as long as you have physical access and a console cable.</p>
+<p>This guide covers the two situations you will meet in practice:</p>
+<ul>
+<li><strong>Method 1: keep the configuration.</strong> The switch boots without loading its startup configuration, you reset the passwords, and you put the original configuration back.</li>
+<li><strong>Method 2: password recovery is disabled.</strong> Someone configured <code>no service password-recovery</code>. You can still get the switch back, but only by resetting it to factory defaults.</li>
+</ul>
+<blockquote>
+<p><strong>Lab note:</strong> I am running these procedures on my own Catalyst 3560 8-port PoE switch. Console outputs from that lab will be added to this guide.</p>
+</blockquote>
+<h2 id="what-you-need">What You Need</h2>
+<ul>
+<li>Physical access to the switch. Password recovery is deliberately impossible remotely.</li>
+<li>A console cable (RJ-45 rollover or USB-to-serial) and a terminal program such as SecureCRT, PuTTY or <code>screen</code>.</li>
+<li>Terminal settings: <strong>9600 baud, 8 data bits, no parity, 1 stop bit, no flow control</strong>.</li>
+<li>A maintenance window. The switch reboots twice and does not forward traffic during the procedure.</li>
+</ul>
+<p>For console access from a distance, a console server is the professional answer. See <a href="/en/posts/next-gen-console-server-architecture/">Next-Gen Console Server Architecture</a>.</p>
+<h2 id="how-the-recovery-works">How the Recovery Works</h2>
+<p>The Catalyst 3560 stores its startup configuration as a file called <code>config.text</code> in flash. When the switch boots normally, IOS loads that file. Password recovery interrupts the boot process before IOS starts and gives you the <strong>boot loader</strong>, a small environment with the <code>switch:</code> prompt.</p>
+<p>In the boot loader you can access the flash file system. If <code>config.text</code> is renamed, IOS boots without a configuration, which means without passwords. You then log in, restore the configuration manually and set new passwords.</p>
+<h2 id="method-1-recover-the-password-and-keep-the-configuration">Method 1: Recover the Password and Keep the Configuration</h2>
+<h3 id="step-1-interrupt-the-boot-process">Step 1: Interrupt the Boot Process</h3>
+<ol>
+<li>Connect the console cable and open your terminal session.</li>
+<li>Unplug the power cable.</li>
+<li>Press and hold the <strong>Mode</strong> button on the front panel.</li>
+<li>Reconnect the power while still holding Mode.</li>
+<li>Release the button after about 15 seconds, when the console shows that the system was interrupted before the flash file system was initialized.</li>
+</ol>
+<p>You should now see the <code>switch:</code> prompt. If the switch boots normally instead, power off and try again, holding the button a little longer.</p>
+<h3 id="step-2-initialize-flash">Step 2: Initialize Flash</h3>
+<p>The flash file system is not mounted yet. Initialize it:</p>
+<pre tabindex="0"><code>switch: flash_init
+</code></pre><p>On some older boot loader versions you also need to load helper files:</p>
+<pre tabindex="0"><code>switch: load_helper
+</code></pre><p>Then list the contents of flash:</p>
+<pre tabindex="0"><code>switch: dir flash:
+</code></pre><p>You should see the IOS image (or a directory containing it), <code>config.text</code>, <code>vlan.dat</code> and possibly <code>private-config.text</code>.</p>
+<h3 id="step-3-rename-the-configuration-file">Step 3: Rename the Configuration File</h3>
+<pre tabindex="0"><code>switch: rename flash:config.text flash:config.text.old
+</code></pre><p>Do <strong>not</strong> delete <code>config.text</code>. Renaming it is enough to stop IOS from loading it, and you still need its contents later.</p>
+<h3 id="step-4-boot-ios-without-the-configuration">Step 4: Boot IOS Without the Configuration</h3>
+<pre tabindex="0"><code>switch: boot
+</code></pre><p>The switch boots with an empty configuration. When it asks whether you want to enter the initial configuration dialog, answer <strong>no</strong>.</p>
+<h3 id="step-5-restore-the-original-configuration">Step 5: Restore the Original Configuration</h3>
+<pre tabindex="0"><code>Switch&gt; enable
+Switch# rename flash:config.text.old flash:config.text
+Switch# copy flash:config.text system:running-config
+</code></pre><p>The switch now runs your original configuration, including the hostname, VLANs, interfaces and the old passwords. You are still in privileged mode because you entered it before the configuration was loaded.</p>
+<h3 id="step-6-set-new-passwords">Step 6: Set New Passwords</h3>
+<pre tabindex="0"><code>Switch# configure terminal
+Switch(config)# enable secret &lt;new-enable-secret&gt;
+Switch(config)# username admin privilege 15 secret &lt;new-password&gt;
+Switch(config)# line con 0
+Switch(config-line)# login local
+Switch(config-line)# line vty 0 15
+Switch(config-line)# login local
+Switch(config-line)# end
+</code></pre><p>Adjust this to how authentication was set up before. If the switch used TACACS+ or RADIUS, check that the local fallback account still works.</p>
+<h3 id="step-7-check-interfaces-and-save">Step 7: Check Interfaces and Save</h3>
+<p>Copying a configuration into the running configuration merges it. It does not reproduce every interface state. Check for interfaces that are administratively down, especially VLAN interfaces (SVIs):</p>
+<pre tabindex="0"><code>Switch# show ip interface brief
+</code></pre><p>Bring up any interface that should be up with <code>no shutdown</code>. Then save:</p>
+<pre tabindex="0"><code>Switch# copy running-config startup-config
+</code></pre><p>Reload once and log in with the new credentials to confirm that everything survives a reboot.</p>
+<h2 id="method-2-when-password-recovery-is-disabled">Method 2: When Password Recovery Is Disabled</h2>
+<p>If the switch was configured with <code>no service password-recovery</code>, the Mode button procedure behaves differently. You cannot access the flash file system from the boot loader. Instead, the switch tells you that password recovery has been disabled and asks whether you want to reset the system to its default configuration.</p>
+<ul>
+<li>If you answer <strong>yes</strong>, the switch deletes the configuration file and the VLAN database and boots with factory defaults. The IOS image stays in flash.</li>
+<li>If you answer <strong>no</strong>, the switch boots normally with its current configuration, and you are back at the password prompt.</li>
+</ul>
+<p>This is the intended trade-off of the feature. An attacker with physical access cannot read the configuration, but you lose it too.</p>
+<p>Before you reset, make sure you have a recent backup of the configuration from another source, for example a configuration management tool, a TFTP server or an archived <code>show running-config</code>. After the reset:</p>
+<ol>
+<li>Log in without a password and set new credentials.</li>
+<li>Restore the configuration from your backup.</li>
+<li>Recreate the VLANs if your backup does not include them. The VLAN database (<code>vlan.dat</code>) is deleted too.</li>
+<li>Decide whether <code>no service password-recovery</code> should be enabled again. It makes sense for switches in public or unlocked locations, as long as the configuration is backed up somewhere else.</li>
+</ol>
+<h2 id="newer-boot-loaders-ignoring-the-startup-configuration">Newer Boot Loaders: Ignoring the Startup Configuration</h2>
+<p>Newer Catalyst models and boot loader versions offer a cleaner alternative to renaming <code>config.text</code>: a boot loader variable that tells IOS to ignore the startup configuration for one boot. Whether your switch supports it depends on the model and boot loader version. Run <code>set</code> at the <code>switch:</code> prompt to see the variables your boot loader knows.</p>
+<p>I will document what the 3560 boot loader offers once I have the lab outputs.</p>
+<h2 id="common-mistakes">Common Mistakes</h2>
+<ul>
+<li><strong>Deleting <code>config.text</code> instead of renaming it.</strong> The configuration is gone, and your only option is a backup.</li>
+<li><strong>Forgetting to rename the file back.</strong> The switch boots without configuration at the next reload.</li>
+<li><strong>Using <code>copy startup-config running-config</code> before renaming.</strong> The startup configuration does not exist under its normal name at that point.</li>
+<li><strong>Not saving after changing the passwords.</strong> The old passwords come back at the next reload.</li>
+<li><strong>Shut down SVIs after the merge.</strong> Management access over the network fails even though the configuration looks correct.</li>
+</ul>
+<h2 id="related-articles">Related Articles</h2>
+<ul>
+<li><a href="/en/posts/catalyst-3560-ios-upgrade/">Catalyst 3560 IOS Upgrade: Two Methods and Verification</a></li>
+<li><a href="/en/posts/catalyst-3560-boot-loader-recovery/">When a Catalyst 3560 Won&rsquo;t Boot: Recovery from the Boot Loader</a></li>
+<li><a href="/en/posts/cisco-nexus-nxos-upgrade-guide/">Cisco Nexus NX-OS Software Upgrade Guide</a></li>
+<li><a href="/en/posts/next-gen-console-server-architecture/">Next-Gen Console Server Architecture</a></li>
+</ul>
+]]></content:encoded></item></channel></rss>

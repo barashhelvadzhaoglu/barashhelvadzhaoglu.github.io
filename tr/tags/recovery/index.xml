@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Recovery on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/recovery/</link><description>Recent content in Recovery on Barash Helvadzhaoglu</description><generator>Hugo -- 0.168.0</generator><language>tr</language><lastBuildDate>Fri, 16 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/recovery/index.xml" rel="self" type="application/rss+xml"/><item><title>Catalyst 3560 Açılmıyorsa: Boot Loader ile Kurtarma</title><link>https://barashhelvadzhaoglu.com/tr/posts/catalyst-3560-boot-loader-recovery/</link><pubDate>Fri, 16 Oct 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/catalyst-3560-boot-loader-recovery/</guid><description>switch: prompt&amp;#39;unda kalan bir Cisco Catalyst 3560&amp;#39;ı kurtarma — boot loader değişkenleri, başka bir imajla açılış ve Xmodem ile konsol üzerinden yeni IOS imajı aktarma.</description><content:encoded><![CDATA[<p>Her network mühendisi er ya da geç bunu yaşar: reload&rsquo;dan sonra switch geri gelmez. Konsolda sadece <code>switch:</code> prompt&rsquo;u vardır. IOS imajı yoktur, bozuktur ya da boot değişkeni var olmayan bir dosyayı gösteriyordur.</p>
+<p>Bu, switch&rsquo;i değiştirmek için bir sebep değil. Catalyst 3560&rsquo;ın boot loader&rsquo;ında, flash&rsquo;taki imaj tamamen silinmiş olsa bile IOS&rsquo;u yeniden çalıştırmak için gereken her şey var. Bu rehberde şunlar anlatılıyor:</p>
+<ul>
+<li>Boot loader ortamını nasıl okuyacağınız ve switch&rsquo;in neden orada durduğu</li>
+<li>Flash&rsquo;ta zaten olan bir imajla nasıl açılış yapacağınız</li>
+<li>Flash boşsa <strong>Xmodem</strong> ile konsol üzerinden yeni imajı nasıl aktaracağınız</li>
+<li>Çözümü nasıl kalıcı hale getireceğiniz</li>
+</ul>
+<blockquote>
+<p><strong>Lab notu:</strong> Bu senaryoları kendi 8 portlu PoE Catalyst 3560 switch&rsquo;imde test ediyorum. Lab&rsquo;dan alınan konsol çıktıları ve aktarım süreleri bu rehbere eklenecek.</p>
+</blockquote>
+<h2 id="switch-neden-boot-loaderda-kalıyor">Switch Neden Boot Loader&rsquo;da Kalıyor?</h2>
+<p>Boot loader, IOS&rsquo;u <code>BOOT</code> değişkeninde yazan imajdan başlatır. Bu başarısız olursa ya da <code>BOOT</code> değişkeni tanımlı değilse ve boot loader kendisi açılabilir bir imaj bulamazsa, switch <code>switch:</code> prompt&rsquo;unda kalır. Tipik sebepler:</p>
+<ul>
+<li>Güncelleme ters gitmiştir: <code>boot system</code>&lsquo;de bir yazım hatası vardır ya da yenisi hazır olmadan eski imaj silinmiştir.</li>
+<li>İmaj dosyası bozuktur, örneğin yarıda kesilmiş bir kopyalama yüzünden.</li>
+<li><code>MANUAL_BOOT</code> değişkeni <code>yes</code> olarak ayarlıdır, switch her seferinde prompt&rsquo;ta bekler.</li>
+<li>Flash dosya sistemi bozulmuştur.</li>
+</ul>
+<p>Bir diğer belirti <strong>boot döngüsü</strong>: switch IOS&rsquo;u yüklemeye başlar, çöker ve tekrar tekrar yeniden başlar. Döngüyü kırmak için açılışı Mode butonuyla kesin. Adımlar <a href="/tr/posts/catalyst-3560-password-recovery/">şifre kurtarma rehberinde</a> anlatılıyor.</p>
+<h2 id="adım-1-durumu-inceleyin">Adım 1: Durumu İnceleyin</h2>
+<p>Flash&rsquo;ı başlatın ve içeriğe bakın:</p>
+<pre tabindex="0"><code>switch: flash_init
+switch: dir flash:
+</code></pre><p>Ardından boot loader ortam değişkenlerini görüntüleyin:</p>
+<pre tabindex="0"><code>switch: set
+</code></pre><p>En önemli değişkenler:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Değişken</th>
+					<th>Anlamı</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>BOOT</code></td>
+					<td>Switch&rsquo;in açmaya çalıştığı imaj(lar), noktalı virgülle ayrılır</td>
+			</tr>
+			<tr>
+					<td><code>MANUAL_BOOT</code></td>
+					<td><code>yes</code> = her zaman boot loader prompt&rsquo;unda dur</td>
+			</tr>
+			<tr>
+					<td><code>BAUD</code></td>
+					<td>Konsol hızı. Değişken tanımlı değilse varsayılan 9600</td>
+			</tr>
+			<tr>
+					<td><code>CONFIG_FILE</code></td>
+					<td>Konfigürasyon dosyasının adı, varsayılan <code>config.text</code></td>
+			</tr>
+	</tbody>
+</table>
+<p>Boot loader sürümünüzün hangi komutları desteklediğini <code>help</code> ile görebilirsiniz.</p>
+<h2 id="adım-2-flashtaki-bir-imajla-açın">Adım 2: Flash&rsquo;taki Bir İmajla Açın</h2>
+<p><code>dir flash:</code> geçerli bir IOS imajı gösteriyorsa doğrudan onunla açabilirsiniz. <code>archive download-sw</code> ile kurulan imajlar bir alt dizinde durur, bu yüzden tam yolu kontrol edin:</p>
+<pre tabindex="0"><code>switch: dir flash:c3560-ipservicesk9-mz.&lt;surum&gt;
+switch: boot flash:c3560-ipservicesk9-mz.&lt;surum&gt;/c3560-ipservicesk9-mz.&lt;surum&gt;.bin
+</code></pre><p>Sorun <code>MANUAL_BOOT</code> ise düzeltin:</p>
+<pre tabindex="0"><code>switch: set MANUAL_BOOT no
+</code></pre><p>IOS çalışınca boot değişkenini kalıcı olarak ayarlayın:</p>
+<pre tabindex="0"><code>Switch# configure terminal
+Switch(config)# boot system flash:&lt;yol&gt;/&lt;imaj&gt;.bin
+Switch(config)# end
+Switch# copy running-config startup-config
+Switch# show boot
+</code></pre><h2 id="adım-3-flash-boş-xmodem-ile-imaj-aktarın">Adım 3: Flash Boş: Xmodem ile İmaj Aktarın</h2>
+<p>Flash&rsquo;ta kullanılabilir bir imaj yoksa bir tane getirmeniz gerekir. Klasik Catalyst 3560&rsquo;ta boot loader&rsquo;ın network yığını yok, switch&rsquo;in de USB depolama portu yok. Yani tek yol konsol. Kullanılan protokol <strong>Xmodem</strong> ve ciddi her terminal programı bunu destekler.</p>
+<h3 id="imajı-hazırlayın">İmajı Hazırlayın</h3>
+<p><code>.tar</code> değil <code>.bin</code> dosyasını kullanın. Xmodem tek bir dosya aktarır ve boot loader arşiv açamaz. Aktarım uzun sürdüğü ve tekrarlamak istemeyeceğiniz için MD5 checksum&rsquo;ı önceden bilgisayarınızda kontrol edin.</p>
+<h3 id="konsol-hızını-artırın">Konsol Hızını Artırın</h3>
+<p>9600 baud&rsquo;da bu boyutta bir IOS imajını aktarmak birkaç saat sürer. Önce hızı artırın:</p>
+<pre tabindex="0"><code>switch: set BAUD 115200
+</code></pre><p>Konsol çıktısı hemen okunmaz hale gelir. Terminal programınızı 115200 baud&rsquo;a çevirin ve <code>switch:</code> prompt&rsquo;u geri gelene kadar Enter&rsquo;a basın.</p>
+<h3 id="aktarımı-başlatın">Aktarımı Başlatın</h3>
+<pre tabindex="0"><code>switch: copy xmodem: flash:c3560-ipservicesk9-mz.&lt;surum&gt;.bin
+</code></pre><p>Switch dosyayı bekler. Terminal programınızda bir Xmodem gönderimi başlatın:</p>
+<ul>
+<li><strong>SecureCRT:</strong> Transfer &gt; Send Xmodem</li>
+<li><strong>Tera Term:</strong> File &gt; Transfer &gt; XMODEM &gt; Send</li>
+<li><strong>minicom / screen:</strong> <code>lrzsz</code> paketindeki <code>sx</code></li>
+</ul>
+<p>115200 baud&rsquo;da imaj boyutuna ve terminal programına bağlı olarak yarım saat ile bir saat arası bir süre bekleyin. Aktarım sırasında konsol oturumuna dokunmayın.</p>
+<h3 id="yeni-imajla-açın">Yeni İmajla Açın</h3>
+<pre tabindex="0"><code>switch: dir flash:
+switch: boot flash:c3560-ipservicesk9-mz.&lt;surum&gt;.bin
+</code></pre><h2 id="adım-4-toparlayın">Adım 4: Toparlayın</h2>
+<p>IOS çalışınca:</p>
+<ol>
+<li>İmajı doğrulayın: <code>verify /md5 flash:&lt;imaj&gt;.bin</code></li>
+<li>Adım 2&rsquo;deki gibi <code>boot system</code>&lsquo;i yeni imaja ayarlayın ve kaydedin.</li>
+<li><strong>Konsol hızını geri alın.</strong> Boot loader&rsquo;daki <code>BAUD</code> 115200&rsquo;de kalırsa konsol da bu hızda kalır. Daha sonra varsayılan 9600 baud ile bağlanan herkes sadece anlamsız karakterler görür. Değeri boot loader&rsquo;da geri alın (<code>set BAUD 9600</code>) ya da IOS&rsquo;taki konsol hızının ekibinizin beklediği değer olduğundan emin olun.</li>
+<li>Switch&rsquo;in yardımsız açıldığını görmek için bir kez reload edin.</li>
+</ol>
+<h2 id="peki-tftp-ve-usb">Peki TFTP ve USB?</h2>
+<p>Yeni Catalyst platformlarında boot loader daha fazlasını yapabiliyor. Bazı modellerde USB depolama portu (<code>usbflash0:</code>) var ya da management portundan ağ üzerinden imajla açılabiliyorlar. Bu, Xmodem&rsquo;den çok daha hızlı. Klasik 3560&rsquo;ta bu seçenekler yok, yani flash boşsa tek yol Xmodem. Platformunuzun neleri desteklediğini <code>switch:</code> prompt&rsquo;unda <code>help</code> yazarak görebilirsiniz.</p>
+<p>Cihaz açılmadığında TFTP ya da USB&rsquo;den açılış fikri, data center switch&rsquo;leri için <a href="/tr/posts/cisco-nexus-nxos-upgrade-guide/">Nexus NX-OS güncelleme rehberinde</a> anlatılıyor.</p>
+<h2 id="önlem">Önlem</h2>
+<ul>
+<li>Mevcut ve bir önceki imajı erişebildiğiniz bir TFTP sunucusunda tutun.</li>
+<li>Her güncellemeden sonraki reload&rsquo;dan önce MD5 checksum&rsquo;ı doğrulayın.</li>
+<li>Planlı her reload&rsquo;dan önce <code>show boot</code>&lsquo;u kontrol edin.</li>
+<li>Her güncellemede konsol erişimini hazır tutun. Konsol sunucusu bunu uzaktan da mümkün kılar: <a href="/tr/posts/next-gen-console-server-architecture/">Yeni Nesil Konsol Sunucu Mimarisi</a>.</li>
+</ul>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<ul>
+<li><a href="/tr/posts/catalyst-3560-password-recovery/">Cisco Catalyst 3560 Şifre Kurtarma: İki Yöntem</a></li>
+<li><a href="/tr/posts/catalyst-3560-ios-upgrade/">Catalyst 3560 IOS Güncelleme: İki Yöntem ve Doğrulama</a></li>
+<li><a href="/tr/posts/cisco-nexus-nxos-upgrade-guide/">Cisco Nexus NX-OS Yazılım Güncelleme Rehberi</a></li>
+</ul>
+]]></content:encoded></item></channel></rss>
