@@ -9,6 +9,8 @@ keywords:
   - münchen it berater kontakt
   - netzwerksicherheit beratung anfrage
   - it support vor ort münchen
+aliases:
+  - "/de/kontakt/"
 ---
 <div style="max-width: 680px; margin: 0 auto;">
 

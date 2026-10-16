@@ -38,6 +38,8 @@ keywords:
   - altyapı lifecycle yönetimi
 
 toc: true
+aliases:
+  - "/tr/architecture/bt-altyapisi-urun-koleksiyonu-degil-sistem/"
 ---
 
 # IT Altyapısı Bir Ürün Koleksiyonu Değildir — Bir Sistemdir

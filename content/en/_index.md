@@ -24,6 +24,8 @@ keywords:
   - Steuernummer Freelancer IT
   - IT Dienstleistungen München
   - Netzwerk Sicherheit München
+aliases:
+  - "/en/page/1/"
 ---
 
 # Senior Network Security Engineer & IT Solutions Expert

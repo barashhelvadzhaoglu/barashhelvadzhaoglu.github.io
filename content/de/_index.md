@@ -23,6 +23,8 @@ keywords:
   - IT-Service München
   - IT Dienstleistungen München
   - Netzwerk Sicherheit München
+aliases:
+  - "/de/page/1/"
 ---
 
 # Senior Network Security Engineer & IT-Lösungsexperte

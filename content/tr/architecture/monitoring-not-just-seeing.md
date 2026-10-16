@@ -41,6 +41,9 @@ keywords:
 
 toc: true
 tocopen: true
+aliases:
+  - "/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/"
+  - "/tr/architecture/monitoring-sadece-gormek-degil-anlamak-ve-onlem-almak/"
 ---
 
 # The Monitoring Mindset: Görmek Değil, Anlamak ve Önceden Davranabilmek

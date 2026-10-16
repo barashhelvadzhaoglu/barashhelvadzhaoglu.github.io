@@ -15,6 +15,8 @@ categories: ["IT-Tipps"]
 keywords: ["SSL Zertifikat abgelaufen", "Website nicht sicher Warnung", "Cloudflare WAF KMU", "SSL 47 Tage", "automatische SSL Verwaltung", "DDoS Schutz München", "HTTPS Website Sicherheit", "Google Ranking SSL", "Cloudflare DNS München", "Web Application Firewall"]
 showToc: true
 TocOpen: true
+aliases:
+  - "/de/posts/ssl-zertifikat-website-sicherheit-cloudflare/"
 ---
 
 Sie öffnen eine Website im Browser und sehen das in der Adressleiste: 🔴 **"Ihre Verbindung ist nicht privat"**

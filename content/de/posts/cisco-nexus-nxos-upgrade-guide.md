@@ -14,6 +14,8 @@ categories: ["Netzwerkbetrieb"]
 keywords: ["Cisco Nexus Upgrade", "NX-OS Upgrade Leitfaden", "Nexus Software Update", "NX-OS ROMMON Wiederherstellung", "Nexus Upgrade Pfad", "Cisco Nexus Rollback", "NX-OS install all", "Nexus Bootflash Upgrade", "Cisco Rechenzentrum Upgrade", "NX-OS MD5 Verifikation"]
 showToc: true
 TocOpen: true
+aliases:
+  - "/de/posts/cisco-nexus-nxos-software-upgrade-leitfaden/"
 ---
 
 Dieser Leitfaden behandelt den **Cisco Nexus NX-OS Software-Upgrade-Prozess** auf praktische, schrittweise Weise — einschließlich **Rollback- und Wiederherstellungsszenarien**. Das Ziel ist es, Serviceunterbrechungen zu minimieren und sicherzustellen, dass das Gerät im Fehlerfall immer wiederhergestellt werden kann.

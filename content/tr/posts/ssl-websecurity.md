@@ -15,6 +15,8 @@ categories: ["IT İpuçları"]
 keywords: ["SSL sertifikası süresi doldu", "web sitesi güvenli değil uyarısı", "Cloudflare WAF KOBİ", "SSL 47 gün", "otomatik SSL yönetimi", "DDoS koruması Münih", "HTTPS web sitesi güvenliği", "Google sıralaması SSL", "Cloudflare DNS Münih", "Web Uygulama Güvenlik Duvarı"]
 showToc: true
 TocOpen: true
+aliases:
+  - "/tr/posts/ssl-certificate-website-security-cloudflare/"
 ---
 
 Tarayıcıda bir web sitesi açıyorsunuz ve adres çubuğunda bunu görüyorsunuz: 🔴 **"Bağlantınız özel değil"**

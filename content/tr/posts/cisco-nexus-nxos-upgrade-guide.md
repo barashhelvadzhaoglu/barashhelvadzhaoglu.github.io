@@ -14,6 +14,8 @@ categories: ["Network Operasyonları"]
 keywords: ["Cisco Nexus güncelleme", "NX-OS güncelleme rehberi", "Nexus yazılım günceleme", "NX-OS ROMMON kurtarma", "Nexus upgrade path", "Cisco Nexus rollback", "NX-OS install all", "Nexus bootflash upgrade", "Cisco veri merkezi upgrade", "NX-OS MD5 doğrulama"]
 showToc: true
 TocOpen: true
+aliases:
+  - "/tr/posts/cisco-nexus-nxos-yazilim-guncelleme-rehberi/"
 ---
 
 Bu rehber, Cisco Nexus switch'lerde yazılım (NX-OS) güncelleme sürecini **sahada uygulanabilir**, **adım adım** ve **geri dönüş senaryoları dahil** olacak şekilde ele alır. Amaç; güncelleme sırasında servis kesintisi riskini azaltmak ve olası bir hatada cihazı hızlıca ayağa kaldırabilmektir.

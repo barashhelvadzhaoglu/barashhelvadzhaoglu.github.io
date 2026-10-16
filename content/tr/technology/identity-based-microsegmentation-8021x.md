@@ -23,6 +23,8 @@ keywords:
   - Ağ Erişim Kontrolü
 showToc: true
 TocOpen: false
+aliases:
+  - "/tr/technology/kimlik-tabanli-mikrosegmentasyon-8021x/"
 ---
 
 # 802.1X Projeleri: Kimliği Ağa Taşıyan Mimariyi Sahada Kurmak

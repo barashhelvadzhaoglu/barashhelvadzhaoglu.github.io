@@ -14,6 +14,8 @@ categories: ["IT-Tipps"]
 keywords: ["NAS Backup AWS S3", "NAS ohne RAID Risiko", "Hyper Backup Synology", "AWS Glacier KMU", "Cloud Backup DSGVO", "NAS Festplattenausfall", "S3 Glacier Deep Archive", "automatisches Backup München", "NAS Datenverlust verhindern", "verschlüsseltes Cloud Backup"]
 showToc: true
 TocOpen: true
+aliases:
+  - "/de/posts/nas-backup-aws-s3-cloud-loesung/"
 ---
 
 Stellen Sie sich eine Arztpraxis vor. Acht Jahre Patientendaten, Rechnungen, Befunde. Alles auf einem kleinen NAS-Gerät im Büro. Eines Morgens startet das Gerät nicht mehr. Festplattenausfall. Man ruft ein Datenrettungsunternehmen an — "wir versuchen es, €800-2000, ohne Garantie."

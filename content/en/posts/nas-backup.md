@@ -14,6 +14,8 @@ categories: ["IT Tips"]
 keywords: ["NAS backup AWS S3", "NAS without RAID risk", "Hyper Backup Synology", "AWS Glacier SMB", "cloud backup GDPR", "NAS hard drive failure", "S3 Glacier Deep Archive", "automatic backup Munich", "prevent NAS data loss", "encrypted cloud backup"]
 showToc: true
 TocOpen: true
+aliases:
+  - "/en/posts/nas-backup-aws-s3-cloud-solution/"
 ---
 
 Imagine a medical practice. Eight years of patient records, invoices, reports. All on a small NAS device in the office. One morning the device doesn't start. Hard drive failure. You call a data recovery company — "we'll try, €800–2000, no guarantee."

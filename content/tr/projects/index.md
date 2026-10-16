@@ -16,6 +16,8 @@ keywords:
   - ağ otomasyonu Python
   - F5 load balancer migrasyonu
   - Aruba ClearPass 802.1X
+aliases:
+  - "/tr/projeler/"
 ---
 
 # Proje Portföyü

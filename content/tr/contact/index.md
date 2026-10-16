@@ -9,6 +9,8 @@ keywords:
   - münih bt danışmanı iletişim
   - ağ güvenliği danışmanlık
   - münih yerinde bt desteği
+aliases:
+  - "/tr/iletisim/"
 ---
 <div style="max-width: 680px; margin: 0 auto;">
 

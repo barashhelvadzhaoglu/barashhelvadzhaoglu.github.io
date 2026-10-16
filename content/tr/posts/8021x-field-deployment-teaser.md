@@ -5,6 +5,8 @@ summary: "802.1X sadece bir port güvenliği protokolü müdür? Sahadaki AD, PK
 keywords: ["802.1X", "Network Güvenliği", "Saha Tecrübesi"]
 draft: false
 date: 2026-01-14
+aliases:
+  - "/tr/posts/8021x-saha-tecrubesi-tanitim/"
 ---
 
 802.1X projeleri networkten ziyade **Active Directory**, **PKI** ve **GPO** disiplinine bağlıdır. Sadece switch konfigürasyonu yaparak bu projeleri başarıyla tamamlamak zordur. 

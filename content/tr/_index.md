@@ -22,6 +22,8 @@ keywords:
   - Freelance BT Danışmanı Münih
   - Münih Türk bilişimci
   - IT Dienstleistungen München
+aliases:
+  - "/tr/page/1/"
 ---
 
 # Senior Ağ Güvenliği Mühendisi & BT Çözümleri Uzmanı

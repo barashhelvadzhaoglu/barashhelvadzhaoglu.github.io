@@ -15,6 +15,8 @@ categories: ["IT Tips"]
 keywords: ["SSL certificate expired", "website not secure warning", "Cloudflare WAF SMB", "SSL 47 days", "automatic SSL management", "DDoS protection Munich", "HTTPS website security", "Google ranking SSL", "Cloudflare DNS Munich", "Web Application Firewall"]
 showToc: true
 TocOpen: true
+aliases:
+  - "/en/posts/ssl-certificate-website-security-cloudflare/"
 ---
 
 You open a website in your browser and see this in the address bar: 🔴 **"Your connection is not private"**

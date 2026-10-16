@@ -44,6 +44,9 @@ keywords:
 
 toc: true
 tocopen: true
+aliases:
+  - "/de/architecture/network-infrastructure-product-selection-strategic-criteria/"
+  - "/de/architecture/netzwerkinfrastruktur-produktauswahl-strategische-kriterien/"
 ---
 
 # Produktauswahl in der Netzwerkinfrastruktur: Strategische Kriterien und Felderfahrungen

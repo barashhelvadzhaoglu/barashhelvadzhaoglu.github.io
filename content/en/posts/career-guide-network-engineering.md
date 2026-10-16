@@ -14,6 +14,8 @@ categories: ["Education", "Network Architecture"]
 keywords: ["network engineer career", "how to become a network engineer", "CCNA certification", "IT infrastructure", "firewall basics", "network engineer salary", "network engineer roadmap", "CCNA study guide", "Cisco networking academy", "enterprise network engineer"]
 showToc: true
 TocOpen: true
+aliases:
+  - "/en/posts/graduate-guide-what-does-a-network-engineer-actually-do/"
 ---
 
 Hello friends! You've just graduated, you have your diploma in hand, and a vast IT world lies ahead of you. While wondering "Which path should I take?", you came across **Network Engineering**. So, do these people just plug in cables, or is there a massive intelligence behind the scenes? Let's dive deep into this invisible heroism of the digital world.

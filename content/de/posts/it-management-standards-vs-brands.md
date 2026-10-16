@@ -14,6 +14,9 @@ categories: ["IT-Strategie"]
 keywords: ["IT produktzentrierte Falle", "IT Standards vs Marken", "IT Recruiting Paradox", "Ingenieurdenken", "ITSM IT Management", "Netzwerkstandardisierung", "Firewall Dokumentation", "IT institutionelles Gedächtnis", "IT Karriereberatung", "Netzwerkingenieur Denkweise"]
 showToc: true
 TocOpen: true
+aliases:
+  - "/de/posts/it-management-produktzentrierte-falle-standards-vs-marken/"
+  - "/de/posts/the-product-centric-trap-in-it-standards-vs-brands/"
 ---
 
 In der modernen IT-Landschaft lesen sich Stellenbeschreibungen oft wie eine "Superhelden"-Wunschliste. Von Kandidaten wird erwartet, dass sie gleichzeitig tiefes Fachwissen in Dutzenden konkurrierender Produkte haben — Fortinet, Cisco, Palo Alto, Check Point. Es gibt jedoch eine grundlegende Logiklücke: Warum sollte ein Profi, der in all diesen Bereichen Meister ist, in einer Umgebung arbeiten wollen, der klare Standards und Prozesse fehlen?

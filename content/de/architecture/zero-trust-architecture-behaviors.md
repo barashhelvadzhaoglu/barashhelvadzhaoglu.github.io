@@ -44,6 +44,9 @@ keywords:
 
 toc: true
 tocopen: true
+aliases:
+  - "/de/architecture/zero-trust-denkweise-sicherheit-als-architektur/"
+  - "/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/"
 ---
 
 # Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt

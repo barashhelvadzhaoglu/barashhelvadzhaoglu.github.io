@@ -41,6 +41,8 @@ keywords:
 
 toc: true
 tocopen: true
+aliases:
+  - "/en/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/"
 ---
 
 # Monitoring Done Right: How to Build a Proactive IT Operations Culture

@@ -16,6 +16,8 @@ keywords:
   - Netzwerkautomatisierung Python
   - F5 Load Balancer Migration
   - Aruba ClearPass 802.1X
+aliases:
+  - "/de/projekte/"
 ---
 
 # Projektportfolio

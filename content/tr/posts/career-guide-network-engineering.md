@@ -14,6 +14,9 @@ categories: ["Eğitim", "Network Mimarisi"]
 keywords: ["network mühendisi kariyer", "network mühendisi nasıl olunur", "CCNA sertifikası", "IT altyapısı", "firewall temelleri", "network mühendisi maaşı", "network mühendisi yol haritası", "CCNA çalışma rehberi", "Cisco networking academy", "kurumsal network mühendisi"]
 showToc: true
 TocOpen: true
+aliases:
+  - "/tr/posts/graduate-guide-what-does-a-network-engineer-actually-do/"
+  - "/tr/posts/mezun-rehberi-network-muhendisi-ne-yapar/"
 ---
 
 Merhaba arkadaşlar! Yeni mezun oldunuz, diplomanız elinizde, önünüzde uçsuz bucaksız bir IT dünyası var. "Hangi yolu seçmeliyim?" diye düşünürken **Network Mühendisliği** ile karşılaştınız. Peki bu insanlar sadece kablo mu takıyor, yoksa sahnede görünmeyen büyük bir zeka mı var? Gelin dijital dünyanın bu görünmez kahramanlığına derinlemesine dalalım.

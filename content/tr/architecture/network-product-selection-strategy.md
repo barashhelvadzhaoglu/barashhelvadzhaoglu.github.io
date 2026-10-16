@@ -44,6 +44,9 @@ keywords:
 
 toc: true
 tocopen: true
+aliases:
+  - "/tr/architecture/ag-altyapisi-urun-secimi-stratejik-kriterler/"
+  - "/tr/architecture/network-infrastructure-product-selection-strategic-criteria/"
 ---
 
 # Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler ve Saha Deneyimleri

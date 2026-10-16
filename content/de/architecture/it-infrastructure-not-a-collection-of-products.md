@@ -38,6 +38,8 @@ keywords:
   - infrastruktur lifecycle management
 
 toc: true
+aliases:
+  - "/de/architecture/it-infrastruktur-keine-produktsammlung-ein-system/"
 ---
 
 # IT-Infrastruktur ist keine Produktsammlung — sie ist ein System

@@ -14,6 +14,9 @@ categories: ["Netzwerkarchitektur", "Infrastrukturmanagement"]
 keywords: ["was ist ein console server", "terminal server architektur", "out of band management", "SecureCRT integration", "HTML5 konsole", "netzwerk backup", "kernel panic log", "Opengear OOBM", "48 port console server", "netzwerk disaster recovery"]
 showToc: true
 TocOpen: true
+aliases:
+  - "/de/posts/naechste-generation-konsole-server-terminal-server-architektur/"
+  - "/de/posts/next-gen-console-server-terminal-server-architecture/"
 ---
 
 Der größte Alptraum eines Netzwerkingenieurs ist der vollständige Verlust des IP-Zugangs zu einem kritischen Gerät an einem entfernten Standort. Ein falscher `switchport`-Befehl, eine fehlerhafte ACL oder ein Geräte-Freeze... In diesen Fällen, wenn Sie die Management-IP nicht erreichen können, sind Sie gezwungen, stundenlang für eine "Vor-Ort-Intervention" zu reisen oder jemand anderen zu schicken. Genau hier kommt der **Console Server (Terminal Server)**, die "Versicherung" des Netzwerks, ins Spiel.

@@ -14,6 +14,9 @@ categories: ["Network Mimarisi", "Altyapı Yönetimi"]
 keywords: ["console server nedir", "terminal server mimarisi", "out of band management", "SecureCRT entegrasyonu", "HTML5 konsol", "ağ yedekleme", "kernel panic log", "Opengear OOBM", "48 port console server", "ağ felaket kurtarma"]
 showToc: true
 TocOpen: true
+aliases:
+  - "/tr/posts/next-gen-console-server-terminal-server-architecture/"
+  - "/tr/posts/yeni-nesil-konsol-sunucu-terminal-server-mimarisi/"
 ---
 
 Bir network mühendisinin en büyük kabusu, uzak bir konumdaki kritik cihaza IP erişiminin tamamen kesilmesidir. Yanlış bir `switchport` komutu, hatalı bir ACL veya cihaz donması... Bu durumlarda yönetim IP'sine ulaşamadığınızda saatlerce "yerinde müdahale" için yolculuk yapmak ya da birini göndermek zorunda kalırsınız. İşte tam bu noktada ağın "sigortası" olan **Console Server (Terminal Server)** devreye girer.

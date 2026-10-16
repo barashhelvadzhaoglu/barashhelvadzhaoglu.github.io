@@ -14,6 +14,8 @@ categories: ["Network Architecture", "Cyber Security"]
 keywords: ["What is Network Packet Broker", "NPB masterclass", "network visibility", "network automation", "NIAC", "traffic mirroring", "packet slicing", "Gigamon vs Ixia", "SSL offloading NPB", "enterprise network monitoring"]
 showToc: true
 TocOpen: true
+aliases:
+  - "/en/posts/network-packet-broker-npb-masterclass/"
 ---
 
 In today's enterprise network architectures, **"speed"** is no longer the sole criterion for success. The real challenge is knowing what flows within tens of gigabits of data traffic per second, ensuring security, and monitoring performance end-to-end. As the "intelligent traffic conductor" of modern networks, the **Network Packet Broker (NPB)** has become a strategic necessity for everything from cybersecurity to business continuity.

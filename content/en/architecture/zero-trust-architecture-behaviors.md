@@ -44,6 +44,8 @@ keywords:
 
 toc: true
 tocopen: true
+aliases:
+  - "/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/"
 ---
 
 # The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product

@@ -14,6 +14,8 @@ categories: ["IT Strategy"]
 keywords: ["IT product-centric trap", "IT standards vs brands", "IT recruitment paradox", "engineering mindset", "ITSM IT management", "network standardization", "firewall documentation", "IT institutional memory", "IT career advice", "network engineer mindset"]
 showToc: true
 TocOpen: true
+aliases:
+  - "/en/posts/the-product-centric-trap-in-it-standards-vs-brands/"
 ---
 
 In the modern IT landscape, job descriptions often read like a "superhero" wish list. Candidates are expected to have deep expertise in dozens of competing products — Fortinet, Cisco, Palo Alto, Check Point — simultaneously. However, there is a fundamental logic gap here: why would a professional who is a master of all these domains want to work in an environment that lacks clear standards and processes?

@@ -15,6 +15,9 @@ categories: ["Network Mimarisi", "Siber Güvenlik"]
 keywords: ["Network Packet Broker nedir", "NPB masterclass", "ağ görünürlüğü", "ağ otomasyonu", "NIAC", "trafik yansıtma", "paket dilimleme", "Gigamon vs Ixia", "SSL offloading NPB", "kurumsal ağ izleme"]
 showToc: true
 TocOpen: true
+aliases:
+  - "/tr/posts/network-packet-broker-npb-masterclass-kurumsal-ag/"
+  - "/tr/posts/network-packet-broker-npb-masterclass/"
 ---
 
 Günümüz kurumsal ağ mimarilerinde **"hız"** artık tek başarı kriteri değil. Asıl zorluk, saniyede onlarca gigabit veri trafiğinin içinde neyin aktığını bilmek, güvenliği sağlamak ve performansı uçtan uca izlemektir. Modern ağların "akıllı trafik yöneticisi" olan **Network Packet Broker (NPB)**, siber güvenlikten iş sürekliliğine kadar her şey için stratejik bir zorunluluk haline geldi.

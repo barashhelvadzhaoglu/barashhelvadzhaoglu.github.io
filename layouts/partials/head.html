@@ -5,8 +5,12 @@
 {{- /* Robots: page-level noindex overrides site-level (language) noindex */ -}}
 {{- $pageNoIndex := .Params.noindex | default .Params.robotsNoIndex | default false -}}
 {{- $siteNoIndex := site.Params.noindex | default false -}}
+{{- /* Tag, category and search pages are thin listing pages: keep them out of the index, but let crawlers follow their links */ -}}
+{{- $thinListing := or (in (slice "taxonomy" "term") .Kind) (eq .Layout "search") -}}
 
-{{- if and (or hugo.IsProduction (eq site.Params.env "production")) (not (or $pageNoIndex $siteNoIndex)) -}}
+{{- if and (or hugo.IsProduction (eq site.Params.env "production")) (not (or $pageNoIndex $siteNoIndex)) $thinListing -}}
+<meta name="robots" content="noindex, follow">
+{{- else if and (or hugo.IsProduction (eq site.Params.env "production")) (not (or $pageNoIndex $siteNoIndex)) -}}
 <meta name="robots" content="index, follow">
 {{- else -}}
 <meta name="robots" content="noindex, nofollow">

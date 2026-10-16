@@ -14,6 +14,8 @@ categories: ["Network Architecture", "Infrastructure Management"]
 keywords: ["what is a console server", "terminal server architecture", "out of band management", "SecureCRT integration", "HTML5 console", "network backup", "kernel panic log", "Opengear OOBM", "console server 48 port", "network disaster recovery"]
 showToc: true
 TocOpen: true
+aliases:
+  - "/en/posts/next-gen-console-server-terminal-server-architecture/"
 ---
 
 A network engineer's biggest nightmare is the complete loss of IP access to a critical device at a remote location. A wrong `switchport` command, a faulty ACL, or a device freeze... In these cases, when you cannot reach the management IP, you are forced to travel for hours for "on-site intervention" or send someone else. This is exactly where the **Console Server (Terminal Server)**, the "insurance" of the network, comes into play.

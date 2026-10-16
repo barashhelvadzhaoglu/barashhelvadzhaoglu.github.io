@@ -23,6 +23,8 @@ keywords:
   - Netzwerkzugangskontrolle
 showToc: true
 TocOpen: false
+aliases:
+  - "/de/technology/identitaetsbasierte-mikrosegmentierung-8021x/"
 ---
 
 # 802.1X-Projekte: Implementierung der identitätsbasierten Architektur in der Praxis

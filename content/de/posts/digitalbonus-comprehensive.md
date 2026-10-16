@@ -23,6 +23,8 @@ keywords:
   - E-Mail Sicherheit DSGVO
   - Backup Pflicht Unternehmen
   - IT-Förderung Bayern 2026
+aliases:
+  - "/de/posts/digitalbonus/"
 ---
 
 # IT-Sicherheitspflichten für kleine Unternehmen — und wie der Digitalbonus Bayern bis zu 50% übernimmt

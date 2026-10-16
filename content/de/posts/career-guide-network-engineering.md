@@ -14,6 +14,9 @@ categories: ["Bildung", "Netzwerkarchitektur"]
 keywords: ["netzwerkingenieur karriere", "netzwerkingenieur werden", "CCNA zertifizierung", "IT infrastruktur", "firewall grundlagen", "netzwerkingenieur gehalt", "netzwerkingenieur roadmap", "CCNA lernguide", "Cisco networking academy", "enterprise netzwerkingenieur"]
 showToc: true
 TocOpen: true
+aliases:
+  - "/de/posts/absolventenguide-was-macht-ein-netzwerkingenieur/"
+  - "/de/posts/graduate-guide-what-does-a-network-engineer-actually-do/"
 ---
 
 Hallo Freunde! Ihr habt gerade euren Abschluss gemacht, das Diplom in der Hand, und eine riesige IT-Welt liegt vor euch. Während ihr euch fragt "Welchen Weg soll ich einschlagen?", seid ihr auf **Netzwerkingenieurwesen** gestoßen. Stecken diese Leute also nur Kabel ein, oder steckt eine massive Intelligenz dahinter? Tauchen wir tief in dieses unsichtbare Heldentum der digitalen Welt ein.

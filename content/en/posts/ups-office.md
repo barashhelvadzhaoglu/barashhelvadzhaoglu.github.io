@@ -14,6 +14,8 @@ categories: ["IT Tips"]
 keywords: ["UPS office SMB", "power outage NAS protection", "UPS NAS integration", "APC UPS Munich", "PoE switch UPS", "office power protection", "prevent NAS filesystem corruption", "UPS types comparison", "Synology UPS", "uninterruptible power supply office"]
 showToc: true
 TocOpen: true
+aliases:
+  - "/en/posts/ups-office-power-protection-nas-switch/"
 ---
 
 "UPS? Yes, we have one — it's sitting next to the computer."

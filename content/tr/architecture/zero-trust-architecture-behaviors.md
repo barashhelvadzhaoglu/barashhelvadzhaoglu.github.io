@@ -44,6 +44,9 @@ keywords:
 
 toc: true
 tocopen: true
+aliases:
+  - "/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/"
+  - "/tr/architecture/zero-trust-zihniyeti-guvenlik-mimari-olarak/"
 ---
 
 # Zero Trust Zihniyeti: Güvenliği Bir Ürün Değil, Bir Mimari Olarak Mühendislemek

@@ -41,6 +41,9 @@ keywords:
 
 toc: true
 tocopen: true
+aliases:
+  - "/de/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/"
+  - "/de/architecture/monitoring-nicht-nur-sehen-verstehen-und-proaktiv-handeln/"
 ---
 
 # Monitoring richtig gemacht: Wie man eine proaktive IT-Betriebskultur aufbaut

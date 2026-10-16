@@ -14,6 +14,9 @@ categories: ["IT Stratejisi"]
 keywords: ["IT ürün odaklı tuzak", "IT standartlar vs markalar", "IT işe alım paradoksu", "mühendislik zihniyeti", "ITSM IT yönetimi", "ağ standardizasyonu", "firewall dokümantasyonu", "IT kurumsal hafıza", "IT kariyer tavsiyesi", "network mühendisi zihniyeti"]
 showToc: true
 TocOpen: true
+aliases:
+  - "/tr/posts/it-yonetiminde-urun-odakli-tuzak-standartlar-vs-markalar/"
+  - "/tr/posts/the-product-centric-trap-in-it-standards-vs-brands/"
 ---
 
 Modern IT dünyasında iş ilanları çoğu zaman bir "süper kahraman" istek listesi gibi okunuyor. Adayların aynı anda Fortinet, Cisco, Palo Alto, Check Point gibi birbiriyle rekabet eden düzinelerce üründe derin uzmanlığa sahip olması bekleniyor. Oysa burada temel bir mantık boşluğu var: tüm bu alanlarda ustalaşmış bir profesyonel, neden net standartları ve süreçleri olmayan bir ortamda çalışmak istesin?

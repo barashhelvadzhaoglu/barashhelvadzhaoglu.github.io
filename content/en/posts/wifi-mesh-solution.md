@@ -15,6 +15,8 @@ categories: ["IT Tips"]
 keywords: ["Wi-Fi mesh office Munich", "Aruba Instant On", "ClientMatch technology", "Wi-Fi villa solution", "sticky client problem", "PoE switch cameras", "Wi-Fi without cables", "professional Wi-Fi SMB", "Aruba PoE Munich", "wireless mesh network"]
 showToc: true
 TocOpen: true
+aliases:
+  - "/en/posts/wifi-mesh-solution-office-villa-aruba/"
 ---
 
 You know the feeling? In the front office or at reception the Wi-Fi is perfect — but the moment you step into the meeting room, the kitchen, or the back area, the connection drops or becomes too slow for productive work.

@@ -5,6 +5,8 @@ description: "802.1X-Erfolg hängt von AD, PKI und GPO-Disziplin ab. Praxiseinbl
 summary: "Ist 802.1X nur ein Protokoll oder eine Identitätsarchitektur? Unser neuer Praxisleitfaden zu AD, PKI und NAC ist online."
 keywords: ["802.1X", "NAC", "Netzwerksicherheit"]
 draft: false
+aliases:
+  - "/de/posts/8021x-praxisleitfaden-teaser/"
 ---
 
 Der Erfolg von 802.1X-Projekten hängt stärker von der Disziplin in **Active Directory**, **PKI** und **GPOs** ab als von der reinen Netzwerkkonfiguration. 

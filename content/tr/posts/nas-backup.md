@@ -14,6 +14,9 @@ categories: ["IT İpuçları"]
 keywords: ["NAS yedekleme AWS S3", "RAID olmayan NAS riski", "Hyper Backup Synology", "AWS Glacier KOBİ", "bulut yedekleme GDPR", "NAS sabit disk arızası", "S3 Glacier Deep Archive", "otomatik yedekleme Münih", "NAS veri kaybı önleme", "şifreli bulut yedekleme"]
 showToc: true
 TocOpen: true
+aliases:
+  - "/tr/posts/nas-backup-aws-s3-cloud-solution/"
+  - "/tr/posts/nas-yedekleme-aws-s3-bulut-cozumu/"
 ---
 
 Bir doktor muayenehanesi düşünün. Sekiz yıllık hasta kayıtları, faturalar, raporlar. Hepsi ofisteki küçük bir NAS cihazında. Bir sabah cihaz açılmıyor. Sabit disk arızası. Bir veri kurtarma şirketi arıyorsunuz — "deneyeceğiz, €800–2000, garanti yok."

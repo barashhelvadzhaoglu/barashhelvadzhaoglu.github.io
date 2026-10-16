@@ -45,6 +45,8 @@ keywords:
 
 toc: true
 tocopen: true
+aliases:
+  - "/de/architecture/a-core-network-is-not-a-product-list/"
 ---
 
 # Switch, Firewall, AP — Warum die richtige Produktwahl allein nicht ausreicht
