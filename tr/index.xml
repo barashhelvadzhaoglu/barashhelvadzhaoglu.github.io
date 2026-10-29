@@ -6096,7 +6096,26 @@ Gönder →
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>show version
 </span></span><span style="display:flex;"><span>show module
 </span></span><span style="display:flex;"><span>show inventory
-</span></span></code></pre></div><p>Bu çıktılar; doğru NX-OS imajını seçmek, upgrade path&rsquo;i belirlemek ve donanım uyumluluğunu kontrol etmek için gereklidir.</p>
+</span></span></code></pre></div><p>Örnek çıktı (kısaltılmış, değerler örnektir):</p>
+<pre tabindex="0"><code>switch# show version
+Cisco Nexus Operating System (NX-OS) Software
+...
+Software
+  BIOS: version 05.xx
+  NXOS: version 9.3(8)
+  NXOS image file is: bootflash:///nxos.9.3.8.bin
+
+Hardware
+  cisco Nexus9000 C93180YC-FX Chassis
+  Intel(R) Xeon(R) CPU with 24569476 kB of memory.
+  Processor Board ID XXXXXXXXXXX
+  Device name: N9K-LAB-01
+  bootflash:  115805708 kB
+
+switch# show inventory
+NAME: &#34;Chassis&#34;,  DESCR: &#34;Nexus9000 C93180YC-FX Chassis&#34;
+PID: N9K-C93180YC-FX     ,  VID: V0x ,  SN: XXXXXXXXXXX
+</code></pre><p>Bu çıktılar; doğru NX-OS imajını seçmek, upgrade path&rsquo;i belirlemek ve donanım uyumluluğunu kontrol etmek için gereklidir.</p>
 <h2 id="2-yazılım-dosyasını-indirme">2. Yazılım Dosyasını İndirme</h2>
 <ul>
 <li>Switch modelinize uygun NX-OS imajını Cisco&rsquo;nun resmi portalından indirin:
@@ -6121,7 +6140,7 @@ Gönder →
 <h2 id="4-yazılım-dosyasını-switche-kopyalama">4. Yazılım Dosyasını Switch&rsquo;e Kopyalama</h2>
 <h3 id="seçenek-a-ftp-ile-transfer">Seçenek A: FTP ile Transfer</h3>
 <p>FTP en yaygın kullanılan yöntemlerden biridir. NX-OS imajları 2 GB&rsquo;a yaklaşabileceğinden transfer süresi ağ hızına bağlıdır.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>copy ftp://user1:Qazwsx@10.10.10.5/nxos.9.3.10.bin bootflash:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>copy ftp://&lt;user&gt;@10.10.10.5/nxos.9.3.10.bin bootflash: vrf management
 </span></span></code></pre></div><p>Nexus&rsquo;ta birden fazla VRF tanımı varsa transfer için hangi VRF kullanılacağı sorulur. Management interface genellikle management VRF kullandığından bu örnekte management VRF seçilir.</p>
 <h3 id="seçenek-b-usb-ile-transfer-önerilen">Seçenek B: USB ile Transfer (Önerilen)</h3>
 <p>USB transfer benim tercih ettiğim yöntemdir:</p>
@@ -6135,11 +6154,54 @@ Gönder →
 <h3 id="md5-hash-doğrulaması">MD5 Hash Doğrulaması</h3>
 <p>Transfer tamamlandıktan sonra dosya bütünlüğünü doğrulayın:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>show file bootflash:nxos.9.3.10.bin md5sum
-</span></span></code></pre></div><p>Çıktı, Cisco indirme portalındaki MD5 hash değeriyle birebir aynı olmalıdır.</p>
+</span></span></code></pre></div><p>Örnek çıktı (kısaltılmış, değerler örnektir):</p>
+<pre tabindex="0"><code>switch# show file bootflash:nxos.9.3.10.bin md5sum
+&lt;32-character MD5 value of the file&gt;
+</code></pre><p>Bu değeri Cisco indirme sayfasındaki MD5 değeriyle karşılaştırın.</p>
+<p>Çıktı, Cisco indirme portalındaki MD5 hash değeriyle birebir aynı olmalıdır.</p>
 <h2 id="5-güncelleme-işlemi">5. Güncelleme İşlemi</h2>
 <p>Tüm kontroller tamamlandıktan sonra güncellemeyi başlatın:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>install all nxos bootflash:nxos.9.3.10.bin
-</span></span></code></pre></div><ul>
+</span></span></code></pre></div><p>Örnek çıktı (kısaltılmış, değerler örnektir):</p>
+<pre tabindex="0"><code>switch# install all nxos bootflash:nxos.9.3.10.bin
+Installer will perform compatibility check first. Please wait.
+Installer is forced disruptive
+
+Verifying image bootflash:/nxos.9.3.10.bin for boot variable &#34;nxos&#34;.
+[####################] 100% -- SUCCESS
+
+Verifying image type.
+[####################] 100% -- SUCCESS
+
+Performing module support checks.
+[####################] 100% -- SUCCESS
+
+Compatibility check is done:
+Module  bootable          Impact  Install-type  Reason
+------  --------  --------------  ------------  ------
+     1       yes      disruptive         reset  Default upgrade is not hitless
+
+Images will be upgraded according to following table:
+Module       Image   Running-Version(pri:alt)   New-Version   Upg-Required
+------  ----------  -------------------------  ------------  ------------
+     1        nxos                     9.3(8)        9.3(10)           yes
+
+Switch will be reloaded for disruptive upgrade.
+Do you want to continue with the installation (y/n)?  [n] y
+
+Install is in progress, please wait.
+
+Performing runtime checks.
+[####################] 100% -- SUCCESS
+
+Setting boot variables.
+[####################] 100% -- SUCCESS
+
+Performing configuration copy.
+[####################] 100% -- SUCCESS
+
+Finishing the upgrade, switch will reboot in 10 seconds.
+</code></pre><ul>
 <li>Switch, yükleme öncesinde mevcut konfigürasyonu otomatik olarak kaydeder.</li>
 <li>Reboot öncesinde onay ister.</li>
 <li>Onay verildikten sonra cihaz yeniden başlar ve upgrade işlemi başlar.</li>
@@ -6157,26 +6219,61 @@ Gönder →
 <ul>
 <li>Cihaz açılışı sırasında console bağlantısı üzerinden <strong>CTRL + L</strong> veya <strong>CTRL + C</strong> tuşlarına basarak <strong>ROMMON moduna</strong> geçin.</li>
 </ul>
-<h3 id="rommondan-tftp-ile-boot">ROMMON&rsquo;dan TFTP ile Boot</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>set ip 10.10.10.2 255.255.255.0
-</span></span><span style="display:flex;"><span>set gw 10.10.10.1
-</span></span><span style="display:flex;"><span>cmdline recoverymode<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>boot tftp://10.10.10.2/tftpboot/nxos.9.3.10.bin
-</span></span><span style="display:flex;"><span>init system
-</span></span><span style="display:flex;"><span>reload-nxos
-</span></span></code></pre></div><h3 id="rommondan-usb-ile-boot">ROMMON&rsquo;dan USB ile Boot</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>boot usb1:nxos.9.3.10.bin bootflash:
-</span></span><span style="display:flex;"><span>set ip 10.10.10.2 255.255.255.0
-</span></span><span style="display:flex;"><span>set gw 10.10.10.1
-</span></span><span style="display:flex;"><span>cmdline recoverymode<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>boot usb1:nxos.9.3.10.bin
-</span></span><span style="display:flex;"><span>init system
-</span></span><span style="display:flex;"><span>reload-nxos
-</span></span></code></pre></div><p>TFTP veya USB ile boot ettikten sonra boot ayarlarını doğrulayın ve düzeltin:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>show boot
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>configure terminal
+<h3 id="seçenek-1-imaj-hâlâ-bootflashta">Seçenek 1: İmaj Hâlâ Bootflash&rsquo;ta</h3>
+<p>İmaj bootflash&rsquo;taysa ama boot değişkeni yanlışsa doğrudan onunla açın:</p>
+<pre tabindex="0"><code>loader &gt; dir
+loader &gt; boot bootflash:nxos.9.3.10.bin
+</code></pre><p>NX-OS açılınca boot değişkenini bu bölümün sonundaki gibi düzeltin.</p>
+<h3 id="seçenek-2-imajı-tftpden-açmak">Seçenek 2: İmajı TFTP&rsquo;den Açmak</h3>
+<p>İmaj silinmiş ama bootflash sağlamsa, imajın tamamını management portu üzerinden bir TFTP sunucusundan açın. Switch&rsquo;in IP adresi ile TFTP sunucusu iki farklı adres olmalı ve imajın tam yolu verilmeli:</p>
+<pre tabindex="0"><code>loader &gt; set ip 10.10.10.20 255.255.255.0
+loader &gt; set gw 10.10.10.1
+loader &gt; boot tftp://10.10.10.5/tftpboot/nxos.9.3.10.bin
+</code></pre><p>Örnek çıktı (kısaltılmış, değerler örnektir):</p>
+<pre tabindex="0"><code>loader &gt; set ip 10.10.10.20 255.255.255.0
+Correct - ip addr is 10.10.10.20, mask is 255.255.255.0
+loader &gt; set gw 10.10.10.1
+Correct gateway addr 10.10.10.1
+loader &gt; boot tftp://10.10.10.5/tftpboot/nxos.9.3.10.bin
+Filesystem type is tftp, using whole disk
+Booting nxos image: tftp://10.10.10.5/tftpboot/nxos.9.3.10.bin....
+...
+Image verification OK
+</code></pre><p>İmaj yalnızca bellekten çalışır. NX-OS açılınca imajı bootflash&rsquo;a kopyalayın ve doğrulayın:</p>
+<pre tabindex="0"><code>copy tftp://10.10.10.5/tftpboot/nxos.9.3.10.bin bootflash: vrf management
+show file bootflash:nxos.9.3.10.bin md5sum
+</code></pre><h3 id="seçenek-3-usbden-açmak">Seçenek 3: USB&rsquo;den Açmak</h3>
+<pre tabindex="0"><code>loader &gt; dir usb1:
+loader &gt; boot usb1:nxos.9.3.10.bin
+</code></pre><p>NX-OS açılınca imajı <code>copy usb1:nxos.9.3.10.bin bootflash:</code> ile bootflash&rsquo;a kopyalayın ve MD5&rsquo;i doğrulayın.</p>
+<h3 id="seçenek-4-bootflash-bozuk-recovery-mode">Seçenek 4: Bootflash Bozuk (Recovery Mode)</h3>
+<p>Bunu yalnızca bootflash&rsquo;ın kendisi bozulduğunda kullanın. <strong><code>init system</code> cihazın dosya sistemini yeniden biçimlendirir.</strong> Çalıştırmadan önce konfigürasyon yedeğiniz olduğundan emin olun.</p>
+<pre tabindex="0"><code>loader &gt; set ip 10.10.10.20 255.255.255.0
+loader &gt; set gw 10.10.10.1
+loader &gt; cmdline recoverymode=1
+loader &gt; boot tftp://10.10.10.5/tftpboot/nxos.9.3.10.bin
+switch(boot)# init system
+switch(boot)# load-nxos
+</code></pre><p><code>cmdline recoverymode=1</code> açılışı <code>switch(boot)#</code> prompt&rsquo;unda durdurur. Ardından <code>load-nxos</code> NX-OS&rsquo;un yüklenmesini tamamlar. Sonra imajı bootflash&rsquo;a kopyalayın ve konfigürasyonu geri yükleyin. Kaynak: <a href="https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/102x/Troubleshooting/cisco-nexus-9000-series-nx-os-troubleshooting-guide-release-102x/m-troubleshooting-installations-upgrades-and-reboots.html">Cisco Nexus 9000 NX-OS Troubleshooting Guide</a>.</p>
+<h3 id="boot-değişkenini-düzeltmek">Boot Değişkenini Düzeltmek</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>configure terminal
 </span></span><span style="display:flex;"><span>  boot nxos bootflash:/nxos.9.3.10.bin
-</span></span></code></pre></div><h2 id="kritik-uyarı">Kritik Uyarı</h2>
+</span></span><span style="display:flex;"><span>end
+</span></span><span style="display:flex;"><span>copy running-config startup-config
+</span></span><span style="display:flex;"><span>show boot
+</span></span></code></pre></div><p>Örnek çıktı (kısaltılmış, değerler örnektir):</p>
+<pre tabindex="0"><code>Current Boot Variables:
+
+sup-1
+NXOS variable = bootflash:/nxos.9.3.10.bin
+Boot POAP Disabled
+
+Boot Variables on next reload:
+
+sup-1
+NXOS variable = bootflash:/nxos.9.3.10.bin
+Boot POAP Disabled
+</code></pre><h2 id="kritik-uyarı">Kritik Uyarı</h2>
 <p>Yazılım güncellemesi sırasında:</p>
 <ul>
 <li><strong>Ağ bağlantısını kesmeyin</strong></li>

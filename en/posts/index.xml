@@ -1625,7 +1625,26 @@ Older records and archive files: <strong>S3 Glacier Instant</strong> — very lo
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>show version
 </span></span><span style="display:flex;"><span>show module
 </span></span><span style="display:flex;"><span>show inventory
-</span></span></code></pre></div><p>These outputs are required to select the correct NX-OS image, determine the upgrade path, and verify hardware compatibility.</p>
+</span></span></code></pre></div><p>Example output (abbreviated, values are placeholders):</p>
+<pre tabindex="0"><code>switch# show version
+Cisco Nexus Operating System (NX-OS) Software
+...
+Software
+  BIOS: version 05.xx
+  NXOS: version 9.3(8)
+  NXOS image file is: bootflash:///nxos.9.3.8.bin
+
+Hardware
+  cisco Nexus9000 C93180YC-FX Chassis
+  Intel(R) Xeon(R) CPU with 24569476 kB of memory.
+  Processor Board ID XXXXXXXXXXX
+  Device name: N9K-LAB-01
+  bootflash:  115805708 kB
+
+switch# show inventory
+NAME: &#34;Chassis&#34;,  DESCR: &#34;Nexus9000 C93180YC-FX Chassis&#34;
+PID: N9K-C93180YC-FX     ,  VID: V0x ,  SN: XXXXXXXXXXX
+</code></pre><p>These outputs are required to select the correct NX-OS image, determine the upgrade path, and verify hardware compatibility.</p>
 <h2 id="2-download-the-software-image">2. Download the Software Image</h2>
 <ul>
 <li>Download the correct NX-OS image for your switch model from Cisco&rsquo;s official portal:
@@ -1648,6 +1667,21 @@ Older records and archive files: <strong>S3 Glacier Instant</strong> — very lo
 <p>On the switch itself, check the impact before you start, once the target image is in bootflash:</p>
 <pre tabindex="0"><code>show install all impact nxos bootflash:&lt;target-image&gt;.bin
 show incompatibility-all nxos bootflash:&lt;target-image&gt;.bin
+</code></pre><p>Example output (abbreviated, values are placeholders):</p>
+<pre tabindex="0"><code>switch# show install all impact nxos bootflash:nxos.9.3.10.bin
+...
+Compatibility check is done:
+Module  bootable          Impact  Install-type  Reason
+------  --------  --------------  ------------  ------
+     1       yes      disruptive         reset  Default upgrade is not hitless
+
+Images will be upgraded according to following table:
+Module       Image   Running-Version(pri:alt)   New-Version   Upg-Required
+------  ----------  -------------------------  ------------  ------------
+     1        nxos                     9.3(8)        9.3(10)           yes
+
+switch# show incompatibility-all nxos bootflash:nxos.9.3.10.bin
+No incompatible configurations
 </code></pre><p><code>show install all impact</code> tells you whether the upgrade will be disruptive for each module. <code>show incompatibility-all</code> lists configuration that the target release does not support.</p>
 <blockquote>
 <p>If multiple upgrade steps are required, download <strong>all intermediate images</strong> before starting, and verify each one with MD5.</p>
@@ -1656,7 +1690,7 @@ show incompatibility-all nxos bootflash:&lt;target-image&gt;.bin
 <h3 id="option-a-ftp-transfer">Option A: FTP Transfer</h3>
 <p>FTP is one of the most common methods. Note that NX-OS images can be close to 2 GB, so transfer time depends on network speed.</p>
 <p>Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>copy ftp://user1:Qazwsx@10.10.10.5/nxos.9.3.10.bin bootflash:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>copy ftp://&lt;user&gt;@10.10.10.5/nxos.9.3.10.bin bootflash: vrf management
 </span></span></code></pre></div><p>If multiple VRFs are configured on the Nexus, you will be asked which VRF to use for the transfer. Since the management interface typically uses the management VRF, select management VRF.</p>
 <h3 id="option-b-usb-transfer-recommended">Option B: USB Transfer (Recommended)</h3>
 <p>USB transfer is my preferred method when:</p>
@@ -1670,11 +1704,54 @@ show incompatibility-all nxos bootflash:&lt;target-image&gt;.bin
 <h3 id="md5-hash-verification">MD5 Hash Verification</h3>
 <p>After the transfer, verify file integrity:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>show file bootflash:nxos.9.3.10.bin md5sum
-</span></span></code></pre></div><p>The output must exactly match the MD5 hash from the Cisco download portal.</p>
+</span></span></code></pre></div><p>Example output (abbreviated, values are placeholders):</p>
+<pre tabindex="0"><code>switch# show file bootflash:nxos.9.3.10.bin md5sum
+&lt;32-character MD5 value of the file&gt;
+</code></pre><p>Compare this value with the MD5 hash on the Cisco download page.</p>
+<p>The output must exactly match the MD5 hash from the Cisco download portal.</p>
 <h2 id="5-run-the-upgrade">5. Run the Upgrade</h2>
 <p>Once all checks are complete, start the upgrade:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>install all nxos bootflash:nxos.9.3.10.bin
-</span></span></code></pre></div><ul>
+</span></span></code></pre></div><p>Example output (abbreviated, values are placeholders):</p>
+<pre tabindex="0"><code>switch# install all nxos bootflash:nxos.9.3.10.bin
+Installer will perform compatibility check first. Please wait.
+Installer is forced disruptive
+
+Verifying image bootflash:/nxos.9.3.10.bin for boot variable &#34;nxos&#34;.
+[####################] 100% -- SUCCESS
+
+Verifying image type.
+[####################] 100% -- SUCCESS
+
+Performing module support checks.
+[####################] 100% -- SUCCESS
+
+Compatibility check is done:
+Module  bootable          Impact  Install-type  Reason
+------  --------  --------------  ------------  ------
+     1       yes      disruptive         reset  Default upgrade is not hitless
+
+Images will be upgraded according to following table:
+Module       Image   Running-Version(pri:alt)   New-Version   Upg-Required
+------  ----------  -------------------------  ------------  ------------
+     1        nxos                     9.3(8)        9.3(10)           yes
+
+Switch will be reloaded for disruptive upgrade.
+Do you want to continue with the installation (y/n)?  [n] y
+
+Install is in progress, please wait.
+
+Performing runtime checks.
+[####################] 100% -- SUCCESS
+
+Setting boot variables.
+[####################] 100% -- SUCCESS
+
+Performing configuration copy.
+[####################] 100% -- SUCCESS
+
+Finishing the upgrade, switch will reboot in 10 seconds.
+</code></pre><ul>
 <li>The switch automatically saves the current configuration before installation.</li>
 <li>You will be prompted for confirmation before the reboot.</li>
 <li>After confirmation, the device reboots and the upgrade begins.</li>
@@ -1692,26 +1769,61 @@ show incompatibility-all nxos bootflash:&lt;target-image&gt;.bin
 <ul>
 <li>During device startup, press <strong>CTRL + L</strong> or <strong>CTRL + C</strong> via console connection to enter <strong>ROMMON mode</strong>.</li>
 </ul>
-<h3 id="boot-via-tftp-from-rommon">Boot via TFTP from ROMMON</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>set ip 10.10.10.2 255.255.255.0
-</span></span><span style="display:flex;"><span>set gw 10.10.10.1
-</span></span><span style="display:flex;"><span>cmdline recoverymode<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>boot tftp://10.10.10.2/tftpboot/nxos.9.3.10.bin
-</span></span><span style="display:flex;"><span>init system
-</span></span><span style="display:flex;"><span>reload-nxos
-</span></span></code></pre></div><h3 id="boot-via-usb-from-rommon">Boot via USB from ROMMON</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>boot usb1:nxos.9.3.10.bin bootflash:
-</span></span><span style="display:flex;"><span>set ip 10.10.10.2 255.255.255.0
-</span></span><span style="display:flex;"><span>set gw 10.10.10.1
-</span></span><span style="display:flex;"><span>cmdline recoverymode<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>boot usb1:nxos.9.3.10.bin
-</span></span><span style="display:flex;"><span>init system
-</span></span><span style="display:flex;"><span>reload-nxos
-</span></span></code></pre></div><p>After booting from TFTP or USB, verify and correct the boot settings:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>show boot
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>configure terminal
+<h3 id="option-1-the-image-is-still-in-bootflash">Option 1: The Image Is Still in Bootflash</h3>
+<p>If the image is in bootflash but the boot variable is wrong, boot it directly:</p>
+<pre tabindex="0"><code>loader &gt; dir
+loader &gt; boot bootflash:nxos.9.3.10.bin
+</code></pre><p>When NX-OS is up, fix the boot variable as shown at the end of this section.</p>
+<h3 id="option-2-boot-the-image-over-tftp">Option 2: Boot the Image over TFTP</h3>
+<p>If the image is missing but bootflash itself is fine, boot the full image from a TFTP server through the management port. The switch IP and the TFTP server are two different addresses, and you must give the full path to the image:</p>
+<pre tabindex="0"><code>loader &gt; set ip 10.10.10.20 255.255.255.0
+loader &gt; set gw 10.10.10.1
+loader &gt; boot tftp://10.10.10.5/tftpboot/nxos.9.3.10.bin
+</code></pre><p>Example output (abbreviated, values are placeholders):</p>
+<pre tabindex="0"><code>loader &gt; set ip 10.10.10.20 255.255.255.0
+Correct - ip addr is 10.10.10.20, mask is 255.255.255.0
+loader &gt; set gw 10.10.10.1
+Correct gateway addr 10.10.10.1
+loader &gt; boot tftp://10.10.10.5/tftpboot/nxos.9.3.10.bin
+Filesystem type is tftp, using whole disk
+Booting nxos image: tftp://10.10.10.5/tftpboot/nxos.9.3.10.bin....
+...
+Image verification OK
+</code></pre><p>The image runs from memory only. When NX-OS is up, copy it to bootflash and verify it:</p>
+<pre tabindex="0"><code>copy tftp://10.10.10.5/tftpboot/nxos.9.3.10.bin bootflash: vrf management
+show file bootflash:nxos.9.3.10.bin md5sum
+</code></pre><h3 id="option-3-boot-from-usb">Option 3: Boot from USB</h3>
+<pre tabindex="0"><code>loader &gt; dir usb1:
+loader &gt; boot usb1:nxos.9.3.10.bin
+</code></pre><p>When NX-OS is up, copy the image to bootflash with <code>copy usb1:nxos.9.3.10.bin bootflash:</code> and verify the MD5.</p>
+<h3 id="option-4-bootflash-is-corrupted-recovery-mode">Option 4: Bootflash Is Corrupted (Recovery Mode)</h3>
+<p>Use this only when bootflash itself is damaged. <strong><code>init system</code> reformats the file system of the device.</strong> Make sure you have a configuration backup before you run it.</p>
+<pre tabindex="0"><code>loader &gt; set ip 10.10.10.20 255.255.255.0
+loader &gt; set gw 10.10.10.1
+loader &gt; cmdline recoverymode=1
+loader &gt; boot tftp://10.10.10.5/tftpboot/nxos.9.3.10.bin
+switch(boot)# init system
+switch(boot)# load-nxos
+</code></pre><p><code>cmdline recoverymode=1</code> stops the boot at the <code>switch(boot)#</code> prompt. <code>load-nxos</code> then completes loading NX-OS. Afterwards copy the image to bootflash and restore the configuration. Source: <a href="https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/102x/Troubleshooting/cisco-nexus-9000-series-nx-os-troubleshooting-guide-release-102x/m-troubleshooting-installations-upgrades-and-reboots.html">Cisco Nexus 9000 NX-OS Troubleshooting Guide</a>.</p>
+<h3 id="fix-the-boot-variable">Fix the Boot Variable</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>configure terminal
 </span></span><span style="display:flex;"><span>  boot nxos bootflash:/nxos.9.3.10.bin
-</span></span></code></pre></div><h2 id="critical-warning">Critical Warning</h2>
+</span></span><span style="display:flex;"><span>end
+</span></span><span style="display:flex;"><span>copy running-config startup-config
+</span></span><span style="display:flex;"><span>show boot
+</span></span></code></pre></div><p>Example output (abbreviated, values are placeholders):</p>
+<pre tabindex="0"><code>Current Boot Variables:
+
+sup-1
+NXOS variable = bootflash:/nxos.9.3.10.bin
+Boot POAP Disabled
+
+Boot Variables on next reload:
+
+sup-1
+NXOS variable = bootflash:/nxos.9.3.10.bin
+Boot POAP Disabled
+</code></pre><h2 id="critical-warning">Critical Warning</h2>
 <p>During the software upgrade:</p>
 <ul>
 <li><strong>Do not interrupt the network connection</strong></li>
