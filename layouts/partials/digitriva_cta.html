@@ -1,0 +1,10 @@
+{{- $l := .Site.Language.Lang -}}
+<aside class="digitriva-cta" style="margin:2.5rem 0 1rem;padding:1rem 1.25rem;border:1px solid var(--border);border-radius:8px;background:var(--code-bg);">
+{{- if eq $l "de" }}
+  <strong>Netzwerk- oder IT-Projekt in München?</strong> Über <a href="https://digitriva.de/" rel="noopener">Digitriva</a> unterstütze ich kleine und mittlere Unternehmen bei Firewall, WLAN, Cisco ISE und IT-Betreuung vor Ort.
+{{- else if eq $l "tr" }}
+  <strong>Münih'te bir ağ ya da IT projeniz mi var?</strong> <a href="https://digitriva.de/en/" rel="noopener">Digitriva</a> üzerinden küçük ve orta ölçekli şirketlere firewall, WLAN, Cisco ISE ve yerinde IT desteği veriyorum.
+{{- else }}
+  <strong>Network or IT project in Munich?</strong> Through <a href="https://digitriva.de/en/" rel="noopener">Digitriva</a> I help small and mid-sized businesses with firewalls, Wi-Fi, Cisco ISE and on-site IT support.
+{{- end }}
+</aside>

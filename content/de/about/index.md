@@ -68,4 +68,5 @@ Für berufliche Anfragen oder um meine technischen Analysen zu verfolgen, könne
 * **LinkedIn:** [Barash Helvadzhaoglu](https://www.linkedin.com/in/barashhelvadzhaoglu/) — *Professionelles Networking und Karriere-Updates.*
 * **Xing:** [Barash Helvadzhaoglu](https://www.xing.com/profile/Barash_Helvadzhaoglu/web_profiles?nwt_nav=profile_icon) — *Business-Netzwerk für die DACH-Region.*
 * **Substack:** [Technical Notes & Insights](https://substack.com/@barashhelvadzhaoglu) — *Abonnieren Sie tiefgehende Artikel zu Netzwerksicherheit und Architektur.*
+* **Digitriva:** [IT- und Netzwerk-Services in München](https://digitriva.de/) — *Firewall, WLAN, Cisco ISE und IT-Betreuung vor Ort für kleine und mittlere Unternehmen.*
 * **E-Mail:** [info@barashhelvadzhaoglu.com](mailto:info@barashhelvadzhaoglu.com)

@@ -68,4 +68,5 @@ Feel free to reach out for professional inquiries or follow my technical deep di
 * **LinkedIn:** [Barash Helvadzhaoglu](https://www.linkedin.com/in/barashhelvadzhaoglu/) — *Professional networking and career updates.*
 * **Xing:** [Barash Helvadzhaoglu](https://www.xing.com/profile/Barash_Helvadzhaoglu/web_profiles?nwt_nav=profile_icon) — *Business networking in the DACH region.*
 * **Substack:** [Technical Notes & Insights](https://substack.com/@barashhelvadzhaoglu) — *Subscribe for in-depth network security and architecture articles.*
+* **Digitriva:** [IT and network services in Munich](https://digitriva.de/en/) — *Firewalls, Wi-Fi, Cisco ISE and on-site IT support for small and mid-sized businesses.*
 * **Email:** [info@barashhelvadzhaoglu.com](mailto:info@barashhelvadzhaoglu.com)

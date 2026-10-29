@@ -68,4 +68,5 @@ Profesyonel talepleriniz veya teknik yazılarımı takip etmek için benimle ile
 * **LinkedIn:** [Barış Helvacıoğlu](https://www.linkedin.com/in/barashhelvadzhaoglu/) — *Profesyonel ağ ve kariyer güncellemeleri.*
 * **Xing:** [Barış Helvacıoğlu](https://www.xing.com/profile/Barash_Helvadzhaoglu/web_profiles?nwt_nav=profile_icon) — *DACH bölgesi için iş ağı.*
 * **Substack:** [Teknik Notlar ve Analizler](https://substack.com/@barashhelvadzhaoglu) — *Ağ güvenliği ve mimari üzerine derinlemesine makaleler.*
+* **Digitriva:** [Münih'te IT ve ağ hizmetleri](https://digitriva.de/en/) — *Küçük ve orta ölçekli şirketler için firewall, WLAN, Cisco ISE ve yerinde IT desteği.*
 * **E-posta:** [info@barashhelvadzhaoglu.com](mailto:info@barashhelvadzhaoglu.com)
