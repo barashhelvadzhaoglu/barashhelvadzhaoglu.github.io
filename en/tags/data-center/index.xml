@@ -83,7 +83,7 @@
 <li>🔐 <a href="/en/technology/identity-based-microsegmentation-8021x/">802.1X Field Deployment Guide</a> — Identity-based access control</li>
 <li>📈 <a href="/en/posts/cisco-nexus-nxos-upgrade-guide/">Cisco Nexus NX-OS Upgrade Guide</a> — Safe software upgrade procedures</li>
 </ul>
-]]></content:encoded></item><item><title>Cisco Nexus NX-OS Software Upgrade Guide: Field-Tested Step by Step</title><link>https://barashhelvadzhaoglu.com/en/posts/cisco-nexus-nxos-upgrade-guide/</link><pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/posts/cisco-nexus-nxos-upgrade-guide/</guid><description>Field-tested guide for upgrading Cisco Nexus NX-OS — preparation, upgrade path, file transfer, rollback, and ROMMON recovery scenarios.</description><content:encoded><![CDATA[<p>This guide covers the <strong>Cisco Nexus NX-OS software upgrade process</strong> in a practical, step-by-step manner — including <strong>rollback and recovery scenarios</strong>. The goal is to minimize service disruption and ensure the device can always be recovered in case of failure.</p>
+]]></content:encoded></item><item><title>Cisco Nexus NX-OS Software Upgrade Guide: Field-Tested Step by Step</title><link>https://barashhelvadzhaoglu.com/en/posts/cisco-nexus-nxos-upgrade-guide/</link><pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/posts/cisco-nexus-nxos-upgrade-guide/</guid><description>How to check the Cisco NX-OS upgrade path with the Nexus Upgrade and ISSU Matrix, then upgrade a Nexus 9000, 3000 or 7000 step by step: install all, MD5, rollback and ROMMON recovery.</description><content:encoded><![CDATA[<p>This guide covers the <strong>Cisco Nexus NX-OS software upgrade process</strong> in a practical, step-by-step manner — including <strong>rollback and recovery scenarios</strong>. The goal is to minimize service disruption and ensure the device can always be recovered in case of failure.</p>
 <p>Most upgrade failures are not caused by the upgrade itself — they are caused by skipping preparation steps. This guide treats preparation as seriously as execution.</p>
 <figure>
     <img loading="lazy" src="/img/postimages/nexus-nxos-upgrade-cover.webp"/> <figcaption>
@@ -118,16 +118,21 @@
 <blockquote>
 <p>MD5 verification confirms the file was not corrupted during download. This step is not optional.</p>
 </blockquote>
-<h2 id="3-verify-the-upgrade-path">3. Verify the Upgrade Path</h2>
-<p>A direct upgrade from your current NX-OS version to the target version is <strong>not always supported</strong>. Some version combinations require intermediate steps.</p>
-<p>Use Cisco&rsquo;s official tools to verify:</p>
-<ul>
-<li><strong>Nexus Upgrade Matrix Tools</strong></li>
-<li>Nexus 9000 / 3000 Series</li>
-<li>Nexus 7000 Series</li>
-</ul>
+<h2 id="3-verify-the-upgrade-path-nx-os-upgrade-matrix">3. Verify the Upgrade Path (NX-OS Upgrade Matrix)</h2>
+<p>A direct upgrade from your current NX-OS version to the target version is <strong>not always supported</strong>. Some combinations need one or more intermediate releases, and some are only possible as a disruptive (cold boot) upgrade instead of ISSU. Cisco publishes the validated paths in its upgrade matrix tools.</p>
+<p><strong>Nexus 9000 and 3000:</strong> use the <a href="https://www.cisco.com/c/en/us/td/docs/dcn/tools/nexus-9k3k-issu-matrix/index.html">Cisco Nexus 9000 and 3000 Upgrade and ISSU Matrix</a>.</p>
+<ol>
+<li>Select your <strong>current</strong> NX-OS release and the <strong>target</strong> release.</li>
+<li>Read the result: whether a <strong>direct</strong> path exists, which <strong>intermediate releases</strong> are required, and whether the path supports <strong>ISSU</strong> (non-disruptive) or only a <strong>disruptive</strong> upgrade.</li>
+<li>Check the listed <strong>caveats</strong> and the supported hardware (PIDs) for your exact switch model.</li>
+</ol>
+<p><strong>Nexus 7000:</strong> Cisco provides a separate ISSU and cold boot support matrix. Both tools are listed in Cisco&rsquo;s <a href="https://www.cisco.com/c/en/us/support/docs/ios-nx-os-software/nx-os-software/217715-nexus-upgrade-matrix-tools.pdf">Nexus Upgrade Matrix Tools</a> note.</p>
+<p>On the switch itself, check the impact before you start, once the target image is in bootflash:</p>
+<pre tabindex="0"><code>show install all impact nxos bootflash:&lt;target-image&gt;.bin
+show incompatibility-all nxos bootflash:&lt;target-image&gt;.bin
+</code></pre><p><code>show install all impact</code> tells you whether the upgrade will be disruptive for each module. <code>show incompatibility-all</code> lists configuration that the target release does not support.</p>
 <blockquote>
-<p>If multiple upgrade steps are required, download <strong>all intermediate images</strong> before starting the process.</p>
+<p>If multiple upgrade steps are required, download <strong>all intermediate images</strong> before starting, and verify each one with MD5.</p>
 </blockquote>
 <h2 id="4-copy-the-software-file-to-the-switch">4. Copy the Software File to the Switch</h2>
 <h3 id="option-a-ftp-transfer">Option A: FTP Transfer</h3>
@@ -195,6 +200,16 @@
 <li><strong>Do not interrupt the power supply</strong></li>
 </ul>
 <p>Either condition can render the device unrecoverable without physical intervention.</p>
+<hr>
+<h2 id="faq">FAQ</h2>
+<p><strong>How do I find the NX-OS upgrade path for my Nexus switch?</strong>
+Use Cisco&rsquo;s Nexus 9000 and 3000 Upgrade and ISSU Matrix (or the Nexus 7000 ISSU matrix). Enter your current and target release. The tool shows whether a direct upgrade is supported, which intermediate releases you need and whether ISSU is possible.</p>
+<p><strong>Can I upgrade NX-OS directly to the latest release?</strong>
+Not always. Large jumps between major releases often need one or more intermediate releases. Always check the matrix for your exact combination instead of assuming a direct path.</p>
+<p><strong>What is the difference between ISSU and a disruptive upgrade?</strong>
+ISSU (In-Service Software Upgrade) upgrades the software while the switch keeps forwarding traffic. A disruptive (cold boot) upgrade reloads the switch and interrupts traffic. <code>show install all impact</code> tells you which one applies before you start.</p>
+<p><strong>What do I do if the Nexus switch boots into loader or ROMMON after the upgrade?</strong>
+Boot the image from bootflash, TFTP or USB as described in the rollback section above, then fix the boot variables.</p>
 <hr>
 <h2 id="related-articles">Related Articles</h2>
 <p><strong>Architecture &amp; Operations</strong></p>

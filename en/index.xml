@@ -1837,7 +1837,7 @@ Compare validation heatmap against prediction. Document actual versus predicted 
 <li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">Monitoring Done Right</a> — How DNA Center assurance fits into broader monitoring strategy</li>
 <li>🌐 <a href="/en/technology/enterprise-wifi-controller-architecture-cisco-aruba/">Enterprise WiFi Controller Architecture</a> — Wireless integration with DNA Center</li>
 </ul>
-]]></content:encoded></item><item><title>F5 WAF Deep Dive: Application Security with ASM and Advanced WAF</title><link>https://barashhelvadzhaoglu.com/en/technology/f5-waf-deep-dive/</link><pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/f5-waf-deep-dive/</guid><description>F5 WAF deep dive — ASM vs Advanced WAF, positive vs negative models, OWASP Top 10, bot defense, and phased transparent-to-blocking deployment.</description><content:encoded><![CDATA[<h1 id="f5-waf-deep-dive-application-security-with-asm-and-advanced-waf">F5 WAF Deep Dive: Application Security with ASM and Advanced WAF</h1>
+]]></content:encoded></item><item><title>F5 WAF Deep Dive: Application Security with ASM and Advanced WAF</title><link>https://barashhelvadzhaoglu.com/en/technology/f5-waf-deep-dive/</link><pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/f5-waf-deep-dive/</guid><description>F5 ASM vs Advanced WAF compared: signature and behavioral protection, OWASP Top 10 coverage, bot defense, credential stuffing protection and a phased transparent-to-blocking rollout.</description><content:encoded><![CDATA[<h1 id="f5-waf-deep-dive-application-security-with-asm-and-advanced-waf">F5 WAF Deep Dive: Application Security with ASM and Advanced WAF</h1>
 <p>This article is part of the F5 BIG-IP series.</p>
 <blockquote>
 <p><strong>New to F5?</strong> Start with the platform overview first: <a href="/en/technology/f5-bigip-application-delivery-platform-overview/">F5 BIG-IP Is Not a Load Balancer — It&rsquo;s an Application Delivery Platform</a></p>
@@ -2087,6 +2087,14 @@ Support ID:         12345678901234
 <li><strong>SIEM integration</strong> transforms WAF from a blocking tool into an intelligence source for the entire security operations function.</li>
 </ul>
 <hr>
+<h2 id="faq">FAQ</h2>
+<p><strong>F5 ASM vs Advanced WAF: what is the difference?</strong>
+ASM (Application Security Manager) is the original, mostly signature-based F5 WAF module. Advanced WAF includes the ASM functionality and adds behavioral protections such as proactive bot defense, credential stuffing protection and behavioral L7 DoS. The comparison table above shows the details.</p>
+<p><strong>Is F5 a firewall or a load balancer?</strong>
+Both, depending on the modules. LTM is the load balancer (application delivery controller). ASM or Advanced WAF is a web application firewall. AFM is a network firewall. See <a href="/en/technology/f5-master/">F5 BIG-IP Is Not a Load Balancer</a> for the full module map.</p>
+<p><strong>Should a new F5 WAF policy start in blocking mode?</strong>
+No. Start in transparent mode, let the policy learn and tune false positives, then move to blocking step by step, as described in the deployment section.</p>
+<hr>
 <h2 id="this-series">This Series</h2>
 <ul>
 <li>📖 <a href="/en/technology/f5-bigip-application-delivery-platform-overview/">F5 BIG-IP Platform Overview — All Modules</a> ← Start here if you&rsquo;re new to F5</li>
@@ -2100,7 +2108,7 @@ Support ID:         12345678901234
 <li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">Monitoring Done Right</a> — Integrating WAF logs into proactive monitoring</li>
 <li>🛡️ <a href="/en/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Full traffic visibility alongside WAF</li>
 </ul>
-]]></content:encoded></item><item><title>Cisco ISE: Architecture, Licensing, and When to Use It</title><link>https://barashhelvadzhaoglu.com/en/technology/cisco-ise-architecture/</link><pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/cisco-ise-architecture/</guid><description>Cisco ISE architectural guide — deployment models, node roles, licensing tiers, pxGrid integrations, and when ISE is right over simpler alternatives.</description><content:encoded><![CDATA[<h1 id="cisco-ise-architecture-licensing-and-when-to-use-it">Cisco ISE: Architecture, Licensing, and When to Use It</h1>
+]]></content:encoded></item><item><title>Cisco ISE: Architecture, Licensing, and When to Use It</title><link>https://barashhelvadzhaoglu.com/en/technology/cisco-ise-architecture/</link><pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/cisco-ise-architecture/</guid><description>Cisco ISE licensing explained (Essentials, Advantage, Premier and the separate Device Admin / TACACS+ license) plus node roles, deployment models, pxGrid and when ISE beats NPS or ClearPass.</description><content:encoded><![CDATA[<h1 id="cisco-ise-architecture-licensing-and-when-to-use-it">Cisco ISE: Architecture, Licensing, and When to Use It</h1>
 <p>Cisco Identity Services Engine (ISE) is the policy brain behind enterprise network access control. It&rsquo;s the platform that answers the question — for every device trying to connect to the network — of <em>who are you, what are you, are you healthy, and what are you allowed to do?</em></p>
 <p>If you&rsquo;ve read the <a href="/en/technology/identity-based-microsegmentation-8021x/">802.1X field guide</a>, you&rsquo;ve already seen ISE in action: it&rsquo;s the RADIUS server that returns dynamic VLAN assignments, the NAC platform that profiles devices, the policy engine that enforces posture compliance. This article steps back from the protocol details and looks at ISE as an architectural and investment decision — how it&rsquo;s structured, how it&rsquo;s licensed, and when it&rsquo;s the right tool.</p>
 <hr>
@@ -2278,6 +2286,16 @@ Support ID:         12345678901234
 <li><strong>ClearPass is the right answer for multi-vendor environments</strong> or where Cisco ecosystem commitment is limited.</li>
 <li><strong>Start in monitor mode</strong> — enforce only after validating what authentication would do to your existing environment.</li>
 </ul>
+<hr>
+<h2 id="faq">FAQ</h2>
+<p><strong>What are the Cisco ISE license tiers?</strong>
+Endpoint access is licensed in three tiers: Essentials (formerly Base) for 802.1X and basic guest access, Advantage (formerly Plus) for profiling, BYOD and pxGrid, and Premier (formerly Apex) for posture and threat-centric use cases.</p>
+<p><strong>Is TACACS+ device administration included in the ISE endpoint licenses?</strong>
+No. Device Administration (TACACS+) is licensed separately from Essentials, Advantage and Premier. You need it if ISE authenticates and authorizes engineers logging in to switches, routers and firewalls.</p>
+<p><strong>How is the ISE Device Admin license counted?</strong>
+It is counted per Policy Service Node (PSN) that runs the Device Administration service, not per network device or per administrator. Check the current Cisco ISE Licensing Guide for your release before ordering.</p>
+<p><strong>Cisco ISE vs Microsoft NPS: which one do I need?</strong>
+NPS covers basic RADIUS and 802.1X at no extra cost. ISE adds profiling, guest and BYOD workflows, posture, TACACS+ and integrations. The comparison section above explains when the extra cost is justified.</p>
 <hr>
 <h2 id="related-articles">Related Articles</h2>
 <ul>
@@ -2878,7 +2896,7 @@ NAS device (e.g., Synology) with automatic encrypted synchronization to AWS S3 F
 <li><a href="https://www.lda.bayern.de">BayLDA — Bavarian State Office for Data Protection Supervision</a></li>
 <li><a href="https://www.bundesfinanzministerium.de/Content/DE/Downloads/BMF_Schreiben/Weitere_Steuerthemen/Abgabenordnung/2019-11-28-GoBD.pdf">GoBD — Principles of Bookkeeping</a></li>
 </ul>
-]]></content:encoded></item><item><title>F5 GTM &amp; GSLB Deep Dive: Global Traffic Management and DNS Failover</title><link>https://barashhelvadzhaoglu.com/en/technology/f5-gtm-deep-dive/</link><pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/f5-gtm-deep-dive/</guid><description>F5 GTM (BIG-IP DNS) deep dive — Wide IPs, iQuery, topology routing, TTL strategy, multi-DC failover, and active-active vs active-standby patterns.</description><content:encoded><![CDATA[<h1 id="f5-gtm--gslb-deep-dive-global-traffic-management-and-dns-failover">F5 GTM &amp; GSLB Deep Dive: Global Traffic Management and DNS Failover</h1>
+]]></content:encoded></item><item><title>F5 GTM &amp; GSLB Deep Dive: Global Traffic Management and DNS Failover</title><link>https://barashhelvadzhaoglu.com/en/technology/f5-gtm-deep-dive/</link><pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/f5-gtm-deep-dive/</guid><description>GTM vs GSLB vs LTM explained: what F5 GTM (now BIG-IP DNS) does, how GSLB works with Wide IPs, iQuery and topology routing, and how to design multi-data-center DNS failover.</description><content:encoded><![CDATA[<h1 id="f5-gtm--gslb-deep-dive-global-traffic-management-and-dns-failover">F5 GTM &amp; GSLB Deep Dive: Global Traffic Management and DNS Failover</h1>
 <p>This article is part of the F5 BIG-IP series.</p>
 <blockquote>
 <p><strong>New to F5?</strong> Start with the platform overview first: <a href="/en/technology/f5-bigip-application-delivery-platform-overview/">F5 BIG-IP Is Not a Load Balancer — It&rsquo;s an Application Delivery Platform</a></p>
@@ -3111,6 +3129,14 @@ Default     → DC-Frankfurt
 <li>Use <strong>iQuery for BIG-IP LTMs</strong>; use GTM-native monitors for third-party endpoints.</li>
 </ul>
 <hr>
+<h2 id="faq">FAQ</h2>
+<p><strong>GTM vs GSLB: what is the difference?</strong>
+GSLB (Global Server Load Balancing) is the concept: distributing users across data centers or regions, usually through DNS. GTM (Global Traffic Manager) is F5&rsquo;s product that implements GSLB. Since BIG-IP v12, F5 calls the module BIG-IP DNS.</p>
+<p><strong>GTM vs LTM: what is the difference?</strong>
+LTM balances traffic between servers inside one data center as a full proxy. GTM decides which data center or site a user is sent to, by answering DNS queries. Most multi-site designs use both: GTM picks the site, LTM picks the server.</p>
+<p><strong>How does F5 handle failover across geographically distributed data centers?</strong>
+GTM monitors the virtual servers in each data center (through iQuery with LTM, or through monitors) and stops handing out the IP addresses of a failed site in its DNS answers. How fast clients move depends on the DNS TTL, which is covered in the TTL section above.</p>
+<hr>
 <h2 id="this-series">This Series</h2>
 <ul>
 <li>📖 <a href="/en/technology/f5-bigip-application-delivery-platform-overview/">F5 BIG-IP Platform Overview — All Modules</a> ← Start here if you&rsquo;re new to F5</li>
@@ -3123,7 +3149,7 @@ Default     → DC-Frankfurt
 <li>🔐 <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset</a> — Identity-aware access across distributed infrastructure</li>
 <li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">Monitoring Done Right</a> — Monitoring GTM and LTM health proactively</li>
 </ul>
-]]></content:encoded></item><item><title>SecureCRT and SuperPutty: Terminal Tools Every Network Engineer Should Know</title><link>https://barashhelvadzhaoglu.com/en/technology/securecrt-superputty/</link><pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/securecrt-superputty/</guid><description>Field guide to SecureCRT and SuperPutty — session logging, portability, credential management, scripting, and why SuperPutty beats PuTTY.</description><content:encoded><![CDATA[<h1 id="securecrt-and-superputty-terminal-tools-every-network-engineer-should-know">SecureCRT and SuperPutty: Terminal Tools Every Network Engineer Should Know</h1>
+]]></content:encoded></item><item><title>SecureCRT and SuperPutty: Terminal Tools Every Network Engineer Should Know</title><link>https://barashhelvadzhaoglu.com/en/technology/securecrt-superputty/</link><pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/securecrt-superputty/</guid><description>SecureCRT vs PuTTY vs SuperPuTTY compared for network engineers: tabs, session logging, saved credentials, scripting, file transfer and which tool to use when.</description><content:encoded><![CDATA[<h1 id="securecrt-and-superputty-terminal-tools-every-network-engineer-should-know">SecureCRT and SuperPutty: Terminal Tools Every Network Engineer Should Know</h1>
 <p>If you&rsquo;ve been doing network engineering for more than a few years, you&rsquo;ve probably spent thousands of hours inside a terminal client. SSH into a switch, run some show commands, make a change, move to the next device. It&rsquo;s the most repetitive workflow in the job — and the right tool makes it significantly less painful.</p>
 <p>Most engineers start with PuTTY. It works, it&rsquo;s free, and it does what it says. But there are two tools that take the terminal workflow from functional to genuinely efficient: <strong>SecureCRT</strong> (the professional standard) and <strong>SuperPutty</strong> (the free upgrade that PuTTY users don&rsquo;t know they need).</p>
 <p>This article covers both — what they actually do, the features that matter in daily network work, and when each one makes sense.</p>
@@ -4806,7 +4832,7 @@ Microsoft&rsquo;s offering for Azure-hosted resources. Standard tier provides ad
 <li>🛡️ <a href="/en/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Traffic visibility essential for DDoS forensics</li>
 <li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">Monitoring Done Right</a> — Detecting DDoS early through proactive monitoring</li>
 </ul>
-]]></content:encoded></item><item><title>F5 BIG-IP Is Not a Load Balancer — It's an Application Delivery Platform</title><link>https://barashhelvadzhaoglu.com/en/technology/f5-master/</link><pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/f5-master/</guid><description>F5 BIG-IP is far more than a load balancer. Master guide covering LTM, GTM, WAF, APM, AFM, and BGP routing — with links to each deep dive.</description><content:encoded><![CDATA[<h1 id="f5-big-ip-it-is-an-application-delivery-platform">F5 BIG-IP: It is an Application Delivery Platform</h1>
+]]></content:encoded></item><item><title>F5 BIG-IP Is Not a Load Balancer — It's an Application Delivery Platform</title><link>https://barashhelvadzhaoglu.com/en/technology/f5-master/</link><pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/f5-master/</guid><description>Is F5 a load balancer or a firewall? F5 BIG-IP explained module by module: LTM, GTM (BIG-IP DNS), ASM/Advanced WAF, APM and AFM, and how F5 compares to firewall vendors.</description><content:encoded><![CDATA[<h1 id="f5-big-ip-it-is-an-application-delivery-platform">F5 BIG-IP: It is an Application Delivery Platform</h1>
 <p>The most common introduction to F5 in an enterprise goes like this: someone opens a ticket that says <em>&ldquo;the load balancer is down&rdquo;</em> and points at the F5. The problem is already in that sentence.</p>
 <p>F5 BIG-IP is not a load balancer. Calling it one is like calling a data center a server room — technically not wrong, but it completely misses the point.</p>
 <p>F5 BIG-IP is an <strong>Application Delivery Controller (ADC)</strong>: a full-proxy platform that manages, secures, optimizes, and makes applications highly available across local and global infrastructure. Load balancing is one of perhaps a dozen things it does.</p>
@@ -4946,6 +4972,14 @@ Microsoft&rsquo;s offering for Azure-hosted resources. Standard tier provides ad
 <li>TCO is the primary constraint and open-source solutions are operationally feasible for your team</li>
 </ul>
 <p>The honest summary: in banking, telco, and large enterprises with on-premises infrastructure and mission-critical application requirements, F5 remains the dominant platform. In cloud-native or cost-constrained environments, evaluate alternatives seriously before committing to F5 licensing.</p>
+<hr>
+<h2 id="faq">FAQ</h2>
+<p><strong>Is F5 a load balancer or a firewall?</strong>
+F5 BIG-IP is an application delivery platform. With the LTM module it is a load balancer, with ASM or Advanced WAF a web application firewall, and with AFM a network firewall. Which one it is depends on the licensed modules.</p>
+<p><strong>Do Palo Alto Networks or Check Point offer application delivery and load balancing like F5?</strong>
+Not in the same way. Next-generation firewalls focus on network security. They do not provide a full application delivery controller with full-proxy load balancing, iRules, SSL offloading at scale and GSLB. In practice they are deployed next to an ADC such as F5, not instead of it.</p>
+<p><strong>What is the difference between LTM and GTM?</strong>
+LTM balances traffic between servers in one data center. GTM (BIG-IP DNS) sends users to the right data center through DNS. See the <a href="/en/technology/f5-gtm-deep-dive/">GTM deep dive</a>.</p>
 <hr>
 <h2 id="this-series">This Series</h2>
 <p>This article is the starting point. Each module has a dedicated deep dive:</p>
@@ -6645,7 +6679,7 @@ This version expands the architectural foundation for the series.</p>
 <hr>
 <p><em>A professional reference letter from senior management is available upon request.</em><br>
 <em><a href="/en/contact/">Contact me</a> for project details or consulting inquiries.</em></p>
-]]></content:encoded></item><item><title>Cisco Nexus NX-OS Software Upgrade Guide: Field-Tested Step by Step</title><link>https://barashhelvadzhaoglu.com/en/posts/cisco-nexus-nxos-upgrade-guide/</link><pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/posts/cisco-nexus-nxos-upgrade-guide/</guid><description>Field-tested guide for upgrading Cisco Nexus NX-OS — preparation, upgrade path, file transfer, rollback, and ROMMON recovery scenarios.</description><content:encoded><![CDATA[<p>This guide covers the <strong>Cisco Nexus NX-OS software upgrade process</strong> in a practical, step-by-step manner — including <strong>rollback and recovery scenarios</strong>. The goal is to minimize service disruption and ensure the device can always be recovered in case of failure.</p>
+]]></content:encoded></item><item><title>Cisco Nexus NX-OS Software Upgrade Guide: Field-Tested Step by Step</title><link>https://barashhelvadzhaoglu.com/en/posts/cisco-nexus-nxos-upgrade-guide/</link><pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/posts/cisco-nexus-nxos-upgrade-guide/</guid><description>How to check the Cisco NX-OS upgrade path with the Nexus Upgrade and ISSU Matrix, then upgrade a Nexus 9000, 3000 or 7000 step by step: install all, MD5, rollback and ROMMON recovery.</description><content:encoded><![CDATA[<p>This guide covers the <strong>Cisco Nexus NX-OS software upgrade process</strong> in a practical, step-by-step manner — including <strong>rollback and recovery scenarios</strong>. The goal is to minimize service disruption and ensure the device can always be recovered in case of failure.</p>
 <p>Most upgrade failures are not caused by the upgrade itself — they are caused by skipping preparation steps. This guide treats preparation as seriously as execution.</p>
 <figure>
     <img loading="lazy" src="/img/postimages/nexus-nxos-upgrade-cover.webp"/> <figcaption>
@@ -6680,16 +6714,21 @@ This version expands the architectural foundation for the series.</p>
 <blockquote>
 <p>MD5 verification confirms the file was not corrupted during download. This step is not optional.</p>
 </blockquote>
-<h2 id="3-verify-the-upgrade-path">3. Verify the Upgrade Path</h2>
-<p>A direct upgrade from your current NX-OS version to the target version is <strong>not always supported</strong>. Some version combinations require intermediate steps.</p>
-<p>Use Cisco&rsquo;s official tools to verify:</p>
-<ul>
-<li><strong>Nexus Upgrade Matrix Tools</strong></li>
-<li>Nexus 9000 / 3000 Series</li>
-<li>Nexus 7000 Series</li>
-</ul>
+<h2 id="3-verify-the-upgrade-path-nx-os-upgrade-matrix">3. Verify the Upgrade Path (NX-OS Upgrade Matrix)</h2>
+<p>A direct upgrade from your current NX-OS version to the target version is <strong>not always supported</strong>. Some combinations need one or more intermediate releases, and some are only possible as a disruptive (cold boot) upgrade instead of ISSU. Cisco publishes the validated paths in its upgrade matrix tools.</p>
+<p><strong>Nexus 9000 and 3000:</strong> use the <a href="https://www.cisco.com/c/en/us/td/docs/dcn/tools/nexus-9k3k-issu-matrix/index.html">Cisco Nexus 9000 and 3000 Upgrade and ISSU Matrix</a>.</p>
+<ol>
+<li>Select your <strong>current</strong> NX-OS release and the <strong>target</strong> release.</li>
+<li>Read the result: whether a <strong>direct</strong> path exists, which <strong>intermediate releases</strong> are required, and whether the path supports <strong>ISSU</strong> (non-disruptive) or only a <strong>disruptive</strong> upgrade.</li>
+<li>Check the listed <strong>caveats</strong> and the supported hardware (PIDs) for your exact switch model.</li>
+</ol>
+<p><strong>Nexus 7000:</strong> Cisco provides a separate ISSU and cold boot support matrix. Both tools are listed in Cisco&rsquo;s <a href="https://www.cisco.com/c/en/us/support/docs/ios-nx-os-software/nx-os-software/217715-nexus-upgrade-matrix-tools.pdf">Nexus Upgrade Matrix Tools</a> note.</p>
+<p>On the switch itself, check the impact before you start, once the target image is in bootflash:</p>
+<pre tabindex="0"><code>show install all impact nxos bootflash:&lt;target-image&gt;.bin
+show incompatibility-all nxos bootflash:&lt;target-image&gt;.bin
+</code></pre><p><code>show install all impact</code> tells you whether the upgrade will be disruptive for each module. <code>show incompatibility-all</code> lists configuration that the target release does not support.</p>
 <blockquote>
-<p>If multiple upgrade steps are required, download <strong>all intermediate images</strong> before starting the process.</p>
+<p>If multiple upgrade steps are required, download <strong>all intermediate images</strong> before starting, and verify each one with MD5.</p>
 </blockquote>
 <h2 id="4-copy-the-software-file-to-the-switch">4. Copy the Software File to the Switch</h2>
 <h3 id="option-a-ftp-transfer">Option A: FTP Transfer</h3>
@@ -6757,6 +6796,16 @@ This version expands the architectural foundation for the series.</p>
 <li><strong>Do not interrupt the power supply</strong></li>
 </ul>
 <p>Either condition can render the device unrecoverable without physical intervention.</p>
+<hr>
+<h2 id="faq">FAQ</h2>
+<p><strong>How do I find the NX-OS upgrade path for my Nexus switch?</strong>
+Use Cisco&rsquo;s Nexus 9000 and 3000 Upgrade and ISSU Matrix (or the Nexus 7000 ISSU matrix). Enter your current and target release. The tool shows whether a direct upgrade is supported, which intermediate releases you need and whether ISSU is possible.</p>
+<p><strong>Can I upgrade NX-OS directly to the latest release?</strong>
+Not always. Large jumps between major releases often need one or more intermediate releases. Always check the matrix for your exact combination instead of assuming a direct path.</p>
+<p><strong>What is the difference between ISSU and a disruptive upgrade?</strong>
+ISSU (In-Service Software Upgrade) upgrades the software while the switch keeps forwarding traffic. A disruptive (cold boot) upgrade reloads the switch and interrupts traffic. <code>show install all impact</code> tells you which one applies before you start.</p>
+<p><strong>What do I do if the Nexus switch boots into loader or ROMMON after the upgrade?</strong>
+Boot the image from bootflash, TFTP or USB as described in the rollback section above, then fix the boot variables.</p>
 <hr>
 <h2 id="related-articles">Related Articles</h2>
 <p><strong>Architecture &amp; Operations</strong></p>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Network Security on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/network-security/</link><description>Recent content in Network Security on Barash Helvadzhaoglu</description><generator>Hugo -- 0.169.0</generator><language>en</language><lastBuildDate>Mon, 20 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/network-security/index.xml" rel="self" type="application/rss+xml"/><item><title>Cisco ISE: Architecture, Licensing, and When to Use It</title><link>https://barashhelvadzhaoglu.com/en/technology/cisco-ise-architecture/</link><pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/cisco-ise-architecture/</guid><description>Cisco ISE architectural guide — deployment models, node roles, licensing tiers, pxGrid integrations, and when ISE is right over simpler alternatives.</description><content:encoded><![CDATA[<h1 id="cisco-ise-architecture-licensing-and-when-to-use-it">Cisco ISE: Architecture, Licensing, and When to Use It</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Network Security on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/network-security/</link><description>Recent content in Network Security on Barash Helvadzhaoglu</description><generator>Hugo -- 0.169.0</generator><language>en</language><lastBuildDate>Mon, 20 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/network-security/index.xml" rel="self" type="application/rss+xml"/><item><title>Cisco ISE: Architecture, Licensing, and When to Use It</title><link>https://barashhelvadzhaoglu.com/en/technology/cisco-ise-architecture/</link><pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/cisco-ise-architecture/</guid><description>Cisco ISE licensing explained (Essentials, Advantage, Premier and the separate Device Admin / TACACS+ license) plus node roles, deployment models, pxGrid and when ISE beats NPS or ClearPass.</description><content:encoded><![CDATA[<h1 id="cisco-ise-architecture-licensing-and-when-to-use-it">Cisco ISE: Architecture, Licensing, and When to Use It</h1>
 <p>Cisco Identity Services Engine (ISE) is the policy brain behind enterprise network access control. It&rsquo;s the platform that answers the question — for every device trying to connect to the network — of <em>who are you, what are you, are you healthy, and what are you allowed to do?</em></p>
 <p>If you&rsquo;ve read the <a href="/en/technology/identity-based-microsegmentation-8021x/">802.1X field guide</a>, you&rsquo;ve already seen ISE in action: it&rsquo;s the RADIUS server that returns dynamic VLAN assignments, the NAC platform that profiles devices, the policy engine that enforces posture compliance. This article steps back from the protocol details and looks at ISE as an architectural and investment decision — how it&rsquo;s structured, how it&rsquo;s licensed, and when it&rsquo;s the right tool.</p>
 <hr>
@@ -176,6 +176,16 @@
 <li><strong>ClearPass is the right answer for multi-vendor environments</strong> or where Cisco ecosystem commitment is limited.</li>
 <li><strong>Start in monitor mode</strong> — enforce only after validating what authentication would do to your existing environment.</li>
 </ul>
+<hr>
+<h2 id="faq">FAQ</h2>
+<p><strong>What are the Cisco ISE license tiers?</strong>
+Endpoint access is licensed in three tiers: Essentials (formerly Base) for 802.1X and basic guest access, Advantage (formerly Plus) for profiling, BYOD and pxGrid, and Premier (formerly Apex) for posture and threat-centric use cases.</p>
+<p><strong>Is TACACS+ device administration included in the ISE endpoint licenses?</strong>
+No. Device Administration (TACACS+) is licensed separately from Essentials, Advantage and Premier. You need it if ISE authenticates and authorizes engineers logging in to switches, routers and firewalls.</p>
+<p><strong>How is the ISE Device Admin license counted?</strong>
+It is counted per Policy Service Node (PSN) that runs the Device Administration service, not per network device or per administrator. Check the current Cisco ISE Licensing Guide for your release before ordering.</p>
+<p><strong>Cisco ISE vs Microsoft NPS: which one do I need?</strong>
+NPS covers basic RADIUS and 802.1X at no extra cost. ISE adds profiling, guest and BYOD workflows, posture, TACACS+ and integrations. The comparison section above explains when the extra cost is justified.</p>
 <hr>
 <h2 id="related-articles">Related Articles</h2>
 <ul>
@@ -1470,7 +1480,7 @@ Microsoft&rsquo;s offering for Azure-hosted resources. Standard tier provides ad
 <li>🛡️ <a href="/en/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Traffic visibility essential for DDoS forensics</li>
 <li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">Monitoring Done Right</a> — Detecting DDoS early through proactive monitoring</li>
 </ul>
-]]></content:encoded></item><item><title>F5 BIG-IP Is Not a Load Balancer — It's an Application Delivery Platform</title><link>https://barashhelvadzhaoglu.com/en/technology/f5-master/</link><pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/f5-master/</guid><description>F5 BIG-IP is far more than a load balancer. Master guide covering LTM, GTM, WAF, APM, AFM, and BGP routing — with links to each deep dive.</description><content:encoded><![CDATA[<h1 id="f5-big-ip-it-is-an-application-delivery-platform">F5 BIG-IP: It is an Application Delivery Platform</h1>
+]]></content:encoded></item><item><title>F5 BIG-IP Is Not a Load Balancer — It's an Application Delivery Platform</title><link>https://barashhelvadzhaoglu.com/en/technology/f5-master/</link><pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/f5-master/</guid><description>Is F5 a load balancer or a firewall? F5 BIG-IP explained module by module: LTM, GTM (BIG-IP DNS), ASM/Advanced WAF, APM and AFM, and how F5 compares to firewall vendors.</description><content:encoded><![CDATA[<h1 id="f5-big-ip-it-is-an-application-delivery-platform">F5 BIG-IP: It is an Application Delivery Platform</h1>
 <p>The most common introduction to F5 in an enterprise goes like this: someone opens a ticket that says <em>&ldquo;the load balancer is down&rdquo;</em> and points at the F5. The problem is already in that sentence.</p>
 <p>F5 BIG-IP is not a load balancer. Calling it one is like calling a data center a server room — technically not wrong, but it completely misses the point.</p>
 <p>F5 BIG-IP is an <strong>Application Delivery Controller (ADC)</strong>: a full-proxy platform that manages, secures, optimizes, and makes applications highly available across local and global infrastructure. Load balancing is one of perhaps a dozen things it does.</p>
@@ -1610,6 +1620,14 @@ Microsoft&rsquo;s offering for Azure-hosted resources. Standard tier provides ad
 <li>TCO is the primary constraint and open-source solutions are operationally feasible for your team</li>
 </ul>
 <p>The honest summary: in banking, telco, and large enterprises with on-premises infrastructure and mission-critical application requirements, F5 remains the dominant platform. In cloud-native or cost-constrained environments, evaluate alternatives seriously before committing to F5 licensing.</p>
+<hr>
+<h2 id="faq">FAQ</h2>
+<p><strong>Is F5 a load balancer or a firewall?</strong>
+F5 BIG-IP is an application delivery platform. With the LTM module it is a load balancer, with ASM or Advanced WAF a web application firewall, and with AFM a network firewall. Which one it is depends on the licensed modules.</p>
+<p><strong>Do Palo Alto Networks or Check Point offer application delivery and load balancing like F5?</strong>
+Not in the same way. Next-generation firewalls focus on network security. They do not provide a full application delivery controller with full-proxy load balancing, iRules, SSL offloading at scale and GSLB. In practice they are deployed next to an ADC such as F5, not instead of it.</p>
+<p><strong>What is the difference between LTM and GTM?</strong>
+LTM balances traffic between servers in one data center. GTM (BIG-IP DNS) sends users to the right data center through DNS. See the <a href="/en/technology/f5-gtm-deep-dive/">GTM deep dive</a>.</p>
 <hr>
 <h2 id="this-series">This Series</h2>
 <p>This article is the starting point. Each module has a dedicated deep dive:</p>

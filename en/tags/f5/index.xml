@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>F5 on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/f5/</link><description>Recent content in F5 on Barash Helvadzhaoglu</description><generator>Hugo -- 0.169.0</generator><language>en</language><lastBuildDate>Wed, 22 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/f5/index.xml" rel="self" type="application/rss+xml"/><item><title>F5 WAF Deep Dive: Application Security with ASM and Advanced WAF</title><link>https://barashhelvadzhaoglu.com/en/technology/f5-waf-deep-dive/</link><pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/f5-waf-deep-dive/</guid><description>F5 WAF deep dive — ASM vs Advanced WAF, positive vs negative models, OWASP Top 10, bot defense, and phased transparent-to-blocking deployment.</description><content:encoded><![CDATA[<h1 id="f5-waf-deep-dive-application-security-with-asm-and-advanced-waf">F5 WAF Deep Dive: Application Security with ASM and Advanced WAF</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>F5 on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/f5/</link><description>Recent content in F5 on Barash Helvadzhaoglu</description><generator>Hugo -- 0.169.0</generator><language>en</language><lastBuildDate>Wed, 22 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/f5/index.xml" rel="self" type="application/rss+xml"/><item><title>F5 WAF Deep Dive: Application Security with ASM and Advanced WAF</title><link>https://barashhelvadzhaoglu.com/en/technology/f5-waf-deep-dive/</link><pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/f5-waf-deep-dive/</guid><description>F5 ASM vs Advanced WAF compared: signature and behavioral protection, OWASP Top 10 coverage, bot defense, credential stuffing protection and a phased transparent-to-blocking rollout.</description><content:encoded><![CDATA[<h1 id="f5-waf-deep-dive-application-security-with-asm-and-advanced-waf">F5 WAF Deep Dive: Application Security with ASM and Advanced WAF</h1>
 <p>This article is part of the F5 BIG-IP series.</p>
 <blockquote>
 <p><strong>New to F5?</strong> Start with the platform overview first: <a href="/en/technology/f5-bigip-application-delivery-platform-overview/">F5 BIG-IP Is Not a Load Balancer — It&rsquo;s an Application Delivery Platform</a></p>
@@ -248,6 +248,14 @@ Support ID:         12345678901234
 <li><strong>SIEM integration</strong> transforms WAF from a blocking tool into an intelligence source for the entire security operations function.</li>
 </ul>
 <hr>
+<h2 id="faq">FAQ</h2>
+<p><strong>F5 ASM vs Advanced WAF: what is the difference?</strong>
+ASM (Application Security Manager) is the original, mostly signature-based F5 WAF module. Advanced WAF includes the ASM functionality and adds behavioral protections such as proactive bot defense, credential stuffing protection and behavioral L7 DoS. The comparison table above shows the details.</p>
+<p><strong>Is F5 a firewall or a load balancer?</strong>
+Both, depending on the modules. LTM is the load balancer (application delivery controller). ASM or Advanced WAF is a web application firewall. AFM is a network firewall. See <a href="/en/technology/f5-master/">F5 BIG-IP Is Not a Load Balancer</a> for the full module map.</p>
+<p><strong>Should a new F5 WAF policy start in blocking mode?</strong>
+No. Start in transparent mode, let the policy learn and tune false positives, then move to blocking step by step, as described in the deployment section.</p>
+<hr>
 <h2 id="this-series">This Series</h2>
 <ul>
 <li>📖 <a href="/en/technology/f5-bigip-application-delivery-platform-overview/">F5 BIG-IP Platform Overview — All Modules</a> ← Start here if you&rsquo;re new to F5</li>
@@ -261,7 +269,7 @@ Support ID:         12345678901234
 <li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">Monitoring Done Right</a> — Integrating WAF logs into proactive monitoring</li>
 <li>🛡️ <a href="/en/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Full traffic visibility alongside WAF</li>
 </ul>
-]]></content:encoded></item><item><title>F5 GTM &amp; GSLB Deep Dive: Global Traffic Management and DNS Failover</title><link>https://barashhelvadzhaoglu.com/en/technology/f5-gtm-deep-dive/</link><pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/f5-gtm-deep-dive/</guid><description>F5 GTM (BIG-IP DNS) deep dive — Wide IPs, iQuery, topology routing, TTL strategy, multi-DC failover, and active-active vs active-standby patterns.</description><content:encoded><![CDATA[<h1 id="f5-gtm--gslb-deep-dive-global-traffic-management-and-dns-failover">F5 GTM &amp; GSLB Deep Dive: Global Traffic Management and DNS Failover</h1>
+]]></content:encoded></item><item><title>F5 GTM &amp; GSLB Deep Dive: Global Traffic Management and DNS Failover</title><link>https://barashhelvadzhaoglu.com/en/technology/f5-gtm-deep-dive/</link><pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/f5-gtm-deep-dive/</guid><description>GTM vs GSLB vs LTM explained: what F5 GTM (now BIG-IP DNS) does, how GSLB works with Wide IPs, iQuery and topology routing, and how to design multi-data-center DNS failover.</description><content:encoded><![CDATA[<h1 id="f5-gtm--gslb-deep-dive-global-traffic-management-and-dns-failover">F5 GTM &amp; GSLB Deep Dive: Global Traffic Management and DNS Failover</h1>
 <p>This article is part of the F5 BIG-IP series.</p>
 <blockquote>
 <p><strong>New to F5?</strong> Start with the platform overview first: <a href="/en/technology/f5-bigip-application-delivery-platform-overview/">F5 BIG-IP Is Not a Load Balancer — It&rsquo;s an Application Delivery Platform</a></p>
@@ -493,6 +501,14 @@ Default     → DC-Frankfurt
 <li><strong>TTL controls new lookups only</strong> — not existing connections. Minimum effective failover = health check interval + TTL.</li>
 <li>Use <strong>iQuery for BIG-IP LTMs</strong>; use GTM-native monitors for third-party endpoints.</li>
 </ul>
+<hr>
+<h2 id="faq">FAQ</h2>
+<p><strong>GTM vs GSLB: what is the difference?</strong>
+GSLB (Global Server Load Balancing) is the concept: distributing users across data centers or regions, usually through DNS. GTM (Global Traffic Manager) is F5&rsquo;s product that implements GSLB. Since BIG-IP v12, F5 calls the module BIG-IP DNS.</p>
+<p><strong>GTM vs LTM: what is the difference?</strong>
+LTM balances traffic between servers inside one data center as a full proxy. GTM decides which data center or site a user is sent to, by answering DNS queries. Most multi-site designs use both: GTM picks the site, LTM picks the server.</p>
+<p><strong>How does F5 handle failover across geographically distributed data centers?</strong>
+GTM monitors the virtual servers in each data center (through iQuery with LTM, or through monitors) and stops handing out the IP addresses of a failed site in its DNS answers. How fast clients move depends on the DNS TTL, which is covered in the TTL section above.</p>
 <hr>
 <h2 id="this-series">This Series</h2>
 <ul>
@@ -790,7 +806,7 @@ After all virtual servers validated on new active device:</p>
 <li>🛡️ <a href="/en/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Traffic visibility alongside ADC</li>
 <li>🔐 <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset</a> — Where LTM fits in a Zero Trust architecture</li>
 </ul>
-]]></content:encoded></item><item><title>F5 BIG-IP Is Not a Load Balancer — It's an Application Delivery Platform</title><link>https://barashhelvadzhaoglu.com/en/technology/f5-master/</link><pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/f5-master/</guid><description>F5 BIG-IP is far more than a load balancer. Master guide covering LTM, GTM, WAF, APM, AFM, and BGP routing — with links to each deep dive.</description><content:encoded><![CDATA[<h1 id="f5-big-ip-it-is-an-application-delivery-platform">F5 BIG-IP: It is an Application Delivery Platform</h1>
+]]></content:encoded></item><item><title>F5 BIG-IP Is Not a Load Balancer — It's an Application Delivery Platform</title><link>https://barashhelvadzhaoglu.com/en/technology/f5-master/</link><pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/f5-master/</guid><description>Is F5 a load balancer or a firewall? F5 BIG-IP explained module by module: LTM, GTM (BIG-IP DNS), ASM/Advanced WAF, APM and AFM, and how F5 compares to firewall vendors.</description><content:encoded><![CDATA[<h1 id="f5-big-ip-it-is-an-application-delivery-platform">F5 BIG-IP: It is an Application Delivery Platform</h1>
 <p>The most common introduction to F5 in an enterprise goes like this: someone opens a ticket that says <em>&ldquo;the load balancer is down&rdquo;</em> and points at the F5. The problem is already in that sentence.</p>
 <p>F5 BIG-IP is not a load balancer. Calling it one is like calling a data center a server room — technically not wrong, but it completely misses the point.</p>
 <p>F5 BIG-IP is an <strong>Application Delivery Controller (ADC)</strong>: a full-proxy platform that manages, secures, optimizes, and makes applications highly available across local and global infrastructure. Load balancing is one of perhaps a dozen things it does.</p>
@@ -930,6 +946,14 @@ After all virtual servers validated on new active device:</p>
 <li>TCO is the primary constraint and open-source solutions are operationally feasible for your team</li>
 </ul>
 <p>The honest summary: in banking, telco, and large enterprises with on-premises infrastructure and mission-critical application requirements, F5 remains the dominant platform. In cloud-native or cost-constrained environments, evaluate alternatives seriously before committing to F5 licensing.</p>
+<hr>
+<h2 id="faq">FAQ</h2>
+<p><strong>Is F5 a load balancer or a firewall?</strong>
+F5 BIG-IP is an application delivery platform. With the LTM module it is a load balancer, with ASM or Advanced WAF a web application firewall, and with AFM a network firewall. Which one it is depends on the licensed modules.</p>
+<p><strong>Do Palo Alto Networks or Check Point offer application delivery and load balancing like F5?</strong>
+Not in the same way. Next-generation firewalls focus on network security. They do not provide a full application delivery controller with full-proxy load balancing, iRules, SSL offloading at scale and GSLB. In practice they are deployed next to an ADC such as F5, not instead of it.</p>
+<p><strong>What is the difference between LTM and GTM?</strong>
+LTM balances traffic between servers in one data center. GTM (BIG-IP DNS) sends users to the right data center through DNS. See the <a href="/en/technology/f5-gtm-deep-dive/">GTM deep dive</a>.</p>
 <hr>
 <h2 id="this-series">This Series</h2>
 <p>This article is the starting point. Each module has a dedicated deep dive:</p>
