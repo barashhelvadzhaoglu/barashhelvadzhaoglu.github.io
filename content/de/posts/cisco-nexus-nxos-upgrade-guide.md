@@ -46,6 +46,29 @@ show module
 show inventory
 ```
 
+Beispielausgabe (gekürzt, Werte sind Platzhalter):
+
+```
+switch# show version
+Cisco Nexus Operating System (NX-OS) Software
+...
+Software
+  BIOS: version 05.xx
+  NXOS: version 9.3(8)
+  NXOS image file is: bootflash:///nxos.9.3.8.bin
+
+Hardware
+  cisco Nexus9000 C93180YC-FX Chassis
+  Intel(R) Xeon(R) CPU with 24569476 kB of memory.
+  Processor Board ID XXXXXXXXXXX
+  Device name: N9K-LAB-01
+  bootflash:  115805708 kB
+
+switch# show inventory
+NAME: "Chassis",  DESCR: "Nexus9000 C93180YC-FX Chassis"
+PID: N9K-C93180YC-FX     ,  VID: V0x ,  SN: XXXXXXXXXXX
+```
+
 Diese Ausgaben sind erforderlich, um das richtige NX-OS-Image auszuwählen, den Upgrade-Pfad zu bestimmen und die Hardware-Kompatibilität zu überprüfen.
 
 ## 2. Software-Image herunterladen
@@ -76,7 +99,7 @@ Verwenden Sie Ciscos offizielle Tools zur Überprüfung:
 FTP ist eine der gebräuchlichsten Methoden. Beachten Sie, dass NX-OS-Images bis zu 2 GB groß sein können.
 
 ```bash
-copy ftp://user1:Qazwsx@10.10.10.5/nxos.9.3.10.bin bootflash:
+copy ftp://<user>@10.10.10.5/nxos.9.3.10.bin bootflash: vrf management
 ```
 
 Wenn mehrere VRFs auf dem Nexus konfiguriert sind, werden Sie gefragt, welches VRF für die Übertragung verwendet werden soll. Da die Management-Schnittstelle typischerweise das Management-VRF verwendet, wählen Sie Management-VRF.
@@ -103,6 +126,15 @@ Stellen Sie sicher, dass das USB-Dateisystemformat vom Nexus-Gerät unterstützt
 show file bootflash:nxos.9.3.10.bin md5sum
 ```
 
+Beispielausgabe (gekürzt, Werte sind Platzhalter):
+
+```
+switch# show file bootflash:nxos.9.3.10.bin md5sum
+<32-character MD5 value of the file>
+```
+
+Vergleichen Sie diesen Wert mit dem MD5-Hash auf der Cisco-Download-Seite.
+
 Die Ausgabe muss exakt mit dem MD5-Hash vom Cisco-Download-Portal übereinstimmen.
 
 ## 5. Upgrade durchführen
@@ -111,6 +143,49 @@ Sobald alle Checks abgeschlossen sind, starten Sie das Upgrade:
 
 ```bash
 install all nxos bootflash:nxos.9.3.10.bin
+```
+
+Beispielausgabe (gekürzt, Werte sind Platzhalter):
+
+```
+switch# install all nxos bootflash:nxos.9.3.10.bin
+Installer will perform compatibility check first. Please wait.
+Installer is forced disruptive
+
+Verifying image bootflash:/nxos.9.3.10.bin for boot variable "nxos".
+[####################] 100% -- SUCCESS
+
+Verifying image type.
+[####################] 100% -- SUCCESS
+
+Performing module support checks.
+[####################] 100% -- SUCCESS
+
+Compatibility check is done:
+Module  bootable          Impact  Install-type  Reason
+------  --------  --------------  ------------  ------
+     1       yes      disruptive         reset  Default upgrade is not hitless
+
+Images will be upgraded according to following table:
+Module       Image   Running-Version(pri:alt)   New-Version   Upg-Required
+------  ----------  -------------------------  ------------  ------------
+     1        nxos                     9.3(8)        9.3(10)           yes
+
+Switch will be reloaded for disruptive upgrade.
+Do you want to continue with the installation (y/n)?  [n] y
+
+Install is in progress, please wait.
+
+Performing runtime checks.
+[####################] 100% -- SUCCESS
+
+Setting boot variables.
+[####################] 100% -- SUCCESS
+
+Performing configuration copy.
+[####################] 100% -- SUCCESS
+
+Finishing the upgrade, switch will reboot in 10 seconds.
 ```
 
 - Der Switch speichert die aktuelle Konfiguration automatisch vor der Installation.
@@ -129,38 +204,96 @@ Wenn die Installation fehlschlägt oder das Gerät nicht startet:
 
 - Drücken Sie während des Gerätestarts über die Console-Verbindung **CTRL + L** oder **CTRL + C**, um den **ROMMON-Modus** aufzurufen.
 
-### Boot via TFTP aus ROMMON
+### Option 1: Das Image liegt noch im Bootflash
 
-```bash
-set ip 10.10.10.2 255.255.255.0
-set gw 10.10.10.1
-cmdline recoverymode=1
-boot tftp://10.10.10.2/tftpboot/nxos.9.3.10.bin
-init system
-reload-nxos
+Liegt das Image im Bootflash, aber die Boot-Variable stimmt nicht, starten Sie es direkt:
+
+```
+loader > dir
+loader > boot bootflash:nxos.9.3.10.bin
 ```
 
-### Boot via USB aus ROMMON
+Sobald NX-OS läuft, korrigieren Sie die Boot-Variable wie am Ende dieses Abschnitts gezeigt.
 
-```bash
-boot usb1:nxos.9.3.10.bin bootflash:
-set ip 10.10.10.2 255.255.255.0
-set gw 10.10.10.1
-cmdline recoverymode=1
-boot usb1:nxos.9.3.10.bin
-init system
-reload-nxos
+### Option 2: Image über TFTP starten
+
+Fehlt das Image, ist der Bootflash aber intakt, starten Sie das komplette Image über den Management-Port von einem TFTP-Server. Switch-IP und TFTP-Server sind zwei verschiedene Adressen, und der Pfad zum Image muss vollständig angegeben werden:
+
+```
+loader > set ip 10.10.10.20 255.255.255.0
+loader > set gw 10.10.10.1
+loader > boot tftp://10.10.10.5/tftpboot/nxos.9.3.10.bin
 ```
 
-Nach dem Booten via TFTP oder USB überprüfen und korrigieren Sie die Boot-Einstellungen:
+Beispielausgabe (gekürzt, Werte sind Platzhalter):
 
-```bash
-show boot
 ```
+loader > set ip 10.10.10.20 255.255.255.0
+Correct - ip addr is 10.10.10.20, mask is 255.255.255.0
+loader > set gw 10.10.10.1
+Correct gateway addr 10.10.10.1
+loader > boot tftp://10.10.10.5/tftpboot/nxos.9.3.10.bin
+Filesystem type is tftp, using whole disk
+Booting nxos image: tftp://10.10.10.5/tftpboot/nxos.9.3.10.bin....
+...
+Image verification OK
+```
+
+Das Image läuft nur aus dem Arbeitsspeicher. Sobald NX-OS läuft, kopieren Sie es in den Bootflash und prüfen es:
+
+```
+copy tftp://10.10.10.5/tftpboot/nxos.9.3.10.bin bootflash: vrf management
+show file bootflash:nxos.9.3.10.bin md5sum
+```
+
+### Option 3: Start von USB
+
+```
+loader > dir usb1:
+loader > boot usb1:nxos.9.3.10.bin
+```
+
+Sobald NX-OS läuft, kopieren Sie das Image mit `copy usb1:nxos.9.3.10.bin bootflash:` in den Bootflash und prüfen den MD5-Wert.
+
+### Option 4: Bootflash ist beschädigt (Recovery Mode)
+
+Nur verwenden, wenn der Bootflash selbst beschädigt ist. **`init system` formatiert das Dateisystem des Geräts neu.** Stellen Sie vorher sicher, dass ein Konfigurations-Backup existiert.
+
+```
+loader > set ip 10.10.10.20 255.255.255.0
+loader > set gw 10.10.10.1
+loader > cmdline recoverymode=1
+loader > boot tftp://10.10.10.5/tftpboot/nxos.9.3.10.bin
+switch(boot)# init system
+switch(boot)# load-nxos
+```
+
+`cmdline recoverymode=1` hält den Start am Prompt `switch(boot)#` an. `load-nxos` schließt danach das Laden von NX-OS ab. Anschließend das Image in den Bootflash kopieren und die Konfiguration wiederherstellen. Quelle: [Cisco Nexus 9000 NX-OS Troubleshooting Guide](https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/102x/Troubleshooting/cisco-nexus-9000-series-nx-os-troubleshooting-guide-release-102x/m-troubleshooting-installations-upgrades-and-reboots.html).
+
+### Boot-Variable korrigieren
 
 ```bash
 configure terminal
   boot nxos bootflash:/nxos.9.3.10.bin
+end
+copy running-config startup-config
+show boot
+```
+
+Beispielausgabe (gekürzt, Werte sind Platzhalter):
+
+```
+Current Boot Variables:
+
+sup-1
+NXOS variable = bootflash:/nxos.9.3.10.bin
+Boot POAP Disabled
+
+Boot Variables on next reload:
+
+sup-1
+NXOS variable = bootflash:/nxos.9.3.10.bin
+Boot POAP Disabled
 ```
 
 ## Kritische Warnung
