@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>FTP on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/ftp/</link><description>Recent content in FTP on Barash Helvadzhaoglu</description><generator>Hugo -- 0.169.0</generator><language>tr</language><lastBuildDate>Thu, 22 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/ftp/index.xml" rel="self" type="application/rss+xml"/><item><title>Cisco Güncellemeleri için TFTP, FTP ve SCP Sunucusu: Kurulum ve Sorun Giderme</title><link>https://barashhelvadzhaoglu.com/tr/posts/tftp-ftp-server-cisco-upgrades/</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/tftp-ftp-server-cisco-upgrades/</guid><description>Cisco IOS ve IOS-XE imaj aktarımı için Windows, macOS ve Linux&amp;#39;ta TFTP, FTP ya da SCP sunucusu kurulumu — cihaz tarafı komutlar, management VRF, FTP yolundaki çift slash, boyut sınırları ve firewall sorunları.</description><content:encoded><![CDATA[<p>Her Cisco güncellemesi bir dosyayı cihaza getirmekle başlar. 20 MB&rsquo;lık klasik bir IOS imajı için neredeyse her yöntem iş görür. WAN üzerinden 1 GB&rsquo;lık bir IOS-XE imajında ise protokol seçimi, kopyalamanın beş dakika mı süreceğini yoksa bir saat sonra mı yarıda kalacağını belirler.</p>
+<p>Bu rehber hangi protokolün ne zaman kullanılacağını, sunucunun Windows, macOS ve Linux&rsquo;ta nasıl kurulacağını ve cihaz tarafındaki komutları ve tuzakları anlatıyor.</p>
+<h2 id="hangi-protokol">Hangi Protokol?</h2>
+<table>
+	<thead>
+			<tr>
+					<th>Protokol</th>
+					<th>Port</th>
+					<th>Kimlik doğrulama</th>
+					<th>Güçlü yanları</th>
+					<th>Zayıf yanları</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>TFTP</td>
+					<td>UDP 69</td>
+					<td>Yok</td>
+					<td>Basit, her yerde destekleniyor, ROMMON&rsquo;dan çalışır</td>
+					<td>Yavaş, WAN&rsquo;da güvenilmez, eski sunucularda boyut sınırı</td>
+			</tr>
+			<tr>
+					<td>FTP</td>
+					<td>TCP 21 (+ veri)</td>
+					<td>Kullanıcı ve şifre</td>
+					<td>Büyük imajlar için hızlı ve güvenilir</td>
+					<td>Açık metin, veri kanalı için firewall ayarı gerekir</td>
+			</tr>
+			<tr>
+					<td>SCP</td>
+					<td>TCP 22</td>
+					<td>SSH</td>
+					<td>Şifreli, mevcut SSH erişimini kullanır</td>
+					<td>Bazı platformlarda FTP&rsquo;den yavaş</td>
+			</tr>
+			<tr>
+					<td>HTTP(S)</td>
+					<td>TCP 80/443</td>
+					<td>İsteğe bağlı</td>
+					<td>Hızlı, sunması kolay</td>
+					<td>Eski IOS sürümlerinde yok</td>
+			</tr>
+	</tbody>
+</table>
+<p>Sahadaki kuralım:</p>
+<ul>
+<li>Ağ üzerinden normal güncellemeler için <strong>FTP</strong>. Büyük IOS-XE imajlarında hızlı ve güvenilir.</li>
+<li>Cihaz ROMMON&rsquo;daysa <strong>TFTP</strong>. ROMMON yalnızca TFTP biliyor. Bkz. <a href="/tr/posts/cisco-rommon-recovery/">Cisco ROMMON Kurtarma</a>.</li>
+<li>Güvenlik politikası açık metin protokollere izin vermiyorsa <strong>SCP</strong>.</li>
+</ul>
+<h2 id="sunucu-kurulumu">Sunucu Kurulumu</h2>
+<h3 id="windows-tftpd64">Windows: Tftpd64</h3>
+<p>Tftpd64; TFTP sunucusu, DHCP sunucusu ve syslog sunucusunu bir arada sunan ücretsiz bir araç.</p>
+<ol>
+<li>Tftpd64&rsquo;ü kurun ve başlatın.</li>
+<li><strong>Current Directory</strong>&lsquo;yi imajların bulunduğu klasör yapın.</li>
+<li><strong>Server interface</strong> olarak cihazlara bakan ağ adaptörünün IP adresini seçin.</li>
+<li>Windows firewall&rsquo;da Tftpd64&rsquo;e izin verin. Zaman aşımlarının en sık sebebi bu.</li>
+</ol>
+<p>Windows&rsquo;ta FTP için yaygın ücretsiz seçenek FileZilla Server.</p>
+<h3 id="macos-yerleşik-tftp-sunucusu">macOS: Yerleşik TFTP Sunucusu</h3>
+<p>macOS&rsquo;ta hazır bir TFTP sunucusu var. Dosyaları <code>/private/tftpboot</code> dizininden sunar:</p>
+<pre tabindex="0"><code>sudo mkdir -p /private/tftpboot
+sudo cp &lt;imaj&gt;.bin /private/tftpboot/
+sudo chmod 644 /private/tftpboot/&lt;imaj&gt;.bin
+sudo launchctl load -F /System/Library/LaunchDaemons/tftp.plist
+</code></pre><p>Durdurmak için <code>sudo launchctl unload -F /System/Library/LaunchDaemons/tftp.plist</code>. macOS firewall&rsquo;u açıksa gelen bağlantılara izin verin.</p>
+<h3 id="linux-tftpd-hpa-ve-vsftpd">Linux: tftpd-hpa ve vsftpd</h3>
+<p>Debian ve Ubuntu&rsquo;da:</p>
+<pre tabindex="0"><code>sudo apt install tftpd-hpa
+</code></pre><p>Konfigürasyon <code>/etc/default/tftpd-hpa</code> dosyasında. Varsayılan dizin <code>/srv/tftp</code>:</p>
+<pre tabindex="0"><code>TFTP_DIRECTORY=&#34;/srv/tftp&#34;
+TFTP_OPTIONS=&#34;--secure&#34;
+</code></pre><p><code>TFTP_OPTIONS</code>&lsquo;a <code>--create</code> seçeneğini yalnızca cihazların dosya yüklemesi gerekiyorsa ekleyin, örneğin konfigürasyon yedekleri için.</p>
+<p>FTP için yerel bir kullanıcıyla <code>vsftpd</code> yeterli:</p>
+<pre tabindex="0"><code>sudo apt install vsftpd
+sudo adduser netops
+</code></pre><p>İmajları kullanıcının home dizinine ya da <code>/tftpboot/images</code> gibi ortak bir dizine koyun.</p>
+<h2 id="cihaz-tarafı-imajı-kopyalamak">Cihaz Tarafı: İmajı Kopyalamak</h2>
+<h3 id="tftp">TFTP</h3>
+<pre tabindex="0"><code>copy tftp://192.0.2.10/&lt;imaj&gt;.bin flash:
+</code></pre><h3 id="ftp">FTP</h3>
+<p>Kullanıcı bilgileri URL&rsquo;nin içinde olabilir ya da bir kez tanımlanabilir:</p>
+<pre tabindex="0"><code>configure terminal
+ip ftp username netops
+ip ftp password &lt;sifre&gt;
+end
+copy ftp://192.0.2.10/images/&lt;imaj&gt;.bin bootflash:
+</code></pre><p><strong>Çift slash.</strong> IOS, FTP URL&rsquo;sindeki yolu FTP kullanıcısının home dizinine göre değerlendirir. İmajlar home dizini dışında mutlak bir yoldaysa sunucu adresinden sonra iki slash kullanın:</p>
+<pre tabindex="0"><code>copy ftp://192.0.2.10//tftpboot/images/&lt;imaj&gt;.bin bootflash:
+</code></pre><p><code>ftp://sunucu/images/dosya</code>, <code>&lt;home&gt;/images/dosya</code> anlamına gelir. <code>ftp://sunucu//tftpboot/images/dosya</code> ise <code>/tftpboot/images/dosya</code> demektir. Pek çok &ldquo;file not found&rdquo; hatasının sebebi bu ayrıntı.</p>
+<h3 id="scp">SCP</h3>
+<p>Bir SCP sunucusundan dosya çekmek:</p>
+<pre tabindex="0"><code>copy scp://netops@192.0.2.10/images/&lt;imaj&gt;.bin flash:
+</code></pre><p>Laptoptan cihaza dosya göndermek için cihazda SCP sunucusunun açık olması gerekir:</p>
+<pre tabindex="0"><code>configure terminal
+ip scp server enable
+end
+</code></pre><p>Sonra laptoptan:</p>
+<pre tabindex="0"><code>scp &lt;imaj&gt;.bin admin@&lt;cihaz-ip&gt;:flash:&lt;imaj&gt;.bin
+</code></pre><p>Politikanız gerektiriyorsa aktarımdan sonra <code>ip scp server enable</code>&lsquo;ı tekrar kapatın.</p>
+<h3 id="her-zaman-doğrulayın">Her Zaman Doğrulayın</h3>
+<pre tabindex="0"><code>verify /md5 flash:&lt;imaj&gt;.bin
+</code></pre><p>Değeri Cisco indirme sayfasındaki MD5 checksum ile karşılaştırın. Hatasız kopyalanmış bir dosya bile eksik olabilir.</p>
+<h2 id="management-portu-ve-vrf">Management Portu ve VRF</h2>
+<p>Catalyst 9000 switch&rsquo;lerde ayrı management portu (GigabitEthernet0/0), <code>Mgmt-vrf</code> adlı kendi VRF&rsquo;inde durur. ISR 4000 ve Catalyst 8000 router&rsquo;larda management portu <code>Mgmt-intf</code> VRF&rsquo;inde. VRF belirtilmeyen bir kopyalama global routing tablosunu kullanır ve sunucuya yalnızca management ağından ulaşılabiliyorsa başarısız olur.</p>
+<p>Cihaza kaynak olarak hangi interface&rsquo;i kullanacağını söyleyin:</p>
+<pre tabindex="0"><code>configure terminal
+ip tftp source-interface GigabitEthernet0/0
+ip ftp source-interface GigabitEthernet0/0
+end
+</code></pre><p>ISR 4000 router&rsquo;larda management portunun adı <code>GigabitEthernet0</code>. Adı <code>show ip interface brief</code> ile kontrol edin.</p>
+<h2 id="sorun-giderme">Sorun Giderme</h2>
+<h3 id="zaman-aşımı-ya-da-connection-refused">Zaman Aşımı ya da &ldquo;Connection refused&rdquo;</h3>
+<ul>
+<li>Doğru kaynak interface ya da VRF ile cihazdan sunucuya <code>ping</code> atın.</li>
+<li>Sunucudaki firewall&rsquo;u kontrol edin. Windows ve macOS gelen bağlantıları varsayılan olarak engeller.</li>
+<li>FTP&rsquo;de veri kanalı ek portlar kullanır. Cihaz ile sunucu arasında bir firewall varsa passive mode sorunları sık görülür.</li>
+</ul>
+<h3 id="file-not-found">&ldquo;File not found&rdquo;</h3>
+<ul>
+<li>Yolu sunucunun kök dizinine (TFTP) ya da kullanıcının home dizinine (FTP) göre kontrol edin. Çift slash&rsquo;ı unutmayın.</li>
+<li>Büyük-küçük harfe dikkat edin. Linux ve macOS sunucularda dosya adları büyük-küçük harfe duyarlı.</li>
+<li>Sunucu kullanıcısının dosyayı okuyabildiğini kontrol edin.</li>
+</ul>
+<h3 id="kopyalama-32-mbda-duruyor-tftp">Kopyalama 32 MB&rsquo;da Duruyor (TFTP)</h3>
+<p>Klasik TFTP 512 byte&rsquo;lık bloklar ve 16 bit&rsquo;lik bir blok sayacı kullanır. İki taraf da daha büyük blokları ya da blok numarasının başa dönmesini desteklemiyorsa bu, bir aktarımı yaklaşık 32 MB ile sınırlar. Eski ya da minimal TFTP sunucularında bu sınır hâlâ var. IOS-XE imajları ise çok daha büyük.</p>
+<ul>
+<li>Büyük imajlarda FTP ya da SCP kullanın.</li>
+<li>TFTP şartsa güncel bir sunucu kullanın ve cihazda blok boyutunu artırın:</li>
+</ul>
+<pre tabindex="0"><code>configure terminal
+ip tftp blocksize 8192
+end
+</code></pre><h3 id="aktarım-çok-yavaş">Aktarım Çok Yavaş</h3>
+<p>TFTP her bloktan sonra bir onay bekler. Gecikmesi yüksek bir WAN hattında bu onu son derece yavaşlatır. Uzak mesafelerde FTP ya da SCP kullanın ya da cihaza yakın bir sunucu konumlandırın.</p>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<ul>
+<li><a href="/tr/posts/cisco-ios-xe-upgrade-guide/">Cisco IOS ve IOS-XE Güncelleme Rehberi</a></li>
+<li><a href="/tr/posts/cisco-rommon-recovery/">Cisco ROMMON Kurtarma: Flash, TFTP ya da USB&rsquo;den Açılış</a></li>
+<li><a href="/tr/posts/cisco-nexus-nxos-upgrade-guide/">Cisco Nexus NX-OS Yazılım Güncelleme Rehberi</a></li>
+<li><a href="/tr/technology/securecrt-superputty/">Network Mühendisleri için SecureCRT ve SuperPuTTY</a></li>
+</ul>
+]]></content:encoded></item></channel></rss>

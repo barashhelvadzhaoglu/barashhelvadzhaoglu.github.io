@@ -1,136 +1,315 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Upgrade on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/upgrade/</link><description>Recent content in Upgrade on Barash Helvadzhaoglu</description><generator>Hugo -- 0.169.0</generator><language>de</language><lastBuildDate>Fri, 16 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/upgrade/index.xml" rel="self" type="application/rss+xml"/><item><title>Cisco Catalyst 3560 IOS-Upgrade: Zwei Methoden und Verifizierung</title><link>https://barashhelvadzhaoglu.com/de/posts/catalyst-3560-ios-upgrade/</link><pubDate>Fri, 16 Oct 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/posts/catalyst-3560-ios-upgrade/</guid><description>IOS-Upgrade auf einem Cisco Catalyst 3560 — archive download-sw oder manuelles Kopieren mit boot system, Flash-Speicher, MD5-Prüfung und Rollback.</description><content:encoded><![CDATA[<p>Ein IOS-Upgrade auf einem Catalyst 3560 ist nicht kompliziert, aber die Details zählen: welches Dateiformat Sie herunterladen, wie viel Platz im Flash frei ist und ob die Boot-Variable auf das richtige Image zeigt. Ein Fehler an einer dieser Stellen, und der Switch startet in den Boot Loader statt in IOS.</p>
-<p>Es gibt zwei Wege:</p>
-<ul>
-<li><strong>Methode A: <code>archive download-sw</code> mit einer <code>.tar</code>-Datei.</strong> Der Switch entpackt das Image und die Web-Device-Manager-Dateien und setzt die Boot-Variable selbst.</li>
-<li><strong>Methode B: Manuelles Upgrade mit einer <code>.bin</code>-Datei.</strong> Sie kopieren das Image, prüfen es, setzen <code>boot system</code> und starten neu.</li>
-</ul>
-<blockquote>
-<p><strong>Lab-Hinweis:</strong> Ich aktualisiere meinen eigenen Catalyst 3560 mit 8 PoE-Ports mit beiden Methoden. Konsolenausgaben und Zeiten aus diesem Lab werden ergänzt.</p>
-</blockquote>
-<h2 id="1-vorbereitung">1. Vorbereitung</h2>
-<h3 id="konfiguration-sichern">Konfiguration sichern</h3>
-<pre tabindex="0"><code>Switch# copy running-config startup-config
-Switch# copy startup-config tftp:
-</code></pre><p>Bewahren Sie das Backup außerhalb des Switches auf: auf Ihrem Laptop, einem TFTP- oder SCP-Server oder in Ihrem Konfigurationsmanagement.</p>
-<h3 id="modell-version-und-feature-set-ermitteln">Modell, Version und Feature Set ermitteln</h3>
-<pre tabindex="0"><code>Switch# show version
-Switch# show inventory
-</code></pre><p>Notieren Sie drei Dinge:</p>
-<ul>
-<li><strong>Genaues Modell</strong>, zum Beispiel <code>WS-C3560-8PC-S</code>. Das Image muss zur Plattform passen.</li>
-<li><strong>Aktuelle IOS-Version</strong>.</li>
-<li><strong>Feature Set</strong>, zum Beispiel IP Base (<code>ipbasek9</code>) oder IP Services (<code>ipservicesk9</code>). Wählen Sie für das neue Image dasselbe Feature Set, außer Sie wollen es bewusst ändern.</li>
-</ul>
-<h3 id="boot-einstellungen-und-flash-speicher-prüfen">Boot-Einstellungen und Flash-Speicher prüfen</h3>
-<pre tabindex="0"><code>Switch# show boot
-Switch# dir flash:
-</code></pre><p><code>show boot</code> zeigt, welches Image der Switch beim nächsten Neustart lädt. <code>dir flash:</code> zeigt die Dateien und ganz unten den freien Speicher. Kompakte Switches wie der 3560 mit 8 Ports haben wenig Flash. Oft reicht der Platz nicht für zwei Images gleichzeitig.</p>
-<h3 id="image-herunterladen">Image herunterladen</h3>
-<p>Laden Sie das Image über Cisco Software Download herunter. Dafür ist ein Servicevertrag nötig. Sie finden zwei Dateitypen:</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Upgrade on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/upgrade/</link><description>Recent content in Upgrade on Barash Helvadzhaoglu</description><generator>Hugo -- 0.169.0</generator><language>de</language><lastBuildDate>Thu, 22 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/upgrade/index.xml" rel="self" type="application/rss+xml"/><item><title>Cisco IOS und IOS-XE Upgrade-Leitfaden: Catalyst Switches und ISR Router</title><link>https://barashhelvadzhaoglu.com/de/posts/cisco-ios-xe-upgrade-guide/</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/posts/cisco-ios-xe-upgrade-guide/</guid><description>Cisco IOS- und IOS-XE-Software-Upgrade Schritt für Schritt für Catalyst Switches (2960, 3560, 3850, 9200, 9300, 9500) und Router (ISR 4000, ISR 1100, Catalyst 8000) — Flash-Prüfung, ROMMON, Install Mode, Bundle Mode, MD5 und Rollback.</description><content:encoded><![CDATA[<p>Die meisten Cisco-Upgrades scheitern, bevor der erste Befehl eingegeben ist: das falsche Image für die Plattform, zu wenig Platz im Flash, ein ROMMON, der für das Ziel-Release zu alt ist, oder eine Boot-Variable, die ins Leere zeigt. Dieser Leitfaden stellt die Prüfungen an den Anfang und die Befehle danach.</p>
+<p>Er behandelt beide Familien aus der Praxis:</p>
 <table>
 	<thead>
 			<tr>
-					<th>Datei</th>
-					<th>Inhalt</th>
-					<th>Verwendung</th>
+					<th>Familie</th>
+					<th>Typische Modelle</th>
+					<th>Software</th>
+					<th>Dateisystem</th>
+					<th>Upgrade-Methode</th>
 			</tr>
 	</thead>
 	<tbody>
 			<tr>
-					<td><code>.tar</code></td>
-					<td>IOS-Image plus Web-Device-Manager-Dateien</td>
-					<td><code>archive download-sw</code> (Methode A)</td>
+					<td>Klassische Catalyst Switches</td>
+					<td>2960, 2960-X, 3560, 3750</td>
+					<td>IOS</td>
+					<td><code>flash:</code></td>
+					<td><code>archive download-sw</code> oder <code>.bin</code> + <code>boot system</code></td>
 			</tr>
 			<tr>
-					<td><code>.bin</code></td>
-					<td>Nur das IOS-Image</td>
-					<td>Manuelles Kopieren und <code>boot system</code> (Methode B)</td>
+					<td>IOS-XE Catalyst Switches</td>
+					<td>3650, 3850, 9200, 9300, 9400, 9500</td>
+					<td>IOS-XE</td>
+					<td><code>flash:</code> (bei manchen Modellen <code>bootflash:</code>)</td>
+					<td>Install Mode (<code>packages.conf</code>)</td>
+			</tr>
+			<tr>
+					<td>IOS-XE Router</td>
+					<td>ISR 4000, ISR 1100, Catalyst 8200/8300, Catalyst 8000V</td>
+					<td>IOS-XE</td>
+					<td><code>bootflash:</code></td>
+					<td>Install Mode oder Bundle Mode</td>
+			</tr>
+			<tr>
+					<td>Klassische IOS-Router</td>
+					<td>ISR G2, C900</td>
+					<td>IOS</td>
+					<td><code>flash:</code></td>
+					<td><code>.bin</code> + <code>boot system</code></td>
 			</tr>
 	</tbody>
 </table>
-<p>Notieren Sie die <strong>MD5-Prüfsumme</strong> von der Download-Seite. Sie vergleichen sie später auf dem Switch.</p>
-<p>Der klassische Catalyst 3560 ist End of Life. Das neueste Release auf der Download-Seite ist also das letzte für diese Plattform.</p>
-<h2 id="2-methode-a-archive-download-sw">2. Methode A: archive download-sw</h2>
-<p>Das ist die von Cisco empfohlene Methode für diese Switch-Familie. Ein Befehl überträgt die <code>.tar</code>-Datei, entpackt sie in ein neues Verzeichnis im Flash, aktualisiert die Boot-Variable und startet bei Bedarf neu.</p>
-<pre tabindex="0"><code>Switch# archive download-sw /overwrite /reload tftp://192.0.2.10/c3560-ipservicesk9-tar.&lt;version&gt;.tar
-</code></pre><p>Die wichtigsten Optionen:</p>
-<table>
-	<thead>
-			<tr>
-					<th>Option</th>
-					<th>Wirkung</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td><code>/overwrite</code></td>
-					<td>Ersetzt das aktuelle Image, wenn nicht genug Platz für beide ist</td>
-			</tr>
-			<tr>
-					<td><code>/leave-old-sw</code></td>
-					<td>Behält das alte Image (nur wenn der Flash für beide reicht)</td>
-			</tr>
-			<tr>
-					<td><code>/reload</code></td>
-					<td>Startet den Switch nach erfolgreichem Download neu</td>
-			</tr>
-			<tr>
-					<td><code>/imageonly</code></td>
-					<td>Installiert nur das IOS-Image ohne Web-Device-Manager-Dateien</td>
-			</tr>
-	</tbody>
-</table>
-<p>Wenn Platz für beide Images ist, verwenden Sie <code>/leave-old-sw</code> statt <code>/overwrite</code>. Ein Rollback ist dann nur eine Änderung der Boot-Variable.</p>
-<p>Ohne <code>/reload</code> prüfen Sie das Ergebnis vor dem Neustart:</p>
-<pre tabindex="0"><code>Switch# show boot
-Switch# dir flash:
-Switch# reload
-</code></pre><h2 id="3-methode-b-manuelles-upgrade-mit-einer-bin-datei">3. Methode B: Manuelles Upgrade mit einer .bin-Datei</h2>
-<p>Die manuelle Methode gibt Ihnen volle Kontrolle über jeden Schritt. Sie ist nützlich, wenn Sie nur eine <code>.bin</code>-Datei haben oder das Image prüfen wollen, bevor Sie die Boot-Variable ändern.</p>
-<h3 id="image-kopieren">Image kopieren</h3>
-<pre tabindex="0"><code>Switch# copy tftp://192.0.2.10/c3560-ipservicesk9-mz.&lt;version&gt;.bin flash:
-</code></pre><p>Reicht der Platz nicht, müssen Sie zuerst das alte Image löschen. Damit verlieren Sie die Rollback-Option auf dem Switch. Stellen Sie sicher, dass das alte Image auf Ihrem TFTP-Server liegt und eine Konsolenverbindung bereitsteht.</p>
-<p>TFTP funktioniert für kleine Dateien, ist aber langsam und über große Entfernungen unzuverlässig. Wenn Ihre IOS-Version es unterstützt, sind SCP oder FTP schneller.</p>
-<h3 id="prüfsumme-verifizieren">Prüfsumme verifizieren</h3>
-<pre tabindex="0"><code>Switch# verify /md5 flash:c3560-ipservicesk9-mz.&lt;version&gt;.bin
-</code></pre><p>Vergleichen Sie das Ergebnis mit dem MD5-Wert von der Cisco-Download-Seite. Stimmen sie nicht überein, löschen Sie die Datei und kopieren sie erneut. Starten Sie nie ein Image, dessen Prüfung fehlgeschlagen ist.</p>
-<h3 id="boot-variable-setzen-und-neu-starten">Boot-Variable setzen und neu starten</h3>
-<pre tabindex="0"><code>Switch# configure terminal
-Switch(config)# boot system flash:c3560-ipservicesk9-mz.&lt;version&gt;.bin
-Switch(config)# end
-Switch# copy running-config startup-config
-Switch# show boot
-Switch# reload
-</code></pre><p>Prüfen Sie <code>show boot</code> vor dem Neustart. Die <code>BOOT path-list</code> muss auf das neue Image zeigen, mit korrektem Dateinamen und Pfad.</p>
-<h2 id="4-nach-dem-upgrade">4. Nach dem Upgrade</h2>
-<pre tabindex="0"><code>Switch# show version
-Switch# show interfaces status
-Switch# show power inline
-Switch# show logging
+<p>Die Befehle sind die, die ich in der Praxis auf Catalyst Switches und ISR Routern verwende. IP-Adressen und Pfade in den Beispielen sind Platzhalter.</p>
+<h2 id="1-zuerst-die-plattform-prüfen">1. Zuerst die Plattform prüfen</h2>
+<h3 id="dateisystem-flash-oder-bootflash">Dateisystem: flash: oder bootflash:?</h3>
+<p>Nicht raten, sondern das Gerät fragen:</p>
+<pre tabindex="0"><code>show file systems
+dir
+</code></pre><p>Klassische Catalyst Switches und Catalyst 9200/9300 verwenden <code>flash:</code>. ISR- und Catalyst-8000-Router verwenden <code>bootflash:</code>. Auf vielen IOS-XE-Plattformen ist ein Name ein Alias für den anderen. Verwenden Sie, was das Gerät anzeigt. Jeder Befehl in diesem Leitfaden funktioniert mit beiden Namen.</p>
+<h3 id="modell-version-und-boot-modus">Modell, Version und Boot-Modus</h3>
+<pre tabindex="0"><code>show version
+show inventory
+show boot            ! Switches
+show bootvar         ! Router
+show install summary ! nur IOS-XE
+</code></pre><p>Notieren Sie:</p>
+<ul>
+<li><strong>Genaues Modell und Plattformfamilie.</strong> Ein Image für einen ISR 4300 startet nicht auf einem ISR 4400. Die Plattformfamilie steht im Dateinamen, zum Beispiel <code>isr4300-universalk9</code>, <code>c1100-universalk9</code>, <code>cat9k_iosxe</code>.</li>
+<li><strong>Aktuelle Version.</strong></li>
+<li><strong>Boot-Modus bei IOS-XE.</strong> Zeigt die Boot-Variable auf <code>packages.conf</code>, läuft das Gerät im <strong>Install Mode</strong>. Zeigt sie auf eine <code>.bin</code>-Datei, läuft es im <strong>Bundle Mode</strong>.</li>
+</ul>
+<h3 id="freier-speicher">Freier Speicher</h3>
+<p><code>dir</code> zeigt ganz unten den freien Speicher. Ein IOS-XE-Image ist groß, und der Install Mode braucht zusätzlichen Platz zum Entpacken. Ist es knapp, räumen Sie vorher auf:</p>
+<pre tabindex="0"><code>install remove inactive   ! IOS-XE Install Mode: entfernt ungenutzte Pakete
+delete flash:&lt;altes-image&gt;.bin
+</code></pre><h2 id="2-release-notes-lesen-upgrade-pfad-und-rommon">2. Release Notes lesen: Upgrade-Pfad und ROMMON</h2>
+<p>Zwei Angaben in den Release Notes entscheiden, ob das Upgrade funktioniert:</p>
+<ul>
+<li><strong>Upgrade-Pfad.</strong> Manche Sprünge werden nicht direkt unterstützt. Cisco dokumentiert zum Beispiel, dass Catalyst 9500 Switches im Bundle Mode von 16.x auf 17.x über ein Zwischen-Release gehen sollten, während der Install Mode den direkten Sprung unterstützt.</li>
+<li><strong>Minimale ROMMON-Version.</strong> Jedes IOS-XE-Release braucht eine minimale ROMMON-Version (Boot Loader). Hat das Gerät einen älteren ROMMON, startet das neue Image eventuell nicht, und das Gerät bleibt am <code>rommon</code>-Prompt stehen.</li>
+</ul>
+<p>Aktuelle ROMMON-Version prüfen:</p>
+<pre tabindex="0"><code>show rom-monitor r0          ! ISR 4000 und ähnliche Router
+show version | include ROM   ! die meisten Plattformen
+</code></pre><h3 id="braucht-der-rommon-ein-eigenes-upgrade">Braucht der ROMMON ein eigenes Upgrade?</h3>
+<ul>
+<li><strong>Catalyst 9000:</strong> Meist nicht von Hand. Enthält ein neues Release einen neueren ROMMON, aktualisiert der Switch seinen primären ROMMON beim ersten Start automatisch. Der Golden-ROMMON (Backup) wird manuell mit dem Befehl <code>upgrade rom-monitor capsule golden</code> aktualisiert. Die genauen Argumente unterscheiden sich je nach Modell, prüfen Sie den Upgrade-Leitfaden Ihrer Plattform.</li>
+<li><strong>ISR 4000 und ähnliche Router:</strong> Jedes Mal prüfen. Ein bekannter Fall sind ISR-4000-Router, die ROMMON 16.12(2r) brauchen, bevor sie 17.x-Releases starten.</li>
+</ul>
+<h3 id="rommon-upgrade-auf-einem-isr-4000">ROMMON-Upgrade auf einem ISR 4000</h3>
+<p>Der ROMMON wird aus dem laufenden IOS-XE aktualisiert, nicht vom ROMMON-Prompt aus. ROMMON-Paket kopieren, prüfen, dann:</p>
+<pre tabindex="0"><code>copy ftp://192.0.2.10/images/isr4200_4300_rommon_1612_2r_SPA.pkg bootflash:
+verify /md5 bootflash:isr4200_4300_rommon_1612_2r_SPA.pkg
+upgrade rom-monitor filename bootflash:isr4200_4300_rommon_1612_2r_SPA.pkg R0
+reload
+show rom-monitor r0
+</code></pre><p>Führen Sie das ROMMON-Upgrade <strong>vor</strong> dem Software-Upgrade durch. Startet das Gerät danach nicht mehr, hilft <a href="/de/posts/cisco-rommon-recovery/">Cisco ROMMON Recovery</a>.</p>
+<h3 id="secure-boot-und-signierte-images">Secure Boot und signierte Images</h3>
+<p>IOS-XE-Images sind signiert. Das <code>.SPA</code> im Dateinamen steht für ein signiertes Produktions-Image. Das Gerät prüft die Signatur beim Start. Ein Image für die falsche Plattform oder eine beschädigte Datei besteht diese Prüfung nicht und startet nicht. Verwenden Sie nur Images aus Cisco Software Download und prüfen Sie immer die Prüfsumme.</p>
+<h2 id="3-image-kopieren-und-prüfen">3. Image kopieren und prüfen</h2>
+<p>FTP ist für große IOS-XE-Images schneller und zuverlässiger als TFTP:</p>
+<pre tabindex="0"><code>copy ftp://192.0.2.10/images/isr4300-universalk9.17.12.08.SPA.bin bootflash:
+copy ftp://192.0.2.10/images/c1100-universalk9.17.12.08.SPA.bin bootflash:
+copy tftp://192.0.2.10/cat9k_iosxe.&lt;version&gt;.SPA.bin flash:
+</code></pre><p>Server-Einrichtung, Zugangsdaten, der doppelte Schrägstrich in FTP-Pfaden und das Management-VRF stehen in <a href="/de/posts/tftp-ftp-server-cisco-upgrades/">TFTP-, FTP- und SCP-Server für Cisco-Upgrades</a>.</p>
+<p>MD5-Prüfsumme mit dem Wert von der Cisco-Download-Seite vergleichen:</p>
+<pre tabindex="0"><code>verify /md5 bootflash:c1100-universalk9.17.12.08.SPA.bin
+</code></pre><p>Stimmen die Werte nicht überein, löschen Sie die Datei und kopieren sie erneut. Installieren Sie nie ein Image, dessen Prüfung fehlgeschlagen ist.</p>
+<h2 id="4-upgrade-im-install-mode-ios-xe">4. Upgrade im Install Mode (IOS-XE)</h2>
+<p>Der Install Mode ist der empfohlene Modus für Catalyst 9000 Switches und aktuelle ISR- und Catalyst-8000-Router. Ein Befehl fügt die neue Software hinzu, aktiviert und bestätigt sie:</p>
+<pre tabindex="0"><code>install add file bootflash:isr4300-universalk9.17.12.08.SPA.bin activate commit
+</code></pre><p>Das Gerät fragt, ob es neu starten darf. Antworten Sie mit <code>y</code>. Nach dem Neustart:</p>
+<pre tabindex="0"><code>show version
+show install summary
+install remove inactive
+</code></pre><p><code>show install summary</code> sollte die neue Version als <code>Committed</code> zeigen. <code>install remove inactive</code> entfernt die alten Pakete und schafft Platz.</p>
+<p>Auf Catalyst 9000 Switches ist der Befehl derselbe, mit dem Dateisystem des Switches:</p>
+<pre tabindex="0"><code>install add file flash:cat9k_iosxe.&lt;version&gt;.SPA.bin activate commit
+</code></pre><h3 id="mehrere-zwischenschritte">Mehrere Zwischenschritte</h3>
+<p>Verlangen die Release Notes ein Zwischen-Release, wiederholen Sie den Ablauf pro Schritt: kopieren, prüfen, <code>install add ... activate commit</code>, kontrollieren, <code>install remove inactive</code>. Zum Beispiel erst 17.9, dann 17.12. Räumen Sie zwischen den Schritten auf, damit Platz für das nächste Image ist.</p>
+<h3 id="vom-bundle-mode-in-den-install-mode">Vom Bundle Mode in den Install Mode</h3>
+<p>Ein Gerät im Bundle Mode startet direkt eine <code>.bin</code>-Datei. So wechseln Sie in den Install Mode:</p>
+<ol>
+<li><code>install add file &lt;image&gt;.bin activate commit</code> wie oben ausführen. Das entpackt die Pakete und legt <code>packages.conf</code> an.</li>
+<li>Sicherstellen, dass die Boot-Variable auf <code>packages.conf</code> zeigt:</li>
+</ol>
+<pre tabindex="0"><code>configure terminal
+no boot system
+boot system flash:packages.conf
+end
+write memory
+show boot
+</code></pre><p>Auf Routern verwenden Sie <code>bootflash:packages.conf</code>.</p>
+<h2 id="5-bundle-mode-und-klassisches-ios">5. Bundle Mode und klassisches IOS</h2>
+<h3 id="ios-xe-im-bundle-mode-isr-g2-c900">IOS-XE im Bundle Mode, ISR G2, C900</h3>
+<pre tabindex="0"><code>configure terminal
+no boot system
+boot system bootflash:&lt;image&gt;.bin
+end
+write memory
+show bootvar
+reload
+</code></pre><p>Auf klassischen IOS-Routern wie der C900-Serie ist das Dateisystem <code>flash:</code> und der Image-Name hat das alte Format, zum Beispiel <code>c900-universalk9-mz.SPA.&lt;version&gt;.bin</code>.</p>
+<h3 id="klassische-catalyst-switches-2960-3560-3750">Klassische Catalyst Switches (2960, 3560, 3750)</h3>
+<p>Diese Switches bieten <code>archive download-sw</code>. Der Befehl überträgt eine <code>.tar</code>-Datei, entpackt sie, setzt die Boot-Variable und kann neu starten:</p>
+<pre tabindex="0"><code>archive download-sw /overwrite /reload tftp://192.0.2.10/c3560-ipservicesk9-tar.&lt;version&gt;.tar
 </code></pre><ul>
-<li><code>show version</code>: Die neue IOS-Version läuft.</li>
-<li><code>show interfaces status</code>: Alle erwarteten Ports sind aktiv.</li>
-<li><code>show power inline</code>: PoE-Geräte werden wieder versorgt.</li>
-<li><code>show logging</code>: Keine Fehler beim Start.</li>
+<li><code>/overwrite</code> ersetzt das aktuelle Image, wenn der Flash nur für eines Platz hat.</li>
+<li><code>/leave-old-sw</code> behält das alte Image, wenn Platz für beide ist. Ein Rollback ist dann nur eine Änderung der Boot-Variable.</li>
 </ul>
-<p>Wenn die neue Version sicher funktioniert, löschen Sie das alte Image, um Platz zu schaffen, außer Sie wollen es für einen Rollback behalten.</p>
-<h2 id="5-rollback">5. Rollback</h2>
+<p>Alternativ kopieren Sie die <code>.bin</code>-Datei, prüfen sie und setzen <code>boot system flash:&lt;image&gt;.bin</code> wie oben.</p>
+<h2 id="6-nach-dem-upgrade">6. Nach dem Upgrade</h2>
+<pre tabindex="0"><code>show version
+show install summary          ! IOS-XE Install Mode
+show interfaces status        ! Switches
+show ip interface brief
+show power inline             ! PoE-Switches
+show logging
+</code></pre><p>Bei Stacks und redundanten Systemen prüfen Sie jedes Mitglied: <code>show switch</code> bei Catalyst-Stacks, <code>show redundancy</code> bei Systemen mit zwei Supervisors.</p>
+<h2 id="7-rollback">7. Rollback</h2>
 <ul>
-<li><strong>Altes Image noch im Flash:</strong> Boot-Variable mit <code>boot system flash:&lt;altes-image&gt;</code> zurückstellen, speichern und neu starten.</li>
-<li><strong>Altes Image gelöscht:</strong> Vom TFTP-Server zurückkopieren, MD5 prüfen und Boot-Variable setzen.</li>
-<li><strong>Switch startet IOS gar nicht:</strong> Er bleibt am Prompt <code>switch:</code> stehen. Das behandelt der Artikel <a href="/de/posts/catalyst-3560-boot-loader-recovery/">Wenn ein Catalyst 3560 nicht startet: Wiederherstellung über den Boot Loader</a>.</li>
+<li><strong>Install Mode:</strong> <code>show install rollback</code> listet die Rollback-Punkte.</li>
+<li><strong>Bundle Mode und klassisches IOS:</strong> <code>boot system</code> auf das alte Image zurückstellen, sofern es noch im Flash liegt, und neu starten.</li>
+<li><strong>Gerät bleibt im ROMMON oder am Prompt <code>switch:</code> stehen:</strong> siehe <a href="/de/posts/cisco-rommon-recovery/">Cisco ROMMON Recovery</a>.</li>
 </ul>
 <h2 id="häufige-fehler">Häufige Fehler</h2>
 <ul>
-<li><strong>Falsche Plattform oder falsches Feature Set.</strong> Ein Image für ein anderes Modell startet nicht.</li>
-<li><strong>Altes Image löschen, bevor das neue geprüft ist.</strong> Ist die Kopie beschädigt, gibt es nichts mehr zu starten.</li>
-<li><strong>Tippfehler in <code>boot system</code>.</strong> Der Switch findet das Image nicht und bleibt im Boot Loader stehen.</li>
-<li><strong>Keine Konsolenverbindung während des Neustarts.</strong> Wenn etwas schiefgeht, sehen Sie es nur über die Konsole.</li>
+<li><strong>Image für die falsche Plattformfamilie.</strong> Es besteht die Signatur- oder Plattformprüfung nicht und startet nicht.</li>
+<li><strong>ROMMON nicht geprüft.</strong> Das neue Image braucht einen neueren ROMMON, und das Gerät bleibt am <code>rommon</code>-Prompt stehen.</li>
+<li><strong>Kein Platz für den Install Mode.</strong> Das Entpacken bricht ab. Vorher <code>install remove inactive</code> ausführen.</li>
+<li><strong>Boot-Variable zeigt nach dem Wechsel in den Install Mode noch auf die alte <code>.bin</code>.</strong> Das Gerät startet die alte Version im Bundle Mode.</li>
+<li><strong>Kein Konsolenzugang während des Neustarts.</strong> Ein Konsolenserver macht das auch aus der Ferne möglich: <a href="/de/posts/next-gen-console-server-architecture/">Next-Gen Console Server Architektur</a>.</li>
 </ul>
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
-<li><a href="/de/posts/catalyst-3560-password-recovery/">Cisco Catalyst 3560 Passwort-Wiederherstellung: Zwei Methoden</a></li>
-<li><a href="/de/posts/catalyst-3560-boot-loader-recovery/">Wenn ein Catalyst 3560 nicht startet: Wiederherstellung über den Boot Loader</a></li>
+<li><a href="/de/posts/cisco-rommon-recovery/">Cisco ROMMON Recovery: Start aus Flash, über TFTP oder USB</a></li>
+<li><a href="/de/posts/tftp-ftp-server-cisco-upgrades/">TFTP-, FTP- und SCP-Server für Cisco-Upgrades</a></li>
+<li><a href="/de/posts/cisco-switch-password-recovery/">Cisco Switch und Router Passwort-Wiederherstellung</a></li>
+<li><a href="/de/posts/cisco-nexus-nxos-upgrade-guide/">Cisco Nexus NX-OS Software-Upgrade-Leitfaden</a></li>
+</ul>
+<p>Quellen: <a href="https://www.cisco.com/c/en/us/support/docs/switches/catalyst-9500-series-switches/222279-upgrading-catalyst-9500-switches.html">Cisco: Upgrading Catalyst 9500 Switches</a> · <a href="https://www.cisco.com/c/de_de/support/docs/switches/catalyst-9300-series-switches/222280-upgrading-catalyst-9300-switches.html">Cisco: Upgrading Catalyst 9300 Switches</a></p>
+]]></content:encoded></item><item><title>TFTP-, FTP- und SCP-Server für Cisco-Upgrades: Einrichtung und Fehlersuche</title><link>https://barashhelvadzhaoglu.com/de/posts/tftp-ftp-server-cisco-upgrades/</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/posts/tftp-ftp-server-cisco-upgrades/</guid><description>TFTP-, FTP- oder SCP-Server für Cisco IOS- und IOS-XE-Image-Übertragungen unter Windows, macOS und Linux einrichten — Befehle auf dem Gerät, Management-VRF, der doppelte Schrägstrich im FTP-Pfad, Größenlimits und Firewall-Probleme.</description><content:encoded><![CDATA[<p>Jedes Cisco-Upgrade beginnt damit, eine Datei auf das Gerät zu bringen. Für ein 20 MB großes klassisches IOS-Image funktioniert fast alles. Für ein 1 GB großes IOS-XE-Image über eine WAN-Strecke entscheidet das Protokoll, ob die Kopie fünf Minuten dauert oder nach einer Stunde abbricht.</p>
+<p>Dieser Leitfaden zeigt, welches Protokoll Sie wann verwenden, wie Sie den Server unter Windows, macOS und Linux einrichten und welche Befehle und Stolperfallen es auf dem Gerät gibt.</p>
+<h2 id="welches-protokoll">Welches Protokoll?</h2>
+<table>
+	<thead>
+			<tr>
+					<th>Protokoll</th>
+					<th>Port</th>
+					<th>Authentifizierung</th>
+					<th>Stärken</th>
+					<th>Schwächen</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>TFTP</td>
+					<td>UDP 69</td>
+					<td>Keine</td>
+					<td>Einfach, überall unterstützt, funktioniert aus dem ROMMON</td>
+					<td>Langsam, über WAN unzuverlässig, Größenlimits bei alten Servern</td>
+			</tr>
+			<tr>
+					<td>FTP</td>
+					<td>TCP 21 (+ Daten)</td>
+					<td>Benutzer und Passwort</td>
+					<td>Schnell und zuverlässig für große Images</td>
+					<td>Klartext, Datenkanal braucht Firewall-Anpassung</td>
+			</tr>
+			<tr>
+					<td>SCP</td>
+					<td>TCP 22</td>
+					<td>SSH</td>
+					<td>Verschlüsselt, nutzt vorhandenen SSH-Zugang</td>
+					<td>Auf manchen Plattformen langsamer als FTP</td>
+			</tr>
+			<tr>
+					<td>HTTP(S)</td>
+					<td>TCP 80/443</td>
+					<td>Optional</td>
+					<td>Schnell, einfach zu hosten</td>
+					<td>Auf älteren IOS-Versionen nicht verfügbar</td>
+			</tr>
+	</tbody>
+</table>
+<p>Meine Regel aus der Praxis:</p>
+<ul>
+<li><strong>FTP</strong> für normale Upgrades über das Netzwerk. Schnell und zuverlässig für große IOS-XE-Images.</li>
+<li><strong>TFTP</strong>, wenn das Gerät im ROMMON ist. Der ROMMON kann nur TFTP. Siehe <a href="/de/posts/cisco-rommon-recovery/">Cisco ROMMON Recovery</a>.</li>
+<li><strong>SCP</strong>, wenn die Sicherheitsrichtlinie keine Klartextprotokolle erlaubt.</li>
+</ul>
+<h2 id="server-einrichten">Server einrichten</h2>
+<h3 id="windows-tftpd64">Windows: Tftpd64</h3>
+<p>Tftpd64 ist ein kostenloses Tool, das TFTP-Server, DHCP-Server und Syslog-Server kombiniert.</p>
+<ol>
+<li>Tftpd64 installieren und starten.</li>
+<li><strong>Current Directory</strong> auf den Ordner mit Ihren Images setzen.</li>
+<li><strong>Server interface</strong> wählen, also die IP-Adresse des Netzwerkadapters zu den Geräten.</li>
+<li>Tftpd64 in der Windows-Firewall freigeben. Das ist der häufigste Grund für Timeouts.</li>
+</ol>
+<p>Für FTP unter Windows ist FileZilla Server eine verbreitete kostenlose Wahl.</p>
+<h3 id="macos-eingebauter-tftp-server">macOS: Eingebauter TFTP-Server</h3>
+<p>macOS bringt einen TFTP-Server mit. Er liefert Dateien aus <code>/private/tftpboot</code>:</p>
+<pre tabindex="0"><code>sudo mkdir -p /private/tftpboot
+sudo cp &lt;image&gt;.bin /private/tftpboot/
+sudo chmod 644 /private/tftpboot/&lt;image&gt;.bin
+sudo launchctl load -F /System/Library/LaunchDaemons/tftp.plist
+</code></pre><p>Beenden mit <code>sudo launchctl unload -F /System/Library/LaunchDaemons/tftp.plist</code>. Ist die macOS-Firewall aktiv, erlauben Sie eingehende Verbindungen.</p>
+<h3 id="linux-tftpd-hpa-und-vsftpd">Linux: tftpd-hpa und vsftpd</h3>
+<p>Unter Debian und Ubuntu:</p>
+<pre tabindex="0"><code>sudo apt install tftpd-hpa
+</code></pre><p>Die Konfiguration liegt in <code>/etc/default/tftpd-hpa</code>. Das Standardverzeichnis ist <code>/srv/tftp</code>:</p>
+<pre tabindex="0"><code>TFTP_DIRECTORY=&#34;/srv/tftp&#34;
+TFTP_OPTIONS=&#34;--secure&#34;
+</code></pre><p>Ergänzen Sie <code>--create</code> in <code>TFTP_OPTIONS</code> nur, wenn Geräte Dateien hochladen sollen, zum Beispiel Konfigurations-Backups.</p>
+<p>Für FTP reicht <code>vsftpd</code> mit einem lokalen Benutzer:</p>
+<pre tabindex="0"><code>sudo apt install vsftpd
+sudo adduser netops
+</code></pre><p>Legen Sie die Images ins Home-Verzeichnis des Benutzers oder in ein gemeinsames Verzeichnis wie <code>/tftpboot/images</code>.</p>
+<h2 id="auf-dem-gerät-image-kopieren">Auf dem Gerät: Image kopieren</h2>
+<h3 id="tftp">TFTP</h3>
+<pre tabindex="0"><code>copy tftp://192.0.2.10/&lt;image&gt;.bin flash:
+</code></pre><h3 id="ftp">FTP</h3>
+<p>Zugangsdaten können in der URL stehen oder einmal konfiguriert werden:</p>
+<pre tabindex="0"><code>configure terminal
+ip ftp username netops
+ip ftp password &lt;passwort&gt;
+end
+copy ftp://192.0.2.10/images/&lt;image&gt;.bin bootflash:
+</code></pre><p><strong>Der doppelte Schrägstrich.</strong> In einer FTP-URL behandelt IOS den Pfad relativ zum Home-Verzeichnis des FTP-Benutzers. Liegen die Images in einem absoluten Pfad außerhalb des Home-Verzeichnisses, verwenden Sie nach der Serveradresse zwei Schrägstriche:</p>
+<pre tabindex="0"><code>copy ftp://192.0.2.10//tftpboot/images/&lt;image&gt;.bin bootflash:
+</code></pre><p><code>ftp://server/images/datei</code> bedeutet <code>&lt;home&gt;/images/datei</code>. <code>ftp://server//tftpboot/images/datei</code> bedeutet <code>/tftpboot/images/datei</code>. Dieses Detail erklärt viele „File not found“-Fehler.</p>
+<h3 id="scp">SCP</h3>
+<p>Eine Datei von einem SCP-Server holen:</p>
+<pre tabindex="0"><code>copy scp://netops@192.0.2.10/images/&lt;image&gt;.bin flash:
+</code></pre><p>Eine Datei vom Laptop auf das Gerät schieben setzt den SCP-Server auf dem Gerät voraus:</p>
+<pre tabindex="0"><code>configure terminal
+ip scp server enable
+end
+</code></pre><p>Dann vom Laptop:</p>
+<pre tabindex="0"><code>scp &lt;image&gt;.bin admin@&lt;geraete-ip&gt;:flash:&lt;image&gt;.bin
+</code></pre><p>Deaktivieren Sie <code>ip scp server enable</code> nach der Übertragung wieder, wenn Ihre Richtlinie das verlangt.</p>
+<h3 id="immer-prüfen">Immer prüfen</h3>
+<pre tabindex="0"><code>verify /md5 flash:&lt;image&gt;.bin
+</code></pre><p>Vergleichen Sie den Wert mit der MD5-Prüfsumme auf der Cisco-Download-Seite. Eine Datei, die ohne Fehler kopiert wurde, kann trotzdem unvollständig sein.</p>
+<h2 id="management-port-und-vrf">Management-Port und VRF</h2>
+<p>Bei Catalyst 9000 Switches liegt der dedizierte Management-Port (GigabitEthernet0/0) in einem eigenen VRF namens <code>Mgmt-vrf</code>. Bei ISR-4000- und Catalyst-8000-Routern liegt der Management-Port im VRF <code>Mgmt-intf</code>. Eine Kopie ohne VRF nutzt die globale Routing-Tabelle und schlägt fehl, wenn der Server nur über das Management-Netz erreichbar ist.</p>
+<p>Sagen Sie dem Gerät, welches Interface als Quelle dient:</p>
+<pre tabindex="0"><code>configure terminal
+ip tftp source-interface GigabitEthernet0/0
+ip ftp source-interface GigabitEthernet0/0
+end
+</code></pre><p>Bei ISR-4000-Routern heißt der Management-Port <code>GigabitEthernet0</code>. Prüfen Sie den Namen mit <code>show ip interface brief</code>.</p>
+<h2 id="fehlersuche">Fehlersuche</h2>
+<h3 id="timeout-oder-connection-refused">Timeout oder „Connection refused“</h3>
+<ul>
+<li>Den Server vom Gerät aus anpingen, mit dem richtigen Quell-Interface oder VRF.</li>
+<li>Firewall auf dem Server prüfen. Windows und macOS blockieren eingehende Verbindungen standardmäßig.</li>
+<li>Bei FTP: Der Datenkanal nutzt zusätzliche Ports. Sitzt eine Firewall zwischen Gerät und Server, sind Probleme mit dem Passive Mode häufig.</li>
+</ul>
+<h3 id="file-not-found">„File not found“</h3>
+<ul>
+<li>Pfad relativ zum Root-Verzeichnis des Servers (TFTP) oder zum Home-Verzeichnis des Benutzers (FTP) prüfen. Denken Sie an den doppelten Schrägstrich.</li>
+<li>Groß- und Kleinschreibung prüfen. Auf Linux- und macOS-Servern sind Dateinamen case-sensitive.</li>
+<li>Prüfen, ob der Server-Benutzer die Datei lesen darf.</li>
+</ul>
+<h3 id="kopie-bricht-bei-32-mb-ab-tftp">Kopie bricht bei 32 MB ab (TFTP)</h3>
+<p>Klassisches TFTP verwendet 512-Byte-Blöcke und einen 16-Bit-Blockzähler. Das begrenzt eine Übertragung auf etwa 32 MB, außer beide Seiten unterstützen größere Blöcke oder das Überlaufen der Blocknummer. Alte oder minimale TFTP-Server haben dieses Limit noch. IOS-XE-Images sind viel größer.</p>
+<ul>
+<li>Verwenden Sie FTP oder SCP für große Images.</li>
+<li>Muss es TFTP sein, nehmen Sie einen aktuellen Server und erhöhen die Blockgröße auf dem Gerät:</li>
+</ul>
+<pre tabindex="0"><code>configure terminal
+ip tftp blocksize 8192
+end
+</code></pre><h3 id="sehr-langsame-übertragung">Sehr langsame Übertragung</h3>
+<p>TFTP wartet nach jedem Block auf eine Bestätigung. Über eine WAN-Strecke mit hoher Latenz wird es dadurch extrem langsam. Verwenden Sie über große Entfernungen FTP oder SCP, oder stellen Sie einen Server in die Nähe des Geräts.</p>
+<h2 id="verwandte-artikel">Verwandte Artikel</h2>
+<ul>
+<li><a href="/de/posts/cisco-ios-xe-upgrade-guide/">Cisco IOS und IOS-XE Upgrade-Leitfaden</a></li>
+<li><a href="/de/posts/cisco-rommon-recovery/">Cisco ROMMON Recovery: Start aus Flash, über TFTP oder USB</a></li>
 <li><a href="/de/posts/cisco-nexus-nxos-upgrade-guide/">Cisco Nexus NX-OS Software-Upgrade-Leitfaden</a></li>
 <li><a href="/de/technology/securecrt-superputty/">SecureCRT und SuperPuTTY für Netzwerk-Engineers</a></li>
 </ul>

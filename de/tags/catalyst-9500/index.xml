@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Catalyst 9500 on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/catalyst-9500/</link><description>Recent content in Catalyst 9500 on Barash Helvadzhaoglu</description><generator>Hugo -- 0.169.0</generator><language>de</language><lastBuildDate>Thu, 22 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/catalyst-9500/index.xml" rel="self" type="application/rss+xml"/><item><title>Cisco IOS und IOS-XE Upgrade-Leitfaden: Catalyst Switches und ISR Router</title><link>https://barashhelvadzhaoglu.com/de/posts/cisco-ios-xe-upgrade-guide/</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/posts/cisco-ios-xe-upgrade-guide/</guid><description>Cisco IOS- und IOS-XE-Software-Upgrade Schritt für Schritt für Catalyst Switches (2960, 3560, 3850, 9200, 9300, 9500) und Router (ISR 4000, ISR 1100, Catalyst 8000) — Flash-Prüfung, ROMMON, Install Mode, Bundle Mode, MD5 und Rollback.</description><content:encoded><![CDATA[<p>Die meisten Cisco-Upgrades scheitern, bevor der erste Befehl eingegeben ist: das falsche Image für die Plattform, zu wenig Platz im Flash, ein ROMMON, der für das Ziel-Release zu alt ist, oder eine Boot-Variable, die ins Leere zeigt. Dieser Leitfaden stellt die Prüfungen an den Anfang und die Befehle danach.</p>
+<p>Er behandelt beide Familien aus der Praxis:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Familie</th>
+					<th>Typische Modelle</th>
+					<th>Software</th>
+					<th>Dateisystem</th>
+					<th>Upgrade-Methode</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Klassische Catalyst Switches</td>
+					<td>2960, 2960-X, 3560, 3750</td>
+					<td>IOS</td>
+					<td><code>flash:</code></td>
+					<td><code>archive download-sw</code> oder <code>.bin</code> + <code>boot system</code></td>
+			</tr>
+			<tr>
+					<td>IOS-XE Catalyst Switches</td>
+					<td>3650, 3850, 9200, 9300, 9400, 9500</td>
+					<td>IOS-XE</td>
+					<td><code>flash:</code> (bei manchen Modellen <code>bootflash:</code>)</td>
+					<td>Install Mode (<code>packages.conf</code>)</td>
+			</tr>
+			<tr>
+					<td>IOS-XE Router</td>
+					<td>ISR 4000, ISR 1100, Catalyst 8200/8300, Catalyst 8000V</td>
+					<td>IOS-XE</td>
+					<td><code>bootflash:</code></td>
+					<td>Install Mode oder Bundle Mode</td>
+			</tr>
+			<tr>
+					<td>Klassische IOS-Router</td>
+					<td>ISR G2, C900</td>
+					<td>IOS</td>
+					<td><code>flash:</code></td>
+					<td><code>.bin</code> + <code>boot system</code></td>
+			</tr>
+	</tbody>
+</table>
+<p>Die Befehle sind die, die ich in der Praxis auf Catalyst Switches und ISR Routern verwende. IP-Adressen und Pfade in den Beispielen sind Platzhalter.</p>
+<h2 id="1-zuerst-die-plattform-prüfen">1. Zuerst die Plattform prüfen</h2>
+<h3 id="dateisystem-flash-oder-bootflash">Dateisystem: flash: oder bootflash:?</h3>
+<p>Nicht raten, sondern das Gerät fragen:</p>
+<pre tabindex="0"><code>show file systems
+dir
+</code></pre><p>Klassische Catalyst Switches und Catalyst 9200/9300 verwenden <code>flash:</code>. ISR- und Catalyst-8000-Router verwenden <code>bootflash:</code>. Auf vielen IOS-XE-Plattformen ist ein Name ein Alias für den anderen. Verwenden Sie, was das Gerät anzeigt. Jeder Befehl in diesem Leitfaden funktioniert mit beiden Namen.</p>
+<h3 id="modell-version-und-boot-modus">Modell, Version und Boot-Modus</h3>
+<pre tabindex="0"><code>show version
+show inventory
+show boot            ! Switches
+show bootvar         ! Router
+show install summary ! nur IOS-XE
+</code></pre><p>Notieren Sie:</p>
+<ul>
+<li><strong>Genaues Modell und Plattformfamilie.</strong> Ein Image für einen ISR 4300 startet nicht auf einem ISR 4400. Die Plattformfamilie steht im Dateinamen, zum Beispiel <code>isr4300-universalk9</code>, <code>c1100-universalk9</code>, <code>cat9k_iosxe</code>.</li>
+<li><strong>Aktuelle Version.</strong></li>
+<li><strong>Boot-Modus bei IOS-XE.</strong> Zeigt die Boot-Variable auf <code>packages.conf</code>, läuft das Gerät im <strong>Install Mode</strong>. Zeigt sie auf eine <code>.bin</code>-Datei, läuft es im <strong>Bundle Mode</strong>.</li>
+</ul>
+<h3 id="freier-speicher">Freier Speicher</h3>
+<p><code>dir</code> zeigt ganz unten den freien Speicher. Ein IOS-XE-Image ist groß, und der Install Mode braucht zusätzlichen Platz zum Entpacken. Ist es knapp, räumen Sie vorher auf:</p>
+<pre tabindex="0"><code>install remove inactive   ! IOS-XE Install Mode: entfernt ungenutzte Pakete
+delete flash:&lt;altes-image&gt;.bin
+</code></pre><h2 id="2-release-notes-lesen-upgrade-pfad-und-rommon">2. Release Notes lesen: Upgrade-Pfad und ROMMON</h2>
+<p>Zwei Angaben in den Release Notes entscheiden, ob das Upgrade funktioniert:</p>
+<ul>
+<li><strong>Upgrade-Pfad.</strong> Manche Sprünge werden nicht direkt unterstützt. Cisco dokumentiert zum Beispiel, dass Catalyst 9500 Switches im Bundle Mode von 16.x auf 17.x über ein Zwischen-Release gehen sollten, während der Install Mode den direkten Sprung unterstützt.</li>
+<li><strong>Minimale ROMMON-Version.</strong> Jedes IOS-XE-Release braucht eine minimale ROMMON-Version (Boot Loader). Hat das Gerät einen älteren ROMMON, startet das neue Image eventuell nicht, und das Gerät bleibt am <code>rommon</code>-Prompt stehen.</li>
+</ul>
+<p>Aktuelle ROMMON-Version prüfen:</p>
+<pre tabindex="0"><code>show rom-monitor r0          ! ISR 4000 und ähnliche Router
+show version | include ROM   ! die meisten Plattformen
+</code></pre><h3 id="braucht-der-rommon-ein-eigenes-upgrade">Braucht der ROMMON ein eigenes Upgrade?</h3>
+<ul>
+<li><strong>Catalyst 9000:</strong> Meist nicht von Hand. Enthält ein neues Release einen neueren ROMMON, aktualisiert der Switch seinen primären ROMMON beim ersten Start automatisch. Der Golden-ROMMON (Backup) wird manuell mit dem Befehl <code>upgrade rom-monitor capsule golden</code> aktualisiert. Die genauen Argumente unterscheiden sich je nach Modell, prüfen Sie den Upgrade-Leitfaden Ihrer Plattform.</li>
+<li><strong>ISR 4000 und ähnliche Router:</strong> Jedes Mal prüfen. Ein bekannter Fall sind ISR-4000-Router, die ROMMON 16.12(2r) brauchen, bevor sie 17.x-Releases starten.</li>
+</ul>
+<h3 id="rommon-upgrade-auf-einem-isr-4000">ROMMON-Upgrade auf einem ISR 4000</h3>
+<p>Der ROMMON wird aus dem laufenden IOS-XE aktualisiert, nicht vom ROMMON-Prompt aus. ROMMON-Paket kopieren, prüfen, dann:</p>
+<pre tabindex="0"><code>copy ftp://192.0.2.10/images/isr4200_4300_rommon_1612_2r_SPA.pkg bootflash:
+verify /md5 bootflash:isr4200_4300_rommon_1612_2r_SPA.pkg
+upgrade rom-monitor filename bootflash:isr4200_4300_rommon_1612_2r_SPA.pkg R0
+reload
+show rom-monitor r0
+</code></pre><p>Führen Sie das ROMMON-Upgrade <strong>vor</strong> dem Software-Upgrade durch. Startet das Gerät danach nicht mehr, hilft <a href="/de/posts/cisco-rommon-recovery/">Cisco ROMMON Recovery</a>.</p>
+<h3 id="secure-boot-und-signierte-images">Secure Boot und signierte Images</h3>
+<p>IOS-XE-Images sind signiert. Das <code>.SPA</code> im Dateinamen steht für ein signiertes Produktions-Image. Das Gerät prüft die Signatur beim Start. Ein Image für die falsche Plattform oder eine beschädigte Datei besteht diese Prüfung nicht und startet nicht. Verwenden Sie nur Images aus Cisco Software Download und prüfen Sie immer die Prüfsumme.</p>
+<h2 id="3-image-kopieren-und-prüfen">3. Image kopieren und prüfen</h2>
+<p>FTP ist für große IOS-XE-Images schneller und zuverlässiger als TFTP:</p>
+<pre tabindex="0"><code>copy ftp://192.0.2.10/images/isr4300-universalk9.17.12.08.SPA.bin bootflash:
+copy ftp://192.0.2.10/images/c1100-universalk9.17.12.08.SPA.bin bootflash:
+copy tftp://192.0.2.10/cat9k_iosxe.&lt;version&gt;.SPA.bin flash:
+</code></pre><p>Server-Einrichtung, Zugangsdaten, der doppelte Schrägstrich in FTP-Pfaden und das Management-VRF stehen in <a href="/de/posts/tftp-ftp-server-cisco-upgrades/">TFTP-, FTP- und SCP-Server für Cisco-Upgrades</a>.</p>
+<p>MD5-Prüfsumme mit dem Wert von der Cisco-Download-Seite vergleichen:</p>
+<pre tabindex="0"><code>verify /md5 bootflash:c1100-universalk9.17.12.08.SPA.bin
+</code></pre><p>Stimmen die Werte nicht überein, löschen Sie die Datei und kopieren sie erneut. Installieren Sie nie ein Image, dessen Prüfung fehlgeschlagen ist.</p>
+<h2 id="4-upgrade-im-install-mode-ios-xe">4. Upgrade im Install Mode (IOS-XE)</h2>
+<p>Der Install Mode ist der empfohlene Modus für Catalyst 9000 Switches und aktuelle ISR- und Catalyst-8000-Router. Ein Befehl fügt die neue Software hinzu, aktiviert und bestätigt sie:</p>
+<pre tabindex="0"><code>install add file bootflash:isr4300-universalk9.17.12.08.SPA.bin activate commit
+</code></pre><p>Das Gerät fragt, ob es neu starten darf. Antworten Sie mit <code>y</code>. Nach dem Neustart:</p>
+<pre tabindex="0"><code>show version
+show install summary
+install remove inactive
+</code></pre><p><code>show install summary</code> sollte die neue Version als <code>Committed</code> zeigen. <code>install remove inactive</code> entfernt die alten Pakete und schafft Platz.</p>
+<p>Auf Catalyst 9000 Switches ist der Befehl derselbe, mit dem Dateisystem des Switches:</p>
+<pre tabindex="0"><code>install add file flash:cat9k_iosxe.&lt;version&gt;.SPA.bin activate commit
+</code></pre><h3 id="mehrere-zwischenschritte">Mehrere Zwischenschritte</h3>
+<p>Verlangen die Release Notes ein Zwischen-Release, wiederholen Sie den Ablauf pro Schritt: kopieren, prüfen, <code>install add ... activate commit</code>, kontrollieren, <code>install remove inactive</code>. Zum Beispiel erst 17.9, dann 17.12. Räumen Sie zwischen den Schritten auf, damit Platz für das nächste Image ist.</p>
+<h3 id="vom-bundle-mode-in-den-install-mode">Vom Bundle Mode in den Install Mode</h3>
+<p>Ein Gerät im Bundle Mode startet direkt eine <code>.bin</code>-Datei. So wechseln Sie in den Install Mode:</p>
+<ol>
+<li><code>install add file &lt;image&gt;.bin activate commit</code> wie oben ausführen. Das entpackt die Pakete und legt <code>packages.conf</code> an.</li>
+<li>Sicherstellen, dass die Boot-Variable auf <code>packages.conf</code> zeigt:</li>
+</ol>
+<pre tabindex="0"><code>configure terminal
+no boot system
+boot system flash:packages.conf
+end
+write memory
+show boot
+</code></pre><p>Auf Routern verwenden Sie <code>bootflash:packages.conf</code>.</p>
+<h2 id="5-bundle-mode-und-klassisches-ios">5. Bundle Mode und klassisches IOS</h2>
+<h3 id="ios-xe-im-bundle-mode-isr-g2-c900">IOS-XE im Bundle Mode, ISR G2, C900</h3>
+<pre tabindex="0"><code>configure terminal
+no boot system
+boot system bootflash:&lt;image&gt;.bin
+end
+write memory
+show bootvar
+reload
+</code></pre><p>Auf klassischen IOS-Routern wie der C900-Serie ist das Dateisystem <code>flash:</code> und der Image-Name hat das alte Format, zum Beispiel <code>c900-universalk9-mz.SPA.&lt;version&gt;.bin</code>.</p>
+<h3 id="klassische-catalyst-switches-2960-3560-3750">Klassische Catalyst Switches (2960, 3560, 3750)</h3>
+<p>Diese Switches bieten <code>archive download-sw</code>. Der Befehl überträgt eine <code>.tar</code>-Datei, entpackt sie, setzt die Boot-Variable und kann neu starten:</p>
+<pre tabindex="0"><code>archive download-sw /overwrite /reload tftp://192.0.2.10/c3560-ipservicesk9-tar.&lt;version&gt;.tar
+</code></pre><ul>
+<li><code>/overwrite</code> ersetzt das aktuelle Image, wenn der Flash nur für eines Platz hat.</li>
+<li><code>/leave-old-sw</code> behält das alte Image, wenn Platz für beide ist. Ein Rollback ist dann nur eine Änderung der Boot-Variable.</li>
+</ul>
+<p>Alternativ kopieren Sie die <code>.bin</code>-Datei, prüfen sie und setzen <code>boot system flash:&lt;image&gt;.bin</code> wie oben.</p>
+<h2 id="6-nach-dem-upgrade">6. Nach dem Upgrade</h2>
+<pre tabindex="0"><code>show version
+show install summary          ! IOS-XE Install Mode
+show interfaces status        ! Switches
+show ip interface brief
+show power inline             ! PoE-Switches
+show logging
+</code></pre><p>Bei Stacks und redundanten Systemen prüfen Sie jedes Mitglied: <code>show switch</code> bei Catalyst-Stacks, <code>show redundancy</code> bei Systemen mit zwei Supervisors.</p>
+<h2 id="7-rollback">7. Rollback</h2>
+<ul>
+<li><strong>Install Mode:</strong> <code>show install rollback</code> listet die Rollback-Punkte.</li>
+<li><strong>Bundle Mode und klassisches IOS:</strong> <code>boot system</code> auf das alte Image zurückstellen, sofern es noch im Flash liegt, und neu starten.</li>
+<li><strong>Gerät bleibt im ROMMON oder am Prompt <code>switch:</code> stehen:</strong> siehe <a href="/de/posts/cisco-rommon-recovery/">Cisco ROMMON Recovery</a>.</li>
+</ul>
+<h2 id="häufige-fehler">Häufige Fehler</h2>
+<ul>
+<li><strong>Image für die falsche Plattformfamilie.</strong> Es besteht die Signatur- oder Plattformprüfung nicht und startet nicht.</li>
+<li><strong>ROMMON nicht geprüft.</strong> Das neue Image braucht einen neueren ROMMON, und das Gerät bleibt am <code>rommon</code>-Prompt stehen.</li>
+<li><strong>Kein Platz für den Install Mode.</strong> Das Entpacken bricht ab. Vorher <code>install remove inactive</code> ausführen.</li>
+<li><strong>Boot-Variable zeigt nach dem Wechsel in den Install Mode noch auf die alte <code>.bin</code>.</strong> Das Gerät startet die alte Version im Bundle Mode.</li>
+<li><strong>Kein Konsolenzugang während des Neustarts.</strong> Ein Konsolenserver macht das auch aus der Ferne möglich: <a href="/de/posts/next-gen-console-server-architecture/">Next-Gen Console Server Architektur</a>.</li>
+</ul>
+<h2 id="verwandte-artikel">Verwandte Artikel</h2>
+<ul>
+<li><a href="/de/posts/cisco-rommon-recovery/">Cisco ROMMON Recovery: Start aus Flash, über TFTP oder USB</a></li>
+<li><a href="/de/posts/tftp-ftp-server-cisco-upgrades/">TFTP-, FTP- und SCP-Server für Cisco-Upgrades</a></li>
+<li><a href="/de/posts/cisco-switch-password-recovery/">Cisco Switch und Router Passwort-Wiederherstellung</a></li>
+<li><a href="/de/posts/cisco-nexus-nxos-upgrade-guide/">Cisco Nexus NX-OS Software-Upgrade-Leitfaden</a></li>
+</ul>
+<p>Quellen: <a href="https://www.cisco.com/c/en/us/support/docs/switches/catalyst-9500-series-switches/222279-upgrading-catalyst-9500-switches.html">Cisco: Upgrading Catalyst 9500 Switches</a> · <a href="https://www.cisco.com/c/de_de/support/docs/switches/catalyst-9300-series-switches/222280-upgrading-catalyst-9300-switches.html">Cisco: Upgrading Catalyst 9300 Switches</a></p>
+]]></content:encoded></item></channel></rss>

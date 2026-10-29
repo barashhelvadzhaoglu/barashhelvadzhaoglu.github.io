@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Security on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/security/</link><description>Recent content in Security on Barash Helvadzhaoglu</description><generator>Hugo -- 0.169.0</generator><language>en</language><lastBuildDate>Sun, 12 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/security/index.xml" rel="self" type="application/rss+xml"/><item><title>Palo Alto Networks SD-WAN: Prisma SD-WAN and the Security-First Approach</title><link>https://barashhelvadzhaoglu.com/en/technology/palo-alto-sd-wan/</link><pubDate>Sun, 12 Jul 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/palo-alto-sd-wan/</guid><description>A detailed analysis of Palo Alto Networks&amp;#39; SD-WAN platform: Prisma SD-WAN architecture, Autonomous Digital Experience Management, SASE integration, and how it compares to Fortinet and Cisco.</description><content:encoded><![CDATA[<h1 id="palo-alto-networks-sd-wan-prisma-sd-wan-and-the-security-first-approach">Palo Alto Networks SD-WAN: Prisma SD-WAN and the Security-First Approach</h1>
+<p>Palo Alto Networks entered the SD-WAN market through acquisition rather than organic development. In 2019, the company acquired CloudGenix — a purpose-built SD-WAN startup with a cloud-native architecture and a strong focus on application-defined networking — for approximately $420 million. The CloudGenix technology became <strong>Prisma SD-WAN</strong>, integrated into Palo Alto&rsquo;s Prisma SASE platform alongside Prisma Access (cloud-delivered security).</p>
+<p>What makes Palo Alto&rsquo;s approach distinctive is not the SD-WAN technology itself — CloudGenix was technically competitive but not dramatically differentiated from Silver Peak or Viptela at acquisition. The differentiation is the integration strategy: Prisma SD-WAN is not sold as a standalone WAN product but as a component of a unified SASE architecture. Understanding Palo Alto&rsquo;s SD-WAN means understanding where it sits within that broader security and networking strategy.</p>
+<hr>
+<h2 id="prisma-sd-wan-architecture">Prisma SD-WAN Architecture</h2>
+<p>The Prisma SD-WAN architecture follows a clean separation of planes:</p>
+<p><strong>Controller (cloud-native):</strong> Prisma SD-WAN&rsquo;s controller is fully cloud-native, running as a SaaS service on Palo Alto&rsquo;s cloud infrastructure. There is no option to self-host the controller on-premises — a deliberate architectural decision that ensures all customers run the same controller version and eliminates controller maintenance overhead. This is a differentiating position from Cisco (which offers both cloud-hosted and on-premises controllers) and Fortinet (which offers FortiManager on-premises).</p>
+<p><strong>ION Devices (Intelligent On-ramp Nodes):</strong> the edge appliances at each site. Available as hardware appliances (ION 1200, 2000, 3000, 7000 series) and virtual appliances for cloud deployments. ION devices handle the data plane — tunnel establishment, traffic classification, path selection, and local security policy enforcement.</p>
+<p><strong>Prisma SD-WAN Portal:</strong> the management interface, accessed through the cloud. Provides topology visualization, policy management, real-time monitoring, and integration with Prisma Access for unified SASE policy management.</p>
+<p>The controller-to-edge communication uses a proprietary protocol over HTTPS, meaning ION devices only need outbound connectivity to the controller — no inbound ports required, which simplifies firewall policy at edge sites.</p>
+<hr>
+<h2 id="application-identification-the-cloudgenix-approach">Application Identification: The CloudGenix Approach</h2>
+<p>CloudGenix built its application identification engine around a key insight: for cloud applications, the destination matters as much as the protocol. A Microsoft 365 Teams call, a SharePoint file sync, and a Teams background update have the same destination IPs but radically different performance requirements. Generic DPI that identifies &ldquo;Microsoft 365 traffic&rdquo; as a single category is not sufficient.</p>
+<p>Prisma SD-WAN&rsquo;s application library maintains granular signatures for cloud applications, decomposing major SaaS applications into their constituent traffic types. The steering engine can differentiate:</p>
+<ul>
+<li>Teams real-time audio/video (latency-critical, loss-sensitive)</li>
+<li>Teams file transfer (throughput-sensitive, loss-tolerant)</li>
+<li>SharePoint background sync (best-effort)</li>
+</ul>
+<p>Each sub-type can have independent path steering policies, enabling genuinely granular QoS without manual DSCP configuration or custom ACLs.</p>
+<hr>
+<h2 id="autonomous-digital-experience-management-adem">Autonomous Digital Experience Management (ADEM)</h2>
+<p><strong>ADEM</strong> (Autonomous Digital Experience Management) is one of the more distinctive capabilities Palo Alto has built into the Prisma platform. It is a synthetic monitoring and troubleshooting system that continuously measures application experience from the end-user perspective.</p>
+<p>ADEM agents run on endpoint devices (Windows, macOS) and on ION appliances. They send synthetic test traffic to application endpoints — Microsoft 365, Salesforce, SAP, custom internal applications — and measure:</p>
+<ul>
+<li>Round-trip latency to the application endpoint</li>
+<li>Packet loss along each hop</li>
+<li>Connection setup time</li>
+<li>HTTP response time (for web applications)</li>
+</ul>
+<p>The monitoring data is correlated with network topology information — which WAN link, which SD-WAN tunnel, which internet path — to pinpoint where application degradation is occurring. When a user reports that Teams is choppy, ADEM shows whether the problem is the WAN link, the internet path to Microsoft, Microsoft&rsquo;s own infrastructure, or the user&rsquo;s local network.</p>
+<p>This troubleshooting capability is comparable to Cisco&rsquo;s ThousandEyes integration, and it is natively integrated into Prisma SD-WAN rather than requiring a separate product purchase. For network operations teams that spend significant time troubleshooting application performance complaints, ADEM reduces mean time to resolution measurably.</p>
+<hr>
+<h2 id="prisma-sase-the-integration-advantage">Prisma SASE: The Integration Advantage</h2>
+<p>The strategic reason to choose Prisma SD-WAN over a competing platform is the integration with <strong>Prisma Access</strong> — Palo Alto&rsquo;s cloud-delivered security platform.</p>
+<p>Prisma Access provides:</p>
+<ul>
+<li>Next-Generation Firewall inspection in the cloud (the same NGFW that runs on Palo Alto&rsquo;s hardware appliances, now delivered as a service)</li>
+<li>Secure Web Gateway with URL filtering and threat prevention</li>
+<li>Cloud Access Security Broker (CASB) for SaaS application control</li>
+<li>Zero Trust Network Access (ZTNA) for application-level remote access</li>
+<li>DNS Security</li>
+</ul>
+<p>When Prisma SD-WAN steers internet-bound traffic from a branch ION appliance to Prisma Access for inspection, the inspection engine is a full Palo Alto NGFW — not a lightweight cloud proxy. SSL decryption, threat prevention, URL filtering, and application control all run in the cloud before traffic exits to the internet.</p>
+<p>The unified policy model is the key operational benefit. Security policy defined in Panorama (Palo Alto&rsquo;s central management platform) applies consistently whether traffic is flowing from an on-premises branch through Prisma SD-WAN, from a remote user through Prisma Access, or from a cloud workload protected by VM-Series firewalls. Security administrators manage one policy model across all traffic paths — not separate products with separate policy languages.</p>
+<p>For enterprises that have standardized on Palo Alto NGFW and are looking to extend consistent security to SD-WAN and remote access, this policy coherence is a genuine operational advantage that Cisco (separate SD-WAN and security products) and HPE Aruba (EdgeConnect plus Aruba SSE) do not fully match.</p>
+<hr>
+<h2 id="cloudblades-ecosystem-integration">CloudBlades: Ecosystem Integration</h2>
+<p><strong>CloudBlades</strong> is Palo Alto&rsquo;s platform for integrating third-party services into the Prisma SD-WAN fabric without requiring appliances at each branch. CloudBlades are cloud-resident service connectors that can insert traffic into third-party platforms — security services, SD-WAN overlays, cloud connectivity services — as a function of SD-WAN policy.</p>
+<p>Current CloudBlade integrations include connections to major cloud providers&rsquo; SD-WAN on-ramps (AWS, Azure, Google Cloud) and third-party security services. The concept allows branch traffic to be steered through partner security services without deploying hardware at each site, extending the service mesh beyond Palo Alto&rsquo;s own stack.</p>
+<p>This is an architectural differentiator for organizations that need specific third-party capabilities alongside SD-WAN — though in practice, the Prisma Access + Prisma SD-WAN combination covers the security requirements of most enterprise deployments without needing CloudBlades for security services.</p>
+<hr>
+<h2 id="where-palo-alto-sd-wan-excels">Where Palo Alto SD-WAN Excels</h2>
+<p><strong>Palo Alto NGFW installed base</strong>
+Organizations already running Palo Alto NGFWs as their primary security platform get the most value from Prisma SD-WAN. The Panorama policy model extends to SD-WAN and cloud security. Security teams familiar with Palo Alto policy syntax do not need to learn a new security toolset. The investment in Palo Alto expertise, security policy development, and Panorama management scales to cover the WAN.</p>
+<p><strong>SASE-first strategy</strong>
+Enterprises that have made a strategic decision to move toward SASE — reducing the physical security appliance footprint at branches while increasing cloud-delivered security — find Prisma SD-WAN a natural choice. The cloud-native controller aligns with a cloud-first operational model.</p>
+<p><strong>Application experience visibility</strong>
+ADEM provides end-to-end application performance visibility that is natively integrated, without requiring a separate monitoring product purchase. For organizations where application performance SLAs matter and helpdesk teams spend significant time on network-related performance complaints, ADEM is a concrete operational benefit.</p>
+<p><strong>Regulatory environments requiring enterprise-grade NGFW inspection</strong>
+Industries where inspecting internet-bound branch traffic through an enterprise-grade NGFW (not a lightweight proxy) is a compliance or policy requirement benefit from Prisma Access&rsquo;s full NGFW inspection in the cloud. This is qualitatively different from cloud security vendors whose inspection engines are proxy-based rather than NGFW-based.</p>
+<hr>
+<h2 id="where-palo-alto-sd-wan-has-limitations">Where Palo Alto SD-WAN Has Limitations</h2>
+<p><strong>No on-premises controller option</strong>
+The cloud-only controller model is an architectural commitment. Organizations with strict data sovereignty requirements, regulated environments where traffic metadata cannot leave on-premises infrastructure, or connectivity constraints that make cloud controller communication unreliable face a genuine limitation that Cisco&rsquo;s on-premises controller option addresses.</p>
+<p><strong>Not the WAN optimization leader</strong>
+Prisma SD-WAN does not include the WAN optimization stack (deduplication, TCP optimization) that HPE Aruba EdgeConnect inherits from Silver Peak. For workloads where WAN optimization delivers measurable value, Aruba has a technical advantage.</p>
+<p><strong>Cost at full SASE stack</strong>
+The Prisma SASE bundle — SD-WAN plus Prisma Access plus ADEM — is priced as an enterprise platform. Organizations that need basic SD-WAN connectivity without the full SASE stack will find the Prisma platform&rsquo;s cost harder to justify relative to Fortinet or simpler SD-WAN vendors.</p>
+<p><strong>Smaller hardware portfolio</strong>
+Cisco&rsquo;s Catalyst 8000 series and Fortinet&rsquo;s FortiGate line cover a broader range of hardware tiers and use cases than Palo Alto&rsquo;s ION appliances. Organizations with specific form factor requirements — DIN-rail industrial, ultra-compact retail — may find the ION portfolio less flexible.</p>
+<hr>
+<h2 id="typical-deployment-architecture">Typical Deployment Architecture</h2>
+<p>A standard Prisma SD-WAN deployment within the SASE model:</p>
+<ul>
+<li><strong>Controller:</strong> Palo Alto cloud (SaaS), no on-premises deployment</li>
+<li><strong>Hub sites:</strong> ION 7000 series at data center locations; or hub-less topology steering all internet traffic through Prisma Access</li>
+<li><strong>Branch sites:</strong> ION 1200 or 2000 series with dual WAN. Internet-bound traffic steered to nearest Prisma Access PoP for NGFW inspection and SaaS optimization</li>
+<li><strong>Cloud sites:</strong> ION Virtual in AWS/Azure for cloud workload connectivity with consistent policy</li>
+<li><strong>Remote users:</strong> Prisma Access GlobalProtect for consistent security policy regardless of location</li>
+<li><strong>Management:</strong> Panorama for unified security policy; Prisma SD-WAN portal for WAN topology and performance</li>
+</ul>
+<hr>
+<h2 id="summary">Summary</h2>
+<p>Palo Alto&rsquo;s Prisma SD-WAN is best evaluated as a component of the Prisma SASE platform rather than as a standalone WAN product. The CloudGenix-derived SD-WAN technology is competent and the ADEM visibility capability is genuinely differentiated, but the primary reason to choose Prisma SD-WAN over Cisco, Fortinet, or HPE Aruba is the integration with Prisma Access and the unified Palo Alto policy model.</p>
+<p>For enterprises that have standardized on Palo Alto security and are extending that standardization to the WAN, Prisma SD-WAN eliminates a major architectural fragmentation. For organizations without existing Palo Alto investment, the platform requires a more comprehensive platform commitment than purchasing a best-of-breed SD-WAN product would imply.</p>
+<p>The cloud-native architecture, SASE integration, and application experience monitoring make Prisma SD-WAN a strong choice for security-first, cloud-first enterprises. The limitations — no on-premises controller, no WAN optimization, higher entry cost — define the scenarios where competing platforms may be a better fit.</p>
+<hr>
+<p><em>This concludes the SD-WAN vendor series. For consulting on SD-WAN architecture selection and deployment, <a href="/en/contact/">get in touch</a>.</em></p>
+]]></content:encoded></item><item><title>Fortinet SD-WAN: Security-Driven Networking in Practice</title><link>https://barashhelvadzhaoglu.com/en/technology/fortinet-sd-wan/</link><pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/fortinet-sd-wan/</guid><description>An in-depth look at Fortinet&amp;#39;s SD-WAN approach: FortiOS integration, security-driven networking, Gartner Magic Quadrant positioning, and how it compares to dedicated SD-WAN vendors.</description><content:encoded><![CDATA[<h1 id="fortinet-sd-wan-security-driven-networking-in-practice">Fortinet SD-WAN: Security-Driven Networking in Practice</h1>
+<p>Fortinet occupies an unusual position in the SD-WAN market. It did not build a standalone SD-WAN product and later add security to it — nor did it acquire a WAN optimization vendor and rebrand the technology. Instead, Fortinet embedded SD-WAN capabilities directly into FortiOS, the same operating system that runs its NGFW, IPS, SSL inspection, and application control functions. The result is an architecture the company calls <strong>security-driven networking</strong>, and it has made Fortinet one of the leading positions in Gartner&rsquo;s SD-WAN Magic Quadrant for multiple consecutive years.</p>
+<p>This article examines what Fortinet&rsquo;s approach actually delivers, where it is strongest, and what trade-offs it involves.</p>
+<hr>
+<h2 id="the-fortios-foundation">The FortiOS Foundation</h2>
+<p>The critical distinction in Fortinet&rsquo;s SD-WAN is that there is no separate SD-WAN daemon or overlay software layer. SD-WAN is a native function of FortiOS, running on the same kernel as the firewall, the IPS engine, and the application identification engine.</p>
+<p>This has a concrete architectural implication: every packet that enters a FortiGate for SD-WAN routing is also inspected by the security stack. There is no performance penalty for enabling security alongside SD-WAN because they share the same processing pipeline. On hardware appliances with Fortinet&rsquo;s custom ASICs (NP7, SP5), both SD-WAN traffic steering and security inspection are hardware-accelerated simultaneously.</p>
+<p>In practice, this means a branch FortiGate can:</p>
+<ul>
+<li>Identify the application using DPI (the same DPI engine used for firewall policies)</li>
+<li>Apply SD-WAN path selection based on application identity and real-time link quality</li>
+<li>Simultaneously run full NGFW inspection on the same traffic</li>
+<li>Apply SSL deep inspection without a separate appliance</li>
+</ul>
+<p>Competing vendors that sell SD-WAN and security as separate products — whether physically separate devices or separate software modules — introduce either additional latency, additional cost, or both. Fortinet&rsquo;s single-OS approach eliminates that architectural friction.</p>
+<hr>
+<h2 id="sd-wan-traffic-steering-how-fortios-does-it">SD-WAN Traffic Steering: How FortiOS Does It</h2>
+<p>Fortinet&rsquo;s SD-WAN traffic steering is built around three concepts:</p>
+<p><strong>SD-WAN Rules</strong>
+Policies that match traffic by application, user, source/destination, or DSCP marking, and assign it to an SD-WAN interface group (a logical grouping of WAN links). Rules are evaluated top-down, similar to firewall policies.</p>
+<p><strong>Performance SLAs</strong>
+Continuous active monitoring of each WAN link using configurable probes (ICMP, HTTP, DNS). FortiOS measures latency, jitter, and packet loss in real time and compares them against defined thresholds. When a link degrades below threshold, it is automatically removed from consideration for SLA-sensitive applications.</p>
+<p><strong>Link Cost and Bandwidth Management</strong>
+Beyond performance-based steering, FortiOS supports load balancing across links using weighted distribution, spillover (use secondary link when primary exceeds a bandwidth threshold), and volume-based billing management for links with data caps.</p>
+<p>The steering decision happens at the kernel level, not in a user-space process, which keeps forwarding latency minimal even at high throughput.</p>
+<hr>
+<h2 id="gartner-magic-quadrant-positioning">Gartner Magic Quadrant Positioning</h2>
+<p>Fortinet has been positioned in the Leaders quadrant of Gartner&rsquo;s Magic Quadrant for SD-WAN for several consecutive years, typically cited for:</p>
+<ul>
+<li><strong>Completeness of vision:</strong> integrated security and SD-WAN, SASE roadmap, global threat intelligence from FortiGuard Labs</li>
+<li><strong>Ability to execute:</strong> large installed base, broad partner ecosystem, consistent delivery across hardware tiers from small-branch FG-40F to data-center-class appliances</li>
+</ul>
+<p>The most consistent analyst criticism is around <strong>management complexity</strong> at scale and the <strong>learning curve</strong> for organizations that are not already Fortinet shops. FortiManager is a capable centralized management platform, but its interface is dense and requires investment to operate effectively. Organizations without existing Fortinet expertise should factor this into their evaluation.</p>
+<hr>
+<h2 id="fortimanager-and-centralized-orchestration">FortiManager and Centralized Orchestration</h2>
+<p>Large SD-WAN deployments require centralized orchestration — you cannot configure hundreds of branch appliances individually. FortiManager is Fortinet&rsquo;s on-premises (or cloud-hosted) management platform for this.</p>
+<p>FortiManager provides:</p>
+<ul>
+<li>Template-based configuration with device-specific variable substitution</li>
+<li>SD-WAN overlay provisioning (hub-and-spoke, full-mesh, or hybrid topologies)</li>
+<li>Centralized performance SLA monitoring across all sites</li>
+<li>Policy packages that can be applied to groups of devices</li>
+<li>Automated provisioning workflows (zero-touch provisioning for new sites)</li>
+</ul>
+<p>The zero-touch provisioning capability is particularly relevant for large rollouts. A new FortiGate at a branch boots, contacts the FortiManager registration server, authenticates with a pre-shared serial number, and automatically receives its configuration. A network engineer can provision a new branch site without ever touching the device physically beyond connecting the WAN cables.</p>
+<p>FortiAnalyzer works alongside FortiManager for log aggregation, reporting, and SD-WAN application performance analytics.</p>
+<hr>
+<h2 id="sase-integration-fortinets-cloud-delivered-extension">SASE Integration: Fortinet&rsquo;s Cloud-Delivered Extension</h2>
+<p>Fortinet extends its SD-WAN architecture into a SASE offering through <strong>FortiSASE</strong> — a cloud-delivered security service that provides secure internet access for remote users and branch offices without requiring all traffic to backhaul through a physical FortiGate.</p>
+<p>FortiSASE includes cloud-delivered NGFW, secure web gateway, CASB, ZTNA, and DNS filtering functions, all managed through the same FortiOS policy model familiar to Fortinet administrators. For organizations that have invested in FortiOS expertise, the operational consistency across on-premises and cloud-delivered security is a genuine advantage.</p>
+<hr>
+<h2 id="where-fortinet-sd-wan-excels">Where Fortinet SD-WAN Excels</h2>
+<p><strong>Security-first environments</strong>
+If the primary WAN requirement is not just connectivity but also threat prevention, SSL inspection, and application control, Fortinet&rsquo;s integrated model eliminates the need to size, deploy, and manage separate security appliances at each branch. Total cost of ownership is often lower than a competing SD-WAN appliance plus a separate NGFW.</p>
+<p><strong>FortiGate installed base</strong>
+Organizations that already run FortiGate firewalls at their sites can often enable SD-WAN functions on existing hardware with a licensing change. This dramatically reduces migration friction compared to ripping out existing devices and deploying a new SD-WAN overlay.</p>
+<p><strong>Mid-market and distributed branch deployments</strong>
+Fortinet&rsquo;s hardware range extends down to very compact, cost-effective appliances suitable for retail locations, small branch offices, and even industrial environments. The FG-40F and FG-60F cover the small branch segment at a price point that dedicated SD-WAN vendors often cannot match while maintaining the same FortiOS feature set.</p>
+<p><strong>High-throughput sites requiring security</strong>
+At higher-end appliances, Fortinet&rsquo;s custom ASICs provide hardware-accelerated throughput for both SD-WAN and security functions simultaneously. Sites requiring multi-gigabit throughput with full security inspection are well served by the FortiGate hardware line.</p>
+<hr>
+<h2 id="where-fortinet-sd-wan-has-limitations">Where Fortinet SD-WAN Has Limitations</h2>
+<p><strong>Not a pure-play SD-WAN</strong>
+Organizations evaluating SD-WAN purely on WAN optimization metrics — sophisticated application acceleration, WAN deduplication, advanced TCP optimization — will find dedicated SD-WAN vendors like Silver Peak (now HPE Aruba) historically offered more granular WAN optimization capabilities. Fortinet&rsquo;s strength is the security integration, not deep WAN optimization.</p>
+<p><strong>Management complexity</strong>
+FortiManager is powerful but complex. Small organizations or those without dedicated network engineering staff may find the management overhead significant. Simpler cloud-managed alternatives may be more appropriate in those environments.</p>
+<p><strong>Vendor lock-in</strong>
+The tight FortiOS integration is a strength in Fortinet environments and a constraint in multi-vendor environments. Organizations running Cisco switching, Aruba wireless, and Palo Alto firewalls may find Fortinet&rsquo;s SD-WAN harder to integrate cleanly than a vendor-agnostic overlay.</p>
+<hr>
+<h2 id="typical-deployment-architecture">Typical Deployment Architecture</h2>
+<p>A standard Fortinet SD-WAN hub-and-spoke deployment looks like this:</p>
+<ul>
+<li><strong>Hub sites</strong> (data center or regional hub): FortiGate with two or more WAN links, running as SD-WAN hub and SD-WAN gateway for spoke sites. FortiManager manages configuration centrally.</li>
+<li><strong>Spoke sites</strong> (branch offices): FortiGate appliances with dual WAN (e.g., MPLS + broadband). Zero-touch provisioned via FortiManager. SD-WAN rules steer application traffic to optimal path. Local internet breakout for cloud applications.</li>
+<li><strong>Remote users</strong>: FortiClient VPN or FortiSASE for cloud-delivered secure access.</li>
+</ul>
+<p>Overlay tunnels between spokes and hubs use IPsec with automatic key management. FortiOS supports both static tunnel and dynamic tunnel (ADVPN — Auto Discovery VPN) topologies, where spoke-to-spoke traffic can establish direct tunnels on demand rather than always routing through the hub.</p>
+<hr>
+<h2 id="summary">Summary</h2>
+<p>Fortinet&rsquo;s SD-WAN is the right choice when security and SD-WAN need to be a unified function rather than adjacent products. The FortiOS integration delivers genuine operational and cost advantages for organizations willing to invest in the platform. The same DPI that identifies applications for traffic steering is the DPI that enforces firewall policy — no duplication, no performance penalty.</p>
+<p>The trade-off is ecosystem commitment. Fortinet SD-WAN works best in Fortinet environments. Organizations with significant existing investments in other vendors&rsquo; security infrastructure should evaluate whether the FortiOS-centric model creates more complexity than it solves.</p>
+<p>For the Gartner Magic Quadrant, Fortinet&rsquo;s consistent Leaders placement reflects a platform that delivers on its core promise: security and connectivity from a single operating system, at scale, across hundreds or thousands of sites.</p>
+<hr>
+<p><em>Next in this series: <a href="/en/posts/cisco-sd-wan/">Cisco SD-WAN — Catalyst SD-WAN and the Enterprise Architecture Approach</a></em></p>
+]]></content:encoded></item></channel></rss>

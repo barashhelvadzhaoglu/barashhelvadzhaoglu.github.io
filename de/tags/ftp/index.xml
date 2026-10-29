@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>FTP on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/ftp/</link><description>Recent content in FTP on Barash Helvadzhaoglu</description><generator>Hugo -- 0.169.0</generator><language>de</language><lastBuildDate>Thu, 22 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/ftp/index.xml" rel="self" type="application/rss+xml"/><item><title>TFTP-, FTP- und SCP-Server für Cisco-Upgrades: Einrichtung und Fehlersuche</title><link>https://barashhelvadzhaoglu.com/de/posts/tftp-ftp-server-cisco-upgrades/</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/posts/tftp-ftp-server-cisco-upgrades/</guid><description>TFTP-, FTP- oder SCP-Server für Cisco IOS- und IOS-XE-Image-Übertragungen unter Windows, macOS und Linux einrichten — Befehle auf dem Gerät, Management-VRF, der doppelte Schrägstrich im FTP-Pfad, Größenlimits und Firewall-Probleme.</description><content:encoded><![CDATA[<p>Jedes Cisco-Upgrade beginnt damit, eine Datei auf das Gerät zu bringen. Für ein 20 MB großes klassisches IOS-Image funktioniert fast alles. Für ein 1 GB großes IOS-XE-Image über eine WAN-Strecke entscheidet das Protokoll, ob die Kopie fünf Minuten dauert oder nach einer Stunde abbricht.</p>
+<p>Dieser Leitfaden zeigt, welches Protokoll Sie wann verwenden, wie Sie den Server unter Windows, macOS und Linux einrichten und welche Befehle und Stolperfallen es auf dem Gerät gibt.</p>
+<h2 id="welches-protokoll">Welches Protokoll?</h2>
+<table>
+	<thead>
+			<tr>
+					<th>Protokoll</th>
+					<th>Port</th>
+					<th>Authentifizierung</th>
+					<th>Stärken</th>
+					<th>Schwächen</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>TFTP</td>
+					<td>UDP 69</td>
+					<td>Keine</td>
+					<td>Einfach, überall unterstützt, funktioniert aus dem ROMMON</td>
+					<td>Langsam, über WAN unzuverlässig, Größenlimits bei alten Servern</td>
+			</tr>
+			<tr>
+					<td>FTP</td>
+					<td>TCP 21 (+ Daten)</td>
+					<td>Benutzer und Passwort</td>
+					<td>Schnell und zuverlässig für große Images</td>
+					<td>Klartext, Datenkanal braucht Firewall-Anpassung</td>
+			</tr>
+			<tr>
+					<td>SCP</td>
+					<td>TCP 22</td>
+					<td>SSH</td>
+					<td>Verschlüsselt, nutzt vorhandenen SSH-Zugang</td>
+					<td>Auf manchen Plattformen langsamer als FTP</td>
+			</tr>
+			<tr>
+					<td>HTTP(S)</td>
+					<td>TCP 80/443</td>
+					<td>Optional</td>
+					<td>Schnell, einfach zu hosten</td>
+					<td>Auf älteren IOS-Versionen nicht verfügbar</td>
+			</tr>
+	</tbody>
+</table>
+<p>Meine Regel aus der Praxis:</p>
+<ul>
+<li><strong>FTP</strong> für normale Upgrades über das Netzwerk. Schnell und zuverlässig für große IOS-XE-Images.</li>
+<li><strong>TFTP</strong>, wenn das Gerät im ROMMON ist. Der ROMMON kann nur TFTP. Siehe <a href="/de/posts/cisco-rommon-recovery/">Cisco ROMMON Recovery</a>.</li>
+<li><strong>SCP</strong>, wenn die Sicherheitsrichtlinie keine Klartextprotokolle erlaubt.</li>
+</ul>
+<h2 id="server-einrichten">Server einrichten</h2>
+<h3 id="windows-tftpd64">Windows: Tftpd64</h3>
+<p>Tftpd64 ist ein kostenloses Tool, das TFTP-Server, DHCP-Server und Syslog-Server kombiniert.</p>
+<ol>
+<li>Tftpd64 installieren und starten.</li>
+<li><strong>Current Directory</strong> auf den Ordner mit Ihren Images setzen.</li>
+<li><strong>Server interface</strong> wählen, also die IP-Adresse des Netzwerkadapters zu den Geräten.</li>
+<li>Tftpd64 in der Windows-Firewall freigeben. Das ist der häufigste Grund für Timeouts.</li>
+</ol>
+<p>Für FTP unter Windows ist FileZilla Server eine verbreitete kostenlose Wahl.</p>
+<h3 id="macos-eingebauter-tftp-server">macOS: Eingebauter TFTP-Server</h3>
+<p>macOS bringt einen TFTP-Server mit. Er liefert Dateien aus <code>/private/tftpboot</code>:</p>
+<pre tabindex="0"><code>sudo mkdir -p /private/tftpboot
+sudo cp &lt;image&gt;.bin /private/tftpboot/
+sudo chmod 644 /private/tftpboot/&lt;image&gt;.bin
+sudo launchctl load -F /System/Library/LaunchDaemons/tftp.plist
+</code></pre><p>Beenden mit <code>sudo launchctl unload -F /System/Library/LaunchDaemons/tftp.plist</code>. Ist die macOS-Firewall aktiv, erlauben Sie eingehende Verbindungen.</p>
+<h3 id="linux-tftpd-hpa-und-vsftpd">Linux: tftpd-hpa und vsftpd</h3>
+<p>Unter Debian und Ubuntu:</p>
+<pre tabindex="0"><code>sudo apt install tftpd-hpa
+</code></pre><p>Die Konfiguration liegt in <code>/etc/default/tftpd-hpa</code>. Das Standardverzeichnis ist <code>/srv/tftp</code>:</p>
+<pre tabindex="0"><code>TFTP_DIRECTORY=&#34;/srv/tftp&#34;
+TFTP_OPTIONS=&#34;--secure&#34;
+</code></pre><p>Ergänzen Sie <code>--create</code> in <code>TFTP_OPTIONS</code> nur, wenn Geräte Dateien hochladen sollen, zum Beispiel Konfigurations-Backups.</p>
+<p>Für FTP reicht <code>vsftpd</code> mit einem lokalen Benutzer:</p>
+<pre tabindex="0"><code>sudo apt install vsftpd
+sudo adduser netops
+</code></pre><p>Legen Sie die Images ins Home-Verzeichnis des Benutzers oder in ein gemeinsames Verzeichnis wie <code>/tftpboot/images</code>.</p>
+<h2 id="auf-dem-gerät-image-kopieren">Auf dem Gerät: Image kopieren</h2>
+<h3 id="tftp">TFTP</h3>
+<pre tabindex="0"><code>copy tftp://192.0.2.10/&lt;image&gt;.bin flash:
+</code></pre><h3 id="ftp">FTP</h3>
+<p>Zugangsdaten können in der URL stehen oder einmal konfiguriert werden:</p>
+<pre tabindex="0"><code>configure terminal
+ip ftp username netops
+ip ftp password &lt;passwort&gt;
+end
+copy ftp://192.0.2.10/images/&lt;image&gt;.bin bootflash:
+</code></pre><p><strong>Der doppelte Schrägstrich.</strong> In einer FTP-URL behandelt IOS den Pfad relativ zum Home-Verzeichnis des FTP-Benutzers. Liegen die Images in einem absoluten Pfad außerhalb des Home-Verzeichnisses, verwenden Sie nach der Serveradresse zwei Schrägstriche:</p>
+<pre tabindex="0"><code>copy ftp://192.0.2.10//tftpboot/images/&lt;image&gt;.bin bootflash:
+</code></pre><p><code>ftp://server/images/datei</code> bedeutet <code>&lt;home&gt;/images/datei</code>. <code>ftp://server//tftpboot/images/datei</code> bedeutet <code>/tftpboot/images/datei</code>. Dieses Detail erklärt viele „File not found“-Fehler.</p>
+<h3 id="scp">SCP</h3>
+<p>Eine Datei von einem SCP-Server holen:</p>
+<pre tabindex="0"><code>copy scp://netops@192.0.2.10/images/&lt;image&gt;.bin flash:
+</code></pre><p>Eine Datei vom Laptop auf das Gerät schieben setzt den SCP-Server auf dem Gerät voraus:</p>
+<pre tabindex="0"><code>configure terminal
+ip scp server enable
+end
+</code></pre><p>Dann vom Laptop:</p>
+<pre tabindex="0"><code>scp &lt;image&gt;.bin admin@&lt;geraete-ip&gt;:flash:&lt;image&gt;.bin
+</code></pre><p>Deaktivieren Sie <code>ip scp server enable</code> nach der Übertragung wieder, wenn Ihre Richtlinie das verlangt.</p>
+<h3 id="immer-prüfen">Immer prüfen</h3>
+<pre tabindex="0"><code>verify /md5 flash:&lt;image&gt;.bin
+</code></pre><p>Vergleichen Sie den Wert mit der MD5-Prüfsumme auf der Cisco-Download-Seite. Eine Datei, die ohne Fehler kopiert wurde, kann trotzdem unvollständig sein.</p>
+<h2 id="management-port-und-vrf">Management-Port und VRF</h2>
+<p>Bei Catalyst 9000 Switches liegt der dedizierte Management-Port (GigabitEthernet0/0) in einem eigenen VRF namens <code>Mgmt-vrf</code>. Bei ISR-4000- und Catalyst-8000-Routern liegt der Management-Port im VRF <code>Mgmt-intf</code>. Eine Kopie ohne VRF nutzt die globale Routing-Tabelle und schlägt fehl, wenn der Server nur über das Management-Netz erreichbar ist.</p>
+<p>Sagen Sie dem Gerät, welches Interface als Quelle dient:</p>
+<pre tabindex="0"><code>configure terminal
+ip tftp source-interface GigabitEthernet0/0
+ip ftp source-interface GigabitEthernet0/0
+end
+</code></pre><p>Bei ISR-4000-Routern heißt der Management-Port <code>GigabitEthernet0</code>. Prüfen Sie den Namen mit <code>show ip interface brief</code>.</p>
+<h2 id="fehlersuche">Fehlersuche</h2>
+<h3 id="timeout-oder-connection-refused">Timeout oder „Connection refused“</h3>
+<ul>
+<li>Den Server vom Gerät aus anpingen, mit dem richtigen Quell-Interface oder VRF.</li>
+<li>Firewall auf dem Server prüfen. Windows und macOS blockieren eingehende Verbindungen standardmäßig.</li>
+<li>Bei FTP: Der Datenkanal nutzt zusätzliche Ports. Sitzt eine Firewall zwischen Gerät und Server, sind Probleme mit dem Passive Mode häufig.</li>
+</ul>
+<h3 id="file-not-found">„File not found“</h3>
+<ul>
+<li>Pfad relativ zum Root-Verzeichnis des Servers (TFTP) oder zum Home-Verzeichnis des Benutzers (FTP) prüfen. Denken Sie an den doppelten Schrägstrich.</li>
+<li>Groß- und Kleinschreibung prüfen. Auf Linux- und macOS-Servern sind Dateinamen case-sensitive.</li>
+<li>Prüfen, ob der Server-Benutzer die Datei lesen darf.</li>
+</ul>
+<h3 id="kopie-bricht-bei-32-mb-ab-tftp">Kopie bricht bei 32 MB ab (TFTP)</h3>
+<p>Klassisches TFTP verwendet 512-Byte-Blöcke und einen 16-Bit-Blockzähler. Das begrenzt eine Übertragung auf etwa 32 MB, außer beide Seiten unterstützen größere Blöcke oder das Überlaufen der Blocknummer. Alte oder minimale TFTP-Server haben dieses Limit noch. IOS-XE-Images sind viel größer.</p>
+<ul>
+<li>Verwenden Sie FTP oder SCP für große Images.</li>
+<li>Muss es TFTP sein, nehmen Sie einen aktuellen Server und erhöhen die Blockgröße auf dem Gerät:</li>
+</ul>
+<pre tabindex="0"><code>configure terminal
+ip tftp blocksize 8192
+end
+</code></pre><h3 id="sehr-langsame-übertragung">Sehr langsame Übertragung</h3>
+<p>TFTP wartet nach jedem Block auf eine Bestätigung. Über eine WAN-Strecke mit hoher Latenz wird es dadurch extrem langsam. Verwenden Sie über große Entfernungen FTP oder SCP, oder stellen Sie einen Server in die Nähe des Geräts.</p>
+<h2 id="verwandte-artikel">Verwandte Artikel</h2>
+<ul>
+<li><a href="/de/posts/cisco-ios-xe-upgrade-guide/">Cisco IOS und IOS-XE Upgrade-Leitfaden</a></li>
+<li><a href="/de/posts/cisco-rommon-recovery/">Cisco ROMMON Recovery: Start aus Flash, über TFTP oder USB</a></li>
+<li><a href="/de/posts/cisco-nexus-nxos-upgrade-guide/">Cisco Nexus NX-OS Software-Upgrade-Leitfaden</a></li>
+<li><a href="/de/technology/securecrt-superputty/">SecureCRT und SuperPuTTY für Netzwerk-Engineers</a></li>
+</ul>
+]]></content:encoded></item></channel></rss>

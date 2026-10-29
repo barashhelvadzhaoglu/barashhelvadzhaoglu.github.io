@@ -1,346 +1,608 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Network Operasyonları on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/categories/network-operasyonlar%C4%B1/</link><description>Recent content in Network Operasyonları on Barash Helvadzhaoglu</description><generator>Hugo -- 0.169.0</generator><language>tr</language><lastBuildDate>Fri, 16 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/categories/network-operasyonlar%C4%B1/index.xml" rel="self" type="application/rss+xml"/><item><title>Catalyst 3560 Açılmıyorsa: Boot Loader ile Kurtarma</title><link>https://barashhelvadzhaoglu.com/tr/posts/catalyst-3560-boot-loader-recovery/</link><pubDate>Fri, 16 Oct 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/catalyst-3560-boot-loader-recovery/</guid><description>switch: prompt&amp;#39;unda kalan bir Cisco Catalyst 3560&amp;#39;ı kurtarma — boot loader değişkenleri, başka bir imajla açılış ve Xmodem ile konsol üzerinden yeni IOS imajı aktarma.</description><content:encoded><![CDATA[<p>Her network mühendisi er ya da geç bunu yaşar: reload&rsquo;dan sonra switch geri gelmez. Konsolda sadece <code>switch:</code> prompt&rsquo;u vardır. IOS imajı yoktur, bozuktur ya da boot değişkeni var olmayan bir dosyayı gösteriyordur.</p>
-<p>Bu, switch&rsquo;i değiştirmek için bir sebep değil. Catalyst 3560&rsquo;ın boot loader&rsquo;ında, flash&rsquo;taki imaj tamamen silinmiş olsa bile IOS&rsquo;u yeniden çalıştırmak için gereken her şey var. Bu rehberde şunlar anlatılıyor:</p>
-<ul>
-<li>Boot loader ortamını nasıl okuyacağınız ve switch&rsquo;in neden orada durduğu</li>
-<li>Flash&rsquo;ta zaten olan bir imajla nasıl açılış yapacağınız</li>
-<li>Flash boşsa <strong>Xmodem</strong> ile konsol üzerinden yeni imajı nasıl aktaracağınız</li>
-<li>Çözümü nasıl kalıcı hale getireceğiniz</li>
-</ul>
-<blockquote>
-<p><strong>Lab notu:</strong> Bu senaryoları kendi 8 portlu PoE Catalyst 3560 switch&rsquo;imde test ediyorum. Lab&rsquo;dan alınan konsol çıktıları ve aktarım süreleri bu rehbere eklenecek.</p>
-</blockquote>
-<h2 id="switch-neden-boot-loaderda-kalıyor">Switch Neden Boot Loader&rsquo;da Kalıyor?</h2>
-<p>Boot loader, IOS&rsquo;u <code>BOOT</code> değişkeninde yazan imajdan başlatır. Bu başarısız olursa ya da <code>BOOT</code> değişkeni tanımlı değilse ve boot loader kendisi açılabilir bir imaj bulamazsa, switch <code>switch:</code> prompt&rsquo;unda kalır. Tipik sebepler:</p>
-<ul>
-<li>Güncelleme ters gitmiştir: <code>boot system</code>&lsquo;de bir yazım hatası vardır ya da yenisi hazır olmadan eski imaj silinmiştir.</li>
-<li>İmaj dosyası bozuktur, örneğin yarıda kesilmiş bir kopyalama yüzünden.</li>
-<li><code>MANUAL_BOOT</code> değişkeni <code>yes</code> olarak ayarlıdır, switch her seferinde prompt&rsquo;ta bekler.</li>
-<li>Flash dosya sistemi bozulmuştur.</li>
-</ul>
-<p>Bir diğer belirti <strong>boot döngüsü</strong>: switch IOS&rsquo;u yüklemeye başlar, çöker ve tekrar tekrar yeniden başlar. Döngüyü kırmak için açılışı Mode butonuyla kesin. Adımlar <a href="/tr/posts/catalyst-3560-password-recovery/">şifre kurtarma rehberinde</a> anlatılıyor.</p>
-<h2 id="adım-1-durumu-inceleyin">Adım 1: Durumu İnceleyin</h2>
-<p>Flash&rsquo;ı başlatın ve içeriğe bakın:</p>
-<pre tabindex="0"><code>switch: flash_init
-switch: dir flash:
-</code></pre><p>Ardından boot loader ortam değişkenlerini görüntüleyin:</p>
-<pre tabindex="0"><code>switch: set
-</code></pre><p>En önemli değişkenler:</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Network Operasyonları on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/categories/network-operasyonlar%C4%B1/</link><description>Recent content in Network Operasyonları on Barash Helvadzhaoglu</description><generator>Hugo -- 0.169.0</generator><language>tr</language><lastBuildDate>Thu, 22 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/categories/network-operasyonlar%C4%B1/index.xml" rel="self" type="application/rss+xml"/><item><title>Cisco Güncellemeleri için TFTP, FTP ve SCP Sunucusu: Kurulum ve Sorun Giderme</title><link>https://barashhelvadzhaoglu.com/tr/posts/tftp-ftp-server-cisco-upgrades/</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/tftp-ftp-server-cisco-upgrades/</guid><description>Cisco IOS ve IOS-XE imaj aktarımı için Windows, macOS ve Linux&amp;#39;ta TFTP, FTP ya da SCP sunucusu kurulumu — cihaz tarafı komutlar, management VRF, FTP yolundaki çift slash, boyut sınırları ve firewall sorunları.</description><content:encoded><![CDATA[<p>Her Cisco güncellemesi bir dosyayı cihaza getirmekle başlar. 20 MB&rsquo;lık klasik bir IOS imajı için neredeyse her yöntem iş görür. WAN üzerinden 1 GB&rsquo;lık bir IOS-XE imajında ise protokol seçimi, kopyalamanın beş dakika mı süreceğini yoksa bir saat sonra mı yarıda kalacağını belirler.</p>
+<p>Bu rehber hangi protokolün ne zaman kullanılacağını, sunucunun Windows, macOS ve Linux&rsquo;ta nasıl kurulacağını ve cihaz tarafındaki komutları ve tuzakları anlatıyor.</p>
+<h2 id="hangi-protokol">Hangi Protokol?</h2>
 <table>
 	<thead>
 			<tr>
-					<th>Değişken</th>
-					<th>Anlamı</th>
+					<th>Protokol</th>
+					<th>Port</th>
+					<th>Kimlik doğrulama</th>
+					<th>Güçlü yanları</th>
+					<th>Zayıf yanları</th>
 			</tr>
 	</thead>
 	<tbody>
 			<tr>
-					<td><code>BOOT</code></td>
-					<td>Switch&rsquo;in açmaya çalıştığı imaj(lar), noktalı virgülle ayrılır</td>
+					<td>TFTP</td>
+					<td>UDP 69</td>
+					<td>Yok</td>
+					<td>Basit, her yerde destekleniyor, ROMMON&rsquo;dan çalışır</td>
+					<td>Yavaş, WAN&rsquo;da güvenilmez, eski sunucularda boyut sınırı</td>
 			</tr>
 			<tr>
-					<td><code>MANUAL_BOOT</code></td>
-					<td><code>yes</code> = her zaman boot loader prompt&rsquo;unda dur</td>
+					<td>FTP</td>
+					<td>TCP 21 (+ veri)</td>
+					<td>Kullanıcı ve şifre</td>
+					<td>Büyük imajlar için hızlı ve güvenilir</td>
+					<td>Açık metin, veri kanalı için firewall ayarı gerekir</td>
 			</tr>
 			<tr>
-					<td><code>BAUD</code></td>
-					<td>Konsol hızı. Değişken tanımlı değilse varsayılan 9600</td>
+					<td>SCP</td>
+					<td>TCP 22</td>
+					<td>SSH</td>
+					<td>Şifreli, mevcut SSH erişimini kullanır</td>
+					<td>Bazı platformlarda FTP&rsquo;den yavaş</td>
 			</tr>
 			<tr>
-					<td><code>CONFIG_FILE</code></td>
-					<td>Konfigürasyon dosyasının adı, varsayılan <code>config.text</code></td>
+					<td>HTTP(S)</td>
+					<td>TCP 80/443</td>
+					<td>İsteğe bağlı</td>
+					<td>Hızlı, sunması kolay</td>
+					<td>Eski IOS sürümlerinde yok</td>
 			</tr>
 	</tbody>
 </table>
-<p>Boot loader sürümünüzün hangi komutları desteklediğini <code>help</code> ile görebilirsiniz.</p>
-<h2 id="adım-2-flashtaki-bir-imajla-açın">Adım 2: Flash&rsquo;taki Bir İmajla Açın</h2>
-<p><code>dir flash:</code> geçerli bir IOS imajı gösteriyorsa doğrudan onunla açabilirsiniz. <code>archive download-sw</code> ile kurulan imajlar bir alt dizinde durur, bu yüzden tam yolu kontrol edin:</p>
-<pre tabindex="0"><code>switch: dir flash:c3560-ipservicesk9-mz.&lt;surum&gt;
-switch: boot flash:c3560-ipservicesk9-mz.&lt;surum&gt;/c3560-ipservicesk9-mz.&lt;surum&gt;.bin
-</code></pre><p>Sorun <code>MANUAL_BOOT</code> ise düzeltin:</p>
-<pre tabindex="0"><code>switch: set MANUAL_BOOT no
-</code></pre><p>IOS çalışınca boot değişkenini kalıcı olarak ayarlayın:</p>
-<pre tabindex="0"><code>Switch# configure terminal
-Switch(config)# boot system flash:&lt;yol&gt;/&lt;imaj&gt;.bin
-Switch(config)# end
-Switch# copy running-config startup-config
-Switch# show boot
-</code></pre><h2 id="adım-3-flash-boş-xmodem-ile-imaj-aktarın">Adım 3: Flash Boş: Xmodem ile İmaj Aktarın</h2>
-<p>Flash&rsquo;ta kullanılabilir bir imaj yoksa bir tane getirmeniz gerekir. Klasik Catalyst 3560&rsquo;ta boot loader&rsquo;ın network yığını yok, switch&rsquo;in de USB depolama portu yok. Yani tek yol konsol. Kullanılan protokol <strong>Xmodem</strong> ve ciddi her terminal programı bunu destekler.</p>
-<h3 id="imajı-hazırlayın">İmajı Hazırlayın</h3>
-<p><code>.tar</code> değil <code>.bin</code> dosyasını kullanın. Xmodem tek bir dosya aktarır ve boot loader arşiv açamaz. Aktarım uzun sürdüğü ve tekrarlamak istemeyeceğiniz için MD5 checksum&rsquo;ı önceden bilgisayarınızda kontrol edin.</p>
-<h3 id="konsol-hızını-artırın">Konsol Hızını Artırın</h3>
-<p>9600 baud&rsquo;da bu boyutta bir IOS imajını aktarmak birkaç saat sürer. Önce hızı artırın:</p>
-<pre tabindex="0"><code>switch: set BAUD 115200
-</code></pre><p>Konsol çıktısı hemen okunmaz hale gelir. Terminal programınızı 115200 baud&rsquo;a çevirin ve <code>switch:</code> prompt&rsquo;u geri gelene kadar Enter&rsquo;a basın.</p>
-<h3 id="aktarımı-başlatın">Aktarımı Başlatın</h3>
-<pre tabindex="0"><code>switch: copy xmodem: flash:c3560-ipservicesk9-mz.&lt;surum&gt;.bin
-</code></pre><p>Switch dosyayı bekler. Terminal programınızda bir Xmodem gönderimi başlatın:</p>
+<p>Sahadaki kuralım:</p>
 <ul>
-<li><strong>SecureCRT:</strong> Transfer &gt; Send Xmodem</li>
-<li><strong>Tera Term:</strong> File &gt; Transfer &gt; XMODEM &gt; Send</li>
-<li><strong>minicom / screen:</strong> <code>lrzsz</code> paketindeki <code>sx</code></li>
+<li>Ağ üzerinden normal güncellemeler için <strong>FTP</strong>. Büyük IOS-XE imajlarında hızlı ve güvenilir.</li>
+<li>Cihaz ROMMON&rsquo;daysa <strong>TFTP</strong>. ROMMON yalnızca TFTP biliyor. Bkz. <a href="/tr/posts/cisco-rommon-recovery/">Cisco ROMMON Kurtarma</a>.</li>
+<li>Güvenlik politikası açık metin protokollere izin vermiyorsa <strong>SCP</strong>.</li>
 </ul>
-<p>115200 baud&rsquo;da imaj boyutuna ve terminal programına bağlı olarak yarım saat ile bir saat arası bir süre bekleyin. Aktarım sırasında konsol oturumuna dokunmayın.</p>
-<h3 id="yeni-imajla-açın">Yeni İmajla Açın</h3>
-<pre tabindex="0"><code>switch: dir flash:
-switch: boot flash:c3560-ipservicesk9-mz.&lt;surum&gt;.bin
-</code></pre><h2 id="adım-4-toparlayın">Adım 4: Toparlayın</h2>
-<p>IOS çalışınca:</p>
+<h2 id="sunucu-kurulumu">Sunucu Kurulumu</h2>
+<h3 id="windows-tftpd64">Windows: Tftpd64</h3>
+<p>Tftpd64; TFTP sunucusu, DHCP sunucusu ve syslog sunucusunu bir arada sunan ücretsiz bir araç.</p>
 <ol>
-<li>İmajı doğrulayın: <code>verify /md5 flash:&lt;imaj&gt;.bin</code></li>
-<li>Adım 2&rsquo;deki gibi <code>boot system</code>&lsquo;i yeni imaja ayarlayın ve kaydedin.</li>
-<li><strong>Konsol hızını geri alın.</strong> Boot loader&rsquo;daki <code>BAUD</code> 115200&rsquo;de kalırsa konsol da bu hızda kalır. Daha sonra varsayılan 9600 baud ile bağlanan herkes sadece anlamsız karakterler görür. Değeri boot loader&rsquo;da geri alın (<code>set BAUD 9600</code>) ya da IOS&rsquo;taki konsol hızının ekibinizin beklediği değer olduğundan emin olun.</li>
-<li>Switch&rsquo;in yardımsız açıldığını görmek için bir kez reload edin.</li>
+<li>Tftpd64&rsquo;ü kurun ve başlatın.</li>
+<li><strong>Current Directory</strong>&lsquo;yi imajların bulunduğu klasör yapın.</li>
+<li><strong>Server interface</strong> olarak cihazlara bakan ağ adaptörünün IP adresini seçin.</li>
+<li>Windows firewall&rsquo;da Tftpd64&rsquo;e izin verin. Zaman aşımlarının en sık sebebi bu.</li>
 </ol>
-<h2 id="peki-tftp-ve-usb">Peki TFTP ve USB?</h2>
-<p>Yeni Catalyst platformlarında boot loader daha fazlasını yapabiliyor. Bazı modellerde USB depolama portu (<code>usbflash0:</code>) var ya da management portundan ağ üzerinden imajla açılabiliyorlar. Bu, Xmodem&rsquo;den çok daha hızlı. Klasik 3560&rsquo;ta bu seçenekler yok, yani flash boşsa tek yol Xmodem. Platformunuzun neleri desteklediğini <code>switch:</code> prompt&rsquo;unda <code>help</code> yazarak görebilirsiniz.</p>
-<p>Cihaz açılmadığında TFTP ya da USB&rsquo;den açılış fikri, data center switch&rsquo;leri için <a href="/tr/posts/cisco-nexus-nxos-upgrade-guide/">Nexus NX-OS güncelleme rehberinde</a> anlatılıyor.</p>
-<h2 id="önlem">Önlem</h2>
+<p>Windows&rsquo;ta FTP için yaygın ücretsiz seçenek FileZilla Server.</p>
+<h3 id="macos-yerleşik-tftp-sunucusu">macOS: Yerleşik TFTP Sunucusu</h3>
+<p>macOS&rsquo;ta hazır bir TFTP sunucusu var. Dosyaları <code>/private/tftpboot</code> dizininden sunar:</p>
+<pre tabindex="0"><code>sudo mkdir -p /private/tftpboot
+sudo cp &lt;imaj&gt;.bin /private/tftpboot/
+sudo chmod 644 /private/tftpboot/&lt;imaj&gt;.bin
+sudo launchctl load -F /System/Library/LaunchDaemons/tftp.plist
+</code></pre><p>Durdurmak için <code>sudo launchctl unload -F /System/Library/LaunchDaemons/tftp.plist</code>. macOS firewall&rsquo;u açıksa gelen bağlantılara izin verin.</p>
+<h3 id="linux-tftpd-hpa-ve-vsftpd">Linux: tftpd-hpa ve vsftpd</h3>
+<p>Debian ve Ubuntu&rsquo;da:</p>
+<pre tabindex="0"><code>sudo apt install tftpd-hpa
+</code></pre><p>Konfigürasyon <code>/etc/default/tftpd-hpa</code> dosyasında. Varsayılan dizin <code>/srv/tftp</code>:</p>
+<pre tabindex="0"><code>TFTP_DIRECTORY=&#34;/srv/tftp&#34;
+TFTP_OPTIONS=&#34;--secure&#34;
+</code></pre><p><code>TFTP_OPTIONS</code>&lsquo;a <code>--create</code> seçeneğini yalnızca cihazların dosya yüklemesi gerekiyorsa ekleyin, örneğin konfigürasyon yedekleri için.</p>
+<p>FTP için yerel bir kullanıcıyla <code>vsftpd</code> yeterli:</p>
+<pre tabindex="0"><code>sudo apt install vsftpd
+sudo adduser netops
+</code></pre><p>İmajları kullanıcının home dizinine ya da <code>/tftpboot/images</code> gibi ortak bir dizine koyun.</p>
+<h2 id="cihaz-tarafı-imajı-kopyalamak">Cihaz Tarafı: İmajı Kopyalamak</h2>
+<h3 id="tftp">TFTP</h3>
+<pre tabindex="0"><code>copy tftp://192.0.2.10/&lt;imaj&gt;.bin flash:
+</code></pre><h3 id="ftp">FTP</h3>
+<p>Kullanıcı bilgileri URL&rsquo;nin içinde olabilir ya da bir kez tanımlanabilir:</p>
+<pre tabindex="0"><code>configure terminal
+ip ftp username netops
+ip ftp password &lt;sifre&gt;
+end
+copy ftp://192.0.2.10/images/&lt;imaj&gt;.bin bootflash:
+</code></pre><p><strong>Çift slash.</strong> IOS, FTP URL&rsquo;sindeki yolu FTP kullanıcısının home dizinine göre değerlendirir. İmajlar home dizini dışında mutlak bir yoldaysa sunucu adresinden sonra iki slash kullanın:</p>
+<pre tabindex="0"><code>copy ftp://192.0.2.10//tftpboot/images/&lt;imaj&gt;.bin bootflash:
+</code></pre><p><code>ftp://sunucu/images/dosya</code>, <code>&lt;home&gt;/images/dosya</code> anlamına gelir. <code>ftp://sunucu//tftpboot/images/dosya</code> ise <code>/tftpboot/images/dosya</code> demektir. Pek çok &ldquo;file not found&rdquo; hatasının sebebi bu ayrıntı.</p>
+<h3 id="scp">SCP</h3>
+<p>Bir SCP sunucusundan dosya çekmek:</p>
+<pre tabindex="0"><code>copy scp://netops@192.0.2.10/images/&lt;imaj&gt;.bin flash:
+</code></pre><p>Laptoptan cihaza dosya göndermek için cihazda SCP sunucusunun açık olması gerekir:</p>
+<pre tabindex="0"><code>configure terminal
+ip scp server enable
+end
+</code></pre><p>Sonra laptoptan:</p>
+<pre tabindex="0"><code>scp &lt;imaj&gt;.bin admin@&lt;cihaz-ip&gt;:flash:&lt;imaj&gt;.bin
+</code></pre><p>Politikanız gerektiriyorsa aktarımdan sonra <code>ip scp server enable</code>&lsquo;ı tekrar kapatın.</p>
+<h3 id="her-zaman-doğrulayın">Her Zaman Doğrulayın</h3>
+<pre tabindex="0"><code>verify /md5 flash:&lt;imaj&gt;.bin
+</code></pre><p>Değeri Cisco indirme sayfasındaki MD5 checksum ile karşılaştırın. Hatasız kopyalanmış bir dosya bile eksik olabilir.</p>
+<h2 id="management-portu-ve-vrf">Management Portu ve VRF</h2>
+<p>Catalyst 9000 switch&rsquo;lerde ayrı management portu (GigabitEthernet0/0), <code>Mgmt-vrf</code> adlı kendi VRF&rsquo;inde durur. ISR 4000 ve Catalyst 8000 router&rsquo;larda management portu <code>Mgmt-intf</code> VRF&rsquo;inde. VRF belirtilmeyen bir kopyalama global routing tablosunu kullanır ve sunucuya yalnızca management ağından ulaşılabiliyorsa başarısız olur.</p>
+<p>Cihaza kaynak olarak hangi interface&rsquo;i kullanacağını söyleyin:</p>
+<pre tabindex="0"><code>configure terminal
+ip tftp source-interface GigabitEthernet0/0
+ip ftp source-interface GigabitEthernet0/0
+end
+</code></pre><p>ISR 4000 router&rsquo;larda management portunun adı <code>GigabitEthernet0</code>. Adı <code>show ip interface brief</code> ile kontrol edin.</p>
+<h2 id="sorun-giderme">Sorun Giderme</h2>
+<h3 id="zaman-aşımı-ya-da-connection-refused">Zaman Aşımı ya da &ldquo;Connection refused&rdquo;</h3>
 <ul>
-<li>Mevcut ve bir önceki imajı erişebildiğiniz bir TFTP sunucusunda tutun.</li>
-<li>Her güncellemeden sonraki reload&rsquo;dan önce MD5 checksum&rsquo;ı doğrulayın.</li>
-<li>Planlı her reload&rsquo;dan önce <code>show boot</code>&lsquo;u kontrol edin.</li>
-<li>Her güncellemede konsol erişimini hazır tutun. Konsol sunucusu bunu uzaktan da mümkün kılar: <a href="/tr/posts/next-gen-console-server-architecture/">Yeni Nesil Konsol Sunucu Mimarisi</a>.</li>
+<li>Doğru kaynak interface ya da VRF ile cihazdan sunucuya <code>ping</code> atın.</li>
+<li>Sunucudaki firewall&rsquo;u kontrol edin. Windows ve macOS gelen bağlantıları varsayılan olarak engeller.</li>
+<li>FTP&rsquo;de veri kanalı ek portlar kullanır. Cihaz ile sunucu arasında bir firewall varsa passive mode sorunları sık görülür.</li>
 </ul>
+<h3 id="file-not-found">&ldquo;File not found&rdquo;</h3>
+<ul>
+<li>Yolu sunucunun kök dizinine (TFTP) ya da kullanıcının home dizinine (FTP) göre kontrol edin. Çift slash&rsquo;ı unutmayın.</li>
+<li>Büyük-küçük harfe dikkat edin. Linux ve macOS sunucularda dosya adları büyük-küçük harfe duyarlı.</li>
+<li>Sunucu kullanıcısının dosyayı okuyabildiğini kontrol edin.</li>
+</ul>
+<h3 id="kopyalama-32-mbda-duruyor-tftp">Kopyalama 32 MB&rsquo;da Duruyor (TFTP)</h3>
+<p>Klasik TFTP 512 byte&rsquo;lık bloklar ve 16 bit&rsquo;lik bir blok sayacı kullanır. İki taraf da daha büyük blokları ya da blok numarasının başa dönmesini desteklemiyorsa bu, bir aktarımı yaklaşık 32 MB ile sınırlar. Eski ya da minimal TFTP sunucularında bu sınır hâlâ var. IOS-XE imajları ise çok daha büyük.</p>
+<ul>
+<li>Büyük imajlarda FTP ya da SCP kullanın.</li>
+<li>TFTP şartsa güncel bir sunucu kullanın ve cihazda blok boyutunu artırın:</li>
+</ul>
+<pre tabindex="0"><code>configure terminal
+ip tftp blocksize 8192
+end
+</code></pre><h3 id="aktarım-çok-yavaş">Aktarım Çok Yavaş</h3>
+<p>TFTP her bloktan sonra bir onay bekler. Gecikmesi yüksek bir WAN hattında bu onu son derece yavaşlatır. Uzak mesafelerde FTP ya da SCP kullanın ya da cihaza yakın bir sunucu konumlandırın.</p>
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>
-<li><a href="/tr/posts/catalyst-3560-password-recovery/">Cisco Catalyst 3560 Şifre Kurtarma: İki Yöntem</a></li>
-<li><a href="/tr/posts/catalyst-3560-ios-upgrade/">Catalyst 3560 IOS Güncelleme: İki Yöntem ve Doğrulama</a></li>
-<li><a href="/tr/posts/cisco-nexus-nxos-upgrade-guide/">Cisco Nexus NX-OS Yazılım Güncelleme Rehberi</a></li>
-</ul>
-]]></content:encoded></item><item><title>Cisco Catalyst 3560 IOS Güncelleme: İki Yöntem ve Doğrulama</title><link>https://barashhelvadzhaoglu.com/tr/posts/catalyst-3560-ios-upgrade/</link><pubDate>Fri, 16 Oct 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/catalyst-3560-ios-upgrade/</guid><description>Cisco Catalyst 3560&amp;#39;ta IOS güncelleme — archive download-sw ile manuel kopyalama ve boot system karşılaştırması, flash alanı, MD5 doğrulama ve rollback.</description><content:encoded><![CDATA[<p>Catalyst 3560&rsquo;ta IOS güncellemek karmaşık değil ama ayrıntılar önemli: hangi dosya formatını indirdiğiniz, flash&rsquo;ta ne kadar yer kaldığı ve boot değişkeninin doğru imajı gösterip göstermediği. Bunlardan birinde yapılan hata, switch&rsquo;in IOS yerine boot loader&rsquo;da açılmasıyla sonuçlanır.</p>
-<p>İki yol var:</p>
-<ul>
-<li><strong>Yöntem A: <code>.tar</code> dosyasıyla <code>archive download-sw</code>.</strong> Switch imajı ve web device manager dosyalarını kendisi açar, boot değişkenini de kendisi ayarlar.</li>
-<li><strong>Yöntem B: <code>.bin</code> dosyasıyla manuel güncelleme.</strong> İmajı kopyalar, doğrular, <code>boot system</code>&lsquo;i ayarlar ve reload edersiniz.</li>
-</ul>
-<blockquote>
-<p><strong>Lab notu:</strong> Kendi 8 portlu PoE Catalyst 3560 switch&rsquo;imi iki yöntemle de güncelliyorum. Lab&rsquo;dan alınan konsol çıktıları ve süreler bu rehbere eklenecek.</p>
-</blockquote>
-<h2 id="1-başlamadan-önce">1. Başlamadan Önce</h2>
-<h3 id="konfigürasyonu-yedekleyin">Konfigürasyonu Yedekleyin</h3>
-<pre tabindex="0"><code>Switch# copy running-config startup-config
-Switch# copy startup-config tftp:
-</code></pre><p>Yedeği switch&rsquo;in dışında tutun: laptopunuzda, bir TFTP ya da SCP sunucusunda veya konfigürasyon yönetim aracınızda.</p>
-<h3 id="modeli-sürümü-ve-feature-seti-belirleyin">Modeli, Sürümü ve Feature Set&rsquo;i Belirleyin</h3>
-<pre tabindex="0"><code>Switch# show version
-Switch# show inventory
-</code></pre><p>Üç şeyi not edin:</p>
-<ul>
-<li><strong>Tam model</strong>, örneğin <code>WS-C3560-8PC-S</code>. İmaj platformla uyumlu olmalı.</li>
-<li><strong>Mevcut IOS sürümü</strong>.</li>
-<li><strong>Feature set</strong>, örneğin IP Base (<code>ipbasek9</code>) ya da IP Services (<code>ipservicesk9</code>). Bilinçli olarak değiştirmiyorsanız yeni imaj için aynı feature set&rsquo;i seçin.</li>
-</ul>
-<h3 id="boot-ayarlarını-ve-flash-alanını-kontrol-edin">Boot Ayarlarını ve Flash Alanını Kontrol Edin</h3>
-<pre tabindex="0"><code>Switch# show boot
-Switch# dir flash:
-</code></pre><p><code>show boot</code>, switch&rsquo;in bir sonraki reload&rsquo;da hangi imajı yükleyeceğini gösterir. <code>dir flash:</code> dosyaları ve en altta boş alanı gösterir. 8 portlu 3560 gibi kompakt switch&rsquo;lerde flash az. Çoğu zaman iki imajı aynı anda tutacak yer olmaz.</p>
-<h3 id="imajı-indirin">İmajı İndirin</h3>
-<p>İmajı Cisco Software Download&rsquo;dan indirin. Bunun için servis sözleşmesi gerekiyor. İki dosya tipi göreceksiniz:</p>
-<table>
-	<thead>
-			<tr>
-					<th>Dosya</th>
-					<th>İçerik</th>
-					<th>Kullanım</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td><code>.tar</code></td>
-					<td>IOS imajı ve web device manager dosyaları</td>
-					<td><code>archive download-sw</code> (Yöntem A)</td>
-			</tr>
-			<tr>
-					<td><code>.bin</code></td>
-					<td>Yalnızca IOS imajı</td>
-					<td>Manuel kopyalama ve <code>boot system</code> (Yöntem B)</td>
-			</tr>
-	</tbody>
-</table>
-<p>İndirme sayfasındaki <strong>MD5 checksum</strong> değerini not edin. Switch üzerinde bununla karşılaştıracaksınız.</p>
-<p>Klasik Catalyst 3560 end of life oldu. İndirme sayfasındaki en yeni sürüm bu platform için son sürüm.</p>
-<h2 id="2-yöntem-a-archive-download-sw">2. Yöntem A: archive download-sw</h2>
-<p>Cisco&rsquo;nun bu switch ailesi için önerdiği yöntem bu. Tek komut <code>.tar</code> dosyasını aktarır, flash&rsquo;ta yeni bir dizine açar, boot değişkenini günceller ve isterseniz reload eder.</p>
-<pre tabindex="0"><code>Switch# archive download-sw /overwrite /reload tftp://192.0.2.10/c3560-ipservicesk9-tar.&lt;surum&gt;.tar
-</code></pre><p>En kullanışlı seçenekler:</p>
-<table>
-	<thead>
-			<tr>
-					<th>Seçenek</th>
-					<th>Etkisi</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td><code>/overwrite</code></td>
-					<td>İki imaja yer yoksa mevcut imajın yerine yazar</td>
-			</tr>
-			<tr>
-					<td><code>/leave-old-sw</code></td>
-					<td>Eski imajı tutar (yalnızca flash ikisine de yetiyorsa)</td>
-			</tr>
-			<tr>
-					<td><code>/reload</code></td>
-					<td>Başarılı indirmeden sonra switch&rsquo;i reload eder</td>
-			</tr>
-			<tr>
-					<td><code>/imageonly</code></td>
-					<td>Web device manager dosyaları olmadan yalnızca IOS imajını kurar</td>
-			</tr>
-	</tbody>
-</table>
-<p>İki imaja yer varsa <code>/overwrite</code> yerine <code>/leave-old-sw</code> kullanın. Rollback o zaman sadece boot değişkenini değiştirmekten ibaret olur.</p>
-<p><code>/reload</code> kullanmadıysanız reload&rsquo;dan önce sonucu kontrol edin:</p>
-<pre tabindex="0"><code>Switch# show boot
-Switch# dir flash:
-Switch# reload
-</code></pre><h2 id="3-yöntem-b-bin-dosyasıyla-manuel-güncelleme">3. Yöntem B: .bin Dosyasıyla Manuel Güncelleme</h2>
-<p>Manuel yöntem her adımda tam kontrol sağlar. Elinizde yalnızca <code>.bin</code> dosyası varsa ya da boot değişkenine dokunmadan önce imajı doğrulamak istiyorsanız işe yarar.</p>
-<h3 id="imajı-kopyalayın">İmajı Kopyalayın</h3>
-<pre tabindex="0"><code>Switch# copy tftp://192.0.2.10/c3560-ipservicesk9-mz.&lt;surum&gt;.bin flash:
-</code></pre><p>Yer yetmiyorsa önce eski imajı silmeniz gerekir. Bu, switch üzerindeki rollback seçeneğinizi ortadan kaldırır. Eski imajın TFTP sunucunuzda olduğundan ve konsol bağlantısının hazır olduğundan emin olun.</p>
-<p>TFTP küçük dosyalar için iş görür ama yavaştır ve uzak mesafelerde güvenilir değildir. IOS sürümünüz destekliyorsa SCP ya da FTP daha hızlı.</p>
-<h3 id="checksumı-doğrulayın">Checksum&rsquo;ı Doğrulayın</h3>
-<pre tabindex="0"><code>Switch# verify /md5 flash:c3560-ipservicesk9-mz.&lt;surum&gt;.bin
-</code></pre><p>Sonucu Cisco indirme sayfasındaki MD5 değeriyle karşılaştırın. Farklıysa dosyayı silip yeniden kopyalayın. Doğrulamadan geçmeyen bir imajla asla açılış yapmayın.</p>
-<h3 id="boot-değişkenini-ayarlayın-ve-reload-edin">Boot Değişkenini Ayarlayın ve Reload Edin</h3>
-<pre tabindex="0"><code>Switch# configure terminal
-Switch(config)# boot system flash:c3560-ipservicesk9-mz.&lt;surum&gt;.bin
-Switch(config)# end
-Switch# copy running-config startup-config
-Switch# show boot
-Switch# reload
-</code></pre><p>Reload&rsquo;dan önce <code>show boot</code>&lsquo;u kontrol edin. <code>BOOT path-list</code> doğru dosya adı ve yolla yeni imajı göstermeli.</p>
-<h2 id="4-güncellemeden-sonra">4. Güncellemeden Sonra</h2>
-<pre tabindex="0"><code>Switch# show version
-Switch# show interfaces status
-Switch# show power inline
-Switch# show logging
-</code></pre><ul>
-<li><code>show version</code>: Yeni IOS sürümü çalışıyor.</li>
-<li><code>show interfaces status</code>: Beklenen tüm portlar açık.</li>
-<li><code>show power inline</code>: PoE cihazları yeniden besleniyor.</li>
-<li><code>show logging</code>: Açılışta hata yok.</li>
-</ul>
-<p>Yeni sürümün sorunsuz çalıştığından emin olduğunuzda, rollback için tutmak istemiyorsanız eski imajı silerek yer açın.</p>
-<h2 id="5-rollback">5. Rollback</h2>
-<ul>
-<li><strong>Eski imaj hâlâ flash&rsquo;ta:</strong> Boot değişkenini <code>boot system flash:&lt;eski-imaj&gt;</code> ile geri alın, kaydedin ve reload edin.</li>
-<li><strong>Eski imaj silindi:</strong> TFTP sunucusundan geri kopyalayın, MD5&rsquo;i doğrulayın ve boot değişkenini ayarlayın.</li>
-<li><strong>Switch IOS&rsquo;u hiç açamıyor:</strong> <code>switch:</code> prompt&rsquo;unda kalır. Bu durum <a href="/tr/posts/catalyst-3560-boot-loader-recovery/">Catalyst 3560 Açılmıyorsa: Boot Loader ile Kurtarma</a> yazısında anlatılıyor.</li>
-</ul>
-<h2 id="sık-yapılan-hatalar">Sık Yapılan Hatalar</h2>
-<ul>
-<li><strong>Yanlış platform ya da feature set.</strong> Başka bir modelin imajı açılmaz.</li>
-<li><strong>Yeni imaj doğrulanmadan eskisini silmek.</strong> Kopya bozuksa açılacak hiçbir şey kalmaz.</li>
-<li><strong><code>boot system</code>&lsquo;de yazım hatası.</strong> Switch imajı bulamaz ve boot loader&rsquo;da kalır.</li>
-<li><strong>Reload sırasında konsol bağlantısı olmaması.</strong> Bir şey ters giderse bunu yalnızca konsoldan görebilirsiniz.</li>
-</ul>
-<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
-<ul>
-<li><a href="/tr/posts/catalyst-3560-password-recovery/">Cisco Catalyst 3560 Şifre Kurtarma: İki Yöntem</a></li>
-<li><a href="/tr/posts/catalyst-3560-boot-loader-recovery/">Catalyst 3560 Açılmıyorsa: Boot Loader ile Kurtarma</a></li>
+<li><a href="/tr/posts/cisco-ios-xe-upgrade-guide/">Cisco IOS ve IOS-XE Güncelleme Rehberi</a></li>
+<li><a href="/tr/posts/cisco-rommon-recovery/">Cisco ROMMON Kurtarma: Flash, TFTP ya da USB&rsquo;den Açılış</a></li>
 <li><a href="/tr/posts/cisco-nexus-nxos-upgrade-guide/">Cisco Nexus NX-OS Yazılım Güncelleme Rehberi</a></li>
 <li><a href="/tr/technology/securecrt-superputty/">Network Mühendisleri için SecureCRT ve SuperPuTTY</a></li>
 </ul>
-]]></content:encoded></item><item><title>Cisco Catalyst 3560 Şifre Kurtarma: İki Yöntem, Adım Adım</title><link>https://barashhelvadzhaoglu.com/tr/posts/catalyst-3560-password-recovery/</link><pubDate>Fri, 16 Oct 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/catalyst-3560-password-recovery/</guid><description>Cisco Catalyst 3560&amp;#39;ta unutulan enable veya konsol şifresini kurtarma — boot loader ile konfigürasyonu koruyarak ya da şifre kurtarma kapalıysa fabrika ayarlarına dönerek.</description><content:encoded><![CDATA[<p>Bir switch&rsquo;i devralıyorsunuz, dokümantasyon yok ve enable şifresini kimse bilmiyor. Ya da depodan çıkan bir lab switch&rsquo;i, hiç koymadığınız bir şifreyi soruyor. Cisco Catalyst 3560&rsquo;ta fiziksel erişiminiz ve bir konsol kablonuz varsa iki durumdan da konfigürasyonu kaybetmeden çıkabilirsiniz.</p>
-<p>Bu rehber sahada karşılaşılan iki durumu anlatıyor:</p>
+]]></content:encoded></item><item><title>Cisco IOS ve IOS-XE Güncelleme Rehberi: Catalyst Switch'ler ve ISR Router'lar</title><link>https://barashhelvadzhaoglu.com/tr/posts/cisco-ios-xe-upgrade-guide/</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/cisco-ios-xe-upgrade-guide/</guid><description>Catalyst switch&amp;#39;ler (2960, 3560, 3850, 9200, 9300, 9500) ve router&amp;#39;lar (ISR 4000, ISR 1100, Catalyst 8000) için adım adım Cisco IOS ve IOS-XE yazılım güncelleme — flash kontrolü, ROMMON, install mode, bundle mode, MD5 ve rollback.</description><content:encoded><![CDATA[<p>Cisco güncellemelerinin çoğu daha ilk komut yazılmadan başarısız olur: platforma uymayan imaj, flash&rsquo;ta yetersiz alan, hedef sürüm için fazla eski bir ROMMON ya da hiçbir yeri göstermeyen bir boot değişkeni. Bu rehber önce kontrolleri, sonra komutları anlatıyor.</p>
+<p>Sahada karşılaşılan iki aileyi de kapsıyor:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Aile</th>
+					<th>Tipik modeller</th>
+					<th>Yazılım</th>
+					<th>Dosya sistemi</th>
+					<th>Güncelleme yöntemi</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Klasik Catalyst switch&rsquo;ler</td>
+					<td>2960, 2960-X, 3560, 3750</td>
+					<td>IOS</td>
+					<td><code>flash:</code></td>
+					<td><code>archive download-sw</code> ya da <code>.bin</code> + <code>boot system</code></td>
+			</tr>
+			<tr>
+					<td>IOS-XE Catalyst switch&rsquo;ler</td>
+					<td>3650, 3850, 9200, 9300, 9400, 9500</td>
+					<td>IOS-XE</td>
+					<td><code>flash:</code> (bazı modellerde <code>bootflash:</code>)</td>
+					<td>Install mode (<code>packages.conf</code>)</td>
+			</tr>
+			<tr>
+					<td>IOS-XE router&rsquo;lar</td>
+					<td>ISR 4000, ISR 1100, Catalyst 8200/8300, Catalyst 8000V</td>
+					<td>IOS-XE</td>
+					<td><code>bootflash:</code></td>
+					<td>Install mode ya da bundle mode</td>
+			</tr>
+			<tr>
+					<td>Klasik IOS router&rsquo;lar</td>
+					<td>ISR G2, C900</td>
+					<td>IOS</td>
+					<td><code>flash:</code></td>
+					<td><code>.bin</code> + <code>boot system</code></td>
+			</tr>
+	</tbody>
+</table>
+<p>Komutlar sahada Catalyst switch&rsquo;lerde ve ISR router&rsquo;larda kullandıklarım. Örneklerdeki IP adresleri ve dizinler yer tutucudur.</p>
+<h2 id="1-önce-platformu-kontrol-edin">1. Önce Platformu Kontrol Edin</h2>
+<h3 id="dosya-sistemi-flash-mı-bootflash-mı">Dosya Sistemi: flash: mı bootflash: mı?</h3>
+<p>Tahmin etmeyin, cihaza sorun:</p>
+<pre tabindex="0"><code>show file systems
+dir
+</code></pre><p>Klasik Catalyst switch&rsquo;ler ve Catalyst 9200/9300 <code>flash:</code> kullanır. ISR ve Catalyst 8000 router&rsquo;lar <code>bootflash:</code> kullanır. Birçok IOS-XE platformunda isimlerden biri diğerinin takma adıdır. Cihaz ne gösteriyorsa onu kullanın. Bu rehberdeki her komut iki isimle de çalışır.</p>
+<h3 id="model-sürüm-ve-boot-modu">Model, Sürüm ve Boot Modu</h3>
+<pre tabindex="0"><code>show version
+show inventory
+show boot            ! switch&#39;ler
+show bootvar         ! router&#39;lar
+show install summary ! yalnızca IOS-XE
+</code></pre><p>Şunları not edin:</p>
 <ul>
-<li><strong>Yöntem 1: Konfigürasyonu koruyarak.</strong> Switch startup konfigürasyonunu yüklemeden açılır, şifreleri değiştirirsiniz ve eski konfigürasyonu geri yüklersiniz.</li>
-<li><strong>Yöntem 2: Şifre kurtarma kapatılmışsa.</strong> Birisi <code>no service password-recovery</code> komutunu girmiş. Switch&rsquo;i yine geri alabilirsiniz ama yalnızca fabrika ayarlarına döndürerek.</li>
+<li><strong>Tam model ve platform ailesi.</strong> ISR 4300 imajı ISR 4400&rsquo;de açılmaz. Platform ailesi dosya adında yazar, örneğin <code>isr4300-universalk9</code>, <code>c1100-universalk9</code>, <code>cat9k_iosxe</code>.</li>
+<li><strong>Mevcut sürüm.</strong></li>
+<li><strong>IOS-XE&rsquo;de boot modu.</strong> Boot değişkeni <code>packages.conf</code>&lsquo;u gösteriyorsa cihaz <strong>install mode</strong>&lsquo;da çalışıyordur. Bir <code>.bin</code> dosyasını gösteriyorsa <strong>bundle mode</strong>&lsquo;dadır.</li>
 </ul>
-<blockquote>
-<p><strong>Lab notu:</strong> Bu adımları kendi 8 portlu PoE Catalyst 3560 switch&rsquo;imde uyguluyorum. Lab&rsquo;dan alınan konsol çıktıları bu rehbere eklenecek.</p>
-</blockquote>
+<h3 id="boş-alan">Boş Alan</h3>
+<p><code>dir</code> en altta boş alanı gösterir. IOS-XE imajları büyüktür ve install mode paketleri açmak için ek alan ister. Yer azsa önce temizlik yapın:</p>
+<pre tabindex="0"><code>install remove inactive   ! IOS-XE install mode: kullanılmayan paketleri siler
+delete flash:&lt;eski-imaj&gt;.bin
+</code></pre><h2 id="2-release-notesu-okuyun-güncelleme-yolu-ve-rommon">2. Release Notes&rsquo;u Okuyun: Güncelleme Yolu ve ROMMON</h2>
+<p>Release notes&rsquo;taki iki bilgi güncellemenin çalışıp çalışmayacağını belirler:</p>
+<ul>
+<li><strong>Güncelleme yolu.</strong> Bazı geçişler doğrudan desteklenmez. Örneğin Cisco, bundle mode&rsquo;daki Catalyst 9500 switch&rsquo;lerin 16.x&rsquo;ten 17.x&rsquo;e bir ara sürüm üzerinden geçmesi gerektiğini, install mode&rsquo;un ise doğrudan geçişi desteklediğini belirtiyor.</li>
+<li><strong>Minimum ROMMON sürümü.</strong> Her IOS-XE sürümü minimum bir ROMMON (boot loader) sürümü ister. Cihazdaki ROMMON daha eskiyse yeni imaj açılmayabilir ve cihaz <code>rommon</code> prompt&rsquo;unda kalır.</li>
+</ul>
+<p>Mevcut ROMMON sürümünü kontrol edin:</p>
+<pre tabindex="0"><code>show rom-monitor r0          ! ISR 4000 ve benzeri router&#39;lar
+show version | include ROM   ! çoğu platform
+</code></pre><h3 id="rommonu-ayrıca-güncellemek-gerekir-mi">ROMMON&rsquo;u Ayrıca Güncellemek Gerekir mi?</h3>
+<ul>
+<li><strong>Catalyst 9000:</strong> Genelde elle gerekmez. Yeni sürümün içinde daha yeni bir ROMMON varsa switch ilk açılışta primary ROMMON&rsquo;u otomatik günceller. Golden (yedek) ROMMON ise <code>upgrade rom-monitor capsule golden</code> komutuyla elle güncellenir. Tam argümanlar modele göre değişir, kendi platformunuzun güncelleme rehberine bakın.</li>
+<li><strong>ISR 4000 ve benzeri router&rsquo;lar:</strong> Her seferinde kontrol edin. Bilinen bir örnek: ISR 4000 router&rsquo;lar 17.x sürümleriyle açılabilmek için ROMMON 16.12(2r) ister.</li>
+</ul>
+<h3 id="isr-4000de-rommon-güncelleme">ISR 4000&rsquo;de ROMMON Güncelleme</h3>
+<p>ROMMON, ROMMON prompt&rsquo;undan değil, çalışan IOS-XE&rsquo;den güncellenir. ROMMON paketini kopyalayın, doğrulayın, sonra:</p>
+<pre tabindex="0"><code>copy ftp://192.0.2.10/images/isr4200_4300_rommon_1612_2r_SPA.pkg bootflash:
+verify /md5 bootflash:isr4200_4300_rommon_1612_2r_SPA.pkg
+upgrade rom-monitor filename bootflash:isr4200_4300_rommon_1612_2r_SPA.pkg R0
+reload
+show rom-monitor r0
+</code></pre><p>ROMMON güncellemesini yazılım güncellemesinden <strong>önce</strong> yapın. Bir şey ters gider de cihaz açılmazsa <a href="/tr/posts/cisco-rommon-recovery/">Cisco ROMMON Kurtarma</a> yazısına bakın.</p>
+<h3 id="secure-boot-ve-imzalı-imajlar">Secure Boot ve İmzalı İmajlar</h3>
+<p>IOS-XE imajları imzalıdır. Dosya adındaki <code>.SPA</code> imzalı production imajı anlamına gelir. Cihaz açılışta imzayı doğrular. Yanlış platforma ait ya da bozuk bir imaj bu kontrolden geçemez ve açılmaz. Yalnızca Cisco Software Download&rsquo;dan alınan imajları kullanın ve checksum&rsquo;ı her zaman doğrulayın.</p>
+<h2 id="3-imajı-kopyalayın-ve-doğrulayın">3. İmajı Kopyalayın ve Doğrulayın</h2>
+<p>Büyük IOS-XE imajlarında FTP, TFTP&rsquo;den daha hızlı ve güvenilirdir:</p>
+<pre tabindex="0"><code>copy ftp://192.0.2.10/images/isr4300-universalk9.17.12.08.SPA.bin bootflash:
+copy ftp://192.0.2.10/images/c1100-universalk9.17.12.08.SPA.bin bootflash:
+copy tftp://192.0.2.10/cat9k_iosxe.&lt;surum&gt;.SPA.bin flash:
+</code></pre><p>Sunucu kurulumu, kullanıcı bilgileri, FTP yollarındaki çift slash ve management VRF konuları <a href="/tr/posts/tftp-ftp-server-cisco-upgrades/">Cisco Güncellemeleri için TFTP, FTP ve SCP Sunucusu</a> yazısında.</p>
+<p>MD5 checksum&rsquo;ı Cisco indirme sayfasındaki değerle karşılaştırın:</p>
+<pre tabindex="0"><code>verify /md5 bootflash:c1100-universalk9.17.12.08.SPA.bin
+</code></pre><p>Değerler farklıysa dosyayı silip yeniden kopyalayın. Doğrulamadan geçmeyen bir imajı asla kurmayın.</p>
+<h2 id="4-install-modeda-güncelleme-ios-xe">4. Install Mode&rsquo;da Güncelleme (IOS-XE)</h2>
+<p>Catalyst 9000 switch&rsquo;ler ile güncel ISR ve Catalyst 8000 router&rsquo;lar için önerilen mod install mode. Tek komut yeni yazılımı ekler, aktif eder ve kalıcı hale getirir:</p>
+<pre tabindex="0"><code>install add file bootflash:isr4300-universalk9.17.12.08.SPA.bin activate commit
+</code></pre><p>Cihaz reload için onay ister, <code>y</code> deyin. Reload&rsquo;dan sonra:</p>
+<pre tabindex="0"><code>show version
+show install summary
+install remove inactive
+</code></pre><p><code>show install summary</code> yeni sürümü <code>Committed</code> olarak göstermeli. <code>install remove inactive</code> eski paketleri siler ve yer açar.</p>
+<p>Catalyst 9000 switch&rsquo;lerde komut aynı, sadece switch&rsquo;in dosya sistemiyle:</p>
+<pre tabindex="0"><code>install add file flash:cat9k_iosxe.&lt;surum&gt;.SPA.bin activate commit
+</code></pre><h3 id="arka-arkaya-birkaç-geçiş">Arka Arkaya Birkaç Geçiş</h3>
+<p>Release notes bir ara sürüm istiyorsa her adımda aynı sırayı tekrarlayın: kopyala, doğrula, <code>install add ... activate commit</code>, kontrol et, <code>install remove inactive</code>. Örneğin önce 17.9, sonra 17.12. Bir sonraki imaja yer kalması için adımlar arasında temizlik yapın.</p>
+<h3 id="bundle-modedan-install-modea-geçiş">Bundle Mode&rsquo;dan Install Mode&rsquo;a Geçiş</h3>
+<p>Bundle mode&rsquo;daki bir cihaz doğrudan bir <code>.bin</code> dosyasıyla açılır. Install mode&rsquo;a geçmek için:</p>
+<ol>
+<li>Yukarıdaki gibi <code>install add file &lt;imaj&gt;.bin activate commit</code> çalıştırın. Bu, paketleri açar ve <code>packages.conf</code> dosyasını oluşturur.</li>
+<li>Boot değişkeninin <code>packages.conf</code>&lsquo;u gösterdiğinden emin olun:</li>
+</ol>
+<pre tabindex="0"><code>configure terminal
+no boot system
+boot system flash:packages.conf
+end
+write memory
+show boot
+</code></pre><p>Router&rsquo;larda <code>bootflash:packages.conf</code> kullanın.</p>
+<h2 id="5-bundle-mode-ve-klasik-ios">5. Bundle Mode ve Klasik IOS</h2>
+<h3 id="bundle-modeda-ios-xe-isr-g2-c900">Bundle Mode&rsquo;da IOS-XE, ISR G2, C900</h3>
+<pre tabindex="0"><code>configure terminal
+no boot system
+boot system bootflash:&lt;imaj&gt;.bin
+end
+write memory
+show bootvar
+reload
+</code></pre><p>C900 serisi gibi klasik IOS router&rsquo;larda dosya sistemi <code>flash:</code> ve imaj adı eski formattadır, örneğin <code>c900-universalk9-mz.SPA.&lt;surum&gt;.bin</code>.</p>
+<h3 id="klasik-catalyst-switchler-2960-3560-3750">Klasik Catalyst Switch&rsquo;ler (2960, 3560, 3750)</h3>
+<p>Bu switch&rsquo;lerde <code>archive download-sw</code> var. Komut bir <code>.tar</code> dosyasını aktarır, açar, boot değişkenini ayarlar ve isterseniz reload eder:</p>
+<pre tabindex="0"><code>archive download-sw /overwrite /reload tftp://192.0.2.10/c3560-ipservicesk9-tar.&lt;surum&gt;.tar
+</code></pre><ul>
+<li><code>/overwrite</code>: flash&rsquo;ta yalnızca bir imajlık yer varsa mevcut imajın yerine yazar.</li>
+<li><code>/leave-old-sw</code>: iki imaja yer varsa eski imajı tutar. Rollback o zaman yalnızca boot değişkenini değiştirmekten ibaret olur.</li>
+</ul>
+<p>Alternatif olarak <code>.bin</code> dosyasını kopyalayıp doğrulayın ve yukarıdaki gibi <code>boot system flash:&lt;imaj&gt;.bin</code> ayarlayın.</p>
+<h2 id="6-güncellemeden-sonra">6. Güncellemeden Sonra</h2>
+<pre tabindex="0"><code>show version
+show install summary          ! IOS-XE install mode
+show interfaces status        ! switch&#39;ler
+show ip interface brief
+show power inline             ! PoE switch&#39;ler
+show logging
+</code></pre><p>Stack&rsquo;lerde ve yedekli sistemlerde her üyeyi kontrol edin: Catalyst stack&rsquo;lerinde <code>show switch</code>, çift supervisor&rsquo;lı sistemlerde <code>show redundancy</code>.</p>
+<h2 id="7-rollback">7. Rollback</h2>
+<ul>
+<li><strong>Install mode:</strong> <code>show install rollback</code> rollback noktalarını listeler.</li>
+<li><strong>Bundle mode ve klasik IOS:</strong> Eski imaj hâlâ flash&rsquo;taysa <code>boot system</code>&lsquo;i ona geri çevirip reload edin.</li>
+<li><strong>Cihaz ROMMON&rsquo;da ya da <code>switch:</code> prompt&rsquo;unda kalıyorsa:</strong> <a href="/tr/posts/cisco-rommon-recovery/">Cisco ROMMON Kurtarma</a> yazısına bakın.</li>
+</ul>
+<h2 id="sık-yapılan-hatalar">Sık Yapılan Hatalar</h2>
+<ul>
+<li><strong>Yanlış platform ailesine ait imaj.</strong> İmza ya da platform kontrolünden geçemez ve açılmaz.</li>
+<li><strong>ROMMON&rsquo;u kontrol etmemek.</strong> Yeni imaj daha yeni bir ROMMON ister, cihaz <code>rommon</code> prompt&rsquo;unda kalır.</li>
+<li><strong>Install mode için yer olmaması.</strong> Paketlerin açılması yarıda kalır. Önce <code>install remove inactive</code> çalıştırın.</li>
+<li><strong>Install mode&rsquo;a geçtikten sonra boot değişkeninin hâlâ eski <code>.bin</code>&lsquo;i göstermesi.</strong> Cihaz eski sürümle bundle mode&rsquo;da açılır.</li>
+<li><strong>Reload sırasında konsol erişimi olmaması.</strong> Konsol sunucusu bunu uzaktan da mümkün kılar: <a href="/tr/posts/next-gen-console-server-architecture/">Yeni Nesil Konsol Sunucu Mimarisi</a>.</li>
+</ul>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<ul>
+<li><a href="/tr/posts/cisco-rommon-recovery/">Cisco ROMMON Kurtarma: Flash, TFTP ya da USB&rsquo;den Açılış</a></li>
+<li><a href="/tr/posts/tftp-ftp-server-cisco-upgrades/">Cisco Güncellemeleri için TFTP, FTP ve SCP Sunucusu</a></li>
+<li><a href="/tr/posts/cisco-switch-password-recovery/">Cisco Switch ve Router Şifre Kurtarma</a></li>
+<li><a href="/tr/posts/cisco-nexus-nxos-upgrade-guide/">Cisco Nexus NX-OS Yazılım Güncelleme Rehberi</a></li>
+</ul>
+<p>Kaynaklar: <a href="https://www.cisco.com/c/en/us/support/docs/switches/catalyst-9500-series-switches/222279-upgrading-catalyst-9500-switches.html">Cisco: Upgrading Catalyst 9500 Switches</a> · <a href="https://www.cisco.com/c/de_de/support/docs/switches/catalyst-9300-series-switches/222280-upgrading-catalyst-9300-switches.html">Cisco: Upgrading Catalyst 9300 Switches</a></p>
+]]></content:encoded></item><item><title>Cisco ROMMON Kurtarma: Switch ya da Router'ı Flash, TFTP veya USB'den Açmak</title><link>https://barashhelvadzhaoglu.com/tr/posts/cisco-rommon-recovery/</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/cisco-rommon-recovery/</guid><description>Cisco switch ya da router switch: veya rommon prompt&amp;#39;unda mı kaldı? Catalyst 9300, 9200, 3850, 2960, 3560 ve ISR 4000 için kurtarma senaryoları — flash&amp;#39;tan açılış, ROMMON ağ değişkenleri, TFTP ya da USB&amp;#39;den açılış ve eski ROMMON sorunu.</description><content:encoded><![CDATA[<p>Reload&rsquo;dan sonra cihaz geri gelmiyor. Konsolda yalnızca <code>switch:</code> (Catalyst switch&rsquo;ler) ya da <code>rommon 1 &gt;</code> (router&rsquo;lar) var. Bu ROMMON, diğer adıyla boot loader: IOS&rsquo;u başlatan küçük program. Geçerli bir imaj bulamadığı ya da başlatamadığı için durmuş.</p>
+<p>Çoğu durumda bu bir donanım arızası değil ve cihazı değiştirmeniz gerekmiyor. Hangi yoldan çıkacağınız tek bir soruya bağlı: <strong>Flash&rsquo;ta hâlâ sağlam bir imaj var mı?</strong></p>
+<table>
+	<thead>
+			<tr>
+					<th>Senaryo</th>
+					<th>Durum</th>
+					<th>Çıkış yolu</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>1</td>
+					<td>Doğru imaj flash&rsquo;ta</td>
+					<td>Onunla açın, boot değişkenini düzeltin</td>
+			</tr>
+			<tr>
+					<td>2</td>
+					<td>İmaj yok ya da bozuk</td>
+					<td>TFTP ya da USB&rsquo;den açın, sonra imajı flash&rsquo;a kopyalayın</td>
+			</tr>
+			<tr>
+					<td>3</td>
+					<td>İmaj var ama ROMMON onun için çok eski</td>
+					<td>Eski bir imajla açın, ROMMON&rsquo;u güncelleyin, sonra yükseltin</td>
+			</tr>
+	</tbody>
+</table>
+<h2 id="başlamadan-önce-konsol-erişimi">Başlamadan Önce: Konsol Erişimi</h2>
+<p>ROMMON&rsquo;a yalnızca konsoldan ulaşılır. Bir şubede bu bir laptop ve konsol kablosu demek. Rack&rsquo;in yanında nadiren bulunduğunuz bir data center&rsquo;da ise kurtarmayı mümkün kılan şey konsol sunucusu: <a href="/tr/posts/next-gen-console-server-architecture/">Yeni Nesil Konsol Sunucu Mimarisi</a>.</p>
+<p>Önce ortama bakın:</p>
+<pre tabindex="0"><code>switch: dir flash:
+switch: set
+</code></pre><p>Router&rsquo;larda:</p>
+<pre tabindex="0"><code>rommon 1 &gt; dir bootflash:
+rommon 2 &gt; set
+</code></pre><p><code>set</code>, boot loader değişkenlerini gösterir. Önemli olanlar <code>BOOT</code> (hangi imajın açılacağı) ve bazı switch&rsquo;lerde <code>MANUAL_BOOT</code> (<code>yes</code> ise switch her seferinde prompt&rsquo;ta durur). Router&rsquo;larda ayrıca <code>confreg</code> ile configuration register&rsquo;a bakın. <code>0x2100</code> değeri router&rsquo;ı ROMMON&rsquo;da tutar. Normal değer <code>0x2102</code>.</p>
+<p><code>help</code> ya da <code>?</code>, ROMMON sürümünüzün desteklediği komutları listeler.</p>
+<h2 id="senaryo-1-doğru-imaj-flashta">Senaryo 1: Doğru İmaj Flash&rsquo;ta</h2>
+<p>İmaj orada ama boot değişkeni yanlış: güncellemeden sonra bir yazım hatası, silinmiş bir dosya adı ya da <code>MANUAL_BOOT=yes</code>.</p>
+<h3 id="elle-açın">Elle Açın</h3>
+<p>Install mode&rsquo;daki Catalyst 9000 ve diğer IOS-XE switch&rsquo;ler:</p>
+<pre tabindex="0"><code>switch: boot flash:packages.conf
+</code></pre><p>Bundle mode&rsquo;da ya da klasik Catalyst switch&rsquo;lerde:</p>
+<pre tabindex="0"><code>switch: boot flash:&lt;imaj&gt;.bin
+</code></pre><p>Klasik Catalyst switch&rsquo;lerde <code>archive download-sw</code> ile kurulan imajlar bir alt dizinde durur. Tam yolu <code>dir flash:&lt;dizin&gt;</code> ile kontrol edin.</p>
+<p>Router&rsquo;lar:</p>
+<pre tabindex="0"><code>rommon 1 &gt; boot bootflash:&lt;imaj&gt;.bin
+</code></pre><p>Router configuration register yüzünden ROMMON&rsquo;da kaldıysa:</p>
+<pre tabindex="0"><code>rommon 1 &gt; confreg 0x2102
+rommon 2 &gt; reset
+</code></pre><h3 id="boot-değişkenini-iostan-düzeltin">Boot Değişkenini IOS&rsquo;tan Düzeltin</h3>
+<p>IOS çalışınca düzeltmeyi kalıcı hale getirin, yoksa sorun bir sonraki reload&rsquo;da tekrar çıkar:</p>
+<pre tabindex="0"><code>configure terminal
+no boot system
+boot system flash:packages.conf
+end
+write memory
+show boot
+</code></pre><p>Bundle mode&rsquo;da <code>packages.conf</code> yerine <code>.bin</code> dosyasının adını, router&rsquo;larda <code>bootflash:</code> kullanın.</p>
+<h2 id="senaryo-2-imaj-yok-ya-da-bozuk">Senaryo 2: İmaj Yok ya da Bozuk</h2>
+<p>İmaj yanlışlıkla silinmiş, kopyalama yarıda kesilmiş ya da flash boş. İmajı dışarıdan cihaza getirmeniz gerekiyor. Bunun iki pratik yolu var.</p>
+<table>
+	<thead>
+			<tr>
+					<th></th>
+					<th>ROMMON&rsquo;dan TFTP</th>
+					<th>USB</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Sahada birinin olması gerekir mi</td>
+					<td>Hayır</td>
+					<td>Evet</td>
+			</tr>
+			<tr>
+					<td>Konsol sunucusu üzerinden çalışır mı</td>
+					<td>Evet</td>
+					<td>Yalnızca biri USB&rsquo;yi takarsa</td>
+			</tr>
+			<tr>
+					<td>Hız</td>
+					<td>Ağa bağlı</td>
+					<td>Hızlı</td>
+			</tr>
+			<tr>
+					<td>Tipik kullanım</td>
+					<td>Data center, uzak lokasyonlar</td>
+					<td>Şube, lab</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="seçenek-a-rommondan-tftp-ile-açılış">Seçenek A: ROMMON&rsquo;dan TFTP ile Açılış</h3>
+<p>Bir konsol sunucusu üzerinden uzaktan bağlıysanız ve cihazın etrafındaki ağ çalışıyorsa en pratik yol TFTP. İşin zor kısmı ROMMON&rsquo;daki ağ ayarları, çünkü ROMMON&rsquo;da IOS, routing ya da DHCP yok. Her şeyi elle girersiniz.</p>
+<p><strong>Gereksinimler:</strong></p>
+<ul>
+<li><strong>Management portu</strong> bağlı ve erişilebilir olmalı. Catalyst 9000 switch&rsquo;lerde bu, ayrı management portu (Gi0/0). ROMMON ön paneldeki portları kullanmaz.</li>
+<li>İmajın bulunduğu TFTP sunucusu management ağından erişilebilir olmalı. Kurulum ve firewall kuralları: <a href="/tr/posts/tftp-ftp-server-cisco-upgrades/">Cisco Güncellemeleri için TFTP, FTP ve SCP Sunucusu</a>.</li>
+</ul>
+<p><strong>Catalyst 9000 switch&rsquo;ler:</strong></p>
+<pre tabindex="0"><code>switch: set IP_ADDRESS 192.0.2.50
+switch: set IP_SUBNET_MASK 255.255.255.0
+switch: set DEFAULT_GATEWAY 192.0.2.1
+switch: ping 192.0.2.10
+switch: boot tftp://192.0.2.10/cat9k_iosxe.&lt;surum&gt;.SPA.bin
+</code></pre><p>Önce <code>ping</code> ile test edin. Ping başarısızsa açılışı denemenin anlamı yok. Management portundaki kabloyu, gateway&rsquo;i ve TFTP sunucusundaki firewall&rsquo;u kontrol edin.</p>
+<p>Cisco&rsquo;ya göre iki kısıt var:</p>
+<ul>
+<li>TFTP&rsquo;den açılan switch <strong>bundle mode&rsquo;da</strong> açılır.</li>
+<li>İmaj <strong>flash&rsquo;a kopyalanmaz</strong>, yalnızca bellekten çalışır. Bir sonraki reload&rsquo;da yine prompt&rsquo;a dönersiniz.</li>
+</ul>
+<p><strong>ISR 4000 ve diğer IOS-XE router&rsquo;lar:</strong></p>
+<pre tabindex="0"><code>rommon 1 &gt; IP_ADDRESS=192.0.2.50
+rommon 2 &gt; IP_SUBNET_MASK=255.255.255.0
+rommon 3 &gt; DEFAULT_GATEWAY=192.0.2.1
+rommon 4 &gt; TFTP_SERVER=192.0.2.10
+rommon 5 &gt; TFTP_FILE=isr4300-universalk9.&lt;surum&gt;.SPA.bin
+rommon 6 &gt; set
+rommon 7 &gt; boot tftp://192.0.2.10/isr4300-universalk9.&lt;surum&gt;.SPA.bin
+</code></pre><p>Değişken adları ve tam boot sözdizimi ROMMON sürümüne göre değişir. <code>set</code> ve <code>help</code> ile kontrol edin. Eski router&rsquo;lar (ISR G2) bunun yerine imajı doğrudan flash&rsquo;a yazan <code>tftpdnld</code> komutunu kullanır.</p>
+<p><strong>Cihaz TFTP&rsquo;den açıldıktan sonra:</strong> İmajı flash&rsquo;a kopyalayın, doğrulayın ve <a href="/tr/posts/cisco-ios-xe-upgrade-guide/">güncelleme rehberindeki</a> gibi düzgünce kurun:</p>
+<pre tabindex="0"><code>copy tftp://192.0.2.10/&lt;imaj&gt;.bin flash:
+verify /md5 flash:&lt;imaj&gt;.bin
+install add file flash:&lt;imaj&gt;.bin activate commit
+</code></pre><p>Bundle mode&rsquo;daki ya da klasik IOS&rsquo;lu cihazlarda <code>install add</code> yerine <code>boot system</code>&lsquo;i kopyalanan dosyaya ayarlayın.</p>
+<h3 id="seçenek-b-usbden-açılış">Seçenek B: USB&rsquo;den Açılış</h3>
+<p>Biri USB bellek takabiliyorsa en kolay ve en hızlı yol bu. Belleği FAT32 ile biçimlendirin ve imajı kopyalayın.</p>
+<pre tabindex="0"><code>switch: dir usbflash0:
+switch: boot usbflash0:&lt;imaj&gt;.bin
+</code></pre><p>ISR router&rsquo;larda USB aygıtının adı genelde <code>usb0:</code> (bazı modellerde <code>usb1:</code>):</p>
+<pre tabindex="0"><code>rommon 1 &gt; dir usb0:
+rommon 2 &gt; boot usb0:&lt;imaj&gt;.bin
+</code></pre><p>Cihaz ayağa kalkınca imajı USB&rsquo;den flash&rsquo;a kopyalayın ve boot değişkenini düzeltin:</p>
+<pre tabindex="0"><code>copy usbflash0:&lt;imaj&gt;.bin flash:
+verify /md5 flash:&lt;imaj&gt;.bin
+</code></pre><p>Ardından Senaryo 1&rsquo;deki gibi kurun ya da <code>boot system</code>&lsquo;i ayarlayın.</p>
+<h3 id="seçenek-c-emergency-install-catalyst-9000">Seçenek C: emergency-install (Catalyst 9000)</h3>
+<p>Catalyst 9000 switch&rsquo;lerde (9200 serisi hariç) ROMMON&rsquo;da <code>emergency-install</code> komutu var. Bir imajı TFTP&rsquo;den doğrudan flash&rsquo;a kurar:</p>
+<pre tabindex="0"><code>switch: emergency-install tftp://192.0.2.10/cat9k_iosxe.&lt;surum&gt;.SPA.bin
+switch: boot flash:packages.conf
+</code></pre><p>Dikkat: Bu komut konfigürasyon dahil <strong>tüm flash dosya sistemini siler</strong>. Yalnızca A ve B seçenekleri mümkün değilse ve konfigürasyon yedeğiniz varsa kullanın.</p>
+<h3 id="seçenek-d-konsol-üzerinden-xmodem-klasik-catalyst">Seçenek D: Konsol Üzerinden Xmodem (Klasik Catalyst)</h3>
+<p>2960 ve 3560 gibi klasik Catalyst switch&rsquo;lerin boot loader&rsquo;ında network yığını yok, çoğunda USB portu da yok. Son çare konsol üzerinden Xmodem ile aktarım:</p>
+<pre tabindex="0"><code>switch: flash_init
+switch: set BAUD 115200
+switch: copy xmodem: flash:&lt;imaj&gt;.bin
+</code></pre><p><code>set BAUD</code> komutundan sonra terminal programınızı 115200 baud&rsquo;a çevirin. Bu hızda bile aktarım uzun sürer. Sonra hızı <code>set BAUD 9600</code> ile geri alın, yoksa 9600 baud ile bağlanan bir sonraki kişi sadece anlamsız karakterler görür.</p>
+<h2 id="senaryo-3-rommon-yeni-imaj-için-çok-eski">Senaryo 3: ROMMON Yeni İmaj için Çok Eski</h2>
+<p>İmaj flash&rsquo;ta ve doğru, ama cihaz yine de onunla açılmıyor. ISR 4000 router&rsquo;larda bu, hedef sürüm cihazdakinden daha yeni bir ROMMON istediğinde olur. Örneğin ROMMON 16.12(2r) gerektiren 17.x sürümleri.</p>
+<p>Bildiğim kadarıyla bu platformlarda ROMMON, ROMMON prompt&rsquo;undan güncellenemiyor. Güncelleme IOS-XE&rsquo;den yapılıyor. Çıkış yolu:</p>
+<ol>
+<li>Mevcut ROMMON&rsquo;la çalışan <strong>daha eski bir imajla</strong> açın. Sakladıysanız flash&rsquo;tan, yoksa Senaryo 2&rsquo;deki gibi TFTP ya da USB&rsquo;den.</li>
+<li>IOS-XE&rsquo;de ROMMON&rsquo;u güncelleyin: <code>upgrade rom-monitor filename bootflash:&lt;rommon&gt;.pkg R0</code>, ardından reload.</li>
+<li><code>show rom-monitor r0</code> ile kontrol edin.</li>
+<li>Şimdi yeni imajı kurun.</li>
+</ol>
+<p><a href="/tr/posts/cisco-ios-xe-upgrade-guide/">Güncelleme rehberinde</a> ROMMON kontrolünün güncellemeden önce gelmesinin sebebi bu.</p>
+<p>Benzer bir durum: boot değişkeni başka bir platform ailesine ait bir imajı gösteriyor, örneğin ISR 4400&rsquo;de bir ISR 4300 imajı. Cihaz ROMMON&rsquo;da kalır. Doğru imajı elle açın ve boot değişkenini düzeltin.</p>
+<h2 id="önlem">Önlem</h2>
+<ul>
+<li>Mevcut ve bir önceki imajı management ağından erişilebilen bir sunucuda tutun.</li>
+<li>Planlı her reload&rsquo;dan önce <code>show boot</code> (ya da <code>show bootvar</code>) ve ROMMON gereksinimini kontrol edin.</li>
+<li>Management portunu ihtiyacınız olmadan önce bağlayın ve test edin.</li>
+<li>Her güncellemede konsol erişimini hazır tutun: <a href="/tr/posts/next-gen-console-server-architecture/">Yeni Nesil Konsol Sunucu Mimarisi</a>.</li>
+</ul>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<ul>
+<li><a href="/tr/posts/cisco-ios-xe-upgrade-guide/">Cisco IOS ve IOS-XE Güncelleme Rehberi</a></li>
+<li><a href="/tr/posts/tftp-ftp-server-cisco-upgrades/">Cisco Güncellemeleri için TFTP, FTP ve SCP Sunucusu</a></li>
+<li><a href="/tr/posts/cisco-switch-password-recovery/">Cisco Switch ve Router Şifre Kurtarma</a></li>
+<li><a href="/tr/posts/cisco-nexus-nxos-upgrade-guide/">Cisco Nexus NX-OS Güncelleme Rehberi (ROMMON kurtarma dahil)</a></li>
+</ul>
+<p>Kaynaklar: <a href="https://cisco.com/c/en/us/support/docs/switches/catalyst-9300-series-switches/216944-troubleshoot-bootloader-rommon-and-pas.html">Cisco: Troubleshoot Bootloader and Password Recovery on Catalyst 9000</a> · <a href="https://www.cisco.com/c/en/us/support/docs/routers/4000-series-integrated-services-routers/200678-Troubleshoot-Cisco-4000-Series-ISR-Stuck.html">Cisco: ISR 4000 Stuck in ROMMON</a></p>
+]]></content:encoded></item><item><title>Cisco Switch ve Router Şifre Kurtarma: Catalyst 9000, 2960, 3560 ve ISR</title><link>https://barashhelvadzhaoglu.com/tr/posts/cisco-switch-password-recovery/</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/cisco-switch-password-recovery/</guid><description>Cisco cihazlarda unutulan enable ya da konsol şifresini konfigürasyonu kaybetmeden kurtarma — klasik Catalyst (2960, 3560, 3750), SWITCH_IGNORE_STARTUP_CFG ile Catalyst 9000 ve 3850, confreg 0x2142 ile ISR router&amp;#39;lar ve şifre kurtarma kapalıysa yapılacaklar.</description><content:encoded><![CDATA[<p>Dokümantasyonu olmayan bir cihazı devralıyorsunuz ya da depodan çıkan bir lab switch&rsquo;i kimsenin bilmediği bir şifre soruyor. Cisco switch ve router&rsquo;larda, fiziksel erişiminiz ve bir konsol kablonuz varsa bu durumdan konfigürasyonu kaybetmeden çıkabilirsiniz.</p>
+<p>Prensip her yerde aynı: açılışı kesin, IOS&rsquo;u startup konfigürasyonunu <strong>yüklemeden</strong> başlatın, sonra konfigürasyonu geri getirip yeni şifreleri tanımlayın. Değişen tek şey, cihaza konfigürasyonu atlamasını nasıl söylediğiniz:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Platform</th>
+					<th>Tipik modeller</th>
+					<th>Konfigürasyon nasıl atlanır</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Klasik Catalyst</td>
+					<td>2960, 2960-X, 3560, 3750</td>
+					<td>Boot loader&rsquo;da <code>config.text</code>&lsquo;in adını değiştirmek</td>
+			</tr>
+			<tr>
+					<td>IOS-XE Catalyst</td>
+					<td>3650, 3850, 9200, 9300, 9400, 9500</td>
+					<td><code>SWITCH_IGNORE_STARTUP_CFG=1</code></td>
+			</tr>
+			<tr>
+					<td>Router&rsquo;lar</td>
+					<td>ISR 4000, ISR 1100, Catalyst 8000, ISR G2</td>
+					<td>Configuration register <code>0x2142</code></td>
+			</tr>
+	</tbody>
+</table>
 <h2 id="gerekenler">Gerekenler</h2>
 <ul>
-<li>Switch&rsquo;e fiziksel erişim. Uzaktan şifre kurtarma bilinçli olarak mümkün değil.</li>
-<li>Bir konsol kablosu (RJ-45 rollover ya da USB-seri) ve SecureCRT, PuTTY veya <code>screen</code> gibi bir terminal programı.</li>
-<li>Terminal ayarları: <strong>9600 baud, 8 data bit, parity yok, 1 stop bit, flow control yok</strong>.</li>
-<li>Bir bakım penceresi. Switch iki kez yeniden başlar ve bu sırada trafik iletmez.</li>
+<li>Cihaza fiziksel erişim ya da bir konsol sunucusu. Şifre kurtarma ağ üzerinden bilinçli olarak mümkün değil. Bkz. <a href="/tr/posts/next-gen-console-server-architecture/">Yeni Nesil Konsol Sunucu Mimarisi</a>.</li>
+<li>Bir konsol kablosu ve terminal programı. Ayarlar: <strong>9600 baud, 8 data bit, parity yok, 1 stop bit, flow control yok</strong>.</li>
+<li>Bir bakım penceresi. Cihaz yeniden başlar ve bu sırada trafik iletmez.</li>
 </ul>
-<p>Uzaktan konsol erişimi için profesyonel çözüm bir konsol sunucusu. Bkz. <a href="/tr/posts/next-gen-console-server-architecture/">Yeni Nesil Konsol Sunucu Mimarisi</a>.</p>
-<h2 id="kurtarma-nasıl-çalışıyor">Kurtarma Nasıl Çalışıyor?</h2>
-<p>Catalyst 3560, startup konfigürasyonunu flash&rsquo;ta <code>config.text</code> adlı bir dosyada tutar. Normal açılışta IOS bu dosyayı yükler. Şifre kurtarmada açılış IOS başlamadan önce kesilir ve <strong>boot loader</strong>&lsquo;a düşersiniz. Bu, <code>switch:</code> prompt&rsquo;u olan küçük bir ortamdır.</p>
-<p>Boot loader&rsquo;da flash dosya sistemine erişebilirsiniz. <code>config.text</code> yeniden adlandırılırsa IOS konfigürasyonsuz, yani şifresiz açılır. Ardından giriş yapar, konfigürasyonu elle geri yükler ve yeni şifreleri tanımlarsınız.</p>
-<h2 id="yöntem-1-şifreyi-kurtar-konfigürasyonu-koru">Yöntem 1: Şifreyi Kurtar, Konfigürasyonu Koru</h2>
-<h3 id="adım-1-açılışı-kesin">Adım 1: Açılışı Kesin</h3>
+<h2 id="switchler-switch-promptuna-ulaşmak">Switch&rsquo;ler: switch: Prompt&rsquo;una Ulaşmak</h2>
+<p>Catalyst switch&rsquo;lerde açılışı <strong>Mode</strong> butonuyla kesersiniz:</p>
 <ol>
-<li>Konsol kablosunu bağlayın ve terminal oturumunu açın.</li>
-<li>Güç kablosunu çıkarın.</li>
-<li>Ön paneldeki <strong>Mode</strong> butonuna basılı tutun.</li>
-<li>Butonu bırakmadan gücü yeniden bağlayın.</li>
-<li>Yaklaşık 15 saniye sonra, konsolda sistemin flash dosya sistemi başlatılmadan önce kesildiği mesajı görününce butonu bırakın.</li>
+<li>Konsolu bağlayın ve terminal oturumunu açın.</li>
+<li>Gücü kesin.</li>
+<li>Ön paneldeki <strong>Mode</strong> butonuna basılı tutarak gücü yeniden bağlayın.</li>
+<li>Konsolda açılışın kesildiği mesajı görünene kadar, yaklaşık 10-15 saniye basılı tutun, sonra bırakın.</li>
 </ol>
-<p>Artık <code>switch:</code> prompt&rsquo;unu görmelisiniz. Switch normal açılırsa gücü kesip butona biraz daha uzun basarak tekrar deneyin.</p>
-<h3 id="adım-2-flashı-başlatın">Adım 2: Flash&rsquo;ı Başlatın</h3>
-<p>Flash dosya sistemi henüz bağlanmadı. Başlatın:</p>
+<p>Artık <code>switch:</code> prompt&rsquo;undasınız.</p>
+<p>Çift supervisor&rsquo;lı bir Catalyst 9400&rsquo;de Cisco, başlamadan önce ikincil supervisor&rsquo;ın çıkarılmasını öneriyor.</p>
+<h2 id="klasik-catalyst-2960-3560-3750-configtextin-adını-değiştirmek">Klasik Catalyst (2960, 3560, 3750): config.text&rsquo;in Adını Değiştirmek</h2>
 <pre tabindex="0"><code>switch: flash_init
-</code></pre><p>Bazı eski boot loader sürümlerinde ayrıca yardımcı dosyaları yüklemek gerekir:</p>
-<pre tabindex="0"><code>switch: load_helper
-</code></pre><p>Ardından flash içeriğini listeleyin:</p>
-<pre tabindex="0"><code>switch: dir flash:
-</code></pre><p>IOS imajını (ya da imajı içeren bir dizini), <code>config.text</code>, <code>vlan.dat</code> ve varsa <code>private-config.text</code> dosyalarını görmelisiniz.</p>
-<h3 id="adım-3-konfigürasyon-dosyasının-adını-değiştirin">Adım 3: Konfigürasyon Dosyasının Adını Değiştirin</h3>
-<pre tabindex="0"><code>switch: rename flash:config.text flash:config.text.old
-</code></pre><p><code>config.text</code> dosyasını <strong>silmeyin</strong>. Adını değiştirmek IOS&rsquo;un onu yüklememesi için yeterli, içeriğine de birazdan ihtiyacınız olacak.</p>
-<h3 id="adım-4-iosu-konfigürasyonsuz-açın">Adım 4: IOS&rsquo;u Konfigürasyonsuz Açın</h3>
-<pre tabindex="0"><code>switch: boot
-</code></pre><p>Switch boş konfigürasyonla açılır. Initial configuration dialog&rsquo;a girmek isteyip istemediğinizi sorduğunda <strong>no</strong> deyin.</p>
-<h3 id="adım-5-eski-konfigürasyonu-geri-yükleyin">Adım 5: Eski Konfigürasyonu Geri Yükleyin</h3>
+switch: dir flash:
+switch: rename flash:config.text flash:config.text.old
+switch: boot
+</code></pre><p>Bazı eski boot loader&rsquo;larda <code>flash_init</code>&lsquo;ten sonra ayrıca <code>load_helper</code> gerekir. <code>config.text</code>&lsquo;i <strong>silmeyin</strong>. Adını değiştirmek yeterli ve içeriğine daha sonra ihtiyacınız olacak.</p>
+<p>Switch konfigürasyonsuz açılır. Initial configuration dialog&rsquo;a <strong>no</strong> deyin, ardından:</p>
 <pre tabindex="0"><code>Switch&gt; enable
 Switch# rename flash:config.text.old flash:config.text
 Switch# copy flash:config.text system:running-config
-</code></pre><p>Switch artık hostname, VLAN&rsquo;lar, interface&rsquo;ler ve eski şifreler dahil orijinal konfigürasyonla çalışıyor. Privileged moda konfigürasyon yüklenmeden önce girdiğiniz için hâlâ bu moddasınız.</p>
-<h3 id="adım-6-yeni-şifreleri-tanımlayın">Adım 6: Yeni Şifreleri Tanımlayın</h3>
+</code></pre><p>Aşağıdaki &ldquo;Yeni Şifreleri Tanımlayın ve Kaydedin&rdquo; bölümüyle devam edin.</p>
+<h2 id="catalyst-9000-ve-3850-switch_ignore_startup_cfg">Catalyst 9000 ve 3850: SWITCH_IGNORE_STARTUP_CFG</h2>
+<p>IOS-XE switch&rsquo;lerde dosya adını değiştirmek gerekmez. Bir boot loader değişkeni IOS&rsquo;a startup konfigürasyonunu yok saymasını söyler:</p>
+<pre tabindex="0"><code>switch: SWITCH_IGNORE_STARTUP_CFG=1
+switch: boot flash:packages.conf
+</code></pre><p>Switch bundle mode&rsquo;daysa <code>boot flash:&lt;imaj&gt;.bin</code> kullanın. Açılıştan sonra initial configuration dialog&rsquo;a <strong>no</strong> deyin ve konfigürasyonu yükleyin:</p>
+<pre tabindex="0"><code>Switch&gt; enable
+Switch# copy startup-config running-config
+</code></pre><p><strong>Önemli:</strong> Değişkeni IOS&rsquo;tan geri alın. Yoksa switch her reload&rsquo;da konfigürasyonunu yok sayar:</p>
 <pre tabindex="0"><code>Switch# configure terminal
-Switch(config)# enable secret &lt;yeni-enable-secret&gt;
-Switch(config)# username admin privilege 15 secret &lt;yeni-sifre&gt;
-Switch(config)# line con 0
-Switch(config-line)# login local
-Switch(config-line)# line vty 0 15
-Switch(config-line)# login local
-Switch(config-line)# end
-</code></pre><p>Bunu daha önceki kimlik doğrulama yapısına göre uyarlayın. Switch TACACS+ ya da RADIUS kullanıyorsa yerel yedek hesabın çalıştığını kontrol edin.</p>
-<h3 id="adım-7-interfaceleri-kontrol-edin-ve-kaydedin">Adım 7: Interface&rsquo;leri Kontrol Edin ve Kaydedin</h3>
-<p>Bir konfigürasyonu running-config&rsquo;e kopyalamak onu birleştirir, her interface&rsquo;in durumunu birebir geri getirmez. Özellikle VLAN interface&rsquo;lerinin (SVI) administratively down olup olmadığına bakın:</p>
-<pre tabindex="0"><code>Switch# show ip interface brief
-</code></pre><p>Açık olması gereken interface&rsquo;leri <code>no shutdown</code> ile açın. Sonra kaydedin:</p>
-<pre tabindex="0"><code>Switch# copy running-config startup-config
-</code></pre><p>Her şeyin yeniden başlatmadan sonra da çalıştığından emin olmak için bir kez reload edip yeni bilgilerle giriş yapın.</p>
-<h2 id="yöntem-2-şifre-kurtarma-kapatılmışsa">Yöntem 2: Şifre Kurtarma Kapatılmışsa</h2>
-<p>Switch&rsquo;te <code>no service password-recovery</code> tanımlıysa Mode butonu farklı davranır. Boot loader&rsquo;dan flash dosya sistemine erişemezsiniz. Bunun yerine switch şifre kurtarmanın kapalı olduğunu söyler ve sistemi varsayılan konfigürasyona döndürmek isteyip istemediğinizi sorar.</p>
+Switch(config)# no system ignore startupconfig switch all
+Switch(config)# end
+</code></pre><p>Sonraki bölümle devam edin, ardından kaydedin.</p>
+<h2 id="routerlar-isr-4000-isr-1100-catalyst-8000-confreg-0x2142">Router&rsquo;lar (ISR 4000, ISR 1100, Catalyst 8000): confreg 0x2142</h2>
+<p>Router&rsquo;larda Mode butonu yok. Açılışı, gücü verdikten sonraki ilk saniyelerde terminal programından bir <strong>Break</strong> göndererek kesersiniz. <code>rommon 1 &gt;</code> prompt&rsquo;una düşersiniz.</p>
+<pre tabindex="0"><code>rommon 1 &gt; confreg 0x2142
+rommon 2 &gt; reset
+</code></pre><p><code>0x2142</code> değeri router&rsquo;a startup konfigürasyonunu yok saymasını söyler. Açılıştan sonra initial configuration dialog&rsquo;a <strong>no</strong> deyin:</p>
+<pre tabindex="0"><code>Router&gt; enable
+Router# copy startup-config running-config
+Router# configure terminal
+Router(config)# config-register 0x2102
+</code></pre><p>Register&rsquo;ı <code>0x2102</code>&lsquo;ye geri almak şart. Yoksa router her reload&rsquo;da konfigürasyonunu yok sayar.</p>
+<h2 id="yeni-şifreleri-tanımlayın-ve-kaydedin">Yeni Şifreleri Tanımlayın ve Kaydedin</h2>
+<p>Artık privileged moddasınız ve orijinal konfigürasyon yüklü. Yeni bilgileri önceki kimlik doğrulama yapısına uygun şekilde tanımlayın:</p>
+<pre tabindex="0"><code>configure terminal
+enable secret &lt;yeni-enable-secret&gt;
+username admin privilege 15 secret &lt;yeni-sifre&gt;
+line con 0
+ login local
+line vty 0 15
+ login local
+end
+</code></pre><p>Cihaz TACACS+ ya da RADIUS kullanıyorsa yerel yedek hesabın çalıştığını kontrol edin.</p>
+<p>Bir konfigürasyonu running-config&rsquo;e kopyalamak onu birleştirir. Interface&rsquo;ler, özellikle switch&rsquo;lerdeki VLAN interface&rsquo;leri (SVI), administratively down kalabilir. Kontrol edip düzeltin:</p>
+<pre tabindex="0"><code>show ip interface brief
+</code></pre><p>Açık olması gereken interface&rsquo;leri <code>no shutdown</code> ile açın. Sonra kaydedip test edin:</p>
+<pre tabindex="0"><code>write memory
+reload
+</code></pre><p>Konfigürasyonun ve şifrelerin reload&rsquo;dan sonra da geçerli olduğundan emin olmak için yeni bilgilerle giriş yapın.</p>
+<h2 id="şifre-kurtarma-kapatılmışsa">Şifre Kurtarma Kapatılmışsa</h2>
+<p><code>no service password-recovery</code> tanımlıysa süreç farklı işler. Cihaz konfigürasyonu atlamanıza izin vermez. Bunun yerine şifre kurtarmanın kapalı olduğunu söyler ve fabrika ayarlarına dönmek isteyip istemediğinizi sorar.</p>
 <ul>
-<li><strong>yes</strong> derseniz switch konfigürasyon dosyasını ve VLAN veritabanını siler, fabrika ayarlarıyla açılır. IOS imajı flash&rsquo;ta kalır.</li>
-<li><strong>no</strong> derseniz switch mevcut konfigürasyonla normal açılır ve yine şifre ekranına dönersiniz.</li>
+<li><strong>Yes:</strong> Konfigürasyon (switch&rsquo;lerde VLAN veritabanı da) silinir. Cihaz varsayılan ayarlarla açılır. IOS imajı kalır.</li>
+<li><strong>No:</strong> Cihaz mevcut konfigürasyonla normal açılır ve yine şifre ekranına dönersiniz.</li>
 </ul>
-<p>Bu özelliğin bilinçli bir bedeli var. Fiziksel erişimi olan bir saldırgan konfigürasyonu okuyamaz, ama siz de onu kaybedersiniz.</p>
-<p>Sıfırlamadan önce konfigürasyonun başka bir kaynakta güncel bir yedeği olduğundan emin olun: bir konfigürasyon yönetim aracı, bir TFTP sunucusu ya da arşivlenmiş bir <code>show running-config</code> çıktısı. Sıfırlamadan sonra:</p>
-<ol>
-<li>Şifresiz giriş yapın ve yeni bilgileri tanımlayın.</li>
-<li>Konfigürasyonu yedekten geri yükleyin.</li>
-<li>Yedekte yoksa VLAN&rsquo;ları yeniden oluşturun. VLAN veritabanı (<code>vlan.dat</code>) da silinir.</li>
-<li><code>no service password-recovery</code>&lsquo;nin tekrar açılıp açılmayacağına karar verin. Herkese açık ya da kilitsiz yerlerdeki switch&rsquo;ler için mantıklı, yeter ki konfigürasyon başka bir yerde yedekli olsun.</li>
-</ol>
-<h2 id="yeni-boot-loaderlar-startup-konfigürasyonunu-yok-saymak">Yeni Boot Loader&rsquo;lar: Startup Konfigürasyonunu Yok Saymak</h2>
-<p>Yeni Catalyst modelleri ve boot loader sürümleri <code>config.text</code>&lsquo;i yeniden adlandırmaktan daha temiz bir yol sunuyor: IOS&rsquo;a bir açılış için startup konfigürasyonunu yok saymasını söyleyen bir boot loader değişkeni. Switch&rsquo;inizin bunu destekleyip desteklemediği model ve boot loader sürümüne bağlı. <code>switch:</code> prompt&rsquo;unda <code>set</code> yazarak boot loader&rsquo;ınızın tanıdığı değişkenleri görebilirsiniz.</p>
-<p>3560&rsquo;ın boot loader&rsquo;ının burada ne sunduğunu lab çıktıları gelince ekleyeceğim.</p>
+<p>Bu özelliğin amacı bu. Fiziksel erişimi olan biri konfigürasyonu okuyamaz, ama siz de onu kaybedersiniz. Yes demeden önce başka bir kaynakta güncel bir konfigürasyon yedeğiniz olduğundan emin olun. Sıfırlamadan sonra konfigürasyonu geri yükleyin, yedekte yoksa VLAN&rsquo;ları yeniden oluşturun.</p>
+<p><code>no service password-recovery</code>, herkese açık ya da kilitsiz yerlerdeki cihazlar için mantıklı, yeter ki konfigürasyon başka bir yerde yedekli olsun.</p>
 <h2 id="sık-yapılan-hatalar">Sık Yapılan Hatalar</h2>
 <ul>
-<li><strong><code>config.text</code>&lsquo;i yeniden adlandırmak yerine silmek.</strong> Konfigürasyon gider, tek çare yedek.</li>
-<li><strong>Dosyanın adını geri değiştirmeyi unutmak.</strong> Bir sonraki reload&rsquo;da switch konfigürasyonsuz açılır.</li>
-<li><strong>Adı geri değiştirmeden <code>copy startup-config running-config</code> kullanmak.</strong> O anda startup konfigürasyonu normal adıyla mevcut değil.</li>
-<li><strong>Şifreleri değiştirdikten sonra kaydetmemek.</strong> Bir sonraki reload&rsquo;da eski şifreler geri gelir.</li>
+<li><strong><code>config.text</code>&lsquo;in adını değiştirmek yerine silmek.</strong> O zaman tek çare yedek.</li>
+<li><strong><code>no system ignore startupconfig switch all</code> ya da <code>config-register 0x2102</code>&lsquo;yi unutmak.</strong> Cihaz bir sonraki reload&rsquo;da konfigürasyonsuz açılır.</li>
+<li><strong>Şifreleri tanımladıktan sonra kaydetmemek.</strong> Bir sonraki reload&rsquo;da eski şifreler geri gelir.</li>
 <li><strong>Birleştirmeden sonra kapalı kalan SVI&rsquo;lar.</strong> Konfigürasyon doğru görünse de ağ üzerinden yönetim erişimi çalışmaz.</li>
 </ul>
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>
-<li><a href="/tr/posts/catalyst-3560-ios-upgrade/">Catalyst 3560 IOS Güncelleme: İki Yöntem ve Doğrulama</a></li>
-<li><a href="/tr/posts/catalyst-3560-boot-loader-recovery/">Catalyst 3560 Açılmıyorsa: Boot Loader ile Kurtarma</a></li>
-<li><a href="/tr/posts/cisco-nexus-nxos-upgrade-guide/">Cisco Nexus NX-OS Yazılım Güncelleme Rehberi</a></li>
+<li><a href="/tr/posts/cisco-rommon-recovery/">Cisco ROMMON Kurtarma: Flash, TFTP ya da USB&rsquo;den Açılış</a></li>
+<li><a href="/tr/posts/cisco-ios-xe-upgrade-guide/">Cisco IOS ve IOS-XE Güncelleme Rehberi</a></li>
 <li><a href="/tr/posts/next-gen-console-server-architecture/">Yeni Nesil Konsol Sunucu Mimarisi</a></li>
 </ul>
+<p>Kaynak: <a href="https://cisco.com/c/en/us/support/docs/switches/catalyst-9300-series-switches/216944-troubleshoot-bootloader-rommon-and-pas.html">Cisco: Troubleshoot Bootloader and Password Recovery on Catalyst 9000</a></p>
 ]]></content:encoded></item><item><title>Cisco Nexus NX-OS Yazılım Güncelleme Rehberi: Sahada Test Edilmiş Adım Adım</title><link>https://barashhelvadzhaoglu.com/tr/posts/cisco-nexus-nxos-upgrade-guide/</link><pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/cisco-nexus-nxos-upgrade-guide/</guid><description>Cisco Nexus NX-OS güncelleme rehberi — hazırlık, güncelleme yolu, dosya transferi, rollback ve ROMMON kurtarma senaryoları.</description><content:encoded><![CDATA[<p>Bu rehber, Cisco Nexus switch&rsquo;lerde yazılım (NX-OS) güncelleme sürecini <strong>sahada uygulanabilir</strong>, <strong>adım adım</strong> ve <strong>geri dönüş senaryoları dahil</strong> olacak şekilde ele alır. Amaç; güncelleme sırasında servis kesintisi riskini azaltmak ve olası bir hatada cihazı hızlıca ayağa kaldırabilmektir.</p>
 <p>Yaşanan upgrade problemlerinin büyük bölümü güncellemenin kendisinden değil — hazırlık adımlarının atlanmasından kaynaklanır. Bu rehber hazırlığı, uygulama kadar ciddiye alır.</p>
 <figure>

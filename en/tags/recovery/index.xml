@@ -1,111 +1,175 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Recovery on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/recovery/</link><description>Recent content in Recovery on Barash Helvadzhaoglu</description><generator>Hugo -- 0.169.0</generator><language>en</language><lastBuildDate>Fri, 16 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/recovery/index.xml" rel="self" type="application/rss+xml"/><item><title>When a Catalyst 3560 Won't Boot: Recovery from the Boot Loader</title><link>https://barashhelvadzhaoglu.com/en/posts/catalyst-3560-boot-loader-recovery/</link><pubDate>Fri, 16 Oct 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/posts/catalyst-3560-boot-loader-recovery/</guid><description>Recovering a Cisco Catalyst 3560 stuck at the switch: prompt — boot loader variables, booting a different image, and transferring a new IOS image over the console with Xmodem.</description><content:encoded><![CDATA[<p>Sooner or later every network engineer sees it: after a reload, the switch does not come back. On the console there is only a <code>switch:</code> prompt. The IOS image is missing, corrupted, or the boot variable points to a file that does not exist.</p>
-<p>This is not a reason to replace the switch. The Catalyst 3560 boot loader has everything you need to get IOS running again, even when the image in flash is gone. This guide covers:</p>
-<ul>
-<li>How to read the boot loader environment and why the switch stopped there</li>
-<li>How to boot an image that is already in flash</li>
-<li>How to transfer a new image over the console with <strong>Xmodem</strong> when flash is empty</li>
-<li>How to make the fix permanent</li>
-</ul>
-<blockquote>
-<p><strong>Lab note:</strong> I am testing these scenarios on my own Catalyst 3560 8-port PoE switch. Console outputs and transfer times from that lab will be added to this guide.</p>
-</blockquote>
-<h2 id="why-the-switch-stops-at-the-boot-loader">Why the Switch Stops at the Boot Loader</h2>
-<p>The boot loader starts IOS from the image listed in the <code>BOOT</code> variable. If that fails, or if no <code>BOOT</code> variable is set and the boot loader cannot find a bootable image itself, the switch stops at the <code>switch:</code> prompt. Typical causes:</p>
-<ul>
-<li>The upgrade went wrong: a typo in <code>boot system</code>, or the image was deleted before the new one was in place.</li>
-<li>The image file is corrupted, for example after an interrupted copy.</li>
-<li>The <code>MANUAL_BOOT</code> variable is set to <code>yes</code>, so the switch always waits at the prompt.</li>
-<li>The flash file system is damaged.</li>
-</ul>
-<p>Another symptom is a <strong>boot loop</strong>: the switch starts loading IOS, crashes and reboots again and again. To break the loop, interrupt the boot process with the Mode button. The procedure is described in the <a href="/en/posts/catalyst-3560-password-recovery/">password recovery guide</a>.</p>
-<h2 id="step-1-look-around">Step 1: Look Around</h2>
-<p>Initialize flash and look at what is there:</p>
-<pre tabindex="0"><code>switch: flash_init
-switch: dir flash:
-</code></pre><p>Then show the boot loader environment variables:</p>
-<pre tabindex="0"><code>switch: set
-</code></pre><p>The most important variables:</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Recovery on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/recovery/</link><description>Recent content in Recovery on Barash Helvadzhaoglu</description><generator>Hugo -- 0.169.0</generator><language>en</language><lastBuildDate>Thu, 22 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/recovery/index.xml" rel="self" type="application/rss+xml"/><item><title>Cisco ROMMON Recovery: Boot a Switch or Router from Flash, TFTP or USB</title><link>https://barashhelvadzhaoglu.com/en/posts/cisco-rommon-recovery/</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/posts/cisco-rommon-recovery/</guid><description>Cisco switch or router stuck at the switch: or rommon prompt? Recovery scenarios for Catalyst 9300, 9200, 3850, 2960, 3560 and ISR 4000 — boot from flash, set ROMMON network variables, boot over TFTP or USB, and fix an outdated ROMMON.</description><content:encoded><![CDATA[<p>After a reload, the device does not come back. On the console you see only <code>switch:</code> (Catalyst switches) or <code>rommon 1 &gt;</code> (routers). This is ROMMON, also called the boot loader: the small program that starts IOS. It stopped because it could not find or start a valid image.</p>
+<p>This is not a hardware failure in most cases, and you do not need to replace the device. Which way out you take depends on one question: <strong>is a good image still in flash?</strong></p>
 <table>
 	<thead>
 			<tr>
-					<th>Variable</th>
-					<th>Meaning</th>
+					<th>Scenario</th>
+					<th>Situation</th>
+					<th>Way out</th>
 			</tr>
 	</thead>
 	<tbody>
 			<tr>
-					<td><code>BOOT</code></td>
-					<td>Image(s) the switch tries to boot, separated by semicolons</td>
+					<td>1</td>
+					<td>The correct image is in flash</td>
+					<td>Boot it, fix the boot variable</td>
 			</tr>
 			<tr>
-					<td><code>MANUAL_BOOT</code></td>
-					<td><code>yes</code> = always stop at the boot loader prompt</td>
+					<td>2</td>
+					<td>The image is missing or corrupted</td>
+					<td>Boot over TFTP or from USB, then copy the image to flash</td>
 			</tr>
 			<tr>
-					<td><code>BAUD</code></td>
-					<td>Console speed. Default is 9600 when the variable is not set</td>
-			</tr>
-			<tr>
-					<td><code>CONFIG_FILE</code></td>
-					<td>Configuration file name, default <code>config.text</code></td>
+					<td>3</td>
+					<td>The image is there, but ROMMON is too old for it</td>
+					<td>Boot an older image, upgrade ROMMON, then upgrade</td>
 			</tr>
 	</tbody>
 </table>
-<p>Use <code>help</code> to see which commands your boot loader version supports.</p>
-<h2 id="step-2-boot-an-image-that-is-already-in-flash">Step 2: Boot an Image That Is Already in Flash</h2>
-<p>If <code>dir flash:</code> shows a valid IOS image, you can boot it directly. Images installed with <code>archive download-sw</code> are in a subdirectory, so check the full path:</p>
-<pre tabindex="0"><code>switch: dir flash:c3560-ipservicesk9-mz.&lt;version&gt;
-switch: boot flash:c3560-ipservicesk9-mz.&lt;version&gt;/c3560-ipservicesk9-mz.&lt;version&gt;.bin
-</code></pre><p>If <code>MANUAL_BOOT</code> was the problem, fix it:</p>
-<pre tabindex="0"><code>switch: set MANUAL_BOOT no
-</code></pre><p>When IOS is running, fix the boot variable permanently:</p>
-<pre tabindex="0"><code>Switch# configure terminal
-Switch(config)# boot system flash:&lt;path&gt;/&lt;image&gt;.bin
-Switch(config)# end
-Switch# copy running-config startup-config
-Switch# show boot
-</code></pre><h2 id="step-3-flash-is-empty-transfer-an-image-with-xmodem">Step 3: Flash Is Empty: Transfer an Image with Xmodem</h2>
-<p>If there is no usable image in flash, you need to bring one in. On the classic Catalyst 3560, the boot loader has no network stack and the switch has no USB storage port, so the console is the way in. The protocol is <strong>Xmodem</strong>, which every serious terminal program supports.</p>
-<h3 id="prepare-the-image">Prepare the Image</h3>
-<p>Use the <code>.bin</code> file, not the <code>.tar</code> file. Xmodem transfers a single file and the boot loader cannot extract archives. Check the MD5 checksum on your PC before you start, because the transfer is long and you do not want to repeat it.</p>
-<h3 id="increase-the-console-speed">Increase the Console Speed</h3>
-<p>At 9600 baud, transferring an IOS image of this size takes several hours. Increase the speed first:</p>
-<pre tabindex="0"><code>switch: set BAUD 115200
-</code></pre><p>The console output becomes unreadable immediately. Change your terminal program to 115200 baud and press Enter until the <code>switch:</code> prompt comes back.</p>
-<h3 id="start-the-transfer">Start the Transfer</h3>
-<pre tabindex="0"><code>switch: copy xmodem: flash:c3560-ipservicesk9-mz.&lt;version&gt;.bin
-</code></pre><p>The switch waits for the file. In your terminal program, start an Xmodem send:</p>
-<ul>
-<li><strong>SecureCRT:</strong> Transfer &gt; Send Xmodem</li>
-<li><strong>Tera Term:</strong> File &gt; Transfer &gt; XMODEM &gt; Send</li>
-<li><strong>minicom / screen:</strong> use <code>sx</code> from the <code>lrzsz</code> package</li>
-</ul>
-<p>At 115200 baud, expect a transfer time in the range of half an hour to an hour, depending on the image size and the terminal program. Do not touch the console session during the transfer.</p>
-<h3 id="boot-the-new-image">Boot the New Image</h3>
+<h2 id="before-you-start-console-access">Before You Start: Console Access</h2>
+<p>ROMMON is only reachable over the console. In a branch office that means a laptop and a console cable. In a data center, where you are rarely next to the rack, a console server is what makes recovery possible at all: <a href="/en/posts/next-gen-console-server-architecture/">Next-Gen Console Server Architecture</a>.</p>
+<p>Look at the environment first:</p>
 <pre tabindex="0"><code>switch: dir flash:
-switch: boot flash:c3560-ipservicesk9-mz.&lt;version&gt;.bin
-</code></pre><h2 id="step-4-clean-up">Step 4: Clean Up</h2>
-<p>When IOS is running:</p>
+switch: set
+</code></pre><p>On routers:</p>
+<pre tabindex="0"><code>rommon 1 &gt; dir bootflash:
+rommon 2 &gt; set
+</code></pre><p><code>set</code> shows the boot loader variables. The important ones are <code>BOOT</code> (which image to start) and, on some switches, <code>MANUAL_BOOT</code> (if <code>yes</code>, the switch always stops at the prompt). On routers, also check the configuration register with <code>confreg</code>. A value of <code>0x2100</code> keeps the router in ROMMON. The normal value is <code>0x2102</code>.</p>
+<p><code>help</code> or <code>?</code> lists the commands your ROMMON version supports.</p>
+<h2 id="scenario-1-the-correct-image-is-in-flash">Scenario 1: The Correct Image Is in Flash</h2>
+<p>The image is there, but the boot variable is wrong: a typo after an upgrade, a deleted file name, or <code>MANUAL_BOOT=yes</code>.</p>
+<h3 id="boot-it-manually">Boot It Manually</h3>
+<p>Catalyst 9000 and other IOS-XE switches in install mode:</p>
+<pre tabindex="0"><code>switch: boot flash:packages.conf
+</code></pre><p>In bundle mode, or on classic Catalyst switches:</p>
+<pre tabindex="0"><code>switch: boot flash:&lt;image&gt;.bin
+</code></pre><p>On classic Catalyst switches, images installed with <code>archive download-sw</code> are in a subdirectory. Check the full path with <code>dir flash:&lt;directory&gt;</code>.</p>
+<p>Routers:</p>
+<pre tabindex="0"><code>rommon 1 &gt; boot bootflash:&lt;image&gt;.bin
+</code></pre><p>If the router stayed in ROMMON because of the configuration register:</p>
+<pre tabindex="0"><code>rommon 1 &gt; confreg 0x2102
+rommon 2 &gt; reset
+</code></pre><h3 id="fix-the-boot-variable-in-ios">Fix the Boot Variable in IOS</h3>
+<p>Once IOS is running, make the fix permanent, otherwise the problem returns at the next reload:</p>
+<pre tabindex="0"><code>configure terminal
+no boot system
+boot system flash:packages.conf
+end
+write memory
+show boot
+</code></pre><p>Use the <code>.bin</code> file name instead of <code>packages.conf</code> in bundle mode, and <code>bootflash:</code> on routers.</p>
+<h2 id="scenario-2-the-image-is-missing-or-corrupted">Scenario 2: The Image Is Missing or Corrupted</h2>
+<p>The image was deleted by mistake, the copy was interrupted, or flash is empty. You need to bring an image to the device from outside. There are two practical ways.</p>
+<table>
+	<thead>
+			<tr>
+					<th></th>
+					<th>TFTP from ROMMON</th>
+					<th>USB</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Needs someone on site</td>
+					<td>No</td>
+					<td>Yes</td>
+			</tr>
+			<tr>
+					<td>Works over a console server</td>
+					<td>Yes</td>
+					<td>Only if someone inserts the stick</td>
+			</tr>
+			<tr>
+					<td>Speed</td>
+					<td>Depends on the network</td>
+					<td>Fast</td>
+			</tr>
+			<tr>
+					<td>Typical use</td>
+					<td>Data center, remote sites</td>
+					<td>Branch office, lab</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="option-a-boot-over-tftp-from-rommon">Option A: Boot over TFTP from ROMMON</h3>
+<p>If you are connected remotely through a console server and the network around the device works, TFTP is the most practical option. The hard part is the network configuration in ROMMON, because ROMMON has no IOS, no routing and no DHCP. You set everything by hand.</p>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li>The <strong>management port</strong> is connected and reachable. On Catalyst 9000 switches that is the dedicated management port (Gi0/0). ROMMON does not use the front-panel ports.</li>
+<li>A TFTP server with the image is reachable from the management network. Setup and firewall rules: <a href="/en/posts/tftp-ftp-server-cisco-upgrades/">TFTP, FTP and SCP Servers for Cisco Upgrades</a>.</li>
+</ul>
+<p><strong>Catalyst 9000 switches:</strong></p>
+<pre tabindex="0"><code>switch: set IP_ADDRESS 192.0.2.50
+switch: set IP_SUBNET_MASK 255.255.255.0
+switch: set DEFAULT_GATEWAY 192.0.2.1
+switch: ping 192.0.2.10
+switch: boot tftp://192.0.2.10/cat9k_iosxe.&lt;version&gt;.SPA.bin
+</code></pre><p>Test with <code>ping</code> first. If the ping fails, there is no point starting the boot. Check the cable on the management port, the gateway and the firewall on the TFTP server.</p>
+<p>Two limits apply, according to Cisco:</p>
+<ul>
+<li>The switch boots <strong>in bundle mode</strong> when you boot over TFTP.</li>
+<li>The image is <strong>not copied to flash</strong>. It only runs from memory. After the next reload, you are back at the prompt.</li>
+</ul>
+<p><strong>ISR 4000 and other IOS-XE routers:</strong></p>
+<pre tabindex="0"><code>rommon 1 &gt; IP_ADDRESS=192.0.2.50
+rommon 2 &gt; IP_SUBNET_MASK=255.255.255.0
+rommon 3 &gt; DEFAULT_GATEWAY=192.0.2.1
+rommon 4 &gt; TFTP_SERVER=192.0.2.10
+rommon 5 &gt; TFTP_FILE=isr4300-universalk9.&lt;version&gt;.SPA.bin
+rommon 6 &gt; set
+rommon 7 &gt; boot tftp://192.0.2.10/isr4300-universalk9.&lt;version&gt;.SPA.bin
+</code></pre><p>Variable names and the exact boot syntax differ between ROMMON versions. Check with <code>set</code> and <code>help</code>. Older routers (ISR G2) use the <code>tftpdnld</code> command instead, which writes the image directly to flash.</p>
+<p><strong>After the device has booted over TFTP:</strong> copy the image to flash, verify it and set it up properly, as described in the <a href="/en/posts/cisco-ios-xe-upgrade-guide/">upgrade guide</a>:</p>
+<pre tabindex="0"><code>copy tftp://192.0.2.10/&lt;image&gt;.bin flash:
+verify /md5 flash:&lt;image&gt;.bin
+install add file flash:&lt;image&gt;.bin activate commit
+</code></pre><p>On devices in bundle mode or classic IOS, set <code>boot system</code> to the copied file instead of <code>install add</code>.</p>
+<h3 id="option-b-boot-from-usb">Option B: Boot from USB</h3>
+<p>When someone can insert a USB stick, this is the easiest and fastest way. Format the stick with FAT32 and copy the image to it.</p>
+<pre tabindex="0"><code>switch: dir usbflash0:
+switch: boot usbflash0:&lt;image&gt;.bin
+</code></pre><p>On ISR routers the USB device is usually called <code>usb0:</code> (on some models <code>usb1:</code>):</p>
+<pre tabindex="0"><code>rommon 1 &gt; dir usb0:
+rommon 2 &gt; boot usb0:&lt;image&gt;.bin
+</code></pre><p>When the device is up, copy the image from USB to flash and fix the boot variable:</p>
+<pre tabindex="0"><code>copy usbflash0:&lt;image&gt;.bin flash:
+verify /md5 flash:&lt;image&gt;.bin
+</code></pre><p>Then install it or set <code>boot system</code> as in Scenario 1.</p>
+<h3 id="option-c-emergency-install-catalyst-9000">Option C: emergency-install (Catalyst 9000)</h3>
+<p>Catalyst 9000 switches (except the 9200 series) have an <code>emergency-install</code> command in ROMMON. It installs an image from TFTP straight into flash:</p>
+<pre tabindex="0"><code>switch: emergency-install tftp://192.0.2.10/cat9k_iosxe.&lt;version&gt;.SPA.bin
+switch: boot flash:packages.conf
+</code></pre><p>Warning: this <strong>erases the entire flash file system</strong>, including the configuration. Use it only when Options A and B are not possible, and only when you have a configuration backup.</p>
+<h3 id="option-d-xmodem-over-the-console-classic-catalyst">Option D: Xmodem over the Console (Classic Catalyst)</h3>
+<p>Classic Catalyst switches like the 2960 and 3560 have no network stack in the boot loader and often no USB port. The last resort is a transfer over the console with Xmodem:</p>
+<pre tabindex="0"><code>switch: flash_init
+switch: set BAUD 115200
+switch: copy xmodem: flash:&lt;image&gt;.bin
+</code></pre><p>After <code>set BAUD</code>, change your terminal program to 115200 baud. Even at this speed the transfer takes a long time. Reset the speed afterwards with <code>set BAUD 9600</code>, otherwise the next person connecting at 9600 baud sees only garbage.</p>
+<h2 id="scenario-3-rommon-is-too-old-for-the-new-image">Scenario 3: ROMMON Is Too Old for the New Image</h2>
+<p>The image is in flash and correct, but the device still does not start it. On ISR 4000 routers this happens when the target release needs a newer ROMMON than the device has, for example 17.x releases that need ROMMON 16.12(2r).</p>
+<p>As far as I know, ROMMON cannot be upgraded from the ROMMON prompt on these platforms. The upgrade runs from IOS-XE. The way out:</p>
 <ol>
-<li>Verify the image: <code>verify /md5 flash:&lt;image&gt;.bin</code></li>
-<li>Set <code>boot system</code> to the new image and save, as in Step 2.</li>
-<li><strong>Reset the console speed.</strong> If you leave the boot loader <code>BAUD</code> at 115200, the console stays at that speed. Anyone who connects at the default 9600 baud later will see only garbage. Set it back in the boot loader (<code>set BAUD 9600</code>) or make sure the console line speed in IOS matches what your team expects.</li>
-<li>Reload once to confirm that the switch boots without help.</li>
+<li>Boot an <strong>older image</strong> that works with the current ROMMON. From flash if you kept it, otherwise over TFTP or USB as in Scenario 2.</li>
+<li>In IOS-XE, upgrade ROMMON: <code>upgrade rom-monitor filename bootflash:&lt;rommon&gt;.pkg R0</code>, then reload.</li>
+<li>Check with <code>show rom-monitor r0</code>.</li>
+<li>Now install the new image.</li>
 </ol>
-<h2 id="what-about-tftp-and-usb">What About TFTP and USB?</h2>
-<p>On newer Catalyst platforms the boot loader can do more. Some models have a USB storage port (<code>usbflash0:</code>) or can boot an image over the network from the management port. That is much faster than Xmodem. On the classic 3560, these options are not available, so Xmodem is the only path when flash is empty. Run <code>help</code> at the <code>switch:</code> prompt to see what your platform supports.</p>
-<p>The same idea, booting from TFTP or USB when the device does not start, is covered for data center switches in the <a href="/en/posts/cisco-nexus-nxos-upgrade-guide/">Nexus NX-OS upgrade guide</a>.</p>
+<p>This is why the <a href="/en/posts/cisco-ios-xe-upgrade-guide/">upgrade guide</a> puts the ROMMON check before the upgrade.</p>
+<p>A related case: the boot variable points to an image for another platform family, for example an ISR 4300 image on an ISR 4400. The device stays in ROMMON. Boot the correct image manually and fix the boot variable.</p>
 <h2 id="prevention">Prevention</h2>
 <ul>
-<li>Keep a copy of the current and the previous image on a TFTP server you can reach.</li>
-<li>Verify the MD5 checksum before every reload after an upgrade.</li>
-<li>Check <code>show boot</code> before every planned reload.</li>
-<li>Have console access ready for every upgrade. A console server makes this possible remotely: <a href="/en/posts/next-gen-console-server-architecture/">Next-Gen Console Server Architecture</a>.</li>
+<li>Keep the current and the previous image on a server you can reach from the management network.</li>
+<li>Check <code>show boot</code> (or <code>show bootvar</code>) and the ROMMON requirement before every planned reload.</li>
+<li>Connect and test the management port before you need it.</li>
+<li>Have console access ready for every upgrade: <a href="/en/posts/next-gen-console-server-architecture/">Next-Gen Console Server Architecture</a>.</li>
 </ul>
 <h2 id="related-articles">Related Articles</h2>
 <ul>
-<li><a href="/en/posts/catalyst-3560-password-recovery/">Cisco Catalyst 3560 Password Recovery: Two Methods</a></li>
-<li><a href="/en/posts/catalyst-3560-ios-upgrade/">Catalyst 3560 IOS Upgrade: Two Methods and Verification</a></li>
-<li><a href="/en/posts/cisco-nexus-nxos-upgrade-guide/">Cisco Nexus NX-OS Software Upgrade Guide</a></li>
+<li><a href="/en/posts/cisco-ios-xe-upgrade-guide/">Cisco IOS and IOS-XE Upgrade Guide</a></li>
+<li><a href="/en/posts/tftp-ftp-server-cisco-upgrades/">TFTP, FTP and SCP Servers for Cisco Upgrades</a></li>
+<li><a href="/en/posts/cisco-switch-password-recovery/">Cisco Switch and Router Password Recovery</a></li>
+<li><a href="/en/posts/cisco-nexus-nxos-upgrade-guide/">Cisco Nexus NX-OS Upgrade Guide (with ROMMON recovery)</a></li>
 </ul>
+<p>Sources: <a href="https://cisco.com/c/en/us/support/docs/switches/catalyst-9300-series-switches/216944-troubleshoot-bootloader-rommon-and-pas.html">Cisco: Troubleshoot Bootloader and Password Recovery on Catalyst 9000</a> · <a href="https://www.cisco.com/c/en/us/support/docs/routers/4000-series-integrated-services-routers/200678-Troubleshoot-Cisco-4000-Series-ISR-Stuck.html">Cisco: ISR 4000 Stuck in ROMMON</a></p>
 ]]></content:encoded></item></channel></rss>

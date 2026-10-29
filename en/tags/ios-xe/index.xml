@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>IOS-XE on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/ios-xe/</link><description>Recent content in IOS-XE on Barash Helvadzhaoglu</description><generator>Hugo -- 0.169.0</generator><language>en</language><lastBuildDate>Thu, 22 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/ios-xe/index.xml" rel="self" type="application/rss+xml"/><item><title>Cisco IOS and IOS-XE Upgrade Guide: Catalyst Switches and ISR Routers</title><link>https://barashhelvadzhaoglu.com/en/posts/cisco-ios-xe-upgrade-guide/</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/posts/cisco-ios-xe-upgrade-guide/</guid><description>Step-by-step Cisco IOS and IOS-XE software upgrade for Catalyst switches (2960, 3560, 3850, 9200, 9300, 9500) and routers (ISR 4000, ISR 1100, Catalyst 8000) — flash checks, ROMMON, install mode, bundle mode, MD5 and rollback.</description><content:encoded><![CDATA[<p>Most Cisco upgrades fail before the first command is typed: the wrong image for the platform, too little space in flash, a ROMMON that is too old for the target release, or a boot variable that points nowhere. This guide puts the checks first and the commands second.</p>
+<p>It covers both families you meet in practice:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Family</th>
+					<th>Typical models</th>
+					<th>Software</th>
+					<th>File system</th>
+					<th>Upgrade method</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Classic Catalyst switches</td>
+					<td>2960, 2960-X, 3560, 3750</td>
+					<td>IOS</td>
+					<td><code>flash:</code></td>
+					<td><code>archive download-sw</code> or <code>.bin</code> + <code>boot system</code></td>
+			</tr>
+			<tr>
+					<td>IOS-XE Catalyst switches</td>
+					<td>3650, 3850, 9200, 9300, 9400, 9500</td>
+					<td>IOS-XE</td>
+					<td><code>flash:</code> (on some models <code>bootflash:</code>)</td>
+					<td>Install mode (<code>packages.conf</code>)</td>
+			</tr>
+			<tr>
+					<td>IOS-XE routers</td>
+					<td>ISR 4000, ISR 1100, Catalyst 8200/8300, Catalyst 8000V</td>
+					<td>IOS-XE</td>
+					<td><code>bootflash:</code></td>
+					<td>Install mode or bundle mode</td>
+			</tr>
+			<tr>
+					<td>Classic IOS routers</td>
+					<td>ISR G2, C900</td>
+					<td>IOS</td>
+					<td><code>flash:</code></td>
+					<td><code>.bin</code> + <code>boot system</code></td>
+			</tr>
+	</tbody>
+</table>
+<p>The commands are the ones I use in the field on Catalyst switches and ISR routers. IP addresses and paths in the examples are placeholders.</p>
+<h2 id="1-check-the-platform-before-anything-else">1. Check the Platform Before Anything Else</h2>
+<h3 id="file-system-flash-or-bootflash">File System: flash: or bootflash:?</h3>
+<p>Do not assume. Ask the device:</p>
+<pre tabindex="0"><code>show file systems
+dir
+</code></pre><p>Classic Catalyst switches and Catalyst 9200/9300 use <code>flash:</code>. ISR and Catalyst 8000 routers use <code>bootflash:</code>. On many IOS-XE platforms one name is an alias for the other. Use whatever the device shows. Every command in this guide works with either name.</p>
+<h3 id="model-version-and-boot-mode">Model, Version and Boot Mode</h3>
+<pre tabindex="0"><code>show version
+show inventory
+show boot            ! switches
+show bootvar         ! routers
+show install summary ! IOS-XE only
+</code></pre><p>Write down:</p>
+<ul>
+<li><strong>Exact model and platform family.</strong> An image for an ISR 4300 does not boot on an ISR 4400. The platform family is in the file name, for example <code>isr4300-universalk9</code>, <code>c1100-universalk9</code>, <code>cat9k_iosxe</code>.</li>
+<li><strong>Current version.</strong></li>
+<li><strong>Boot mode on IOS-XE.</strong> If the boot variable points to <code>packages.conf</code>, the device runs in <strong>install mode</strong>. If it points to a <code>.bin</code> file, it runs in <strong>bundle mode</strong>.</li>
+</ul>
+<h3 id="free-space">Free Space</h3>
+<p><code>dir</code> shows the free bytes at the bottom. An IOS-XE image is large, and install mode needs extra space to extract the packages. If space is tight, clean up first:</p>
+<pre tabindex="0"><code>install remove inactive   ! IOS-XE install mode: removes unused packages
+delete flash:&lt;old-image&gt;.bin
+</code></pre><h2 id="2-read-the-release-notes-upgrade-path-and-rommon">2. Read the Release Notes: Upgrade Path and ROMMON</h2>
+<p>Two things in the release notes decide whether the upgrade works:</p>
+<ul>
+<li><strong>Upgrade path.</strong> Some jumps are not supported directly. Cisco documents, for example, that Catalyst 9500 switches in bundle mode should go from 16.x to 17.x through an intermediate release, while install mode supports the direct jump.</li>
+<li><strong>Minimum ROMMON version.</strong> Every IOS-XE release needs a minimum ROMMON (boot loader) version. If the device has an older ROMMON, the new image may not boot and the device stops at the <code>rommon</code> prompt.</li>
+</ul>
+<p>Check the current ROMMON version:</p>
+<pre tabindex="0"><code>show rom-monitor r0          ! ISR 4000 and similar routers
+show version | include ROM   ! most platforms
+</code></pre><h3 id="does-rommon-need-a-separate-upgrade">Does ROMMON Need a Separate Upgrade?</h3>
+<ul>
+<li><strong>Catalyst 9000:</strong> Usually not by hand. When a new release contains a newer ROMMON, the switch upgrades its primary ROMMON automatically at the first boot. The golden (backup) ROMMON is upgraded manually with the <code>upgrade rom-monitor capsule golden</code> command. The exact arguments differ by model, so check the upgrade guide for your platform.</li>
+<li><strong>ISR 4000 and similar routers:</strong> Check it every time. A well-known case is ISR 4000 routers that need ROMMON 16.12(2r) before they boot 17.x releases.</li>
+</ul>
+<h3 id="upgrading-rommon-on-an-isr-4000">Upgrading ROMMON on an ISR 4000</h3>
+<p>ROMMON is upgraded from the running IOS-XE, not from the ROMMON prompt. Copy the ROMMON package, verify it, then:</p>
+<pre tabindex="0"><code>copy ftp://192.0.2.10/images/isr4200_4300_rommon_1612_2r_SPA.pkg bootflash:
+verify /md5 bootflash:isr4200_4300_rommon_1612_2r_SPA.pkg
+upgrade rom-monitor filename bootflash:isr4200_4300_rommon_1612_2r_SPA.pkg R0
+reload
+show rom-monitor r0
+</code></pre><p>Do the ROMMON upgrade <strong>before</strong> the software upgrade. If you get it wrong and the device no longer boots, see <a href="/en/posts/cisco-rommon-recovery/">Cisco ROMMON Recovery</a>.</p>
+<h3 id="secure-boot-and-signed-images">Secure Boot and Signed Images</h3>
+<p>IOS-XE images are signed. The <code>.SPA</code> in the file name stands for a signed production image. The device verifies the signature at boot. An image for the wrong platform or a corrupted file fails this check and does not boot. Only use images from Cisco Software Download and always verify the checksum.</p>
+<h2 id="3-copy-the-image-and-verify-it">3. Copy the Image and Verify It</h2>
+<p>FTP is faster and more reliable than TFTP for large IOS-XE images:</p>
+<pre tabindex="0"><code>copy ftp://192.0.2.10/images/isr4300-universalk9.17.12.08.SPA.bin bootflash:
+copy ftp://192.0.2.10/images/c1100-universalk9.17.12.08.SPA.bin bootflash:
+copy tftp://192.0.2.10/cat9k_iosxe.&lt;version&gt;.SPA.bin flash:
+</code></pre><p>Setting up the server, credentials, the double slash in FTP paths and the management VRF are covered in <a href="/en/posts/tftp-ftp-server-cisco-upgrades/">TFTP, FTP and SCP Servers for Cisco Upgrades</a>.</p>
+<p>Verify the MD5 checksum against the value on the Cisco download page:</p>
+<pre tabindex="0"><code>verify /md5 bootflash:c1100-universalk9.17.12.08.SPA.bin
+</code></pre><p>If the values differ, delete the file and copy it again. Never install an image that failed verification.</p>
+<h2 id="4-upgrade-in-install-mode-ios-xe">4. Upgrade in Install Mode (IOS-XE)</h2>
+<p>Install mode is the recommended mode for Catalyst 9000 switches and current ISR and Catalyst 8000 routers. One command adds, activates and commits the new software:</p>
+<pre tabindex="0"><code>install add file bootflash:isr4300-universalk9.17.12.08.SPA.bin activate commit
+</code></pre><p>The device asks whether it may reload. Answer <code>y</code>. After the reload:</p>
+<pre tabindex="0"><code>show version
+show install summary
+install remove inactive
+</code></pre><p><code>show install summary</code> should show the new version as <code>Committed</code>. <code>install remove inactive</code> removes the old packages and frees space.</p>
+<p>On Catalyst 9000 switches the command is the same, with the switch file system:</p>
+<pre tabindex="0"><code>install add file flash:cat9k_iosxe.&lt;version&gt;.SPA.bin activate commit
+</code></pre><h3 id="several-hops-in-a-row">Several Hops in a Row</h3>
+<p>If the release notes require an intermediate release, repeat the sequence per hop: copy, verify, <code>install add ... activate commit</code>, check, <code>install remove inactive</code>. For example 17.9 first, then 17.12. Clean up between the hops so there is room for the next image.</p>
+<h3 id="from-bundle-mode-to-install-mode">From Bundle Mode to Install Mode</h3>
+<p>A device in bundle mode boots a <code>.bin</code> file directly. To switch to install mode:</p>
+<ol>
+<li>Run <code>install add file &lt;image&gt;.bin activate commit</code> as above. This extracts the packages and creates <code>packages.conf</code>.</li>
+<li>Make sure the boot variable points to <code>packages.conf</code>:</li>
+</ol>
+<pre tabindex="0"><code>configure terminal
+no boot system
+boot system flash:packages.conf
+end
+write memory
+show boot
+</code></pre><p>On routers, use <code>bootflash:packages.conf</code>.</p>
+<h2 id="5-bundle-mode-and-classic-ios">5. Bundle Mode and Classic IOS</h2>
+<h3 id="ios-xe-in-bundle-mode-isr-g2-c900">IOS-XE in Bundle Mode, ISR G2, C900</h3>
+<pre tabindex="0"><code>configure terminal
+no boot system
+boot system bootflash:&lt;image&gt;.bin
+end
+write memory
+show bootvar
+reload
+</code></pre><p>On classic IOS routers like the C900 series, the file system is <code>flash:</code> and the image name has the old format, for example <code>c900-universalk9-mz.SPA.&lt;version&gt;.bin</code>.</p>
+<h3 id="classic-catalyst-switches-2960-3560-3750">Classic Catalyst Switches (2960, 3560, 3750)</h3>
+<p>These switches offer <code>archive download-sw</code>. It transfers a <code>.tar</code> file, extracts it, sets the boot variable and can reload:</p>
+<pre tabindex="0"><code>archive download-sw /overwrite /reload tftp://192.0.2.10/c3560-ipservicesk9-tar.&lt;version&gt;.tar
+</code></pre><ul>
+<li><code>/overwrite</code> replaces the current image when flash has room for only one.</li>
+<li><code>/leave-old-sw</code> keeps the old image when there is room for both. Rollback is then just a boot variable change.</li>
+</ul>
+<p>Alternatively, copy the <code>.bin</code> file, verify it and set <code>boot system flash:&lt;image&gt;.bin</code> as above.</p>
+<h2 id="6-after-the-upgrade">6. After the Upgrade</h2>
+<pre tabindex="0"><code>show version
+show install summary          ! IOS-XE install mode
+show interfaces status        ! switches
+show ip interface brief
+show power inline             ! PoE switches
+show logging
+</code></pre><p>On stacks and redundant systems, check every member: <code>show switch</code> on Catalyst stacks, <code>show redundancy</code> on dual-supervisor systems.</p>
+<h2 id="7-rollback">7. Rollback</h2>
+<ul>
+<li><strong>Install mode:</strong> <code>show install rollback</code> lists the rollback points.</li>
+<li><strong>Bundle mode and classic IOS:</strong> point <code>boot system</code> back to the old image, if it is still in flash, and reload.</li>
+<li><strong>Device stops at ROMMON or the <code>switch:</code> prompt:</strong> see <a href="/en/posts/cisco-rommon-recovery/">Cisco ROMMON Recovery</a>.</li>
+</ul>
+<h2 id="common-mistakes">Common Mistakes</h2>
+<ul>
+<li><strong>Image for the wrong platform family.</strong> It fails signature or platform checks and does not boot.</li>
+<li><strong>ROMMON not checked.</strong> The new image needs a newer ROMMON, and the device stops at the <code>rommon</code> prompt.</li>
+<li><strong>No space for install mode.</strong> The extraction fails halfway. Run <code>install remove inactive</code> first.</li>
+<li><strong>Boot variable still points to the old <code>.bin</code> after moving to install mode.</strong> The device boots the old version in bundle mode.</li>
+<li><strong>No console access during the reload.</strong> A console server makes this possible remotely: <a href="/en/posts/next-gen-console-server-architecture/">Next-Gen Console Server Architecture</a>.</li>
+</ul>
+<h2 id="related-articles">Related Articles</h2>
+<ul>
+<li><a href="/en/posts/cisco-rommon-recovery/">Cisco ROMMON Recovery: Boot from Flash, TFTP or USB</a></li>
+<li><a href="/en/posts/tftp-ftp-server-cisco-upgrades/">TFTP, FTP and SCP Servers for Cisco Upgrades</a></li>
+<li><a href="/en/posts/cisco-switch-password-recovery/">Cisco Switch and Router Password Recovery</a></li>
+<li><a href="/en/posts/cisco-nexus-nxos-upgrade-guide/">Cisco Nexus NX-OS Software Upgrade Guide</a></li>
+</ul>
+<p>Sources: <a href="https://www.cisco.com/c/en/us/support/docs/switches/catalyst-9500-series-switches/222279-upgrading-catalyst-9500-switches.html">Cisco: Upgrading Catalyst 9500 Switches</a> · <a href="https://www.cisco.com/c/de_de/support/docs/switches/catalyst-9300-series-switches/222280-upgrading-catalyst-9300-switches.html">Cisco: Upgrading Catalyst 9300 Switches</a></p>
+]]></content:encoded></item><item><title>Cisco ROMMON Recovery: Boot a Switch or Router from Flash, TFTP or USB</title><link>https://barashhelvadzhaoglu.com/en/posts/cisco-rommon-recovery/</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/posts/cisco-rommon-recovery/</guid><description>Cisco switch or router stuck at the switch: or rommon prompt? Recovery scenarios for Catalyst 9300, 9200, 3850, 2960, 3560 and ISR 4000 — boot from flash, set ROMMON network variables, boot over TFTP or USB, and fix an outdated ROMMON.</description><content:encoded><![CDATA[<p>After a reload, the device does not come back. On the console you see only <code>switch:</code> (Catalyst switches) or <code>rommon 1 &gt;</code> (routers). This is ROMMON, also called the boot loader: the small program that starts IOS. It stopped because it could not find or start a valid image.</p>
+<p>This is not a hardware failure in most cases, and you do not need to replace the device. Which way out you take depends on one question: <strong>is a good image still in flash?</strong></p>
+<table>
+	<thead>
+			<tr>
+					<th>Scenario</th>
+					<th>Situation</th>
+					<th>Way out</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>1</td>
+					<td>The correct image is in flash</td>
+					<td>Boot it, fix the boot variable</td>
+			</tr>
+			<tr>
+					<td>2</td>
+					<td>The image is missing or corrupted</td>
+					<td>Boot over TFTP or from USB, then copy the image to flash</td>
+			</tr>
+			<tr>
+					<td>3</td>
+					<td>The image is there, but ROMMON is too old for it</td>
+					<td>Boot an older image, upgrade ROMMON, then upgrade</td>
+			</tr>
+	</tbody>
+</table>
+<h2 id="before-you-start-console-access">Before You Start: Console Access</h2>
+<p>ROMMON is only reachable over the console. In a branch office that means a laptop and a console cable. In a data center, where you are rarely next to the rack, a console server is what makes recovery possible at all: <a href="/en/posts/next-gen-console-server-architecture/">Next-Gen Console Server Architecture</a>.</p>
+<p>Look at the environment first:</p>
+<pre tabindex="0"><code>switch: dir flash:
+switch: set
+</code></pre><p>On routers:</p>
+<pre tabindex="0"><code>rommon 1 &gt; dir bootflash:
+rommon 2 &gt; set
+</code></pre><p><code>set</code> shows the boot loader variables. The important ones are <code>BOOT</code> (which image to start) and, on some switches, <code>MANUAL_BOOT</code> (if <code>yes</code>, the switch always stops at the prompt). On routers, also check the configuration register with <code>confreg</code>. A value of <code>0x2100</code> keeps the router in ROMMON. The normal value is <code>0x2102</code>.</p>
+<p><code>help</code> or <code>?</code> lists the commands your ROMMON version supports.</p>
+<h2 id="scenario-1-the-correct-image-is-in-flash">Scenario 1: The Correct Image Is in Flash</h2>
+<p>The image is there, but the boot variable is wrong: a typo after an upgrade, a deleted file name, or <code>MANUAL_BOOT=yes</code>.</p>
+<h3 id="boot-it-manually">Boot It Manually</h3>
+<p>Catalyst 9000 and other IOS-XE switches in install mode:</p>
+<pre tabindex="0"><code>switch: boot flash:packages.conf
+</code></pre><p>In bundle mode, or on classic Catalyst switches:</p>
+<pre tabindex="0"><code>switch: boot flash:&lt;image&gt;.bin
+</code></pre><p>On classic Catalyst switches, images installed with <code>archive download-sw</code> are in a subdirectory. Check the full path with <code>dir flash:&lt;directory&gt;</code>.</p>
+<p>Routers:</p>
+<pre tabindex="0"><code>rommon 1 &gt; boot bootflash:&lt;image&gt;.bin
+</code></pre><p>If the router stayed in ROMMON because of the configuration register:</p>
+<pre tabindex="0"><code>rommon 1 &gt; confreg 0x2102
+rommon 2 &gt; reset
+</code></pre><h3 id="fix-the-boot-variable-in-ios">Fix the Boot Variable in IOS</h3>
+<p>Once IOS is running, make the fix permanent, otherwise the problem returns at the next reload:</p>
+<pre tabindex="0"><code>configure terminal
+no boot system
+boot system flash:packages.conf
+end
+write memory
+show boot
+</code></pre><p>Use the <code>.bin</code> file name instead of <code>packages.conf</code> in bundle mode, and <code>bootflash:</code> on routers.</p>
+<h2 id="scenario-2-the-image-is-missing-or-corrupted">Scenario 2: The Image Is Missing or Corrupted</h2>
+<p>The image was deleted by mistake, the copy was interrupted, or flash is empty. You need to bring an image to the device from outside. There are two practical ways.</p>
+<table>
+	<thead>
+			<tr>
+					<th></th>
+					<th>TFTP from ROMMON</th>
+					<th>USB</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Needs someone on site</td>
+					<td>No</td>
+					<td>Yes</td>
+			</tr>
+			<tr>
+					<td>Works over a console server</td>
+					<td>Yes</td>
+					<td>Only if someone inserts the stick</td>
+			</tr>
+			<tr>
+					<td>Speed</td>
+					<td>Depends on the network</td>
+					<td>Fast</td>
+			</tr>
+			<tr>
+					<td>Typical use</td>
+					<td>Data center, remote sites</td>
+					<td>Branch office, lab</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="option-a-boot-over-tftp-from-rommon">Option A: Boot over TFTP from ROMMON</h3>
+<p>If you are connected remotely through a console server and the network around the device works, TFTP is the most practical option. The hard part is the network configuration in ROMMON, because ROMMON has no IOS, no routing and no DHCP. You set everything by hand.</p>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li>The <strong>management port</strong> is connected and reachable. On Catalyst 9000 switches that is the dedicated management port (Gi0/0). ROMMON does not use the front-panel ports.</li>
+<li>A TFTP server with the image is reachable from the management network. Setup and firewall rules: <a href="/en/posts/tftp-ftp-server-cisco-upgrades/">TFTP, FTP and SCP Servers for Cisco Upgrades</a>.</li>
+</ul>
+<p><strong>Catalyst 9000 switches:</strong></p>
+<pre tabindex="0"><code>switch: set IP_ADDRESS 192.0.2.50
+switch: set IP_SUBNET_MASK 255.255.255.0
+switch: set DEFAULT_GATEWAY 192.0.2.1
+switch: ping 192.0.2.10
+switch: boot tftp://192.0.2.10/cat9k_iosxe.&lt;version&gt;.SPA.bin
+</code></pre><p>Test with <code>ping</code> first. If the ping fails, there is no point starting the boot. Check the cable on the management port, the gateway and the firewall on the TFTP server.</p>
+<p>Two limits apply, according to Cisco:</p>
+<ul>
+<li>The switch boots <strong>in bundle mode</strong> when you boot over TFTP.</li>
+<li>The image is <strong>not copied to flash</strong>. It only runs from memory. After the next reload, you are back at the prompt.</li>
+</ul>
+<p><strong>ISR 4000 and other IOS-XE routers:</strong></p>
+<pre tabindex="0"><code>rommon 1 &gt; IP_ADDRESS=192.0.2.50
+rommon 2 &gt; IP_SUBNET_MASK=255.255.255.0
+rommon 3 &gt; DEFAULT_GATEWAY=192.0.2.1
+rommon 4 &gt; TFTP_SERVER=192.0.2.10
+rommon 5 &gt; TFTP_FILE=isr4300-universalk9.&lt;version&gt;.SPA.bin
+rommon 6 &gt; set
+rommon 7 &gt; boot tftp://192.0.2.10/isr4300-universalk9.&lt;version&gt;.SPA.bin
+</code></pre><p>Variable names and the exact boot syntax differ between ROMMON versions. Check with <code>set</code> and <code>help</code>. Older routers (ISR G2) use the <code>tftpdnld</code> command instead, which writes the image directly to flash.</p>
+<p><strong>After the device has booted over TFTP:</strong> copy the image to flash, verify it and set it up properly, as described in the <a href="/en/posts/cisco-ios-xe-upgrade-guide/">upgrade guide</a>:</p>
+<pre tabindex="0"><code>copy tftp://192.0.2.10/&lt;image&gt;.bin flash:
+verify /md5 flash:&lt;image&gt;.bin
+install add file flash:&lt;image&gt;.bin activate commit
+</code></pre><p>On devices in bundle mode or classic IOS, set <code>boot system</code> to the copied file instead of <code>install add</code>.</p>
+<h3 id="option-b-boot-from-usb">Option B: Boot from USB</h3>
+<p>When someone can insert a USB stick, this is the easiest and fastest way. Format the stick with FAT32 and copy the image to it.</p>
+<pre tabindex="0"><code>switch: dir usbflash0:
+switch: boot usbflash0:&lt;image&gt;.bin
+</code></pre><p>On ISR routers the USB device is usually called <code>usb0:</code> (on some models <code>usb1:</code>):</p>
+<pre tabindex="0"><code>rommon 1 &gt; dir usb0:
+rommon 2 &gt; boot usb0:&lt;image&gt;.bin
+</code></pre><p>When the device is up, copy the image from USB to flash and fix the boot variable:</p>
+<pre tabindex="0"><code>copy usbflash0:&lt;image&gt;.bin flash:
+verify /md5 flash:&lt;image&gt;.bin
+</code></pre><p>Then install it or set <code>boot system</code> as in Scenario 1.</p>
+<h3 id="option-c-emergency-install-catalyst-9000">Option C: emergency-install (Catalyst 9000)</h3>
+<p>Catalyst 9000 switches (except the 9200 series) have an <code>emergency-install</code> command in ROMMON. It installs an image from TFTP straight into flash:</p>
+<pre tabindex="0"><code>switch: emergency-install tftp://192.0.2.10/cat9k_iosxe.&lt;version&gt;.SPA.bin
+switch: boot flash:packages.conf
+</code></pre><p>Warning: this <strong>erases the entire flash file system</strong>, including the configuration. Use it only when Options A and B are not possible, and only when you have a configuration backup.</p>
+<h3 id="option-d-xmodem-over-the-console-classic-catalyst">Option D: Xmodem over the Console (Classic Catalyst)</h3>
+<p>Classic Catalyst switches like the 2960 and 3560 have no network stack in the boot loader and often no USB port. The last resort is a transfer over the console with Xmodem:</p>
+<pre tabindex="0"><code>switch: flash_init
+switch: set BAUD 115200
+switch: copy xmodem: flash:&lt;image&gt;.bin
+</code></pre><p>After <code>set BAUD</code>, change your terminal program to 115200 baud. Even at this speed the transfer takes a long time. Reset the speed afterwards with <code>set BAUD 9600</code>, otherwise the next person connecting at 9600 baud sees only garbage.</p>
+<h2 id="scenario-3-rommon-is-too-old-for-the-new-image">Scenario 3: ROMMON Is Too Old for the New Image</h2>
+<p>The image is in flash and correct, but the device still does not start it. On ISR 4000 routers this happens when the target release needs a newer ROMMON than the device has, for example 17.x releases that need ROMMON 16.12(2r).</p>
+<p>As far as I know, ROMMON cannot be upgraded from the ROMMON prompt on these platforms. The upgrade runs from IOS-XE. The way out:</p>
+<ol>
+<li>Boot an <strong>older image</strong> that works with the current ROMMON. From flash if you kept it, otherwise over TFTP or USB as in Scenario 2.</li>
+<li>In IOS-XE, upgrade ROMMON: <code>upgrade rom-monitor filename bootflash:&lt;rommon&gt;.pkg R0</code>, then reload.</li>
+<li>Check with <code>show rom-monitor r0</code>.</li>
+<li>Now install the new image.</li>
+</ol>
+<p>This is why the <a href="/en/posts/cisco-ios-xe-upgrade-guide/">upgrade guide</a> puts the ROMMON check before the upgrade.</p>
+<p>A related case: the boot variable points to an image for another platform family, for example an ISR 4300 image on an ISR 4400. The device stays in ROMMON. Boot the correct image manually and fix the boot variable.</p>
+<h2 id="prevention">Prevention</h2>
+<ul>
+<li>Keep the current and the previous image on a server you can reach from the management network.</li>
+<li>Check <code>show boot</code> (or <code>show bootvar</code>) and the ROMMON requirement before every planned reload.</li>
+<li>Connect and test the management port before you need it.</li>
+<li>Have console access ready for every upgrade: <a href="/en/posts/next-gen-console-server-architecture/">Next-Gen Console Server Architecture</a>.</li>
+</ul>
+<h2 id="related-articles">Related Articles</h2>
+<ul>
+<li><a href="/en/posts/cisco-ios-xe-upgrade-guide/">Cisco IOS and IOS-XE Upgrade Guide</a></li>
+<li><a href="/en/posts/tftp-ftp-server-cisco-upgrades/">TFTP, FTP and SCP Servers for Cisco Upgrades</a></li>
+<li><a href="/en/posts/cisco-switch-password-recovery/">Cisco Switch and Router Password Recovery</a></li>
+<li><a href="/en/posts/cisco-nexus-nxos-upgrade-guide/">Cisco Nexus NX-OS Upgrade Guide (with ROMMON recovery)</a></li>
+</ul>
+<p>Sources: <a href="https://cisco.com/c/en/us/support/docs/switches/catalyst-9300-series-switches/216944-troubleshoot-bootloader-rommon-and-pas.html">Cisco: Troubleshoot Bootloader and Password Recovery on Catalyst 9000</a> · <a href="https://www.cisco.com/c/en/us/support/docs/routers/4000-series-integrated-services-routers/200678-Troubleshoot-Cisco-4000-Series-ISR-Stuck.html">Cisco: ISR 4000 Stuck in ROMMON</a></p>
+]]></content:encoded></item><item><title>Cisco Switch and Router Password Recovery: Catalyst 9000, 2960, 3560 and ISR</title><link>https://barashhelvadzhaoglu.com/en/posts/cisco-switch-password-recovery/</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/posts/cisco-switch-password-recovery/</guid><description>Recover a lost enable or console password on Cisco devices without losing the configuration — classic Catalyst (2960, 3560, 3750), Catalyst 9000 and 3850 with SWITCH_IGNORE_STARTUP_CFG, ISR routers with confreg 0x2142, and what to do when password recovery is disabled.</description><content:encoded><![CDATA[<p>You inherit a device without documentation, or a lab switch comes back from storage and asks for a password nobody knows. On Cisco switches and routers you can recover from this without losing the configuration, as long as you have physical access and a console cable.</p>
+<p>The principle is the same everywhere: interrupt the boot, start IOS <strong>without</strong> loading the startup configuration, then put the configuration back and set new passwords. Only the way you tell the device to skip the configuration differs:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Platform</th>
+					<th>Typical models</th>
+					<th>How the configuration is skipped</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Classic Catalyst</td>
+					<td>2960, 2960-X, 3560, 3750</td>
+					<td>Rename <code>config.text</code> in the boot loader</td>
+			</tr>
+			<tr>
+					<td>IOS-XE Catalyst</td>
+					<td>3650, 3850, 9200, 9300, 9400, 9500</td>
+					<td><code>SWITCH_IGNORE_STARTUP_CFG=1</code></td>
+			</tr>
+			<tr>
+					<td>Routers</td>
+					<td>ISR 4000, ISR 1100, Catalyst 8000, ISR G2</td>
+					<td>Configuration register <code>0x2142</code></td>
+			</tr>
+	</tbody>
+</table>
+<h2 id="what-you-need">What You Need</h2>
+<ul>
+<li>Physical access to the device, or a console server. Password recovery is deliberately not possible over the network. See <a href="/en/posts/next-gen-console-server-architecture/">Next-Gen Console Server Architecture</a>.</li>
+<li>A console cable and a terminal program. Settings: <strong>9600 baud, 8 data bits, no parity, 1 stop bit, no flow control</strong>.</li>
+<li>A maintenance window. The device reboots and does not forward traffic during the procedure.</li>
+</ul>
+<h2 id="switches-get-to-the-switch-prompt">Switches: Get to the switch: Prompt</h2>
+<p>On Catalyst switches you interrupt the boot with the <strong>Mode</strong> button:</p>
+<ol>
+<li>Connect the console and open the terminal session.</li>
+<li>Unplug the power.</li>
+<li>Hold the <strong>Mode</strong> button on the front panel and reconnect the power.</li>
+<li>Keep holding until the console shows that the boot was interrupted, about 10 to 15 seconds, then release.</li>
+</ol>
+<p>You are now at the <code>switch:</code> prompt.</p>
+<p>On a Catalyst 9400 with two supervisors, Cisco recommends removing the secondary supervisor before you start.</p>
+<h2 id="classic-catalyst-2960-3560-3750-rename-configtext">Classic Catalyst (2960, 3560, 3750): Rename config.text</h2>
+<pre tabindex="0"><code>switch: flash_init
+switch: dir flash:
+switch: rename flash:config.text flash:config.text.old
+switch: boot
+</code></pre><p>Some older boot loaders also need <code>load_helper</code> after <code>flash_init</code>. Do <strong>not</strong> delete <code>config.text</code>. Renaming is enough, and you need the contents later.</p>
+<p>The switch boots without configuration. Answer <strong>no</strong> to the initial configuration dialog, then:</p>
+<pre tabindex="0"><code>Switch&gt; enable
+Switch# rename flash:config.text.old flash:config.text
+Switch# copy flash:config.text system:running-config
+</code></pre><p>Continue with the section &ldquo;Set New Passwords and Save&rdquo; below.</p>
+<h2 id="catalyst-9000-and-3850-switch_ignore_startup_cfg">Catalyst 9000 and 3850: SWITCH_IGNORE_STARTUP_CFG</h2>
+<p>IOS-XE switches do not need the rename. A boot loader variable tells IOS to ignore the startup configuration:</p>
+<pre tabindex="0"><code>switch: SWITCH_IGNORE_STARTUP_CFG=1
+switch: boot flash:packages.conf
+</code></pre><p>Use <code>boot flash:&lt;image&gt;.bin</code> if the switch runs in bundle mode. After the boot, answer <strong>no</strong> to the initial configuration dialog, then load the configuration:</p>
+<pre tabindex="0"><code>Switch&gt; enable
+Switch# copy startup-config running-config
+</code></pre><p><strong>Important:</strong> reset the variable from IOS. Otherwise the switch ignores its configuration at every reload:</p>
+<pre tabindex="0"><code>Switch# configure terminal
+Switch(config)# no system ignore startupconfig switch all
+Switch(config)# end
+</code></pre><p>Continue with the next section, then save.</p>
+<h2 id="routers-isr-4000-isr-1100-catalyst-8000-confreg-0x2142">Routers (ISR 4000, ISR 1100, Catalyst 8000): confreg 0x2142</h2>
+<p>Routers do not have a Mode button. Interrupt the boot by sending a <strong>Break</strong> from the terminal program during the first seconds after power-on. You land at the <code>rommon 1 &gt;</code> prompt.</p>
+<pre tabindex="0"><code>rommon 1 &gt; confreg 0x2142
+rommon 2 &gt; reset
+</code></pre><p>The value <code>0x2142</code> tells the router to ignore the startup configuration. After the boot, answer <strong>no</strong> to the initial configuration dialog:</p>
+<pre tabindex="0"><code>Router&gt; enable
+Router# copy startup-config running-config
+Router# configure terminal
+Router(config)# config-register 0x2102
+</code></pre><p>Setting the register back to <code>0x2102</code> is essential. Otherwise the router ignores its configuration at every reload.</p>
+<h2 id="set-new-passwords-and-save">Set New Passwords and Save</h2>
+<p>You are now in privileged mode with the original configuration loaded. Set new credentials to match how authentication was set up before:</p>
+<pre tabindex="0"><code>configure terminal
+enable secret &lt;new-enable-secret&gt;
+username admin privilege 15 secret &lt;new-password&gt;
+line con 0
+ login local
+line vty 0 15
+ login local
+end
+</code></pre><p>If the device uses TACACS+ or RADIUS, check that the local fallback account works.</p>
+<p>Copying a configuration into the running configuration merges it. Interfaces may stay administratively down, especially VLAN interfaces (SVIs) on switches. Check and fix:</p>
+<pre tabindex="0"><code>show ip interface brief
+</code></pre><p>Bring up interfaces that should be up with <code>no shutdown</code>. Then save and test:</p>
+<pre tabindex="0"><code>write memory
+reload
+</code></pre><p>Log in with the new credentials after the reload to confirm that the configuration and the passwords survive.</p>
+<h2 id="when-password-recovery-is-disabled">When Password Recovery Is Disabled</h2>
+<p>If <code>no service password-recovery</code> is configured, the procedure behaves differently. The device does not let you skip the configuration. Instead it says that password recovery is disabled and asks whether to reset to the factory default configuration.</p>
+<ul>
+<li><strong>Yes:</strong> the configuration (and on switches the VLAN database) is deleted. The device boots with default settings. The IOS image stays.</li>
+<li><strong>No:</strong> the device boots normally with the current configuration, and you are back at the password prompt.</li>
+</ul>
+<p>This is the purpose of the feature. Someone with physical access cannot read the configuration, but you lose it too. Before you answer yes, make sure you have a recent configuration backup from another source. After the reset, restore the configuration and recreate the VLANs if the backup does not contain them.</p>
+<p><code>no service password-recovery</code> makes sense for devices in public or unlocked locations, as long as the configuration is backed up somewhere else.</p>
+<h2 id="common-mistakes">Common Mistakes</h2>
+<ul>
+<li><strong>Deleting <code>config.text</code> instead of renaming it.</strong> Only a backup helps then.</li>
+<li><strong>Forgetting <code>no system ignore startupconfig switch all</code> or <code>config-register 0x2102</code>.</strong> The device boots without configuration at the next reload.</li>
+<li><strong>Not saving after setting the passwords.</strong> The old passwords come back at the next reload.</li>
+<li><strong>SVIs left shut down after the merge.</strong> Management access over the network fails although the configuration looks correct.</li>
+</ul>
+<h2 id="related-articles">Related Articles</h2>
+<ul>
+<li><a href="/en/posts/cisco-rommon-recovery/">Cisco ROMMON Recovery: Boot from Flash, TFTP or USB</a></li>
+<li><a href="/en/posts/cisco-ios-xe-upgrade-guide/">Cisco IOS and IOS-XE Upgrade Guide</a></li>
+<li><a href="/en/posts/next-gen-console-server-architecture/">Next-Gen Console Server Architecture</a></li>
+</ul>
+<p>Source: <a href="https://cisco.com/c/en/us/support/docs/switches/catalyst-9300-series-switches/216944-troubleshoot-bootloader-rommon-and-pas.html">Cisco: Troubleshoot Bootloader and Password Recovery on Catalyst 9000</a></p>
+]]></content:encoded></item><item><title>TFTP, FTP and SCP Servers for Cisco Upgrades: Setup and Troubleshooting</title><link>https://barashhelvadzhaoglu.com/en/posts/tftp-ftp-server-cisco-upgrades/</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/posts/tftp-ftp-server-cisco-upgrades/</guid><description>How to set up a TFTP, FTP or SCP server for Cisco IOS and IOS-XE image transfers on Windows, macOS and Linux — device-side commands, the management VRF, the FTP double-slash path, file size limits and firewall issues.</description><content:encoded><![CDATA[<p>Every Cisco upgrade starts with getting a file onto the device. For a 20 MB classic IOS image, almost anything works. For a 1 GB IOS-XE image over a WAN link, the choice of protocol decides whether the copy takes five minutes or fails after an hour.</p>
+<p>This guide covers which protocol to use, how to set up the server on Windows, macOS and Linux, and the device-side commands and pitfalls.</p>
+<h2 id="which-protocol">Which Protocol?</h2>
+<table>
+	<thead>
+			<tr>
+					<th>Protocol</th>
+					<th>Port</th>
+					<th>Authentication</th>
+					<th>Strengths</th>
+					<th>Weaknesses</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>TFTP</td>
+					<td>UDP 69</td>
+					<td>None</td>
+					<td>Simple, supported everywhere, works from ROMMON</td>
+					<td>Slow, unreliable over WAN, size limits on old servers</td>
+			</tr>
+			<tr>
+					<td>FTP</td>
+					<td>TCP 21 (+ data)</td>
+					<td>User and password</td>
+					<td>Fast and reliable for large images</td>
+					<td>Clear text, needs firewall handling for the data channel</td>
+			</tr>
+			<tr>
+					<td>SCP</td>
+					<td>TCP 22</td>
+					<td>SSH</td>
+					<td>Encrypted, uses existing SSH access</td>
+					<td>Slower than FTP on some platforms</td>
+			</tr>
+			<tr>
+					<td>HTTP(S)</td>
+					<td>TCP 80/443</td>
+					<td>Optional</td>
+					<td>Fast, easy to host</td>
+					<td>Not available on older IOS versions</td>
+			</tr>
+	</tbody>
+</table>
+<p>My rule in practice:</p>
+<ul>
+<li><strong>FTP</strong> for normal upgrades over the network. It is fast and reliable for large IOS-XE images.</li>
+<li><strong>TFTP</strong> when the device is in ROMMON. ROMMON can only do TFTP. See <a href="/en/posts/cisco-rommon-recovery/">Cisco ROMMON Recovery</a>.</li>
+<li><strong>SCP</strong> when the security policy does not allow clear-text protocols.</li>
+</ul>
+<h2 id="server-setup">Server Setup</h2>
+<h3 id="windows-tftpd64">Windows: Tftpd64</h3>
+<p>Tftpd64 is a free tool that combines a TFTP server, a DHCP server and a syslog server.</p>
+<ol>
+<li>Install Tftpd64 and start it.</li>
+<li>Set the <strong>Current Directory</strong> to the folder that contains your images.</li>
+<li>Select the <strong>Server interface</strong>, the IP address of the network adapter that faces the devices.</li>
+<li>Allow Tftpd64 in the Windows firewall. This is the most common reason why transfers time out.</li>
+</ol>
+<p>For FTP on Windows, FileZilla Server is a common free choice.</p>
+<h3 id="macos-built-in-tftp-server">macOS: Built-in TFTP Server</h3>
+<p>macOS has a TFTP server on board. It serves files from <code>/private/tftpboot</code>:</p>
+<pre tabindex="0"><code>sudo mkdir -p /private/tftpboot
+sudo cp &lt;image&gt;.bin /private/tftpboot/
+sudo chmod 644 /private/tftpboot/&lt;image&gt;.bin
+sudo launchctl load -F /System/Library/LaunchDaemons/tftp.plist
+</code></pre><p>Stop it again with <code>sudo launchctl unload -F /System/Library/LaunchDaemons/tftp.plist</code>. If the macOS firewall is active, allow incoming connections.</p>
+<h3 id="linux-tftpd-hpa-and-vsftpd">Linux: tftpd-hpa and vsftpd</h3>
+<p>On Debian and Ubuntu:</p>
+<pre tabindex="0"><code>sudo apt install tftpd-hpa
+</code></pre><p>The configuration is in <code>/etc/default/tftpd-hpa</code>. The default directory is <code>/srv/tftp</code>:</p>
+<pre tabindex="0"><code>TFTP_DIRECTORY=&#34;/srv/tftp&#34;
+TFTP_OPTIONS=&#34;--secure&#34;
+</code></pre><p>Add <code>--create</code> to <code>TFTP_OPTIONS</code> only if devices should be able to upload files, for example configuration backups.</p>
+<p>For FTP, <code>vsftpd</code> with a local user is enough:</p>
+<pre tabindex="0"><code>sudo apt install vsftpd
+sudo adduser netops
+</code></pre><p>Put the images in the user&rsquo;s home directory or in a shared directory such as <code>/tftpboot/images</code>.</p>
+<h2 id="device-side-copying-the-image">Device Side: Copying the Image</h2>
+<h3 id="tftp">TFTP</h3>
+<pre tabindex="0"><code>copy tftp://192.0.2.10/&lt;image&gt;.bin flash:
+</code></pre><h3 id="ftp">FTP</h3>
+<p>Credentials can be part of the URL, or configured once:</p>
+<pre tabindex="0"><code>configure terminal
+ip ftp username netops
+ip ftp password &lt;password&gt;
+end
+copy ftp://192.0.2.10/images/&lt;image&gt;.bin bootflash:
+</code></pre><p><strong>The double slash.</strong> In an FTP URL, IOS treats the path as relative to the FTP user&rsquo;s home directory. If the images are in an absolute path outside the home directory, use two slashes after the server address:</p>
+<pre tabindex="0"><code>copy ftp://192.0.2.10//tftpboot/images/&lt;image&gt;.bin bootflash:
+</code></pre><p><code>ftp://server/images/file</code> means <code>&lt;home&gt;/images/file</code>. <code>ftp://server//tftpboot/images/file</code> means <code>/tftpboot/images/file</code>. This detail explains many &ldquo;file not found&rdquo; errors.</p>
+<h3 id="scp">SCP</h3>
+<p>Pulling a file from an SCP server:</p>
+<pre tabindex="0"><code>copy scp://netops@192.0.2.10/images/&lt;image&gt;.bin flash:
+</code></pre><p>Pushing a file to the device from your laptop requires the SCP server on the device:</p>
+<pre tabindex="0"><code>configure terminal
+ip scp server enable
+end
+</code></pre><p>Then from the laptop:</p>
+<pre tabindex="0"><code>scp &lt;image&gt;.bin admin@&lt;device-ip&gt;:flash:&lt;image&gt;.bin
+</code></pre><p>Disable <code>ip scp server enable</code> again after the transfer if your policy requires it.</p>
+<h3 id="always-verify">Always Verify</h3>
+<pre tabindex="0"><code>verify /md5 flash:&lt;image&gt;.bin
+</code></pre><p>Compare the value with the MD5 checksum on the Cisco download page. A file that copied without errors can still be incomplete.</p>
+<h2 id="the-management-port-and-vrf">The Management Port and VRF</h2>
+<p>On Catalyst 9000 switches, the dedicated management port (GigabitEthernet0/0) sits in its own VRF called <code>Mgmt-vrf</code>. On ISR 4000 and Catalyst 8000 routers, the management port is in the VRF <code>Mgmt-intf</code>. A copy without a VRF uses the global routing table and fails if the server is only reachable through the management network.</p>
+<p>Tell the device which interface to use as the source:</p>
+<pre tabindex="0"><code>configure terminal
+ip tftp source-interface GigabitEthernet0/0
+ip ftp source-interface GigabitEthernet0/0
+end
+</code></pre><p>The router management port is named <code>GigabitEthernet0</code> on ISR 4000 routers. Check the name with <code>show ip interface brief</code>.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="timeout-or-connection-refused">Timeout or &ldquo;Connection refused&rdquo;</h3>
+<ul>
+<li><code>ping</code> the server from the device, with the right source interface or VRF.</li>
+<li>Check the firewall on the server. Windows and macOS block incoming connections by default.</li>
+<li>For FTP: the data channel uses additional ports. If a firewall sits between device and server, passive mode problems are common.</li>
+</ul>
+<h3 id="file-not-found">&ldquo;File not found&rdquo;</h3>
+<ul>
+<li>Check the path relative to the server&rsquo;s root directory (TFTP) or the user&rsquo;s home directory (FTP). Remember the double slash.</li>
+<li>Check upper and lower case. File names are case-sensitive on Linux and macOS servers.</li>
+<li>Check that the server user can read the file.</li>
+</ul>
+<h3 id="copy-stops-at-32-mb-tftp">Copy Stops at 32 MB (TFTP)</h3>
+<p>Classic TFTP uses 512-byte blocks and a 16-bit block counter. That limits a transfer to about 32 MB unless both sides support larger blocks or block number rollover. Old or minimal TFTP servers still have this limit. IOS-XE images are much larger.</p>
+<ul>
+<li>Use FTP or SCP for large images.</li>
+<li>If you must use TFTP, use a current server and increase the block size on the device:</li>
+</ul>
+<pre tabindex="0"><code>configure terminal
+ip tftp blocksize 8192
+end
+</code></pre><h3 id="very-slow-transfer">Very Slow Transfer</h3>
+<p>TFTP waits for an acknowledgment after every block. Over a WAN link with high latency, that makes it extremely slow. Use FTP or SCP over long distances, or place a server close to the device.</p>
+<h2 id="related-articles">Related Articles</h2>
+<ul>
+<li><a href="/en/posts/cisco-ios-xe-upgrade-guide/">Cisco IOS and IOS-XE Upgrade Guide</a></li>
+<li><a href="/en/posts/cisco-rommon-recovery/">Cisco ROMMON Recovery: Boot from Flash, TFTP or USB</a></li>
+<li><a href="/en/posts/cisco-nexus-nxos-upgrade-guide/">Cisco Nexus NX-OS Software Upgrade Guide</a></li>
+<li><a href="/en/technology/securecrt-superputty/">SecureCRT and SuperPuTTY for Network Engineers</a></li>
+</ul>
+]]></content:encoded></item></channel></rss>

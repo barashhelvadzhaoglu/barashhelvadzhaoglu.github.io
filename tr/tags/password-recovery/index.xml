@@ -1,98 +1,117 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Password Recovery on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/password-recovery/</link><description>Recent content in Password Recovery on Barash Helvadzhaoglu</description><generator>Hugo -- 0.169.0</generator><language>tr</language><lastBuildDate>Fri, 16 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/password-recovery/index.xml" rel="self" type="application/rss+xml"/><item><title>Cisco Catalyst 3560 Şifre Kurtarma: İki Yöntem, Adım Adım</title><link>https://barashhelvadzhaoglu.com/tr/posts/catalyst-3560-password-recovery/</link><pubDate>Fri, 16 Oct 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/catalyst-3560-password-recovery/</guid><description>Cisco Catalyst 3560&amp;#39;ta unutulan enable veya konsol şifresini kurtarma — boot loader ile konfigürasyonu koruyarak ya da şifre kurtarma kapalıysa fabrika ayarlarına dönerek.</description><content:encoded><![CDATA[<p>Bir switch&rsquo;i devralıyorsunuz, dokümantasyon yok ve enable şifresini kimse bilmiyor. Ya da depodan çıkan bir lab switch&rsquo;i, hiç koymadığınız bir şifreyi soruyor. Cisco Catalyst 3560&rsquo;ta fiziksel erişiminiz ve bir konsol kablonuz varsa iki durumdan da konfigürasyonu kaybetmeden çıkabilirsiniz.</p>
-<p>Bu rehber sahada karşılaşılan iki durumu anlatıyor:</p>
-<ul>
-<li><strong>Yöntem 1: Konfigürasyonu koruyarak.</strong> Switch startup konfigürasyonunu yüklemeden açılır, şifreleri değiştirirsiniz ve eski konfigürasyonu geri yüklersiniz.</li>
-<li><strong>Yöntem 2: Şifre kurtarma kapatılmışsa.</strong> Birisi <code>no service password-recovery</code> komutunu girmiş. Switch&rsquo;i yine geri alabilirsiniz ama yalnızca fabrika ayarlarına döndürerek.</li>
-</ul>
-<blockquote>
-<p><strong>Lab notu:</strong> Bu adımları kendi 8 portlu PoE Catalyst 3560 switch&rsquo;imde uyguluyorum. Lab&rsquo;dan alınan konsol çıktıları bu rehbere eklenecek.</p>
-</blockquote>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Password Recovery on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/password-recovery/</link><description>Recent content in Password Recovery on Barash Helvadzhaoglu</description><generator>Hugo -- 0.169.0</generator><language>tr</language><lastBuildDate>Thu, 22 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/password-recovery/index.xml" rel="self" type="application/rss+xml"/><item><title>Cisco Switch ve Router Şifre Kurtarma: Catalyst 9000, 2960, 3560 ve ISR</title><link>https://barashhelvadzhaoglu.com/tr/posts/cisco-switch-password-recovery/</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/cisco-switch-password-recovery/</guid><description>Cisco cihazlarda unutulan enable ya da konsol şifresini konfigürasyonu kaybetmeden kurtarma — klasik Catalyst (2960, 3560, 3750), SWITCH_IGNORE_STARTUP_CFG ile Catalyst 9000 ve 3850, confreg 0x2142 ile ISR router&amp;#39;lar ve şifre kurtarma kapalıysa yapılacaklar.</description><content:encoded><![CDATA[<p>Dokümantasyonu olmayan bir cihazı devralıyorsunuz ya da depodan çıkan bir lab switch&rsquo;i kimsenin bilmediği bir şifre soruyor. Cisco switch ve router&rsquo;larda, fiziksel erişiminiz ve bir konsol kablonuz varsa bu durumdan konfigürasyonu kaybetmeden çıkabilirsiniz.</p>
+<p>Prensip her yerde aynı: açılışı kesin, IOS&rsquo;u startup konfigürasyonunu <strong>yüklemeden</strong> başlatın, sonra konfigürasyonu geri getirip yeni şifreleri tanımlayın. Değişen tek şey, cihaza konfigürasyonu atlamasını nasıl söylediğiniz:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Platform</th>
+					<th>Tipik modeller</th>
+					<th>Konfigürasyon nasıl atlanır</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Klasik Catalyst</td>
+					<td>2960, 2960-X, 3560, 3750</td>
+					<td>Boot loader&rsquo;da <code>config.text</code>&lsquo;in adını değiştirmek</td>
+			</tr>
+			<tr>
+					<td>IOS-XE Catalyst</td>
+					<td>3650, 3850, 9200, 9300, 9400, 9500</td>
+					<td><code>SWITCH_IGNORE_STARTUP_CFG=1</code></td>
+			</tr>
+			<tr>
+					<td>Router&rsquo;lar</td>
+					<td>ISR 4000, ISR 1100, Catalyst 8000, ISR G2</td>
+					<td>Configuration register <code>0x2142</code></td>
+			</tr>
+	</tbody>
+</table>
 <h2 id="gerekenler">Gerekenler</h2>
 <ul>
-<li>Switch&rsquo;e fiziksel erişim. Uzaktan şifre kurtarma bilinçli olarak mümkün değil.</li>
-<li>Bir konsol kablosu (RJ-45 rollover ya da USB-seri) ve SecureCRT, PuTTY veya <code>screen</code> gibi bir terminal programı.</li>
-<li>Terminal ayarları: <strong>9600 baud, 8 data bit, parity yok, 1 stop bit, flow control yok</strong>.</li>
-<li>Bir bakım penceresi. Switch iki kez yeniden başlar ve bu sırada trafik iletmez.</li>
+<li>Cihaza fiziksel erişim ya da bir konsol sunucusu. Şifre kurtarma ağ üzerinden bilinçli olarak mümkün değil. Bkz. <a href="/tr/posts/next-gen-console-server-architecture/">Yeni Nesil Konsol Sunucu Mimarisi</a>.</li>
+<li>Bir konsol kablosu ve terminal programı. Ayarlar: <strong>9600 baud, 8 data bit, parity yok, 1 stop bit, flow control yok</strong>.</li>
+<li>Bir bakım penceresi. Cihaz yeniden başlar ve bu sırada trafik iletmez.</li>
 </ul>
-<p>Uzaktan konsol erişimi için profesyonel çözüm bir konsol sunucusu. Bkz. <a href="/tr/posts/next-gen-console-server-architecture/">Yeni Nesil Konsol Sunucu Mimarisi</a>.</p>
-<h2 id="kurtarma-nasıl-çalışıyor">Kurtarma Nasıl Çalışıyor?</h2>
-<p>Catalyst 3560, startup konfigürasyonunu flash&rsquo;ta <code>config.text</code> adlı bir dosyada tutar. Normal açılışta IOS bu dosyayı yükler. Şifre kurtarmada açılış IOS başlamadan önce kesilir ve <strong>boot loader</strong>&lsquo;a düşersiniz. Bu, <code>switch:</code> prompt&rsquo;u olan küçük bir ortamdır.</p>
-<p>Boot loader&rsquo;da flash dosya sistemine erişebilirsiniz. <code>config.text</code> yeniden adlandırılırsa IOS konfigürasyonsuz, yani şifresiz açılır. Ardından giriş yapar, konfigürasyonu elle geri yükler ve yeni şifreleri tanımlarsınız.</p>
-<h2 id="yöntem-1-şifreyi-kurtar-konfigürasyonu-koru">Yöntem 1: Şifreyi Kurtar, Konfigürasyonu Koru</h2>
-<h3 id="adım-1-açılışı-kesin">Adım 1: Açılışı Kesin</h3>
+<h2 id="switchler-switch-promptuna-ulaşmak">Switch&rsquo;ler: switch: Prompt&rsquo;una Ulaşmak</h2>
+<p>Catalyst switch&rsquo;lerde açılışı <strong>Mode</strong> butonuyla kesersiniz:</p>
 <ol>
-<li>Konsol kablosunu bağlayın ve terminal oturumunu açın.</li>
-<li>Güç kablosunu çıkarın.</li>
-<li>Ön paneldeki <strong>Mode</strong> butonuna basılı tutun.</li>
-<li>Butonu bırakmadan gücü yeniden bağlayın.</li>
-<li>Yaklaşık 15 saniye sonra, konsolda sistemin flash dosya sistemi başlatılmadan önce kesildiği mesajı görününce butonu bırakın.</li>
+<li>Konsolu bağlayın ve terminal oturumunu açın.</li>
+<li>Gücü kesin.</li>
+<li>Ön paneldeki <strong>Mode</strong> butonuna basılı tutarak gücü yeniden bağlayın.</li>
+<li>Konsolda açılışın kesildiği mesajı görünene kadar, yaklaşık 10-15 saniye basılı tutun, sonra bırakın.</li>
 </ol>
-<p>Artık <code>switch:</code> prompt&rsquo;unu görmelisiniz. Switch normal açılırsa gücü kesip butona biraz daha uzun basarak tekrar deneyin.</p>
-<h3 id="adım-2-flashı-başlatın">Adım 2: Flash&rsquo;ı Başlatın</h3>
-<p>Flash dosya sistemi henüz bağlanmadı. Başlatın:</p>
+<p>Artık <code>switch:</code> prompt&rsquo;undasınız.</p>
+<p>Çift supervisor&rsquo;lı bir Catalyst 9400&rsquo;de Cisco, başlamadan önce ikincil supervisor&rsquo;ın çıkarılmasını öneriyor.</p>
+<h2 id="klasik-catalyst-2960-3560-3750-configtextin-adını-değiştirmek">Klasik Catalyst (2960, 3560, 3750): config.text&rsquo;in Adını Değiştirmek</h2>
 <pre tabindex="0"><code>switch: flash_init
-</code></pre><p>Bazı eski boot loader sürümlerinde ayrıca yardımcı dosyaları yüklemek gerekir:</p>
-<pre tabindex="0"><code>switch: load_helper
-</code></pre><p>Ardından flash içeriğini listeleyin:</p>
-<pre tabindex="0"><code>switch: dir flash:
-</code></pre><p>IOS imajını (ya da imajı içeren bir dizini), <code>config.text</code>, <code>vlan.dat</code> ve varsa <code>private-config.text</code> dosyalarını görmelisiniz.</p>
-<h3 id="adım-3-konfigürasyon-dosyasının-adını-değiştirin">Adım 3: Konfigürasyon Dosyasının Adını Değiştirin</h3>
-<pre tabindex="0"><code>switch: rename flash:config.text flash:config.text.old
-</code></pre><p><code>config.text</code> dosyasını <strong>silmeyin</strong>. Adını değiştirmek IOS&rsquo;un onu yüklememesi için yeterli, içeriğine de birazdan ihtiyacınız olacak.</p>
-<h3 id="adım-4-iosu-konfigürasyonsuz-açın">Adım 4: IOS&rsquo;u Konfigürasyonsuz Açın</h3>
-<pre tabindex="0"><code>switch: boot
-</code></pre><p>Switch boş konfigürasyonla açılır. Initial configuration dialog&rsquo;a girmek isteyip istemediğinizi sorduğunda <strong>no</strong> deyin.</p>
-<h3 id="adım-5-eski-konfigürasyonu-geri-yükleyin">Adım 5: Eski Konfigürasyonu Geri Yükleyin</h3>
+switch: dir flash:
+switch: rename flash:config.text flash:config.text.old
+switch: boot
+</code></pre><p>Bazı eski boot loader&rsquo;larda <code>flash_init</code>&lsquo;ten sonra ayrıca <code>load_helper</code> gerekir. <code>config.text</code>&lsquo;i <strong>silmeyin</strong>. Adını değiştirmek yeterli ve içeriğine daha sonra ihtiyacınız olacak.</p>
+<p>Switch konfigürasyonsuz açılır. Initial configuration dialog&rsquo;a <strong>no</strong> deyin, ardından:</p>
 <pre tabindex="0"><code>Switch&gt; enable
 Switch# rename flash:config.text.old flash:config.text
 Switch# copy flash:config.text system:running-config
-</code></pre><p>Switch artık hostname, VLAN&rsquo;lar, interface&rsquo;ler ve eski şifreler dahil orijinal konfigürasyonla çalışıyor. Privileged moda konfigürasyon yüklenmeden önce girdiğiniz için hâlâ bu moddasınız.</p>
-<h3 id="adım-6-yeni-şifreleri-tanımlayın">Adım 6: Yeni Şifreleri Tanımlayın</h3>
+</code></pre><p>Aşağıdaki &ldquo;Yeni Şifreleri Tanımlayın ve Kaydedin&rdquo; bölümüyle devam edin.</p>
+<h2 id="catalyst-9000-ve-3850-switch_ignore_startup_cfg">Catalyst 9000 ve 3850: SWITCH_IGNORE_STARTUP_CFG</h2>
+<p>IOS-XE switch&rsquo;lerde dosya adını değiştirmek gerekmez. Bir boot loader değişkeni IOS&rsquo;a startup konfigürasyonunu yok saymasını söyler:</p>
+<pre tabindex="0"><code>switch: SWITCH_IGNORE_STARTUP_CFG=1
+switch: boot flash:packages.conf
+</code></pre><p>Switch bundle mode&rsquo;daysa <code>boot flash:&lt;imaj&gt;.bin</code> kullanın. Açılıştan sonra initial configuration dialog&rsquo;a <strong>no</strong> deyin ve konfigürasyonu yükleyin:</p>
+<pre tabindex="0"><code>Switch&gt; enable
+Switch# copy startup-config running-config
+</code></pre><p><strong>Önemli:</strong> Değişkeni IOS&rsquo;tan geri alın. Yoksa switch her reload&rsquo;da konfigürasyonunu yok sayar:</p>
 <pre tabindex="0"><code>Switch# configure terminal
-Switch(config)# enable secret &lt;yeni-enable-secret&gt;
-Switch(config)# username admin privilege 15 secret &lt;yeni-sifre&gt;
-Switch(config)# line con 0
-Switch(config-line)# login local
-Switch(config-line)# line vty 0 15
-Switch(config-line)# login local
-Switch(config-line)# end
-</code></pre><p>Bunu daha önceki kimlik doğrulama yapısına göre uyarlayın. Switch TACACS+ ya da RADIUS kullanıyorsa yerel yedek hesabın çalıştığını kontrol edin.</p>
-<h3 id="adım-7-interfaceleri-kontrol-edin-ve-kaydedin">Adım 7: Interface&rsquo;leri Kontrol Edin ve Kaydedin</h3>
-<p>Bir konfigürasyonu running-config&rsquo;e kopyalamak onu birleştirir, her interface&rsquo;in durumunu birebir geri getirmez. Özellikle VLAN interface&rsquo;lerinin (SVI) administratively down olup olmadığına bakın:</p>
-<pre tabindex="0"><code>Switch# show ip interface brief
-</code></pre><p>Açık olması gereken interface&rsquo;leri <code>no shutdown</code> ile açın. Sonra kaydedin:</p>
-<pre tabindex="0"><code>Switch# copy running-config startup-config
-</code></pre><p>Her şeyin yeniden başlatmadan sonra da çalıştığından emin olmak için bir kez reload edip yeni bilgilerle giriş yapın.</p>
-<h2 id="yöntem-2-şifre-kurtarma-kapatılmışsa">Yöntem 2: Şifre Kurtarma Kapatılmışsa</h2>
-<p>Switch&rsquo;te <code>no service password-recovery</code> tanımlıysa Mode butonu farklı davranır. Boot loader&rsquo;dan flash dosya sistemine erişemezsiniz. Bunun yerine switch şifre kurtarmanın kapalı olduğunu söyler ve sistemi varsayılan konfigürasyona döndürmek isteyip istemediğinizi sorar.</p>
+Switch(config)# no system ignore startupconfig switch all
+Switch(config)# end
+</code></pre><p>Sonraki bölümle devam edin, ardından kaydedin.</p>
+<h2 id="routerlar-isr-4000-isr-1100-catalyst-8000-confreg-0x2142">Router&rsquo;lar (ISR 4000, ISR 1100, Catalyst 8000): confreg 0x2142</h2>
+<p>Router&rsquo;larda Mode butonu yok. Açılışı, gücü verdikten sonraki ilk saniyelerde terminal programından bir <strong>Break</strong> göndererek kesersiniz. <code>rommon 1 &gt;</code> prompt&rsquo;una düşersiniz.</p>
+<pre tabindex="0"><code>rommon 1 &gt; confreg 0x2142
+rommon 2 &gt; reset
+</code></pre><p><code>0x2142</code> değeri router&rsquo;a startup konfigürasyonunu yok saymasını söyler. Açılıştan sonra initial configuration dialog&rsquo;a <strong>no</strong> deyin:</p>
+<pre tabindex="0"><code>Router&gt; enable
+Router# copy startup-config running-config
+Router# configure terminal
+Router(config)# config-register 0x2102
+</code></pre><p>Register&rsquo;ı <code>0x2102</code>&lsquo;ye geri almak şart. Yoksa router her reload&rsquo;da konfigürasyonunu yok sayar.</p>
+<h2 id="yeni-şifreleri-tanımlayın-ve-kaydedin">Yeni Şifreleri Tanımlayın ve Kaydedin</h2>
+<p>Artık privileged moddasınız ve orijinal konfigürasyon yüklü. Yeni bilgileri önceki kimlik doğrulama yapısına uygun şekilde tanımlayın:</p>
+<pre tabindex="0"><code>configure terminal
+enable secret &lt;yeni-enable-secret&gt;
+username admin privilege 15 secret &lt;yeni-sifre&gt;
+line con 0
+ login local
+line vty 0 15
+ login local
+end
+</code></pre><p>Cihaz TACACS+ ya da RADIUS kullanıyorsa yerel yedek hesabın çalıştığını kontrol edin.</p>
+<p>Bir konfigürasyonu running-config&rsquo;e kopyalamak onu birleştirir. Interface&rsquo;ler, özellikle switch&rsquo;lerdeki VLAN interface&rsquo;leri (SVI), administratively down kalabilir. Kontrol edip düzeltin:</p>
+<pre tabindex="0"><code>show ip interface brief
+</code></pre><p>Açık olması gereken interface&rsquo;leri <code>no shutdown</code> ile açın. Sonra kaydedip test edin:</p>
+<pre tabindex="0"><code>write memory
+reload
+</code></pre><p>Konfigürasyonun ve şifrelerin reload&rsquo;dan sonra da geçerli olduğundan emin olmak için yeni bilgilerle giriş yapın.</p>
+<h2 id="şifre-kurtarma-kapatılmışsa">Şifre Kurtarma Kapatılmışsa</h2>
+<p><code>no service password-recovery</code> tanımlıysa süreç farklı işler. Cihaz konfigürasyonu atlamanıza izin vermez. Bunun yerine şifre kurtarmanın kapalı olduğunu söyler ve fabrika ayarlarına dönmek isteyip istemediğinizi sorar.</p>
 <ul>
-<li><strong>yes</strong> derseniz switch konfigürasyon dosyasını ve VLAN veritabanını siler, fabrika ayarlarıyla açılır. IOS imajı flash&rsquo;ta kalır.</li>
-<li><strong>no</strong> derseniz switch mevcut konfigürasyonla normal açılır ve yine şifre ekranına dönersiniz.</li>
+<li><strong>Yes:</strong> Konfigürasyon (switch&rsquo;lerde VLAN veritabanı da) silinir. Cihaz varsayılan ayarlarla açılır. IOS imajı kalır.</li>
+<li><strong>No:</strong> Cihaz mevcut konfigürasyonla normal açılır ve yine şifre ekranına dönersiniz.</li>
 </ul>
-<p>Bu özelliğin bilinçli bir bedeli var. Fiziksel erişimi olan bir saldırgan konfigürasyonu okuyamaz, ama siz de onu kaybedersiniz.</p>
-<p>Sıfırlamadan önce konfigürasyonun başka bir kaynakta güncel bir yedeği olduğundan emin olun: bir konfigürasyon yönetim aracı, bir TFTP sunucusu ya da arşivlenmiş bir <code>show running-config</code> çıktısı. Sıfırlamadan sonra:</p>
-<ol>
-<li>Şifresiz giriş yapın ve yeni bilgileri tanımlayın.</li>
-<li>Konfigürasyonu yedekten geri yükleyin.</li>
-<li>Yedekte yoksa VLAN&rsquo;ları yeniden oluşturun. VLAN veritabanı (<code>vlan.dat</code>) da silinir.</li>
-<li><code>no service password-recovery</code>&lsquo;nin tekrar açılıp açılmayacağına karar verin. Herkese açık ya da kilitsiz yerlerdeki switch&rsquo;ler için mantıklı, yeter ki konfigürasyon başka bir yerde yedekli olsun.</li>
-</ol>
-<h2 id="yeni-boot-loaderlar-startup-konfigürasyonunu-yok-saymak">Yeni Boot Loader&rsquo;lar: Startup Konfigürasyonunu Yok Saymak</h2>
-<p>Yeni Catalyst modelleri ve boot loader sürümleri <code>config.text</code>&lsquo;i yeniden adlandırmaktan daha temiz bir yol sunuyor: IOS&rsquo;a bir açılış için startup konfigürasyonunu yok saymasını söyleyen bir boot loader değişkeni. Switch&rsquo;inizin bunu destekleyip desteklemediği model ve boot loader sürümüne bağlı. <code>switch:</code> prompt&rsquo;unda <code>set</code> yazarak boot loader&rsquo;ınızın tanıdığı değişkenleri görebilirsiniz.</p>
-<p>3560&rsquo;ın boot loader&rsquo;ının burada ne sunduğunu lab çıktıları gelince ekleyeceğim.</p>
+<p>Bu özelliğin amacı bu. Fiziksel erişimi olan biri konfigürasyonu okuyamaz, ama siz de onu kaybedersiniz. Yes demeden önce başka bir kaynakta güncel bir konfigürasyon yedeğiniz olduğundan emin olun. Sıfırlamadan sonra konfigürasyonu geri yükleyin, yedekte yoksa VLAN&rsquo;ları yeniden oluşturun.</p>
+<p><code>no service password-recovery</code>, herkese açık ya da kilitsiz yerlerdeki cihazlar için mantıklı, yeter ki konfigürasyon başka bir yerde yedekli olsun.</p>
 <h2 id="sık-yapılan-hatalar">Sık Yapılan Hatalar</h2>
 <ul>
-<li><strong><code>config.text</code>&lsquo;i yeniden adlandırmak yerine silmek.</strong> Konfigürasyon gider, tek çare yedek.</li>
-<li><strong>Dosyanın adını geri değiştirmeyi unutmak.</strong> Bir sonraki reload&rsquo;da switch konfigürasyonsuz açılır.</li>
-<li><strong>Adı geri değiştirmeden <code>copy startup-config running-config</code> kullanmak.</strong> O anda startup konfigürasyonu normal adıyla mevcut değil.</li>
-<li><strong>Şifreleri değiştirdikten sonra kaydetmemek.</strong> Bir sonraki reload&rsquo;da eski şifreler geri gelir.</li>
+<li><strong><code>config.text</code>&lsquo;in adını değiştirmek yerine silmek.</strong> O zaman tek çare yedek.</li>
+<li><strong><code>no system ignore startupconfig switch all</code> ya da <code>config-register 0x2102</code>&lsquo;yi unutmak.</strong> Cihaz bir sonraki reload&rsquo;da konfigürasyonsuz açılır.</li>
+<li><strong>Şifreleri tanımladıktan sonra kaydetmemek.</strong> Bir sonraki reload&rsquo;da eski şifreler geri gelir.</li>
 <li><strong>Birleştirmeden sonra kapalı kalan SVI&rsquo;lar.</strong> Konfigürasyon doğru görünse de ağ üzerinden yönetim erişimi çalışmaz.</li>
 </ul>
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>
-<li><a href="/tr/posts/catalyst-3560-ios-upgrade/">Catalyst 3560 IOS Güncelleme: İki Yöntem ve Doğrulama</a></li>
-<li><a href="/tr/posts/catalyst-3560-boot-loader-recovery/">Catalyst 3560 Açılmıyorsa: Boot Loader ile Kurtarma</a></li>
-<li><a href="/tr/posts/cisco-nexus-nxos-upgrade-guide/">Cisco Nexus NX-OS Yazılım Güncelleme Rehberi</a></li>
+<li><a href="/tr/posts/cisco-rommon-recovery/">Cisco ROMMON Kurtarma: Flash, TFTP ya da USB&rsquo;den Açılış</a></li>
+<li><a href="/tr/posts/cisco-ios-xe-upgrade-guide/">Cisco IOS ve IOS-XE Güncelleme Rehberi</a></li>
 <li><a href="/tr/posts/next-gen-console-server-architecture/">Yeni Nesil Konsol Sunucu Mimarisi</a></li>
 </ul>
+<p>Kaynak: <a href="https://cisco.com/c/en/us/support/docs/switches/catalyst-9300-series-switches/216944-troubleshoot-bootloader-rommon-and-pas.html">Cisco: Troubleshoot Bootloader and Password Recovery on Catalyst 9000</a></p>
 ]]></content:encoded></item></channel></rss>
