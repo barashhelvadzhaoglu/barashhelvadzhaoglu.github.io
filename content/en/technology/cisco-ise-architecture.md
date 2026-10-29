@@ -1,6 +1,7 @@
 ---
 title: "Cisco ISE: Architecture, Licensing, and When to Use It"
-description: "Cisco ISE architectural guide — deployment models, node roles, licensing tiers, pxGrid integrations, and when ISE is right over simpler alternatives."
+seoTitle: "Cisco ISE Licensing & Architecture: Essentials, Advantage, Premier, Device Admin"
+description: "Cisco ISE licensing explained (Essentials, Advantage, Premier and the separate Device Admin / TACACS+ license) plus node roles, deployment models, pxGrid and when ISE beats NPS or ClearPass."
 date: 2026-04-20
 draft: false
 
@@ -201,6 +202,22 @@ A few observations from production deployments:
 - **NPS is the right answer for simple environments** — don't over-engineer small deployments.
 - **ClearPass is the right answer for multi-vendor environments** or where Cisco ecosystem commitment is limited.
 - **Start in monitor mode** — enforce only after validating what authentication would do to your existing environment.
+
+---
+
+## FAQ
+
+**What are the Cisco ISE license tiers?**
+Endpoint access is licensed in three tiers: Essentials (formerly Base) for 802.1X and basic guest access, Advantage (formerly Plus) for profiling, BYOD and pxGrid, and Premier (formerly Apex) for posture and threat-centric use cases.
+
+**Is TACACS+ device administration included in the ISE endpoint licenses?**
+No. Device Administration (TACACS+) is licensed separately from Essentials, Advantage and Premier. You need it if ISE authenticates and authorizes engineers logging in to switches, routers and firewalls.
+
+**How is the ISE Device Admin license counted?**
+It is counted per Policy Service Node (PSN) that runs the Device Administration service, not per network device or per administrator. Check the current Cisco ISE Licensing Guide for your release before ordering.
+
+**Cisco ISE vs Microsoft NPS: which one do I need?**
+NPS covers basic RADIUS and 802.1X at no extra cost. ISE adds profiling, guest and BYOD workflows, posture, TACACS+ and integrations. The comparison section above explains when the extra cost is justified.
 
 ---
 

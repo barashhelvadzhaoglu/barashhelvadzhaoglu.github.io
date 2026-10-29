@@ -1,6 +1,7 @@
 ---
 title: "SecureCRT and SuperPutty: Terminal Tools Every Network Engineer Should Know"
-description: "Field guide to SecureCRT and SuperPutty — session logging, portability, credential management, scripting, and why SuperPutty beats PuTTY."
+seoTitle: "SecureCRT vs PuTTY vs SuperPuTTY: Best SSH Client for Network Engineers"
+description: "SecureCRT vs PuTTY vs SuperPuTTY compared for network engineers: tabs, session logging, saved credentials, scripting, file transfer and which tool to use when."
 date: 2026-04-13
 draft: false
 

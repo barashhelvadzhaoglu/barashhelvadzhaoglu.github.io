@@ -1,6 +1,7 @@
 ---
 title: "F5 BIG-IP Is Not a Load Balancer — It's an Application Delivery Platform"
-description: "F5 BIG-IP is far more than a load balancer. Master guide covering LTM, GTM, WAF, APM, AFM, and BGP routing — with links to each deep dive."
+seoTitle: "Is F5 a Load Balancer or a Firewall? F5 BIG-IP Modules Explained"
+description: "Is F5 a load balancer or a firewall? F5 BIG-IP explained module by module: LTM, GTM (BIG-IP DNS), ASM/Advanced WAF, APM and AFM, and how F5 compares to firewall vendors."
 date: 2026-03-27
 draft: false
 
@@ -225,6 +226,19 @@ F5 BIG-IP is powerful, operationally mature, and expensive. The decision to depl
 - TCO is the primary constraint and open-source solutions are operationally feasible for your team
 
 The honest summary: in banking, telco, and large enterprises with on-premises infrastructure and mission-critical application requirements, F5 remains the dominant platform. In cloud-native or cost-constrained environments, evaluate alternatives seriously before committing to F5 licensing.
+
+---
+
+## FAQ
+
+**Is F5 a load balancer or a firewall?**
+F5 BIG-IP is an application delivery platform. With the LTM module it is a load balancer, with ASM or Advanced WAF a web application firewall, and with AFM a network firewall. Which one it is depends on the licensed modules.
+
+**Do Palo Alto Networks or Check Point offer application delivery and load balancing like F5?**
+Not in the same way. Next-generation firewalls focus on network security. They do not provide a full application delivery controller with full-proxy load balancing, iRules, SSL offloading at scale and GSLB. In practice they are deployed next to an ADC such as F5, not instead of it.
+
+**What is the difference between LTM and GTM?**
+LTM balances traffic between servers in one data center. GTM (BIG-IP DNS) sends users to the right data center through DNS. See the [GTM deep dive](/en/technology/f5-gtm-deep-dive/).
 
 ---
 

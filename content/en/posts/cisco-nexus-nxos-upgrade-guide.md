@@ -1,6 +1,7 @@
 ---
 title: "Cisco Nexus NX-OS Software Upgrade Guide: Field-Tested Step by Step"
-description: "Field-tested guide for upgrading Cisco Nexus NX-OS — preparation, upgrade path, file transfer, rollback, and ROMMON recovery scenarios."
+seoTitle: "Cisco Nexus NX-OS Upgrade Path & Matrix: Step-by-Step Upgrade Guide"
+description: "How to check the Cisco NX-OS upgrade path with the Nexus Upgrade and ISSU Matrix, then upgrade a Nexus 9000, 3000 or 7000 step by step: install all, MD5, rollback and ROMMON recovery."
 date: 2025-12-30
 draft: false
 
@@ -55,17 +56,28 @@ These outputs are required to select the correct NX-OS image, determine the upgr
 
 > MD5 verification confirms the file was not corrupted during download. This step is not optional.
 
-## 3. Verify the Upgrade Path
+## 3. Verify the Upgrade Path (NX-OS Upgrade Matrix)
 
-A direct upgrade from your current NX-OS version to the target version is **not always supported**. Some version combinations require intermediate steps.
+A direct upgrade from your current NX-OS version to the target version is **not always supported**. Some combinations need one or more intermediate releases, and some are only possible as a disruptive (cold boot) upgrade instead of ISSU. Cisco publishes the validated paths in its upgrade matrix tools.
 
-Use Cisco's official tools to verify:
+**Nexus 9000 and 3000:** use the [Cisco Nexus 9000 and 3000 Upgrade and ISSU Matrix](https://www.cisco.com/c/en/us/td/docs/dcn/tools/nexus-9k3k-issu-matrix/index.html).
 
-- **Nexus Upgrade Matrix Tools**
-- Nexus 9000 / 3000 Series
-- Nexus 7000 Series
+1. Select your **current** NX-OS release and the **target** release.
+2. Read the result: whether a **direct** path exists, which **intermediate releases** are required, and whether the path supports **ISSU** (non-disruptive) or only a **disruptive** upgrade.
+3. Check the listed **caveats** and the supported hardware (PIDs) for your exact switch model.
 
-> If multiple upgrade steps are required, download **all intermediate images** before starting the process.
+**Nexus 7000:** Cisco provides a separate ISSU and cold boot support matrix. Both tools are listed in Cisco's [Nexus Upgrade Matrix Tools](https://www.cisco.com/c/en/us/support/docs/ios-nx-os-software/nx-os-software/217715-nexus-upgrade-matrix-tools.pdf) note.
+
+On the switch itself, check the impact before you start, once the target image is in bootflash:
+
+```
+show install all impact nxos bootflash:<target-image>.bin
+show incompatibility-all nxos bootflash:<target-image>.bin
+```
+
+`show install all impact` tells you whether the upgrade will be disruptive for each module. `show incompatibility-all` lists configuration that the target release does not support.
+
+> If multiple upgrade steps are required, download **all intermediate images** before starting, and verify each one with MD5.
 
 ## 4. Copy the Software File to the Switch
 
@@ -171,6 +183,22 @@ During the software upgrade:
 - **Do not interrupt the power supply**
 
 Either condition can render the device unrecoverable without physical intervention.
+
+---
+
+## FAQ
+
+**How do I find the NX-OS upgrade path for my Nexus switch?**
+Use Cisco's Nexus 9000 and 3000 Upgrade and ISSU Matrix (or the Nexus 7000 ISSU matrix). Enter your current and target release. The tool shows whether a direct upgrade is supported, which intermediate releases you need and whether ISSU is possible.
+
+**Can I upgrade NX-OS directly to the latest release?**
+Not always. Large jumps between major releases often need one or more intermediate releases. Always check the matrix for your exact combination instead of assuming a direct path.
+
+**What is the difference between ISSU and a disruptive upgrade?**
+ISSU (In-Service Software Upgrade) upgrades the software while the switch keeps forwarding traffic. A disruptive (cold boot) upgrade reloads the switch and interrupts traffic. `show install all impact` tells you which one applies before you start.
+
+**What do I do if the Nexus switch boots into loader or ROMMON after the upgrade?**
+Boot the image from bootflash, TFTP or USB as described in the rollback section above, then fix the boot variables.
 
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: "F5 GTM & GSLB Deep Dive: Global Traffic Management and DNS Failover"
-description: "F5 GTM (BIG-IP DNS) deep dive — Wide IPs, iQuery, topology routing, TTL strategy, multi-DC failover, and active-active vs active-standby patterns."
+seoTitle: "F5 GTM vs GSLB vs LTM Explained: BIG-IP DNS Global Traffic Management"
+description: "GTM vs GSLB vs LTM explained: what F5 GTM (now BIG-IP DNS) does, how GSLB works with Wide IPs, iQuery and topology routing, and how to design multi-data-center DNS failover."
 date: 2026-04-15
 draft: false
 
@@ -343,6 +344,19 @@ With persistence enabled, GTM returns the same VIP to the same resolver for 300 
 - **Topology** routing reduces latency and enables data residency compliance for global deployments.
 - **TTL controls new lookups only** — not existing connections. Minimum effective failover = health check interval + TTL.
 - Use **iQuery for BIG-IP LTMs**; use GTM-native monitors for third-party endpoints.
+
+---
+
+## FAQ
+
+**GTM vs GSLB: what is the difference?**
+GSLB (Global Server Load Balancing) is the concept: distributing users across data centers or regions, usually through DNS. GTM (Global Traffic Manager) is F5's product that implements GSLB. Since BIG-IP v12, F5 calls the module BIG-IP DNS.
+
+**GTM vs LTM: what is the difference?**
+LTM balances traffic between servers inside one data center as a full proxy. GTM decides which data center or site a user is sent to, by answering DNS queries. Most multi-site designs use both: GTM picks the site, LTM picks the server.
+
+**How does F5 handle failover across geographically distributed data centers?**
+GTM monitors the virtual servers in each data center (through iQuery with LTM, or through monitors) and stops handing out the IP addresses of a failed site in its DNS answers. How fast clients move depends on the DNS TTL, which is covered in the TTL section above.
 
 ---
 

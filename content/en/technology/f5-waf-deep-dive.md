@@ -1,6 +1,7 @@
 ---
 title: "F5 WAF Deep Dive: Application Security with ASM and Advanced WAF"
-description: "F5 WAF deep dive — ASM vs Advanced WAF, positive vs negative models, OWASP Top 10, bot defense, and phased transparent-to-blocking deployment."
+seoTitle: "F5 ASM vs Advanced WAF: F5 WAF Deep Dive (OWASP Top 10, Bot Defense)"
+description: "F5 ASM vs Advanced WAF compared: signature and behavioral protection, OWASP Top 10 coverage, bot defense, credential stuffing protection and a phased transparent-to-blocking rollout."
 date: 2026-04-22
 draft: false
 
@@ -346,6 +347,19 @@ In the banking environment, WAF logs were forwarded to Splunk for:
 - **Negative model** deploys quickly. **Positive model** is stronger but requires significant tuning investment — apply it selectively to high-risk endpoints.
 - WAF requires **ongoing maintenance** — signature updates, policy changes when the application changes, regular false-positive review.
 - **SIEM integration** transforms WAF from a blocking tool into an intelligence source for the entire security operations function.
+
+---
+
+## FAQ
+
+**F5 ASM vs Advanced WAF: what is the difference?**
+ASM (Application Security Manager) is the original, mostly signature-based F5 WAF module. Advanced WAF includes the ASM functionality and adds behavioral protections such as proactive bot defense, credential stuffing protection and behavioral L7 DoS. The comparison table above shows the details.
+
+**Is F5 a firewall or a load balancer?**
+Both, depending on the modules. LTM is the load balancer (application delivery controller). ASM or Advanced WAF is a web application firewall. AFM is a network firewall. See [F5 BIG-IP Is Not a Load Balancer](/en/technology/f5-master/) for the full module map.
+
+**Should a new F5 WAF policy start in blocking mode?**
+No. Start in transparent mode, let the policy learn and tune false positives, then move to blocking step by step, as described in the deployment section.
 
 ---
 
