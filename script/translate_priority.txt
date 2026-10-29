@@ -1,0 +1,4 @@
+# Siraya girmeden HEMEN yayinlanacak anahtarlar (tarih = simdi).
+# SD-WAN yazilari: eski TR adresleri su an gecici olarak EN sayfaya yonleniyor,
+# Turkce/Almanca cevirileri hemen yayina girsin.
+technology/*-sd-wan.md

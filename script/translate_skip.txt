@@ -1,0 +1,2 @@
+# Otomatik ceviride ATLANACAK yazilar (anahtar = bolum/dosya.md, * joker kullanilabilir)
+# Ornek: posts/digitalbonus-comprehensive.md

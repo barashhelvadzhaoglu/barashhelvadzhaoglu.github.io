@@ -17,6 +17,8 @@ tags:
   - Cisco
   - Networking
 draft: false
+aliases:
+  - "/tr/technology/cisco-sd-wan/"
 ---
 
 # Cisco SD-WAN: Catalyst SD-WAN and the Enterprise Architecture Approach

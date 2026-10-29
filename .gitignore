@@ -2,3 +2,7 @@ public/
 resources/
 .DS_Store
 .claude/
+.env
+script/translate_state.json
+script/*.log
+script/__pycache__/

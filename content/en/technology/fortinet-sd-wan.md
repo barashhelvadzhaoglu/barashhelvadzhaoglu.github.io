@@ -18,6 +18,7 @@ tags:
   - Security
 draft: false
 aliases:
+  - "/tr/technology/fortinet-sd-wan/"
   - "/tr/posts/fortinet-sd-wan/"
 ---
 
