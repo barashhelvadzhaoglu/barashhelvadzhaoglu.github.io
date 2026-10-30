@@ -19,7 +19,6 @@ tags:
   - Networking
 draft: false
 aliases:
-  - "/tr/technology/hpe-aruba-sd-wan/"
   - "/en/posts/hpe-aruba-sd-wan/"
 ---
 

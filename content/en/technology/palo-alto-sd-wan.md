@@ -19,7 +19,6 @@ tags:
   - SASE
 draft: false
 aliases:
-  - "/tr/technology/palo-alto-sd-wan/"
   - "/en/posts/palo-alto-sd-wan/"
 ---
 
