@@ -1,4 +1,165 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ağ Teknolojileri on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/a%C4%9F-teknolojileri/</link><description>Recent content in Ağ Teknolojileri on Barash Helvadzhaoglu</description><generator>Hugo -- 0.169.0</generator><language>tr</language><lastBuildDate>Fri, 12 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/a%C4%9F-teknolojileri/index.xml" rel="self" type="application/rss+xml"/><item><title>SD-WAN Nedir? Ağ Mühendisleri İçin Pratik Bir Kılavuz</title><link>https://barashhelvadzhaoglu.com/tr/technology/what-is-sdwan/</link><pubDate>Fri, 12 Jun 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/what-is-sdwan/</guid><description>SD-WAN için kapsamlı bir teknik kılavuz: nasıl çalışır, temel bileşenler, trafik yönlendirme ve işletmelerin neden MPLS&amp;#39;i Software-Defined WAN ile değiştirdiği.</description><content:encoded><![CDATA[<h1 id="sd-wan-nedir-ağ-mühendisleri-için-pratik-bir-kılavuz">SD-WAN Nedir? Ağ Mühendisleri İçin Pratik Bir Kılavuz</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ağ Teknolojileri on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/a%C4%9F-teknolojileri/</link><description>Recent content in Ağ Teknolojileri on Barash Helvadzhaoglu</description><generator>Hugo -- 0.169.0</generator><language>tr</language><lastBuildDate>Fri, 30 Oct 2026 06:41:11 +0100</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/a%C4%9F-teknolojileri/index.xml" rel="self" type="application/rss+xml"/><item><title>HPE Aruba SD-WAN: EdgeConnect ve WAN Optimization Mirası</title><link>https://barashhelvadzhaoglu.com/tr/technology/hpe-aruba-sd-wan/</link><pubDate>Fri, 30 Oct 2026 06:41:11 +0100</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/hpe-aruba-sd-wan/</guid><description>HPE Aruba&amp;#39;nın SD-WAN platformuna derinlemesine bir bakış: Silver Peak satın alması, EdgeConnect mimarisi, application-defined WAN ve Aruba&amp;#39;nın kurumsal pazardaki ayrışma noktaları.</description><content:encoded><![CDATA[<h1 id="hpe-aruba-sd-wan-edgeconnect-ve-wan-optimization-mirası">HPE Aruba SD-WAN: EdgeConnect ve WAN Optimization Mirası</h1>
+<p>HPE Aruba&rsquo;nın SD-WAN hikayesi bir ağ deviyle değil, bir WAN optimization uzmanıyla başlıyor. Silver Peak Systems, pazarı yeni bir mimariye hazır hale getiren teknoloji dönüşümüyle birlikte SD-WAN&rsquo;a yönelmeden önce, kurumsal WAN performansının zorlu problemlerini (deduplication, sıkıştırma, TCP optimization, uygulama hızlandırma) çözmek için yıllarını harcadı. HPE, Silver Peak&rsquo;i 2020 yılında yaklaşık 925 milyon dolara satın alarak bu teknolojiyi <strong>Aruba EdgeConnect SD-WAN</strong> adıyla Aruba portföyüne entegre etti.</p>
+<p>Silver Peak mirası önemlidir; çünkü Aruba&rsquo;nın SD-WAN çözümünü rakiplerinden neyin ayırdığını açıklar: Çoğu safkan (pure-play) SD-WAN üreticisinin daha sonra geliştirdiği veya hiç geliştirmediği güçlü bir WAN optimization temeli ve uçtan uca görünürlük sağlayan Aruba kampüs ve kablosuz altyapı entegrasyonu.</p>
+<hr>
+<h2 id="edgeconnect-mimarisi">EdgeConnect Mimarisi</h2>
+<p>Aruba EdgeConnect, her lokasyonda SD-WAN data plane&rsquo;ini oluşturan fiziksel ve sanal cihazdır (appliance). Mimari, yönetim ve veri fonksiyonlarını birbirinden ayırır:</p>
+<p><strong>Aruba Orchestrator</strong> (eski adıyla Silver Peak Unity Orchestrator) — merkezi yönetim ve policy platformudur. Bulut ortamında (cloud-hosted) veya on-premises olarak konumlandırılabilen Orchestrator; intent-based policy tanımlama, zero-touch provisioning ve gerçek zamanlı topoloji görselleştirmesi sağlar. Ağ mühendisleri iş hedeflerini (business intent) tanımlar — örneğin &ldquo;Microsoft 365 trafiği düşük gecikme ve yüksek güvenilirlik gerektirir&rdquo; — ve Orchestrator bu hedefi tüm EdgeConnect cihazlarına dağıtılan SD-WAN konfigürasyonuna dönüştürür.</p>
+<p><strong>Aruba EdgeConnect Appliances</strong> — her lokasyondaki uç cihazlardır. Farklı throughput gereksinimleri için donanım cihazları (EC-US, EC-S, EC-M, EC-L, EC-XL katmanları), sanal cihazlar (AWS, Azure, Google Cloud için) ve standart x86 donanımlar üzerinde yalnızca yazılım (software-only) dağıtımları şeklinde sunulur.</p>
+<p><strong>Aruba Central</strong> — görünürlüğü SD-WAN&rsquo;ın ötesine taşıyarak Aruba&rsquo;nın kablosuz (AP&rsquo;ler), kablolu switching (CX serisi) ve güvenlik altyapısına genişleten birleşik yönetim portalıdır. Kampüs, şube ve WAN genelinde Aruba kullanan kurumlar için Central, tek bir operasyonel görünüm sunar.</p>
+<hr>
+<h2 id="application-defined-wan-temel-ayrışma-noktası">Application-Defined WAN: Temel Ayrışma Noktası</h2>
+<p>Aruba&rsquo;nın SD-WAN yaklaşımı için kullandığı pazarlama terimi <strong>application-defined WAN (AD-WAN)</strong>&lsquo;dır. Bu kavram, özünde diğer üreticilerdeki application-aware routing ile aynıdır — trafik uygulamaya göre tanımlanır ve gerçek zamanlı hat kalitesine göre yönlendirilir — ancak uygulama biçimi Silver Peak&rsquo;in WAN optimization köklerini yansıtır.</p>
+<p><strong>Deep packet inspection ve uygulama sınıflandırma</strong>
+EdgeConnect, binlerce uygulama imzasını sınıflandırmak için DPI kullanır. Öncelikli olarak hedef IP&rsquo;ye veya temel port eşleştirmesine dayanan bazı SD-WAN platformlarının aksine, EdgeConnect&rsquo;in sınıflandırma motoru yalnızca açık metin (cleartext) başlıkların paket incelemesine dayanmaz; istatistiksel analiz ve flow metadata kullanarak şifrelenmiş akışlar içindeki uygulamaları da tanımlayabilir.</p>
+<p><strong>Mikrosaniye hassasiyetinde sürekli hat kalitesi izleme</strong>
+EdgeConnect, her bir WAN tünelini saniyenin altındaki ölçüm aralıklarıyla sürekli olarak probe eder. Sistem; her aktif tünel için latency, jitter ve paket kaybına dair kayan bir görünüm (rolling view) tutar ve periyodik yoklama ortalamaları yerine neredeyse gerçek zamanlı verilere dayalı yol seçim kararları alınmasını sağlar. Bu, Silver Peak&rsquo;in WAN optimization alanındaki çalışmalarının doğrudan bir mirasıdır; zira gecikme ölçümünün hassasiyeti doğrudan TCP optimization kararlarını etkiler.</p>
+<p><strong>İlk pakette uygulama tanımlama (First-packet application identification)</strong>
+Bazı SD-WAN platformlarının pratik bir kısıtlaması, yol seçiminin ancak uygulama tanımlandıktan sonra devreye girmesidir; bu da birden fazla paket gerektirebilir. Aruba EdgeConnect, bilinen uygulamalar için hedef ve porta dayalı olarak ilk pakette yol seçimi kararı verebilir ve DPI sonraki trafik için sınıflandırmayı netleştirir. VoIP gibi gecikmeye duyarlı uygulamalar için bu durum oldukça kritiktir: Sistem akışı tanımlayana kadar bir çağrının ilk birkaç paketi suboptimal bir yoldan iletilmez.</p>
+<hr>
+<h2 id="wan-optimization-silver-peakin-kattıkları">WAN Optimization: Silver Peak&rsquo;in Kattıkları</h2>
+<p>Aruba&rsquo;nın SD-WAN çözümünü çoğu rakibinden teknik olarak en çok ayrıştıran yetenek, Silver Peak&rsquo;ten miras kalan <strong>WAN optimization yığınıdır</strong>.</p>
+<p><strong>Veri azaltma (Deduplication ve sıkıştırma)</strong>
+EdgeConnect, tünel uç noktaları arasında paylaşılan bir veri deposu (data store) tutar. Aynı veri bloğu daha önce görüldüğünde — ki dosya transferleri, yedekleme trafiği ve paylaşılan nesnelere sıkça başvuran uygulama verilerinde bu yaygındır — verinin tamamı yerine yalnızca bir hash referansı iletilir. Bu, uygun iş yükleri için WAN bant genişliği tüketimini %50 ila %90 oranında azaltabilir.</p>
+<p><strong>TCP optimization</strong>
+Standart TCP, düşük gecikme ve düşük paket kaybına sahip yerel alan ağları (LAN) için tasarlanmıştır. Yüksek gecikmeli WAN hatlarında veya anlık paket kayıpları yaşanan linklerde, TCP&rsquo;nin congestion control mekanizmaları verimlilikte (throughput) ciddi düşüşe neden olur. EdgeConnect&rsquo;in TCP optimization motoru bir TCP proxy gibi davranarak WAN linkinin her iki tarafındaki uygulamaya yerel bir TCP uç noktası sunarken, EdgeConnect cihazları arasında optimize edilmiş bir taşıma protokolü kullanır. Uygulamalar, gerçek WAN koşullarından bağımsız olarak LAN&rsquo;a yakın bir TCP performansı görür.</p>
+<p><strong>Uygulama hızlandırma (Application acceleration)</strong>
+Belirli uygulamalar için (CIFS/SMB dosya transferleri, on-premises Exchange için MAPI, Oracle Forms ve diğerleri), EdgeConnect genel TCP optimization&rsquo;ın ötesine geçen protokole özel hızlandırma modülleri içerir. Bu modüller uygulama katmanı protokollerini anlar; verileri akıllıca önceden çeker (prefetch) veya önbelleğe (cache) alır.</p>
+<p>Daha fazla kurumsal uygulama yerleşik CDN hızlandırması ve bulut için optimize edilmiş protokollerle cloud-native mimarilere geçtikçe, geleneksel WAN optimization değerinin dönüştüğünü belirtmek gerekir. Microsoft 365 gibi SaaS uygulamaları zaten internet üzerinden iletim için optimize edilmiştir. WAN optimization yığını, en çok WAN&rsquo;a duyarlı eski protokollere sahip uygulamalar ve lokasyonlar arası veri replikasyon iş yükleri için değerini korumaktadır.</p>
+<hr>
+<h2 id="boost-paket-düzeyinde-güvenilirlik-artırımı">Boost: Paket Düzeyinde Güvenilirlik Artırımı</h2>
+<p>Aruba&rsquo;nın <strong>Boost</strong> yeteneği, WAN güvenilirliğini uygulama seviyesinden ziyade paket seviyesinde ele alır. Şunları içerir:</p>
+<p><strong>Forward Error Correction (FEC):</strong> Akışa yedek parite paketleri ekler, böylece alıcı düşen paketleri yeniden iletime (retransmission) gerek kalmadan yeniden oluşturabilir. Orta düzeyde paket kaybı (%1-3) olan hatlarda FEC, TCP retransmission&rsquo;ın getirdiği gidiş-dönüş gecikmesi (round-trip delay) olmadan etkin kaybı neredeyse sıfıra indirebilir.</p>
+<p><strong>Packet Order Correction:</strong> Sırası bozulan paketleri uygulamaya teslim etmeden önce alıcı tarafında yeniden sıralar. Zaman zaman paketleri sıra dışı ileten geniş bant (broadband) bağlantılar için oldukça kullanışlıdır.</p>
+<p><strong>High Availability (HA) tunneling:</strong> Gecikmeye duyarlı paketlerin kopyalarını aynı anda iki farklı WAN yolundan iletir ve ilk ulaşan kopyayı teslim eder. Efektif paket kaybı sıfıra yaklaşır; gecikme ise iki yoldan daha iyi olanıyla sınırlandırılır.</p>
+<p>Bu yetenekler, paket kaybının ve jitter&rsquo;ın öngörülemez olduğu internet broadband bağlantıları üzerindeki ses ve video uygulamaları için kritik önem taşır.</p>
+<hr>
+<h2 id="aruba-sse-ve-sase-entegrasyonu">Aruba SSE ve SASE Entegrasyonu</h2>
+<p>HPE Aruba&rsquo;nın SASE stratejisi, şu hizmetleri sunan bulut tabanlı bir güvenlik platformu olan <strong>Aruba SSE</strong> (Security Service Edge) etrafında şekillenmiştir:</p>
+<ul>
+<li>Secure Web Gateway (SWG)</li>
+<li>Cloud Access Security Broker (CASB)</li>
+<li>Zero Trust Network Access (ZTNA)</li>
+<li>Digital Experience Monitoring (DEM)</li>
+</ul>
+<p>EdgeConnect SD-WAN, şubelerdeki internet çıkışlı trafiği denetim amacıyla en yakın SSE PoP noktasına yönlendirmek üzere Aruba SSE ile entegre çalışır; böylece trafiği merkezi bir veri merkezi firewall&rsquo;una geri taşımaya (backhaul) gerek kalmadan doğrudan internet çıkışı (direct internet breakout) sağlar.</p>
+<p>Aruba Central; hem WAN yönlendirmesi hem de bulut güvenliği için tek bir policy modeli sunarak EdgeConnect SD-WAN ve Aruba SSE genelinde birleşik bir yönetim sağlar. Bu, Aruba&rsquo;nın ayrı ürünlerden inşa edilen çoğu SASE mimarisini etkileyen yönetim parçalanmışlığı (management fragmentation) sorununa verdiği yanıttır.</p>
+<hr>
+<h2 id="hpe-aruba-sd-wanın-güçlü-olduğu-alanlar">HPE Aruba SD-WAN&rsquo;ın Güçlü Olduğu Alanlar</h2>
+<p><strong>WAN optimization gereksinimleri</strong>
+Lokasyonlar arasında yoğun veri replikasyonu yapan, WAN performansına duyarlı eski uygulama trafiği bulunan veya şubeler arasında sıkça büyük dosya transferleri gerçekleştiren kurumlar; çoğu rakip SD-WAN platformunun sağlayamadığı ölçülebilir bir değeri EdgeConnect&rsquo;in WAN optimization yığınından elde eder.</p>
+<p><strong>Broadband bağımlı lokasyonlar için yüksek güvenilirlik gereksinimleri</strong>
+Boost FEC, paket sırası düzeltme ve HA tunneling kombinasyonu; internet broadband bağlantısının birincil veya tek WAN taşıyıcısı olduğu, paket kaybı ya da jitter endişesi bulunan lokasyonlar için EdgeConnect&rsquo;i ideal hale getirir — perakende mağazaları, dağıtık konaklama sektörü ve internet servis sağlayıcı (ISP) altyapısının zayıf olduğu bölgelerdeki şubeler gibi.</p>
+<p><strong>Birleşik Aruba kampüs ve WAN yönetimi</strong>
+Aruba CX switching ve Aruba wireless altyapısını (Aruba Central üzerinden yönetilen) kullanan kurumlar, EdgeConnect&rsquo;i WAN&rsquo;a genişleterek operasyonel tutarlılık kazanır. Kampüs switching ve kablosuz ağlarını yöneten aynı Aruba Central portalı WAN görünürlüğü de sağlayarak ağ operasyon ekibinin izlemek zorunda olduğu yönetim düzlemi (management plane) sayısını azaltır.</p>
+<p><strong>Intent-based yönetim modeli</strong>
+Orchestrator&rsquo;ın intent-based policy modeli, SD-WAN pazarındaki en sezgisel modellerden biridir. İş hedeflerini belirleyip — &ldquo;birleşik iletişim trafiğine öncelik ver, SaaS için bulut yolunu kullan, ERP&rsquo;yi MPLS üzerinden koru&rdquo; — sistemin bunu cihaz konfigürasyonuna dönüştürmesini sağlamak, cihaz başına manuel yapılandırma karmaşıklığının büyük bölümünü ortadan kaldırır. Sınırlı SD-WAN deneyimine sahip ekipler, daha ayrıntılı teknik policy tanımlaması gerektiren platformlara kıyasla çalışan bir kuruluma çok daha hızlı ulaşabilir.</p>
+<hr>
+<h2 id="hpe-aruba-sd-wanın-limitleri-ve-zayıf-yönleri">HPE Aruba SD-WAN&rsquo;ın Limitleri ve Zayıf Yönleri</h2>
+<p><strong>Güvenlik entegrasyonu</strong>
+Fortinet&rsquo;in entegre NGFW+SD-WAN modelinin aksine, EdgeConnect tam teşekküllü bir NGFW içermez. Şube güvenliği ya Aruba SSE (bulut üzerinden sağlanan) ya da üçüncü taraf bir firewall entegrasyonu gerektirir. Her şubede yerel olarak stateful firewall ve IPS&rsquo;e ihtiyaç duyan kurumlar için bu durum, Fortinet&rsquo;in yerel olarak çözdüğü mimariye ek bir bileşen getirmektedir.</p>
+<p><strong>Pazar payı ve ekosistem</strong>
+SD-WAN pazarında Fortinet ve Cisco, Aruba&rsquo;ya kıyasla daha büyük bir kurulu tabana (installed base) ve daha geniş bir iş ortağı ekosistemine sahiptir. Aruba&rsquo;nın SD-WAN çözümü teknik olarak güçlü olsa da, Avrupa kurumsal ortamlarında Cisco veya Fortinet kurulumlarına kıyasla daha az karşımıza çıkar; bu da deneyimli entegratör ve iş ortağı bulma imkanını etkileyebilir.</p>
+<p><strong>Küçük ölçekte karmaşıklık</strong>
+Çok küçük ölçekli kurulumlar için (20 lokasyon altı), Orchestrator lisanslama maliyeti ve operasyonel yük gereksiz kalabilir. Platform binlerce lokasyona ölçeklenecek şekilde tasarlanmıştır; küçük ölçekte daha yalın platformlar daha iyi bir operasyonel deneyim sunabilir.</p>
+<hr>
+<h2 id="tipik-dağıtım-mimarisi">Tipik Dağıtım Mimarisi</h2>
+<p>Standart bir HPE Aruba EdgeConnect SD-WAN mimarisi:</p>
+<ul>
+<li><strong>Orchestrator:</strong> Cloud-hosted (Aruba tarafından yönetilen) veya on-premises sanal cihaz (virtual appliance)</li>
+<li><strong>Hub lokasyonları:</strong> Spoke tünellerini sonlandıran ve bölgesel internet çıkışı sağlayan, veri merkezi lokasyonlarındaki EdgeConnect XL veya EC-L cihazları</li>
+<li><strong>Şube lokasyonları:</strong> Dual WAN bağlantısına sahip, Orchestrator üzerinden zero-touch provision edilmiş EdgeConnect EC-S veya EC-M cihazları; broadband üzerindeki ses/video trafiği için Boost etkinleştirilmiş</li>
+<li><strong>Bulut bağlantısı:</strong> Bulut ortamlarında tutarlı policy uygulamak için AWS/Azure üzerinde çalışan EdgeConnect Virtual</li>
+<li><strong>İnternet güvenliği:</strong> EdgeConnect uç cihazlarından yerel yönlendirme (local steering) ile Aruba SSE entegrasyonu</li>
+</ul>
+<hr>
+<h2 id="özet">Özet</h2>
+<p>HPE Aruba EdgeConnect SD-WAN, pazardaki en olgun WAN optimization yeteneğini modern bir SD-WAN mimarisine taşır. WAN optimization&rsquo;ın önemini koruduğu senaryolarda — lokasyonlar arası replikasyon, gecikmeye duyarlı eski uygulamalar, broadband üzerinde yüksek güvenilirlik gereksinimleri — Silver Peak mirası gerçek bir teknik ayrışma sunar.</p>
+<p>Aruba entegrasyonu; kampüs ve şube altyapısına sahip kurumlara kablosuz, kablolu ve WAN altyapısında operasyonel olarak son derece cazip bir birleşik yönetim yolu sağlar. Mevcut bir Aruba altyapısı bulunmayan ve belirgin bir WAN optimization ihtiyacı olmayan ortamlardaki saf SD-WAN kurulumlarında ise Cisco veya Fortinet&rsquo;e kıyasla ayrışan noktalar daralmaktadır.</p>
+<hr>
+<p><em>Bu serideki bir sonraki yazı: <a href="/en/posts/palo-alto-sd-wan/">Palo Alto SD-WAN — Prisma SD-WAN ve Güvenlik Öncelikli Yaklaşım</a></em></p>
+]]></content:encoded></item><item><title>Cisco SD-WAN: Catalyst SD-WAN ve Kurumsal Mimari Yaklaşımı</title><link>https://barashhelvadzhaoglu.com/tr/technology/cisco-sd-wan/</link><pubDate>Fri, 30 Oct 2026 06:35:00 +0100</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/cisco-sd-wan/</guid><description>Cisco&amp;#39;nun SD-WAN platformuna kapsamlı bir bakış: Viptela satın alması, Catalyst SD-WAN mimarisi, vManage ve kurumsal ortamlarda Cisco yaklaşımının rakiplerle karşılaştırması.</description><content:encoded><![CDATA[<h1 id="cisco-sd-wan-catalyst-sd-wan-ve-kurumsal-mimari-yaklaşımı">Cisco SD-WAN: Catalyst SD-WAN ve Kurumsal Mimari Yaklaşımı</h1>
+<p>Cisco&rsquo;nun SD-WAN yolculuğu, son on yılın en önemli kurumsal ağ satın alımlarından birinden geçiyor. 2017 yılında Cisco, doğrudan amaca yönelik bir SD-WAN girişimi olan Viptela&rsquo;yı yaklaşık 610 milyon dolara satın aldı. Bu satın alma, Cisco&rsquo;nun bugün <strong>Catalyst SD-WAN</strong> (eski adıyla Cisco SD-WAN ve öncesinde Viptela SD-WAN) olarak adlandırdığı çözümün temelini oluşturdu. Viptela mirasını anlamak, Cisco&rsquo;nun platformunu bugün niteleyen hem mimari güçleri hem de operasyonel karmaşıklığı açıklamaya yardımcı olur.</p>
+<hr>
+<h2 id="viptela-mimarisi">Viptela Mimarisi</h2>
+<p>Viptela, sıfırdan dağıtık ve ölçeklenebilir bir SD-WAN fabric yapısı olarak inşa edildi. Temel tasarımı, WAN mimarisini dört fonksiyonel katmana (plane) ayırdı:</p>
+<p><strong>vManage</strong> — merkezi yönetim ve orkestrasyon katmanı. Tüm SD-WAN lokasyonlarında konfigürasyon, izleme ve policy yönetimi için tek bir gösterge paneli (dashboard). vManage, ağ yöneticilerinin birincil arayüzüdür.</p>
+<p><strong>vSmart Controller</strong> — control plane. Overlay Management Protocol (OMP) kullanarak tüm edge cihazlarına routing bilgilerini ve SD-WAN policy&rsquo;lerini dağıtır. vSmart veri trafiğini iletmez (forward etmez); yalnızca veri trafiğinin nereye gideceğini kontrol eder.</p>
+<p><strong>vBond</strong> — orkestrasyon katmanı. NAT traversal ve kimlik doğrulama süreçlerini yöneterek edge cihazları ile SD-WAN fabric&rsquo;inin geri kalanı arasındaki ilk bağlantıyı sağlar. Edge cihazları sisteme dahil edildikten (onboard edildikten) sonra vBond&rsquo;un rolü minimuma iner.</p>
+<p><strong>vEdge / Catalyst SD-WAN Router</strong> — her lokasyondaki data plane. Cisco artık SD-WAN işlevselliğini Catalyst 8000 serisi router&rsquo;larda ve ISR router&rsquo;larda (SD-WAN yazılımı aracılığıyla) sunmanın yanı sıra, bulut dağıtımları için sanal appliance&rsquo;lar da sağlamaktadır.</p>
+<p>Bu dört bileşenli mimari, bazı rakip platformlara kıyasla daha karmaşıktır; örneğin Fortinet&rsquo;in FortiOS&rsquo;i, tüm SD-WAN işlevlerini tek bir işletim sistemi imajına entegre eder. Ancak bu mimari ölçeklenebilirlik için tasarlanmıştır. Binlerce lokasyona sahip çok büyük dağıtımlar, sorumlulukların ayrılmasından (separation of concerns) büyük fayda sağlar: control plane, data plane performansını etkilemeksizin yatayda ölçeklenebilir.</p>
+<hr>
+<h2 id="omp-fabric-protokolü">OMP: Fabric Protokolü</h2>
+<p>OMP (Overlay Management Protocol), Cisco SD-WAN fabric yapısını bir arada tutan protokoldür. vSmart controller&rsquo;lar ile tüm vEdge/Catalyst router&rsquo;lar arasında çalışır ve şunları dağıtır:</p>
+<ul>
+<li>Routing bilgileri (BGP route anonslarına benzer)</li>
+<li>SD-WAN policy&rsquo;leri (application-aware routing kuralları, data policy&rsquo;leri)</li>
+<li>Güvenlik bilgileri (IPsec tünelleri için security association&rsquo;lar)</li>
+</ul>
+<p>Bu merkezi dağıtım modeli, policy değişikliklerinin tüm lokasyonlara hızlı ve tutarlı bir şekilde yayılmasını sağlar. Bir ağ mühendisi vManage üzerinde bir application-aware routing policy&rsquo;sini değiştirdiğinde, vSmart güncellenen policy&rsquo;yi etkilenen tüm edge cihazlarına otomatik olarak iletir (push eder). Cihazlara tek tek müdahale etmeye gerek kalmaz.</p>
+<p>Edge&rsquo;ler arasındaki IPsec tünelleri OMP tarafından dağıtılan bilgilere dayanarak kurulur ve saniye altı (sub-second) hat kalitesi izleme için <strong>BFD (Bidirectional Forwarding Detection)</strong> protokolünü destekler; bu mekanizma, bir WAN hattında bozulma olduğunda hızlı yol failover&rsquo;ı sağlar.</p>
+<hr>
+<h2 id="catalyst-sd-wanda-application-aware-routing">Catalyst SD-WAN&rsquo;da Application-Aware Routing</h2>
+<p>Cisco&rsquo;nun application-aware routing özelliği kavramsal düzeyde diğer SD-WAN üreticileriyle benzer şekilde çalışır, ancak kendine özgü bazı uygulama karakteristiklerine sahiptir:</p>
+<p><strong>Uygulama tanımlama (Application identification)</strong>, Cisco&rsquo;nun NBAR2 (Network-Based Application Recognition) motorunu kullanır — sürekli güncellenen binlerce uygulama imzasından oluşan kütüphanesiyle sektördeki en olgun uygulama sınıflandırma teknolojilerinden biridir. NBAR2; dinamik portlar, şifrelenmiş protokoller ve bulut uygulama varyantlarını kullanan uygulamaları tespit edebilir.</p>
+<p><strong>SLA sınıfları (SLA classes)</strong>, her trafik kategorisi için kabul edilebilir performans eşiklerini (latency, jitter, packet loss) tanımlar. Bir WAN tünelinin ölçülen performansı SLA eşiğinin altına düşerse, etkilenen trafik gereksinimleri karşılayan başka bir tünele otomatik olarak failover yapar.</p>
+<p><strong>Data policy&rsquo;leri</strong>, basit SLA eşleştirmesinin ötesinde ayrıntılı trafik yönlendirmesi (traffic steering) sağlar; trafiği kaynak/hedef, uygulama, DSCP değeri veya bunların bir kombinasyonuna göre yönlendirebilir ve doğrudan internet erişimi (direct internet access), güvenlik appliance&rsquo;ları üzerinden service chaining veya bir merkez üzerinden backhaul zorunluluğu getirebilir.</p>
+<hr>
+<h2 id="thousandeyes-entegrasyonu-wanın-ötesinde-görünürlük">ThousandEyes Entegrasyonu: WAN&rsquo;ın Ötesinde Görünürlük</h2>
+<p>Cisco&rsquo;nun SD-WAN platformundaki ayırt edici yeteneklerden biri, Cisco&rsquo;nun 2020 yılında satın aldığı internet ve bulut zekası platformu olan <strong>ThousandEyes</strong> ile entegrasyondur.</p>
+<p>ThousandEyes, yalnızca kurumsal WAN genelinde değil, internet ve bulut sağlayıcı ağları üzerinde de uçtan uca görünürlük sunar. SD-WAN bağlamında bu, Cisco müşterilerinin yalnızca Frankfurt&rsquo;a giden MPLS hatlarında %5 paket kaybı olduğunu görmekle kalmayıp, aynı zamanda Frankfurt&rsquo;taki Azure ExpressRoute peering noktasında tıkanıklık (congestion) yaşandığını ve bunun bir lokasyondaki tüm kullanıcıların Microsoft 365 performansını etkilediğini — henüz helpdesk&rsquo;e ticket gelmeye başlamadan önce — tespit edebilmeleri anlamına gelir.</p>
+<p>Bu görünürlük katmanı, uygulama performans izlemesini herhangi bir şirket içi (on-premises) SD-WAN platformunun tek başına görebileceğinin ötesine taşır. Karmaşık bulut bağımlılıkları olan büyük kurumlar için ThousandEyes entegrasyonu, rakip SD-WAN üreticilerinin yerel araçlarıyla boy ölçüşemeyeceği bir sorun giderme (troubleshooting) bağlamı sunar.</p>
+<hr>
+<h2 id="catalyst-8000-serisi-donanım-platformu">Catalyst 8000 Serisi: Donanım Platformu</h2>
+<p>Cisco&rsquo;nun SD-WAN edge dağıtımları için birincil donanım platformu, Cisco&rsquo;nun şube portföyünde ISR 4000 serisinin yerini alan <strong>Catalyst 8000 serisidir</strong>. Catalyst 8000, tanıdık Cisco IOS routing özellik setini SD-WAN overlay yetenekleriyle birleştiren SD-WAN yazılım yığını ile IOS XE çalıştırır.</p>
+<p>SD-WAN&rsquo;ı Catalyst 8000 üzerinde çalıştırmanın başlıca avantajları:</p>
+<ul>
+<li>SD-WAN&rsquo;ın yanı sıra eksiksiz IOS XE özellik seti: Underlay routing için OSPF, BGP, EIGRP; LAN yedekliliği için HSRP/VRRP; MQC ile QoS</li>
+<li>Cisco&rsquo;nun QuantumFlow işlemcileriyle donanım tabanlı paket iletimi (hardware-based forwarding)</li>
+<li>Daha küçük lokasyonlarda aynı cihazın WAN router, SD-WAN edge ve LAN dağıtım (distribution) router&rsquo;ı olarak görev yapabilmesi</li>
+<li>Mevcut Cisco IOS uzmanlığına sahip organizasyonlar için tanıdık operasyonel model</li>
+</ul>
+<p>Cisco ayrıca AWS, Azure ve Google Cloud dağıtımları için <strong>Catalyst SD-WAN Virtual</strong> (eski adıyla vEdge Cloud) çözümünü sunarak SD-WAN fabric yapısının yerel olarak bulut ortamlarına genişletilmesine olanak tanır.</p>
+<hr>
+<h2 id="cisco-sase-umbrella-ve-meraki-entegrasyonu">Cisco SASE: Umbrella ve Meraki Entegrasyonu</h2>
+<p>Cisco&rsquo;nun SASE stratejisi, WAN edge tarafındaki Catalyst SD-WAN ile buluttan sunulan güvenlik (DNS güvenliği, secure web gateway, CASB, ZTNA) için <strong>Cisco Umbrella</strong>&rsquo;nın bir araya getirilmesine dayanır. Bu entegrasyon, SD-WAN policy&rsquo;lerinin şube lokasyonlarındaki internete giden trafiği merkezi bir veri merkezine backhaul etmeye gerek kalmadan denetim için en yakın Umbrella PoP noktasına yönlendirmesini sağlar.</p>
+<p>Daha basit dağıtımlar için Cisco Meraki, Catalyst SD-WAN&rsquo;a göre daha az gelişmiş özelliğe sahip olmakla birlikte çok daha yalın bir operasyonel modele sahip bulut yönetimli bir SD-WAN alternatifi sunar. Meraki, operasyonel sadeliğin özellik derinliğinden daha ağır bastığı orta ölçekli pazar (mid-market) ile dağıtık perakende/konaklama sektörünü hedefler.</p>
+<hr>
+<h2 id="cisco-sd-wanın-öne-çıktığı-alanlar">Cisco SD-WAN&rsquo;ın Öne Çıktığı Alanlar</h2>
+<p><strong>Mevcut Cisco altyapısına sahip büyük kurumsal ortamlar</strong>
+Cisco Catalyst switch&rsquo;leri, Cisco kablosuz ağ çözümlerini (DNA Center), NAC için Cisco ISE&rsquo;ı ve Cisco firewall&rsquo;larını çalıştıran organizasyonlar Catalyst SD-WAN&rsquo;dan en yüksek değeri elde eder. SD-WAN ile Cisco DNA Center arasındaki entegrasyon, kampüs ve WAN genelinde eşzamanlı olarak intent-based networking yaklaşımını mümkün kılar. DNA Center&rsquo;da bir kez tanımlanan policy, erişim (access) katmanından WAN edge&rsquo;e kadar tutarlı bir şekilde uygulanır.</p>
+<p><strong>Karmaşık routing gereksinimleri</strong>
+Catalyst SD-WAN, eksiksiz IOS XE routing yığınını korur. Karmaşık underlay routing gereksinimleri olan şube lokasyonları — birden fazla ISP ile BGP peering, karmaşık policy-based routing, MPLS VPN entegrasyonu — SD-WAN dışı routing yetenekleri kısıtlı olan üreticilere kıyasla Cisco&rsquo;nun platformundan çok daha iyi verim alır.</p>
+<p><strong>Geniş ölçekte görünürlük ve sorun giderme</strong>
+vManage analitiği ile ThousandEyes kombinasyonu, Cisco SD-WAN&rsquo;a rekabet edilmesi zor bir sorun giderme (troubleshooting) yeteneği kazandırır. Binlerce kullanıcı için WAN performansını yöneten ağ operasyon ekipleri (NOC) için bu görünürlük araçları, platforma yapılan yüksek yatırımı haklı çıkarır.</p>
+<p><strong>Uyumluluk gereksinimleri olan regüle sektörler</strong>
+Cisco&rsquo;nun kurumsal pazardaki konumu, vManage&rsquo;deki denetim izi (audit trail) yetenekleri ve kapsamlı uyumluluk dokümantasyonu, Catalyst SD-WAN&rsquo;ı katı satın alma ve uyumluluk gereksinimlerine sahip finansal hizmetler, sağlık ve kamu sektörü organizasyonları için güvenilir bir seçenek haline getirir.</p>
+<hr>
+<h2 id="cisco-sd-wanın-kısıtları">Cisco SD-WAN&rsquo;ın Kısıtları</h2>
+<p><strong>Operasyonel karmaşıklık</strong>
+Dört bileşenli mimari (vManage, vSmart, vBond, edge&rsquo;ler), daha yalın platformlara göre daha fazla operasyonel iş yükü (overhead) gerektirir. vSmart yedekliliğinin yönetimi, sertifika yaşam döngüleri ve controller yazılım güncellemeleri, daha küçük organizasyonların veya sınırlı ağ mühendisliği personeline sahip yapıların yükünü artırabilecek karmaşıklıklar getirir.</p>
+<p><strong>Maliyet</strong>
+Cisco SD-WAN lisanslaması ucuz değildir. Platform lisanslama modeli (DNA Software abonelik katmanları) donanım maliyetleriyle birleştiğinde Catalyst SD-WAN&rsquo;ı pazarın üst segmentine konumlandırır. Küçük ve orta ölçekli organizasyonlar genellikle diğer çözümlerde daha iyi bir fiyat/performans değeri bulur.</p>
+<p><strong>Güvenlik entegrasyonu</strong>
+SD-WAN ve NGFW&rsquo;ün tek bir işletim sisteminde birleştiği Fortinet&rsquo;in aksine, Cisco&rsquo;nun SD-WAN ve güvenlik çözümleri API&rsquo;ler ve policy koordinasyonu yoluyla entegre olan ayrı ürünlerdir. Entegrasyon çalışır, ancak Fortinet&rsquo;in bütünleşik yaklaşımı kadar kesintisiz ve pürüzsüz değildir. Her şubede derinlemesine güvenlik denetimine (deep security inspection) ihtiyaç duyan kurumların ayrı güvenlik appliance&rsquo;ları veya buluttan sunulan güvenlik çözümleri kurup yönetmesi gerekir; bu da maliyeti ve karmaşıklığı artırır.</p>
+<hr>
+<h2 id="tipik-dağıtım-mimarisi">Tipik Dağıtım Mimarisi</h2>
+<p>Standart bir Cisco Catalyst SD-WAN dağıtımı:</p>
+<ul>
+<li><strong>vManage / vSmart / vBond:</strong> Bulut hizmeti olarak barındırılır (Cisco tarafından barındırılan veya şirket içinde/bulutta self-hosted)</li>
+<li><strong>Hub lokasyonları:</strong> Birden fazla WAN hattına sahip Catalyst 8300 veya 8500 serisi; spoke lokasyonlar için bölgesel hub görevi görür</li>
+<li><strong>Şube (branch) lokasyonları:</strong> Çift WAN (MPLS + geniş bant) bağlantılı Catalyst 8200 veya 8300 serisi; vManage üzerinden zero-touch provisioning ile devreye alınır</li>
+<li><strong>Bulut lokasyonları:</strong> AWS/Azure ortamlarında Catalyst SD-WAN Virtual; şirket içi ve bulut iş yükleri genelinde tutarlı policy uygulanmasını sağlar</li>
+<li><strong>Uzak kullanıcılar (Remote users):</strong> Buluttan sağlanan güvenlik için Umbrella ile entegre Cisco AnyConnect veya Cisco Secure Client</li>
+</ul>
+<hr>
+<h2 id="özet">Özet</h2>
+<p>Cisco Catalyst SD-WAN, hem Viptela mirasını hem de Cisco&rsquo;nun bu mimariye yaptığı sürekli yatırımı yansıtan derinlikli yeteneklere sahip kurumsal düzeyde bir platformdur. Gelişmiş routing gereksinimlerinin, uçtan uca görünürlüğün ve daha geniş bir Cisco altyapısıyla entegrasyonun kritik olduğu büyük ve karmaşık ortamlarda öne çıkar.</p>
+<p>Bunun karşılığındaki ödünleşim (trade-off) ise maliyet ve karmaşıklıktır. Daha sade bir operasyonel modele, daha sıkı bir güvenlik entegrasyonuna veya lokasyon başına daha düşük maliyete ihtiyaç duyan organizasyonlar için Fortinet, HPE Aruba veya Palo Alto kendi özel gereksinimlerine daha uygun olabilir.</p>
+<p>Halihazırda Cisco ekosistemine yoğun yatırım yapmış olan kurumlar için — DNA Center, ISE, Umbrella, Catalyst switch altyapısı — Catalyst SD-WAN, farklı bir WAN üreticisiyle yakalanması oldukça zor olan bir mimari uyum ve tutarlılık sunar.</p>
+<hr>
+<p><em>Bu serinin bir sonraki yazısı: <a href="/en/posts/hpe-aruba-sd-wan/">HPE Aruba SD-WAN — EdgeConnect ve WAN Optimizasyonu Mirası</a></em></p>
+]]></content:encoded></item><item><title>SD-WAN Nedir? Ağ Mühendisleri İçin Pratik Bir Kılavuz</title><link>https://barashhelvadzhaoglu.com/tr/technology/what-is-sdwan/</link><pubDate>Fri, 12 Jun 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/what-is-sdwan/</guid><description>SD-WAN için kapsamlı bir teknik kılavuz: nasıl çalışır, temel bileşenler, trafik yönlendirme ve işletmelerin neden MPLS&amp;#39;i Software-Defined WAN ile değiştirdiği.</description><content:encoded><![CDATA[<h1 id="sd-wan-nedir-ağ-mühendisleri-için-pratik-bir-kılavuz">SD-WAN Nedir? Ağ Mühendisleri İçin Pratik Bir Kılavuz</h1>
 <p>Kurumsal WAN&rsquo;ın bir sorunu var. On yıllardır şirketler, şubeler, veri merkezleri ve genel merkezler arasındaki uygulama performansını garanti etmek için MPLS hatları için yüksek primler ödüyor. Bu mimari, tüm trafik dahili olduğunda ve tüm uygulamalar veri merkezinde yaşadığında mantıklıydı. Sonra bulut geldi.</p>
 <p>Bugün Münih&rsquo;teki bir şube, Microsoft 365 trafiğini 200 ms&rsquo;lik bir MPLS backhaul üzerinden Frankfurt&rsquo;a, oradan internete, oradan Microsoft&rsquo;un Avrupa edge&rsquo;ine gönderiyor — her Teams aramasına ve SharePoint senkronizasyonuna 60 ile 100 ms arasında gereksiz gecikme ekleyerek. Ağ, artık var olmayan bir dünya için inşa edildi.</p>
 <p>SD-WAN — Software-Defined Wide Area Network (Yazılım Tanımlı Geniş Alan Ağı) — bu sorunun mimari cevabıdır. Bu makale, SD-WAN&rsquo;ın ne olduğunu, nasıl çalıştığını ve neden kurumsal ağlar için varsayılan WAN mimarisi haline geldiğini açıklıyor.</p>
