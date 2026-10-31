@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>ISE on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/ise/</link><description>Recent content in ISE on Barash Helvadzhaoglu</description><generator>Hugo -- 0.169.0</generator><language>tr</language><lastBuildDate>Sat, 31 Oct 2026 00:30:00 +0100</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/ise/index.xml" rel="self" type="application/rss+xml"/><item><title>Cisco DNA Center / Catalyst Center: Ne Zaman Mantıklıdır, Ne Zaman Değildir?</title><link>https://barashhelvadzhaoglu.com/tr/architecture/catalyst-center-architecture/</link><pubDate>Sat, 31 Oct 2026 00:30:00 +0100</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/catalyst-center-architecture/</guid><description>Cisco DNA Center hakkında dürüst bir değerlendirme — kurulum maliyetleri, karmaşıklığı, ISE entegrasyonu ve daha küçük ölçekli organizasyonların ne zaman başka çözümlere yönelmesi gerektiği.</description><content:encoded><![CDATA[<h1 id="cisco-dna-center--catalyst-center-ne-zaman-mantıklıdır-ne-zaman-değildir">Cisco DNA Center / Catalyst Center: Ne Zaman Mantıklıdır, Ne Zaman Değildir?</h1>
+<p>Cisco DNA Center — yeni adıyla Catalyst Center — pazarlama söylemleri ile saha gerçeklerinin ciddi şekilde ayrıştığı platformlardan biridir. Pazarlama tarafındaki hikaye oldukça etkileyicidir: tüm kampüs ağınız için tek bir yönetim ekranı (single pane of glass), otomatik yapılandırma dağıtımı (provisioning), yapay zeka destekli analitik ve niyet tabanlı ağ yönetimi (intent-based networking). Saha gerçekliği ise bu seviyeye ulaşmanın ciddi bir yatırım, büyük bir ön hazırlık ve birçok şirketin küçümsediği bir kurumsal olgunluk gerektirdiğidir.</p>
+<p>DNA Center&rsquo;ı, Cisco tarafından başarı hikayesi olarak yayımlanan ve Türkiye&rsquo;deki ilk büyük ölçekli DNA Center ve Stealthwatch entegrasyonlarından biri olan bir üretim tesisi projesi de dahil olmak üzere büyük kurumsal ortamlarda canlıya aldım. Bu deneyim, platformun gerçekten sundukları ve nerede zorluk çıkardığı konusunda bana net bir bakış açısı kazandırdı.</p>
+<p>Bu makale dürüst bir mimari değerlendirmedir — ne bir ürün pazarlaması ne de kestirip atan bir reddediş. Soru, DNA Center&rsquo;ın iyi ya da kötü olup olmadığı değildir. Soru, sizin özel durumunuz için doğru araç olup olmadığıdır.</p>
+<hr>
+<h2 id="dna-center--catalyst-center-gerçekte-nedir">DNA Center / Catalyst Center Gerçekte Nedir?</h2>
+<p>DNA Center bir ağ yönetimi, otomasyon ve güvence (assurance) platformudur. Özel fiziksel appliance&rsquo;lar üzerinde çalışır ve tüm kampüs ağı üzerinde merkezi kontrol sağlar:</p>
+<ul>
+<li><strong>Design (Tasarım):</strong> Ağ hiyerarşisini (lokasyonlar, binalar, katlar) tanımlama ve ayarları ölçeklenebilir şekilde uygulama</li>
+<li><strong>Policy (Politika):</strong> Kimin neye erişebileceğini tanımlama; politikaları kablolu ve kablosuz ağlarda tutarlı bir şekilde uygulama</li>
+<li><strong>Provision (Dağıtım):</strong> Şablonlar (templates) aracılığıyla switch, AP ve router&rsquo;lara yapılandırmaları otomatik olarak yükleme</li>
+<li><strong>Assurance (Güvence):</strong> Yönetilen tüm cihazlardan telemetri verisi toplama, sağlık gösterge panelleri (health dashboards), kullanıcı deneyimi metrikleri ve anomali tespiti sunma</li>
+<li><strong>Automation (Otomasyon):</strong> İş akışları, ITSM entegrasyonu ve otomatik sorun giderme (automated remediation)</li>
+</ul>
+<p>Temelde yatan kampüs fabric teknolojisi <strong>SD-Access</strong>&rsquo;tir — Cisco&rsquo;nun veri düzleminde (data plane) VXLAN, kontrol düzleminde (control plane) LISP ve politika motoru olarak ISE kullandığı yazılım tanımlı kampüs mimarisi. DNA Center, bu fabric yapısını orkestre eden yönetim platformudur.</p>
+<hr>
+<h2 id="maliyet-gerçeği-bu-kurumsal-bir-yatırımdır">Maliyet Gerçeği: Bu Kurumsal Bir Yatırımdır</h2>
+<p>İlk olarak en önemli konuyu ele alalım, çünkü diğer tüm detayların durumunuzla ilgili olup olmadığını belirleyen şey budur.</p>
+<h3 id="donanım-appliance-maliyeti">Donanım Appliance Maliyeti</h3>
+<p>DNA Center, Cisco&rsquo;nun özel DN2-HW-APL appliance&rsquo;ı üzerinde çalışır. Tek nodlu bir kurulum (daha küçük ortamlar için uygundur) bir appliance gerektirir. <strong>Canlı bir üretim (production) ortamı için gereken cluster ise üç appliance gerektirir</strong> — biri yönetim, biri politika, biri veri toplama için — ve bir HA (High Availability) cluster olarak yapılandırılır.</p>
+<p>Üç nodlu bir cluster&rsquo;ın donanım maliyeti oldukça yüksektir. Henüz yazılım lisanslamasına geçmeden bile, küçük ve orta ölçekli projeleri doğrudan eleyen ciddi bir sermaye harcamasından (CAPEX) bahsediyoruz. Bu, &ldquo;olsa iyi olurdu&rdquo; diye kurulacak bir platform değildir — ortamınızın ölçeği bunu haklı çıkardığı için kurulur.</p>
+<h3 id="yazılım-lisanslaması">Yazılım Lisanslaması</h3>
+<p>DNA Center lisanslaması abonelik tabanlıdır; cihaz başına ve yıllık olarak hesaplanır. Lisans seviyeleri (Essentials, Advantage, Premier) hangi özelliklerin kullanılabileceğini belirler. Gelişmiş assurance, AI analitiği ve SD-Access yeteneklerini içeren tam özellik seti daha üst seviye lisanslar gerektirir.</p>
+<p>500 switch&rsquo;e sahip bir organizasyon için yıllık lisans maliyeti, donanım yatırımının üzerine ciddi bir sürekli operasyonel gider (OPEX) ekler.</p>
+<h3 id="dürüst-bir-ölçek-eşiği">Dürüst Bir Ölçek Eşiği</h3>
+<p>Saha deneyimlerime dayanarak: DNA Center, <strong>yüksek sayıda switch&rsquo;iniz</strong> olduğunda — tipik olarak birden fazla lokasyonda yüzlerce veya daha fazla yönetilen cihaz aralığında — ekonomik ve operasyonel olarak anlamlı olmaya başlar. Bu eşiğin altında, maliyet-fayda dengesini gerekçelendirmek zordur.</p>
+<p>Küçük ve orta ölçekli organizasyonlar için DNA Center için gereken yatırım — donanım, lisanslama, kurulum süresi, eğitim — başka alanlara yönlendirilse daha iyidir. İyi izleme (monitoring) araçlarına sahip, doğru tasarlanmış geleneksel bir kampüs ağı, bu maliyetin çok küçük bir kısmıyla benzer bir günlük operasyonel değer sunar.</p>
+<blockquote>
+<p><strong>Herhangi bir DNA Center değerlendirmesinden önceki temel soru:</strong> Kaç lokasyonda, kaç mühendisle kaç ağ cihazı yönetiyorsunuz? Yanıtınız &ldquo;birkaç yüz cihazdan az, bir veya iki lokasyon, tek bir ağ ekibi&rdquo; ise, önce alternatiflere bakın.</p>
+</blockquote>
+<hr>
+<h2 id="kurulum-gerçeği-karmaşık-zaman-alıcı-ve-hata-kabul-etmeyen">Kurulum Gerçeği: Karmaşık, Zaman Alıcı ve Hata Kabul Etmeyen</h2>
+<p>Organizasyonları şaşırtan ikinci büyük faktör, ilk kurulum ve yapılandırmanın ne kadar detaylı ve meşakkatli olduğudur.</p>
+<h3 id="ilk-kurulum-hızlı-değildir">İlk Kurulum Hızlı Değildir</h3>
+<p>Bir DNA Center cluster&rsquo;ını ayağa kaldırmak, mevcut ağınızla entegre etmek ve çalışır duruma getirmek hafta sonu bitecek bir iş değil, haftalar süren bir projedir. Bu süreç şunları içerir:</p>
+<ul>
+<li>Fiziksel appliance kurulumu ve cluster oluşturma</li>
+<li>Ağ hiyerarşisinin tanımlanması (lokasyon, bina, kat yapısı)</li>
+<li>Cihaz keşfi (discovery) ve onboarding</li>
+<li>Cihaz yapılandırmaları için şablon (template) tasarımı</li>
+<li>ISE entegrasyonu (politika özellikleri kullanılacaksa)</li>
+<li>AP&rsquo;ler yönetilecekse kablosuz ağ entegrasyonu</li>
+<li>Assurance veri toplama yapılandırması</li>
+</ul>
+<p>Bu adımların her birinin bağımlılıkları vardır. Şablon tasarımı, ağınızın nasıl görünmesi gerektiğini anlamayı ve bunu tekrarlanabilir bir yapılandırma olarak kodlamayı gerektirir — bu da DNA Center&rsquo;dan önce yapılmış olması gereken ağ standartlaştırma çalışmasının, kurulumun bir parçası olarak tamamlanması gerektiği anlamına gelir.</p>
+<h3 id="ön-gereksinim-problemi">Ön Gereksinim Problemi</h3>
+<p>DNA Center, gerçek dünyadaki bir çok ortamda bulunmayan bir ağ standartlaşması seviyesi varsayar. Switch&rsquo;lerinizde tutarsız yapılandırmalar, standart olmayan isimlendirme kuralları veya yıllar içinde organik olarak gelişmiş eski yapılar varsa, DNA Center kurulumu platformun cihazları güvenilir bir şekilde yönetebilmesinden önce tüm bunları düzeltmenizi zorunlu kılar.</p>
+<p>Bu aslında gizli bir faydadır — DNA Center sizi iyi pratikleri uygulamaya zorlar. Ancak ön hazırlık çalışmaları beklenenden daha fazla olduğu için kurulum projesinin genellikle planlanandan uzun sürmesi anlamına gelir.</p>
+<h3 id="kur-ve-unut-bir-seçenek-değildir">&ldquo;Kur ve Unut&rdquo; Bir Seçenek Değildir</h3>
+<p>DNA Center bir kez kurup kendi haline bırakacağınız bir platform değildir. Sürekli ilgi gerektirir:</p>
+<ul>
+<li>Appliance&rsquo;ın kendisi için yazılım güncellemeleri (düzenli bakım pencereleri)</li>
+<li>Ağ standartları değiştiğinde şablon güncellemeleri</li>
+<li>Erişim gereksinimleri geliştikçe ISE politika güncellemeleri</li>
+<li>Yönettiği ağın yanı sıra platformun kendi sağlığının izlenmesi</li>
+</ul>
+<p>DNA Center&rsquo;ı işletmek için özel kaynak ayırmadan kuran organizasyonlar, platform gerçek ağ durumuyla senkronizasyonunu kaybettikçe sunduğu değerin zamanla azaldığını görürler.</p>
+<hr>
+<h2 id="stabilizasyondan-sonra-elde-ettikleriniz-gerçek-değer">Stabilizasyondan Sonra Elde Ettikleriniz: Gerçek Değer</h2>
+<p>DNA Center kurulduktan, yapılandırıldıktan ve stabilize edildikten sonra — ki bu zaman ve çaba gerektirir — operasyonel tablo önemli ölçüde değişir. Platform, harcanan maliyetin karşılığını tam olarak burada verir.</p>
+<h3 id="kablolu-ve-kablosuz-ağlar-için-tek-ekranda-yönetim">Kablolu ve Kablosuz Ağlar İçin Tek Ekranda Yönetim</h3>
+<p>En hızlı görülen operasyonel fayda: her şeyin tek bir yerde görünür olmasıdır. Kablolu switch&rsquo;ler, kablosuz AP&rsquo;ler, router&rsquo;lar, WAN bağlantıları — hepsi tek bir arayüzden yönetilir ve izlenir. Ağı ayrı araçlarla yönetilen kopuk alanlar olarak değil, bir bütün olarak görürsünüz.</p>
+<p>Bu kulağa basit gelebilir; ancak kablolu ağ ekibi ile kablosuz ağ ekibinin tarihsel olarak farklı araçlar kullandığı ve farklı görünürlüğe sahip olduğu büyük ortamlarda, bu birleşik görünüm sorunların teşhis edilme şeklini gerçekten değiştirir. Daha önce birden fazla kaynaktan gelen verileri ilişkilendirmeyi gerektiren bir istemci (client) bağlantı sorunu, tek bir iş akışında tüm hat boyunca — istemciden AP&rsquo;ye, switch&rsquo;e ve firewall&rsquo;a kadar — izlenebilir.</p>
+<h3 id="yerleşik-loglama-ve-geçmişe-dönük-analiz">Yerleşik Loglama ve Geçmişe Dönük Analiz</h3>
+<p>DNA Center, yönetilen cihazlardan telemetri verilerini toplar ve saklar. Port (interface) istatistikleri, istemci bağlantı geçmişi, topoloji değişiklikleri, yapılandırma değişiklikleri — hepsi loglanır ve sorgulanabilir durumdadır.</p>
+<p>Pratik değeri şudur: Geçen Salı gece saat 02:00&rsquo;de bir sorun yaşandığında, geriye dönüp ağın o andaki durumunu tam olarak görebilirsiniz. Port kullanımı, istemci sayıları, hata oranları, yapılandırma durumu. Bu geçmişe dönük görünürlük, geleneksel ağ yönetiminde genellikle eksik olan bir şeydir — cihazlar logları kendi içlerinde tutar, ancak olay gerçekleştikten sonra yüzlerce cihaz arasında bu logları ilişkilendirmek manuel ve yavaştır.</p>
+<p>Bu aynı zamanda ağ cihazı verileri için <strong>mutlaka ayrı bir üçüncü taraf loglama platformuna ihtiyacınız olmadığı</strong> anlamına gelir. DNA Center, yönetilen cihazlar için bu işlevi üstlenerek sistem mimarinizdeki araç sayısını azaltır.</p>
+<h3 id="otomasyon-operasyonel-çarpan-etkisi">Otomasyon: Operasyonel Çarpan Etkisi</h3>
+<p>Şablonlar ve iş akışları kurulduktan sonra, yeni cihazların veya lokasyonların yapılandırılması (provisioning) ciddi şekilde hızlanır. Tamamen DNA Center tarafından yönetilen mevcut bir kampüse yeni bir bina eklemek şunları içerir:</p>
+<ul>
+<li>Yeni switch&rsquo;lerin fiziksel olarak bağlanması</li>
+<li>Cihaz keşfinin (discovery) çalıştırılması</li>
+<li>Mevcut lokasyon şablonunun uygulanması</li>
+<li>Bitti</li>
+</ul>
+<p>Daha önce her bir cihazın bir terminal oturumundan manuel olarak yapılandırılmasını gerektiren ve büyük bir lokasyon için günlerce sürebilecek işler, şablon çalışması halihazırda yapılmış olduğunda birkaç saate veya daha kısa süreye iner.</p>
+<p>Aynı durum toplu değişiklikler için de geçerlidir: 200 switch üzerinde bir VLAN&rsquo;ı güncellemek, ağ genelinde yeni bir QoS politikası uygulamak, tüm yönetilen cihazlarda kimlik bilgilerini (credentials) yenilemek. Daha önce betik (scripting) yazmayı veya manuel tekrarları gerektiren operasyonlar, şablon odaklı iş akışlarına dönüşür.</p>
+<h3 id="fabric-mimarisi-kampüsünüzde-vxlan-kullanımı">Fabric Mimarisi: Kampüsünüzde VXLAN Kullanımı</h3>
+<p>SD-Access fabric yapısını kuran organizasyonlar için DNA Center, temelde çok farklı bir kampüs mimarisinin üzerindeki yönetim katmanıdır. Geleneksel bir kampüs ağında, VLAN&rsquo;lar switch&rsquo;ler arasında 802.1Q trunking kullanılarak taşınır — yani Layer 2 alanı fiziksel olarak ağ topolojisiyle sınırlandırılmıştır.</p>
+<p>SD-Access, yönlendirilen bir underlay (routed underlay) üzerinde sanal ağlar oluşturmak için VXLAN kullanır. Sonuç: herhangi bir uç nokta (endpoint), fiziksel konumundan bağımsız olarak herhangi bir sanal ağda yer alabilir, VLAN&rsquo;ların fiziksel ağ boyunca taşınmasına gerek kalmaz ve makro segmentasyon firewall yerine fabric kenarında (fabric edge) uygulanır.</p>
+<p>Farklı departmanlar, IoT cihazları, misafir ağları gibi hepsi izolasyon gerektiren karmaşık segmentasyon ihtiyaçlarına sahip büyük kampüsler için fabric modeli, taşınan VLAN&rsquo;ları ve VLAN&rsquo;lar arası yönlendirmeyi manuel olarak yönetmeye kıyasla mimariyi ciddi şekilde sadeleştirir.</p>
+<hr>
+<h2 id="ise-entegrasyonu-platformun-olağanüstü-hale-geldiği-yer">ISE Entegrasyonu: Platformun Olağanüstü Hale Geldiği Yer</h2>
+<p>Tek başına kurulan bir DNA Center güçlüyse, Cisco ISE ile entegre edilmiş bir DNA Center bambaşka bir yetenek seviyesidir.</p>
+<p>ISE kimlik ve politika motorunu sağlar. DNA Center ise ağ yönetimi ve uygulama (enforcement) platformunu sağlar. Birlikte:</p>
+<ul>
+<li>Bir kullanıcı kampüs ağına bağlanır (kablolu veya kablosuz)</li>
+<li>ISE, 802.1X aracılığıyla kullanıcıyı Active Directory üzerinden doğrular</li>
+<li>ISE; kimlik, cihaz türü ve durum bilgisinden (posture) yola çıkarak güvenlik grubunu (SGT) belirler</li>
+<li>DNA Center, bu güvenlik grubuyla ilişkili politikayı tüm fabric genelinde uygular</li>
+<li>Politika; A binası, B binası, kablolu veya kablosuz olması fark etmeksizin, bağlandığı her yerde kullanıcıyı takip eder</li>
+</ul>
+<p>Bu, kimlik tabanlı ağ yönetiminin (identity-based networking) en eksiksiz halidir. Erişim politikası, kullanıcının hangi fiziksel portta veya IP alt ağında (subnet) olduğuna değil, kim olduğuna ve hangi cihazı kullandığına bağlıdır. Bir finans çalışanı; masasında, toplantı odasında veya uzak bir ofiste kabloyla bağlansa bile finans seviyesinde erişim alır.</p>
+<p>Operasyonel sonucu şudur: <strong>ağ segmentasyonu fiziksel bir problem olmaktan çıkar</strong> (bu port hangi VLAN&rsquo;da?) ve bir politika problemine dönüşür (bu kullanıcının neye erişmesine izin verilmeli?). Bu sadeleşme, karmaşık erişim gereksinimleri olan ortamlarda gerçek bir değer yaratır.</p>
+<p>Bunu sözünü ettiğim üretim ortamında uyguladığımda; DNA Center, ISE, Umbrella, Stealthwatch ve Firepower kombinasyonu tamamen entegre bir güvenlik ve ağ fabric yapısı oluşturdu. ISE&rsquo;de yapılan politika değişiklikleri DNA Center üzerinden tüm ağa otomatik olarak yayıldı. Stealthwatch&rsquo;tan gelen görünürlük, otomatik yanıtları tetikleyen anomali tespitini besledi. Yüzlerce cihazın bulunduğu bir kampüste bu düzeyde bir entegrasyonu manuel olarak sürdürmek imkansız olurdu.</p>
+<hr>
+<h2 id="bulut-entegrasyonu-aws-ve-ötesi">Bulut Entegrasyonu: AWS ve Ötesi</h2>
+<p>DNA Center, kapsamını kurum içi (on-premise) kampüsün ötesine genişleten bulut entegrasyon yetenekleri ekledi.</p>
+<p><strong>AWS entegrasyonu</strong>, DNA Center&rsquo;ın ağ politikalarını ve görünürlüğünü bulut iş yüklerine genişletmesine olanak tanır. Transit Gateway entegrasyonu, VPC bağlantı yönetimi, kurum içi ve AWS ortamları arasında tutarlı politika uygulanması platformun yöneldiği hedefler arasındadır.</p>
+<p>Cisco&rsquo;nun daha geniş vizyonu — ve platformun ilerlediği yön — kurum içi kampüs, şube ağları ve bulut ortamlarında tek bir yönetim düzleminden tutarlı politika ve görünürlük sağlamaktır. Azure ve diğer bulut sağlayıcıları da yol haritasında (roadmap) yer almaktadır.</p>
+<p>Bu yetenekler halen gelişmektedir. Kurum içi kampüs yönetimi olgundur; çoklu bulut (multi-cloud) entegrasyonu ise daha yenidir ve gelişmeye devam etmektedir. Ancak ciddi bir bulut varlığına sahip olan ve aynı zamanda Cisco kampüs altyapısı çalıştıran organizasyonlar için bu yakınlaşma takip edilmeye değerdir — Cisco&rsquo;nun yatırım yaptığı yön burasıdır.</p>
+<hr>
+<h2 id="dna-center-mi-geleneksel-kampüs-mü-mimari-karar">DNA Center mi, Geleneksel Kampüs mü: Mimari Karar</h2>
+<p>Geleneksel kampüs yönetimi ne zaman DNA Center&rsquo;dan daha mantıklıdır?</p>
+<p><strong>Geleneksel kampüs (yönetilen switch&rsquo;ler, ayrı araçlar) şu durumlarda uygundur:</strong></p>
+<ul>
+<li>Cihaz sayısı, otomasyonun net bir ROI (yatırım getirisi) sunduğu ölçek eşiğinin altındaysa</li>
+<li>Organizasyon, DNA Center&rsquo;ı düzgün bir şekilde kuracak ve işletecek mühendislik kaynaklarına sahip değilse</li>
+<li>Bütçe kısıtlamaları donanım ve lisanslama yatırımını haklı çıkarmayı zorlaştırıyorsa</li>
+<li>Ağ stabil ve standartlaştırılmışsa — değişiklik sıklığı düşükse</li>
+<li>Cisco&rsquo;nun baskın olmadığı çoklu üreticili (multi-vendor) bir ortam varsa</li>
+</ul>
+<p><strong>DNA Center şu durumlarda mantıklıdır:</strong></p>
+<ul>
+<li>Yüksek cihaz sayısı (yüzlerce switch, birden fazla lokasyon)</li>
+<li>Yeni lokasyonların veya cihazların sık sık yapılandırılması (provisioning) gerekiyorsa</li>
+<li>Fabric mimarisinden faydalanan karmaşık segmentasyon gereksinimleri varsa</li>
+<li>ISE halihazırda kurulmuşsa veya planlanıyorsa — entegrasyon değeri katlar</li>
+<li>Mühendislik ekibinin platformu düzgün şekilde işletecek kapasitesi varsa</li>
+<li>Organizasyon uzun vadede Cisco ekosistemine bağlı kalmayı hedefliyorsa</li>
+</ul>
+<p>En kötü senaryo, ölçeğin haklı çıkarmadığı bir ortama DNA Center kurup, orantılı bir değer sunmayan karmaşık bir platformun operasyonel yüküyle boğuşmaktır. İkinci en kötü senaryo ise DNA Center&rsquo;dan faydalanacak kadar büyük bir ağa sahip olup, bunu düzgün işletecek mühendislik kaynaklarını ayırmamaktır.</p>
+<hr>
+<h2 id="sahadan-pratik-gözlemler">Sahadan Pratik Gözlemler</h2>
+<p>Dokümantasyonda görünmeyen ancak pratikte önem taşıyan birkaç husus:</p>
+<p><strong>Ağ standartlaştırması ile başlayın.</strong> DNA Center&rsquo;ı kurmadan önce mevcut ağ yapılandırmanızı denetleyin. Tutarsız hostname kuralları, standart dışı VLAN yapıları ve eski yapılandırmalar cihaz onboarding sürecini ciddi şekilde yavaşlatır. DNA Center, temiz ve standartlaştırılmış ağları ödüllendirir.</p>
+<p><strong>Asıl iş şablon tasarımıdır.</strong> İyi yapılandırma şablonları oluşturmak için yapılan zaman yatırımı yıllarca karşılığını verir. Aceleye getirilmiş şablonlar, otomasyon değerini zayıflatan manuel müdahalelere ve istisnalara yol açar. Başlangıçta şablonları düzgün bir şekilde tasarlamaya zaman ayırın.</p>
+<p><strong>Canlı sistemler için cluster isteğe bağlı değildir.</strong> Tek nodlu bir kurulum canlı (production) ortamlar için uygun değildir — ağ yönetim platformunuz için tek bir arıza noktası (single point of failure) oluşturur. Başlangıçtan itibaren üç nodlu cluster için bütçe ayırın.</p>
+<p><strong>ISE entegrasyonu ISE uzmanlığı gerektirir.</strong> DNA Center&rsquo;ı ISE ile entegre etmek platformun tüm potansiyelini ortaya çıkarır, ancak ISE&rsquo;nin kendisi karmaşıktır. Entegrasyon projesi, ekipte çalışan bir ISE bilgisi olduğunu varsayar. ISE, DNA Center ile birlikte ilk kez canlıya alınacaksa, birleşik öğrenme eğrisini hesaba katın.</p>
+<p><strong>Güncelleme planlaması önemlidir.</strong> DNA Center güncellemeleri (upgrades) bakım pencereleri ve dikkatli bir planlama gerektirir. Appliance&rsquo;ı eski bir yazılım sürümünde çalıştırmak, güvenlik borcu ve özellik eksikliği biriktirir. Düzenli güncelleme döngülerini operasyonel takviminize dahil edin.</p>
+<hr>
+<h2 id="önemli-çıkarımlar">Önemli Çıkarımlar</h2>
+<ul>
+<li><strong>DNA Center pahalıdır</strong> — canlı sistem yüksek erişilebilirliği (HA) için gereken üç nodlu cluster, yazılım lisanslamasından önce bile ciddi bir donanım yatırımıdır. Bu maliyet yalnızca ölçek büyüdüğünde anlamlı hale gelir.</li>
+<li><strong>İlk kurulum karmaşık ve zaman alıcıdır</strong> — günler değil haftalar sürecek bir süreç ve ağ standartlaştırması için ön çalışma planlayın.</li>
+<li><strong>Stabilize edildikten sonra operasyonel değeri gerçektir</strong> — birleşik görünürlük, yerleşik loglama, otomasyon ve fabric yönetimi, büyük ağların işletilme şeklini gerçekten değiştirir.</li>
+<li><strong>Platform, ISE entegrasyonu ile olağanüstü hale gelir</strong> — bağlantı noktasından bağımsız olarak kullanıcıları takip eden ve tüm kampüste uygulanan kimlik tabanlı politika.</li>
+<li><strong>Yerleşik loglama, üçüncü taraf araç bağımlılığını azaltır</strong> — DNA Center ağ telemetrisini saklayarak ağ cihazı verileri için ayrı bir loglama altyapısı ihtiyacını azaltır.</li>
+<li><strong>Bulut entegrasyonu büyüyor</strong> — AWS bağlantısı mevcuttur ve daha geniş çoklu bulut desteği geliştirilmektedir.</li>
+<li><strong>Küçük ve orta ölçekli organizasyonlar için: başka çözümlere bakın.</strong> Düşük cihaz sayılarında yatırım, elde edilecek faydayla orantısızdır. İyi izleme araçlarına sahip geleneksel kampüs yönetimi doğru cevaptır.</li>
+<li><strong>Ürün gelişmeye devam ediyor</strong> — Cisco platforma aktif olarak yatırım yapıyor. İlk canlıya alındığında sınırlı olan yetenekler her sürümle birlikte daha olgun hale geliyor.</li>
+</ul>
+<hr>
+<h2 id="ilgili-makaleler">İlgili Makaleler</h2>
+<ul>
+<li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">Sahadan 802.1X Kimlik Tabanlı Mimari</a> — DNA Center + ISE kombinasyonunu güçlü kılan kimlik altyapısı</li>
+<li>🔐 <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Yaklaşımı: Güvenliği Ürün Değil Mimari Olarak Tasarlamak</a> — SD-Access politika modelinin arkasındaki mimari felsefe</li>
+<li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yetmez?</a> — Kampüs mimarisi bağlamı</li>
+<li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">Doğru İzleme (Monitoring)</a> — DNA Center assurance yeteneğinin genel izleme stratejisine uyumu</li>
+<li>🌐 <a href="/en/technology/enterprise-wifi-controller-architecture-cisco-aruba/">Kurumsal WiFi Controller Mimarisi</a> — DNA Center ile kablosuz ağ entegrasyonu</li>
+</ul>
+]]></content:encoded></item></channel></rss>
