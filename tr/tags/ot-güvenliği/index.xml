@@ -1,4 +1,76 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>OT Güvenliği on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/ot-g%C3%BCvenli%C4%9Fi/</link><description>Recent content in OT Güvenliği on Barash Helvadzhaoglu</description><generator>Hugo -- 0.169.0</generator><language>tr</language><lastBuildDate>Fri, 03 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/ot-g%C3%BCvenli%C4%9Fi/index.xml" rel="self" type="application/rss+xml"/><item><title>OT Ağları: Bir IT Mühendisinin Fabrika Zemininde Gerçekte Karşılaştıkları</title><link>https://barashhelvadzhaoglu.com/tr/technology/ot-network-security/</link><pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/ot-network-security/</guid><description>IT mühendisi için OT güvenlik rehberi — Purdue modeli, Katman 2 firewall, OT imzaları, yama yapılamayan sistemler ve endüstriyel 802.1X.</description><content:encoded><![CDATA[<h1 id="ot-ağları-bir-it-mühendisinin-fabrika-zemininde-gerçekte-karşılaştıkları">OT Ağları: Bir IT Mühendisinin Fabrika Zemininde Gerçekte Karşılaştıkları</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>OT Güvenliği on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/ot-g%C3%BCvenli%C4%9Fi/</link><description>Recent content in OT Güvenliği on Barash Helvadzhaoglu</description><generator>Hugo -- 0.169.0</generator><language>tr</language><lastBuildDate>Fri, 06 Nov 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/ot-g%C3%BCvenli%C4%9Fi/index.xml" rel="self" type="application/rss+xml"/><item><title>Avrupa'da Süpermarket Buzdolaplarına Siber Saldırı: OT ve IoT Cihazları Nasıl Korunur?</title><link>https://barashhelvadzhaoglu.com/tr/posts/supermarket-fridge-cyberattacks-ot-security/</link><pubDate>Fri, 06 Nov 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/supermarket-fridge-cyberattacks-ot-security/</guid><description>Ekim ve Kasım 2026&amp;#39;da Avrupa&amp;#39;daki süpermarketlerde soğutucular uzaktan ısıtıldı. Şu ana kadar bilinenler, bir soğutma kontrolörüne neden ağdan erişilebildiği ve perakende ile KOBİ ağlarında OT ve IoT cihazlarını korumak için yedi önlem.</description><content:encoded><![CDATA[<p>Ekim ve Kasım 2026&rsquo;da Avrupa&rsquo;nın dört bir yanındaki süpermarketlerde buzdolapları ve dondurucular, içindeki ürünleri bozacak sıcaklıklara ayarlandı. Cihazlara fiziksel olarak kimse dokunmadı. Bu yazı kamuya açık bilgileri özetliyor, bir soğutma kontrolörünün neden ağ üzerinden saldırıya açık olabildiğini açıklıyor ve böyle bir saldırıyı çok daha zor hale getirecek önlemleri sıralıyor.</p>
+<blockquote>
+<p><strong>Durum:</strong> Bu yazı 6 Kasım 2026&rsquo;ya kadarki haberlere ve şirket açıklamalarına dayanıyor. Soruşturmalar sürüyor. Doğrulanmamış bilgileri ayrıca belirtiyorum.</p>
+</blockquote>
+<h2 id="ne-oldu">Ne Oldu?</h2>
+<ul>
+<li><strong>Fransa, 12 Ekim 2026:</strong> Intermarché, Carrefour, Monoprix ve Coopérative U mağazalarında soğutucular ısıtıldı ve gıdalar bozuldu. Intermarché&rsquo;nin bağlı olduğu grup birkaç milyon euro zarar bekliyor.</li>
+<li><strong>2 Kasım 2026:</strong> İkinci dalga Belçika&rsquo;da yaklaşık 75 mağazayı (Delhaize, Carrefour, Intermarché, Spar ve bir IKEA mağazası dahil), İrlanda&rsquo;da 13 SuperValu mağazasını, İsveç&rsquo;te ICA ve Coop mağazalarını, ayrıca Hollanda, Estonya ve Finlandiya&rsquo;daki şirketleri etkiledi. Stockholm&rsquo;de bir dondurucunun 50 °C&rsquo;ye kadar ısıtıldığı bildirildi.</li>
+<li><strong>Ortak nokta:</strong> Etkilenen sistemlerin bir kısmında Danfoss&rsquo;un soğutma kontrol yazılımı kullanılıyordu. Danfoss&rsquo;a göre etkilenen müşteriler yazılımlarını güncellememişti. Claroty&rsquo;deki güvenlik araştırmacıları Ağustos&rsquo;ta Danfoss soğutma kontrolörlerinde açıklar bildirmişti. Danfoss bunları bir güncellemeyle kapattığını söylüyor.</li>
+<li><strong>Yöntem:</strong> Belçikalı soğutma servis firması Sabcobel, cihazların defrost moduna geçirildiğini ve tek başına yazılım güncellemesinin yetmediğini, fiziksel değişiklik de gerektiğini açıkladı.</li>
+</ul>
+<p><strong>Şu ana kadar doğrulanmayanlar:</strong> Saldırganların sistemlere nasıl eriştiği, Ağustos&rsquo;ta bildirilen açıkların kullanılıp kullanılmadığı ve saldırıların arkasında kimin olduğu. Belçika federal savcılığı soruşturma başlattı. AB Tarım Komiseri saldırıları gıda tedarik zincirini bozmaya yönelik kasıtlı bir girişim olarak nitelendirdi.</p>
+<h2 id="bir-buzdolabı-neden-ağa-bağlı">Bir Buzdolabı Neden Ağa Bağlı?</h2>
+<p>Ticari soğutma, evdeki buzdolabı gibi değil. Bir süpermarket, merkezi olarak yönetilen onlarca soğutma ünitesi çalıştırır: sıcaklıklar, defrost döngüleri, alarmlar ve enerji optimizasyonu. Servis firmasının gece alarmları görmesi ve mağazaya gitmeden ayar değiştirebilmesi gerekir.</p>
+<p>Bu meşru bir ihtiyaç. Sorun, bu ihtiyacın çoğu zaman nasıl karşılandığı:</p>
+<ul>
+<li>Kontrolör ya da web arayüzü <strong>doğrudan internetten erişilebilir</strong> durumdadır, bazen yıllar önce yapılmış bir port yönlendirmesiyle.</li>
+<li>Kasalar, ofis bilgisayarları ve misafir Wi-Fi ile <strong>aynı ağdadır</strong>.</li>
+<li>Servis firması, kimsenin izlemediği <strong>kalıcı bir uzaktan erişim</strong> aracı kullanır.</li>
+<li>Yazılım, &ldquo;çalışıyor&rdquo; diye kurulumdan beri <strong>hiç güncellenmemiştir</strong>.</li>
+<li><strong>Varsayılan şifreler</strong> hiç değiştirilmemiştir.</li>
+</ul>
+<p>Bunların hiçbiri soğutmaya özgü değil. Aynı tablo bina otomasyonunda, ısıtma ve havalandırmada, geçiş kontrolünde, kameralarda, güneş enerjisi invertörlerinde ve üretim makinelerinde de var. Bu olayın süpermarketlerin ötesinde önemli olmasının sebebi bu.</p>
+<h2 id="ot-ve-iot-cihazlarını-korumak-için-yedi-önlem">OT ve IoT Cihazlarını Korumak için Yedi Önlem</h2>
+<h3 id="1-neyin-olduğunu-bilin">1. Neyin Olduğunu Bilin</h3>
+<p>Bilmediğiniz cihazları koruyamazsınız. Ağa bağlı her kontrolörün, gateway&rsquo;in ve sensörün envanterini tutun: üretici, model, yazılım sürümü, IP adresi, kimin yönettiği ve uzaktan nasıl erişildiği.</p>
+<h3 id="2-internete-doğrudan-açık-olmasın">2. İnternete Doğrudan Açık Olmasın</h3>
+<p>Bir OT cihazının yönetim arayüzü asla internetten erişilebilir olmamalı. Firewall&rsquo;unuzdaki port yönlendirmelerini kontrol edin. Dışarıdan neyin göründüğünü anlamak için public IP adreslerinizi Shodan gibi servislerde aratın.</p>
+<h3 id="3-ağı-segmentlere-ayırın">3. Ağı Segmentlere Ayırın</h3>
+<p>OT ve IoT cihazları kendi VLAN&rsquo;ında ya da ağ segmentinde olmalı. Segmentler arasındaki firewall kimin kiminle konuşabileceğine karar verir:</p>
+<ul>
+<li>Soğutma kontrolörü yalnızca kendi yönetim sunucusuyla ve kullanılıyorsa üreticinin bulut servisiyle konuşur.</li>
+<li>Kasalar, ofis bilgisayarları ve misafir Wi-Fi kontrolöre hiç erişemez.</li>
+</ul>
+<p>Endüstriyel ağlarda segmentasyon hakkında daha fazlası: <a href="/tr/technology/ot-network-security/">OT Ağları: Bir IT Mühendisinin Fabrika Zemininde Gerçekte Karşılaştıkları</a>.</p>
+<h3 id="4-dışarı-giden-trafiği-kısıtlayın">4. Dışarı Giden Trafiği Kısıtlayın</h3>
+<p>Birçok cihazın yalnızca birkaç hedefe ulaşması gerekir. Tam olarak bu adreslere ve portlara izin verin, gerisini engelleyin. Cihaz ele geçirilse bile ek araç indiremez ve saldırganın sunucusuna bağlanamaz.</p>
+<h3 id="5-servis-firmalarının-uzaktan-erişimini-güvenli-hale-getirin">5. Servis Firmalarının Uzaktan Erişimini Güvenli Hale Getirin</h3>
+<p>Servis firmasının erişime ihtiyacı var, ama sizin koşullarınızla:</p>
+<ul>
+<li>Erişim <strong>IPsec VPN ya da ZTNA (Zero Trust Network Access)</strong> üzerinden ve <strong>çok faktörlü kimlik doğrulama</strong> ile olmalı, asla açık bir port üzerinden değil.</li>
+<li>Erişim yalnızca firmanın baktığı sistemlerle sınırlı olmalı, tüm ağa değil.</li>
+<li>Erişim <strong>yalnızca gerektiğinde açılmalı</strong>, sonra kapatılmalı ve kimin ne zaman bağlandığı kayıt altına alınmalı.</li>
+</ul>
+<h3 id="6-güncellemeler-ve-şifreler">6. Güncellemeler ve Şifreler</h3>
+<p>OT cihazlarının yazılım güncellemelerini, sunucularda olduğu gibi üreticiyle koordineli şekilde planlayın. Tüm varsayılan şifreleri değiştirin ve ortak tek bir kullanıcı yerine kişisel hesaplar kullanın.</p>
+<h3 id="7-yazılımın-aşamayacağı-güvenlik-sınırları">7. Yazılımın Aşamayacağı Güvenlik Sınırları</h3>
+<p>Bu, bu olaya en özgü ders. Ele geçirilmiş bir kontrolör bir dondurucuyu 50 °C&rsquo;ye kadar ısıtabiliyorsa, sistemde bağımsız bir güvenlik sınırı yok demektir. Fiziksel ya da donanım tabanlı sınırlar ve ağdan bağımsız çalışan yerel alarmlar, ele geçirilmiş bir kontrolörün fiziksel zarar vermesini engeller. İzleme de önemli: Gece saat 3&rsquo;te yapılan olağandışı sıcaklık ya da konfigürasyon değişiklikleri anında alarm üretmeli.</p>
+<h2 id="küçük-işletmeler-için-hızlı-kontrol-listesi">Küçük İşletmeler için Hızlı Kontrol Listesi</h2>
+<ul>
+<li>Mağazamızda hangi cihazların ağa bağlı olduğunu biliyor muyuz?</li>
+<li>Bunlardan herhangi birine internetten erişilebiliyor mu?</li>
+<li>Kasalardan ve misafir Wi-Fi&rsquo;dan ayrı bir ağdalar mı?</li>
+<li>Servis firmamız nasıl bağlanıyor ve ne zaman bağlandığını görebiliyor muyuz?</li>
+<li>Yazılım en son ne zaman güncellendi? Varsayılan şifreler değiştirildi mi?</li>
+<li>Ağ ya da kontrolör çökse bile çalışan bir alarm var mı?</li>
+</ul>
+<p>Bu sorulardan birine cevap veremiyorsanız, işe oradan başlayın.</p>
+<h2 id="ilgili-yazılar">İlgili Yazılar</h2>
+<ul>
+<li><a href="/tr/technology/ot-network-security/">OT Ağları: Bir IT Mühendisinin Fabrika Zemininde Gerçekte Karşılaştıkları</a></li>
+<li><a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Bir Ürün Değil, Bir Mimari Olarak Mühendislemek</a></li>
+<li><a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Projeleri: Kimliği Ağa Taşıyan Mimariyi Sahada Kurmak</a></li>
+<li><a href="/tr/technology/firewall-selection-capacity/">Firewall Seçimi ve Kapasite Planlaması</a></li>
+</ul>
+<h2 id="kaynaklar">Kaynaklar</h2>
+<ul>
+<li><a href="https://www.euronews.com/2026/11/02/cyberattack-hits-belgian-supermarket-fridges-and-freezers">Euronews: Cyberattacks hit supermarket fridges and freezers in Europe</a></li>
+<li><a href="https://www.forbes.com/sites/conormurray/2026/11/02/new-wave-of-refrigerator-cyberattacks-roils-european-supermarkets-everything-is-destroyed/">Forbes: New wave of refrigerator cyberattacks roils European supermarkets</a></li>
+<li><a href="https://www.aljazeera.com/news/2026/11/2/freezers-in-sweden-belgium-overheat-following-possible-cyberattacks">Al Jazeera: Suspected cyberattacks trigger supermarket fridge failures across Europe</a></li>
+<li><a href="https://www.axios.com/2026/11/02/europe-supermarket-fridges-attacks-food">Axios: Europe&rsquo;s fridges are getting hacked</a></li>
+</ul>
+]]></content:encoded></item><item><title>OT Ağları: Bir IT Mühendisinin Fabrika Zemininde Gerçekte Karşılaştıkları</title><link>https://barashhelvadzhaoglu.com/tr/technology/ot-network-security/</link><pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/ot-network-security/</guid><description>IT mühendisi için OT güvenlik rehberi — Purdue modeli, Katman 2 firewall, OT imzaları, yama yapılamayan sistemler ve endüstriyel 802.1X.</description><content:encoded><![CDATA[<h1 id="ot-ağları-bir-it-mühendisinin-fabrika-zemininde-gerçekte-karşılaştıkları">OT Ağları: Bir IT Mühendisinin Fabrika Zemininde Gerçekte Karşılaştıkları</h1>
 <p>Çoğu ağ mühendisi kariyerini IT altyapısında geçirir — kurumsal LAN&rsquo;lar, veri merkezleri, kampüs ağları, bulut bağlantısı. Sonra bir gün masanıza fabrika, depo otomasyon sistemi veya bir tesis içeren bir proje düşer. Ve birden tanıdık kurallar tam olarak geçerli olmaz.</p>
 <p>OT (Operational Technology — Operasyonel Teknoloji) ağları IT ağları değildir. Cihazlar farklıdır, protokoller farklıdır, öncelikler farklıdır ve — kritik olarak — bir şeyi yanlış yapmanın sonuçları farklıdır. IT&rsquo;de yanlış yapılandırılmış bir switch ağ kesintisine neden olur. OT&rsquo;de yanlış yapılandırılmış bir ağ değişikliği üretim hattını durdurabilir, pahalı ekipmanı hasar görebilir veya kritik altyapı senaryolarında fiziksel güvenlik riskleri yaratabilir.</p>
 <p>Bu yazı IT mühendisinin perspektifinden yazılmıştır — bir firewall eklemek, bir ağı segmente etmek veya endüstriyel bir sistemi kurumsal ağa bağlamak için çağrılan kişi. Derin bir SCADA mühendisliği rehberi değil, karşılaşacaklarınız ve herhangi bir şeye dokunmadan önce düşünmeniz gerekenler için pratik bir yönlendirme.</p>

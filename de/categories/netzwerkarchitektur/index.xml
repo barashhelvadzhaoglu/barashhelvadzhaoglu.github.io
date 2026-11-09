@@ -1,4 +1,76 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Netzwerkarchitektur on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/categories/netzwerkarchitektur/</link><description>Recent content in Netzwerkarchitektur on Barash Helvadzhaoglu</description><generator>Hugo -- 0.169.0</generator><language>de</language><lastBuildDate>Wed, 18 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/categories/netzwerkarchitektur/index.xml" rel="self" type="application/rss+xml"/><item><title>🚀 Absolventenguide: Was macht ein Netzwerkingenieur eigentlich?</title><link>https://barashhelvadzhaoglu.com/de/posts/career-guide-network-engineering/</link><pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/posts/career-guide-network-engineering/</guid><description>Karriereleitfaden für Absolventen im Netzwerkingenieurwesen. Industrieinfrastruktur, täglicher Betrieb und die Roadmap zum Profi.</description><content:encoded><![CDATA[<p>Hallo Freunde! Ihr habt gerade euren Abschluss gemacht, das Diplom in der Hand, und eine riesige IT-Welt liegt vor euch. Während ihr euch fragt &ldquo;Welchen Weg soll ich einschlagen?&rdquo;, seid ihr auf <strong>Netzwerkingenieurwesen</strong> gestoßen. Stecken diese Leute also nur Kabel ein, oder steckt eine massive Intelligenz dahinter? Tauchen wir tief in dieses unsichtbare Heldentum der digitalen Welt ein.</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Netzwerkarchitektur on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/categories/netzwerkarchitektur/</link><description>Recent content in Netzwerkarchitektur on Barash Helvadzhaoglu</description><generator>Hugo -- 0.169.0</generator><language>de</language><lastBuildDate>Fri, 06 Nov 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/categories/netzwerkarchitektur/index.xml" rel="self" type="application/rss+xml"/><item><title>Cyberangriffe auf Supermarkt-Kühlschränke in Europa: So sichern Sie OT- und IoT-Geräte</title><link>https://barashhelvadzhaoglu.com/de/posts/supermarket-fridge-cyberattacks-ot-security/</link><pubDate>Fri, 06 Nov 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/posts/supermarket-fridge-cyberattacks-ot-security/</guid><description>Im Oktober und November 2026 wurden Kühlgeräte in europäischen Supermärkten aus der Ferne aufgeheizt. Was bisher bekannt ist, warum eine Kühlsteuerung überhaupt erreichbar ist und sieben Maßnahmen, um OT- und IoT-Geräte in Handel und KMU abzusichern.</description><content:encoded><![CDATA[<p>Im Oktober und November 2026 wurden Kühl- und Gefriergeräte in Supermärkten in ganz Europa auf Temperaturen gestellt, bei denen die Ware verdarb. Niemand hat die Geräte vor Ort angefasst. Dieser Artikel fasst zusammen, was öffentlich bekannt ist, erklärt, warum eine Kühlsteuerung überhaupt über das Netzwerk angreifbar ist, und nennt die Maßnahmen, die einen solchen Angriff deutlich erschwert hätten.</p>
+<blockquote>
+<p><strong>Stand:</strong> Grundlage sind Medienberichte und Unternehmensangaben bis zum 6. November 2026. Die Ermittlungen laufen noch. Wo etwas nicht bestätigt ist, sage ich das.</p>
+</blockquote>
+<h2 id="was-passiert-ist">Was passiert ist</h2>
+<ul>
+<li><strong>Frankreich, 12. Oktober 2026:</strong> In Filialen von Intermarché, Carrefour, Monoprix und Coopérative U wurden Kühlgeräte aufgeheizt und Lebensmittel verdorben. Die Muttergesellschaft von Intermarché rechnete mit Verlusten von mehreren Millionen Euro.</li>
+<li><strong>2. November 2026:</strong> Eine zweite Welle traf rund 75 Filialen in Belgien (unter anderem Delhaize, Carrefour, Intermarché, Spar und eine IKEA-Filiale), 13 SuperValu-Märkte in Irland, ICA- und Coop-Filialen in Schweden sowie Unternehmen in den Niederlanden, Estland und Finnland. In Stockholm wurde ein Gefriergerät Berichten zufolge auf 50 °C aufgeheizt.</li>
+<li><strong>Gemeinsamer Nenner:</strong> Ein Teil der betroffenen Anlagen nutzte Kühlsteuerungssoftware von Danfoss. Laut Danfoss hatten die betroffenen Kunden ihre Software nicht aktualisiert. Sicherheitsforscher von Claroty hatten im August Schwachstellen in Danfoss-Kühlsteuerungen gemeldet, die Danfoss nach eigenen Angaben mit einem Update behoben hat.</li>
+<li><strong>Mechanismus:</strong> Der belgische Kältetechnik-Dienstleister Sabcobel erklärte, die Geräte seien in den Abtaumodus geschaltet worden. Ein Software-Update allein reiche nicht aus, es seien auch physische Änderungen nötig.</li>
+</ul>
+<p><strong>Bisher nicht bestätigt:</strong> wie sich die Angreifer Zugang verschafft haben, ob die im August gemeldeten Schwachstellen ausgenutzt wurden und wer hinter den Angriffen steht. Die belgische Bundesstaatsanwaltschaft ermittelt. Der EU-Agrarkommissar bezeichnete die Angriffe als gezielten Versuch, die Lebensmittelversorgung zu stören.</p>
+<h2 id="warum-hängt-ein-kühlschrank-überhaupt-im-netzwerk">Warum hängt ein Kühlschrank überhaupt im Netzwerk?</h2>
+<p>Gewerbliche Kühlung ist kein Haushaltskühlschrank. Ein Supermarkt betreibt Dutzende Kühlstellen, die zentral gesteuert werden: Temperaturen, Abtauzyklen, Alarme und Energieoptimierung. Der Servicedienstleister muss nachts Alarme sehen und Einstellungen ändern können, ohne in die Filiale zu fahren.</p>
+<p>Das ist ein berechtigter Bedarf. Das Problem ist, wie er oft gelöst wird:</p>
+<ul>
+<li>Die Steuerung oder ihre Weboberfläche ist <strong>direkt aus dem Internet erreichbar</strong>, manchmal über eine Portweiterleitung, die vor Jahren eingerichtet wurde.</li>
+<li>Sie hängt im <strong>selben Netzwerk</strong> wie Kassen, Büro-PCs und Gäste-WLAN.</li>
+<li>Der Dienstleister nutzt einen <strong>dauerhaften Fernzugang</strong>, den niemand überwacht.</li>
+<li>Die Software wurde seit der Installation <strong>nie aktualisiert</strong>, weil „es ja läuft“.</li>
+<li><strong>Standardpasswörter</strong> wurden nie geändert.</li>
+</ul>
+<p>Nichts davon ist typisch nur für Kühlanlagen. Dasselbe Muster gibt es bei Gebäudeautomation, Heizung und Lüftung, Zutrittskontrolle, Kameras, PV-Wechselrichtern und Produktionsmaschinen. Deshalb ist dieser Vorfall auch über Supermärkte hinaus relevant.</p>
+<h2 id="sieben-maßnahmen-um-ot--und-iot-geräte-abzusichern">Sieben Maßnahmen, um OT- und IoT-Geräte abzusichern</h2>
+<h3 id="1-wissen-was-vorhanden-ist">1. Wissen, was vorhanden ist</h3>
+<p>Geräte, die Sie nicht kennen, können Sie nicht schützen. Führen Sie ein Verzeichnis aller vernetzten Steuerungen, Gateways und Sensoren: Hersteller, Modell, Softwareversion, IP-Adresse, wer sie betreut und wie der Fernzugriff erfolgt.</p>
+<h3 id="2-keine-direkte-erreichbarkeit-aus-dem-internet">2. Keine direkte Erreichbarkeit aus dem Internet</h3>
+<p>Die Verwaltungsoberfläche eines OT-Geräts darf nie aus dem Internet erreichbar sein. Prüfen Sie Ihre Firewall auf Portweiterleitungen und suchen Sie Ihre öffentlichen IP-Adressen in Diensten wie Shodan, um zu sehen, was von außen sichtbar ist.</p>
+<h3 id="3-netzwerk-segmentieren">3. Netzwerk segmentieren</h3>
+<p>OT- und IoT-Geräte gehören in ein eigenes VLAN oder Netzsegment. Die Firewall zwischen den Segmenten entscheidet, wer mit wem kommunizieren darf:</p>
+<ul>
+<li>Die Kühlsteuerung spricht nur mit ihrem Verwaltungsserver und, falls genutzt, mit der Cloud des Herstellers.</li>
+<li>Kassen, Büro-PCs und Gäste-WLAN erreichen die Steuerung überhaupt nicht.</li>
+</ul>
+<p>Mehr zur Segmentierung in industriellen Netzen: <a href="/de/technology/ot-network-security/">OT-Netzwerke: Was ein IT-Ingenieur auf dem Fabrikboden wirklich antrifft</a>.</p>
+<h3 id="4-ausgehenden-verkehr-einschränken">4. Ausgehenden Verkehr einschränken</h3>
+<p>Viele Geräte müssen nur eine Handvoll Ziele erreichen. Erlauben Sie genau diese Adressen und Ports und blockieren Sie alles andere. Wird ein Gerät kompromittiert, kann es weder Werkzeuge nachladen noch einen Server des Angreifers erreichen.</p>
+<h3 id="5-fernzugriff-für-dienstleister-absichern">5. Fernzugriff für Dienstleister absichern</h3>
+<p>Der Dienstleister braucht Zugriff, aber zu Ihren Bedingungen:</p>
+<ul>
+<li>Zugriff über <strong>IPsec-VPN oder ZTNA (Zero Trust Network Access)</strong> mit <strong>Multi-Faktor-Authentifizierung</strong>, nie über einen offenen Port.</li>
+<li>Zugriff nur auf die Systeme, die der Dienstleister betreut, nicht auf das ganze Netzwerk.</li>
+<li>Zugriff <strong>nur bei Bedarf freigeschaltet</strong> und danach wieder deaktiviert, mit Protokollierung, wer sich wann verbunden hat.</li>
+</ul>
+<h3 id="6-updates-und-zugangsdaten">6. Updates und Zugangsdaten</h3>
+<p>Planen Sie Software-Updates für OT-Geräte wie für Server, abgestimmt mit dem Hersteller. Ändern Sie alle Standardpasswörter und verwenden Sie persönliche Konten statt eines gemeinsamen Logins.</p>
+<h3 id="7-sicherheitsgrenzen-die-software-nicht-aushebeln-kann">7. Sicherheitsgrenzen, die Software nicht aushebeln kann</h3>
+<p>Das ist die Lehre, die am spezifischsten für diesen Vorfall ist. Wenn eine gehackte Steuerung ein Gefriergerät auf 50 °C aufheizen kann, fehlt eine unabhängige Sicherheitsgrenze. Physische oder hardwarebasierte Grenzwerte und lokale Alarme, die ohne Netzwerk funktionieren, sorgen dafür, dass eine kompromittierte Steuerung keinen physischen Schaden anrichten kann. Auch Überwachung hilft: Ungewöhnliche Temperatur- oder Konfigurationsänderungen um 3 Uhr nachts sollten sofort einen Alarm auslösen.</p>
+<h2 id="kurze-checkliste-für-kleine-unternehmen">Kurze Checkliste für kleine Unternehmen</h2>
+<ul>
+<li>Wissen wir, welche Geräte in unserer Filiale mit dem Netzwerk verbunden sind?</li>
+<li>Ist eines davon aus dem Internet erreichbar?</li>
+<li>Liegen sie in einem anderen Netz als Kassen und Gäste-WLAN?</li>
+<li>Wie verbindet sich unser Servicedienstleister, und sehen wir, wann er das tut?</li>
+<li>Wann wurde die Software zuletzt aktualisiert? Wurden die Standardpasswörter geändert?</li>
+<li>Gibt es einen Alarm, der auch funktioniert, wenn Netzwerk oder Steuerung ausfallen?</li>
+</ul>
+<p>Wenn Sie eine dieser Fragen nicht beantworten können, ist das der Ausgangspunkt.</p>
+<h2 id="verwandte-artikel">Verwandte Artikel</h2>
+<ul>
+<li><a href="/de/technology/ot-network-security/">OT-Netzwerke: Was ein IT-Ingenieur auf dem Fabrikboden wirklich antrifft</a></li>
+<li><a href="/de/architecture/zero-trust-architecture-behaviors/">Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt</a></li>
+<li><a href="/de/technology/identity-based-microsegmentation-8021x/">802.1X-Projekte: Implementierung der identitätsbasierten Architektur in der Praxis</a></li>
+<li><a href="/de/technology/firewall-selection-capacity/">Firewall-Auswahl und Kapazitätsplanung</a></li>
+</ul>
+<h2 id="quellen">Quellen</h2>
+<ul>
+<li><a href="https://www.euronews.com/2026/11/02/cyberattack-hits-belgian-supermarket-fridges-and-freezers">Euronews: Cyberattacks hit supermarket fridges and freezers in Europe</a></li>
+<li><a href="https://www.forbes.com/sites/conormurray/2026/11/02/new-wave-of-refrigerator-cyberattacks-roils-european-supermarkets-everything-is-destroyed/">Forbes: New wave of refrigerator cyberattacks roils European supermarkets</a></li>
+<li><a href="https://www.aljazeera.com/news/2026/11/2/freezers-in-sweden-belgium-overheat-following-possible-cyberattacks">Al Jazeera: Suspected cyberattacks trigger supermarket fridge failures across Europe</a></li>
+<li><a href="https://www.axios.com/2026/11/02/europe-supermarket-fridges-attacks-food">Axios: Europe&rsquo;s fridges are getting hacked</a></li>
+</ul>
+]]></content:encoded></item><item><title>🚀 Absolventenguide: Was macht ein Netzwerkingenieur eigentlich?</title><link>https://barashhelvadzhaoglu.com/de/posts/career-guide-network-engineering/</link><pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/posts/career-guide-network-engineering/</guid><description>Karriereleitfaden für Absolventen im Netzwerkingenieurwesen. Industrieinfrastruktur, täglicher Betrieb und die Roadmap zum Profi.</description><content:encoded><![CDATA[<p>Hallo Freunde! Ihr habt gerade euren Abschluss gemacht, das Diplom in der Hand, und eine riesige IT-Welt liegt vor euch. Während ihr euch fragt &ldquo;Welchen Weg soll ich einschlagen?&rdquo;, seid ihr auf <strong>Netzwerkingenieurwesen</strong> gestoßen. Stecken diese Leute also nur Kabel ein, oder steckt eine massive Intelligenz dahinter? Tauchen wir tief in dieses unsichtbare Heldentum der digitalen Welt ein.</p>
 <h3 id="-was-ist-ein-netzwerk-eine-reise-auf-dem-digitalen-highway">🕸️ Was ist ein Netzwerk? (Eine Reise auf dem digitalen Highway)</h3>
 <p>Ein Netzwerk ist im einfachsten Sinne ein Transportmittel, das Systemen ermöglicht, miteinander zu kommunizieren. Es ermöglicht Computern, nicht als unabhängige Inseln zu funktionieren, sondern als ein riesiger, vernetzter Kontinent.</p>
 <p><strong>Warum reicht ein USB-Stick nicht aus?</strong>
