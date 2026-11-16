@@ -155,9 +155,9 @@ Cisco IP Phones (7900 series, 8800 series)
 <hr>
 <h2 id="related-articles">Related Articles</h2>
 <ul>
-<li>🔐 <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture</a> — Security architecture for cloud collaboration environments</li>
+<li>🔐 <a href="/en/architecture/zero-trust-architecture-behaviors/">The Zero Trust Mindset: Engineering Security as an Architecture</a> — Security architecture for cloud collaboration environments</li>
 <li>🏗️ <a href="/en/architecture/it-infrastructure-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a> — Systems thinking that applies equally to collaboration platforms</li>
 <li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">Monitoring Done Right</a> — Monitoring collaboration infrastructure proactively</li>
-<li>🔧 <a href="/en/technology/securecrt-superputty-network-engineer-guide/">SecureCRT and SuperPutty: Terminal Tools Every Network Engineer Should Know</a> — Tools for managing the on-premise infrastructure that collaboration runs on</li>
+<li>🔧 <a href="/en/technology/securecrt-superputty/">SecureCRT and SuperPutty: Terminal Tools Every Network Engineer Should Know</a> — Tools for managing the on-premise infrastructure that collaboration runs on</li>
 </ul>
 ]]></content:encoded></item></channel></rss>

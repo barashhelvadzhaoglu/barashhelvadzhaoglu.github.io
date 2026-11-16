@@ -144,10 +144,10 @@
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
 <li>🔐 <a href="/de/technology/identity-based-microsegmentation-8021x/">Identitätsbasierte 802.1X-Architektur in der Praxis</a> – Das Identitätsfundament, das DNA Center + ISE so leistungsfähig macht</li>
-<li>🔐 <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Das Zero-Trust-Mindset: Sicherheit als Architektur entwickeln</a> – Die architektonische Philosophie hinter dem SD-Access-Policy-Modell</li>
+<li>🔐 <a href="/en/architecture/zero-trust-architecture-behaviors/">Das Zero-Trust-Mindset: Sicherheit als Architektur entwickeln</a> – Die architektonische Philosophie hinter dem SD-Access-Policy-Modell</li>
 <li>🏗️ <a href="/de/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP – Warum die Wahl der richtigen Produkte nicht ausreicht</a> – Kontext der Campus-Architektur</li>
 <li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Richtiges Monitoring</a> – Wie sich DNA Center Assurance in eine umfassendere Monitoring-Strategie einfügt</li>
-<li>🌐 <a href="/en/technology/enterprise-wifi-controller-architecture-cisco-aruba/">Enterprise WLAN-Controller-Architektur</a> – WLAN-Integration mit DNA Center</li>
+<li>🌐 <a href="/en/technology/wifi-controller/">Enterprise WLAN-Controller-Architektur</a> – WLAN-Integration mit DNA Center</li>
 </ul>
 ]]></content:encoded></item><item><title>Cisco ISE: Architektur, Lizenzierung und wann es sinnvoll ist</title><link>https://barashhelvadzhaoglu.com/de/technology/cisco-ise-architecture/</link><pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/cisco-ise-architecture/</guid><description>Cisco ISE Architekturleitfaden — Deployment-Modelle, Node-Rollen, Lizenzstufen, pxGrid-Integrationen und wann ISE die richtige Wahl ist.</description><content:encoded><![CDATA[<h1 id="cisco-ise-architektur-lizenzierung-und-wann-es-sinnvoll-ist">Cisco ISE: Architektur, Lizenzierung und wann es sinnvoll ist</h1>
 <p>Die Cisco Identity Services Engine (ISE) ist das Policy-Gehirn hinter der Enterprise-Netzwerkzugangskontrolle. Es ist die Plattform, die für jedes Gerät, das versucht, sich mit dem Netzwerk zu verbinden, folgende Frage beantwortet: <em>Wer bist du, was bist du, bist du gesund und was darfst du tun?</em></p>
@@ -331,8 +331,8 @@
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
 <li>🔐 <a href="/de/technology/identity-based-microsegmentation-8021x/">802.1X-Projekte: Die identitätsbasierte Architektur im Praxiseinsatz</a> — Der Praxiseinsatz-Leitfaden, den ISE ermöglicht</li>
-<li>🏛️ <a href="/de/architecture/cisco-dna-center-catalyst-center-architecture-guide/">Cisco DNA Center / Catalyst Center: Wann es sinnvoll ist</a> — Die Campus-Management-Plattform, mit der ISE integriert</li>
-<li>🔐 <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — Die Philosophie hinter identitätsbasierter Zugangskontrolle</li>
-<li>🛡️ <a href="/de/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive</a> — Ergänzende L7-Sicherheit neben ISEs L2/L3-Durchsetzung</li>
+<li>🏛️ <a href="/de/architecture/catalyst-center-architecture/">Cisco DNA Center / Catalyst Center: Wann es sinnvoll ist</a> — Die Campus-Management-Plattform, mit der ISE integriert</li>
+<li>🔐 <a href="/de/architecture/zero-trust-architecture-behaviors/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — Die Philosophie hinter identitätsbasierter Zugangskontrolle</li>
+<li>🛡️ <a href="/de/technology/f5-waf-deep-dive/">F5 WAF Deep Dive</a> — Ergänzende L7-Sicherheit neben ISEs L2/L3-Durchsetzung</li>
 </ul>
 ]]></content:encoded></item></channel></rss>

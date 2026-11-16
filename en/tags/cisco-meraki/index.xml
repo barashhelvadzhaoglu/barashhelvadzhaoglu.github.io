@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Cisco Meraki on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/cisco-meraki/</link><description>Recent content in Cisco Meraki on Barash Helvadzhaoglu</description><generator>Hugo -- 0.170.0</generator><language>en</language><lastBuildDate>Wed, 29 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/cisco-meraki/index.xml" rel="self" type="application/rss+xml"/><item><title>WiFi Design for SMB, Hotels, and Medical Practices: Field Notes</title><link>https://barashhelvadzhaoglu.com/en/technology/wifi-smb-hotel-medical/</link><pubDate>Wed, 29 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/wifi-smb-hotel-medical/</guid><description>WiFi design for SMBs, hotels, and medical practices — density planning, guest segmentation, PMS integration, and real deployment lessons.</description><content:encoded><![CDATA[<h1 id="wifi-design-for-smb-hotels-and-medical-practices-field-notes">WiFi Design for SMB, Hotels, and Medical Practices: Field Notes</h1>
 <p>This article is part of the Enterprise WiFi series.</p>
 <blockquote>
-<p><strong>New to enterprise wireless?</strong> Start with the overview: <a href="/en/technology/enterprise-wifi-architecture-complete-guide/">Enterprise WiFi Architecture: From Standards to Deployment</a></p>
+<p><strong>New to enterprise wireless?</strong> Start with the overview: <a href="/en/technology/wifi-master/">Enterprise WiFi Architecture: From Standards to Deployment</a></p>
 </blockquote>
 <hr>
 <h2 id="why-environment-type-matters-more-than-equipment-brand">Why Environment Type Matters More Than Equipment Brand</h2>
@@ -217,14 +217,14 @@ Enterprise APs require PoE. A Cisco or Aruba WiFi 6 AP with multiple radios draw
 <hr>
 <h2 id="this-series">This Series</h2>
 <ul>
-<li>📖 <a href="/en/technology/enterprise-wifi-architecture-complete-guide/">Enterprise WiFi Architecture Overview</a> ← Start here</li>
-<li>📡 <a href="/en/technology/wifi-80211-standards-wifi4-wifi5-wifi6/">802.11 Standards Deep Dive</a></li>
-<li>🏢 <a href="/en/technology/enterprise-wifi-controller-architecture-cisco-aruba/">Enterprise Controller Architecture: Cisco and Aruba</a></li>
-<li>🔐 <a href="/en/technology/wifi-security-wpa3-8021x-site-survey/">WiFi Security: WPA3, 802.1X, Rogue AP, Site Survey</a></li>
+<li>📖 <a href="/en/technology/wifi-master/">Enterprise WiFi Architecture Overview</a> ← Start here</li>
+<li>📡 <a href="/en/technology/wifi-standards/">802.11 Standards Deep Dive</a></li>
+<li>🏢 <a href="/en/technology/wifi-controller/">Enterprise Controller Architecture: Cisco and Aruba</a></li>
+<li>🔐 <a href="/en/technology/wifi-security/">WiFi Security: WPA3, 802.1X, Rogue AP, Site Survey</a></li>
 </ul>
 <h2 id="related-articles">Related Articles</h2>
 <ul>
-<li>📡 <a href="/en/technology/nas-backup-aws-s3-cloud-smb/">NAS Backup with AWS S3 — Data Security for SMBs</a> — SMB data protection alongside WiFi</li>
+<li>📡 <a href="/en/posts/nas-backup/">NAS Backup with AWS S3 — Data Security for SMBs</a> — SMB data protection alongside WiFi</li>
 <li>🔐 <a href="/en/technology/identity-based-microsegmentation-8021x/">802.1X Identity-Based Architecture in the Field</a> — The identity layer for enterprise wireless</li>
 <li>🏗️ <a href="/en/architecture/it-infrastructure-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a> — Systems thinking in network design</li>
 </ul>

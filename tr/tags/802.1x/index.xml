@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>802.1X on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/802.1x/</link><description>Recent content in 802.1X on Barash Helvadzhaoglu</description><generator>Hugo -- 0.170.0</generator><language>tr</language><lastBuildDate>Mon, 27 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/802.1x/index.xml" rel="self" type="application/rss+xml"/><item><title>WiFi Security: WPA3, 802.1X, Rogue AP Detection, and Site Survey</title><link>https://barashhelvadzhaoglu.com/tr/technology/wifi-security/</link><pubDate>Mon, 27 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/wifi-security/</guid><description>Kurumsal WiFi güvenliği — WPA3 ve WPA2 karşılaştırması, 802.1X kimlik doğrulama, sahte AP tespiti ve Ekahau site survey metodolojisi.</description><content:encoded><![CDATA[<h1 id="wifi-security-wpa3-8021x-rogue-ap-detection-and-site-survey">WiFi Security: WPA3, 802.1X, Rogue AP Detection, and Site Survey</h1>
 <p>This article is part of the Enterprise WiFi series.</p>
 <blockquote>
-<p><strong>New to enterprise wireless?</strong> Start with the overview: <a href="/en/technology/enterprise-wifi-architecture-complete-guide/">Enterprise WiFi Architecture: From Standards to Deployment</a></p>
+<p><strong>New to enterprise wireless?</strong> Start with the overview: <a href="/en/technology/wifi-master/">Enterprise WiFi Architecture: From Standards to Deployment</a></p>
 </blockquote>
 <hr>
 <h2 id="why-wifi-security-is-different">Why WiFi Security Is Different</h2>
@@ -248,15 +248,15 @@ Compare validation heatmap against prediction. Document actual versus predicted 
 <hr>
 <h2 id="this-series">This Series</h2>
 <ul>
-<li>📖 <a href="/en/technology/enterprise-wifi-architecture-complete-guide/">Enterprise WiFi Architecture Overview</a> ← Start here</li>
-<li>📡 <a href="/en/technology/wifi-80211-standards-wifi4-wifi5-wifi6/">802.11 Standards Deep Dive</a></li>
-<li>🏢 <a href="/en/technology/enterprise-wifi-controller-architecture-cisco-aruba/">Enterprise Controller Architecture: Cisco and Aruba</a></li>
-<li>🏨 <a href="/en/technology/wifi-design-smb-hotel-medical/">WiFi Design for SMB, Hotels, and Medical Practices</a></li>
+<li>📖 <a href="/en/technology/wifi-master/">Enterprise WiFi Architecture Overview</a> ← Start here</li>
+<li>📡 <a href="/en/technology/wifi-standards/">802.11 Standards Deep Dive</a></li>
+<li>🏢 <a href="/en/technology/wifi-controller/">Enterprise Controller Architecture: Cisco and Aruba</a></li>
+<li>🏨 <a href="/en/technology/wifi-smb-hotel-medical/">WiFi Design for SMB, Hotels, and Medical Practices</a></li>
 </ul>
 <h2 id="related-articles">Related Articles</h2>
 <ul>
 <li>🔐 <a href="/en/technology/identity-based-microsegmentation-8021x/">802.1X Identity-Based Architecture in the Field</a> — Deep dive on 802.1X beyond wireless</li>
-<li>🔐 <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture</a> — Where wireless security fits in Zero Trust</li>
+<li>🔐 <a href="/en/architecture/zero-trust-architecture-behaviors/">The Zero Trust Mindset: Engineering Security as an Architecture</a> — Where wireless security fits in Zero Trust</li>
 <li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">Monitoring Done Right</a> — Integrating wireless events into proactive monitoring</li>
 </ul>
 ]]></content:encoded></item><item><title>Cisco ISE: Mimari, Lisanslama ve Ne Zaman Kullanılır</title><link>https://barashhelvadzhaoglu.com/tr/technology/cisco-ise-architecture/</link><pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/cisco-ise-architecture/</guid><description>Cisco ISE mimari rehberi — deployment modelleri, node rolleri, lisans katmanları, pxGrid entegrasyonları ve ISE&amp;#39;nin ne zaman doğru seçim olduğu.</description><content:encoded><![CDATA[<h1 id="cisco-ise-mimari-lisanslama-ve-ne-zaman-kullanılır">Cisco ISE: Mimari, Lisanslama ve Ne Zaman Kullanılır</h1>
@@ -441,9 +441,9 @@ Compare validation heatmap against prediction. Document actual versus predicted 
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>
 <li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Projeleri: Kimlik Tabanlı Mimariyi Sahada Kullanıma Almak</a> — ISE&rsquo;nin etkinleştirdiği saha deployment rehberi</li>
-<li>🏛️ <a href="/tr/architecture/cisco-dna-center-catalyst-center-architecture-guide/">Cisco DNA Center / Catalyst Center: Ne Zaman Mantıklıdır</a> — ISE&rsquo;nin entegre olduğu kampüs yönetim platformu</li>
-<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Kimlik tabanlı erişim kontrolünün arkasındaki felsefe</li>
-<li>🛡️ <a href="/tr/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive</a> — ISE&rsquo;nin L2/L3 uygulamasının yanında tamamlayıcı L7 güvenliği</li>
+<li>🏛️ <a href="/tr/architecture/catalyst-center-architecture/">Cisco DNA Center / Catalyst Center: Ne Zaman Mantıklıdır</a> — ISE&rsquo;nin entegre olduğu kampüs yönetim platformu</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Kimlik tabanlı erişim kontrolünün arkasındaki felsefe</li>
+<li>🛡️ <a href="/tr/technology/f5-waf-deep-dive/">F5 WAF Deep Dive</a> — ISE&rsquo;nin L2/L3 uygulamasının yanında tamamlayıcı L7 güvenliği</li>
 </ul>
 ]]></content:encoded></item><item><title>802.1X Projeleri: Kimliği Ağa Taşıyan Mimariyi Sahada Kurmak</title><link>https://barashhelvadzhaoglu.com/tr/technology/identity-based-microsegmentation-8021x/</link><pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/identity-based-microsegmentation-8021x/</guid><description>802.1X projelerinin networkten ziyade AD, PKI ve GPO disiplinine bağlı başarısını ele alan saha tecrübesi dökümanı.</description><content:encoded><![CDATA[<h1 id="8021x-projeleri-kimliği-ağa-taşıyan-mimariyi-sahada-kurmak">802.1X Projeleri: Kimliği Ağa Taşıyan Mimariyi Sahada Kurmak</h1>
 <p>802.1X projeleri dışarıdan bakınca <strong>network işi</strong> gibi görünür; çünkü dokunulan yer switch portlarıdır, SSID&rsquo;lerdir, RADIUS&rsquo;tur. Ama gerçek hayatta 802.1X&rsquo;in başarısı çoğu zaman network cihazlarının üzerinde değil; <strong>Active Directory düzeninde</strong>, <strong>sertifika altyapısında (PKI)</strong> ve <strong>uç cihaz yönetiminde</strong> belirlenir. Bunun nedeni basit: 802.1X, portun VLAN&rsquo;ını değil, kurumun <strong>&ldquo;kimlik modelini&rdquo;</strong> konuşmaya zorlar. Yani &ldquo;hangi port hangi VLAN&quot;dan, <strong>&ldquo;hangi kimlik hangi yetkiyle ağa girer&rdquo;</strong> düzenine geçersin.</p>
@@ -460,7 +460,7 @@ Compare validation heatmap against prediction. Document actual versus predicted 
 <li>Başarı network&rsquo;ten çok <strong>AD/PKI/endpoint disiplinine</strong> bağlıdır.</li>
 </ul>
 <blockquote>
-<p>Kimlik tabanlı erişimin arkasındaki Zero Trust zihniyeti için: <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Ürün Değil Mimari Olarak Tasarlamak</a></p>
+<p>Kimlik tabanlı erişimin arkasındaki Zero Trust zihniyeti için: <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Ürün Değil Mimari Olarak Tasarlamak</a></p>
 </blockquote>
 <h3 id="1-planlama-vlan-planı-yoksa-8021x-kural-motoru-değil-kaos-motoru-olur">1) Planlama: VLAN planı yoksa 802.1X &ldquo;kural motoru&rdquo; değil &ldquo;kaos motoru&rdquo; olur</h3>
 <p>802.1X&rsquo;e geçerken herkesin ilk refleksi şudur: &ldquo;RADIUS kurarız, switch&rsquo;e yazarız, biter.&rdquo; Sahada bunun bittiği yer genelde ilk <strong>pilot kullanıcıdır.</strong> Çünkü pilot kullanıcı bağlanır ve bir anda şu soru çıkar: &ldquo;Bu kullanıcı hangi VLAN&rsquo;a gidecek?&rdquo; İşte 802.1X&rsquo;in seni zorladığı yer burasıdır.</p>
@@ -594,7 +594,7 @@ Compare validation heatmap against prediction. Document actual versus predicted 
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <p><strong>Mimari &amp; Güvenlik</strong></p>
 <ul>
-<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Ürün Değil Mimari Olarak Tasarlamak</a> — Kimlik tabanlı erişimin mimari temeli</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Ürün Değil Mimari Olarak Tasarlamak</a> — Kimlik tabanlı erişimin mimari temeli</li>
 <li>🏗️ <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Sistem düşüncesi ve ürün seçimi</li>
 <li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">Monitoring Zihniyeti: Sadece Görmek Değil, Anlamak</a> — Policy ihlallerini tırmanmadan yakalamak</li>
 </ul>
@@ -707,7 +707,7 @@ Compare validation heatmap against prediction. Document actual versus predicted 
 <h2 id="sürekli-izleme-mimarinin-en-kritik-parçası">Sürekli İzleme: Mimarinin En Kritik Parçası</h2>
 <p>Her katmanda erişim ve davranışlar izlenir ve kaydedilir. Anormal bir durum veya riskli hareket tespit edilirse, sistem otomatik olarak erişimi sınırlar veya ek doğrulama ister.</p>
 <blockquote>
-<p>Altyapıda gerçek görünürlük nasıl kurulur: <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a></p>
+<p>Altyapıda gerçek görünürlük nasıl kurulur: <a href="/tr/architecture/monitoring-not-just-seeing/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a></p>
 </blockquote>
 <h2 id="sonuç">Sonuç</h2>
 <p>Zero Trust bir ürün değildir.
@@ -724,12 +724,12 @@ Bu versiyon, serinin mimari temelini genişletiyor.</p>
 <ul>
 <li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Bu serinin temel yazısı</li>
 <li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a> — Core network tasarımında sistem düşüncesi</li>
-<li>📊 <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a> — Altyapıda gerçek görünürlük</li>
+<li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a> — Altyapıda gerçek görünürlük</li>
 </ul>
 <p><strong>Teknik Mühendislik</strong></p>
 <ul>
-<li>🔐 <a href="/tr/posts/unlocking-success-in-802-1x-projects-field-insights/">802.1X Projelerinde Başarı: Saha Deneyimleri</a> — Kimlik tabanlı erişimin sahada uygulanması</li>
-<li>🛡️ <a href="/tr/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Gelişmiş trafik görünürlüğü ve güvenlik stratejisi</li>
-<li>🛠️ <a href="/tr/posts/next-gen-console-server-terminal-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Her şey kesildiğinde out-of-band erişim</li>
+<li>🔐 <a href="/tr/posts/8021x-field-deployment-teaser/">802.1X Projelerinde Başarı: Saha Deneyimleri</a> — Kimlik tabanlı erişimin sahada uygulanması</li>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Gelişmiş trafik görünürlüğü ve güvenlik stratejisi</li>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Her şey kesildiğinde out-of-band erişim</li>
 </ul>
 ]]></content:encoded></item></channel></rss>

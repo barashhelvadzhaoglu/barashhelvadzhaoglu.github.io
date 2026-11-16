@@ -150,9 +150,9 @@ Cisco IP Telefonlar (7900 serisi, 8800 serisi)
 <hr>
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>
-<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Bulut iş birliği ortamları için güvenlik mimarisi</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Bulut iş birliği ortamları için güvenlik mimarisi</li>
 <li>🏗️ <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Ürünler Koleksiyonu Değildir</a> — İş birliği platformları için de geçerli sistem düşüncesi</li>
 <li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">İzleme Doğru Yapıldığında</a> — İş birliği altyapısını proaktif olarak izleme</li>
-<li>🔧 <a href="/tr/technology/securecrt-superputty-network-engineer-guide/">SecureCRT ve SuperPutty</a> — İş birliğinin üzerinde çalıştığı şirket içi altyapıyı yönetmek için araçlar</li>
+<li>🔧 <a href="/tr/technology/securecrt-superputty/">SecureCRT ve SuperPutty</a> — İş birliğinin üzerinde çalıştığı şirket içi altyapıyı yönetmek için araçlar</li>
 </ul>
 ]]></content:encoded></item></channel></rss>

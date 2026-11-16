@@ -144,15 +144,15 @@
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
 <li>🔐 <a href="/de/technology/identity-based-microsegmentation-8021x/">Identitätsbasierte 802.1X-Architektur in der Praxis</a> – Das Identitätsfundament, das DNA Center + ISE so leistungsfähig macht</li>
-<li>🔐 <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Das Zero-Trust-Mindset: Sicherheit als Architektur entwickeln</a> – Die architektonische Philosophie hinter dem SD-Access-Policy-Modell</li>
+<li>🔐 <a href="/en/architecture/zero-trust-architecture-behaviors/">Das Zero-Trust-Mindset: Sicherheit als Architektur entwickeln</a> – Die architektonische Philosophie hinter dem SD-Access-Policy-Modell</li>
 <li>🏗️ <a href="/de/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP – Warum die Wahl der richtigen Produkte nicht ausreicht</a> – Kontext der Campus-Architektur</li>
 <li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Richtiges Monitoring</a> – Wie sich DNA Center Assurance in eine umfassendere Monitoring-Strategie einfügt</li>
-<li>🌐 <a href="/en/technology/enterprise-wifi-controller-architecture-cisco-aruba/">Enterprise WLAN-Controller-Architektur</a> – WLAN-Integration mit DNA Center</li>
+<li>🌐 <a href="/en/technology/wifi-controller/">Enterprise WLAN-Controller-Architektur</a> – WLAN-Integration mit DNA Center</li>
 </ul>
 ]]></content:encoded></item><item><title>Enterprise WLAN-Controller-Architektur: Cisco und Aruba WLAN-Design</title><link>https://barashhelvadzhaoglu.com/de/technology/wifi-controller/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/wifi-controller/</guid><description>Enterprise-WLAN-Controller Deep Dive — Cisco WLC vs. DNA Center, Aruba Mobility Master vs. Central, zentrale vs. verteilte Designs.</description><content:encoded><![CDATA[<h1 id="enterprise-wlan-controller-architektur-cisco-und-aruba-wlan-design">Enterprise WLAN-Controller-Architektur: Cisco und Aruba WLAN-Design</h1>
 <p>Dieser Artikel ist Teil der Enterprise-WiFi-Serie.</p>
 <blockquote>
-<p><strong>Neu im Enterprise-Wireless-Bereich?</strong> Beginnen Sie mit der Übersicht: <a href="/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/">Enterprise WiFi-Architektur: Von Standards bis zur Deployment</a></p>
+<p><strong>Neu im Enterprise-Wireless-Bereich?</strong> Beginnen Sie mit der Übersicht: <a href="/de/technology/wifi-master/">Enterprise WiFi-Architektur: Von Standards bis zur Deployment</a></p>
 </blockquote>
 <hr>
 <h2 id="warum-controller-architektur-wichtig-ist">Warum Controller-Architektur wichtig ist</h2>
@@ -373,10 +373,10 @@ DNA Center setzt SGT-basierte Richtlinie Ende-zu-Ende durch
 <hr>
 <h2 id="diese-serie">Diese Serie</h2>
 <ul>
-<li>📖 <a href="/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/">Enterprise WiFi-Architektur Übersicht</a> ← Beginnen Sie hier</li>
-<li>📡 <a href="/de/technology/wifi-80211-standards-wifi4-wifi5-wifi6/">802.11 Standards Deep Dive</a></li>
-<li>🏨 <a href="/de/technology/wifi-design-kmu-hotel-gesundheit/">WiFi-Design für KMU, Hotels und Arztpraxen</a></li>
-<li>🔐 <a href="/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/">WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey</a></li>
+<li>📖 <a href="/de/technology/wifi-master/">Enterprise WiFi-Architektur Übersicht</a> ← Beginnen Sie hier</li>
+<li>📡 <a href="/de/technology/wifi-standards/">802.11 Standards Deep Dive</a></li>
+<li>🏨 <a href="/de/technology/wifi-smb-hotel-medical/">WiFi-Design für KMU, Hotels und Arztpraxen</a></li>
+<li>🔐 <a href="/de/technology/wifi-security/">WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey</a></li>
 </ul>
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>

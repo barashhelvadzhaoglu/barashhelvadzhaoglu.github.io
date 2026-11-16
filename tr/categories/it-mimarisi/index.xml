@@ -102,7 +102,7 @@
 <h2 id="sürekli-izleme-mimarinin-en-kritik-parçası">Sürekli İzleme: Mimarinin En Kritik Parçası</h2>
 <p>Her katmanda erişim ve davranışlar izlenir ve kaydedilir. Anormal bir durum veya riskli hareket tespit edilirse, sistem otomatik olarak erişimi sınırlar veya ek doğrulama ister.</p>
 <blockquote>
-<p>Altyapıda gerçek görünürlük nasıl kurulur: <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a></p>
+<p>Altyapıda gerçek görünürlük nasıl kurulur: <a href="/tr/architecture/monitoring-not-just-seeing/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a></p>
 </blockquote>
 <h2 id="sonuç">Sonuç</h2>
 <p>Zero Trust bir ürün değildir.
@@ -119,13 +119,13 @@ Bu versiyon, serinin mimari temelini genişletiyor.</p>
 <ul>
 <li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Bu serinin temel yazısı</li>
 <li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a> — Core network tasarımında sistem düşüncesi</li>
-<li>📊 <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a> — Altyapıda gerçek görünürlük</li>
+<li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a> — Altyapıda gerçek görünürlük</li>
 </ul>
 <p><strong>Teknik Mühendislik</strong></p>
 <ul>
-<li>🔐 <a href="/tr/posts/unlocking-success-in-802-1x-projects-field-insights/">802.1X Projelerinde Başarı: Saha Deneyimleri</a> — Kimlik tabanlı erişimin sahada uygulanması</li>
-<li>🛡️ <a href="/tr/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Gelişmiş trafik görünürlüğü ve güvenlik stratejisi</li>
-<li>🛠️ <a href="/tr/posts/next-gen-console-server-terminal-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Her şey kesildiğinde out-of-band erişim</li>
+<li>🔐 <a href="/tr/posts/8021x-field-deployment-teaser/">802.1X Projelerinde Başarı: Saha Deneyimleri</a> — Kimlik tabanlı erişimin sahada uygulanması</li>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Gelişmiş trafik görünürlüğü ve güvenlik stratejisi</li>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Her şey kesildiğinde out-of-band erişim</li>
 </ul>
 ]]></content:encoded></item><item><title>IT Altyapısı Bir Ürün Koleksiyonu Değildir — Bir Sistemdir</title><link>https://barashhelvadzhaoglu.com/tr/architecture/it-infrastructure-not-a-collection-of-products/</link><pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/architecture/it-infrastructure-not-a-collection-of-products/</guid><description>IT altyapı projeleri ortam sistem haline gelemediğinde başarısız olur. Core Network serisi için mimari çerçeveyi belirleyen temel yazı.</description><content:encoded><![CDATA[<h1 id="it-altyapısı-bir-ürün-koleksiyonu-değildir--bir-sistemdir">IT Altyapısı Bir Ürün Koleksiyonu Değildir — Bir Sistemdir</h1>
 <h2 id="gerçek-altyapı-tasarımı-neden-sistemlerle-başlar-araçlarla-değil">Gerçek altyapı tasarımı neden sistemlerle başlar, araçlarla değil</h2>
@@ -168,7 +168,7 @@ Bir altyapı, bir organizasyonu ayakta tutmak için tasarlanır.</p>
 </ul>
 <p>Bu sorulara net cevaplar olmadan, en iyi ürünler bile eninde sonunda birbirine karşı çalışacaktır.</p>
 <blockquote>
-<p>Kimliğin ve güven sınırlarının pratikte nasıl tanımlandığına dair derinlemesine bir bakış için: <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Mimari Olarak Mühendislemek</a></p>
+<p>Kimliğin ve güven sınırlarının pratikte nasıl tanımlandığına dair derinlemesine bir bakış için: <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Mimari Olarak Mühendislemek</a></p>
 </blockquote>
 <hr>
 <h2 id="mimari-baskı-altında-kendini-gösterir">Mimari baskı altında kendini gösterir</h2>
@@ -203,7 +203,7 @@ operasyonel iş akışlarında bulunur.</p>
 <p>Bu iş akışları manuel, parçalı veya belgelenmemişse, teknoloji yığını ne kadar modern görünse de altyapı bu gerçeği yansıtacaktır.</p>
 <p>Bu nedenle otomasyon, gözlemlenebilirlik ve yaşam döngüsü yönetimi isteğe bağlı ekstralar değildir. Bunlar mimari unsurlardır. Tutarlı biçimde işletilemeyecek altyapı hiçbir zaman güvenli ölçeklenemez.</p>
 <blockquote>
-<p>Altyapınızda gerçek gözlemlenebilirlik oluşturmak için pratik bir çerçeve: <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a></p>
+<p>Altyapınızda gerçek gözlemlenebilirlik oluşturmak için pratik bir çerçeve: <a href="/tr/architecture/monitoring-not-just-seeing/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a></p>
 </blockquote>
 <hr>
 <h2 id="networkingden-konuşmadan-önce-bu-neden-önemlidir">Networking&rsquo;den konuşmadan önce bu neden önemlidir</h2>
@@ -238,13 +238,13 @@ Bu versiyon, serinin mimari temelini genişletiyor.</p>
 <p><strong>Mimari &amp; Güvenlik Tasarımı</strong></p>
 <ul>
 <li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a> — Core network tasarımında sistem düşüncesi</li>
-<li>🛡️ <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Mimari Olarak Mühendislemek</a> — Zero Trust neden bir ürün değil, bir felsefedir</li>
-<li>📊 <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a> — Altyapınızda gerçek görünürlük nasıl inşa edilir</li>
+<li>🛡️ <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Mimari Olarak Mühendislemek</a> — Zero Trust neden bir ürün değil, bir felsefedir</li>
+<li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a> — Altyapınızda gerçek görünürlük nasıl inşa edilir</li>
 </ul>
 <p><strong>Teknik Mühendislik</strong></p>
 <ul>
-<li>🛠️ <a href="/tr/posts/next-gen-console-server-terminal-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Her şey kesildiğinde out-of-band erişim</li>
-<li>🛡️ <a href="/tr/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Gelişmiş trafik görünürlüğü ve güvenlik stratejisi</li>
-<li>🔐 <a href="/tr/posts/unlocking-success-in-802-1x-projects-field-insights/">802.1X Projelerinde Başarı: Saha Deneyimleri</a> — Kurumsal ağlarda kimlik tabanlı erişim</li>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Her şey kesildiğinde out-of-band erişim</li>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Gelişmiş trafik görünürlüğü ve güvenlik stratejisi</li>
+<li>🔐 <a href="/tr/posts/8021x-field-deployment-teaser/">802.1X Projelerinde Başarı: Saha Deneyimleri</a> — Kurumsal ağlarda kimlik tabanlı erişim</li>
 </ul>
 ]]></content:encoded></item></channel></rss>

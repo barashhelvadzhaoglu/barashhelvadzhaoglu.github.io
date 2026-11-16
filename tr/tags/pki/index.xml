@@ -13,7 +13,7 @@
 <li>Başarı network&rsquo;ten çok <strong>AD/PKI/endpoint disiplinine</strong> bağlıdır.</li>
 </ul>
 <blockquote>
-<p>Kimlik tabanlı erişimin arkasındaki Zero Trust zihniyeti için: <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Ürün Değil Mimari Olarak Tasarlamak</a></p>
+<p>Kimlik tabanlı erişimin arkasındaki Zero Trust zihniyeti için: <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Ürün Değil Mimari Olarak Tasarlamak</a></p>
 </blockquote>
 <h3 id="1-planlama-vlan-planı-yoksa-8021x-kural-motoru-değil-kaos-motoru-olur">1) Planlama: VLAN planı yoksa 802.1X &ldquo;kural motoru&rdquo; değil &ldquo;kaos motoru&rdquo; olur</h3>
 <p>802.1X&rsquo;e geçerken herkesin ilk refleksi şudur: &ldquo;RADIUS kurarız, switch&rsquo;e yazarız, biter.&rdquo; Sahada bunun bittiği yer genelde ilk <strong>pilot kullanıcıdır.</strong> Çünkü pilot kullanıcı bağlanır ve bir anda şu soru çıkar: &ldquo;Bu kullanıcı hangi VLAN&rsquo;a gidecek?&rdquo; İşte 802.1X&rsquo;in seni zorladığı yer burasıdır.</p>
@@ -147,7 +147,7 @@
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <p><strong>Mimari &amp; Güvenlik</strong></p>
 <ul>
-<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Ürün Değil Mimari Olarak Tasarlamak</a> — Kimlik tabanlı erişimin mimari temeli</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Ürün Değil Mimari Olarak Tasarlamak</a> — Kimlik tabanlı erişimin mimari temeli</li>
 <li>🏗️ <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Sistem düşüncesi ve ürün seçimi</li>
 <li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">Monitoring Zihniyeti: Sadece Görmek Değil, Anlamak</a> — Policy ihlallerini tırmanmadan yakalamak</li>
 </ul>

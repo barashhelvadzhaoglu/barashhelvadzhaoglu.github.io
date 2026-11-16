@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Load Balancing on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/load-balancing/</link><description>Recent content in Load Balancing on Barash Helvadzhaoglu</description><generator>Hugo -- 0.170.0</generator><language>tr</language><lastBuildDate>Wed, 08 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/load-balancing/index.xml" rel="self" type="application/rss+xml"/><item><title>F5 LTM Deep Dive: Virtual Server'lar, iRule'lar, SSL Offloading ve HA</title><link>https://barashhelvadzhaoglu.com/tr/technology/f5-ltm-deep-dive/</link><pubDate>Wed, 08 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/f5-ltm-deep-dive/</guid><description>F5 BIG-IP LTM teknik inceleme — full-proxy mimari, virtual server, pool yapılandırması, iRule, SSL offloading ve sıfır downtime migrasyon rehberi.</description><content:encoded><![CDATA[<h1 id="f5-ltm-deep-dive-virtual-serverlar-irulelar-ssl-offloading-ve-ha">F5 LTM Deep Dive: Virtual Server&rsquo;lar, iRule&rsquo;lar, SSL Offloading ve HA</h1>
 <p>Bu yazı F5 BIG-IP serisinin bir parçasıdır.</p>
 <blockquote>
-<p><strong>F5&rsquo;e yeni misiniz?</strong> Önce platform genel bakışıyla başlayın: <a href="/tr/technology/f5-bigip-application-delivery-platform-overview/">F5 BIG-IP Bir Load Balancer Değil — Uygulama Teslim Platformudur</a></p>
+<p><strong>F5&rsquo;e yeni misiniz?</strong> Önce platform genel bakışıyla başlayın: <a href="/tr/technology/f5-master/">F5 BIG-IP Bir Load Balancer Değil — Uygulama Teslim Platformudur</a></p>
 </blockquote>
 <p>Büyük resmi zaten biliyorsanız ve LTM&rsquo;e derinlemesine inmek istiyorsanız — yapılandırma, iRule&rsquo;lar, migrasyon saha notları — doğru yerdesiniz.</p>
 <hr>
@@ -272,15 +272,15 @@ Yeni aktif cihazda tüm virtual server&rsquo;lar doğrulandıktan sonra:</p>
 <hr>
 <h2 id="bu-seri">Bu Seri</h2>
 <ul>
-<li>📖 <a href="/tr/technology/f5-bigip-application-delivery-platform-overview/">F5 BIG-IP Platform Genel Bakış — Tüm Modüller</a> ← F5&rsquo;e yeniyseniz buradan başlayın</li>
-<li>🌐 <a href="/tr/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM ve GSLB Deep Dive</a></li>
-<li>🛡️ <a href="/tr/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive</a></li>
+<li>📖 <a href="/tr/technology/f5-master/">F5 BIG-IP Platform Genel Bakış — Tüm Modüller</a> ← F5&rsquo;e yeniyseniz buradan başlayın</li>
+<li>🌐 <a href="/tr/technology/f5-gtm-deep-dive/">F5 GTM ve GSLB Deep Dive</a></li>
+<li>🛡️ <a href="/tr/technology/f5-waf-deep-dive/">F5 WAF Deep Dive</a></li>
 </ul>
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>
 <li>🛠️ <a href="/tr/posts/next-gen-console-server-architecture/">Ağın Arka Kapısı: Yeni Nesil Console Server Mimarisi</a> — F5 bakım pencereleri sırasında out-of-band erişim</li>
 <li>🛡️ <a href="/tr/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — ADC ile birlikte trafik görünürlüğü</li>
-<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti</a> — LTM&rsquo;nin Zero Trust mimarisindeki yeri</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti</a> — LTM&rsquo;nin Zero Trust mimarisindeki yeri</li>
 </ul>
 ]]></content:encoded></item><item><title>F5 BIG-IP Bir Load Balancer Değil — Uygulama Teslim Platformudur</title><link>https://barashhelvadzhaoglu.com/tr/technology/f5-master/</link><pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/f5-master/</guid><description>F5 BIG-IP bir load balancer&amp;#39;dan çok daha fazlasıdır. LTM, GTM, WAF, APM, AFM ve BGP routing&amp;#39;i kapsayan master rehber.</description><content:encoded><![CDATA[<h1 id="f5-big-ip-bir-uygulama-teslim-platformudur">F5 BIG-IP: Bir Uygulama Teslim Platformudur</h1>
 <p>Kurumsal bir ortamda F5&rsquo;e en yaygın giriş şöyle gerçekleşir: biri <em>&ldquo;load balancer çöktü&rdquo;</em> yazan bir ticket açar ve F5&rsquo;i işaret eder. Sorun zaten o cümlede gizlidir.</p>
@@ -291,9 +291,9 @@ Yeni aktif cihazda tüm virtual server&rsquo;lar doğrulandıktan sonra:</p>
 <p>Bu yazı size <strong>büyük resmi</strong> verir — F5&rsquo;in ne olduğu, nerede durduğu, her modülün ne yaptığı ve alternatiflere göre ne zaman mantıklı olduğu.</p>
 <p><strong>Ağ veya güvenlik mühendisiyseniz</strong> ve yapılandırma, iRule&rsquo;lar, migrasyon saha notları ve mimari detaylara derinlemesine inmek istiyorsanız — doğrudan ilgilendiğiniz modüle atlayın:</p>
 <ul>
-<li>🔧 <strong><a href="/tr/technology/f5-ltm-virtual-server-irule-ssl-offloading-ha/">F5 LTM Deep Dive</a></strong> — Virtual server&rsquo;lar, pool&rsquo;lar, iRule&rsquo;lar, SSL offloading, HA ve 30 cihazlık migrasyon rehberi</li>
-<li>🌐 <strong><a href="/tr/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM ve GSLB Deep Dive</a></strong> — iQuery, Wide IP&rsquo;ler, topoloji routing, DNS TTL stratejisi, çok DC failover tasarımı</li>
-<li>🛡️ <strong><a href="/tr/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive</a></strong> — ASM ve Advanced WAF, OWASP Top 10, bot savunması, şeffaftan engellemeye deployment stratejisi</li>
+<li>🔧 <strong><a href="/tr/technology/f5-ltm-deep-dive/">F5 LTM Deep Dive</a></strong> — Virtual server&rsquo;lar, pool&rsquo;lar, iRule&rsquo;lar, SSL offloading, HA ve 30 cihazlık migrasyon rehberi</li>
+<li>🌐 <strong><a href="/tr/technology/f5-gtm-deep-dive/">F5 GTM ve GSLB Deep Dive</a></strong> — iQuery, Wide IP&rsquo;ler, topoloji routing, DNS TTL stratejisi, çok DC failover tasarımı</li>
+<li>🛡️ <strong><a href="/tr/technology/f5-waf-deep-dive/">F5 WAF Deep Dive</a></strong> — ASM ve Advanced WAF, OWASP Top 10, bot savunması, şeffaftan engellemeye deployment stratejisi</li>
 </ul>
 <p><strong>Mimar veya karar vericiyseniz</strong> ve F5&rsquo;in altyapınıza uyup uymadığını değerlendiriyorsanız — okumaya burada devam edin. Bu yazı, iRule sözdizimini anlamanızı gerektirmeden o soruyu yanıtlıyor.</p>
 <hr>
@@ -332,7 +332,7 @@ Yeni aktif cihazda tüm virtual server&rsquo;lar doğrulandıktan sonra:</p>
 <li>iRule&rsquo;lar — trafik düzeyinde hat hızında çalışan programlanabilir bir betik katmanı: başlık yeniden yazma, URI&rsquo;ye göre yönlendirme, içerik ekleme, hız sınırı uygulama</li>
 <li>Yüksek erişilebilirlik — saniye altı failover ile Aktif-Yedek veya Aktif-Aktif kümeleme</li>
 </ul>
-<p>→ <strong><a href="/tr/technology/f5-ltm-virtual-server-irule-ssl-offloading-ha/">F5 LTM Deep Dive: Virtual Server&rsquo;lar, iRule&rsquo;lar, SSL Offloading ve HA</a></strong></p>
+<p>→ <strong><a href="/tr/technology/f5-ltm-deep-dive/">F5 LTM Deep Dive: Virtual Server&rsquo;lar, iRule&rsquo;lar, SSL Offloading ve HA</a></strong></p>
 <hr>
 <h3 id="gtm--dns--global-traffic-manager">GTM / DNS — Global Traffic Manager</h3>
 <p>LTM trafiği tek bir veri merkezi içinde yönetir. GTM trafiği veri merkezleri <strong>arasında</strong> yönetir — DNS düzeyinde.</p>
@@ -345,7 +345,7 @@ Yeni aktif cihazda tüm virtual server&rsquo;lar doğrulandıktan sonra:</p>
 <li>Topoloji tabanlı routing — Avrupalı kullanıcılar AB veri merkezlerine, Orta Doğulu kullanıcılar bölgesel DC&rsquo;lere</li>
 <li>Esnek politikalar: her zaman birincil tercih et (Global Availability), eşit dağılım (Round Robin) veya bağlantı bilincine sahip (Least Connections)</li>
 </ul>
-<p>→ <strong><a href="/tr/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM ve GSLB Deep Dive: Global Trafik Yönetimi ve DNS Failover</a></strong></p>
+<p>→ <strong><a href="/tr/technology/f5-gtm-deep-dive/">F5 GTM ve GSLB Deep Dive: Global Trafik Yönetimi ve DNS Failover</a></strong></p>
 <hr>
 <h3 id="waf--web-application-firewall-asm--advanced-waf">WAF — Web Application Firewall (ASM / Advanced WAF)</h3>
 <p>Bir ağ firewall&rsquo;u L3/L4&rsquo;te çalışır. Bir POST isteği gövdesinin SQL injection payload içerip içermediğini inceleyemez. WAF inceleyebilir.</p>
@@ -356,7 +356,7 @@ Yeni aktif cihazda tüm virtual server&rsquo;lar doğrulandıktan sonra:</p>
 <li><strong>Advanced WAF</strong> — davranışsal bot savunması, credential stuffing koruması, JavaScript challenge&rsquo;ları ve L7 DoS azaltmayı ekler</li>
 </ul>
 <p>WAF&rsquo;ın koruduğu şeyler: SQL injection, XSS, CSRF, parametre tampering, çerez zehirlenmesi, zorla gezinme, bot trafiği ve uygulama katmanı DoS.</p>
-<p>→ <strong><a href="/tr/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive: ASM ve Advanced WAF ile Uygulama Güvenliği</a></strong></p>
+<p>→ <strong><a href="/tr/technology/f5-waf-deep-dive/">F5 WAF Deep Dive: ASM ve Advanced WAF ile Uygulama Güvenliği</a></strong></p>
 <hr>
 <h3 id="apm--access-policy-manager">APM — Access Policy Manager</h3>
 <p>APM, F5&rsquo;in kimlik ve erişim modülüdür — F5&rsquo;in trafik tesliminin ötesine geçerek <strong>erişim kontrolüne</strong> girdiği yer.</p>
@@ -426,15 +426,15 @@ Yeni aktif cihazda tüm virtual server&rsquo;lar doğrulandıktan sonra:</p>
 <h2 id="bu-seri">Bu Seri</h2>
 <p>Bu yazı başlangıç noktasıdır. Her modülün özel bir deep dive&rsquo;ı vardır:</p>
 <ul>
-<li>🔧 <strong><a href="/tr/technology/f5-ltm-virtual-server-irule-ssl-offloading-ha/">F5 LTM Deep Dive: Virtual Server&rsquo;lar, iRule&rsquo;lar, SSL Offloading ve HA</a></strong> — Full-proxy mimarisi, pool yapılandırması, health monitor&rsquo;lar, iRule örnekleri, session persistence, HA kümeleme ve sıfır downtime 30 cihaz migrasyon rehberi</li>
-<li>🌐 <strong><a href="/tr/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM ve GSLB Deep Dive: Global Trafik Yönetimi ve DNS Failover</a></strong> — Wide IP&rsquo;ler, iQuery, topoloji routing, TTL stratejisi, aktif-aktif ve aktif-yedek DC desenleri</li>
-<li>🛡️ <strong><a href="/tr/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive: ASM ve Advanced WAF ile Uygulama Güvenliği</a></strong> — Güvenlik politikası modelleri, OWASP Top 10 kapsamı, bot savunması, L7 DoS koruması ve şeffaftan engellemeye deployment stratejisi</li>
+<li>🔧 <strong><a href="/tr/technology/f5-ltm-deep-dive/">F5 LTM Deep Dive: Virtual Server&rsquo;lar, iRule&rsquo;lar, SSL Offloading ve HA</a></strong> — Full-proxy mimarisi, pool yapılandırması, health monitor&rsquo;lar, iRule örnekleri, session persistence, HA kümeleme ve sıfır downtime 30 cihaz migrasyon rehberi</li>
+<li>🌐 <strong><a href="/tr/technology/f5-gtm-deep-dive/">F5 GTM ve GSLB Deep Dive: Global Trafik Yönetimi ve DNS Failover</a></strong> — Wide IP&rsquo;ler, iQuery, topoloji routing, TTL stratejisi, aktif-aktif ve aktif-yedek DC desenleri</li>
+<li>🛡️ <strong><a href="/tr/technology/f5-waf-deep-dive/">F5 WAF Deep Dive: ASM ve Advanced WAF ile Uygulama Güvenliği</a></strong> — Güvenlik politikası modelleri, OWASP Top 10 kapsamı, bot savunması, L7 DoS koruması ve şeffaftan engellemeye deployment stratejisi</li>
 </ul>
 <hr>
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>
 <li>🛡️ <a href="/tr/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Tam yığın genelinde trafik görünürlüğü</li>
-<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — APM ve WAF&rsquo;ın Zero Trust&rsquo;ta yeri</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — APM ve WAF&rsquo;ın Zero Trust&rsquo;ta yeri</li>
 <li>🏗️ <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Ürünler Koleksiyonu Değildir</a> — ADC yerleşiminin arkasındaki sistem düşüncesi</li>
 <li>🎯 <a href="/tr/architecture/network-product-selection-strategy/">Ağ Altyapısı Ürün Seçimi: Stratejik Kriterler</a> — ADC satıcılarını nesnel olarak nasıl değerlendirirsiniz</li>
 </ul>

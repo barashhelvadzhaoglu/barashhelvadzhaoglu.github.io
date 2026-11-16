@@ -250,7 +250,7 @@
 <h2 id="kontinuierliches-monitoring-der-kritischste-teil-der-architektur">Kontinuierliches Monitoring: Der kritischste Teil der Architektur</h2>
 <p>Zugriff und Verhalten werden auf jeder Schicht überwacht und protokolliert. Wenn eine Anomalie oder riskante Aktivität erkannt wird, schränkt das System automatisch den Zugriff ein oder fordert zusätzliche Verifikation an.</p>
 <blockquote>
-<p>Für den Aufbau echter Sichtbarkeit in Ihrer Infrastruktur: <a href="/de/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen und proaktiv handeln</a></p>
+<p>Für den Aufbau echter Sichtbarkeit in Ihrer Infrastruktur: <a href="/de/architecture/monitoring-not-just-seeing/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen und proaktiv handeln</a></p>
 </blockquote>
 <h2 id="fazit">Fazit</h2>
 <p>Zero Trust ist kein Produkt.
@@ -267,12 +267,12 @@ Diese Version erweitert die architektonische Grundlage der Serie.</p>
 <ul>
 <li>📐 <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Der Grundlagenartikel dieser Serie</li>
 <li>🏗️ <a href="/de/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Warum die richtige Produktwahl allein nicht ausreicht</a> — Systemdenken im Core-Network-Design</li>
-<li>📊 <a href="/de/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen</a> — Echte Transparenz in der Infrastruktur aufbauen</li>
+<li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen</a> — Echte Transparenz in der Infrastruktur aufbauen</li>
 </ul>
 <p><strong>Technisches Engineering</strong></p>
 <ul>
-<li>🔐 <a href="/de/posts/unlocking-success-in-802-1x-projects-field-insights/">802.1X Projekte erfolgreich umsetzen: Praxiseinblicke</a> — Identitätsbasierter Zugang in Unternehmensnetzwerken</li>
-<li>🛡️ <a href="/de/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Erweiterte Traffic-Sichtbarkeit und Sicherheitsstrategie</li>
-<li>🛠️ <a href="/de/posts/next-gen-console-server-terminal-server-architecture/">Die Hintertür des Netzwerks: Next-Gen Console Server Architektur</a> — Out-of-Band-Zugang wenn alles andere versagt</li>
+<li>🔐 <a href="/de/posts/8021x-field-deployment-teaser/">802.1X Projekte erfolgreich umsetzen: Praxiseinblicke</a> — Identitätsbasierter Zugang in Unternehmensnetzwerken</li>
+<li>🛡️ <a href="/de/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Erweiterte Traffic-Sichtbarkeit und Sicherheitsstrategie</li>
+<li>🛠️ <a href="/de/posts/next-gen-console-server-architecture/">Die Hintertür des Netzwerks: Next-Gen Console Server Architektur</a> — Out-of-Band-Zugang wenn alles andere versagt</li>
 </ul>
 ]]></content:encoded></item></channel></rss>

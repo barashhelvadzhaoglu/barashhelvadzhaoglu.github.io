@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>802.1X on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/en/tags/802.1x/</link><description>Recent content in 802.1X on Barash Helvadzhaoglu</description><generator>Hugo -- 0.170.0</generator><language>en</language><lastBuildDate>Mon, 27 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/en/tags/802.1x/index.xml" rel="self" type="application/rss+xml"/><item><title>WiFi Security: WPA3, 802.1X, Rogue AP Detection, and Site Survey</title><link>https://barashhelvadzhaoglu.com/en/technology/wifi-security/</link><pubDate>Mon, 27 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/wifi-security/</guid><description>Enterprise WiFi security deep dive — WPA3 vs WPA2, 802.1X authentication, rogue AP detection and containment, and Ekahau site survey methodology.</description><content:encoded><![CDATA[<h1 id="wifi-security-wpa3-8021x-rogue-ap-detection-and-site-survey">WiFi Security: WPA3, 802.1X, Rogue AP Detection, and Site Survey</h1>
 <p>This article is part of the Enterprise WiFi series.</p>
 <blockquote>
-<p><strong>New to enterprise wireless?</strong> Start with the overview: <a href="/en/technology/enterprise-wifi-architecture-complete-guide/">Enterprise WiFi Architecture: From Standards to Deployment</a></p>
+<p><strong>New to enterprise wireless?</strong> Start with the overview: <a href="/en/technology/wifi-master/">Enterprise WiFi Architecture: From Standards to Deployment</a></p>
 </blockquote>
 <hr>
 <h2 id="why-wifi-security-is-different">Why WiFi Security Is Different</h2>
@@ -248,15 +248,15 @@ Compare validation heatmap against prediction. Document actual versus predicted 
 <hr>
 <h2 id="this-series">This Series</h2>
 <ul>
-<li>📖 <a href="/en/technology/enterprise-wifi-architecture-complete-guide/">Enterprise WiFi Architecture Overview</a> ← Start here</li>
-<li>📡 <a href="/en/technology/wifi-80211-standards-wifi4-wifi5-wifi6/">802.11 Standards Deep Dive</a></li>
-<li>🏢 <a href="/en/technology/enterprise-wifi-controller-architecture-cisco-aruba/">Enterprise Controller Architecture: Cisco and Aruba</a></li>
-<li>🏨 <a href="/en/technology/wifi-design-smb-hotel-medical/">WiFi Design for SMB, Hotels, and Medical Practices</a></li>
+<li>📖 <a href="/en/technology/wifi-master/">Enterprise WiFi Architecture Overview</a> ← Start here</li>
+<li>📡 <a href="/en/technology/wifi-standards/">802.11 Standards Deep Dive</a></li>
+<li>🏢 <a href="/en/technology/wifi-controller/">Enterprise Controller Architecture: Cisco and Aruba</a></li>
+<li>🏨 <a href="/en/technology/wifi-smb-hotel-medical/">WiFi Design for SMB, Hotels, and Medical Practices</a></li>
 </ul>
 <h2 id="related-articles">Related Articles</h2>
 <ul>
 <li>🔐 <a href="/en/technology/identity-based-microsegmentation-8021x/">802.1X Identity-Based Architecture in the Field</a> — Deep dive on 802.1X beyond wireless</li>
-<li>🔐 <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture</a> — Where wireless security fits in Zero Trust</li>
+<li>🔐 <a href="/en/architecture/zero-trust-architecture-behaviors/">The Zero Trust Mindset: Engineering Security as an Architecture</a> — Where wireless security fits in Zero Trust</li>
 <li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">Monitoring Done Right</a> — Integrating wireless events into proactive monitoring</li>
 </ul>
 ]]></content:encoded></item><item><title>Cisco ISE: Architecture, Licensing, and When to Use It</title><link>https://barashhelvadzhaoglu.com/en/technology/cisco-ise-architecture/</link><pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/cisco-ise-architecture/</guid><description>Cisco ISE licensing explained (Essentials, Advantage, Premier and the separate Device Admin / TACACS+ license) plus node roles, deployment models, pxGrid and when ISE beats NPS or ClearPass.</description><content:encoded><![CDATA[<h1 id="cisco-ise-architecture-licensing-and-when-to-use-it">Cisco ISE: Architecture, Licensing, and When to Use It</h1>
@@ -451,9 +451,9 @@ NPS covers basic RADIUS and 802.1X at no extra cost. ISE adds profiling, guest a
 <h2 id="related-articles">Related Articles</h2>
 <ul>
 <li>🔐 <a href="/en/technology/identity-based-microsegmentation-8021x/">802.1X Projects: Deploying the Identity-Based Architecture in the Field</a> — The field deployment guide that ISE enables</li>
-<li>🏛️ <a href="/en/architecture/cisco-dna-center-catalyst-center-architecture-guide/">Cisco DNA Center / Catalyst Center: When It Makes Sense</a> — The campus management platform ISE integrates with</li>
-<li>🔐 <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture</a> — The philosophy behind identity-based access control</li>
-<li>🛡️ <a href="/en/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive</a> — Complementary Layer 7 security alongside ISE&rsquo;s Layer 2/3 enforcement</li>
+<li>🏛️ <a href="/en/architecture/catalyst-center-architecture/">Cisco DNA Center / Catalyst Center: When It Makes Sense</a> — The campus management platform ISE integrates with</li>
+<li>🔐 <a href="/en/architecture/zero-trust-architecture-behaviors/">The Zero Trust Mindset: Engineering Security as an Architecture</a> — The philosophy behind identity-based access control</li>
+<li>🛡️ <a href="/en/technology/f5-waf-deep-dive/">F5 WAF Deep Dive</a> — Complementary Layer 7 security alongside ISE&rsquo;s Layer 2/3 enforcement</li>
 </ul>
 ]]></content:encoded></item><item><title>802.1X Projects: Deploying the Identity-Based Architecture in the Field</title><link>https://barashhelvadzhaoglu.com/en/technology/identity-based-microsegmentation-8021x/</link><pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/identity-based-microsegmentation-8021x/</guid><description>A field experience document discussing the success of 802.1X projects based on AD, PKI, and GPO discipline rather than just networking.</description><content:encoded><![CDATA[<h1 id="8021x-projects-deploying-the-identity-based-architecture-in-the-field">802.1X Projects: Deploying the Identity-Based Architecture in the Field</h1>
 <p>802.1X projects look like a <strong>network job</strong> from the outside; because the points of contact are switch ports, SSIDs, and RADIUS. But in real life, the success of 802.1X is often determined not on the network devices, but in the <strong>Active Directory structure</strong>, the <strong>certificate infrastructure (PKI)</strong>, and <strong>endpoint management</strong>. The reason is simple: 802.1X forces the organization to talk about its <strong>&ldquo;identity model&rdquo;</strong> rather than just the port&rsquo;s VLAN. In other words, you transition from &ldquo;which port belongs to which VLAN&rdquo; to a system of <strong>&ldquo;which identity enters the network with what authority.&rdquo;</strong></p>
@@ -470,7 +470,7 @@ NPS covers basic RADIUS and 802.1X at no extra cost. ISE adds profiling, guest a
 <li>Success depends more on <strong>AD/PKI/endpoint discipline</strong> than on the network itself.</li>
 </ul>
 <blockquote>
-<p>For the Zero Trust mindset behind identity-based access, see: <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product</a></p>
+<p>For the Zero Trust mindset behind identity-based access, see: <a href="/en/architecture/zero-trust-architecture-behaviors/">The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product</a></p>
 </blockquote>
 <h3 id="1-planning-without-a-vlan-plan-8021x-becomes-a-chaos-engine-instead-of-a-policy-engine">1) Planning: Without a VLAN plan, 802.1X becomes a &ldquo;chaos engine&rdquo; instead of a &ldquo;policy engine&rdquo;</h3>
 <p>When starting 802.1X, everyone&rsquo;s first reflex is: &ldquo;We&rsquo;ll set up RADIUS, write it to the switch, and it&rsquo;s done.&rdquo; In the field, this usually ends with the very first <strong>pilot user.</strong> Because the pilot user connects, and suddenly this question arises: &ldquo;Which VLAN will this user go to?&rdquo; This is where 802.1X forces your hand.</p>
@@ -632,7 +632,7 @@ In a <strong>Cisco</strong> environment, if <strong>AnyConnect (Secure Client)</
 <h2 id="related-articles">Related Articles</h2>
 <p><strong>Architecture &amp; Security</strong></p>
 <ul>
-<li>🔐 <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product</a> — The architectural foundation behind identity-based access</li>
+<li>🔐 <a href="/en/architecture/zero-trust-architecture-behaviors/">The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product</a> — The architectural foundation behind identity-based access</li>
 <li>🏗️ <a href="/en/architecture/it-infrastructure-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a> — Systems thinking over product selection</li>
 <li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">Monitoring Done Right: How to Build a Proactive IT Operations Culture</a> — Catching policy violations before they escalate</li>
 </ul>
@@ -745,7 +745,7 @@ In a <strong>Cisco</strong> environment, if <strong>AnyConnect (Secure Client)</
 <h2 id="continuous-monitoring-the-most-critical-part-of-the-architecture">Continuous Monitoring: The Most Critical Part of the Architecture</h2>
 <p>Access and behavior are monitored and logged at every layer. If an anomaly or risky activity is detected, the system automatically restricts access or requests additional verification.</p>
 <blockquote>
-<p>For building real visibility into your infrastructure: <a href="/en/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively</a></p>
+<p>For building real visibility into your infrastructure: <a href="/en/architecture/monitoring-not-just-seeing/">The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively</a></p>
 </blockquote>
 <h2 id="conclusion">Conclusion</h2>
 <p>Zero Trust is not a product.
@@ -762,12 +762,12 @@ This version expands the architectural foundation for the series.</p>
 <ul>
 <li>📐 <a href="/en/architecture/it-infrastructure-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a> — The foundational article of this series</li>
 <li>🏗️ <a href="/en/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough</a> — Systems thinking in core network design</li>
-<li>📊 <a href="/en/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively</a> — Building real visibility into your infrastructure</li>
+<li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively</a> — Building real visibility into your infrastructure</li>
 </ul>
 <p><strong>Technical Engineering</strong></p>
 <ul>
-<li>🔐 <a href="/en/posts/unlocking-success-in-802-1x-projects-field-insights/">Unlocking Success in 802.1X Projects: Field Insights</a> — Identity-based access in enterprise networks</li>
-<li>🛡️ <a href="/en/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Advanced traffic visibility and security strategy</li>
-<li>🛠️ <a href="/en/posts/next-gen-console-server-terminal-server-architecture/">The Backdoor of the Network: Next-Gen Console Server Architecture</a> — Out-of-band access when everything else fails</li>
+<li>🔐 <a href="/en/posts/8021x-field-deployment-teaser/">Unlocking Success in 802.1X Projects: Field Insights</a> — Identity-based access in enterprise networks</li>
+<li>🛡️ <a href="/en/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Advanced traffic visibility and security strategy</li>
+<li>🛠️ <a href="/en/posts/next-gen-console-server-architecture/">The Backdoor of the Network: Next-Gen Console Server Architecture</a> — Out-of-band access when everything else fails</li>
 </ul>
 ]]></content:encoded></item></channel></rss>

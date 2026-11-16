@@ -77,11 +77,11 @@ Bei sehr kleinen Deployments (unter 20 Standorten) rechtfertigen die Orchestrato
 <p>HPE Aruba EdgeConnect SD-WAN kombiniert die ausgereiftesten WAN-Optimierungsfunktionen am Markt mit einer modernen SD-WAN-Architektur. Für Unternehmen, bei denen WAN-Optimierung nach wie vor relevant ist – Site-to-Site-Replikation, latenzempfindliche Legacy-Anwendungen, hohe Zuverlässigkeitsanforderungen über Breitband –, bietet das Erbe von Silver Peak eine echte technische Differenzierung.</p>
 <p>Die Aruba-Integration eröffnet Unternehmen mit Campus- und Branch-Standorten einen operativ überzeugenden Weg zu einem einheitlichen Management über Wireless-, Switching- und WAN-Infrastrukturen hinweg. Bei reinen SD-WAN-Deployments in Umgebungen ohne bestehende Aruba-Infrastruktur und ohne ausgeprägte Anforderungen an die WAN-Optimierung verringert sich dieser Differenzierungsvorteil gegenüber Cisco oder Fortinet jedoch.</p>
 <hr>
-<p><em>Als Nächstes in dieser Serie: <a href="/en/posts/palo-alto-sd-wan/">Palo Alto SD-WAN – Prisma SD-WAN und der Security-First-Ansatz</a></em></p>
+<p><em>Als Nächstes in dieser Serie: <a href="/en/technology/palo-alto-sd-wan/">Palo Alto SD-WAN – Prisma SD-WAN und der Security-First-Ansatz</a></em></p>
 ]]></content:encoded></item><item><title>WiFi-Design für KMU, Hotels und Arztpraxen: Feldnotizen</title><link>https://barashhelvadzhaoglu.com/de/technology/wifi-smb-hotel-medical/</link><pubDate>Wed, 29 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/wifi-smb-hotel-medical/</guid><description>WLAN-Design für KMU, Hotels und Arztpraxen — Dichte-Planung, Gäste-Segmentierung, Bandbreitenmanagement und PMS-Integration.</description><content:encoded><![CDATA[<h1 id="wifi-design-für-kmu-hotels-und-arztpraxen-feldnotizen">WiFi-Design für KMU, Hotels und Arztpraxen: Feldnotizen</h1>
 <p>Dieser Artikel ist Teil der Enterprise-WiFi-Serie.</p>
 <blockquote>
-<p><strong>Neu im Enterprise-Wireless-Bereich?</strong> Beginnen Sie mit der Übersicht: <a href="/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/">Enterprise WiFi-Architektur: Von Standards bis zur Deployment</a></p>
+<p><strong>Neu im Enterprise-Wireless-Bereich?</strong> Beginnen Sie mit der Übersicht: <a href="/de/technology/wifi-master/">Enterprise WiFi-Architektur: Von Standards bis zur Deployment</a></p>
 </blockquote>
 <hr>
 <h2 id="warum-der-umgebungstyp-wichtiger-ist-als-die-gerätemarke">Warum der Umgebungstyp wichtiger ist als die Gerätemarke</h2>
@@ -297,21 +297,21 @@ Enterprise-APs erfordern PoE. Ein Cisco- oder Aruba-WiFi-6-AP mit mehreren Radio
 <hr>
 <h2 id="diese-serie">Diese Serie</h2>
 <ul>
-<li>📖 <a href="/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/">Enterprise WiFi-Architektur Übersicht</a> ← Beginnen Sie hier</li>
-<li>📡 <a href="/de/technology/wifi-80211-standards-wifi4-wifi5-wifi6/">802.11 Standards Deep Dive</a></li>
-<li>🏢 <a href="/de/technology/enterprise-wlan-controller-architektur-cisco-aruba/">Enterprise Controller-Architektur: Cisco und Aruba</a></li>
-<li>🔐 <a href="/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/">WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey</a></li>
+<li>📖 <a href="/de/technology/wifi-master/">Enterprise WiFi-Architektur Übersicht</a> ← Beginnen Sie hier</li>
+<li>📡 <a href="/de/technology/wifi-standards/">802.11 Standards Deep Dive</a></li>
+<li>🏢 <a href="/de/technology/wifi-controller/">Enterprise Controller-Architektur: Cisco und Aruba</a></li>
+<li>🔐 <a href="/de/technology/wifi-security/">WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey</a></li>
 </ul>
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
-<li>📡 <a href="/de/technology/nas-backup-aws-s3-cloud-kmu/">NAS-Backup mit AWS S3 — Datensicherheit für KMU</a> — KMU-Datenschutz neben WiFi</li>
+<li>📡 <a href="/de/posts/nas-backup/">NAS-Backup mit AWS S3 — Datensicherheit für KMU</a> — KMU-Datenschutz neben WiFi</li>
 <li>🔐 <a href="/de/technology/identity-based-microsegmentation-8021x/">802.1X Identitätsbasierte Architektur im Praxiseinsatz</a> — Die Identitätsschicht für Enterprise Wireless</li>
 <li>🏗️ <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Systemdenken im Netzwerkdesign</li>
 </ul>
 ]]></content:encoded></item><item><title>Enterprise WLAN-Controller-Architektur: Cisco und Aruba WLAN-Design</title><link>https://barashhelvadzhaoglu.com/de/technology/wifi-controller/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/wifi-controller/</guid><description>Enterprise-WLAN-Controller Deep Dive — Cisco WLC vs. DNA Center, Aruba Mobility Master vs. Central, zentrale vs. verteilte Designs.</description><content:encoded><![CDATA[<h1 id="enterprise-wlan-controller-architektur-cisco-und-aruba-wlan-design">Enterprise WLAN-Controller-Architektur: Cisco und Aruba WLAN-Design</h1>
 <p>Dieser Artikel ist Teil der Enterprise-WiFi-Serie.</p>
 <blockquote>
-<p><strong>Neu im Enterprise-Wireless-Bereich?</strong> Beginnen Sie mit der Übersicht: <a href="/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/">Enterprise WiFi-Architektur: Von Standards bis zur Deployment</a></p>
+<p><strong>Neu im Enterprise-Wireless-Bereich?</strong> Beginnen Sie mit der Übersicht: <a href="/de/technology/wifi-master/">Enterprise WiFi-Architektur: Von Standards bis zur Deployment</a></p>
 </blockquote>
 <hr>
 <h2 id="warum-controller-architektur-wichtig-ist">Warum Controller-Architektur wichtig ist</h2>
@@ -532,10 +532,10 @@ DNA Center setzt SGT-basierte Richtlinie Ende-zu-Ende durch
 <hr>
 <h2 id="diese-serie">Diese Serie</h2>
 <ul>
-<li>📖 <a href="/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/">Enterprise WiFi-Architektur Übersicht</a> ← Beginnen Sie hier</li>
-<li>📡 <a href="/de/technology/wifi-80211-standards-wifi4-wifi5-wifi6/">802.11 Standards Deep Dive</a></li>
-<li>🏨 <a href="/de/technology/wifi-design-kmu-hotel-gesundheit/">WiFi-Design für KMU, Hotels und Arztpraxen</a></li>
-<li>🔐 <a href="/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/">WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey</a></li>
+<li>📖 <a href="/de/technology/wifi-master/">Enterprise WiFi-Architektur Übersicht</a> ← Beginnen Sie hier</li>
+<li>📡 <a href="/de/technology/wifi-standards/">802.11 Standards Deep Dive</a></li>
+<li>🏨 <a href="/de/technology/wifi-smb-hotel-medical/">WiFi-Design für KMU, Hotels und Arztpraxen</a></li>
+<li>🔐 <a href="/de/technology/wifi-security/">WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey</a></li>
 </ul>
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
@@ -552,10 +552,10 @@ DNA Center setzt SGT-basierte Richtlinie Ende-zu-Ende durch
 <p>Dieser Artikel gibt Ihnen das <strong>Gesamtbild</strong> — was Enterprise Wireless-Architektur umfasst, was die wichtigsten Entscheidungen sind und wohin jeder Deep Dive führt.</p>
 <p><strong>Wenn Sie Ingenieur sind</strong> und tief in ein bestimmtes Thema eintauchen möchten — springen Sie zu dem Artikel, der Ihren Anwendungsfall abdeckt:</p>
 <ul>
-<li>📡 <strong><a href="/de/technology/wifi-80211-standards-wifi4-wifi5-wifi6/">802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E und was sich wirklich geändert hat</a></strong> — Was ax, ac, n und be wirklich für Kapazität, Reichweite und Deployment-Entscheidungen bedeuten</li>
-<li>🏢 <strong><a href="/de/technology/enterprise-wlan-controller-architektur-cisco-aruba/">Enterprise Controller-Architektur: Cisco und Aruba WLAN-Design</a></strong> — Zentralisierte vs. verteilte Steuerung, Mobilitätsdomänen, WLC vs. Cloud-Management</li>
-<li>🏨 <strong><a href="/de/technology/wifi-design-kmu-hotel-gesundheit/">WiFi-Design für KMU, Hotels und Arztpraxen</a></strong> — Praktische Feldnotizen zu Dichte-Planung, Gäste-Segmentierung und Erwartungsmanagement</li>
-<li>🔐 <strong><a href="/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/">WiFi-Sicherheit: WPA3, 802.1X, Rogue-AP-Erkennung und Site Survey</a></strong> — Authentifizierung, Verschlüsselung, Intrusion Detection und Ekahau-Survey-Methodik</li>
+<li>📡 <strong><a href="/de/technology/wifi-standards/">802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E und was sich wirklich geändert hat</a></strong> — Was ax, ac, n und be wirklich für Kapazität, Reichweite und Deployment-Entscheidungen bedeuten</li>
+<li>🏢 <strong><a href="/de/technology/wifi-controller/">Enterprise Controller-Architektur: Cisco und Aruba WLAN-Design</a></strong> — Zentralisierte vs. verteilte Steuerung, Mobilitätsdomänen, WLC vs. Cloud-Management</li>
+<li>🏨 <strong><a href="/de/technology/wifi-smb-hotel-medical/">WiFi-Design für KMU, Hotels und Arztpraxen</a></strong> — Praktische Feldnotizen zu Dichte-Planung, Gäste-Segmentierung und Erwartungsmanagement</li>
+<li>🔐 <strong><a href="/de/technology/wifi-security/">WiFi-Sicherheit: WPA3, 802.1X, Rogue-AP-Erkennung und Site Survey</a></strong> — Authentifizierung, Verschlüsselung, Intrusion Detection und Ekahau-Survey-Methodik</li>
 </ul>
 <p><strong>Wenn Sie Architekt oder Entscheidungsträger sind</strong> und Wireless-Lösungen evaluieren — lesen Sie hier weiter. Dieser Artikel beantwortet die strategischen Fragen ohne RF-Expertise vorauszusetzen.</p>
 <hr>
@@ -624,7 +624,7 @@ DNA Center setzt SGT-basierte Richtlinie Ende-zu-Ende durch
 </ul>
 <p><strong>WiFi 6E</strong> fügte das 6-GHz-Band hinzu — ein weitgehend unkongestioniertes Spektrum, das Interferenz von Nachbarnetzwerken und Legacy-Geräten eliminiert.</p>
 <p><strong>WiFi 7</strong> entsteht gerade mit Multi-Link-Operation (MLO), die einem einzelnen Gerät ermöglicht, gleichzeitig mehrere Bänder und Kanäle zu nutzen. Stand 2026 noch in früher Enterprise-Deployment-Phase.</p>
-<p>→ <strong><a href="/de/technology/wifi-80211-standards-wifi4-wifi5-wifi6/">802.11 Standards Deep Dive</a></strong></p>
+<p>→ <strong><a href="/de/technology/wifi-standards/">802.11 Standards Deep Dive</a></strong></p>
 <hr>
 <h2 id="controller-architektur-wo-die-intelligenz-lebt">Controller-Architektur: Wo die Intelligenz lebt</h2>
 <p>Enterprise Wireless-Netzwerke haben zwei grundlegende Architekturmodelle:</p>
@@ -647,7 +647,7 @@ DNA Center setzt SGT-basierte Richtlinie Ende-zu-Ende durch
 <h3 id="verteilt--campus-fabric">Verteilt / Campus Fabric</h3>
 <p>Moderne Großcampus-Deployments integrieren Wireless oft in das breitere Netzwerk-Fabric — APs nehmen am gleichen Richtlinien- und Segmentierungsmodell wie kabelgebundene Ports teil, mit identitätsbasierter VLAN-Zuweisung und konsistenter Zugangskontrolle unabhängig davon, ob das Gerät über Kabel oder Wireless verbindet.</p>
 <p>Cisco DNA Center mit SD-Access und Aruba CX mit Central sind Beispiele dieses Ansatzes.</p>
-<p>→ <strong><a href="/de/technology/enterprise-wlan-controller-architektur-cisco-aruba/">Enterprise Controller-Architektur Deep Dive</a></strong></p>
+<p>→ <strong><a href="/de/technology/wifi-controller/">Enterprise Controller-Architektur Deep Dive</a></strong></p>
 <hr>
 <h2 id="kmu-hotel-und-arztpraxis-design-prinzipien">KMU, Hotel und Arztpraxis: Design-Prinzipien</h2>
 <p>Verbraucher-WiFi-Equipment scheitert in professionellen Umgebungen nicht wegen schlechter Qualität — es scheitert, weil es nicht für die Dichte, die Verwaltungsanforderungen oder die Sicherheitserwartungen dieser Umgebungen konzipiert wurde.</p>
@@ -674,7 +674,7 @@ DNA Center setzt SGT-basierte Richtlinie Ende-zu-Ende durch
 <li><strong>Gastportal:</strong> Authentifizierung, Nutzungsbestätigung, potenziell Zimmernummer-Validierung. Integration mit PMS (Property Management System) für automatische Provisionierung.</li>
 <li><strong>Personal- vs. Gastnetzwerk:</strong> Vollständig getrennt — auf das Personalnetzwerk darf unter keinen Umständen vom Gastnetzwerk aus zugegriffen werden.</li>
 </ul>
-<p>→ <strong><a href="/de/technology/wifi-design-kmu-hotel-gesundheit/">WiFi-Design für KMU, Hotels und Arztpraxen Deep Dive</a></strong></p>
+<p>→ <strong><a href="/de/technology/wifi-smb-hotel-medical/">WiFi-Design für KMU, Hotels und Arztpraxen Deep Dive</a></strong></p>
 <hr>
 <h2 id="roaming-und-band-steering">Roaming und Band Steering</h2>
 <h3 id="roaming-warum-es-schwieriger-ist-als-es-aussieht">Roaming: Warum es schwieriger ist als es aussieht</h3>
@@ -715,7 +715,7 @@ DNA Center setzt SGT-basierte Richtlinie Ende-zu-Ende durch
 <h3 id="rogue-ap-erkennung">Rogue-AP-Erkennung</h3>
 <p>Ein Rogue AP ist ein unautorisierter Access Point, der mit Ihrem Netzwerk verbunden ist — entweder bösartig platziert oder ein gut gemeinter Mitarbeiter, der einen Heimrouter ins Büro brachte.</p>
 <p>Enterprise Wireless Controller scannen die RF-Umgebung kontinuierlich auf APs. Wenn ein AP erkannt wird, der zur BSSID oder SSID Ihres kabelgebundenen Netzwerks passt, wird er als Rogue markiert und — auf den meisten Plattformen — kann automatisch eingedämmt werden.</p>
-<p>→ <strong><a href="/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/">WiFi-Sicherheit Deep Dive: WPA3, 802.1X, Rogue-AP-Erkennung und Site Survey</a></strong></p>
+<p>→ <strong><a href="/de/technology/wifi-security/">WiFi-Sicherheit Deep Dive: WPA3, 802.1X, Rogue-AP-Erkennung und Site Survey</a></strong></p>
 <hr>
 <h2 id="site-survey-der-schritt-den-die-meisten-projekte-überspringen">Site Survey: Der Schritt, den die meisten Projekte überspringen</h2>
 <p>Ein Site Survey ist eine systematische Messung der RF-Umgebung vor und nach der AP-Deployment. Ihn zu überspringen ist die häufigste Ursache für „Wir haben WiFi deployt, aber es funktioniert nicht richtig&quot;-Situationen.</p>
@@ -729,7 +729,7 @@ DNA Center setzt SGT-basierte Richtlinie Ende-zu-Ende durch
 <li>Roaming-Totzonen, wo Clients die Verbindung zwischen APs verlieren</li>
 </ul>
 <p>Die Kosten eines ordentlichen Site Surveys sind gering im Vergleich zu den Kosten einer Wireless-Deployment, die nach der Installation erhebliche Nacharbeiten erfordert.</p>
-<p>→ <strong><a href="/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/">WiFi-Sicherheit Deep Dive beinhaltet Site-Survey-Methodik</a></strong></p>
+<p>→ <strong><a href="/de/technology/wifi-security/">WiFi-Sicherheit Deep Dive beinhaltet Site-Survey-Methodik</a></strong></p>
 <hr>
 <h2 id="die-richtige-plattform-wählen">Die richtige Plattform wählen</h2>
 <table>
@@ -773,10 +773,10 @@ DNA Center setzt SGT-basierte Richtlinie Ende-zu-Ende durch
 <hr>
 <h2 id="diese-serie">Diese Serie</h2>
 <ul>
-<li>📡 <strong><a href="/de/technology/wifi-80211-standards-wifi4-wifi5-wifi6/">802.11 Standards Deep Dive</a></strong> — WiFi 4, 5, 6, 6E und 7: was sich geändert hat, was in der Praxis wichtig ist</li>
-<li>🏢 <strong><a href="/de/technology/enterprise-wlan-controller-architektur-cisco-aruba/">Enterprise Controller-Architektur</a></strong> — Cisco und Aruba Architekturen, zentralisiert vs. Cloud, Mobilitätsdomänen</li>
-<li>🏨 <strong><a href="/de/technology/wifi-design-kmu-hotel-gesundheit/">WiFi-Design für KMU, Hotels und Arztpraxen</a></strong> — Praktische Feldnotizen zu realen Deployment-Szenarien</li>
-<li>🔐 <strong><a href="/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/">WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey</a></strong> — Authentifizierung, Verschlüsselung, Intrusion Detection, Ekahau-Methodik</li>
+<li>📡 <strong><a href="/de/technology/wifi-standards/">802.11 Standards Deep Dive</a></strong> — WiFi 4, 5, 6, 6E und 7: was sich geändert hat, was in der Praxis wichtig ist</li>
+<li>🏢 <strong><a href="/de/technology/wifi-controller/">Enterprise Controller-Architektur</a></strong> — Cisco und Aruba Architekturen, zentralisiert vs. Cloud, Mobilitätsdomänen</li>
+<li>🏨 <strong><a href="/de/technology/wifi-smb-hotel-medical/">WiFi-Design für KMU, Hotels und Arztpraxen</a></strong> — Praktische Feldnotizen zu realen Deployment-Szenarien</li>
+<li>🔐 <strong><a href="/de/technology/wifi-security/">WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey</a></strong> — Authentifizierung, Verschlüsselung, Intrusion Detection, Ekahau-Methodik</li>
 </ul>
 <hr>
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>

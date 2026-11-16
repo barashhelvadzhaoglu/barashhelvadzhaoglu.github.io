@@ -200,12 +200,12 @@ Bu versiyon, serinin mimari temelini genişletiyor.</p>
 <ul>
 <li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Bu serinin temel yazısı</li>
 <li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a> — Mimari öncelikli core network tasarımı</li>
-<li>🛡️ <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Mimari olarak güvenlik</li>
+<li>🛡️ <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Mimari olarak güvenlik</li>
 </ul>
 <p><strong>Teknik Mühendislik</strong></p>
 <ul>
-<li>📊 <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a> — Operasyonel görünürlük</li>
-<li>🛠️ <a href="/tr/posts/next-gen-console-server-terminal-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Out-of-band erişim</li>
-<li>🛡️ <a href="/tr/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Trafik görünürlüğü ve güvenlik stratejisi</li>
+<li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a> — Operasyonel görünürlük</li>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Out-of-band erişim</li>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Trafik görünürlüğü ve güvenlik stratejisi</li>
 </ul>
 ]]></content:encoded></item></channel></rss>

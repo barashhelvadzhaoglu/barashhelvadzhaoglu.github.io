@@ -7,10 +7,10 @@
 <p>This article gives you the <strong>big picture</strong> — what enterprise wireless architecture involves, what the key decisions are, and where each deep dive goes.</p>
 <p><strong>If you are an engineer</strong> who wants to go deep on a specific topic — jump to the article that covers your use case:</p>
 <ul>
-<li>📡 <strong><a href="/en/technology/wifi-80211-standards-wifi4-wifi5-wifi6/">802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E and What Actually Changed</a></strong> — What ax, ac, n, and be actually mean for capacity, range, and deployment decisions</li>
-<li>🏢 <strong><a href="/en/technology/enterprise-wifi-controller-architecture-cisco-aruba/">Enterprise Controller Architecture: Cisco and Aruba WLAN Design</a></strong> — Centralized vs. distributed control, mobility domains, WLC vs. cloud management</li>
-<li>🏨 <strong><a href="/en/technology/wifi-design-smb-hotel-medical/">WiFi Design for SMB, Hotels, and Medical Practices</a></strong> — Practical field notes on density planning, guest segmentation, and managing expectations</li>
-<li>🔐 <strong><a href="/en/technology/wifi-security-wpa3-8021x-site-survey/">WiFi Security: WPA3, 802.1X, Rogue AP Detection, and Site Survey</a></strong> — Authentication, encryption, intrusion detection, and Ekahau survey methodology</li>
+<li>📡 <strong><a href="/en/technology/wifi-standards/">802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E and What Actually Changed</a></strong> — What ax, ac, n, and be actually mean for capacity, range, and deployment decisions</li>
+<li>🏢 <strong><a href="/en/technology/wifi-controller/">Enterprise Controller Architecture: Cisco and Aruba WLAN Design</a></strong> — Centralized vs. distributed control, mobility domains, WLC vs. cloud management</li>
+<li>🏨 <strong><a href="/en/technology/wifi-smb-hotel-medical/">WiFi Design for SMB, Hotels, and Medical Practices</a></strong> — Practical field notes on density planning, guest segmentation, and managing expectations</li>
+<li>🔐 <strong><a href="/en/technology/wifi-security/">WiFi Security: WPA3, 802.1X, Rogue AP Detection, and Site Survey</a></strong> — Authentication, encryption, intrusion detection, and Ekahau survey methodology</li>
 </ul>
 <p><strong>If you are an architect or decision-maker</strong> evaluating wireless solutions — keep reading here. This article answers the strategic questions without requiring RF expertise.</p>
 <hr>
@@ -79,7 +79,7 @@
 </ul>
 <p><strong>WiFi 6E</strong> added the 6 GHz band — a largely uncongested spectrum that eliminates interference from neighboring networks and legacy devices. Significant advantage in dense urban environments.</p>
 <p><strong>WiFi 7</strong> is emerging, with Multi-Link Operation (MLO) enabling a single device to simultaneously use multiple bands and channels — improving throughput and reducing latency. Still in early enterprise deployment as of 2026.</p>
-<p>→ <strong><a href="/en/technology/wifi-80211-standards-wifi4-wifi5-wifi6/">802.11 Standards Deep Dive</a></strong></p>
+<p>→ <strong><a href="/en/technology/wifi-standards/">802.11 Standards Deep Dive</a></strong></p>
 <hr>
 <h2 id="controller-architecture-where-intelligence-lives">Controller Architecture: Where Intelligence Lives</h2>
 <p>Enterprise wireless networks have two fundamental architectural models:</p>
@@ -102,7 +102,7 @@
 <h3 id="distributed--campus-fabric">Distributed / Campus Fabric</h3>
 <p>Modern large-campus deployments often integrate wireless into the broader network fabric — APs participate in the same policy and segmentation model as wired ports, with identity-based VLAN assignment and consistent access control whether the device connects via cable or wireless.</p>
 <p>Cisco DNA Center with SD-Access and Aruba CX with Central are examples of this approach.</p>
-<p>→ <strong><a href="/en/technology/enterprise-wifi-controller-architecture-cisco-aruba/">Enterprise Controller Architecture Deep Dive</a></strong></p>
+<p>→ <strong><a href="/en/technology/wifi-controller/">Enterprise Controller Architecture Deep Dive</a></strong></p>
 <hr>
 <h2 id="smb-hotel-and-medical-practice-design-principles">SMB, Hotel, and Medical Practice: Design Principles</h2>
 <p>Consumer WiFi equipment fails in professional environments not because it&rsquo;s low-quality — it fails because it wasn&rsquo;t designed for the density, the management requirements, or the security expectations of those environments.</p>
@@ -129,7 +129,7 @@
 <li><strong>Guest portal:</strong> Authentication, terms acceptance, potentially room-number validation. Integration with PMS (Property Management System) for automatic provisioning.</li>
 <li><strong>Staff vs. guest network:</strong> Completely separate — staff network must not be reachable from the guest network under any circumstances.</li>
 </ul>
-<p>→ <strong><a href="/en/technology/wifi-design-smb-hotel-medical/">WiFi Design for SMB, Hotels, and Medical Practices Deep Dive</a></strong></p>
+<p>→ <strong><a href="/en/technology/wifi-smb-hotel-medical/">WiFi Design for SMB, Hotels, and Medical Practices Deep Dive</a></strong></p>
 <hr>
 <h2 id="roaming-and-band-steering">Roaming and Band Steering</h2>
 <h3 id="roaming-why-its-harder-than-it-looks">Roaming: Why It&rsquo;s Harder Than It Looks</h3>
@@ -170,7 +170,7 @@
 <h3 id="rogue-ap-detection">Rogue AP Detection</h3>
 <p>A rogue AP is an unauthorized access point connected to your network — either maliciously planted or a well-intentioned employee who brought a home router to the office.</p>
 <p>Enterprise wireless controllers continuously scan the RF environment for APs. When an AP is detected that matches your wired network&rsquo;s BSSID or SSID, it&rsquo;s flagged as a rogue and — on most platforms — can be automatically contained (the controller sends deauthentication frames to clients connecting to the rogue AP).</p>
-<p>→ <strong><a href="/en/technology/wifi-security-wpa3-8021x-site-survey/">WiFi Security Deep Dive: WPA3, 802.1X, Rogue AP Detection, and Site Survey</a></strong></p>
+<p>→ <strong><a href="/en/technology/wifi-security/">WiFi Security Deep Dive: WPA3, 802.1X, Rogue AP Detection, and Site Survey</a></strong></p>
 <hr>
 <h2 id="site-survey-the-step-most-projects-skip">Site Survey: The Step Most Projects Skip</h2>
 <p>A site survey is a systematic measurement of the RF environment before and after AP deployment. Skipping it is the most common cause of &ldquo;we deployed WiFi but it doesn&rsquo;t work properly&rdquo; situations.</p>
@@ -184,7 +184,7 @@
 <li>Roaming dead zones where clients lose connection between APs</li>
 </ul>
 <p>The cost of a proper site survey is small compared to the cost of a wireless deployment that requires significant rework after installation.</p>
-<p>→ <strong><a href="/en/technology/wifi-security-wpa3-8021x-site-survey/">WiFi Security Deep Dive includes Site Survey methodology</a></strong></p>
+<p>→ <strong><a href="/en/technology/wifi-security/">WiFi Security Deep Dive includes Site Survey methodology</a></strong></p>
 <hr>
 <h2 id="choosing-the-right-platform">Choosing the Right Platform</h2>
 <table>
@@ -228,10 +228,10 @@
 <hr>
 <h2 id="this-series">This Series</h2>
 <ul>
-<li>📡 <strong><a href="/en/technology/wifi-80211-standards-wifi4-wifi5-wifi6/">802.11 Standards Deep Dive</a></strong> — WiFi 4, 5, 6, 6E, and 7: what changed, what matters in practice</li>
-<li>🏢 <strong><a href="/en/technology/enterprise-wifi-controller-architecture-cisco-aruba/">Enterprise Controller Architecture</a></strong> — Cisco and Aruba architectures, centralized vs. cloud, mobility domains</li>
-<li>🏨 <strong><a href="/en/technology/wifi-design-smb-hotel-medical/">WiFi Design for SMB, Hotels, and Medical Practices</a></strong> — Practical field notes on real-world deployment scenarios</li>
-<li>🔐 <strong><a href="/en/technology/wifi-security-wpa3-8021x-site-survey/">WiFi Security: WPA3, 802.1X, Rogue AP, Site Survey</a></strong> — Authentication, encryption, intrusion detection, Ekahau methodology</li>
+<li>📡 <strong><a href="/en/technology/wifi-standards/">802.11 Standards Deep Dive</a></strong> — WiFi 4, 5, 6, 6E, and 7: what changed, what matters in practice</li>
+<li>🏢 <strong><a href="/en/technology/wifi-controller/">Enterprise Controller Architecture</a></strong> — Cisco and Aruba architectures, centralized vs. cloud, mobility domains</li>
+<li>🏨 <strong><a href="/en/technology/wifi-smb-hotel-medical/">WiFi Design for SMB, Hotels, and Medical Practices</a></strong> — Practical field notes on real-world deployment scenarios</li>
+<li>🔐 <strong><a href="/en/technology/wifi-security/">WiFi Security: WPA3, 802.1X, Rogue AP, Site Survey</a></strong> — Authentication, encryption, intrusion detection, Ekahau methodology</li>
 </ul>
 <hr>
 <h2 id="related-articles">Related Articles</h2>
@@ -379,13 +379,13 @@ This version expands on the architectural foundation of the series.</p>
 <ul>
 <li>📐 <a href="/en/architecture/it-infrastructure-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a> — The foundational article of this series</li>
 <li>🏗️ <a href="/en/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough</a> — Architecture-first core network design</li>
-<li>🛡️ <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product</a> — Security as architecture</li>
+<li>🛡️ <a href="/en/architecture/zero-trust-architecture-behaviors/">The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product</a> — Security as architecture</li>
 </ul>
 <p><strong>Technical Engineering</strong></p>
 <ul>
-<li>📊 <a href="/en/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively</a> — Operational visibility</li>
-<li>🛠️ <a href="/en/posts/next-gen-console-server-terminal-server-architecture/">The Backdoor of the Network: Next-Gen Console Server Architecture</a> — Out-of-band access</li>
-<li>🛡️ <a href="/en/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Traffic visibility and security strategy</li>
+<li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively</a> — Operational visibility</li>
+<li>🛠️ <a href="/en/posts/next-gen-console-server-architecture/">The Backdoor of the Network: Next-Gen Console Server Architecture</a> — Out-of-band access</li>
+<li>🛡️ <a href="/en/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Traffic visibility and security strategy</li>
 </ul>
 ]]></content:encoded></item><item><title>Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough</title><link>https://barashhelvadzhaoglu.com/en/architecture/core-network-is-not-a-product-list/</link><pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/architecture/core-network-is-not-a-product-list/</guid><description>Enterprise network projects fail due to fragmented architecture, not wrong products. Deep-dive into firewall, switching, AP selection, and capacity planning.</description><content:encoded><![CDATA[<h1 id="switch-firewall-ap--why-choosing-the-right-products-is-not-enough">Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough</h1>
 <h2 id="architecture-capacity-planning-and-the-vendor-reality-no-one-talks-about">Architecture, capacity planning, and the vendor reality no one talks about</h2>
@@ -436,7 +436,7 @@ This version expands on the architectural foundation of the series.</p>
 <li>In some architectures, additional components such as WAF or Cloud FW.</li>
 </ul>
 <blockquote>
-<p>For a deeper look at how identity and segmentation fit into a broader security philosophy, see: <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product</a></p>
+<p>For a deeper look at how identity and segmentation fit into a broader security philosophy, see: <a href="/en/architecture/zero-trust-architecture-behaviors/">The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product</a></p>
 </blockquote>
 <p>This does not mean &ldquo;buying two firewalls&rdquo;; it means &ldquo;assigning two different jobs to the right tools.&rdquo; When you pile everything into a single box, you lose either performance, manageability, or security. Usually, at least one of the three is lost.</p>
 <p>And this takes us directly to capacity planning.</p>
@@ -498,7 +498,7 @@ I believe Palo Alto creates a serious difference in application visibility, poli
 My personal view is this: there are vendors who have proven themselves more strongly in specific areas, and if the IT team is mature enough to manage this distinction, selecting different vendors for different layers can produce much stronger technical results. On the other hand, some organizations prefer to move forward with a single vendor to avoid integration issues, installation complexity, and configuration errors, and to resolve all problems through a single support channel. This is also a completely valid approach.</p>
 <p>Finally, there is one point I want to emphasize strongly: today, almost all major vendors are making serious investments in automation. At this point, API support is no longer an &ldquo;extra,&rdquo; but a direct selection criterion. What can be done via APIs, what can be automated, and how open the integration is must be on the table when selecting products.</p>
 <blockquote>
-<p>For a practical framework on building visibility into your infrastructure, see: <a href="/en/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively</a></p>
+<p>For a practical framework on building visibility into your infrastructure, see: <a href="/en/architecture/monitoring-not-just-seeing/">The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively</a></p>
 </blockquote>
 <p>As I mentioned in my first article, in my opinion, automation processes should not be considered as a layer added later during product selection. On the contrary, automation and operational processes should be placed at the top of the pyramid, and products should be selected according to this framework. The question of which switch, which firewall, and which AP should come after the question: &ldquo;How will I manage this architecture automatically?&rdquo; In my view, correct core network design starts exactly here.</p>
 <h2 id="server-room-and-cabling-the-reality-no-one-wants-to-talk-about-but-everyone-pays-for">Server Room and Cabling: The Reality No One Wants to Talk About, but Everyone Pays For</h2>
@@ -526,15 +526,15 @@ This version expands the architectural foundation for the series.</p>
 <p>If you found this article useful, you may also be interested in these related deep-dives:</p>
 <p><strong>Architecture &amp; Security Design</strong></p>
 <ul>
-<li>📐 <a href="/en/architecture/it-infrastructure-is-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a> — The foundational article for this series</li>
-<li>🛡️ <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product</a> — Why Zero Trust is a philosophy, not a product you can buy</li>
-<li>📊 <a href="/en/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively</a> — How to build real visibility into your infrastructure</li>
+<li>📐 <a href="/en/architecture/it-infrastructure-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a> — The foundational article for this series</li>
+<li>🛡️ <a href="/en/architecture/zero-trust-architecture-behaviors/">The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product</a> — Why Zero Trust is a philosophy, not a product you can buy</li>
+<li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively</a> — How to build real visibility into your infrastructure</li>
 </ul>
 <p><strong>Technical Engineering</strong></p>
 <ul>
-<li>🛠️ <a href="/en/posts/next-gen-console-server-terminal-server-architecture/">The Backdoor of the Network: Next-Gen Console Server Architecture</a> — Out-of-band access when everything else fails</li>
-<li>🛡️ <a href="/en/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Advanced traffic visibility and security strategy</li>
-<li>🔐 <a href="/en/posts/unlocking-success-in-802-1x-projects-field-insights/">Unlocking Success in 802.1X Projects: Field Insights</a> — Identity-based access in enterprise networks</li>
+<li>🛠️ <a href="/en/posts/next-gen-console-server-architecture/">The Backdoor of the Network: Next-Gen Console Server Architecture</a> — Out-of-band access when everything else fails</li>
+<li>🛡️ <a href="/en/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Advanced traffic visibility and security strategy</li>
+<li>🔐 <a href="/en/posts/8021x-field-deployment-teaser/">Unlocking Success in 802.1X Projects: Field Insights</a> — Identity-based access in enterprise networks</li>
 <li>⚙️ <a href="/en/posts/cisco-nexus-nxos-upgrade-guide/">Nexus Software Upgrade Guide</a> — Zero-downtime NX-OS upgrade walkthrough</li>
 </ul>
 ]]></content:encoded></item></channel></rss>

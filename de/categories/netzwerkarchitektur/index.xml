@@ -457,13 +457,13 @@ Diese Version erweitert die architektonische Grundlage der Serie.</p>
 <ul>
 <li>📐 <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Der Grundlagenartikel dieser Serie</li>
 <li>🏗️ <a href="/de/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Warum die richtige Produktwahl allein nicht ausreicht</a> — Architektur-zuerst Core-Network-Design</li>
-<li>🛡️ <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Mindset: Sicherheit als Architektur</a> — Sicherheit als Architektur</li>
+<li>🛡️ <a href="/de/architecture/zero-trust-architecture-behaviors/">Zero Trust Mindset: Sicherheit als Architektur</a> — Sicherheit als Architektur</li>
 </ul>
 <p><strong>Technisches Engineering</strong></p>
 <ul>
-<li>📊 <a href="/de/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen</a> — Operative Sichtbarkeit</li>
-<li>🛠️ <a href="/de/posts/next-gen-console-server-terminal-server-architecture/">Die Hintertür des Netzwerks: Next-Gen Console Server Architektur</a> — Out-of-Band-Zugang</li>
-<li>🛡️ <a href="/de/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Traffic-Sichtbarkeit und Sicherheitsstrategie</li>
+<li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen</a> — Operative Sichtbarkeit</li>
+<li>🛠️ <a href="/de/posts/next-gen-console-server-architecture/">Die Hintertür des Netzwerks: Next-Gen Console Server Architektur</a> — Out-of-Band-Zugang</li>
+<li>🛡️ <a href="/de/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Traffic-Sichtbarkeit und Sicherheitsstrategie</li>
 </ul>
 ]]></content:encoded></item><item><title>Switch, Firewall, AP — Warum die richtige Produktwahl allein nicht ausreicht</title><link>https://barashhelvadzhaoglu.com/de/architecture/core-network-is-not-a-product-list/</link><pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/architecture/core-network-is-not-a-product-list/</guid><description>Unternehmensnetzwerke scheitern an fragmentierter Architektur. Deep-Dive zu Firewall, Switching, AP-Auswahl und Kapazitätsplanung aus 11+ Jahren Praxis.</description><content:encoded><![CDATA[<h1 id="switch-firewall-ap--warum-die-richtige-produktwahl-allein-nicht-ausreicht">Switch, Firewall, AP — Warum die richtige Produktwahl allein nicht ausreicht</h1>
 <h2 id="architektur-kapazitätsplanung-und-die-vendor-realität-über-die-niemand-spricht">Architektur, Kapazitätsplanung und die Vendor-Realität, über die niemand spricht</h2>
@@ -515,7 +515,7 @@ Diese Version erweitert die architektonische Grundlage der Serie.</p>
 </ul>
 <p>Das bedeutet nicht „zwei Firewalls kaufen&quot;, sondern „zwei unterschiedliche Aufgaben mit passenden Werkzeugen abdecken&quot;. Wenn alles in eine Box gepackt wird, leidet entweder Performance, Manageability oder Security – meist mindestens eines davon.</p>
 <blockquote>
-<p>Für ein tieferes Verständnis der Sicherheitsphilosophie hinter dieser Architektur empfehle ich: <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt</a></p>
+<p>Für ein tieferes Verständnis der Sicherheitsphilosophie hinter dieser Architektur empfehle ich: <a href="/de/architecture/zero-trust-architecture-behaviors/">Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt</a></p>
 </blockquote>
 <p>Und damit sind wir direkt bei der Kapazitätsplanung.</p>
 <h2 id="firewall-kapazitätsplanung-durchsatz-allein-ist-trügerisch">Firewall-Kapazitätsplanung: Durchsatz allein ist trügerisch</h2>
@@ -575,7 +575,7 @@ Besonders bei Application Visibility, Policy-Tiefe und SASE sehe ich Palo Alto k
 <p>Meine persönliche Haltung: Wo Teams reif genug sind, profitieren Architekturen oft von spezialisierten Herstellern pro Layer. Wo Einfachheit, Klarheit und ein zentraler Supportkanal wichtiger sind, ist ein Single-Vendor-Ansatz völlig legitim.</p>
 <p>Ein letzter Punkt ist mir besonders wichtig: Automatisierung. API-Fähigkeit ist heute kein Bonus mehr, sondern ein Auswahlkriterium. Produkte sollten nicht zuerst nach Hardware, sondern nach Automatisierbarkeit bewertet werden.</p>
 <blockquote>
-<p>Einen praktischen Rahmen für den Aufbau von Infrastruktur-Sichtbarkeit finden Sie hier: <a href="/de/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen und proaktiv handeln</a></p>
+<p>Einen praktischen Rahmen für den Aufbau von Infrastruktur-Sichtbarkeit finden Sie hier: <a href="/de/architecture/monitoring-not-just-seeing/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen und proaktiv handeln</a></p>
 </blockquote>
 <h2 id="serverraum-und-verkabelung-die-realität-über-die-niemand-spricht--aber-jeder-bezahlt">Serverraum und Verkabelung: Die Realität, über die niemand spricht – aber jeder bezahlt</h2>
 <p>In Netzwerkprojekten stehen meist die „glänzenden&quot; Themen im Vordergrund. Doch viele Probleme entstehen viel tiefer: im Serverraum und in der Verkabelung.</p>
@@ -601,15 +601,15 @@ Diese Version erweitert die architektonische Grundlage der Serie.</p>
 <p>Wenn Ihnen dieser Artikel gefallen hat, könnten auch diese Beiträge interessant sein:</p>
 <p><strong>Architektur &amp; Sicherheitsdesign</strong></p>
 <ul>
-<li>📐 <a href="/de/architecture/it-infrastructure-is-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Der Grundlagenartikel dieser Serie</li>
-<li>🛡️ <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt</a> — Warum Zero Trust eine Philosophie und kein Produkt ist</li>
-<li>📊 <a href="/de/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen</a> — Echte Transparenz in der Infrastruktur aufbauen</li>
+<li>📐 <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Der Grundlagenartikel dieser Serie</li>
+<li>🛡️ <a href="/de/architecture/zero-trust-architecture-behaviors/">Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt</a> — Warum Zero Trust eine Philosophie und kein Produkt ist</li>
+<li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen</a> — Echte Transparenz in der Infrastruktur aufbauen</li>
 </ul>
 <p><strong>Technisches Engineering</strong></p>
 <ul>
-<li>🛠️ <a href="/de/posts/next-gen-console-server-terminal-server-architecture/">Die Hintertür des Netzwerks: Next-Gen Console Server Architektur</a> — Out-of-Band-Zugang wenn alles andere versagt</li>
-<li>🛡️ <a href="/de/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Erweiterte Traffic-Sichtbarkeit und Sicherheitsstrategie</li>
-<li>🔐 <a href="/de/posts/unlocking-success-in-802-1x-projects-field-insights/">802.1X Projekte erfolgreich umsetzen: Praxiseinblicke</a> — Identitätsbasierter Zugang in Unternehmensnetzwerken</li>
+<li>🛠️ <a href="/de/posts/next-gen-console-server-architecture/">Die Hintertür des Netzwerks: Next-Gen Console Server Architektur</a> — Out-of-Band-Zugang wenn alles andere versagt</li>
+<li>🛡️ <a href="/de/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Erweiterte Traffic-Sichtbarkeit und Sicherheitsstrategie</li>
+<li>🔐 <a href="/de/posts/8021x-field-deployment-teaser/">802.1X Projekte erfolgreich umsetzen: Praxiseinblicke</a> — Identitätsbasierter Zugang in Unternehmensnetzwerken</li>
 <li>⚙️ <a href="/de/posts/cisco-nexus-nxos-upgrade-guide/">Nexus Software Upgrade Guide</a> — NX-OS Upgrade ohne Ausfallzeit</li>
 </ul>
 ]]></content:encoded></item></channel></rss>

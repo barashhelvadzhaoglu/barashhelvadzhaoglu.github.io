@@ -144,9 +144,9 @@
 <h2 id="related-articles">Related Articles</h2>
 <ul>
 <li>🔐 <a href="/en/technology/identity-based-microsegmentation-8021x/">802.1X Identity-Based Architecture in the Field</a> — The identity foundation that makes DNA Center + ISE powerful</li>
-<li>🔐 <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture</a> — The architectural philosophy behind SD-Access policy model</li>
+<li>🔐 <a href="/en/architecture/zero-trust-architecture-behaviors/">The Zero Trust Mindset: Engineering Security as an Architecture</a> — The architectural philosophy behind SD-Access policy model</li>
 <li>🏗️ <a href="/en/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough</a> — Campus architecture context</li>
 <li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">Monitoring Done Right</a> — How DNA Center assurance fits into broader monitoring strategy</li>
-<li>🌐 <a href="/en/technology/enterprise-wifi-controller-architecture-cisco-aruba/">Enterprise WiFi Controller Architecture</a> — Wireless integration with DNA Center</li>
+<li>🌐 <a href="/en/technology/wifi-controller/">Enterprise WiFi Controller Architecture</a> — Wireless integration with DNA Center</li>
 </ul>
 ]]></content:encoded></item></channel></rss>

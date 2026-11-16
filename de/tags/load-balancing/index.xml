@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Load Balancing on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/load-balancing/</link><description>Recent content in Load Balancing on Barash Helvadzhaoglu</description><generator>Hugo -- 0.170.0</generator><language>de</language><lastBuildDate>Wed, 08 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/load-balancing/index.xml" rel="self" type="application/rss+xml"/><item><title>F5 LTM Deep Dive: Virtual Server, iRules, SSL Offloading &amp; HA</title><link>https://barashhelvadzhaoglu.com/de/technology/f5-ltm-deep-dive/</link><pubDate>Wed, 08 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/f5-ltm-deep-dive/</guid><description>F5 BIG-IP LTM Deep Dive — Full-Proxy-Architektur, Virtual Server, Pool-Konfiguration, iRules, SSL Offloading und Zero-Downtime-Migration.</description><content:encoded><![CDATA[<h1 id="f5-ltm-deep-dive-virtual-server-irules-ssl-offloading--ha">F5 LTM Deep Dive: Virtual Server, iRules, SSL Offloading &amp; HA</h1>
 <p>Dieser Artikel ist Teil der F5 BIG-IP-Serie.</p>
 <blockquote>
-<p><strong>Neu bei F5?</strong> Beginnen Sie zuerst mit der Plattformübersicht: <a href="/de/technology/f5-bigip-application-delivery-platform-overview/">F5 BIG-IP ist kein Load Balancer — Es ist eine Application Delivery Platform</a></p>
+<p><strong>Neu bei F5?</strong> Beginnen Sie zuerst mit der Plattformübersicht: <a href="/de/technology/f5-master/">F5 BIG-IP ist kein Load Balancer — Es ist eine Application Delivery Platform</a></p>
 </blockquote>
 <p>Wenn Sie das Gesamtbild bereits kennen und tief in LTM eintauchen möchten — Konfiguration, iRules, Migrations-Praxisnotizen — sind Sie hier richtig.</p>
 <hr>
@@ -272,15 +272,15 @@ Nachdem alle Virtual Server auf dem neuen aktiven Gerät validiert wurden:</p>
 <hr>
 <h2 id="diese-serie">Diese Serie</h2>
 <ul>
-<li>📖 <a href="/de/technology/f5-bigip-application-delivery-platform-overview/">F5 BIG-IP Plattformübersicht — Alle Module</a> ← Beginnen Sie hier, wenn Sie neu bei F5 sind</li>
-<li>🌐 <a href="/de/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM &amp; GSLB Deep Dive</a></li>
-<li>🛡️ <a href="/de/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive</a></li>
+<li>📖 <a href="/de/technology/f5-master/">F5 BIG-IP Plattformübersicht — Alle Module</a> ← Beginnen Sie hier, wenn Sie neu bei F5 sind</li>
+<li>🌐 <a href="/de/technology/f5-gtm-deep-dive/">F5 GTM &amp; GSLB Deep Dive</a></li>
+<li>🛡️ <a href="/de/technology/f5-waf-deep-dive/">F5 WAF Deep Dive</a></li>
 </ul>
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
 <li>🛠️ <a href="/de/posts/next-gen-console-server-architecture/">Die Hintertür des Netzwerks: Next-Gen Console Server Architektur</a> — Out-of-Band-Zugang während F5-Wartungsfenstern</li>
 <li>🛡️ <a href="/de/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Datenverkehrssichtbarkeit neben ADC</li>
-<li>🔐 <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Die Zero-Trust-Mentalität</a> — Wo LTM in einer Zero-Trust-Architektur passt</li>
+<li>🔐 <a href="/de/architecture/zero-trust-architecture-behaviors/">Die Zero-Trust-Mentalität</a> — Wo LTM in einer Zero-Trust-Architektur passt</li>
 </ul>
 ]]></content:encoded></item><item><title>F5 BIG-IP ist kein Load Balancer — Es ist eine Application Delivery Platform</title><link>https://barashhelvadzhaoglu.com/de/technology/f5-master/</link><pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/f5-master/</guid><description>F5 BIG-IP ist mehr als ein Load Balancer. Master-Leitfaden für LTM, GTM, WAF, APM, AFM und BGP-Routing mit Links zu den Deep Dives.</description><content:encoded><![CDATA[<h1 id="f5-big-ip-es-ist-eine-application-delivery-platform">F5 BIG-IP: Es ist eine Application Delivery Platform</h1>
 <p>Die häufigste Einführung in F5 in einem Unternehmen verläuft so: Jemand öffnet ein Ticket mit dem Text <em>„der Load Balancer ist ausgefallen&quot;</em> und zeigt auf den F5. Das Problem steckt bereits in diesem Satz.</p>
@@ -291,9 +291,9 @@ Nachdem alle Virtual Server auf dem neuen aktiven Gerät validiert wurden:</p>
 <p>Dieser Artikel gibt Ihnen das <strong>Gesamtbild</strong> — was F5 ist, wo es steht, was jedes Modul tut und wann es gegenüber Alternativen sinnvoll ist.</p>
 <p><strong>Wenn Sie Netzwerk- oder Sicherheitsingenieur sind</strong> und tief in Konfiguration, iRules, Migrations-Praxisnotizen und Architekturdetails einsteigen möchten — springen Sie direkt zum Modul, das Sie interessiert:</p>
 <ul>
-<li>🔧 <strong><a href="/de/technology/f5-ltm-virtual-server-irules-ssl-offloading-ha/">F5 LTM Deep Dive</a></strong> — Virtual Server, Pools, iRules, SSL Offloading, HA und eine Migration von 30 Geräten ohne Downtime</li>
-<li>🌐 <strong><a href="/de/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM &amp; GSLB Deep Dive</a></strong> — iQuery, Wide IPs, Topologie-Routing, DNS-TTL-Strategie, Multi-DC-Failover-Design</li>
-<li>🛡️ <strong><a href="/de/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive</a></strong> — ASM vs. Advanced WAF, OWASP Top 10, Bot-Abwehr, Deployment-Strategie von transparent zu blockierend</li>
+<li>🔧 <strong><a href="/de/technology/f5-ltm-deep-dive/">F5 LTM Deep Dive</a></strong> — Virtual Server, Pools, iRules, SSL Offloading, HA und eine Migration von 30 Geräten ohne Downtime</li>
+<li>🌐 <strong><a href="/de/technology/f5-gtm-deep-dive/">F5 GTM &amp; GSLB Deep Dive</a></strong> — iQuery, Wide IPs, Topologie-Routing, DNS-TTL-Strategie, Multi-DC-Failover-Design</li>
+<li>🛡️ <strong><a href="/de/technology/f5-waf-deep-dive/">F5 WAF Deep Dive</a></strong> — ASM vs. Advanced WAF, OWASP Top 10, Bot-Abwehr, Deployment-Strategie von transparent zu blockierend</li>
 </ul>
 <p><strong>Wenn Sie Architekt oder Entscheidungsträger sind</strong> und bewerten, ob F5 zu Ihrer Infrastruktur passt — lesen Sie hier weiter. Dieser Artikel beantwortet diese Frage, ohne dass Sie iRule-Syntax verstehen müssen.</p>
 <hr>
@@ -332,7 +332,7 @@ Nachdem alle Virtual Server auf dem neuen aktiven Gerät validiert wurden:</p>
 <li>iRules — eine programmierbare Skriptschicht, die Datenverkehr mit Leitungsgeschwindigkeit manipuliert: Header neu schreiben, nach URI routen, Inhalte einfügen, Ratenbegrenzungen erzwingen</li>
 <li>Hochverfügbarkeit — Aktiv-Standby- oder Aktiv-Aktiv-Clustering mit Failover unter einer Sekunde</li>
 </ul>
-<p>→ <strong><a href="/de/technology/f5-ltm-virtual-server-irules-ssl-offloading-ha/">F5 LTM Deep Dive: Virtual Server, iRules, SSL Offloading &amp; HA</a></strong></p>
+<p>→ <strong><a href="/de/technology/f5-ltm-deep-dive/">F5 LTM Deep Dive: Virtual Server, iRules, SSL Offloading &amp; HA</a></strong></p>
 <hr>
 <h3 id="gtm--dns--global-traffic-manager">GTM / DNS — Global Traffic Manager</h3>
 <p>LTM verwaltet Datenverkehr innerhalb eines Rechenzentrums. GTM verwaltet Datenverkehr <strong>zwischen</strong> Rechenzentren — auf DNS-Ebene.</p>
@@ -345,7 +345,7 @@ Nachdem alle Virtual Server auf dem neuen aktiven Gerät validiert wurden:</p>
 <li>Topologiebasiertes Routing — europäische Benutzer zu EU-Rechenzentren, Nahost-Benutzer zu regionalen DCs</li>
 <li>Flexible Richtlinien: Primär bevorzugen (Global Availability), gleichmäßige Verteilung (Round Robin) oder verbindungsbewusst (Least Connections)</li>
 </ul>
-<p>→ <strong><a href="/de/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM &amp; GSLB Deep Dive: Globales Traffic-Management und DNS-Failover</a></strong></p>
+<p>→ <strong><a href="/de/technology/f5-gtm-deep-dive/">F5 GTM &amp; GSLB Deep Dive: Globales Traffic-Management und DNS-Failover</a></strong></p>
 <hr>
 <h3 id="waf--web-application-firewall-asm--advanced-waf">WAF — Web Application Firewall (ASM / Advanced WAF)</h3>
 <p>Eine Netzwerk-Firewall arbeitet auf L3/L4. Sie kann nicht inspizieren, ob ein POST-Anfrage-Body eine SQL-Injection-Payload enthält. WAF kann das.</p>
@@ -356,7 +356,7 @@ Nachdem alle Virtual Server auf dem neuen aktiven Gerät validiert wurden:</p>
 <li><strong>Advanced WAF</strong> — fügt verhaltensbasierte Bot-Abwehr, Credential-Stuffing-Schutz, JavaScript-Challenges und L7-DoS-Mitigation hinzu</li>
 </ul>
 <p>Was WAF schützt: SQL-Injection, XSS, CSRF, Parameter-Tampering, Cookie-Poisoning, erzwungenes Durchsuchen, Bot-Datenverkehr und Anwendungsschicht-DoS.</p>
-<p>→ <strong><a href="/de/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive: Anwendungssicherheit mit ASM und Advanced WAF</a></strong></p>
+<p>→ <strong><a href="/de/technology/f5-waf-deep-dive/">F5 WAF Deep Dive: Anwendungssicherheit mit ASM und Advanced WAF</a></strong></p>
 <hr>
 <h3 id="apm--access-policy-manager">APM — Access Policy Manager</h3>
 <p>APM ist F5s Identitäts- und Zugriffsmodul — wo F5 über die Datenverkehrsbereitstellung hinaus in die <strong>Zugangskontrolle</strong> geht.</p>
@@ -426,15 +426,15 @@ Nachdem alle Virtual Server auf dem neuen aktiven Gerät validiert wurden:</p>
 <h2 id="diese-serie">Diese Serie</h2>
 <p>Dieser Artikel ist der Ausgangspunkt. Jedes Modul hat einen eigenen Deep Dive:</p>
 <ul>
-<li>🔧 <strong><a href="/de/technology/f5-ltm-virtual-server-irules-ssl-offloading-ha/">F5 LTM Deep Dive: Virtual Server, iRules, SSL Offloading &amp; HA</a></strong> — Full-Proxy-Architektur, Pool-Konfiguration, Health Monitors, iRule-Beispiele, Session Persistence, HA-Clustering und eine Zero-Downtime-Migration von 30 Geräten</li>
-<li>🌐 <strong><a href="/de/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM &amp; GSLB Deep Dive: Globales Traffic-Management und DNS-Failover</a></strong> — Wide IPs, iQuery, Topologie-Routing, TTL-Strategie, Aktiv-Aktiv- und Aktiv-Standby-DC-Muster</li>
-<li>🛡️ <strong><a href="/de/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive: Anwendungssicherheit mit ASM und Advanced WAF</a></strong> — Sicherheitsrichtlinienmodelle, OWASP-Top-10-Abdeckung, Bot-Abwehr, L7-DoS-Schutz und Deployment-Strategie von transparent zu blockierend</li>
+<li>🔧 <strong><a href="/de/technology/f5-ltm-deep-dive/">F5 LTM Deep Dive: Virtual Server, iRules, SSL Offloading &amp; HA</a></strong> — Full-Proxy-Architektur, Pool-Konfiguration, Health Monitors, iRule-Beispiele, Session Persistence, HA-Clustering und eine Zero-Downtime-Migration von 30 Geräten</li>
+<li>🌐 <strong><a href="/de/technology/f5-gtm-deep-dive/">F5 GTM &amp; GSLB Deep Dive: Globales Traffic-Management und DNS-Failover</a></strong> — Wide IPs, iQuery, Topologie-Routing, TTL-Strategie, Aktiv-Aktiv- und Aktiv-Standby-DC-Muster</li>
+<li>🛡️ <strong><a href="/de/technology/f5-waf-deep-dive/">F5 WAF Deep Dive: Anwendungssicherheit mit ASM und Advanced WAF</a></strong> — Sicherheitsrichtlinienmodelle, OWASP-Top-10-Abdeckung, Bot-Abwehr, L7-DoS-Schutz und Deployment-Strategie von transparent zu blockierend</li>
 </ul>
 <hr>
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
 <li>🛡️ <a href="/de/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Datenverkehrssichtbarkeit über den gesamten Stack</li>
-<li>🔐 <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — Wo APM und WAF in Zero Trust passen</li>
+<li>🔐 <a href="/de/architecture/zero-trust-architecture-behaviors/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — Wo APM und WAF in Zero Trust passen</li>
 <li>🏗️ <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Systemdenken hinter der ADC-Platzierung</li>
 <li>🎯 <a href="/de/architecture/network-product-selection-strategy/">Netzwerkinfrastruktur-Produktauswahl: Strategische Kriterien</a> — Wie man ADC-Anbieter objektiv bewertet</li>
 </ul>

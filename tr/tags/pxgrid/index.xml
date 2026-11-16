@@ -180,8 +180,8 @@
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>
 <li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Projeleri: Kimlik Tabanlı Mimariyi Sahada Kullanıma Almak</a> — ISE&rsquo;nin etkinleştirdiği saha deployment rehberi</li>
-<li>🏛️ <a href="/tr/architecture/cisco-dna-center-catalyst-center-architecture-guide/">Cisco DNA Center / Catalyst Center: Ne Zaman Mantıklıdır</a> — ISE&rsquo;nin entegre olduğu kampüs yönetim platformu</li>
-<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Kimlik tabanlı erişim kontrolünün arkasındaki felsefe</li>
-<li>🛡️ <a href="/tr/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive</a> — ISE&rsquo;nin L2/L3 uygulamasının yanında tamamlayıcı L7 güvenliği</li>
+<li>🏛️ <a href="/tr/architecture/catalyst-center-architecture/">Cisco DNA Center / Catalyst Center: Ne Zaman Mantıklıdır</a> — ISE&rsquo;nin entegre olduğu kampüs yönetim platformu</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Kimlik tabanlı erişim kontrolünün arkasındaki felsefe</li>
+<li>🛡️ <a href="/tr/technology/f5-waf-deep-dive/">F5 WAF Deep Dive</a> — ISE&rsquo;nin L2/L3 uygulamasının yanında tamamlayıcı L7 güvenliği</li>
 </ul>
 ]]></content:encoded></item></channel></rss>

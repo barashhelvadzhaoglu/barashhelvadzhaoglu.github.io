@@ -144,9 +144,9 @@
 <h2 id="ilgili-makaleler">İlgili Makaleler</h2>
 <ul>
 <li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">Sahadan 802.1X Kimlik Tabanlı Mimari</a> — DNA Center + ISE kombinasyonunu güçlü kılan kimlik altyapısı</li>
-<li>🔐 <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Yaklaşımı: Güvenliği Ürün Değil Mimari Olarak Tasarlamak</a> — SD-Access politika modelinin arkasındaki mimari felsefe</li>
+<li>🔐 <a href="/en/architecture/zero-trust-architecture-behaviors/">Zero Trust Yaklaşımı: Güvenliği Ürün Değil Mimari Olarak Tasarlamak</a> — SD-Access politika modelinin arkasındaki mimari felsefe</li>
 <li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yetmez?</a> — Kampüs mimarisi bağlamı</li>
 <li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">Doğru İzleme (Monitoring)</a> — DNA Center assurance yeteneğinin genel izleme stratejisine uyumu</li>
-<li>🌐 <a href="/en/technology/enterprise-wifi-controller-architecture-cisco-aruba/">Kurumsal WiFi Controller Mimarisi</a> — DNA Center ile kablosuz ağ entegrasyonu</li>
+<li>🌐 <a href="/en/technology/wifi-controller/">Kurumsal WiFi Controller Mimarisi</a> — DNA Center ile kablosuz ağ entegrasyonu</li>
 </ul>
 ]]></content:encoded></item></channel></rss>

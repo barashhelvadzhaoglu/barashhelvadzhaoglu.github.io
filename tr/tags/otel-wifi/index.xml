@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Otel WiFi on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/otel-wifi/</link><description>Recent content in Otel WiFi on Barash Helvadzhaoglu</description><generator>Hugo -- 0.170.0</generator><language>tr</language><lastBuildDate>Wed, 29 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/otel-wifi/index.xml" rel="self" type="application/rss+xml"/><item><title>KOBİ, Oteller ve Muayenehaneler İçin WiFi Tasarımı: Saha Notları</title><link>https://barashhelvadzhaoglu.com/tr/technology/wifi-smb-hotel-medical/</link><pubDate>Wed, 29 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/wifi-smb-hotel-medical/</guid><description>KOBİ, otel ve muayenehaneler için WiFi tasarım rehberi — yoğunluk planlaması, misafir segmentasyonu, bant genişliği yönetimi ve PMS entegrasyonu.</description><content:encoded><![CDATA[<h1 id="kobi-oteller-ve-muayenehaneler-için-wifi-tasarımı-saha-notları">KOBİ, Oteller ve Muayenehaneler İçin WiFi Tasarımı: Saha Notları</h1>
 <p>Bu yazı Kurumsal WiFi serisinin bir parçasıdır.</p>
 <blockquote>
-<p><strong>Kurumsal kablosuz ağa yeni misiniz?</strong> Genel bakışla başlayın: <a href="/tr/technology/kurumsal-wifi-mimarisi-tam-rehber/">Kurumsal WiFi Mimarisi: Standartlardan Deployment&rsquo;a</a></p>
+<p><strong>Kurumsal kablosuz ağa yeni misiniz?</strong> Genel bakışla başlayın: <a href="/tr/technology/wifi-master/">Kurumsal WiFi Mimarisi: Standartlardan Deployment&rsquo;a</a></p>
 </blockquote>
 <hr>
 <h2 id="ortam-türü-neden-ekipman-markasından-daha-önemlidir">Ortam Türü Neden Ekipman Markasından Daha Önemlidir</h2>
@@ -217,14 +217,14 @@ Kurumsal AP&rsquo;ler PoE gerektirir. Birden fazla radyolu bir Cisco veya Aruba 
 <hr>
 <h2 id="bu-seri">Bu Seri</h2>
 <ul>
-<li>📖 <a href="/tr/technology/kurumsal-wifi-mimarisi-tam-rehber/">Kurumsal WiFi Mimarisi Genel Bakış</a> ← Buradan başlayın</li>
-<li>📡 <a href="/tr/technology/wifi-80211-standartlari-wifi4-wifi5-wifi6/">802.11 Standartları Deep Dive</a></li>
-<li>🏢 <a href="/tr/technology/kurumsal-wifi-controller-mimarisi-cisco-aruba/">Kurumsal Controller Mimarisi: Cisco ve Aruba</a></li>
-<li>🔐 <a href="/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/">WiFi Güvenliği: WPA3, 802.1X, Sahte AP, Site Survey</a></li>
+<li>📖 <a href="/tr/technology/wifi-master/">Kurumsal WiFi Mimarisi Genel Bakış</a> ← Buradan başlayın</li>
+<li>📡 <a href="/tr/technology/wifi-standards/">802.11 Standartları Deep Dive</a></li>
+<li>🏢 <a href="/tr/technology/wifi-controller/">Kurumsal Controller Mimarisi: Cisco ve Aruba</a></li>
+<li>🔐 <a href="/tr/technology/wifi-security/">WiFi Güvenliği: WPA3, 802.1X, Sahte AP, Site Survey</a></li>
 </ul>
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>
-<li>📡 <a href="/tr/technology/nas-backup-aws-s3-cloud-kobi/">NAS Yedekleme ve AWS S3 — KOBİ&rsquo;ler için Veri Güvenliği</a> — WiFi&rsquo;nin yanında KOBİ veri koruma</li>
+<li>📡 <a href="/tr/posts/nas-backup/">NAS Yedekleme ve AWS S3 — KOBİ&rsquo;ler için Veri Güvenliği</a> — WiFi&rsquo;nin yanında KOBİ veri koruma</li>
 <li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Kimlik Tabanlı Mimari Sahada</a> — Kurumsal kablosuz için kimlik katmanı</li>
 <li>🏗️ <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Ürünler Koleksiyonu Değildir</a> — Ağ tasarımında sistem düşüncesi</li>
 </ul>

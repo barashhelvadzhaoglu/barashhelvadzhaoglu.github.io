@@ -266,8 +266,8 @@ Cisco&rsquo;s OT-focused management and security platform, integrating with Cisc
 <h2 id="related-articles">Related Articles</h2>
 <ul>
 <li>🔐 <a href="/en/technology/identity-based-microsegmentation-8021x/">802.1X Identity-Based Architecture in the Field</a> — How 802.1X works in IT environments, and why OT is different</li>
-<li>🔐 <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture</a> — Zero Trust principles applied to IT/OT boundary design</li>
-<li>🛡️ <a href="/en/technology/ddos-protection-strategies-isp-scrubbing-on-premise-cloud/">DDoS Protection Strategies</a> — Protecting OT-connected infrastructure from volumetric attacks</li>
+<li>🔐 <a href="/en/architecture/zero-trust-architecture-behaviors/">The Zero Trust Mindset: Engineering Security as an Architecture</a> — Zero Trust principles applied to IT/OT boundary design</li>
+<li>🛡️ <a href="/en/technology/ddos-protection-strategies/">DDoS Protection Strategies</a> — Protecting OT-connected infrastructure from volumetric attacks</li>
 <li>🏗️ <a href="/en/architecture/it-infrastructure-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a> — Systems thinking that applies equally to OT network design</li>
 </ul>
 ]]></content:encoded></item></channel></rss>

@@ -144,10 +144,10 @@
 <h2 id="ilgili-makaleler">İlgili Makaleler</h2>
 <ul>
 <li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">Sahadan 802.1X Kimlik Tabanlı Mimari</a> — DNA Center + ISE kombinasyonunu güçlü kılan kimlik altyapısı</li>
-<li>🔐 <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Yaklaşımı: Güvenliği Ürün Değil Mimari Olarak Tasarlamak</a> — SD-Access politika modelinin arkasındaki mimari felsefe</li>
+<li>🔐 <a href="/en/architecture/zero-trust-architecture-behaviors/">Zero Trust Yaklaşımı: Güvenliği Ürün Değil Mimari Olarak Tasarlamak</a> — SD-Access politika modelinin arkasındaki mimari felsefe</li>
 <li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yetmez?</a> — Kampüs mimarisi bağlamı</li>
 <li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">Doğru İzleme (Monitoring)</a> — DNA Center assurance yeteneğinin genel izleme stratejisine uyumu</li>
-<li>🌐 <a href="/en/technology/enterprise-wifi-controller-architecture-cisco-aruba/">Kurumsal WiFi Controller Mimarisi</a> — DNA Center ile kablosuz ağ entegrasyonu</li>
+<li>🌐 <a href="/en/technology/wifi-controller/">Kurumsal WiFi Controller Mimarisi</a> — DNA Center ile kablosuz ağ entegrasyonu</li>
 </ul>
 ]]></content:encoded></item><item><title>Cisco ISE: Mimari, Lisanslama ve Ne Zaman Kullanılır</title><link>https://barashhelvadzhaoglu.com/tr/technology/cisco-ise-architecture/</link><pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/cisco-ise-architecture/</guid><description>Cisco ISE mimari rehberi — deployment modelleri, node rolleri, lisans katmanları, pxGrid entegrasyonları ve ISE&amp;#39;nin ne zaman doğru seçim olduğu.</description><content:encoded><![CDATA[<h1 id="cisco-ise-mimari-lisanslama-ve-ne-zaman-kullanılır">Cisco ISE: Mimari, Lisanslama ve Ne Zaman Kullanılır</h1>
 <p>Cisco Identity Services Engine (ISE), kurumsal ağ erişim kontrolünün politika beynidir. Ağa bağlanmaya çalışan her cihaz için şu soruyu yanıtlayan platformdur: <em>sen kimsin, neysin, sağlıklı mısın ve ne yapabilirsin?</em></p>
@@ -331,8 +331,8 @@
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>
 <li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Projeleri: Kimlik Tabanlı Mimariyi Sahada Kullanıma Almak</a> — ISE&rsquo;nin etkinleştirdiği saha deployment rehberi</li>
-<li>🏛️ <a href="/tr/architecture/cisco-dna-center-catalyst-center-architecture-guide/">Cisco DNA Center / Catalyst Center: Ne Zaman Mantıklıdır</a> — ISE&rsquo;nin entegre olduğu kampüs yönetim platformu</li>
-<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Kimlik tabanlı erişim kontrolünün arkasındaki felsefe</li>
-<li>🛡️ <a href="/tr/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive</a> — ISE&rsquo;nin L2/L3 uygulamasının yanında tamamlayıcı L7 güvenliği</li>
+<li>🏛️ <a href="/tr/architecture/catalyst-center-architecture/">Cisco DNA Center / Catalyst Center: Ne Zaman Mantıklıdır</a> — ISE&rsquo;nin entegre olduğu kampüs yönetim platformu</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Kimlik tabanlı erişim kontrolünün arkasındaki felsefe</li>
+<li>🛡️ <a href="/tr/technology/f5-waf-deep-dive/">F5 WAF Deep Dive</a> — ISE&rsquo;nin L2/L3 uygulamasının yanında tamamlayıcı L7 güvenliği</li>
 </ul>
 ]]></content:encoded></item></channel></rss>

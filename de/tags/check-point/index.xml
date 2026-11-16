@@ -187,9 +187,9 @@ Modell auswählen, das für ≥ 2,4 Gbps SSL-Inspection-Durchsatz bewertet ist
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
 <li>🏗️ <a href="/de/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Warum die Auswahl der richtigen Produkte nicht ausreicht</a> — Architektonischer Kontext für Firewall-Platzierung</li>
-<li>🔐 <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — Richtlinienphilosophie hinter Firewall-Design</li>
-<li>🛡️ <a href="/de/technology/ddos-schutzstrategien-isp-scrubbing-on-premise-cloud/">DDoS-Schutzstrategien</a> — Was upstream der Firewall sitzt</li>
-<li>🛡️ <a href="/de/technology/f5-waf-asm-advanced-waf-anwendungssicherheit/">F5 WAF Deep Dive</a> — Layer-7-Schutz, der Firewall-Richtlinien ergänzt</li>
+<li>🔐 <a href="/de/architecture/zero-trust-architecture-behaviors/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — Richtlinienphilosophie hinter Firewall-Design</li>
+<li>🛡️ <a href="/de/technology/ddos-protection-strategies/">DDoS-Schutzstrategien</a> — Was upstream der Firewall sitzt</li>
+<li>🛡️ <a href="/de/technology/f5-waf-deep-dive/">F5 WAF Deep Dive</a> — Layer-7-Schutz, der Firewall-Richtlinien ergänzt</li>
 <li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Monitoring richtig gemacht</a> — Firewall-Verhalten sichtbar machen</li>
 </ul>
 ]]></content:encoded></item></channel></rss>

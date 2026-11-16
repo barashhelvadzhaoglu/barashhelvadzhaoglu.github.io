@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Barash Helvadzhaoglu | Senior Network Security Engineer &amp; IT-Berater München on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/</link><description>Recent content in Barash Helvadzhaoglu | Senior Network Security Engineer &amp; IT-Berater München on Barash Helvadzhaoglu</description><generator>Hugo -- 0.170.0</generator><language>de</language><lastBuildDate>Fri, 06 Nov 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/index.xml" rel="self" type="application/rss+xml"/><item><title>Cyberangriffe auf Supermarkt-Kühlschränke in Europa: So sichern Sie OT- und IoT-Geräte</title><link>https://barashhelvadzhaoglu.com/de/posts/supermarket-fridge-cyberattacks-ot-security/</link><pubDate>Fri, 06 Nov 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/posts/supermarket-fridge-cyberattacks-ot-security/</guid><description>Im Oktober und November 2026 wurden Kühlgeräte in europäischen Supermärkten aus der Ferne aufgeheizt. Was bisher bekannt ist, warum eine Kühlsteuerung überhaupt erreichbar ist und sieben Maßnahmen, um OT- und IoT-Geräte in Handel und KMU abzusichern.</description><content:encoded><![CDATA[<p>Im Oktober und November 2026 wurden Kühl- und Gefriergeräte in Supermärkten in ganz Europa auf Temperaturen gestellt, bei denen die Ware verdarb. Niemand hat die Geräte vor Ort angefasst. Dieser Artikel fasst zusammen, was öffentlich bekannt ist, erklärt, warum eine Kühlsteuerung überhaupt über das Netzwerk angreifbar ist, und nennt die Maßnahmen, die einen solchen Angriff deutlich erschwert hätten.</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Barash Helvadzhaoglu | Senior Network Security Engineer on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/</link><description>Recent content in Barash Helvadzhaoglu | Senior Network Security Engineer on Barash Helvadzhaoglu</description><generator>Hugo -- 0.170.0</generator><language>de</language><lastBuildDate>Fri, 06 Nov 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/index.xml" rel="self" type="application/rss+xml"/><item><title>Cyberangriffe auf Supermarkt-Kühlschränke in Europa: So sichern Sie OT- und IoT-Geräte</title><link>https://barashhelvadzhaoglu.com/de/posts/supermarket-fridge-cyberattacks-ot-security/</link><pubDate>Fri, 06 Nov 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/posts/supermarket-fridge-cyberattacks-ot-security/</guid><description>Im Oktober und November 2026 wurden Kühlgeräte in europäischen Supermärkten aus der Ferne aufgeheizt. Was bisher bekannt ist, warum eine Kühlsteuerung überhaupt erreichbar ist und sieben Maßnahmen, um OT- und IoT-Geräte in Handel und KMU abzusichern.</description><content:encoded><![CDATA[<p>Im Oktober und November 2026 wurden Kühl- und Gefriergeräte in Supermärkten in ganz Europa auf Temperaturen gestellt, bei denen die Ware verdarb. Niemand hat die Geräte vor Ort angefasst. Dieser Artikel fasst zusammen, was öffentlich bekannt ist, erklärt, warum eine Kühlsteuerung überhaupt über das Netzwerk angreifbar ist, und nennt die Maßnahmen, die einen solchen Angriff deutlich erschwert hätten.</p>
 <blockquote>
 <p><strong>Stand:</strong> Grundlage sind Medienberichte und Unternehmensangaben bis zum 6. November 2026. Die Ermittlungen laufen noch. Wo etwas nicht bestätigt ist, sage ich das.</p>
 </blockquote>
@@ -216,10 +216,10 @@
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
 <li>🔐 <a href="/de/technology/identity-based-microsegmentation-8021x/">Identitätsbasierte 802.1X-Architektur in der Praxis</a> – Das Identitätsfundament, das DNA Center + ISE so leistungsfähig macht</li>
-<li>🔐 <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Das Zero-Trust-Mindset: Sicherheit als Architektur entwickeln</a> – Die architektonische Philosophie hinter dem SD-Access-Policy-Modell</li>
+<li>🔐 <a href="/en/architecture/zero-trust-architecture-behaviors/">Das Zero-Trust-Mindset: Sicherheit als Architektur entwickeln</a> – Die architektonische Philosophie hinter dem SD-Access-Policy-Modell</li>
 <li>🏗️ <a href="/de/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP – Warum die Wahl der richtigen Produkte nicht ausreicht</a> – Kontext der Campus-Architektur</li>
 <li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Richtiges Monitoring</a> – Wie sich DNA Center Assurance in eine umfassendere Monitoring-Strategie einfügt</li>
-<li>🌐 <a href="/en/technology/enterprise-wifi-controller-architecture-cisco-aruba/">Enterprise WLAN-Controller-Architektur</a> – WLAN-Integration mit DNA Center</li>
+<li>🌐 <a href="/en/technology/wifi-controller/">Enterprise WLAN-Controller-Architektur</a> – WLAN-Integration mit DNA Center</li>
 </ul>
 ]]></content:encoded></item><item><title>Palo Alto Networks SD-WAN: Prisma SD-WAN und der Security-First-Ansatz</title><link>https://barashhelvadzhaoglu.com/de/technology/palo-alto-sd-wan/</link><pubDate>Fri, 30 Oct 2026 06:44:13 +0100</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/palo-alto-sd-wan/</guid><description>Eine detaillierte Analyse der SD-WAN-Plattform von Palo Alto Networks: Prisma SD-WAN-Architektur, Autonomous Digital Experience Management, SASE-Integration und der Vergleich mit Fortinet und Cisco.</description><content:encoded><![CDATA[<h1 id="palo-alto-networks-sd-wan-prisma-sd-wan-und-der-security-first-ansatz">Palo Alto Networks SD-WAN: Prisma SD-WAN und der Security-First-Ansatz</h1>
 <p>Palo Alto Networks betrat den SD-WAN-Markt durch eine Übernahme statt durch organische Entwicklung. Im Jahr 2019 erwarb das Unternehmen CloudGenix – ein spezialisiertes SD-WAN-Startup mit cloud-nativer Architektur und starkem Fokus auf Application-Defined Networking – für rund 420 Millionen US-Dollar. Die CloudGenix-Technologie wurde zu <strong>Prisma SD-WAN</strong>, integriert in die Prisma SASE-Plattform von Palo Alto neben Prisma Access (Cloud-basierte Security).</p>
@@ -389,7 +389,7 @@ Bei sehr kleinen Deployments (unter 20 Standorten) rechtfertigen die Orchestrato
 <p>HPE Aruba EdgeConnect SD-WAN kombiniert die ausgereiftesten WAN-Optimierungsfunktionen am Markt mit einer modernen SD-WAN-Architektur. Für Unternehmen, bei denen WAN-Optimierung nach wie vor relevant ist – Site-to-Site-Replikation, latenzempfindliche Legacy-Anwendungen, hohe Zuverlässigkeitsanforderungen über Breitband –, bietet das Erbe von Silver Peak eine echte technische Differenzierung.</p>
 <p>Die Aruba-Integration eröffnet Unternehmen mit Campus- und Branch-Standorten einen operativ überzeugenden Weg zu einem einheitlichen Management über Wireless-, Switching- und WAN-Infrastrukturen hinweg. Bei reinen SD-WAN-Deployments in Umgebungen ohne bestehende Aruba-Infrastruktur und ohne ausgeprägte Anforderungen an die WAN-Optimierung verringert sich dieser Differenzierungsvorteil gegenüber Cisco oder Fortinet jedoch.</p>
 <hr>
-<p><em>Als Nächstes in dieser Serie: <a href="/en/posts/palo-alto-sd-wan/">Palo Alto SD-WAN – Prisma SD-WAN und der Security-First-Ansatz</a></em></p>
+<p><em>Als Nächstes in dieser Serie: <a href="/en/technology/palo-alto-sd-wan/">Palo Alto SD-WAN – Prisma SD-WAN und der Security-First-Ansatz</a></em></p>
 ]]></content:encoded></item><item><title>Fortinet SD-WAN: Security-Driven Networking in der Praxis</title><link>https://barashhelvadzhaoglu.com/de/technology/fortinet-sd-wan/</link><pubDate>Fri, 30 Oct 2026 06:36:11 +0100</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/fortinet-sd-wan/</guid><description>Ein detaillierter Einblick in Fortinets SD-WAN-Ansatz: FortiOS-Integration, Security-Driven Networking, Gartner Magic Quadrant-Positionierung und der Vergleich zu reinen SD-WAN-Anbietern.</description><content:encoded><![CDATA[<h1 id="fortinet-sd-wan-security-driven-networking-in-der-praxis">Fortinet SD-WAN: Security-Driven Networking in der Praxis</h1>
 <p>Fortinet nimmt im SD-WAN-Markt eine ungewöhnliche Position ein. Das Unternehmen hat kein eigenständiges SD-WAN-Produkt entwickelt, um es nachträglich um Security-Funktionen zu ergänzen – noch hat es einen WAN-Optimization-Anbieter übernommen und dessen Technologie umbenannt. Stattdessen hat Fortinet SD-WAN-Funktionen direkt in FortiOS integriert, dasselbe Betriebssystem, auf dem auch seine NGFW-, IPS-, SSL-Inspection- und Application-Control-Funktionen laufen. Das Ergebnis ist eine Architektur, die das Unternehmen <strong>Security-Driven Networking</strong> nennt und die Fortinet seit mehreren Jahren in Folge eine führende Position im Gartner SD-WAN Magic Quadrant sichert.</p>
 <p>Dieser Artikel untersucht, was der Ansatz von Fortinet in der Praxis leistet, wo seine größten Stärken liegen und welche Kompromisse damit verbunden sind.</p>
@@ -473,7 +473,7 @@ Die enge FortiOS-Integration ist in reinen Fortinet-Umgebungen eine Stärke, in 
 <p>Der Kompromiss besteht im Bekenntnis zum Ökosystem. Fortinet SD-WAN entfaltet sein volles Potenzial am besten in Fortinet-Umgebungen. Organisationen mit erheblichen bestehenden Investitionen in die Sicherheitsinfrastruktur anderer Hersteller sollten prüfen, ob der FortiOS-zentrierte Ansatz am Ende mehr Komplexität erzeugt als löst.</p>
 <p>Im Gartner Magic Quadrant spiegelt Fortinets dauerhafte Platzierung unter den Leaders eine Plattform wider, die ihr Kernversprechen einlöst: Sicherheit und Konnektivität aus einem einzigen Betriebssystem – skalierbar über Hunderte oder Tausende von Standorten hinweg.</p>
 <hr>
-<p><em>Als Nächstes in dieser Serie: <a href="/en/posts/cisco-sd-wan/">Cisco SD-WAN — Catalyst SD-WAN and the Enterprise Architecture Approach</a></em></p>
+<p><em>Als Nächstes in dieser Serie: <a href="/en/technology/cisco-sd-wan/">Cisco SD-WAN — Catalyst SD-WAN and the Enterprise Architecture Approach</a></em></p>
 ]]></content:encoded></item><item><title>Cisco SD-WAN: Catalyst SD-WAN und der Enterprise-Architekturansatz</title><link>https://barashhelvadzhaoglu.com/de/technology/cisco-sd-wan/</link><pubDate>Thu, 29 Oct 2026 08:37:33 +0100</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/cisco-sd-wan/</guid><description>Ein detaillierter Blick auf Ciscos SD-WAN-Plattform: die Viptela-Übernahme, die Catalyst SD-WAN-Architektur, vManage und wie sich Ciscos Ansatz im Enterprise-Umfeld gegenüber dem Wettbewerb behauptet.</description><content:encoded><![CDATA[<h1 id="cisco-sd-wan-catalyst-sd-wan-und-der-enterprise-architekturansatz">Cisco SD-WAN: Catalyst SD-WAN und der Enterprise-Architekturansatz</h1>
 <p>Ciscos Weg zu SD-WAN führte über eine der bedeutendsten Akquisitionen im Enterprise-Networking-Bereich des letzten Jahrzehnts. 2017 übernahm Cisco Viptela – ein dediziertes SD-WAN-Startup – für rund 610 Millionen US-Dollar. Diese Akquisition bildete das Fundament für das, was Cisco heute als <strong>Catalyst SD-WAN</strong> bezeichnet (zuvor bekannt als Cisco SD-WAN und davor als Viptela SD-WAN). Ein Verständnis des Viptela-Erbes hilft dabei, sowohl die architektonischen Stärken als auch die operationelle Komplexität zu verstehen, die Ciscos Plattform heute prägen.</p>
 <hr>
@@ -554,7 +554,7 @@ Anders als bei Fortinet, wo SD-WAN und NGFW in einem einzigen Betriebssystem ver
 <p>Die Kehrseite sind Kosten und Komplexität. Organisationen, die ein einfacheres Betriebsmodell, eine engere Security-Integration oder geringere Kosten pro Standort benötigen, finden in Fortinet, HPE Aruba oder Palo Alto unter Umständen eine passendere Lösung für ihre spezifischen Anforderungen.</p>
 <p>Für Unternehmen, die bereits tief im Cisco-Ökosystem verankert sind – DNA Center, ISE, Umbrella, Catalyst Switching –, bietet Catalyst SD-WAN eine architektonische Kohärenz, die sich mit einem anderen WAN-Hersteller nur schwer nachbilden lässt.</p>
 <hr>
-<p><em>Als Nächstes in dieser Serie: <a href="/en/posts/hpe-aruba-sd-wan/">HPE Aruba SD-WAN – EdgeConnect und das Erbe der WAN-Optimierung</a></em></p>
+<p><em>Als Nächstes in dieser Serie: <a href="/en/technology/hpe-aruba-sd-wan/">HPE Aruba SD-WAN – EdgeConnect und das Erbe der WAN-Optimierung</a></em></p>
 ]]></content:encoded></item><item><title>Cisco IOS und IOS-XE Upgrade-Leitfaden: Catalyst Switches und ISR Router</title><link>https://barashhelvadzhaoglu.com/de/posts/cisco-ios-xe-upgrade-guide/</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/posts/cisco-ios-xe-upgrade-guide/</guid><description>Cisco IOS- und IOS-XE-Software-Upgrade Schritt für Schritt für Catalyst Switches (2960, 3560, 3850, 9200, 9300, 9500) und Router (ISR 4000, ISR 1100, Catalyst 8000) — Flash-Prüfung, ROMMON, Install Mode, Bundle Mode, MD5 und Rollback.</description><content:encoded><![CDATA[<p>Die meisten Cisco-Upgrades scheitern, bevor der erste Befehl eingegeben ist: das falsche Image für die Plattform, zu wenig Platz im Flash, ein ROMMON, der für das Ziel-Release zu alt ist, oder eine Boot-Variable, die ins Leere zeigt. Dieser Leitfaden stellt die Prüfungen an den Anfang und die Befehle danach.</p>
 <p>Er behandelt beide Familien aus der Praxis:</p>
 <table>
@@ -1242,11 +1242,11 @@ Die meisten Hersteller bieten ihren Controller mittlerweile als SaaS-Dienst an, 
 <p>SD-WAN ist eine ausgereifte, bewährte Architektur für Enterprise-WAN. Es liefert messbare Verbesserungen der Anwendungsperformance für Cloud-Workloads, reduziert WAN-Kosten durch hybrides Underlay mit günstigerem Breitband und vereinfacht WAN-Betrieb durch zentrales Management erheblich.</p>
 <p>Die führenden Hersteller — Fortinet, Cisco, HPE Aruba und Palo Alto — verfolgen jeweils einen deutlich unterschiedlichen Ansatz zur Architektur. Das Verständnis dieser Unterschiede ist entscheidend bei der Plattformauswahl — genau das untersuchen die folgenden Artikel dieser Serie im Detail.</p>
 <hr>
-<p><em>Dieser Artikel ist Teil einer Serie über SD-WAN-Architekturen. Weiter: <a href="/de/posts/fortinet-sd-wan/">Fortinet SD-WAN — Security-Driven Networking in der Praxis</a></em></p>
+<p><em>Dieser Artikel ist Teil einer Serie über SD-WAN-Architekturen. Weiter: <a href="/de/technology/fortinet-sd-wan/">Fortinet SD-WAN — Security-Driven Networking in der Praxis</a></em></p>
 ]]></content:encoded></item><item><title>802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E und was sich wirklich geändert hat</title><link>https://barashhelvadzhaoglu.com/de/technology/wifi-standards/</link><pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/wifi-standards/</guid><description>802.11 Wireless-Standards Deep Dive — was n, ac, ax und be liefern, OFDMA, MU-MIMO, BSS Coloring und die richtige Standardwahl.</description><content:encoded><![CDATA[<h1 id="80211-standards-deep-dive-wifi-4-5-6-6e-und-was-sich-wirklich-geändert-hat">802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E und was sich wirklich geändert hat</h1>
 <p>Dieser Artikel ist Teil der Enterprise-WiFi-Serie.</p>
 <blockquote>
-<p><strong>Neu im Enterprise-Wireless-Bereich?</strong> Beginnen Sie mit der Übersicht: <a href="/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/">Enterprise WiFi-Architektur: Von Standards bis zur Deployment</a></p>
+<p><strong>Neu im Enterprise-Wireless-Bereich?</strong> Beginnen Sie mit der Übersicht: <a href="/de/technology/wifi-master/">Enterprise WiFi-Architektur: Von Standards bis zur Deployment</a></p>
 </blockquote>
 <hr>
 <h2 id="das-problem-mit-marketingzahlen">Das Problem mit Marketingzahlen</h2>
@@ -1408,10 +1408,10 @@ Mit BSS Coloring:
 <hr>
 <h2 id="diese-serie">Diese Serie</h2>
 <ul>
-<li>📖 <a href="/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/">Enterprise WiFi-Architektur Übersicht</a> ← Beginnen Sie hier</li>
-<li>🏢 <a href="/de/technology/enterprise-wlan-controller-architektur-cisco-aruba/">Enterprise Controller-Architektur: Cisco und Aruba</a></li>
-<li>🏨 <a href="/de/technology/wifi-design-kmu-hotel-gesundheit/">WiFi-Design für KMU, Hotels und Arztpraxen</a></li>
-<li>🔐 <a href="/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/">WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey</a></li>
+<li>📖 <a href="/de/technology/wifi-master/">Enterprise WiFi-Architektur Übersicht</a> ← Beginnen Sie hier</li>
+<li>🏢 <a href="/de/technology/wifi-controller/">Enterprise Controller-Architektur: Cisco und Aruba</a></li>
+<li>🏨 <a href="/de/technology/wifi-smb-hotel-medical/">WiFi-Design für KMU, Hotels und Arztpraxen</a></li>
+<li>🔐 <a href="/de/technology/wifi-security/">WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey</a></li>
 </ul>
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
@@ -1421,7 +1421,7 @@ Mit BSS Coloring:
 ]]></content:encoded></item><item><title>WiFi-Design für KMU, Hotels und Arztpraxen: Feldnotizen</title><link>https://barashhelvadzhaoglu.com/de/technology/wifi-smb-hotel-medical/</link><pubDate>Wed, 29 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/wifi-smb-hotel-medical/</guid><description>WLAN-Design für KMU, Hotels und Arztpraxen — Dichte-Planung, Gäste-Segmentierung, Bandbreitenmanagement und PMS-Integration.</description><content:encoded><![CDATA[<h1 id="wifi-design-für-kmu-hotels-und-arztpraxen-feldnotizen">WiFi-Design für KMU, Hotels und Arztpraxen: Feldnotizen</h1>
 <p>Dieser Artikel ist Teil der Enterprise-WiFi-Serie.</p>
 <blockquote>
-<p><strong>Neu im Enterprise-Wireless-Bereich?</strong> Beginnen Sie mit der Übersicht: <a href="/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/">Enterprise WiFi-Architektur: Von Standards bis zur Deployment</a></p>
+<p><strong>Neu im Enterprise-Wireless-Bereich?</strong> Beginnen Sie mit der Übersicht: <a href="/de/technology/wifi-master/">Enterprise WiFi-Architektur: Von Standards bis zur Deployment</a></p>
 </blockquote>
 <hr>
 <h2 id="warum-der-umgebungstyp-wichtiger-ist-als-die-gerätemarke">Warum der Umgebungstyp wichtiger ist als die Gerätemarke</h2>
@@ -1637,21 +1637,21 @@ Enterprise-APs erfordern PoE. Ein Cisco- oder Aruba-WiFi-6-AP mit mehreren Radio
 <hr>
 <h2 id="diese-serie">Diese Serie</h2>
 <ul>
-<li>📖 <a href="/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/">Enterprise WiFi-Architektur Übersicht</a> ← Beginnen Sie hier</li>
-<li>📡 <a href="/de/technology/wifi-80211-standards-wifi4-wifi5-wifi6/">802.11 Standards Deep Dive</a></li>
-<li>🏢 <a href="/de/technology/enterprise-wlan-controller-architektur-cisco-aruba/">Enterprise Controller-Architektur: Cisco und Aruba</a></li>
-<li>🔐 <a href="/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/">WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey</a></li>
+<li>📖 <a href="/de/technology/wifi-master/">Enterprise WiFi-Architektur Übersicht</a> ← Beginnen Sie hier</li>
+<li>📡 <a href="/de/technology/wifi-standards/">802.11 Standards Deep Dive</a></li>
+<li>🏢 <a href="/de/technology/wifi-controller/">Enterprise Controller-Architektur: Cisco und Aruba</a></li>
+<li>🔐 <a href="/de/technology/wifi-security/">WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey</a></li>
 </ul>
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
-<li>📡 <a href="/de/technology/nas-backup-aws-s3-cloud-kmu/">NAS-Backup mit AWS S3 — Datensicherheit für KMU</a> — KMU-Datenschutz neben WiFi</li>
+<li>📡 <a href="/de/posts/nas-backup/">NAS-Backup mit AWS S3 — Datensicherheit für KMU</a> — KMU-Datenschutz neben WiFi</li>
 <li>🔐 <a href="/de/technology/identity-based-microsegmentation-8021x/">802.1X Identitätsbasierte Architektur im Praxiseinsatz</a> — Die Identitätsschicht für Enterprise Wireless</li>
 <li>🏗️ <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Systemdenken im Netzwerkdesign</li>
 </ul>
 ]]></content:encoded></item><item><title>WiFi Security: WPA3, 802.1X, Rogue AP Detection, and Site Survey</title><link>https://barashhelvadzhaoglu.com/de/technology/wifi-security/</link><pubDate>Mon, 27 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/wifi-security/</guid><description>Enterprise-WLAN-Sicherheit — WPA3 vs. WPA2, 802.1X-Authentifizierung, Rogue-AP-Erkennung und Ekahau Site Survey Methodik.</description><content:encoded><![CDATA[<h1 id="wifi-security-wpa3-8021x-rogue-ap-detection-and-site-survey">WiFi Security: WPA3, 802.1X, Rogue AP Detection, and Site Survey</h1>
 <p>This article is part of the Enterprise WiFi series.</p>
 <blockquote>
-<p><strong>New to enterprise wireless?</strong> Start with the overview: <a href="/en/technology/enterprise-wifi-architecture-complete-guide/">Enterprise WiFi Architecture: From Standards to Deployment</a></p>
+<p><strong>New to enterprise wireless?</strong> Start with the overview: <a href="/en/technology/wifi-master/">Enterprise WiFi Architecture: From Standards to Deployment</a></p>
 </blockquote>
 <hr>
 <h2 id="why-wifi-security-is-different">Why WiFi Security Is Different</h2>
@@ -1898,21 +1898,21 @@ Compare validation heatmap against prediction. Document actual versus predicted 
 <hr>
 <h2 id="this-series">This Series</h2>
 <ul>
-<li>📖 <a href="/en/technology/enterprise-wifi-architecture-complete-guide/">Enterprise WiFi Architecture Overview</a> ← Start here</li>
-<li>📡 <a href="/en/technology/wifi-80211-standards-wifi4-wifi5-wifi6/">802.11 Standards Deep Dive</a></li>
-<li>🏢 <a href="/en/technology/enterprise-wifi-controller-architecture-cisco-aruba/">Enterprise Controller Architecture: Cisco and Aruba</a></li>
-<li>🏨 <a href="/en/technology/wifi-design-smb-hotel-medical/">WiFi Design for SMB, Hotels, and Medical Practices</a></li>
+<li>📖 <a href="/en/technology/wifi-master/">Enterprise WiFi Architecture Overview</a> ← Start here</li>
+<li>📡 <a href="/en/technology/wifi-standards/">802.11 Standards Deep Dive</a></li>
+<li>🏢 <a href="/en/technology/wifi-controller/">Enterprise Controller Architecture: Cisco and Aruba</a></li>
+<li>🏨 <a href="/en/technology/wifi-smb-hotel-medical/">WiFi Design for SMB, Hotels, and Medical Practices</a></li>
 </ul>
 <h2 id="related-articles">Related Articles</h2>
 <ul>
 <li>🔐 <a href="/en/technology/identity-based-microsegmentation-8021x/">802.1X Identity-Based Architecture in the Field</a> — Deep dive on 802.1X beyond wireless</li>
-<li>🔐 <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture</a> — Where wireless security fits in Zero Trust</li>
+<li>🔐 <a href="/en/architecture/zero-trust-architecture-behaviors/">The Zero Trust Mindset: Engineering Security as an Architecture</a> — Where wireless security fits in Zero Trust</li>
 <li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">Monitoring Done Right</a> — Integrating wireless events into proactive monitoring</li>
 </ul>
 ]]></content:encoded></item><item><title>F5 WAF Deep Dive: Anwendungssicherheit mit ASM und Advanced WAF</title><link>https://barashhelvadzhaoglu.com/de/technology/f5-waf-deep-dive/</link><pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/f5-waf-deep-dive/</guid><description>F5 WAF Deep Dive — ASM vs. Advanced WAF, positive vs. negative Sicherheitsmodelle, OWASP Top 10, Bot-Abwehr und L7-DoS-Schutz.</description><content:encoded><![CDATA[<h1 id="f5-waf-deep-dive-anwendungssicherheit-mit-asm-und-advanced-waf">F5 WAF Deep Dive: Anwendungssicherheit mit ASM und Advanced WAF</h1>
 <p>Dieser Artikel ist Teil der F5 BIG-IP-Serie.</p>
 <blockquote>
-<p><strong>Neu bei F5?</strong> Beginnen Sie zuerst mit der Plattformübersicht: <a href="/de/technology/f5-bigip-application-delivery-platform-uebersicht/">F5 BIG-IP ist kein Load Balancer — Es ist eine Application Delivery Platform</a></p>
+<p><strong>Neu bei F5?</strong> Beginnen Sie zuerst mit der Plattformübersicht: <a href="/de/technology/f5-master/">F5 BIG-IP ist kein Load Balancer — Es ist eine Application Delivery Platform</a></p>
 </blockquote>
 <p>Wenn Sie das Gesamtbild bereits verstehen und tief in WAF eintauchen möchten — Sicherheitsmodelle, OWASP-Abdeckung, Bot-Abwehr und Deployment-Strategie — sind Sie hier richtig.</p>
 <hr>
@@ -2161,13 +2161,13 @@ Support-ID:         12345678901234
 <hr>
 <h2 id="diese-serie">Diese Serie</h2>
 <ul>
-<li>📖 <a href="/de/technology/f5-bigip-application-delivery-platform-uebersicht/">F5 BIG-IP Plattformübersicht — Alle Module</a> ← Beginnen Sie hier, wenn Sie neu bei F5 sind</li>
-<li>🔧 <a href="/de/technology/f5-ltm-virtual-server-irules-ssl-offloading-ha/">F5 LTM Deep Dive</a></li>
-<li>🌐 <a href="/de/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM &amp; GSLB Deep Dive</a></li>
+<li>📖 <a href="/de/technology/f5-master/">F5 BIG-IP Plattformübersicht — Alle Module</a> ← Beginnen Sie hier, wenn Sie neu bei F5 sind</li>
+<li>🔧 <a href="/de/technology/f5-ltm-deep-dive/">F5 LTM Deep Dive</a></li>
+<li>🌐 <a href="/de/technology/f5-gtm-deep-dive/">F5 GTM &amp; GSLB Deep Dive</a></li>
 </ul>
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
-<li>🔐 <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — Wo WAF in Zero Trust passt</li>
+<li>🔐 <a href="/de/architecture/zero-trust-architecture-behaviors/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — Wo WAF in Zero Trust passt</li>
 <li>🛡️ <a href="/de/technology/identity-based-microsegmentation-8021x/">802.1X Identitätsbasierte Architektur im Praxiseinsatz</a> — Defense in Depth über Netzwerkschichten</li>
 <li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Monitoring richtig gemacht</a> — WAF-Protokolle in proaktives Monitoring integrieren</li>
 <li>🛡️ <a href="/de/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Vollständige Datenverkehrssichtbarkeit neben WAF</li>
@@ -2354,14 +2354,14 @@ Support-ID:         12345678901234
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
 <li>🔐 <a href="/de/technology/identity-based-microsegmentation-8021x/">802.1X-Projekte: Die identitätsbasierte Architektur im Praxiseinsatz</a> — Der Praxiseinsatz-Leitfaden, den ISE ermöglicht</li>
-<li>🏛️ <a href="/de/architecture/cisco-dna-center-catalyst-center-architecture-guide/">Cisco DNA Center / Catalyst Center: Wann es sinnvoll ist</a> — Die Campus-Management-Plattform, mit der ISE integriert</li>
-<li>🔐 <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — Die Philosophie hinter identitätsbasierter Zugangskontrolle</li>
-<li>🛡️ <a href="/de/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive</a> — Ergänzende L7-Sicherheit neben ISEs L2/L3-Durchsetzung</li>
+<li>🏛️ <a href="/de/architecture/catalyst-center-architecture/">Cisco DNA Center / Catalyst Center: Wann es sinnvoll ist</a> — Die Campus-Management-Plattform, mit der ISE integriert</li>
+<li>🔐 <a href="/de/architecture/zero-trust-architecture-behaviors/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — Die Philosophie hinter identitätsbasierter Zugangskontrolle</li>
+<li>🛡️ <a href="/de/technology/f5-waf-deep-dive/">F5 WAF Deep Dive</a> — Ergänzende L7-Sicherheit neben ISEs L2/L3-Durchsetzung</li>
 </ul>
 ]]></content:encoded></item><item><title>Enterprise WLAN-Controller-Architektur: Cisco und Aruba WLAN-Design</title><link>https://barashhelvadzhaoglu.com/de/technology/wifi-controller/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/wifi-controller/</guid><description>Enterprise-WLAN-Controller Deep Dive — Cisco WLC vs. DNA Center, Aruba Mobility Master vs. Central, zentrale vs. verteilte Designs.</description><content:encoded><![CDATA[<h1 id="enterprise-wlan-controller-architektur-cisco-und-aruba-wlan-design">Enterprise WLAN-Controller-Architektur: Cisco und Aruba WLAN-Design</h1>
 <p>Dieser Artikel ist Teil der Enterprise-WiFi-Serie.</p>
 <blockquote>
-<p><strong>Neu im Enterprise-Wireless-Bereich?</strong> Beginnen Sie mit der Übersicht: <a href="/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/">Enterprise WiFi-Architektur: Von Standards bis zur Deployment</a></p>
+<p><strong>Neu im Enterprise-Wireless-Bereich?</strong> Beginnen Sie mit der Übersicht: <a href="/de/technology/wifi-master/">Enterprise WiFi-Architektur: Von Standards bis zur Deployment</a></p>
 </blockquote>
 <hr>
 <h2 id="warum-controller-architektur-wichtig-ist">Warum Controller-Architektur wichtig ist</h2>
@@ -2582,10 +2582,10 @@ DNA Center setzt SGT-basierte Richtlinie Ende-zu-Ende durch
 <hr>
 <h2 id="diese-serie">Diese Serie</h2>
 <ul>
-<li>📖 <a href="/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/">Enterprise WiFi-Architektur Übersicht</a> ← Beginnen Sie hier</li>
-<li>📡 <a href="/de/technology/wifi-80211-standards-wifi4-wifi5-wifi6/">802.11 Standards Deep Dive</a></li>
-<li>🏨 <a href="/de/technology/wifi-design-kmu-hotel-gesundheit/">WiFi-Design für KMU, Hotels und Arztpraxen</a></li>
-<li>🔐 <a href="/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/">WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey</a></li>
+<li>📖 <a href="/de/technology/wifi-master/">Enterprise WiFi-Architektur Übersicht</a> ← Beginnen Sie hier</li>
+<li>📡 <a href="/de/technology/wifi-standards/">802.11 Standards Deep Dive</a></li>
+<li>🏨 <a href="/de/technology/wifi-smb-hotel-medical/">WiFi-Design für KMU, Hotels und Arztpraxen</a></li>
+<li>🔐 <a href="/de/technology/wifi-security/">WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey</a></li>
 </ul>
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
@@ -2952,7 +2952,7 @@ NAS-Gerät (z. B. Synology) mit automatischer verschlüsselter Synchronisation z
 ]]></content:encoded></item><item><title>F5 GTM &amp; GSLB Deep Dive: Globales Traffic-Management und DNS-Failover</title><link>https://barashhelvadzhaoglu.com/de/technology/f5-gtm-deep-dive/</link><pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/f5-gtm-deep-dive/</guid><description>F5 GTM (BIG-IP DNS) Deep Dive — Wide IPs, iQuery, Topologie-Routing, TTL-Strategie, Multi-DC-Failover und Aktiv-Aktiv vs. Aktiv-Standby.</description><content:encoded><![CDATA[<h1 id="f5-gtm--gslb-deep-dive-globales-traffic-management-und-dns-failover">F5 GTM &amp; GSLB Deep Dive: Globales Traffic-Management und DNS-Failover</h1>
 <p>Dieser Artikel ist Teil der F5 BIG-IP-Serie.</p>
 <blockquote>
-<p><strong>Neu bei F5?</strong> Beginnen Sie zuerst mit der Plattformübersicht: <a href="/de/technology/f5-bigip-application-delivery-platform-uebersicht/">F5 BIG-IP ist kein Load Balancer — Es ist eine Application Delivery Platform</a></p>
+<p><strong>Neu bei F5?</strong> Beginnen Sie zuerst mit der Plattformübersicht: <a href="/de/technology/f5-master/">F5 BIG-IP ist kein Load Balancer — Es ist eine Application Delivery Platform</a></p>
 </blockquote>
 <p>Wenn Sie das Gesamtbild bereits verstehen und tief in GTM eintauchen möchten — iQuery, Wide IPs, Topologie-Routing, TTL-Strategie und Multi-DC-Design — sind Sie hier richtig.</p>
 <hr>
@@ -3184,14 +3184,14 @@ Standard       → DC-Frankfurt
 <hr>
 <h2 id="diese-serie">Diese Serie</h2>
 <ul>
-<li>📖 <a href="/de/technology/f5-bigip-application-delivery-platform-uebersicht/">F5 BIG-IP Plattformübersicht — Alle Module</a> ← Beginnen Sie hier, wenn Sie neu bei F5 sind</li>
-<li>🔧 <a href="/de/technology/f5-ltm-virtual-server-irules-ssl-offloading-ha/">F5 LTM Deep Dive</a></li>
-<li>🛡️ <a href="/de/technology/f5-waf-asm-advanced-waf-anwendungssicherheit/">F5 WAF Deep Dive</a></li>
+<li>📖 <a href="/de/technology/f5-master/">F5 BIG-IP Plattformübersicht — Alle Module</a> ← Beginnen Sie hier, wenn Sie neu bei F5 sind</li>
+<li>🔧 <a href="/de/technology/f5-ltm-deep-dive/">F5 LTM Deep Dive</a></li>
+<li>🛡️ <a href="/de/technology/f5-waf-deep-dive/">F5 WAF Deep Dive</a></li>
 </ul>
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
 <li>🏗️ <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Systemdenken für Multi-DC-Design</li>
-<li>🔐 <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Die Zero-Trust-Mentalität</a> — Identitätsbewusster Zugang über verteilte Infrastruktur</li>
+<li>🔐 <a href="/de/architecture/zero-trust-architecture-behaviors/">Die Zero-Trust-Mentalität</a> — Identitätsbewusster Zugang über verteilte Infrastruktur</li>
 <li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Monitoring richtig gemacht</a> — GTM- und LTM-Gesundheit proaktiv überwachen</li>
 </ul>
 ]]></content:encoded></item><item><title>SecureCRT und SuperPutty: Terminal-Tools, die jeder Netzwerkingenieur kennen sollte</title><link>https://barashhelvadzhaoglu.com/de/technology/securecrt-superputty/</link><pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/securecrt-superputty/</guid><description>Praxisleitfaden für SecureCRT und SuperPutty — Session-Logging, Portabilität, Credential-Management, Scripting und warum SuperPutty das PuTTY-Upgrade ist.</description><content:encoded><![CDATA[<h1 id="securecrt-und-superputty-terminal-tools-die-jeder-netzwerkingenieur-kennen-sollte">SecureCRT und SuperPutty: Terminal-Tools, die jeder Netzwerkingenieur kennen sollte</h1>
@@ -3653,15 +3653,15 @@ Cisco IP-Telefone (7900er-Serie, 8800er-Serie)
 <hr>
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
-<li>🔐 <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — Sicherheitsarchitektur für Cloud-Kollaborationsumgebungen</li>
+<li>🔐 <a href="/de/architecture/zero-trust-architecture-behaviors/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — Sicherheitsarchitektur für Cloud-Kollaborationsumgebungen</li>
 <li>🏗️ <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Systemdenken, das gleichermaßen für Kollaborationsplattformen gilt</li>
 <li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Monitoring richtig gemacht</a> — Kollaborationsinfrastruktur proaktiv überwachen</li>
-<li>🔧 <a href="/de/technology/securecrt-superputty-network-engineer-guide/">SecureCRT und SuperPutty</a> — Tools zur Verwaltung der On-Premise-Infrastruktur, auf der Kollaboration läuft</li>
+<li>🔧 <a href="/de/technology/securecrt-superputty/">SecureCRT und SuperPutty</a> — Tools zur Verwaltung der On-Premise-Infrastruktur, auf der Kollaboration läuft</li>
 </ul>
 ]]></content:encoded></item><item><title>F5 LTM Deep Dive: Virtual Server, iRules, SSL Offloading &amp; HA</title><link>https://barashhelvadzhaoglu.com/de/technology/f5-ltm-deep-dive/</link><pubDate>Wed, 08 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/f5-ltm-deep-dive/</guid><description>F5 BIG-IP LTM Deep Dive — Full-Proxy-Architektur, Virtual Server, Pool-Konfiguration, iRules, SSL Offloading und Zero-Downtime-Migration.</description><content:encoded><![CDATA[<h1 id="f5-ltm-deep-dive-virtual-server-irules-ssl-offloading--ha">F5 LTM Deep Dive: Virtual Server, iRules, SSL Offloading &amp; HA</h1>
 <p>Dieser Artikel ist Teil der F5 BIG-IP-Serie.</p>
 <blockquote>
-<p><strong>Neu bei F5?</strong> Beginnen Sie zuerst mit der Plattformübersicht: <a href="/de/technology/f5-bigip-application-delivery-platform-overview/">F5 BIG-IP ist kein Load Balancer — Es ist eine Application Delivery Platform</a></p>
+<p><strong>Neu bei F5?</strong> Beginnen Sie zuerst mit der Plattformübersicht: <a href="/de/technology/f5-master/">F5 BIG-IP ist kein Load Balancer — Es ist eine Application Delivery Platform</a></p>
 </blockquote>
 <p>Wenn Sie das Gesamtbild bereits kennen und tief in LTM eintauchen möchten — Konfiguration, iRules, Migrations-Praxisnotizen — sind Sie hier richtig.</p>
 <hr>
@@ -3932,15 +3932,15 @@ Nachdem alle Virtual Server auf dem neuen aktiven Gerät validiert wurden:</p>
 <hr>
 <h2 id="diese-serie">Diese Serie</h2>
 <ul>
-<li>📖 <a href="/de/technology/f5-bigip-application-delivery-platform-overview/">F5 BIG-IP Plattformübersicht — Alle Module</a> ← Beginnen Sie hier, wenn Sie neu bei F5 sind</li>
-<li>🌐 <a href="/de/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM &amp; GSLB Deep Dive</a></li>
-<li>🛡️ <a href="/de/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive</a></li>
+<li>📖 <a href="/de/technology/f5-master/">F5 BIG-IP Plattformübersicht — Alle Module</a> ← Beginnen Sie hier, wenn Sie neu bei F5 sind</li>
+<li>🌐 <a href="/de/technology/f5-gtm-deep-dive/">F5 GTM &amp; GSLB Deep Dive</a></li>
+<li>🛡️ <a href="/de/technology/f5-waf-deep-dive/">F5 WAF Deep Dive</a></li>
 </ul>
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
 <li>🛠️ <a href="/de/posts/next-gen-console-server-architecture/">Die Hintertür des Netzwerks: Next-Gen Console Server Architektur</a> — Out-of-Band-Zugang während F5-Wartungsfenstern</li>
 <li>🛡️ <a href="/de/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Datenverkehrssichtbarkeit neben ADC</li>
-<li>🔐 <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Die Zero-Trust-Mentalität</a> — Wo LTM in einer Zero-Trust-Architektur passt</li>
+<li>🔐 <a href="/de/architecture/zero-trust-architecture-behaviors/">Die Zero-Trust-Mentalität</a> — Wo LTM in einer Zero-Trust-Architektur passt</li>
 </ul>
 ]]></content:encoded></item><item><title>Firewall-Auswahl und Kapazitätsplanung: Was die Datenblätter Ihnen nicht sagen</title><link>https://barashhelvadzhaoglu.com/de/technology/firewall-selection-capacity/</link><pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/firewall-selection-capacity/</guid><description>Enterprise-Firewall-Auswahl — realer Durchsatz, SSL-Inspection, Stärken und Kompromisse bei Fortinet, Palo Alto, Cisco und Check Point.</description><content:encoded><![CDATA[<h1 id="firewall-auswahl-und-kapazitätsplanung-was-die-datenblätter-ihnen-nicht-sagen">Firewall-Auswahl und Kapazitätsplanung: Was die Datenblätter Ihnen nicht sagen</h1>
 <p>Gespräche über Firewall-Auswahl verlaufen meist auf eine von zwei Arten. Entweder wird die Entscheidung auf Basis von Markenvertrautheit getroffen — „wir haben immer Anbieter X verwendet&quot; — oder sie basiert auf Durchsatzzahlen aus Datenblättern, ohne zu verstehen, was diese Zahlen in der Produktion wirklich bedeuten. Beide Ansätze führen entweder dazu, für Kapazität zu viel zu bezahlen, die man nicht nutzen wird, oder zu einer Unterdimensionierung für den tatsächlichen Datenverkehr.</p>
@@ -4131,9 +4131,9 @@ Modell auswählen, das für ≥ 2,4 Gbps SSL-Inspection-Durchsatz bewertet ist
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
 <li>🏗️ <a href="/de/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Warum die Auswahl der richtigen Produkte nicht ausreicht</a> — Architektonischer Kontext für Firewall-Platzierung</li>
-<li>🔐 <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — Richtlinienphilosophie hinter Firewall-Design</li>
-<li>🛡️ <a href="/de/technology/ddos-schutzstrategien-isp-scrubbing-on-premise-cloud/">DDoS-Schutzstrategien</a> — Was upstream der Firewall sitzt</li>
-<li>🛡️ <a href="/de/technology/f5-waf-asm-advanced-waf-anwendungssicherheit/">F5 WAF Deep Dive</a> — Layer-7-Schutz, der Firewall-Richtlinien ergänzt</li>
+<li>🔐 <a href="/de/architecture/zero-trust-architecture-behaviors/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — Richtlinienphilosophie hinter Firewall-Design</li>
+<li>🛡️ <a href="/de/technology/ddos-protection-strategies/">DDoS-Schutzstrategien</a> — Was upstream der Firewall sitzt</li>
+<li>🛡️ <a href="/de/technology/f5-waf-deep-dive/">F5 WAF Deep Dive</a> — Layer-7-Schutz, der Firewall-Richtlinien ergänzt</li>
 <li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Monitoring richtig gemacht</a> — Firewall-Verhalten sichtbar machen</li>
 </ul>
 ]]></content:encoded></item><item><title>OT-Netzwerke: Was ein IT-Ingenieur auf dem Fabrikboden wirklich antrifft</title><link>https://barashhelvadzhaoglu.com/de/technology/ot-network-security/</link><pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/ot-network-security/</guid><description>IT-Leitfaden zur OT-Sicherheit — Purdue-Modell, Layer-2-Firewall, OT-Signaturen, Legacy-Systeme und 802.1X in industriellen Umgebungen.</description><content:encoded><![CDATA[<h1 id="ot-netzwerke-was-ein-it-ingenieur-auf-dem-fabrikboden-wirklich-antrifft">OT-Netzwerke: Was ein IT-Ingenieur auf dem Fabrikboden wirklich antrifft</h1>
@@ -4325,8 +4325,8 @@ Das sind keine traditionellen Firewalls — sie sind OT-spezifische Sicherheits�
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
 <li>🔐 <a href="/de/technology/identity-based-microsegmentation-8021x/">802.1X Identitätsbasierte Architektur im Praxiseinsatz</a> — Wie 802.1X in IT-Umgebungen funktioniert und warum OT anders ist</li>
-<li>🔐 <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — Zero-Trust-Prinzipien auf IT/OT-Grenzdesign angewendet</li>
-<li>🛡️ <a href="/de/technology/ddos-schutzstrategien-isp-scrubbing-on-premise-cloud/">DDoS-Schutzstrategien</a> — OT-verbundene Infrastruktur vor volumetrischen Angriffen schützen</li>
+<li>🔐 <a href="/de/architecture/zero-trust-architecture-behaviors/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — Zero-Trust-Prinzipien auf IT/OT-Grenzdesign angewendet</li>
+<li>🛡️ <a href="/de/technology/ddos-protection-strategies/">DDoS-Schutzstrategien</a> — OT-verbundene Infrastruktur vor volumetrischen Angriffen schützen</li>
 <li>🏗️ <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Systemdenken, das gleichermaßen für OT-Netzwerkdesign gilt</li>
 </ul>
 ]]></content:encoded></item><item><title>Enterprise WiFi-Architektur: Von Standards bis zur Deployment — Ein vollständiger Leitfaden</title><link>https://barashhelvadzhaoglu.com/de/technology/wifi-master/</link><pubDate>Wed, 01 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/wifi-master/</guid><description>Master-Leitfaden für Enterprise Wireless — 802.11 Standards, Controller-Architekturen, KMU- und Hotel-Design, Roaming, Sicherheit und Site Survey.</description><content:encoded><![CDATA[<h1 id="enterprise-wifi-architektur-von-standards-bis-zur-deployment">Enterprise WiFi-Architektur: Von Standards bis zur Deployment</h1>
@@ -4338,10 +4338,10 @@ Das sind keine traditionellen Firewalls — sie sind OT-spezifische Sicherheits�
 <p>Dieser Artikel gibt Ihnen das <strong>Gesamtbild</strong> — was Enterprise Wireless-Architektur umfasst, was die wichtigsten Entscheidungen sind und wohin jeder Deep Dive führt.</p>
 <p><strong>Wenn Sie Ingenieur sind</strong> und tief in ein bestimmtes Thema eintauchen möchten — springen Sie zu dem Artikel, der Ihren Anwendungsfall abdeckt:</p>
 <ul>
-<li>📡 <strong><a href="/de/technology/wifi-80211-standards-wifi4-wifi5-wifi6/">802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E und was sich wirklich geändert hat</a></strong> — Was ax, ac, n und be wirklich für Kapazität, Reichweite und Deployment-Entscheidungen bedeuten</li>
-<li>🏢 <strong><a href="/de/technology/enterprise-wlan-controller-architektur-cisco-aruba/">Enterprise Controller-Architektur: Cisco und Aruba WLAN-Design</a></strong> — Zentralisierte vs. verteilte Steuerung, Mobilitätsdomänen, WLC vs. Cloud-Management</li>
-<li>🏨 <strong><a href="/de/technology/wifi-design-kmu-hotel-gesundheit/">WiFi-Design für KMU, Hotels und Arztpraxen</a></strong> — Praktische Feldnotizen zu Dichte-Planung, Gäste-Segmentierung und Erwartungsmanagement</li>
-<li>🔐 <strong><a href="/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/">WiFi-Sicherheit: WPA3, 802.1X, Rogue-AP-Erkennung und Site Survey</a></strong> — Authentifizierung, Verschlüsselung, Intrusion Detection und Ekahau-Survey-Methodik</li>
+<li>📡 <strong><a href="/de/technology/wifi-standards/">802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E und was sich wirklich geändert hat</a></strong> — Was ax, ac, n und be wirklich für Kapazität, Reichweite und Deployment-Entscheidungen bedeuten</li>
+<li>🏢 <strong><a href="/de/technology/wifi-controller/">Enterprise Controller-Architektur: Cisco und Aruba WLAN-Design</a></strong> — Zentralisierte vs. verteilte Steuerung, Mobilitätsdomänen, WLC vs. Cloud-Management</li>
+<li>🏨 <strong><a href="/de/technology/wifi-smb-hotel-medical/">WiFi-Design für KMU, Hotels und Arztpraxen</a></strong> — Praktische Feldnotizen zu Dichte-Planung, Gäste-Segmentierung und Erwartungsmanagement</li>
+<li>🔐 <strong><a href="/de/technology/wifi-security/">WiFi-Sicherheit: WPA3, 802.1X, Rogue-AP-Erkennung und Site Survey</a></strong> — Authentifizierung, Verschlüsselung, Intrusion Detection und Ekahau-Survey-Methodik</li>
 </ul>
 <p><strong>Wenn Sie Architekt oder Entscheidungsträger sind</strong> und Wireless-Lösungen evaluieren — lesen Sie hier weiter. Dieser Artikel beantwortet die strategischen Fragen ohne RF-Expertise vorauszusetzen.</p>
 <hr>
@@ -4410,7 +4410,7 @@ Das sind keine traditionellen Firewalls — sie sind OT-spezifische Sicherheits�
 </ul>
 <p><strong>WiFi 6E</strong> fügte das 6-GHz-Band hinzu — ein weitgehend unkongestioniertes Spektrum, das Interferenz von Nachbarnetzwerken und Legacy-Geräten eliminiert.</p>
 <p><strong>WiFi 7</strong> entsteht gerade mit Multi-Link-Operation (MLO), die einem einzelnen Gerät ermöglicht, gleichzeitig mehrere Bänder und Kanäle zu nutzen. Stand 2026 noch in früher Enterprise-Deployment-Phase.</p>
-<p>→ <strong><a href="/de/technology/wifi-80211-standards-wifi4-wifi5-wifi6/">802.11 Standards Deep Dive</a></strong></p>
+<p>→ <strong><a href="/de/technology/wifi-standards/">802.11 Standards Deep Dive</a></strong></p>
 <hr>
 <h2 id="controller-architektur-wo-die-intelligenz-lebt">Controller-Architektur: Wo die Intelligenz lebt</h2>
 <p>Enterprise Wireless-Netzwerke haben zwei grundlegende Architekturmodelle:</p>
@@ -4433,7 +4433,7 @@ Das sind keine traditionellen Firewalls — sie sind OT-spezifische Sicherheits�
 <h3 id="verteilt--campus-fabric">Verteilt / Campus Fabric</h3>
 <p>Moderne Großcampus-Deployments integrieren Wireless oft in das breitere Netzwerk-Fabric — APs nehmen am gleichen Richtlinien- und Segmentierungsmodell wie kabelgebundene Ports teil, mit identitätsbasierter VLAN-Zuweisung und konsistenter Zugangskontrolle unabhängig davon, ob das Gerät über Kabel oder Wireless verbindet.</p>
 <p>Cisco DNA Center mit SD-Access und Aruba CX mit Central sind Beispiele dieses Ansatzes.</p>
-<p>→ <strong><a href="/de/technology/enterprise-wlan-controller-architektur-cisco-aruba/">Enterprise Controller-Architektur Deep Dive</a></strong></p>
+<p>→ <strong><a href="/de/technology/wifi-controller/">Enterprise Controller-Architektur Deep Dive</a></strong></p>
 <hr>
 <h2 id="kmu-hotel-und-arztpraxis-design-prinzipien">KMU, Hotel und Arztpraxis: Design-Prinzipien</h2>
 <p>Verbraucher-WiFi-Equipment scheitert in professionellen Umgebungen nicht wegen schlechter Qualität — es scheitert, weil es nicht für die Dichte, die Verwaltungsanforderungen oder die Sicherheitserwartungen dieser Umgebungen konzipiert wurde.</p>
@@ -4460,7 +4460,7 @@ Das sind keine traditionellen Firewalls — sie sind OT-spezifische Sicherheits�
 <li><strong>Gastportal:</strong> Authentifizierung, Nutzungsbestätigung, potenziell Zimmernummer-Validierung. Integration mit PMS (Property Management System) für automatische Provisionierung.</li>
 <li><strong>Personal- vs. Gastnetzwerk:</strong> Vollständig getrennt — auf das Personalnetzwerk darf unter keinen Umständen vom Gastnetzwerk aus zugegriffen werden.</li>
 </ul>
-<p>→ <strong><a href="/de/technology/wifi-design-kmu-hotel-gesundheit/">WiFi-Design für KMU, Hotels und Arztpraxen Deep Dive</a></strong></p>
+<p>→ <strong><a href="/de/technology/wifi-smb-hotel-medical/">WiFi-Design für KMU, Hotels und Arztpraxen Deep Dive</a></strong></p>
 <hr>
 <h2 id="roaming-und-band-steering">Roaming und Band Steering</h2>
 <h3 id="roaming-warum-es-schwieriger-ist-als-es-aussieht">Roaming: Warum es schwieriger ist als es aussieht</h3>
@@ -4501,7 +4501,7 @@ Das sind keine traditionellen Firewalls — sie sind OT-spezifische Sicherheits�
 <h3 id="rogue-ap-erkennung">Rogue-AP-Erkennung</h3>
 <p>Ein Rogue AP ist ein unautorisierter Access Point, der mit Ihrem Netzwerk verbunden ist — entweder bösartig platziert oder ein gut gemeinter Mitarbeiter, der einen Heimrouter ins Büro brachte.</p>
 <p>Enterprise Wireless Controller scannen die RF-Umgebung kontinuierlich auf APs. Wenn ein AP erkannt wird, der zur BSSID oder SSID Ihres kabelgebundenen Netzwerks passt, wird er als Rogue markiert und — auf den meisten Plattformen — kann automatisch eingedämmt werden.</p>
-<p>→ <strong><a href="/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/">WiFi-Sicherheit Deep Dive: WPA3, 802.1X, Rogue-AP-Erkennung und Site Survey</a></strong></p>
+<p>→ <strong><a href="/de/technology/wifi-security/">WiFi-Sicherheit Deep Dive: WPA3, 802.1X, Rogue-AP-Erkennung und Site Survey</a></strong></p>
 <hr>
 <h2 id="site-survey-der-schritt-den-die-meisten-projekte-überspringen">Site Survey: Der Schritt, den die meisten Projekte überspringen</h2>
 <p>Ein Site Survey ist eine systematische Messung der RF-Umgebung vor und nach der AP-Deployment. Ihn zu überspringen ist die häufigste Ursache für „Wir haben WiFi deployt, aber es funktioniert nicht richtig&quot;-Situationen.</p>
@@ -4515,7 +4515,7 @@ Das sind keine traditionellen Firewalls — sie sind OT-spezifische Sicherheits�
 <li>Roaming-Totzonen, wo Clients die Verbindung zwischen APs verlieren</li>
 </ul>
 <p>Die Kosten eines ordentlichen Site Surveys sind gering im Vergleich zu den Kosten einer Wireless-Deployment, die nach der Installation erhebliche Nacharbeiten erfordert.</p>
-<p>→ <strong><a href="/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/">WiFi-Sicherheit Deep Dive beinhaltet Site-Survey-Methodik</a></strong></p>
+<p>→ <strong><a href="/de/technology/wifi-security/">WiFi-Sicherheit Deep Dive beinhaltet Site-Survey-Methodik</a></strong></p>
 <hr>
 <h2 id="die-richtige-plattform-wählen">Die richtige Plattform wählen</h2>
 <table>
@@ -4559,10 +4559,10 @@ Das sind keine traditionellen Firewalls — sie sind OT-spezifische Sicherheits�
 <hr>
 <h2 id="diese-serie">Diese Serie</h2>
 <ul>
-<li>📡 <strong><a href="/de/technology/wifi-80211-standards-wifi4-wifi5-wifi6/">802.11 Standards Deep Dive</a></strong> — WiFi 4, 5, 6, 6E und 7: was sich geändert hat, was in der Praxis wichtig ist</li>
-<li>🏢 <strong><a href="/de/technology/enterprise-wlan-controller-architektur-cisco-aruba/">Enterprise Controller-Architektur</a></strong> — Cisco und Aruba Architekturen, zentralisiert vs. Cloud, Mobilitätsdomänen</li>
-<li>🏨 <strong><a href="/de/technology/wifi-design-kmu-hotel-gesundheit/">WiFi-Design für KMU, Hotels und Arztpraxen</a></strong> — Praktische Feldnotizen zu realen Deployment-Szenarien</li>
-<li>🔐 <strong><a href="/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/">WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey</a></strong> — Authentifizierung, Verschlüsselung, Intrusion Detection, Ekahau-Methodik</li>
+<li>📡 <strong><a href="/de/technology/wifi-standards/">802.11 Standards Deep Dive</a></strong> — WiFi 4, 5, 6, 6E und 7: was sich geändert hat, was in der Praxis wichtig ist</li>
+<li>🏢 <strong><a href="/de/technology/wifi-controller/">Enterprise Controller-Architektur</a></strong> — Cisco und Aruba Architekturen, zentralisiert vs. Cloud, Mobilitätsdomänen</li>
+<li>🏨 <strong><a href="/de/technology/wifi-smb-hotel-medical/">WiFi-Design für KMU, Hotels und Arztpraxen</a></strong> — Praktische Feldnotizen zu realen Deployment-Szenarien</li>
+<li>🔐 <strong><a href="/de/technology/wifi-security/">WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey</a></strong> — Authentifizierung, Verschlüsselung, Intrusion Detection, Ekahau-Methodik</li>
 </ul>
 <hr>
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
@@ -4824,8 +4824,8 @@ Microsofts Angebot für Azure-gehostete Ressourcen. Am relevantesten für Organi
 <hr>
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
-<li>🛡️ <a href="/de/technology/f5-bigip-application-delivery-platform-overview/">F5 BIG-IP Plattformübersicht</a> — F5 AFM als Teil der DDoS-Defense-in-Depth</li>
-<li>🔐 <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — DDoS-Schutz im Zero-Trust-Framework</li>
+<li>🛡️ <a href="/de/technology/f5-master/">F5 BIG-IP Plattformübersicht</a> — F5 AFM als Teil der DDoS-Defense-in-Depth</li>
+<li>🔐 <a href="/de/architecture/zero-trust-architecture-behaviors/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — DDoS-Schutz im Zero-Trust-Framework</li>
 <li>🛡️ <a href="/de/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Datenverkehrssichtbarkeit für DDoS-Forensik</li>
 <li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Monitoring richtig gemacht</a> — DDoS früh durch proaktives Monitoring erkennen</li>
 </ul>
@@ -4838,9 +4838,9 @@ Microsofts Angebot für Azure-gehostete Ressourcen. Am relevantesten für Organi
 <p>Dieser Artikel gibt Ihnen das <strong>Gesamtbild</strong> — was F5 ist, wo es steht, was jedes Modul tut und wann es gegenüber Alternativen sinnvoll ist.</p>
 <p><strong>Wenn Sie Netzwerk- oder Sicherheitsingenieur sind</strong> und tief in Konfiguration, iRules, Migrations-Praxisnotizen und Architekturdetails einsteigen möchten — springen Sie direkt zum Modul, das Sie interessiert:</p>
 <ul>
-<li>🔧 <strong><a href="/de/technology/f5-ltm-virtual-server-irules-ssl-offloading-ha/">F5 LTM Deep Dive</a></strong> — Virtual Server, Pools, iRules, SSL Offloading, HA und eine Migration von 30 Geräten ohne Downtime</li>
-<li>🌐 <strong><a href="/de/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM &amp; GSLB Deep Dive</a></strong> — iQuery, Wide IPs, Topologie-Routing, DNS-TTL-Strategie, Multi-DC-Failover-Design</li>
-<li>🛡️ <strong><a href="/de/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive</a></strong> — ASM vs. Advanced WAF, OWASP Top 10, Bot-Abwehr, Deployment-Strategie von transparent zu blockierend</li>
+<li>🔧 <strong><a href="/de/technology/f5-ltm-deep-dive/">F5 LTM Deep Dive</a></strong> — Virtual Server, Pools, iRules, SSL Offloading, HA und eine Migration von 30 Geräten ohne Downtime</li>
+<li>🌐 <strong><a href="/de/technology/f5-gtm-deep-dive/">F5 GTM &amp; GSLB Deep Dive</a></strong> — iQuery, Wide IPs, Topologie-Routing, DNS-TTL-Strategie, Multi-DC-Failover-Design</li>
+<li>🛡️ <strong><a href="/de/technology/f5-waf-deep-dive/">F5 WAF Deep Dive</a></strong> — ASM vs. Advanced WAF, OWASP Top 10, Bot-Abwehr, Deployment-Strategie von transparent zu blockierend</li>
 </ul>
 <p><strong>Wenn Sie Architekt oder Entscheidungsträger sind</strong> und bewerten, ob F5 zu Ihrer Infrastruktur passt — lesen Sie hier weiter. Dieser Artikel beantwortet diese Frage, ohne dass Sie iRule-Syntax verstehen müssen.</p>
 <hr>
@@ -4879,7 +4879,7 @@ Microsofts Angebot für Azure-gehostete Ressourcen. Am relevantesten für Organi
 <li>iRules — eine programmierbare Skriptschicht, die Datenverkehr mit Leitungsgeschwindigkeit manipuliert: Header neu schreiben, nach URI routen, Inhalte einfügen, Ratenbegrenzungen erzwingen</li>
 <li>Hochverfügbarkeit — Aktiv-Standby- oder Aktiv-Aktiv-Clustering mit Failover unter einer Sekunde</li>
 </ul>
-<p>→ <strong><a href="/de/technology/f5-ltm-virtual-server-irules-ssl-offloading-ha/">F5 LTM Deep Dive: Virtual Server, iRules, SSL Offloading &amp; HA</a></strong></p>
+<p>→ <strong><a href="/de/technology/f5-ltm-deep-dive/">F5 LTM Deep Dive: Virtual Server, iRules, SSL Offloading &amp; HA</a></strong></p>
 <hr>
 <h3 id="gtm--dns--global-traffic-manager">GTM / DNS — Global Traffic Manager</h3>
 <p>LTM verwaltet Datenverkehr innerhalb eines Rechenzentrums. GTM verwaltet Datenverkehr <strong>zwischen</strong> Rechenzentren — auf DNS-Ebene.</p>
@@ -4892,7 +4892,7 @@ Microsofts Angebot für Azure-gehostete Ressourcen. Am relevantesten für Organi
 <li>Topologiebasiertes Routing — europäische Benutzer zu EU-Rechenzentren, Nahost-Benutzer zu regionalen DCs</li>
 <li>Flexible Richtlinien: Primär bevorzugen (Global Availability), gleichmäßige Verteilung (Round Robin) oder verbindungsbewusst (Least Connections)</li>
 </ul>
-<p>→ <strong><a href="/de/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM &amp; GSLB Deep Dive: Globales Traffic-Management und DNS-Failover</a></strong></p>
+<p>→ <strong><a href="/de/technology/f5-gtm-deep-dive/">F5 GTM &amp; GSLB Deep Dive: Globales Traffic-Management und DNS-Failover</a></strong></p>
 <hr>
 <h3 id="waf--web-application-firewall-asm--advanced-waf">WAF — Web Application Firewall (ASM / Advanced WAF)</h3>
 <p>Eine Netzwerk-Firewall arbeitet auf L3/L4. Sie kann nicht inspizieren, ob ein POST-Anfrage-Body eine SQL-Injection-Payload enthält. WAF kann das.</p>
@@ -4903,7 +4903,7 @@ Microsofts Angebot für Azure-gehostete Ressourcen. Am relevantesten für Organi
 <li><strong>Advanced WAF</strong> — fügt verhaltensbasierte Bot-Abwehr, Credential-Stuffing-Schutz, JavaScript-Challenges und L7-DoS-Mitigation hinzu</li>
 </ul>
 <p>Was WAF schützt: SQL-Injection, XSS, CSRF, Parameter-Tampering, Cookie-Poisoning, erzwungenes Durchsuchen, Bot-Datenverkehr und Anwendungsschicht-DoS.</p>
-<p>→ <strong><a href="/de/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive: Anwendungssicherheit mit ASM und Advanced WAF</a></strong></p>
+<p>→ <strong><a href="/de/technology/f5-waf-deep-dive/">F5 WAF Deep Dive: Anwendungssicherheit mit ASM und Advanced WAF</a></strong></p>
 <hr>
 <h3 id="apm--access-policy-manager">APM — Access Policy Manager</h3>
 <p>APM ist F5s Identitäts- und Zugriffsmodul — wo F5 über die Datenverkehrsbereitstellung hinaus in die <strong>Zugangskontrolle</strong> geht.</p>
@@ -4973,15 +4973,15 @@ Microsofts Angebot für Azure-gehostete Ressourcen. Am relevantesten für Organi
 <h2 id="diese-serie">Diese Serie</h2>
 <p>Dieser Artikel ist der Ausgangspunkt. Jedes Modul hat einen eigenen Deep Dive:</p>
 <ul>
-<li>🔧 <strong><a href="/de/technology/f5-ltm-virtual-server-irules-ssl-offloading-ha/">F5 LTM Deep Dive: Virtual Server, iRules, SSL Offloading &amp; HA</a></strong> — Full-Proxy-Architektur, Pool-Konfiguration, Health Monitors, iRule-Beispiele, Session Persistence, HA-Clustering und eine Zero-Downtime-Migration von 30 Geräten</li>
-<li>🌐 <strong><a href="/de/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM &amp; GSLB Deep Dive: Globales Traffic-Management und DNS-Failover</a></strong> — Wide IPs, iQuery, Topologie-Routing, TTL-Strategie, Aktiv-Aktiv- und Aktiv-Standby-DC-Muster</li>
-<li>🛡️ <strong><a href="/de/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive: Anwendungssicherheit mit ASM und Advanced WAF</a></strong> — Sicherheitsrichtlinienmodelle, OWASP-Top-10-Abdeckung, Bot-Abwehr, L7-DoS-Schutz und Deployment-Strategie von transparent zu blockierend</li>
+<li>🔧 <strong><a href="/de/technology/f5-ltm-deep-dive/">F5 LTM Deep Dive: Virtual Server, iRules, SSL Offloading &amp; HA</a></strong> — Full-Proxy-Architektur, Pool-Konfiguration, Health Monitors, iRule-Beispiele, Session Persistence, HA-Clustering und eine Zero-Downtime-Migration von 30 Geräten</li>
+<li>🌐 <strong><a href="/de/technology/f5-gtm-deep-dive/">F5 GTM &amp; GSLB Deep Dive: Globales Traffic-Management und DNS-Failover</a></strong> — Wide IPs, iQuery, Topologie-Routing, TTL-Strategie, Aktiv-Aktiv- und Aktiv-Standby-DC-Muster</li>
+<li>🛡️ <strong><a href="/de/technology/f5-waf-deep-dive/">F5 WAF Deep Dive: Anwendungssicherheit mit ASM und Advanced WAF</a></strong> — Sicherheitsrichtlinienmodelle, OWASP-Top-10-Abdeckung, Bot-Abwehr, L7-DoS-Schutz und Deployment-Strategie von transparent zu blockierend</li>
 </ul>
 <hr>
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
 <li>🛡️ <a href="/de/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Datenverkehrssichtbarkeit über den gesamten Stack</li>
-<li>🔐 <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — Wo APM und WAF in Zero Trust passen</li>
+<li>🔐 <a href="/de/architecture/zero-trust-architecture-behaviors/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — Wo APM und WAF in Zero Trust passen</li>
 <li>🏗️ <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Systemdenken hinter der ADC-Platzierung</li>
 <li>🎯 <a href="/de/architecture/network-product-selection-strategy/">Netzwerkinfrastruktur-Produktauswahl: Strategische Kriterien</a> — Wie man ADC-Anbieter objektiv bewertet</li>
 </ul>
@@ -5646,7 +5646,7 @@ Aktive Geschäftsdaten: <strong>S3 Infrequent Access</strong> — günstiger Pre
 <li>Der Erfolg hängt mehr von der <strong>AD/PKI/Endpoint-Disziplin</strong> ab als vom Netzwerk selbst.</li>
 </ul>
 <blockquote>
-<p>Für die Zero-Trust-Denkweise hinter identitätsbasiertem Zugang: <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Die Zero-Trust-Denkweise: Sicherheit als Architektur, nicht als Produkt</a></p>
+<p>Für die Zero-Trust-Denkweise hinter identitätsbasiertem Zugang: <a href="/de/architecture/zero-trust-architecture-behaviors/">Die Zero-Trust-Denkweise: Sicherheit als Architektur, nicht als Produkt</a></p>
 </blockquote>
 <h3 id="1-planung-ohne-vlan-plan-wird-8021x-zu-einer-chaos-maschine-statt-einer-policy-maschine">1) Planung: Ohne VLAN-Plan wird 802.1X zu einer „Chaos-Maschine&quot; statt einer „Policy-Maschine&quot;</h3>
 <p>Beim Start von 802.1X ist der erste Reflex von jedem: „Wir richten RADIUS ein, schreiben es auf den Switch und fertig.&quot; In der Praxis endet dies meist mit dem allerersten <strong>Pilotbenutzer.</strong> Denn der Pilotbenutzer verbindet sich, und plötzlich taucht diese Frage auf: „In welches VLAN soll dieser Benutzer?&quot;</p>
@@ -5777,7 +5777,7 @@ Aktive Geschäftsdaten: <strong>S3 Infrequent Access</strong> — günstiger Pre
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <p><strong>Architektur &amp; Sicherheit</strong></p>
 <ul>
-<li>🔐 <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Die Zero-Trust-Denkweise: Sicherheit als Architektur, nicht als Produkt</a> — Die architektonische Grundlage hinter identitätsbasiertem Zugang</li>
+<li>🔐 <a href="/de/architecture/zero-trust-architecture-behaviors/">Die Zero-Trust-Denkweise: Sicherheit als Architektur, nicht als Produkt</a> — Die architektonische Grundlage hinter identitätsbasiertem Zugang</li>
 <li>🏗️ <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Systemdenken statt Produktauswahl</li>
 <li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Monitoring richtig gemacht</a> — Richtlinienverstöße erkennen bevor sie eskalieren</li>
 </ul>
@@ -5843,13 +5843,13 @@ Aktive Geschäftsdaten: <strong>S3 Infrequent Access</strong> — günstiger Pre
 <ul>
 <li>📐 <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Der Grundlagenartikel dieser Serie</li>
 <li>🏗️ <a href="/de/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Warum die richtige Produktwahl allein nicht ausreicht</a> — Architektur-zuerst Core-Network-Design</li>
-<li>🛡️ <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Mindset: Sicherheit als Architektur</a> — Sicherheit als Architektur</li>
-<li>🎯 <a href="/de/architecture/network-infrastructure-product-selection-strategic-criteria/">Produktauswahl in der Netzwerkinfrastruktur</a> — Strategische Herstellerbewertung</li>
+<li>🛡️ <a href="/de/architecture/zero-trust-architecture-behaviors/">Zero Trust Mindset: Sicherheit als Architektur</a> — Sicherheit als Architektur</li>
+<li>🎯 <a href="/de/architecture/network-product-selection-strategy/">Produktauswahl in der Netzwerkinfrastruktur</a> — Strategische Herstellerbewertung</li>
 </ul>
 <p><strong>Technisches Engineering</strong></p>
 <ul>
-<li>🛠️ <a href="/de/posts/next-gen-console-server-terminal-server-architecture/">Die Hintertür des Netzwerks: Next-Gen Console Server Architektur</a> — Out-of-Band-Zugang</li>
-<li>🛡️ <a href="/de/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Traffic-Sichtbarkeit und Sicherheitsstrategie</li>
+<li>🛠️ <a href="/de/posts/next-gen-console-server-architecture/">Die Hintertür des Netzwerks: Next-Gen Console Server Architektur</a> — Out-of-Band-Zugang</li>
+<li>🛡️ <a href="/de/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Traffic-Sichtbarkeit und Sicherheitsstrategie</li>
 </ul>
 ]]></content:encoded></item><item><title>Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt</title><link>https://barashhelvadzhaoglu.com/de/architecture/zero-trust-architecture-behaviors/</link><pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/architecture/zero-trust-architecture-behaviors/</guid><description>Zero Trust ist ein Architekturansatz, kein Produkt. Benutzerverifizierung, kontinuierliche Zugriffskontrolle und moderne Sicherheit jenseits von VPN.</description><content:encoded><![CDATA[<h1 id="zero-trust-mindset-sicherheit-als-architektur-nicht-als-produkt">Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt</h1>
 <p>Zero Trust ist ein Konzept, das heute in fast jeder Sicherheitspräsentation vorkommt. Wenn wir jedoch die praktische Umsetzung betrachten, sehen wir es oft am falschen Ort, mit falschen Erwartungen und mit falschen Werkzeugen eingesetzt. Der Hauptgrund dafür ist, dass Zero Trust als Technologie oder käufliches Produkt positioniert wird. In Wirklichkeit ist Zero Trust keine lizenzierte, verpackte oder herstellerspezifische Lösung. Es ist eine architektonische Perspektive und, was noch wichtiger ist, eine Denkweise.</p>
@@ -5955,7 +5955,7 @@ Aktive Geschäftsdaten: <strong>S3 Infrequent Access</strong> — günstiger Pre
 <h2 id="kontinuierliches-monitoring-der-kritischste-teil-der-architektur">Kontinuierliches Monitoring: Der kritischste Teil der Architektur</h2>
 <p>Zugriff und Verhalten werden auf jeder Schicht überwacht und protokolliert. Wenn eine Anomalie oder riskante Aktivität erkannt wird, schränkt das System automatisch den Zugriff ein oder fordert zusätzliche Verifikation an.</p>
 <blockquote>
-<p>Für den Aufbau echter Sichtbarkeit in Ihrer Infrastruktur: <a href="/de/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen und proaktiv handeln</a></p>
+<p>Für den Aufbau echter Sichtbarkeit in Ihrer Infrastruktur: <a href="/de/architecture/monitoring-not-just-seeing/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen und proaktiv handeln</a></p>
 </blockquote>
 <h2 id="fazit">Fazit</h2>
 <p>Zero Trust ist kein Produkt.
@@ -5972,13 +5972,13 @@ Diese Version erweitert die architektonische Grundlage der Serie.</p>
 <ul>
 <li>📐 <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Der Grundlagenartikel dieser Serie</li>
 <li>🏗️ <a href="/de/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Warum die richtige Produktwahl allein nicht ausreicht</a> — Systemdenken im Core-Network-Design</li>
-<li>📊 <a href="/de/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen</a> — Echte Transparenz in der Infrastruktur aufbauen</li>
+<li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen</a> — Echte Transparenz in der Infrastruktur aufbauen</li>
 </ul>
 <p><strong>Technisches Engineering</strong></p>
 <ul>
-<li>🔐 <a href="/de/posts/unlocking-success-in-802-1x-projects-field-insights/">802.1X Projekte erfolgreich umsetzen: Praxiseinblicke</a> — Identitätsbasierter Zugang in Unternehmensnetzwerken</li>
-<li>🛡️ <a href="/de/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Erweiterte Traffic-Sichtbarkeit und Sicherheitsstrategie</li>
-<li>🛠️ <a href="/de/posts/next-gen-console-server-terminal-server-architecture/">Die Hintertür des Netzwerks: Next-Gen Console Server Architektur</a> — Out-of-Band-Zugang wenn alles andere versagt</li>
+<li>🔐 <a href="/de/posts/8021x-field-deployment-teaser/">802.1X Projekte erfolgreich umsetzen: Praxiseinblicke</a> — Identitätsbasierter Zugang in Unternehmensnetzwerken</li>
+<li>🛡️ <a href="/de/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Erweiterte Traffic-Sichtbarkeit und Sicherheitsstrategie</li>
+<li>🛠️ <a href="/de/posts/next-gen-console-server-architecture/">Die Hintertür des Netzwerks: Next-Gen Console Server Architektur</a> — Out-of-Band-Zugang wenn alles andere versagt</li>
 </ul>
 ]]></content:encoded></item><item><title>Produktauswahl in der Netzwerkinfrastruktur: Strategische Kriterien und Felderfahrungen</title><link>https://barashhelvadzhaoglu.com/de/architecture/network-product-selection-strategy/</link><pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/architecture/network-product-selection-strategy/</guid><description>Produktauswahl in Unternehmensnetzwerken ist mehr als eine Checkliste. Framework zur Bewertung von Firewalls, Switches und APs jenseits von Datenblättern.</description><content:encoded><![CDATA[<h1 id="produktauswahl-in-der-netzwerkinfrastruktur-strategische-kriterien-und-felderfahrungen">Produktauswahl in der Netzwerkinfrastruktur: Strategische Kriterien und Felderfahrungen</h1>
 <h2 id="switch-firewall-und-ap-jenseits-des-datenblatts-bewerten">Switch, Firewall und AP jenseits des Datenblatts bewerten</h2>
@@ -6109,13 +6109,13 @@ Diese Version erweitert die architektonische Grundlage der Serie.</p>
 <ul>
 <li>📐 <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Der Grundlagenartikel dieser Serie</li>
 <li>🏗️ <a href="/de/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Warum die richtige Produktwahl allein nicht ausreicht</a> — Architektur-zuerst Core-Network-Design</li>
-<li>🛡️ <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Mindset: Sicherheit als Architektur</a> — Sicherheit als Architektur</li>
+<li>🛡️ <a href="/de/architecture/zero-trust-architecture-behaviors/">Zero Trust Mindset: Sicherheit als Architektur</a> — Sicherheit als Architektur</li>
 </ul>
 <p><strong>Technisches Engineering</strong></p>
 <ul>
-<li>📊 <a href="/de/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen</a> — Operative Sichtbarkeit</li>
-<li>🛠️ <a href="/de/posts/next-gen-console-server-terminal-server-architecture/">Die Hintertür des Netzwerks: Next-Gen Console Server Architektur</a> — Out-of-Band-Zugang</li>
-<li>🛡️ <a href="/de/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Traffic-Sichtbarkeit und Sicherheitsstrategie</li>
+<li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen</a> — Operative Sichtbarkeit</li>
+<li>🛠️ <a href="/de/posts/next-gen-console-server-architecture/">Die Hintertür des Netzwerks: Next-Gen Console Server Architektur</a> — Out-of-Band-Zugang</li>
+<li>🛡️ <a href="/de/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Traffic-Sichtbarkeit und Sicherheitsstrategie</li>
 </ul>
 ]]></content:encoded></item><item><title>Switch, Firewall, AP — Warum die richtige Produktwahl allein nicht ausreicht</title><link>https://barashhelvadzhaoglu.com/de/architecture/core-network-is-not-a-product-list/</link><pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/architecture/core-network-is-not-a-product-list/</guid><description>Unternehmensnetzwerke scheitern an fragmentierter Architektur. Deep-Dive zu Firewall, Switching, AP-Auswahl und Kapazitätsplanung aus 11+ Jahren Praxis.</description><content:encoded><![CDATA[<h1 id="switch-firewall-ap--warum-die-richtige-produktwahl-allein-nicht-ausreicht">Switch, Firewall, AP — Warum die richtige Produktwahl allein nicht ausreicht</h1>
 <h2 id="architektur-kapazitätsplanung-und-die-vendor-realität-über-die-niemand-spricht">Architektur, Kapazitätsplanung und die Vendor-Realität, über die niemand spricht</h2>
@@ -6167,7 +6167,7 @@ Diese Version erweitert die architektonische Grundlage der Serie.</p>
 </ul>
 <p>Das bedeutet nicht „zwei Firewalls kaufen&quot;, sondern „zwei unterschiedliche Aufgaben mit passenden Werkzeugen abdecken&quot;. Wenn alles in eine Box gepackt wird, leidet entweder Performance, Manageability oder Security – meist mindestens eines davon.</p>
 <blockquote>
-<p>Für ein tieferes Verständnis der Sicherheitsphilosophie hinter dieser Architektur empfehle ich: <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt</a></p>
+<p>Für ein tieferes Verständnis der Sicherheitsphilosophie hinter dieser Architektur empfehle ich: <a href="/de/architecture/zero-trust-architecture-behaviors/">Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt</a></p>
 </blockquote>
 <p>Und damit sind wir direkt bei der Kapazitätsplanung.</p>
 <h2 id="firewall-kapazitätsplanung-durchsatz-allein-ist-trügerisch">Firewall-Kapazitätsplanung: Durchsatz allein ist trügerisch</h2>
@@ -6227,7 +6227,7 @@ Besonders bei Application Visibility, Policy-Tiefe und SASE sehe ich Palo Alto k
 <p>Meine persönliche Haltung: Wo Teams reif genug sind, profitieren Architekturen oft von spezialisierten Herstellern pro Layer. Wo Einfachheit, Klarheit und ein zentraler Supportkanal wichtiger sind, ist ein Single-Vendor-Ansatz völlig legitim.</p>
 <p>Ein letzter Punkt ist mir besonders wichtig: Automatisierung. API-Fähigkeit ist heute kein Bonus mehr, sondern ein Auswahlkriterium. Produkte sollten nicht zuerst nach Hardware, sondern nach Automatisierbarkeit bewertet werden.</p>
 <blockquote>
-<p>Einen praktischen Rahmen für den Aufbau von Infrastruktur-Sichtbarkeit finden Sie hier: <a href="/de/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen und proaktiv handeln</a></p>
+<p>Einen praktischen Rahmen für den Aufbau von Infrastruktur-Sichtbarkeit finden Sie hier: <a href="/de/architecture/monitoring-not-just-seeing/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen und proaktiv handeln</a></p>
 </blockquote>
 <h2 id="serverraum-und-verkabelung-die-realität-über-die-niemand-spricht--aber-jeder-bezahlt">Serverraum und Verkabelung: Die Realität, über die niemand spricht – aber jeder bezahlt</h2>
 <p>In Netzwerkprojekten stehen meist die „glänzenden&quot; Themen im Vordergrund. Doch viele Probleme entstehen viel tiefer: im Serverraum und in der Verkabelung.</p>
@@ -6253,15 +6253,15 @@ Diese Version erweitert die architektonische Grundlage der Serie.</p>
 <p>Wenn Ihnen dieser Artikel gefallen hat, könnten auch diese Beiträge interessant sein:</p>
 <p><strong>Architektur &amp; Sicherheitsdesign</strong></p>
 <ul>
-<li>📐 <a href="/de/architecture/it-infrastructure-is-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Der Grundlagenartikel dieser Serie</li>
-<li>🛡️ <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt</a> — Warum Zero Trust eine Philosophie und kein Produkt ist</li>
-<li>📊 <a href="/de/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen</a> — Echte Transparenz in der Infrastruktur aufbauen</li>
+<li>📐 <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Der Grundlagenartikel dieser Serie</li>
+<li>🛡️ <a href="/de/architecture/zero-trust-architecture-behaviors/">Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt</a> — Warum Zero Trust eine Philosophie und kein Produkt ist</li>
+<li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen</a> — Echte Transparenz in der Infrastruktur aufbauen</li>
 </ul>
 <p><strong>Technisches Engineering</strong></p>
 <ul>
-<li>🛠️ <a href="/de/posts/next-gen-console-server-terminal-server-architecture/">Die Hintertür des Netzwerks: Next-Gen Console Server Architektur</a> — Out-of-Band-Zugang wenn alles andere versagt</li>
-<li>🛡️ <a href="/de/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Erweiterte Traffic-Sichtbarkeit und Sicherheitsstrategie</li>
-<li>🔐 <a href="/de/posts/unlocking-success-in-802-1x-projects-field-insights/">802.1X Projekte erfolgreich umsetzen: Praxiseinblicke</a> — Identitätsbasierter Zugang in Unternehmensnetzwerken</li>
+<li>🛠️ <a href="/de/posts/next-gen-console-server-architecture/">Die Hintertür des Netzwerks: Next-Gen Console Server Architektur</a> — Out-of-Band-Zugang wenn alles andere versagt</li>
+<li>🛡️ <a href="/de/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Erweiterte Traffic-Sichtbarkeit und Sicherheitsstrategie</li>
+<li>🔐 <a href="/de/posts/8021x-field-deployment-teaser/">802.1X Projekte erfolgreich umsetzen: Praxiseinblicke</a> — Identitätsbasierter Zugang in Unternehmensnetzwerken</li>
 <li>⚙️ <a href="/de/posts/cisco-nexus-nxos-upgrade-guide/">Nexus Software Upgrade Guide</a> — NX-OS Upgrade ohne Ausfallzeit</li>
 </ul>
 ]]></content:encoded></item><item><title>IT-Infrastruktur ist keine Produktsammlung — sie ist ein System</title><link>https://barashhelvadzhaoglu.com/de/architecture/it-infrastructure-not-a-collection-of-products/</link><pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/architecture/it-infrastructure-not-a-collection-of-products/</guid><description>IT-Infrastrukturprojekte scheitern, weil die Umgebung nie zum System wird. Architektonischer Rahmen für die Core-Network-Serie.</description><content:encoded><![CDATA[<h1 id="it-infrastruktur-ist-keine-produktsammlung--sie-ist-ein-system">IT-Infrastruktur ist keine Produktsammlung — sie ist ein System</h1>
@@ -6305,7 +6305,7 @@ Eine Infrastruktur ist dafür konzipiert, eine Organisation zu tragen.</p>
 </ul>
 <p>Ohne klare Antworten auf diese Fragen werden selbst die besten Produkte irgendwann gegeneinander arbeiten.</p>
 <blockquote>
-<p>Für einen tiefen Einblick, wie Identität und Vertrauensgrenzen in der Praxis definiert werden: <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt</a></p>
+<p>Für einen tiefen Einblick, wie Identität und Vertrauensgrenzen in der Praxis definiert werden: <a href="/de/architecture/zero-trust-architecture-behaviors/">Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt</a></p>
 </blockquote>
 <hr>
 <h2 id="architektur-zeigt-sich-unter-druck">Architektur zeigt sich unter Druck</h2>
@@ -6340,7 +6340,7 @@ Sie findet sich in operativen Workflows.</p>
 <p>Wenn diese Workflows manuell, fragmentiert oder undokumentiert sind, wird die Infrastruktur diese Realität widerspiegeln – unabhängig davon, wie modern der Technologie-Stack erscheint.</p>
 <p>Deshalb sind Automatisierung, Observability und Lifecycle-Management keine optionalen Extras. Sie sind architektonische Elemente. Infrastruktur, die nicht konsistent betrieben werden kann, wird niemals sicher skalieren.</p>
 <blockquote>
-<p>Einen praktischen Rahmen für den Aufbau echter Sichtbarkeit in Ihrer Infrastruktur finden Sie hier: <a href="/de/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen und proaktiv handeln</a></p>
+<p>Einen praktischen Rahmen für den Aufbau echter Sichtbarkeit in Ihrer Infrastruktur finden Sie hier: <a href="/de/architecture/monitoring-not-just-seeing/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen und proaktiv handeln</a></p>
 </blockquote>
 <hr>
 <h2 id="warum-das-wichtig-ist-bevor-wir-über-networking-sprechen">Warum das wichtig ist, bevor wir über Networking sprechen</h2>
@@ -6375,14 +6375,14 @@ Diese Version erweitert die architektonische Grundlage der Serie.</p>
 <p><strong>Architektur &amp; Sicherheitsdesign</strong></p>
 <ul>
 <li>🏗️ <a href="/de/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Warum die richtige Produktwahl allein nicht ausreicht</a> — Systemdenken im Core-Network-Design</li>
-<li>🛡️ <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt</a> — Warum Zero Trust eine Philosophie und kein Produkt ist</li>
-<li>📊 <a href="/de/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen</a> — Echte Transparenz in der Infrastruktur aufbauen</li>
+<li>🛡️ <a href="/de/architecture/zero-trust-architecture-behaviors/">Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt</a> — Warum Zero Trust eine Philosophie und kein Produkt ist</li>
+<li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen</a> — Echte Transparenz in der Infrastruktur aufbauen</li>
 </ul>
 <p><strong>Technisches Engineering</strong></p>
 <ul>
-<li>🛠️ <a href="/de/posts/next-gen-console-server-terminal-server-architecture/">Die Hintertür des Netzwerks: Next-Gen Console Server Architektur</a> — Out-of-Band-Zugang wenn alles andere versagt</li>
-<li>🛡️ <a href="/de/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Erweiterte Traffic-Sichtbarkeit und Sicherheitsstrategie</li>
-<li>🔐 <a href="/de/posts/unlocking-success-in-802-1x-projects-field-insights/">802.1X Projekte erfolgreich umsetzen: Praxiseinblicke</a> — Identitätsbasierter Zugang in Unternehmensnetzwerken</li>
+<li>🛠️ <a href="/de/posts/next-gen-console-server-architecture/">Die Hintertür des Netzwerks: Next-Gen Console Server Architektur</a> — Out-of-Band-Zugang wenn alles andere versagt</li>
+<li>🛡️ <a href="/de/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Erweiterte Traffic-Sichtbarkeit und Sicherheitsstrategie</li>
+<li>🔐 <a href="/de/posts/8021x-field-deployment-teaser/">802.1X Projekte erfolgreich umsetzen: Praxiseinblicke</a> — Identitätsbasierter Zugang in Unternehmensnetzwerken</li>
 </ul>
 ]]></content:encoded></item><item><title>Kontakt</title><link>https://barashhelvadzhaoglu.com/de/contact/</link><pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/contact/</guid><description>Nehmen Sie Kontakt mit Barash Helvadzhaoglu auf — für Netzwerksicherheitsberatung, IT-Support vor Ort in München oder professionelle Anfragen.</description><content:encoded><![CDATA[<div style="max-width: 680px; margin: 0 auto;">
 <h1 id="kontakt-aufnehmen">Kontakt aufnehmen</h1>
@@ -6618,7 +6618,7 @@ Nachricht senden →
 </table>
 <hr>
 <p><em>Ein professionelles Empfehlungsschreiben der Geschäftsleitung ist auf Anfrage erhältlich.</em><br>
-<em><a href="/de/kontakt/">Kontakt aufnehmen</a> für Projektdetails oder Beratungsanfragen.</em></p>
+<em><a href="/de/contact/">Kontakt aufnehmen</a> für Projektdetails oder Beratungsanfragen.</em></p>
 ]]></content:encoded></item><item><title>Cisco Nexus NX-OS Software-Upgrade-Leitfaden: Praxiserprobter Schritt-für-Schritt</title><link>https://barashhelvadzhaoglu.com/de/posts/cisco-nexus-nxos-upgrade-guide/</link><pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/posts/cisco-nexus-nxos-upgrade-guide/</guid><description>Praxisleitfaden für Cisco Nexus NX-OS Upgrades — Vorbereitung, Upgrade-Pfad, Dateiübertragung, Rollback und ROMMON-Wiederherstellung.</description><content:encoded><![CDATA[<p>Dieser Leitfaden behandelt den <strong>Cisco Nexus NX-OS Software-Upgrade-Prozess</strong> auf praktische, schrittweise Weise — einschließlich <strong>Rollback- und Wiederherstellungsszenarien</strong>. Das Ziel ist es, Serviceunterbrechungen zu minimieren und sicherzustellen, dass das Gerät im Fehlerfall immer wiederhergestellt werden kann.</p>
 <p>Die meisten Upgrade-Fehler werden nicht durch das Upgrade selbst verursacht — sie entstehen durch das Überspringen von Vorbereitungsschritten. Dieser Leitfaden behandelt die Vorbereitung genauso ernst wie die Ausführung.</p>
 <figure>

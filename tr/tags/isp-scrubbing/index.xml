@@ -251,8 +251,8 @@ Azure barındırmalı kaynaklar için Microsoft&rsquo;un teklifi. Azure&rsquo;da
 <hr>
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>
-<li>🛡️ <a href="/tr/technology/f5-bigip-application-delivery-platform-overview/">F5 BIG-IP Platform Genel Bakış</a> — DDoS savunmanın derinliğinin bir parçası olarak F5 AFM</li>
-<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Zero Trust çerçevesinde DDoS koruması</li>
+<li>🛡️ <a href="/tr/technology/f5-master/">F5 BIG-IP Platform Genel Bakış</a> — DDoS savunmanın derinliğinin bir parçası olarak F5 AFM</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Zero Trust çerçevesinde DDoS koruması</li>
 <li>🛡️ <a href="/tr/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — DDoS adli analizi için gerekli trafik görünürlüğü</li>
 <li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">İzleme Doğru Yapıldığında</a> — Proaktif izleme yoluyla DDoS&rsquo;u erken tespit etmek</li>
 </ul>

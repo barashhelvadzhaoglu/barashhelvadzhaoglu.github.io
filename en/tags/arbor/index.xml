@@ -283,8 +283,8 @@ Microsoft&rsquo;s offering for Azure-hosted resources. Standard tier provides ad
 <hr>
 <h2 id="related-articles">Related Articles</h2>
 <ul>
-<li>🛡️ <a href="/en/technology/f5-bigip-application-delivery-platform-overview/">F5 BIG-IP Platform Overview</a> — F5 AFM as part of DDoS defense in depth</li>
-<li>🔐 <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture</a> — DDoS protection within a Zero Trust framework</li>
+<li>🛡️ <a href="/en/technology/f5-master/">F5 BIG-IP Platform Overview</a> — F5 AFM as part of DDoS defense in depth</li>
+<li>🔐 <a href="/en/architecture/zero-trust-architecture-behaviors/">The Zero Trust Mindset: Engineering Security as an Architecture</a> — DDoS protection within a Zero Trust framework</li>
 <li>🛡️ <a href="/en/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Traffic visibility essential for DDoS forensics</li>
 <li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">Monitoring Done Right</a> — Detecting DDoS early through proactive monitoring</li>
 </ul>

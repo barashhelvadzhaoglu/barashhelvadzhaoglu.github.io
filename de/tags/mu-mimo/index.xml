@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>MU-MIMO on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/mu-mimo/</link><description>Recent content in MU-MIMO on Barash Helvadzhaoglu</description><generator>Hugo -- 0.170.0</generator><language>de</language><lastBuildDate>Fri, 01 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/mu-mimo/index.xml" rel="self" type="application/rss+xml"/><item><title>802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E und was sich wirklich geändert hat</title><link>https://barashhelvadzhaoglu.com/de/technology/wifi-standards/</link><pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/wifi-standards/</guid><description>802.11 Wireless-Standards Deep Dive — was n, ac, ax und be liefern, OFDMA, MU-MIMO, BSS Coloring und die richtige Standardwahl.</description><content:encoded><![CDATA[<h1 id="80211-standards-deep-dive-wifi-4-5-6-6e-und-was-sich-wirklich-geändert-hat">802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E und was sich wirklich geändert hat</h1>
 <p>Dieser Artikel ist Teil der Enterprise-WiFi-Serie.</p>
 <blockquote>
-<p><strong>Neu im Enterprise-Wireless-Bereich?</strong> Beginnen Sie mit der Übersicht: <a href="/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/">Enterprise WiFi-Architektur: Von Standards bis zur Deployment</a></p>
+<p><strong>Neu im Enterprise-Wireless-Bereich?</strong> Beginnen Sie mit der Übersicht: <a href="/de/technology/wifi-master/">Enterprise WiFi-Architektur: Von Standards bis zur Deployment</a></p>
 </blockquote>
 <hr>
 <h2 id="das-problem-mit-marketingzahlen">Das Problem mit Marketingzahlen</h2>
@@ -163,10 +163,10 @@ Mit BSS Coloring:
 <hr>
 <h2 id="diese-serie">Diese Serie</h2>
 <ul>
-<li>📖 <a href="/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/">Enterprise WiFi-Architektur Übersicht</a> ← Beginnen Sie hier</li>
-<li>🏢 <a href="/de/technology/enterprise-wlan-controller-architektur-cisco-aruba/">Enterprise Controller-Architektur: Cisco und Aruba</a></li>
-<li>🏨 <a href="/de/technology/wifi-design-kmu-hotel-gesundheit/">WiFi-Design für KMU, Hotels und Arztpraxen</a></li>
-<li>🔐 <a href="/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/">WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey</a></li>
+<li>📖 <a href="/de/technology/wifi-master/">Enterprise WiFi-Architektur Übersicht</a> ← Beginnen Sie hier</li>
+<li>🏢 <a href="/de/technology/wifi-controller/">Enterprise Controller-Architektur: Cisco und Aruba</a></li>
+<li>🏨 <a href="/de/technology/wifi-smb-hotel-medical/">WiFi-Design für KMU, Hotels und Arztpraxen</a></li>
+<li>🔐 <a href="/de/technology/wifi-security/">WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey</a></li>
 </ul>
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>

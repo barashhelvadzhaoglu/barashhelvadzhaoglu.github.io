@@ -144,10 +144,10 @@
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
 <li>🔐 <a href="/de/technology/identity-based-microsegmentation-8021x/">Identitätsbasierte 802.1X-Architektur in der Praxis</a> – Das Identitätsfundament, das DNA Center + ISE so leistungsfähig macht</li>
-<li>🔐 <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Das Zero-Trust-Mindset: Sicherheit als Architektur entwickeln</a> – Die architektonische Philosophie hinter dem SD-Access-Policy-Modell</li>
+<li>🔐 <a href="/en/architecture/zero-trust-architecture-behaviors/">Das Zero-Trust-Mindset: Sicherheit als Architektur entwickeln</a> – Die architektonische Philosophie hinter dem SD-Access-Policy-Modell</li>
 <li>🏗️ <a href="/de/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP – Warum die Wahl der richtigen Produkte nicht ausreicht</a> – Kontext der Campus-Architektur</li>
 <li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Richtiges Monitoring</a> – Wie sich DNA Center Assurance in eine umfassendere Monitoring-Strategie einfügt</li>
-<li>🌐 <a href="/en/technology/enterprise-wifi-controller-architecture-cisco-aruba/">Enterprise WLAN-Controller-Architektur</a> – WLAN-Integration mit DNA Center</li>
+<li>🌐 <a href="/en/technology/wifi-controller/">Enterprise WLAN-Controller-Architektur</a> – WLAN-Integration mit DNA Center</li>
 </ul>
 ]]></content:encoded></item><item><title>Cisco SD-WAN: Catalyst SD-WAN und der Enterprise-Architekturansatz</title><link>https://barashhelvadzhaoglu.com/de/technology/cisco-sd-wan/</link><pubDate>Thu, 29 Oct 2026 08:37:33 +0100</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/cisco-sd-wan/</guid><description>Ein detaillierter Blick auf Ciscos SD-WAN-Plattform: die Viptela-Übernahme, die Catalyst SD-WAN-Architektur, vManage und wie sich Ciscos Ansatz im Enterprise-Umfeld gegenüber dem Wettbewerb behauptet.</description><content:encoded><![CDATA[<h1 id="cisco-sd-wan-catalyst-sd-wan-und-der-enterprise-architekturansatz">Cisco SD-WAN: Catalyst SD-WAN und der Enterprise-Architekturansatz</h1>
 <p>Ciscos Weg zu SD-WAN führte über eine der bedeutendsten Akquisitionen im Enterprise-Networking-Bereich des letzten Jahrzehnts. 2017 übernahm Cisco Viptela – ein dediziertes SD-WAN-Startup – für rund 610 Millionen US-Dollar. Diese Akquisition bildete das Fundament für das, was Cisco heute als <strong>Catalyst SD-WAN</strong> bezeichnet (zuvor bekannt als Cisco SD-WAN und davor als Viptela SD-WAN). Ein Verständnis des Viptela-Erbes hilft dabei, sowohl die architektonischen Stärken als auch die operationelle Komplexität zu verstehen, die Ciscos Plattform heute prägen.</p>
@@ -229,7 +229,7 @@ Anders als bei Fortinet, wo SD-WAN und NGFW in einem einzigen Betriebssystem ver
 <p>Die Kehrseite sind Kosten und Komplexität. Organisationen, die ein einfacheres Betriebsmodell, eine engere Security-Integration oder geringere Kosten pro Standort benötigen, finden in Fortinet, HPE Aruba oder Palo Alto unter Umständen eine passendere Lösung für ihre spezifischen Anforderungen.</p>
 <p>Für Unternehmen, die bereits tief im Cisco-Ökosystem verankert sind – DNA Center, ISE, Umbrella, Catalyst Switching –, bietet Catalyst SD-WAN eine architektonische Kohärenz, die sich mit einem anderen WAN-Hersteller nur schwer nachbilden lässt.</p>
 <hr>
-<p><em>Als Nächstes in dieser Serie: <a href="/en/posts/hpe-aruba-sd-wan/">HPE Aruba SD-WAN – EdgeConnect und das Erbe der WAN-Optimierung</a></em></p>
+<p><em>Als Nächstes in dieser Serie: <a href="/en/technology/hpe-aruba-sd-wan/">HPE Aruba SD-WAN – EdgeConnect und das Erbe der WAN-Optimierung</a></em></p>
 ]]></content:encoded></item><item><title>Cisco IOS und IOS-XE Upgrade-Leitfaden: Catalyst Switches und ISR Router</title><link>https://barashhelvadzhaoglu.com/de/posts/cisco-ios-xe-upgrade-guide/</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/posts/cisco-ios-xe-upgrade-guide/</guid><description>Cisco IOS- und IOS-XE-Software-Upgrade Schritt für Schritt für Catalyst Switches (2960, 3560, 3850, 9200, 9300, 9500) und Router (ISR 4000, ISR 1100, Catalyst 8000) — Flash-Prüfung, ROMMON, Install Mode, Bundle Mode, MD5 und Rollback.</description><content:encoded><![CDATA[<p>Die meisten Cisco-Upgrades scheitern, bevor der erste Befehl eingegeben ist: das falsche Image für die Plattform, zu wenig Platz im Flash, ein ROMMON, der für das Ziel-Release zu alt ist, oder eine Boot-Variable, die ins Leere zeigt. Dieser Leitfaden stellt die Prüfungen an den Anfang und die Befehle danach.</p>
 <p>Er behandelt beide Familien aus der Praxis:</p>
 <table>
@@ -838,7 +838,7 @@ end
 ]]></content:encoded></item><item><title>Enterprise WLAN-Controller-Architektur: Cisco und Aruba WLAN-Design</title><link>https://barashhelvadzhaoglu.com/de/technology/wifi-controller/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/wifi-controller/</guid><description>Enterprise-WLAN-Controller Deep Dive — Cisco WLC vs. DNA Center, Aruba Mobility Master vs. Central, zentrale vs. verteilte Designs.</description><content:encoded><![CDATA[<h1 id="enterprise-wlan-controller-architektur-cisco-und-aruba-wlan-design">Enterprise WLAN-Controller-Architektur: Cisco und Aruba WLAN-Design</h1>
 <p>Dieser Artikel ist Teil der Enterprise-WiFi-Serie.</p>
 <blockquote>
-<p><strong>Neu im Enterprise-Wireless-Bereich?</strong> Beginnen Sie mit der Übersicht: <a href="/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/">Enterprise WiFi-Architektur: Von Standards bis zur Deployment</a></p>
+<p><strong>Neu im Enterprise-Wireless-Bereich?</strong> Beginnen Sie mit der Übersicht: <a href="/de/technology/wifi-master/">Enterprise WiFi-Architektur: Von Standards bis zur Deployment</a></p>
 </blockquote>
 <hr>
 <h2 id="warum-controller-architektur-wichtig-ist">Warum Controller-Architektur wichtig ist</h2>
@@ -1059,10 +1059,10 @@ DNA Center setzt SGT-basierte Richtlinie Ende-zu-Ende durch
 <hr>
 <h2 id="diese-serie">Diese Serie</h2>
 <ul>
-<li>📖 <a href="/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/">Enterprise WiFi-Architektur Übersicht</a> ← Beginnen Sie hier</li>
-<li>📡 <a href="/de/technology/wifi-80211-standards-wifi4-wifi5-wifi6/">802.11 Standards Deep Dive</a></li>
-<li>🏨 <a href="/de/technology/wifi-design-kmu-hotel-gesundheit/">WiFi-Design für KMU, Hotels und Arztpraxen</a></li>
-<li>🔐 <a href="/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/">WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey</a></li>
+<li>📖 <a href="/de/technology/wifi-master/">Enterprise WiFi-Architektur Übersicht</a> ← Beginnen Sie hier</li>
+<li>📡 <a href="/de/technology/wifi-standards/">802.11 Standards Deep Dive</a></li>
+<li>🏨 <a href="/de/technology/wifi-smb-hotel-medical/">WiFi-Design für KMU, Hotels und Arztpraxen</a></li>
+<li>🔐 <a href="/de/technology/wifi-security/">WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey</a></li>
 </ul>
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
@@ -1223,10 +1223,10 @@ Cisco IP-Telefone (7900er-Serie, 8800er-Serie)
 <hr>
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
-<li>🔐 <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — Sicherheitsarchitektur für Cloud-Kollaborationsumgebungen</li>
+<li>🔐 <a href="/de/architecture/zero-trust-architecture-behaviors/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — Sicherheitsarchitektur für Cloud-Kollaborationsumgebungen</li>
 <li>🏗️ <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Systemdenken, das gleichermaßen für Kollaborationsplattformen gilt</li>
 <li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Monitoring richtig gemacht</a> — Kollaborationsinfrastruktur proaktiv überwachen</li>
-<li>🔧 <a href="/de/technology/securecrt-superputty-network-engineer-guide/">SecureCRT und SuperPutty</a> — Tools zur Verwaltung der On-Premise-Infrastruktur, auf der Kollaboration läuft</li>
+<li>🔧 <a href="/de/technology/securecrt-superputty/">SecureCRT und SuperPutty</a> — Tools zur Verwaltung der On-Premise-Infrastruktur, auf der Kollaboration läuft</li>
 </ul>
 ]]></content:encoded></item><item><title>Enterprise WiFi-Architektur: Von Standards bis zur Deployment — Ein vollständiger Leitfaden</title><link>https://barashhelvadzhaoglu.com/de/technology/wifi-master/</link><pubDate>Wed, 01 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/wifi-master/</guid><description>Master-Leitfaden für Enterprise Wireless — 802.11 Standards, Controller-Architekturen, KMU- und Hotel-Design, Roaming, Sicherheit und Site Survey.</description><content:encoded><![CDATA[<h1 id="enterprise-wifi-architektur-von-standards-bis-zur-deployment">Enterprise WiFi-Architektur: Von Standards bis zur Deployment</h1>
 <p>WiFi ist der sichtbarste Teil jedes Netzwerks. Wenn es funktioniert, erwähnt es niemand. Wenn es nicht funktioniert — hört das IT-Team innerhalb von Minuten aus jeder Ecke des Gebäudes davon.</p>
@@ -1237,10 +1237,10 @@ Cisco IP-Telefone (7900er-Serie, 8800er-Serie)
 <p>Dieser Artikel gibt Ihnen das <strong>Gesamtbild</strong> — was Enterprise Wireless-Architektur umfasst, was die wichtigsten Entscheidungen sind und wohin jeder Deep Dive führt.</p>
 <p><strong>Wenn Sie Ingenieur sind</strong> und tief in ein bestimmtes Thema eintauchen möchten — springen Sie zu dem Artikel, der Ihren Anwendungsfall abdeckt:</p>
 <ul>
-<li>📡 <strong><a href="/de/technology/wifi-80211-standards-wifi4-wifi5-wifi6/">802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E und was sich wirklich geändert hat</a></strong> — Was ax, ac, n und be wirklich für Kapazität, Reichweite und Deployment-Entscheidungen bedeuten</li>
-<li>🏢 <strong><a href="/de/technology/enterprise-wlan-controller-architektur-cisco-aruba/">Enterprise Controller-Architektur: Cisco und Aruba WLAN-Design</a></strong> — Zentralisierte vs. verteilte Steuerung, Mobilitätsdomänen, WLC vs. Cloud-Management</li>
-<li>🏨 <strong><a href="/de/technology/wifi-design-kmu-hotel-gesundheit/">WiFi-Design für KMU, Hotels und Arztpraxen</a></strong> — Praktische Feldnotizen zu Dichte-Planung, Gäste-Segmentierung und Erwartungsmanagement</li>
-<li>🔐 <strong><a href="/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/">WiFi-Sicherheit: WPA3, 802.1X, Rogue-AP-Erkennung und Site Survey</a></strong> — Authentifizierung, Verschlüsselung, Intrusion Detection und Ekahau-Survey-Methodik</li>
+<li>📡 <strong><a href="/de/technology/wifi-standards/">802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E und was sich wirklich geändert hat</a></strong> — Was ax, ac, n und be wirklich für Kapazität, Reichweite und Deployment-Entscheidungen bedeuten</li>
+<li>🏢 <strong><a href="/de/technology/wifi-controller/">Enterprise Controller-Architektur: Cisco und Aruba WLAN-Design</a></strong> — Zentralisierte vs. verteilte Steuerung, Mobilitätsdomänen, WLC vs. Cloud-Management</li>
+<li>🏨 <strong><a href="/de/technology/wifi-smb-hotel-medical/">WiFi-Design für KMU, Hotels und Arztpraxen</a></strong> — Praktische Feldnotizen zu Dichte-Planung, Gäste-Segmentierung und Erwartungsmanagement</li>
+<li>🔐 <strong><a href="/de/technology/wifi-security/">WiFi-Sicherheit: WPA3, 802.1X, Rogue-AP-Erkennung und Site Survey</a></strong> — Authentifizierung, Verschlüsselung, Intrusion Detection und Ekahau-Survey-Methodik</li>
 </ul>
 <p><strong>Wenn Sie Architekt oder Entscheidungsträger sind</strong> und Wireless-Lösungen evaluieren — lesen Sie hier weiter. Dieser Artikel beantwortet die strategischen Fragen ohne RF-Expertise vorauszusetzen.</p>
 <hr>
@@ -1309,7 +1309,7 @@ Cisco IP-Telefone (7900er-Serie, 8800er-Serie)
 </ul>
 <p><strong>WiFi 6E</strong> fügte das 6-GHz-Band hinzu — ein weitgehend unkongestioniertes Spektrum, das Interferenz von Nachbarnetzwerken und Legacy-Geräten eliminiert.</p>
 <p><strong>WiFi 7</strong> entsteht gerade mit Multi-Link-Operation (MLO), die einem einzelnen Gerät ermöglicht, gleichzeitig mehrere Bänder und Kanäle zu nutzen. Stand 2026 noch in früher Enterprise-Deployment-Phase.</p>
-<p>→ <strong><a href="/de/technology/wifi-80211-standards-wifi4-wifi5-wifi6/">802.11 Standards Deep Dive</a></strong></p>
+<p>→ <strong><a href="/de/technology/wifi-standards/">802.11 Standards Deep Dive</a></strong></p>
 <hr>
 <h2 id="controller-architektur-wo-die-intelligenz-lebt">Controller-Architektur: Wo die Intelligenz lebt</h2>
 <p>Enterprise Wireless-Netzwerke haben zwei grundlegende Architekturmodelle:</p>
@@ -1332,7 +1332,7 @@ Cisco IP-Telefone (7900er-Serie, 8800er-Serie)
 <h3 id="verteilt--campus-fabric">Verteilt / Campus Fabric</h3>
 <p>Moderne Großcampus-Deployments integrieren Wireless oft in das breitere Netzwerk-Fabric — APs nehmen am gleichen Richtlinien- und Segmentierungsmodell wie kabelgebundene Ports teil, mit identitätsbasierter VLAN-Zuweisung und konsistenter Zugangskontrolle unabhängig davon, ob das Gerät über Kabel oder Wireless verbindet.</p>
 <p>Cisco DNA Center mit SD-Access und Aruba CX mit Central sind Beispiele dieses Ansatzes.</p>
-<p>→ <strong><a href="/de/technology/enterprise-wlan-controller-architektur-cisco-aruba/">Enterprise Controller-Architektur Deep Dive</a></strong></p>
+<p>→ <strong><a href="/de/technology/wifi-controller/">Enterprise Controller-Architektur Deep Dive</a></strong></p>
 <hr>
 <h2 id="kmu-hotel-und-arztpraxis-design-prinzipien">KMU, Hotel und Arztpraxis: Design-Prinzipien</h2>
 <p>Verbraucher-WiFi-Equipment scheitert in professionellen Umgebungen nicht wegen schlechter Qualität — es scheitert, weil es nicht für die Dichte, die Verwaltungsanforderungen oder die Sicherheitserwartungen dieser Umgebungen konzipiert wurde.</p>
@@ -1359,7 +1359,7 @@ Cisco IP-Telefone (7900er-Serie, 8800er-Serie)
 <li><strong>Gastportal:</strong> Authentifizierung, Nutzungsbestätigung, potenziell Zimmernummer-Validierung. Integration mit PMS (Property Management System) für automatische Provisionierung.</li>
 <li><strong>Personal- vs. Gastnetzwerk:</strong> Vollständig getrennt — auf das Personalnetzwerk darf unter keinen Umständen vom Gastnetzwerk aus zugegriffen werden.</li>
 </ul>
-<p>→ <strong><a href="/de/technology/wifi-design-kmu-hotel-gesundheit/">WiFi-Design für KMU, Hotels und Arztpraxen Deep Dive</a></strong></p>
+<p>→ <strong><a href="/de/technology/wifi-smb-hotel-medical/">WiFi-Design für KMU, Hotels und Arztpraxen Deep Dive</a></strong></p>
 <hr>
 <h2 id="roaming-und-band-steering">Roaming und Band Steering</h2>
 <h3 id="roaming-warum-es-schwieriger-ist-als-es-aussieht">Roaming: Warum es schwieriger ist als es aussieht</h3>
@@ -1400,7 +1400,7 @@ Cisco IP-Telefone (7900er-Serie, 8800er-Serie)
 <h3 id="rogue-ap-erkennung">Rogue-AP-Erkennung</h3>
 <p>Ein Rogue AP ist ein unautorisierter Access Point, der mit Ihrem Netzwerk verbunden ist — entweder bösartig platziert oder ein gut gemeinter Mitarbeiter, der einen Heimrouter ins Büro brachte.</p>
 <p>Enterprise Wireless Controller scannen die RF-Umgebung kontinuierlich auf APs. Wenn ein AP erkannt wird, der zur BSSID oder SSID Ihres kabelgebundenen Netzwerks passt, wird er als Rogue markiert und — auf den meisten Plattformen — kann automatisch eingedämmt werden.</p>
-<p>→ <strong><a href="/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/">WiFi-Sicherheit Deep Dive: WPA3, 802.1X, Rogue-AP-Erkennung und Site Survey</a></strong></p>
+<p>→ <strong><a href="/de/technology/wifi-security/">WiFi-Sicherheit Deep Dive: WPA3, 802.1X, Rogue-AP-Erkennung und Site Survey</a></strong></p>
 <hr>
 <h2 id="site-survey-der-schritt-den-die-meisten-projekte-überspringen">Site Survey: Der Schritt, den die meisten Projekte überspringen</h2>
 <p>Ein Site Survey ist eine systematische Messung der RF-Umgebung vor und nach der AP-Deployment. Ihn zu überspringen ist die häufigste Ursache für „Wir haben WiFi deployt, aber es funktioniert nicht richtig&quot;-Situationen.</p>
@@ -1414,7 +1414,7 @@ Cisco IP-Telefone (7900er-Serie, 8800er-Serie)
 <li>Roaming-Totzonen, wo Clients die Verbindung zwischen APs verlieren</li>
 </ul>
 <p>Die Kosten eines ordentlichen Site Surveys sind gering im Vergleich zu den Kosten einer Wireless-Deployment, die nach der Installation erhebliche Nacharbeiten erfordert.</p>
-<p>→ <strong><a href="/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/">WiFi-Sicherheit Deep Dive beinhaltet Site-Survey-Methodik</a></strong></p>
+<p>→ <strong><a href="/de/technology/wifi-security/">WiFi-Sicherheit Deep Dive beinhaltet Site-Survey-Methodik</a></strong></p>
 <hr>
 <h2 id="die-richtige-plattform-wählen">Die richtige Plattform wählen</h2>
 <table>
@@ -1458,10 +1458,10 @@ Cisco IP-Telefone (7900er-Serie, 8800er-Serie)
 <hr>
 <h2 id="diese-serie">Diese Serie</h2>
 <ul>
-<li>📡 <strong><a href="/de/technology/wifi-80211-standards-wifi4-wifi5-wifi6/">802.11 Standards Deep Dive</a></strong> — WiFi 4, 5, 6, 6E und 7: was sich geändert hat, was in der Praxis wichtig ist</li>
-<li>🏢 <strong><a href="/de/technology/enterprise-wlan-controller-architektur-cisco-aruba/">Enterprise Controller-Architektur</a></strong> — Cisco und Aruba Architekturen, zentralisiert vs. Cloud, Mobilitätsdomänen</li>
-<li>🏨 <strong><a href="/de/technology/wifi-design-kmu-hotel-gesundheit/">WiFi-Design für KMU, Hotels und Arztpraxen</a></strong> — Praktische Feldnotizen zu realen Deployment-Szenarien</li>
-<li>🔐 <strong><a href="/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/">WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey</a></strong> — Authentifizierung, Verschlüsselung, Intrusion Detection, Ekahau-Methodik</li>
+<li>📡 <strong><a href="/de/technology/wifi-standards/">802.11 Standards Deep Dive</a></strong> — WiFi 4, 5, 6, 6E und 7: was sich geändert hat, was in der Praxis wichtig ist</li>
+<li>🏢 <strong><a href="/de/technology/wifi-controller/">Enterprise Controller-Architektur</a></strong> — Cisco und Aruba Architekturen, zentralisiert vs. Cloud, Mobilitätsdomänen</li>
+<li>🏨 <strong><a href="/de/technology/wifi-smb-hotel-medical/">WiFi-Design für KMU, Hotels und Arztpraxen</a></strong> — Praktische Feldnotizen zu realen Deployment-Szenarien</li>
+<li>🔐 <strong><a href="/de/technology/wifi-security/">WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey</a></strong> — Authentifizierung, Verschlüsselung, Intrusion Detection, Ekahau-Methodik</li>
 </ul>
 <hr>
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>

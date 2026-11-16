@@ -166,7 +166,7 @@ SD-WAN pazarında Fortinet ve Cisco, Aruba&rsquo;ya kıyasla daha büyük bir ku
 <p>HPE Aruba EdgeConnect SD-WAN, pazardaki en olgun WAN optimization yeteneğini modern bir SD-WAN mimarisine taşır. WAN optimization&rsquo;ın önemini koruduğu senaryolarda — lokasyonlar arası replikasyon, gecikmeye duyarlı eski uygulamalar, broadband üzerinde yüksek güvenilirlik gereksinimleri — Silver Peak mirası gerçek bir teknik ayrışma sunar.</p>
 <p>Aruba entegrasyonu; kampüs ve şube altyapısına sahip kurumlara kablosuz, kablolu ve WAN altyapısında operasyonel olarak son derece cazip bir birleşik yönetim yolu sağlar. Mevcut bir Aruba altyapısı bulunmayan ve belirgin bir WAN optimization ihtiyacı olmayan ortamlardaki saf SD-WAN kurulumlarında ise Cisco veya Fortinet&rsquo;e kıyasla ayrışan noktalar daralmaktadır.</p>
 <hr>
-<p><em>Bu serideki bir sonraki yazı: <a href="/en/posts/palo-alto-sd-wan/">Palo Alto SD-WAN — Prisma SD-WAN ve Güvenlik Öncelikli Yaklaşım</a></em></p>
+<p><em>Bu serideki bir sonraki yazı: <a href="/en/technology/palo-alto-sd-wan/">Palo Alto SD-WAN — Prisma SD-WAN ve Güvenlik Öncelikli Yaklaşım</a></em></p>
 ]]></content:encoded></item><item><title>Fortinet SD-WAN: Uygulamada Güvenlik Odaklı Ağ Mimarisi</title><link>https://barashhelvadzhaoglu.com/tr/technology/fortinet-sd-wan/</link><pubDate>Fri, 30 Oct 2026 06:37:17 +0100</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/fortinet-sd-wan/</guid><description>Fortinet&amp;#39;in SD-WAN yaklaşımına derinlemesine bir bakış: FortiOS entegrasyonu, güvenlik odaklı ağ mimarisi (security-driven networking), Gartner Magic Quadrant konumlandırması ve bağımsız SD-WAN üreticileriyle karşılaştırılması.</description><content:encoded><![CDATA[<h1 id="fortinet-sd-wan-uygulamada-güvenlik-odaklı-ağ-mimarisi">Fortinet SD-WAN: Uygulamada Güvenlik Odaklı Ağ Mimarisi</h1>
 <p>Fortinet, SD-WAN pazarında alışılagelmişin dışında bir konuma sahiptir. Bağımsız (standalone) bir SD-WAN ürünü geliştirip sonradan buna güvenlik katmanları eklemedi; ya da bir WAN optimizasyon üreticisini satın alıp teknolojiyi yeniden adlandırmadı. Bunun yerine Fortinet, SD-WAN yeteneklerini doğrudan NGFW, IPS, SSL inspection ve uygulama kontrolü fonksiyonlarını çalıştıran aynı işletim sistemine, yani FortiOS&rsquo;e entegre etti. Ortaya çıkan ve şirketin <strong>security-driven networking</strong> (güvenlik odaklı ağ mimarisi) olarak adlandırdığı bu mimari, Fortinet&rsquo;i üst üste birkaç yıl boyunca Gartner&rsquo;ın SD-WAN Magic Quadrant raporunda lider konuma taşıdı.</p>
 <p>Bu makalede, Fortinet&rsquo;in sunduğu bu yaklaşımın sahada tam olarak ne sağladığını, en güçlü olduğu alanları ve beraberinde getirdiği kompromisleri (trade-off) inceliyoruz.</p>
@@ -250,7 +250,7 @@ Sıkı FortiOS entegrasyonu Fortinet ortamlarında bir güçken, çok üreticili
 <p>Buradaki kompromis, ekosisteme olan bağımlılıktır. Fortinet SD-WAN en iyi performansı Fortinet ortamlarında verir. Başka üreticilerin güvenlik altyapılarına ciddi yatırımlar yapmış kurumların, FortiOS merkezli bu modelin çözdüğünden daha fazla karmaşıklık yaratıp yaratmayacağını iyi değerlendirmesi gerekir.</p>
 <p>Gartner Magic Quadrant tarafında ise Fortinet&rsquo;in istikrarlı Liderler konumlandırması, temel vaadini yerine getiren bir platformu yansıtmaktadır: Tek bir işletim sisteminden, yüzlerce veya binlerce lokasyonda ölçeklenebilir şekilde sunulan güvenlik ve bağlantı.</p>
 <hr>
-<p><em>Bu seride bir sonraki yazı: <a href="/en/posts/cisco-sd-wan/">Cisco SD-WAN — Catalyst SD-WAN ve Kurumsal Mimari Yaklaşımı</a></em></p>
+<p><em>Bu seride bir sonraki yazı: <a href="/en/technology/cisco-sd-wan/">Cisco SD-WAN — Catalyst SD-WAN ve Kurumsal Mimari Yaklaşımı</a></em></p>
 ]]></content:encoded></item><item><title>Cisco SD-WAN: Catalyst SD-WAN ve Kurumsal Mimari Yaklaşımı</title><link>https://barashhelvadzhaoglu.com/tr/technology/cisco-sd-wan/</link><pubDate>Fri, 30 Oct 2026 06:35:00 +0100</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/cisco-sd-wan/</guid><description>Cisco&amp;#39;nun SD-WAN platformuna kapsamlı bir bakış: Viptela satın alması, Catalyst SD-WAN mimarisi, vManage ve kurumsal ortamlarda Cisco yaklaşımının rakiplerle karşılaştırması.</description><content:encoded><![CDATA[<h1 id="cisco-sd-wan-catalyst-sd-wan-ve-kurumsal-mimari-yaklaşımı">Cisco SD-WAN: Catalyst SD-WAN ve Kurumsal Mimari Yaklaşımı</h1>
 <p>Cisco&rsquo;nun SD-WAN yolculuğu, son on yılın en önemli kurumsal ağ satın alımlarından birinden geçiyor. 2017 yılında Cisco, doğrudan amaca yönelik bir SD-WAN girişimi olan Viptela&rsquo;yı yaklaşık 610 milyon dolara satın aldı. Bu satın alma, Cisco&rsquo;nun bugün <strong>Catalyst SD-WAN</strong> (eski adıyla Cisco SD-WAN ve öncesinde Viptela SD-WAN) olarak adlandırdığı çözümün temelini oluşturdu. Viptela mirasını anlamak, Cisco&rsquo;nun platformunu bugün niteleyen hem mimari güçleri hem de operasyonel karmaşıklığı açıklamaya yardımcı olur.</p>
 <hr>
@@ -331,7 +331,7 @@ SD-WAN ve NGFW&rsquo;ün tek bir işletim sisteminde birleştiği Fortinet&rsquo
 <p>Bunun karşılığındaki ödünleşim (trade-off) ise maliyet ve karmaşıklıktır. Daha sade bir operasyonel modele, daha sıkı bir güvenlik entegrasyonuna veya lokasyon başına daha düşük maliyete ihtiyaç duyan organizasyonlar için Fortinet, HPE Aruba veya Palo Alto kendi özel gereksinimlerine daha uygun olabilir.</p>
 <p>Halihazırda Cisco ekosistemine yoğun yatırım yapmış olan kurumlar için — DNA Center, ISE, Umbrella, Catalyst switch altyapısı — Catalyst SD-WAN, farklı bir WAN üreticisiyle yakalanması oldukça zor olan bir mimari uyum ve tutarlılık sunar.</p>
 <hr>
-<p><em>Bu serinin bir sonraki yazısı: <a href="/en/posts/hpe-aruba-sd-wan/">HPE Aruba SD-WAN — EdgeConnect ve WAN Optimizasyonu Mirası</a></em></p>
+<p><em>Bu serinin bir sonraki yazısı: <a href="/en/technology/hpe-aruba-sd-wan/">HPE Aruba SD-WAN — EdgeConnect ve WAN Optimizasyonu Mirası</a></em></p>
 ]]></content:encoded></item><item><title>SD-WAN Nedir? Ağ Mühendisleri İçin Pratik Bir Kılavuz</title><link>https://barashhelvadzhaoglu.com/tr/technology/what-is-sdwan/</link><pubDate>Fri, 12 Jun 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/what-is-sdwan/</guid><description>SD-WAN için kapsamlı bir teknik kılavuz: nasıl çalışır, temel bileşenler, trafik yönlendirme ve işletmelerin neden MPLS&amp;#39;i Software-Defined WAN ile değiştirdiği.</description><content:encoded><![CDATA[<h1 id="sd-wan-nedir-ağ-mühendisleri-için-pratik-bir-kılavuz">SD-WAN Nedir? Ağ Mühendisleri İçin Pratik Bir Kılavuz</h1>
 <p>Kurumsal WAN&rsquo;ın bir sorunu var. On yıllardır şirketler, şubeler, veri merkezleri ve genel merkezler arasındaki uygulama performansını garanti etmek için MPLS hatları için yüksek primler ödüyor. Bu mimari, tüm trafik dahili olduğunda ve tüm uygulamalar veri merkezinde yaşadığında mantıklıydı. Sonra bulut geldi.</p>
 <p>Bugün Münih&rsquo;teki bir şube, Microsoft 365 trafiğini 200 ms&rsquo;lik bir MPLS backhaul üzerinden Frankfurt&rsquo;a, oradan internete, oradan Microsoft&rsquo;un Avrupa edge&rsquo;ine gönderiyor — her Teams aramasına ve SharePoint senkronizasyonuna 60 ile 100 ms arasında gereksiz gecikme ekleyerek. Ağ, artık var olmayan bir dünya için inşa edildi.</p>
@@ -414,11 +414,11 @@ SD-WAN altyapısı bir hizmet sağlayıcı tarafından dağıtılır ve işletil
 <p>SD-WAN, kurumsal WAN için olgun, kanıtlanmış bir mimaridir. Bulut iş yükleri için uygulama performansında ölçülebilir iyileştirmeler sunar, daha ucuz genişbandla hibrit underlay sağlayarak WAN maliyetlerini düşürür ve merkezi yönetim sayesinde WAN operasyonlarını önemli ölçüde basitleştirir.</p>
 <p>Önde gelen üreticiler — Fortinet, Cisco, HPE Aruba ve Palo Alto — mimariye anlamlı şekilde farklı yaklaşımlar benimsemektedir. Bu farklılıkları anlamak, platform seçiminde kritik öneme sahiptir — bu serinin aşağıdaki makaleleri tam da bunu ayrıntılı olarak incelemektedir.</p>
 <hr>
-<p><em>Bu makale SD-WAN mimarileri üzerine bir serinin parçasıdır. Sıradaki: <a href="/tr/posts/fortinet-sd-wan/">Fortinet SD-WAN — Pratikte Güvenlik Odaklı Ağ</a></em></p>
+<p><em>Bu makale SD-WAN mimarileri üzerine bir serinin parçasıdır. Sıradaki: <a href="/tr/technology/fortinet-sd-wan/">Fortinet SD-WAN — Pratikte Güvenlik Odaklı Ağ</a></em></p>
 ]]></content:encoded></item><item><title>802.11 Standartları Deep Dive: WiFi 4, 5, 6, 6E ve Gerçekte Ne Değişti</title><link>https://barashhelvadzhaoglu.com/tr/technology/wifi-standards/</link><pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/wifi-standards/</guid><description>802.11 kablosuz standartları — n, ac, ax ve be&amp;#39;nin gerçek deployment&amp;#39;lardaki performansı, OFDMA, MU-MIMO, BSS Coloring ve doğru standart seçimi.</description><content:encoded><![CDATA[<h1 id="80211-standartları-deep-dive-wifi-4-5-6-6e-ve-gerçekte-ne-değişti">802.11 Standartları Deep Dive: WiFi 4, 5, 6, 6E ve Gerçekte Ne Değişti</h1>
 <p>Bu yazı Kurumsal WiFi serisinin bir parçasıdır.</p>
 <blockquote>
-<p><strong>Kurumsal kablosuz ağa yeni misiniz?</strong> Genel bakışla başlayın: <a href="/tr/technology/kurumsal-wifi-mimarisi-tam-rehber/">Kurumsal WiFi Mimarisi: Standartlardan Deployment&rsquo;a</a></p>
+<p><strong>Kurumsal kablosuz ağa yeni misiniz?</strong> Genel bakışla başlayın: <a href="/tr/technology/wifi-master/">Kurumsal WiFi Mimarisi: Standartlardan Deployment&rsquo;a</a></p>
 </blockquote>
 <hr>
 <h2 id="pazarlama-sayılarının-sorunu">Pazarlama Sayılarının Sorunu</h2>
@@ -580,10 +580,10 @@ BSS Boyama ile:
 <hr>
 <h2 id="bu-seri">Bu Seri</h2>
 <ul>
-<li>📖 <a href="/tr/technology/kurumsal-wifi-mimarisi-tam-rehber/">Kurumsal WiFi Mimarisi Genel Bakış</a> ← Buradan başlayın</li>
-<li>🏢 <a href="/tr/technology/kurumsal-wifi-controller-mimarisi-cisco-aruba/">Kurumsal Controller Mimarisi: Cisco ve Aruba</a></li>
-<li>🏨 <a href="/tr/technology/wifi-tasarimi-kobi-otel-saglik/">KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı</a></li>
-<li>🔐 <a href="/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/">WiFi Güvenliği: WPA3, 802.1X, Sahte AP, Site Survey</a></li>
+<li>📖 <a href="/tr/technology/wifi-master/">Kurumsal WiFi Mimarisi Genel Bakış</a> ← Buradan başlayın</li>
+<li>🏢 <a href="/tr/technology/wifi-controller/">Kurumsal Controller Mimarisi: Cisco ve Aruba</a></li>
+<li>🏨 <a href="/tr/technology/wifi-smb-hotel-medical/">KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı</a></li>
+<li>🔐 <a href="/tr/technology/wifi-security/">WiFi Güvenliği: WPA3, 802.1X, Sahte AP, Site Survey</a></li>
 </ul>
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>
@@ -593,7 +593,7 @@ BSS Boyama ile:
 ]]></content:encoded></item><item><title>KOBİ, Oteller ve Muayenehaneler İçin WiFi Tasarımı: Saha Notları</title><link>https://barashhelvadzhaoglu.com/tr/technology/wifi-smb-hotel-medical/</link><pubDate>Wed, 29 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/wifi-smb-hotel-medical/</guid><description>KOBİ, otel ve muayenehaneler için WiFi tasarım rehberi — yoğunluk planlaması, misafir segmentasyonu, bant genişliği yönetimi ve PMS entegrasyonu.</description><content:encoded><![CDATA[<h1 id="kobi-oteller-ve-muayenehaneler-için-wifi-tasarımı-saha-notları">KOBİ, Oteller ve Muayenehaneler İçin WiFi Tasarımı: Saha Notları</h1>
 <p>Bu yazı Kurumsal WiFi serisinin bir parçasıdır.</p>
 <blockquote>
-<p><strong>Kurumsal kablosuz ağa yeni misiniz?</strong> Genel bakışla başlayın: <a href="/tr/technology/kurumsal-wifi-mimarisi-tam-rehber/">Kurumsal WiFi Mimarisi: Standartlardan Deployment&rsquo;a</a></p>
+<p><strong>Kurumsal kablosuz ağa yeni misiniz?</strong> Genel bakışla başlayın: <a href="/tr/technology/wifi-master/">Kurumsal WiFi Mimarisi: Standartlardan Deployment&rsquo;a</a></p>
 </blockquote>
 <hr>
 <h2 id="ortam-türü-neden-ekipman-markasından-daha-önemlidir">Ortam Türü Neden Ekipman Markasından Daha Önemlidir</h2>
@@ -809,21 +809,21 @@ Kurumsal AP&rsquo;ler PoE gerektirir. Birden fazla radyolu bir Cisco veya Aruba 
 <hr>
 <h2 id="bu-seri">Bu Seri</h2>
 <ul>
-<li>📖 <a href="/tr/technology/kurumsal-wifi-mimarisi-tam-rehber/">Kurumsal WiFi Mimarisi Genel Bakış</a> ← Buradan başlayın</li>
-<li>📡 <a href="/tr/technology/wifi-80211-standartlari-wifi4-wifi5-wifi6/">802.11 Standartları Deep Dive</a></li>
-<li>🏢 <a href="/tr/technology/kurumsal-wifi-controller-mimarisi-cisco-aruba/">Kurumsal Controller Mimarisi: Cisco ve Aruba</a></li>
-<li>🔐 <a href="/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/">WiFi Güvenliği: WPA3, 802.1X, Sahte AP, Site Survey</a></li>
+<li>📖 <a href="/tr/technology/wifi-master/">Kurumsal WiFi Mimarisi Genel Bakış</a> ← Buradan başlayın</li>
+<li>📡 <a href="/tr/technology/wifi-standards/">802.11 Standartları Deep Dive</a></li>
+<li>🏢 <a href="/tr/technology/wifi-controller/">Kurumsal Controller Mimarisi: Cisco ve Aruba</a></li>
+<li>🔐 <a href="/tr/technology/wifi-security/">WiFi Güvenliği: WPA3, 802.1X, Sahte AP, Site Survey</a></li>
 </ul>
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>
-<li>📡 <a href="/tr/technology/nas-backup-aws-s3-cloud-kobi/">NAS Yedekleme ve AWS S3 — KOBİ&rsquo;ler için Veri Güvenliği</a> — WiFi&rsquo;nin yanında KOBİ veri koruma</li>
+<li>📡 <a href="/tr/posts/nas-backup/">NAS Yedekleme ve AWS S3 — KOBİ&rsquo;ler için Veri Güvenliği</a> — WiFi&rsquo;nin yanında KOBİ veri koruma</li>
 <li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Kimlik Tabanlı Mimari Sahada</a> — Kurumsal kablosuz için kimlik katmanı</li>
 <li>🏗️ <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Ürünler Koleksiyonu Değildir</a> — Ağ tasarımında sistem düşüncesi</li>
 </ul>
 ]]></content:encoded></item><item><title>WiFi Security: WPA3, 802.1X, Rogue AP Detection, and Site Survey</title><link>https://barashhelvadzhaoglu.com/tr/technology/wifi-security/</link><pubDate>Mon, 27 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/wifi-security/</guid><description>Kurumsal WiFi güvenliği — WPA3 ve WPA2 karşılaştırması, 802.1X kimlik doğrulama, sahte AP tespiti ve Ekahau site survey metodolojisi.</description><content:encoded><![CDATA[<h1 id="wifi-security-wpa3-8021x-rogue-ap-detection-and-site-survey">WiFi Security: WPA3, 802.1X, Rogue AP Detection, and Site Survey</h1>
 <p>This article is part of the Enterprise WiFi series.</p>
 <blockquote>
-<p><strong>New to enterprise wireless?</strong> Start with the overview: <a href="/en/technology/enterprise-wifi-architecture-complete-guide/">Enterprise WiFi Architecture: From Standards to Deployment</a></p>
+<p><strong>New to enterprise wireless?</strong> Start with the overview: <a href="/en/technology/wifi-master/">Enterprise WiFi Architecture: From Standards to Deployment</a></p>
 </blockquote>
 <hr>
 <h2 id="why-wifi-security-is-different">Why WiFi Security Is Different</h2>
@@ -1070,21 +1070,21 @@ Compare validation heatmap against prediction. Document actual versus predicted 
 <hr>
 <h2 id="this-series">This Series</h2>
 <ul>
-<li>📖 <a href="/en/technology/enterprise-wifi-architecture-complete-guide/">Enterprise WiFi Architecture Overview</a> ← Start here</li>
-<li>📡 <a href="/en/technology/wifi-80211-standards-wifi4-wifi5-wifi6/">802.11 Standards Deep Dive</a></li>
-<li>🏢 <a href="/en/technology/enterprise-wifi-controller-architecture-cisco-aruba/">Enterprise Controller Architecture: Cisco and Aruba</a></li>
-<li>🏨 <a href="/en/technology/wifi-design-smb-hotel-medical/">WiFi Design for SMB, Hotels, and Medical Practices</a></li>
+<li>📖 <a href="/en/technology/wifi-master/">Enterprise WiFi Architecture Overview</a> ← Start here</li>
+<li>📡 <a href="/en/technology/wifi-standards/">802.11 Standards Deep Dive</a></li>
+<li>🏢 <a href="/en/technology/wifi-controller/">Enterprise Controller Architecture: Cisco and Aruba</a></li>
+<li>🏨 <a href="/en/technology/wifi-smb-hotel-medical/">WiFi Design for SMB, Hotels, and Medical Practices</a></li>
 </ul>
 <h2 id="related-articles">Related Articles</h2>
 <ul>
 <li>🔐 <a href="/en/technology/identity-based-microsegmentation-8021x/">802.1X Identity-Based Architecture in the Field</a> — Deep dive on 802.1X beyond wireless</li>
-<li>🔐 <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture</a> — Where wireless security fits in Zero Trust</li>
+<li>🔐 <a href="/en/architecture/zero-trust-architecture-behaviors/">The Zero Trust Mindset: Engineering Security as an Architecture</a> — Where wireless security fits in Zero Trust</li>
 <li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">Monitoring Done Right</a> — Integrating wireless events into proactive monitoring</li>
 </ul>
 ]]></content:encoded></item><item><title>F5 WAF Deep Dive: ASM ve Advanced WAF ile Uygulama Güvenliği</title><link>https://barashhelvadzhaoglu.com/tr/technology/f5-waf-deep-dive/</link><pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/f5-waf-deep-dive/</guid><description>F5 WAF teknik inceleme — ASM ve Advanced WAF, pozitif ve negatif güvenlik modelleri, OWASP Top 10, bot savunması ve L7 DoS koruması.</description><content:encoded><![CDATA[<h1 id="f5-waf-deep-dive-asm-ve-advanced-waf-ile-uygulama-güvenliği">F5 WAF Deep Dive: ASM ve Advanced WAF ile Uygulama Güvenliği</h1>
 <p>Bu yazı F5 BIG-IP serisinin bir parçasıdır.</p>
 <blockquote>
-<p><strong>F5&rsquo;e yeni misiniz?</strong> Önce platform genel bakışıyla başlayın: <a href="/tr/technology/f5-bigip-uygulama-teslim-platformu-genel-bakis/">F5 BIG-IP Bir Load Balancer Değil — Uygulama Teslim Platformudur</a></p>
+<p><strong>F5&rsquo;e yeni misiniz?</strong> Önce platform genel bakışıyla başlayın: <a href="/tr/technology/f5-master/">F5 BIG-IP Bir Load Balancer Değil — Uygulama Teslim Platformudur</a></p>
 </blockquote>
 <p>Büyük resmi zaten anlıyorsanız ve WAF&rsquo;a derinlemesine inmek istiyorsanız — güvenlik modelleri, OWASP kapsamı, bot savunması ve deployment stratejisi — doğru yerdesiniz.</p>
 <hr>
@@ -1333,13 +1333,13 @@ Destek ID:          12345678901234
 <hr>
 <h2 id="bu-seri">Bu Seri</h2>
 <ul>
-<li>📖 <a href="/tr/technology/f5-bigip-uygulama-teslim-platformu-genel-bakis/">F5 BIG-IP Platform Genel Bakış — Tüm Modüller</a> ← F5&rsquo;e yeniyseniz buradan başlayın</li>
-<li>🔧 <a href="/tr/technology/f5-ltm-virtual-server-irule-ssl-offloading-ha/">F5 LTM Deep Dive</a></li>
-<li>🌐 <a href="/tr/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM ve GSLB Deep Dive</a></li>
+<li>📖 <a href="/tr/technology/f5-master/">F5 BIG-IP Platform Genel Bakış — Tüm Modüller</a> ← F5&rsquo;e yeniyseniz buradan başlayın</li>
+<li>🔧 <a href="/tr/technology/f5-ltm-deep-dive/">F5 LTM Deep Dive</a></li>
+<li>🌐 <a href="/tr/technology/f5-gtm-deep-dive/">F5 GTM ve GSLB Deep Dive</a></li>
 </ul>
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>
-<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — WAF&rsquo;ın Zero Trust&rsquo;taki yeri</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — WAF&rsquo;ın Zero Trust&rsquo;taki yeri</li>
 <li>🛡️ <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Kimlik Tabanlı Mimari Sahada</a> — Ağ katmanlarında derinlemesine savunma</li>
 <li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">İzleme Doğru Yapıldığında</a> — WAF loglarını proaktif izlemeye entegre etmek</li>
 <li>🛡️ <a href="/tr/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — WAF ile birlikte tam trafik görünürlüğü</li>
@@ -1526,14 +1526,14 @@ Destek ID:          12345678901234
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>
 <li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Projeleri: Kimlik Tabanlı Mimariyi Sahada Kullanıma Almak</a> — ISE&rsquo;nin etkinleştirdiği saha deployment rehberi</li>
-<li>🏛️ <a href="/tr/architecture/cisco-dna-center-catalyst-center-architecture-guide/">Cisco DNA Center / Catalyst Center: Ne Zaman Mantıklıdır</a> — ISE&rsquo;nin entegre olduğu kampüs yönetim platformu</li>
-<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Kimlik tabanlı erişim kontrolünün arkasındaki felsefe</li>
-<li>🛡️ <a href="/tr/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive</a> — ISE&rsquo;nin L2/L3 uygulamasının yanında tamamlayıcı L7 güvenliği</li>
+<li>🏛️ <a href="/tr/architecture/catalyst-center-architecture/">Cisco DNA Center / Catalyst Center: Ne Zaman Mantıklıdır</a> — ISE&rsquo;nin entegre olduğu kampüs yönetim platformu</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Kimlik tabanlı erişim kontrolünün arkasındaki felsefe</li>
+<li>🛡️ <a href="/tr/technology/f5-waf-deep-dive/">F5 WAF Deep Dive</a> — ISE&rsquo;nin L2/L3 uygulamasının yanında tamamlayıcı L7 güvenliği</li>
 </ul>
 ]]></content:encoded></item><item><title>Kurumsal WiFi Controller Mimarisi: Cisco ve Aruba WLAN Tasarımı</title><link>https://barashhelvadzhaoglu.com/tr/technology/wifi-controller/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/wifi-controller/</guid><description>Kurumsal kablosuz controller mimarileri — Cisco WLC ile DNA Center, Aruba Mobility Master ile Central, merkezi ve dağıtık tasarımlar.</description><content:encoded><![CDATA[<h1 id="kurumsal-wifi-controller-mimarisi-cisco-ve-aruba-wlan-tasarımı">Kurumsal WiFi Controller Mimarisi: Cisco ve Aruba WLAN Tasarımı</h1>
 <p>Bu yazı Kurumsal WiFi serisinin bir parçasıdır.</p>
 <blockquote>
-<p><strong>Kurumsal kablosuz ağa yeni misiniz?</strong> Genel bakışla başlayın: <a href="/tr/technology/kurumsal-wifi-mimarisi-tam-rehber/">Kurumsal WiFi Mimarisi: Standartlardan Deployment&rsquo;a</a></p>
+<p><strong>Kurumsal kablosuz ağa yeni misiniz?</strong> Genel bakışla başlayın: <a href="/tr/technology/wifi-master/">Kurumsal WiFi Mimarisi: Standartlardan Deployment&rsquo;a</a></p>
 </blockquote>
 <hr>
 <h2 id="controller-mimarisi-neden-önemli">Controller Mimarisi Neden Önemli</h2>
@@ -1755,10 +1755,10 @@ DNA Center, SGT tabanlı politikayı uçtan uca uygular
 <hr>
 <h2 id="bu-seri">Bu Seri</h2>
 <ul>
-<li>📖 <a href="/tr/technology/kurumsal-wifi-mimarisi-tam-rehber/">Kurumsal WiFi Mimarisi Genel Bakış</a> ← Buradan başlayın</li>
-<li>📡 <a href="/tr/technology/wifi-80211-standartlari-wifi4-wifi5-wifi6/">802.11 Standartları Deep Dive</a></li>
-<li>🏨 <a href="/tr/technology/wifi-tasarimi-kobi-otel-saglik/">KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı</a></li>
-<li>🔐 <a href="/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/">WiFi Güvenliği: WPA3, 802.1X, Sahte AP, Site Survey</a></li>
+<li>📖 <a href="/tr/technology/wifi-master/">Kurumsal WiFi Mimarisi Genel Bakış</a> ← Buradan başlayın</li>
+<li>📡 <a href="/tr/technology/wifi-standards/">802.11 Standartları Deep Dive</a></li>
+<li>🏨 <a href="/tr/technology/wifi-smb-hotel-medical/">KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı</a></li>
+<li>🔐 <a href="/tr/technology/wifi-security/">WiFi Güvenliği: WPA3, 802.1X, Sahte AP, Site Survey</a></li>
 </ul>
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>
@@ -1769,7 +1769,7 @@ DNA Center, SGT tabanlı politikayı uçtan uca uygular
 ]]></content:encoded></item><item><title>F5 GTM ve GSLB Deep Dive: Global Trafik Yönetimi ve DNS Failover</title><link>https://barashhelvadzhaoglu.com/tr/technology/f5-gtm-deep-dive/</link><pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/f5-gtm-deep-dive/</guid><description>F5 GTM (BIG-IP DNS) teknik inceleme — Wide IP, iQuery, topoloji routing, TTL stratejisi, çok DC failover ve aktif-aktif mimari desenleri.</description><content:encoded><![CDATA[<h1 id="f5-gtm-ve-gslb-deep-dive-global-trafik-yönetimi-ve-dns-failover">F5 GTM ve GSLB Deep Dive: Global Trafik Yönetimi ve DNS Failover</h1>
 <p>Bu yazı F5 BIG-IP serisinin bir parçasıdır.</p>
 <blockquote>
-<p><strong>F5&rsquo;e yeni misiniz?</strong> Önce platform genel bakışıyla başlayın: <a href="/tr/technology/f5-bigip-uygulama-teslim-platformu-genel-bakis/">F5 BIG-IP Bir Load Balancer Değil — Uygulama Teslim Platformudur</a></p>
+<p><strong>F5&rsquo;e yeni misiniz?</strong> Önce platform genel bakışıyla başlayın: <a href="/tr/technology/f5-master/">F5 BIG-IP Bir Load Balancer Değil — Uygulama Teslim Platformudur</a></p>
 </blockquote>
 <p>Büyük resmi zaten anlıyorsanız ve GTM&rsquo;e derinlemesine inmek istiyorsanız — iQuery, Wide IP&rsquo;ler, topoloji routing, TTL stratejisi ve çok DC tasarımı — doğru yerdesiniz.</p>
 <hr>
@@ -2001,14 +2001,14 @@ Varsayılan         → DC-Frankfurt
 <hr>
 <h2 id="bu-seri">Bu Seri</h2>
 <ul>
-<li>📖 <a href="/tr/technology/f5-bigip-uygulama-teslim-platformu-genel-bakis/">F5 BIG-IP Platform Genel Bakış — Tüm Modüller</a> ← F5&rsquo;e yeniyseniz buradan başlayın</li>
-<li>🔧 <a href="/tr/technology/f5-ltm-virtual-server-irule-ssl-offloading-ha/">F5 LTM Deep Dive</a></li>
-<li>🛡️ <a href="/tr/technology/f5-waf-asm-advanced-waf-uygulama-guvenligi/">F5 WAF Deep Dive</a></li>
+<li>📖 <a href="/tr/technology/f5-master/">F5 BIG-IP Platform Genel Bakış — Tüm Modüller</a> ← F5&rsquo;e yeniyseniz buradan başlayın</li>
+<li>🔧 <a href="/tr/technology/f5-ltm-deep-dive/">F5 LTM Deep Dive</a></li>
+<li>🛡️ <a href="/tr/technology/f5-waf-deep-dive/">F5 WAF Deep Dive</a></li>
 </ul>
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>
 <li>🏗️ <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Ürünler Koleksiyonu Değildir</a> — Çok DC tasarımı için sistem düşüncesi</li>
-<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti</a> — Dağıtık altyapıda kimlik bilincine sahip erişim</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti</a> — Dağıtık altyapıda kimlik bilincine sahip erişim</li>
 <li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">İzleme Doğru Yapıldığında</a> — GTM ve LTM sağlığını proaktif olarak izleme</li>
 </ul>
 ]]></content:encoded></item><item><title>SecureCRT ve SuperPutty: Her Ağ Mühendisinin Bilmesi Gereken Terminal Araçları</title><link>https://barashhelvadzhaoglu.com/tr/technology/securecrt-superputty/</link><pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/securecrt-superputty/</guid><description>SecureCRT ve SuperPutty saha rehberi — oturum loglama, taşınabilirlik, kimlik yönetimi, scripting ve SuperPutty&amp;#39;nin PuTTY&amp;#39;ya göre avantajları.</description><content:encoded><![CDATA[<h1 id="securecrt-ve-superputty-her-ağ-mühendisinin-bilmesi-gereken-terminal-araçları">SecureCRT ve SuperPutty: Her Ağ Mühendisinin Bilmesi Gereken Terminal Araçları</h1>
@@ -2469,15 +2469,15 @@ Cisco IP Telefonlar (7900 serisi, 8800 serisi)
 <hr>
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>
-<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Bulut iş birliği ortamları için güvenlik mimarisi</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Bulut iş birliği ortamları için güvenlik mimarisi</li>
 <li>🏗️ <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Ürünler Koleksiyonu Değildir</a> — İş birliği platformları için de geçerli sistem düşüncesi</li>
 <li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">İzleme Doğru Yapıldığında</a> — İş birliği altyapısını proaktif olarak izleme</li>
-<li>🔧 <a href="/tr/technology/securecrt-superputty-network-engineer-guide/">SecureCRT ve SuperPutty</a> — İş birliğinin üzerinde çalıştığı şirket içi altyapıyı yönetmek için araçlar</li>
+<li>🔧 <a href="/tr/technology/securecrt-superputty/">SecureCRT ve SuperPutty</a> — İş birliğinin üzerinde çalıştığı şirket içi altyapıyı yönetmek için araçlar</li>
 </ul>
 ]]></content:encoded></item><item><title>F5 LTM Deep Dive: Virtual Server'lar, iRule'lar, SSL Offloading ve HA</title><link>https://barashhelvadzhaoglu.com/tr/technology/f5-ltm-deep-dive/</link><pubDate>Wed, 08 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/f5-ltm-deep-dive/</guid><description>F5 BIG-IP LTM teknik inceleme — full-proxy mimari, virtual server, pool yapılandırması, iRule, SSL offloading ve sıfır downtime migrasyon rehberi.</description><content:encoded><![CDATA[<h1 id="f5-ltm-deep-dive-virtual-serverlar-irulelar-ssl-offloading-ve-ha">F5 LTM Deep Dive: Virtual Server&rsquo;lar, iRule&rsquo;lar, SSL Offloading ve HA</h1>
 <p>Bu yazı F5 BIG-IP serisinin bir parçasıdır.</p>
 <blockquote>
-<p><strong>F5&rsquo;e yeni misiniz?</strong> Önce platform genel bakışıyla başlayın: <a href="/tr/technology/f5-bigip-application-delivery-platform-overview/">F5 BIG-IP Bir Load Balancer Değil — Uygulama Teslim Platformudur</a></p>
+<p><strong>F5&rsquo;e yeni misiniz?</strong> Önce platform genel bakışıyla başlayın: <a href="/tr/technology/f5-master/">F5 BIG-IP Bir Load Balancer Değil — Uygulama Teslim Platformudur</a></p>
 </blockquote>
 <p>Büyük resmi zaten biliyorsanız ve LTM&rsquo;e derinlemesine inmek istiyorsanız — yapılandırma, iRule&rsquo;lar, migrasyon saha notları — doğru yerdesiniz.</p>
 <hr>
@@ -2748,15 +2748,15 @@ Yeni aktif cihazda tüm virtual server&rsquo;lar doğrulandıktan sonra:</p>
 <hr>
 <h2 id="bu-seri">Bu Seri</h2>
 <ul>
-<li>📖 <a href="/tr/technology/f5-bigip-application-delivery-platform-overview/">F5 BIG-IP Platform Genel Bakış — Tüm Modüller</a> ← F5&rsquo;e yeniyseniz buradan başlayın</li>
-<li>🌐 <a href="/tr/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM ve GSLB Deep Dive</a></li>
-<li>🛡️ <a href="/tr/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive</a></li>
+<li>📖 <a href="/tr/technology/f5-master/">F5 BIG-IP Platform Genel Bakış — Tüm Modüller</a> ← F5&rsquo;e yeniyseniz buradan başlayın</li>
+<li>🌐 <a href="/tr/technology/f5-gtm-deep-dive/">F5 GTM ve GSLB Deep Dive</a></li>
+<li>🛡️ <a href="/tr/technology/f5-waf-deep-dive/">F5 WAF Deep Dive</a></li>
 </ul>
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>
 <li>🛠️ <a href="/tr/posts/next-gen-console-server-architecture/">Ağın Arka Kapısı: Yeni Nesil Console Server Mimarisi</a> — F5 bakım pencereleri sırasında out-of-band erişim</li>
 <li>🛡️ <a href="/tr/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — ADC ile birlikte trafik görünürlüğü</li>
-<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti</a> — LTM&rsquo;nin Zero Trust mimarisindeki yeri</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti</a> — LTM&rsquo;nin Zero Trust mimarisindeki yeri</li>
 </ul>
 ]]></content:encoded></item><item><title>Firewall Seçimi ve Kapasite Planlaması: Datasheet'lerin Söylemediği Şeyler</title><link>https://barashhelvadzhaoglu.com/tr/technology/firewall-selection-capacity/</link><pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/firewall-selection-capacity/</guid><description>Kurumsal firewall seçimi — gerçek throughput, SSL inspection etkisi, Fortinet, Palo Alto, Cisco ve Check Point karşılaştırması.</description><content:encoded><![CDATA[<h1 id="firewall-seçimi-ve-kapasite-planlaması-datasheetlerin-söylemediği-şeyler">Firewall Seçimi ve Kapasite Planlaması: Datasheet&rsquo;lerin Söylemediği Şeyler</h1>
 <p>Firewall seçim görüşmeleri genellikle iki şekilde ilerler. Ya karar marka tanıdıklığına dayanır — &ldquo;her zaman X satıcısını kullandık&rdquo; — ya da üretimde bu sayıların gerçekte ne anlama geldiğini anlamadan datasheet throughput rakamlarına dayanır. Her iki yaklaşım da ya kullanmayacağınız kapasite için fazla ödemeye ya da gerçekte çalıştıracağınız trafik için yetersiz boyutlandırmaya yol açar.</p>
@@ -2949,9 +2949,9 @@ Gerekli SSL inspection throughput&#39;u:
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>
 <li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değil</a> — Firewall yerleştirme için mimari bağlam</li>
-<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Firewall tasarımının arkasındaki politika felsefesi</li>
-<li>🛡️ <a href="/tr/technology/ddos-koruma-stratejileri-isp-scrubbing-on-premise-bulut/">DDoS Koruma Stratejileri</a> — Firewall&rsquo;un yukarısında ne var</li>
-<li>🛡️ <a href="/tr/technology/f5-waf-asm-advanced-waf-uygulama-guvenligi/">F5 WAF Deep Dive</a> — Firewall politikasını tamamlayan Katman 7 koruması</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Firewall tasarımının arkasındaki politika felsefesi</li>
+<li>🛡️ <a href="/tr/technology/ddos-protection-strategies/">DDoS Koruma Stratejileri</a> — Firewall&rsquo;un yukarısında ne var</li>
+<li>🛡️ <a href="/tr/technology/f5-waf-deep-dive/">F5 WAF Deep Dive</a> — Firewall politikasını tamamlayan Katman 7 koruması</li>
 <li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">İzleme Doğru Yapıldığında</a> — Firewall davranışını görünür kılmak</li>
 </ul>
 ]]></content:encoded></item><item><title>OT Ağları: Bir IT Mühendisinin Fabrika Zemininde Gerçekte Karşılaştıkları</title><link>https://barashhelvadzhaoglu.com/tr/technology/ot-network-security/</link><pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/ot-network-security/</guid><description>IT mühendisi için OT güvenlik rehberi — Purdue modeli, Katman 2 firewall, OT imzaları, yama yapılamayan sistemler ve endüstriyel 802.1X.</description><content:encoded><![CDATA[<h1 id="ot-ağları-bir-it-mühendisinin-fabrika-zemininde-gerçekte-karşılaştıkları">OT Ağları: Bir IT Mühendisinin Fabrika Zemininde Gerçekte Karşılaştıkları</h1>
@@ -3150,8 +3150,8 @@ Cisco&rsquo;nun OT odaklı yönetim ve güvenlik platformu, OT ağı görünürl
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>
 <li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Kimlik Tabanlı Mimari Sahada</a> — 802.1X&rsquo;in IT ortamlarında nasıl çalıştığı ve OT&rsquo;nin neden farklı olduğu</li>
-<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — IT/OT sınır tasarımına uygulanan Zero Trust prensipleri</li>
-<li>🛡️ <a href="/tr/technology/ddos-koruma-stratejileri-isp-scrubbing-on-premise-bulut/">DDoS Koruma Stratejileri</a> — OT bağlantılı altyapıyı volumetrik saldırılardan korumak</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — IT/OT sınır tasarımına uygulanan Zero Trust prensipleri</li>
+<li>🛡️ <a href="/tr/technology/ddos-protection-strategies/">DDoS Koruma Stratejileri</a> — OT bağlantılı altyapıyı volumetrik saldırılardan korumak</li>
 <li>🏗️ <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Ürünler Koleksiyonu Değildir</a> — OT ağ tasarımı için de geçerli sistem düşüncesi</li>
 </ul>
 ]]></content:encoded></item><item><title>Kurumsal WiFi Mimarisi: Standartlardan Deployment'a — Kapsamlı Rehber</title><link>https://barashhelvadzhaoglu.com/tr/technology/wifi-master/</link><pubDate>Wed, 01 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/wifi-master/</guid><description>Kurumsal kablosuz ağ master rehberi — 802.11 standartları, controller mimarileri, KOBİ ve otel tasarımı, roaming, güvenlik ve site survey.</description><content:encoded><![CDATA[<h1 id="kurumsal-wifi-mimarisi-standartlardan-deploymenta">Kurumsal WiFi Mimarisi: Standartlardan Deployment&rsquo;a</h1>
@@ -3163,10 +3163,10 @@ Cisco&rsquo;nun OT odaklı yönetim ve güvenlik platformu, OT ağı görünürl
 <p>Bu yazı size <strong>büyük resmi</strong> verir — kurumsal kablosuz mimarisinin neyi içerdiğini, temel kararların neler olduğunu ve her deep dive&rsquo;ın nereye gittiğini.</p>
 <p><strong>Mühendisseniz</strong> ve belirli bir konuya derinlemesine inmek istiyorsanız — kullanım senaryonuzu kapsayan yazıya atlayın:</p>
 <ul>
-<li>📡 <strong><a href="/tr/technology/wifi-80211-standartlari-wifi4-wifi5-wifi6/">802.11 Standartları Deep Dive: WiFi 4, 5, 6, 6E ve Gerçekte Ne Değişti</a></strong> — ax, ac, n ve be&rsquo;nin kapasite, kapsama alanı ve deployment kararları için gerçekte ne anlama geldiği</li>
-<li>🏢 <strong><a href="/tr/technology/kurumsal-wifi-controller-mimarisi-cisco-aruba/">Kurumsal Controller Mimarisi: Cisco ve Aruba WLAN Tasarımı</a></strong> — Merkezi ve dağıtık kontrol, mobilite alanları, WLC ve bulut yönetimi karşılaştırması</li>
-<li>🏨 <strong><a href="/tr/technology/wifi-tasarimi-kobi-otel-saglik/">KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı</a></strong> — Yoğunluk planlaması, misafir segmentasyonu ve beklenti yönetimi üzerine pratik saha notları</li>
-<li>🔐 <strong><a href="/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/">WiFi Güvenliği: WPA3, 802.1X, Sahte AP Tespiti ve Site Survey</a></strong> — Kimlik doğrulama, şifreleme, saldırı tespiti ve Ekahau survey metodolojisi</li>
+<li>📡 <strong><a href="/tr/technology/wifi-standards/">802.11 Standartları Deep Dive: WiFi 4, 5, 6, 6E ve Gerçekte Ne Değişti</a></strong> — ax, ac, n ve be&rsquo;nin kapasite, kapsama alanı ve deployment kararları için gerçekte ne anlama geldiği</li>
+<li>🏢 <strong><a href="/tr/technology/wifi-controller/">Kurumsal Controller Mimarisi: Cisco ve Aruba WLAN Tasarımı</a></strong> — Merkezi ve dağıtık kontrol, mobilite alanları, WLC ve bulut yönetimi karşılaştırması</li>
+<li>🏨 <strong><a href="/tr/technology/wifi-smb-hotel-medical/">KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı</a></strong> — Yoğunluk planlaması, misafir segmentasyonu ve beklenti yönetimi üzerine pratik saha notları</li>
+<li>🔐 <strong><a href="/tr/technology/wifi-security/">WiFi Güvenliği: WPA3, 802.1X, Sahte AP Tespiti ve Site Survey</a></strong> — Kimlik doğrulama, şifreleme, saldırı tespiti ve Ekahau survey metodolojisi</li>
 </ul>
 <p><strong>Mimar veya karar vericiyseniz</strong> ve kablosuz çözümleri değerlendiriyorsanız — burada okumaya devam edin. Bu yazı, RF uzmanlığı gerektirmeden stratejik soruları yanıtlar.</p>
 <hr>
@@ -3235,7 +3235,7 @@ Cisco&rsquo;nun OT odaklı yönetim ve güvenlik platformu, OT ağı görünürl
 </ul>
 <p><strong>WiFi 6E</strong>, 6 GHz bandını ekledi — komşu ağlardan ve eski cihazlardan gelen girişimi ortadan kaldıran büyük ölçüde tıkanmamış bir spektrum. Yoğun kentsel ortamlarda önemli avantaj.</p>
 <p><strong>WiFi 7</strong> ortaya çıkıyor ve Çok Bağlantılı Çalışma (MLO) sayesinde tek bir cihazın aynı anda birden fazla bant ve kanalı kullanması — verimi iyileştiriyor ve gecikmeyi azaltıyor. 2026 itibarıyla hâlâ erken kurumsal deployment aşamasında.</p>
-<p>→ <strong><a href="/tr/technology/wifi-80211-standartlari-wifi4-wifi5-wifi6/">802.11 Standartları Deep Dive</a></strong></p>
+<p>→ <strong><a href="/tr/technology/wifi-standards/">802.11 Standartları Deep Dive</a></strong></p>
 <hr>
 <h2 id="controller-mimarisi-zekanın-nerede-yaşadığı">Controller Mimarisi: Zekanın Nerede Yaşadığı</h2>
 <p>Kurumsal kablosuz ağlarda iki temel mimari model vardır:</p>
@@ -3258,7 +3258,7 @@ Cisco&rsquo;nun OT odaklı yönetim ve güvenlik platformu, OT ağı görünürl
 <h3 id="dağıtık--kampüs-fabric">Dağıtık / Kampüs Fabric</h3>
 <p>Modern büyük kampüs deployment&rsquo;ları çoğunlukla kablosuzu daha geniş ağ fabric&rsquo;ine entegre eder — AP&rsquo;ler, cihaz kablo veya kablosuz bağlansın tutarlı erişim kontrolüyle kimlik tabanlı VLAN atamasıyla kablolu portlarla aynı politika ve segmentasyon modeline katılır.</p>
 <p>SD-Access ile Cisco DNA Center ve Central ile Aruba CX bu yaklaşımın örnekleridir.</p>
-<p>→ <strong><a href="/tr/technology/kurumsal-wifi-controller-mimarisi-cisco-aruba/">Kurumsal Controller Mimarisi Deep Dive</a></strong></p>
+<p>→ <strong><a href="/tr/technology/wifi-controller/">Kurumsal Controller Mimarisi Deep Dive</a></strong></p>
 <hr>
 <h2 id="kobi-otel-ve-muayenehane-tasarım-prensipleri">KOBİ, Otel ve Muayenehane: Tasarım Prensipleri</h2>
 <p>Tüketici WiFi ekipmanı, profesyonel ortamlarda düşük kalite nedeniyle değil — yoğunluk, yönetim gereksinimleri veya bu ortamların güvenlik beklentileri için tasarlanmadığı için başarısız olur.</p>
@@ -3285,7 +3285,7 @@ Cisco&rsquo;nun OT odaklı yönetim ve güvenlik platformu, OT ağı görünürl
 <li><strong>Misafir portalı:</strong> Kimlik doğrulama, şartlar kabul, potansiyel olarak oda numarası doğrulama. Otomatik sağlama için PMS (Otel Yönetim Sistemi) ile entegrasyon.</li>
 <li><strong>Personel ve misafir ağı:</strong> Tamamen ayrı — personel ağına hiçbir koşulda misafir ağından erişilememeli.</li>
 </ul>
-<p>→ <strong><a href="/tr/technology/wifi-tasarimi-kobi-otel-saglik/">KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı Deep Dive</a></strong></p>
+<p>→ <strong><a href="/tr/technology/wifi-smb-hotel-medical/">KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı Deep Dive</a></strong></p>
 <hr>
 <h2 id="roaming-ve-band-yönlendirme">Roaming ve Band Yönlendirme</h2>
 <h3 id="roaming-göründüğünden-neden-daha-zordur">Roaming: Göründüğünden Neden Daha Zordur</h3>
@@ -3326,7 +3326,7 @@ Cisco&rsquo;nun OT odaklı yönetim ve güvenlik platformu, OT ağı görünürl
 <h3 id="sahte-ap-tespiti">Sahte AP Tespiti</h3>
 <p>Sahte AP, ağınıza bağlı yetkisiz bir erişim noktasıdır — kötü niyetle yerleştirilen veya ofise ev yönlendiricisi getiren iyi niyetli bir çalışan.</p>
 <p>Kurumsal kablosuz controller&rsquo;lar RF ortamını sürekli olarak AP&rsquo;ler için tarar. Kablolu ağınızın BSSID&rsquo;si veya SSID&rsquo;siyle eşleşen bir AP tespit edildiğinde, sahte olarak işaretlenir ve — çoğu platformda — otomatik olarak çevrelenebilir (controller, sahte AP&rsquo;ye bağlanan istemcilere kimlik doğrulama iptali çerçeveleri gönderir).</p>
-<p>→ <strong><a href="/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/">WiFi Güvenliği Deep Dive: WPA3, 802.1X, Sahte AP Tespiti ve Site Survey</a></strong></p>
+<p>→ <strong><a href="/tr/technology/wifi-security/">WiFi Güvenliği Deep Dive: WPA3, 802.1X, Sahte AP Tespiti ve Site Survey</a></strong></p>
 <hr>
 <h2 id="site-survey-çoğu-projenin-atladığı-adım">Site Survey: Çoğu Projenin Atladığı Adım</h2>
 <p>Site survey, AP deployment öncesinde ve sonrasında RF ortamının sistematik olarak ölçülmesidir. Bu adımı atlamak, &ldquo;WiFi deployment yaptık ama düzgün çalışmıyor&rdquo; durumlarının en yaygın nedenidir.</p>
@@ -3340,7 +3340,7 @@ Cisco&rsquo;nun OT odaklı yönetim ve güvenlik platformu, OT ağı görünürl
 <li>İstemcilerin AP&rsquo;ler arasında bağlantıyı kaybettiği roaming ölü noktaları</li>
 </ul>
 <p>Uygun bir site survey&rsquo;in maliyeti, kurulumdan sonra önemli yeniden çalışma gerektiren kablosuz deployment maliyetiyle karşılaştırıldığında küçüktür.</p>
-<p>→ <strong><a href="/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/">WiFi Güvenliği Deep Dive, Site Survey metodolojisini içerir</a></strong></p>
+<p>→ <strong><a href="/tr/technology/wifi-security/">WiFi Güvenliği Deep Dive, Site Survey metodolojisini içerir</a></strong></p>
 <hr>
 <h2 id="doğru-platformu-seçme">Doğru Platformu Seçme</h2>
 <table>
@@ -3384,10 +3384,10 @@ Cisco&rsquo;nun OT odaklı yönetim ve güvenlik platformu, OT ağı görünürl
 <hr>
 <h2 id="bu-seri">Bu Seri</h2>
 <ul>
-<li>📡 <strong><a href="/tr/technology/wifi-80211-standartlari-wifi4-wifi5-wifi6/">802.11 Standartları Deep Dive</a></strong> — WiFi 4, 5, 6, 6E ve 7: ne değişti, pratikte ne önemli</li>
-<li>🏢 <strong><a href="/tr/technology/kurumsal-wifi-controller-mimarisi-cisco-aruba/">Kurumsal Controller Mimarisi</a></strong> — Cisco ve Aruba mimarileri, merkezi ve bulut karşılaştırması, mobilite alanları</li>
-<li>🏨 <strong><a href="/tr/technology/wifi-tasarimi-kobi-otel-saglik/">KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı</a></strong> — Gerçek dünya deployment senaryolarında pratik saha notları</li>
-<li>🔐 <strong><a href="/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/">WiFi Güvenliği: WPA3, 802.1X, Sahte AP, Site Survey</a></strong> — Kimlik doğrulama, şifreleme, saldırı tespiti, Ekahau metodolojisi</li>
+<li>📡 <strong><a href="/tr/technology/wifi-standards/">802.11 Standartları Deep Dive</a></strong> — WiFi 4, 5, 6, 6E ve 7: ne değişti, pratikte ne önemli</li>
+<li>🏢 <strong><a href="/tr/technology/wifi-controller/">Kurumsal Controller Mimarisi</a></strong> — Cisco ve Aruba mimarileri, merkezi ve bulut karşılaştırması, mobilite alanları</li>
+<li>🏨 <strong><a href="/tr/technology/wifi-smb-hotel-medical/">KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı</a></strong> — Gerçek dünya deployment senaryolarında pratik saha notları</li>
+<li>🔐 <strong><a href="/tr/technology/wifi-security/">WiFi Güvenliği: WPA3, 802.1X, Sahte AP, Site Survey</a></strong> — Kimlik doğrulama, şifreleme, saldırı tespiti, Ekahau metodolojisi</li>
 </ul>
 <hr>
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
@@ -3649,8 +3649,8 @@ Azure barındırmalı kaynaklar için Microsoft&rsquo;un teklifi. Azure&rsquo;da
 <hr>
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>
-<li>🛡️ <a href="/tr/technology/f5-bigip-application-delivery-platform-overview/">F5 BIG-IP Platform Genel Bakış</a> — DDoS savunmanın derinliğinin bir parçası olarak F5 AFM</li>
-<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Zero Trust çerçevesinde DDoS koruması</li>
+<li>🛡️ <a href="/tr/technology/f5-master/">F5 BIG-IP Platform Genel Bakış</a> — DDoS savunmanın derinliğinin bir parçası olarak F5 AFM</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Zero Trust çerçevesinde DDoS koruması</li>
 <li>🛡️ <a href="/tr/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — DDoS adli analizi için gerekli trafik görünürlüğü</li>
 <li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">İzleme Doğru Yapıldığında</a> — Proaktif izleme yoluyla DDoS&rsquo;u erken tespit etmek</li>
 </ul>
@@ -3663,9 +3663,9 @@ Azure barındırmalı kaynaklar için Microsoft&rsquo;un teklifi. Azure&rsquo;da
 <p>Bu yazı size <strong>büyük resmi</strong> verir — F5&rsquo;in ne olduğu, nerede durduğu, her modülün ne yaptığı ve alternatiflere göre ne zaman mantıklı olduğu.</p>
 <p><strong>Ağ veya güvenlik mühendisiyseniz</strong> ve yapılandırma, iRule&rsquo;lar, migrasyon saha notları ve mimari detaylara derinlemesine inmek istiyorsanız — doğrudan ilgilendiğiniz modüle atlayın:</p>
 <ul>
-<li>🔧 <strong><a href="/tr/technology/f5-ltm-virtual-server-irule-ssl-offloading-ha/">F5 LTM Deep Dive</a></strong> — Virtual server&rsquo;lar, pool&rsquo;lar, iRule&rsquo;lar, SSL offloading, HA ve 30 cihazlık migrasyon rehberi</li>
-<li>🌐 <strong><a href="/tr/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM ve GSLB Deep Dive</a></strong> — iQuery, Wide IP&rsquo;ler, topoloji routing, DNS TTL stratejisi, çok DC failover tasarımı</li>
-<li>🛡️ <strong><a href="/tr/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive</a></strong> — ASM ve Advanced WAF, OWASP Top 10, bot savunması, şeffaftan engellemeye deployment stratejisi</li>
+<li>🔧 <strong><a href="/tr/technology/f5-ltm-deep-dive/">F5 LTM Deep Dive</a></strong> — Virtual server&rsquo;lar, pool&rsquo;lar, iRule&rsquo;lar, SSL offloading, HA ve 30 cihazlık migrasyon rehberi</li>
+<li>🌐 <strong><a href="/tr/technology/f5-gtm-deep-dive/">F5 GTM ve GSLB Deep Dive</a></strong> — iQuery, Wide IP&rsquo;ler, topoloji routing, DNS TTL stratejisi, çok DC failover tasarımı</li>
+<li>🛡️ <strong><a href="/tr/technology/f5-waf-deep-dive/">F5 WAF Deep Dive</a></strong> — ASM ve Advanced WAF, OWASP Top 10, bot savunması, şeffaftan engellemeye deployment stratejisi</li>
 </ul>
 <p><strong>Mimar veya karar vericiyseniz</strong> ve F5&rsquo;in altyapınıza uyup uymadığını değerlendiriyorsanız — okumaya burada devam edin. Bu yazı, iRule sözdizimini anlamanızı gerektirmeden o soruyu yanıtlıyor.</p>
 <hr>
@@ -3704,7 +3704,7 @@ Azure barındırmalı kaynaklar için Microsoft&rsquo;un teklifi. Azure&rsquo;da
 <li>iRule&rsquo;lar — trafik düzeyinde hat hızında çalışan programlanabilir bir betik katmanı: başlık yeniden yazma, URI&rsquo;ye göre yönlendirme, içerik ekleme, hız sınırı uygulama</li>
 <li>Yüksek erişilebilirlik — saniye altı failover ile Aktif-Yedek veya Aktif-Aktif kümeleme</li>
 </ul>
-<p>→ <strong><a href="/tr/technology/f5-ltm-virtual-server-irule-ssl-offloading-ha/">F5 LTM Deep Dive: Virtual Server&rsquo;lar, iRule&rsquo;lar, SSL Offloading ve HA</a></strong></p>
+<p>→ <strong><a href="/tr/technology/f5-ltm-deep-dive/">F5 LTM Deep Dive: Virtual Server&rsquo;lar, iRule&rsquo;lar, SSL Offloading ve HA</a></strong></p>
 <hr>
 <h3 id="gtm--dns--global-traffic-manager">GTM / DNS — Global Traffic Manager</h3>
 <p>LTM trafiği tek bir veri merkezi içinde yönetir. GTM trafiği veri merkezleri <strong>arasında</strong> yönetir — DNS düzeyinde.</p>
@@ -3717,7 +3717,7 @@ Azure barındırmalı kaynaklar için Microsoft&rsquo;un teklifi. Azure&rsquo;da
 <li>Topoloji tabanlı routing — Avrupalı kullanıcılar AB veri merkezlerine, Orta Doğulu kullanıcılar bölgesel DC&rsquo;lere</li>
 <li>Esnek politikalar: her zaman birincil tercih et (Global Availability), eşit dağılım (Round Robin) veya bağlantı bilincine sahip (Least Connections)</li>
 </ul>
-<p>→ <strong><a href="/tr/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM ve GSLB Deep Dive: Global Trafik Yönetimi ve DNS Failover</a></strong></p>
+<p>→ <strong><a href="/tr/technology/f5-gtm-deep-dive/">F5 GTM ve GSLB Deep Dive: Global Trafik Yönetimi ve DNS Failover</a></strong></p>
 <hr>
 <h3 id="waf--web-application-firewall-asm--advanced-waf">WAF — Web Application Firewall (ASM / Advanced WAF)</h3>
 <p>Bir ağ firewall&rsquo;u L3/L4&rsquo;te çalışır. Bir POST isteği gövdesinin SQL injection payload içerip içermediğini inceleyemez. WAF inceleyebilir.</p>
@@ -3728,7 +3728,7 @@ Azure barındırmalı kaynaklar için Microsoft&rsquo;un teklifi. Azure&rsquo;da
 <li><strong>Advanced WAF</strong> — davranışsal bot savunması, credential stuffing koruması, JavaScript challenge&rsquo;ları ve L7 DoS azaltmayı ekler</li>
 </ul>
 <p>WAF&rsquo;ın koruduğu şeyler: SQL injection, XSS, CSRF, parametre tampering, çerez zehirlenmesi, zorla gezinme, bot trafiği ve uygulama katmanı DoS.</p>
-<p>→ <strong><a href="/tr/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive: ASM ve Advanced WAF ile Uygulama Güvenliği</a></strong></p>
+<p>→ <strong><a href="/tr/technology/f5-waf-deep-dive/">F5 WAF Deep Dive: ASM ve Advanced WAF ile Uygulama Güvenliği</a></strong></p>
 <hr>
 <h3 id="apm--access-policy-manager">APM — Access Policy Manager</h3>
 <p>APM, F5&rsquo;in kimlik ve erişim modülüdür — F5&rsquo;in trafik tesliminin ötesine geçerek <strong>erişim kontrolüne</strong> girdiği yer.</p>
@@ -3798,15 +3798,15 @@ Azure barındırmalı kaynaklar için Microsoft&rsquo;un teklifi. Azure&rsquo;da
 <h2 id="bu-seri">Bu Seri</h2>
 <p>Bu yazı başlangıç noktasıdır. Her modülün özel bir deep dive&rsquo;ı vardır:</p>
 <ul>
-<li>🔧 <strong><a href="/tr/technology/f5-ltm-virtual-server-irule-ssl-offloading-ha/">F5 LTM Deep Dive: Virtual Server&rsquo;lar, iRule&rsquo;lar, SSL Offloading ve HA</a></strong> — Full-proxy mimarisi, pool yapılandırması, health monitor&rsquo;lar, iRule örnekleri, session persistence, HA kümeleme ve sıfır downtime 30 cihaz migrasyon rehberi</li>
-<li>🌐 <strong><a href="/tr/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM ve GSLB Deep Dive: Global Trafik Yönetimi ve DNS Failover</a></strong> — Wide IP&rsquo;ler, iQuery, topoloji routing, TTL stratejisi, aktif-aktif ve aktif-yedek DC desenleri</li>
-<li>🛡️ <strong><a href="/tr/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive: ASM ve Advanced WAF ile Uygulama Güvenliği</a></strong> — Güvenlik politikası modelleri, OWASP Top 10 kapsamı, bot savunması, L7 DoS koruması ve şeffaftan engellemeye deployment stratejisi</li>
+<li>🔧 <strong><a href="/tr/technology/f5-ltm-deep-dive/">F5 LTM Deep Dive: Virtual Server&rsquo;lar, iRule&rsquo;lar, SSL Offloading ve HA</a></strong> — Full-proxy mimarisi, pool yapılandırması, health monitor&rsquo;lar, iRule örnekleri, session persistence, HA kümeleme ve sıfır downtime 30 cihaz migrasyon rehberi</li>
+<li>🌐 <strong><a href="/tr/technology/f5-gtm-deep-dive/">F5 GTM ve GSLB Deep Dive: Global Trafik Yönetimi ve DNS Failover</a></strong> — Wide IP&rsquo;ler, iQuery, topoloji routing, TTL stratejisi, aktif-aktif ve aktif-yedek DC desenleri</li>
+<li>🛡️ <strong><a href="/tr/technology/f5-waf-deep-dive/">F5 WAF Deep Dive: ASM ve Advanced WAF ile Uygulama Güvenliği</a></strong> — Güvenlik politikası modelleri, OWASP Top 10 kapsamı, bot savunması, L7 DoS koruması ve şeffaftan engellemeye deployment stratejisi</li>
 </ul>
 <hr>
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>
 <li>🛡️ <a href="/tr/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Tam yığın genelinde trafik görünürlüğü</li>
-<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — APM ve WAF&rsquo;ın Zero Trust&rsquo;ta yeri</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — APM ve WAF&rsquo;ın Zero Trust&rsquo;ta yeri</li>
 <li>🏗️ <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Ürünler Koleksiyonu Değildir</a> — ADC yerleşiminin arkasındaki sistem düşüncesi</li>
 <li>🎯 <a href="/tr/architecture/network-product-selection-strategy/">Ağ Altyapısı Ürün Seçimi: Stratejik Kriterler</a> — ADC satıcılarını nesnel olarak nasıl değerlendirirsiniz</li>
 </ul>
@@ -3825,7 +3825,7 @@ Azure barındırmalı kaynaklar için Microsoft&rsquo;un teklifi. Azure&rsquo;da
 <li>Başarı network&rsquo;ten çok <strong>AD/PKI/endpoint disiplinine</strong> bağlıdır.</li>
 </ul>
 <blockquote>
-<p>Kimlik tabanlı erişimin arkasındaki Zero Trust zihniyeti için: <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Ürün Değil Mimari Olarak Tasarlamak</a></p>
+<p>Kimlik tabanlı erişimin arkasındaki Zero Trust zihniyeti için: <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Ürün Değil Mimari Olarak Tasarlamak</a></p>
 </blockquote>
 <h3 id="1-planlama-vlan-planı-yoksa-8021x-kural-motoru-değil-kaos-motoru-olur">1) Planlama: VLAN planı yoksa 802.1X &ldquo;kural motoru&rdquo; değil &ldquo;kaos motoru&rdquo; olur</h3>
 <p>802.1X&rsquo;e geçerken herkesin ilk refleksi şudur: &ldquo;RADIUS kurarız, switch&rsquo;e yazarız, biter.&rdquo; Sahada bunun bittiği yer genelde ilk <strong>pilot kullanıcıdır.</strong> Çünkü pilot kullanıcı bağlanır ve bir anda şu soru çıkar: &ldquo;Bu kullanıcı hangi VLAN&rsquo;a gidecek?&rdquo; İşte 802.1X&rsquo;in seni zorladığı yer burasıdır.</p>
@@ -3959,7 +3959,7 @@ Azure barındırmalı kaynaklar için Microsoft&rsquo;un teklifi. Azure&rsquo;da
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <p><strong>Mimari &amp; Güvenlik</strong></p>
 <ul>
-<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Ürün Değil Mimari Olarak Tasarlamak</a> — Kimlik tabanlı erişimin mimari temeli</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Ürün Değil Mimari Olarak Tasarlamak</a> — Kimlik tabanlı erişimin mimari temeli</li>
 <li>🏗️ <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Sistem düşüncesi ve ürün seçimi</li>
 <li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">Monitoring Zihniyeti: Sadece Görmek Değil, Anlamak</a> — Policy ihlallerini tırmanmadan yakalamak</li>
 </ul>

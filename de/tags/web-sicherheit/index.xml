@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Web-Sicherheit on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/web-sicherheit/</link><description>Recent content in Web-Sicherheit on Barash Helvadzhaoglu</description><generator>Hugo -- 0.170.0</generator><language>de</language><lastBuildDate>Wed, 22 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/web-sicherheit/index.xml" rel="self" type="application/rss+xml"/><item><title>F5 WAF Deep Dive: Anwendungssicherheit mit ASM und Advanced WAF</title><link>https://barashhelvadzhaoglu.com/de/technology/f5-waf-deep-dive/</link><pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/f5-waf-deep-dive/</guid><description>F5 WAF Deep Dive — ASM vs. Advanced WAF, positive vs. negative Sicherheitsmodelle, OWASP Top 10, Bot-Abwehr und L7-DoS-Schutz.</description><content:encoded><![CDATA[<h1 id="f5-waf-deep-dive-anwendungssicherheit-mit-asm-und-advanced-waf">F5 WAF Deep Dive: Anwendungssicherheit mit ASM und Advanced WAF</h1>
 <p>Dieser Artikel ist Teil der F5 BIG-IP-Serie.</p>
 <blockquote>
-<p><strong>Neu bei F5?</strong> Beginnen Sie zuerst mit der Plattformübersicht: <a href="/de/technology/f5-bigip-application-delivery-platform-uebersicht/">F5 BIG-IP ist kein Load Balancer — Es ist eine Application Delivery Platform</a></p>
+<p><strong>Neu bei F5?</strong> Beginnen Sie zuerst mit der Plattformübersicht: <a href="/de/technology/f5-master/">F5 BIG-IP ist kein Load Balancer — Es ist eine Application Delivery Platform</a></p>
 </blockquote>
 <p>Wenn Sie das Gesamtbild bereits verstehen und tief in WAF eintauchen möchten — Sicherheitsmodelle, OWASP-Abdeckung, Bot-Abwehr und Deployment-Strategie — sind Sie hier richtig.</p>
 <hr>
@@ -250,13 +250,13 @@ Support-ID:         12345678901234
 <hr>
 <h2 id="diese-serie">Diese Serie</h2>
 <ul>
-<li>📖 <a href="/de/technology/f5-bigip-application-delivery-platform-uebersicht/">F5 BIG-IP Plattformübersicht — Alle Module</a> ← Beginnen Sie hier, wenn Sie neu bei F5 sind</li>
-<li>🔧 <a href="/de/technology/f5-ltm-virtual-server-irules-ssl-offloading-ha/">F5 LTM Deep Dive</a></li>
-<li>🌐 <a href="/de/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM &amp; GSLB Deep Dive</a></li>
+<li>📖 <a href="/de/technology/f5-master/">F5 BIG-IP Plattformübersicht — Alle Module</a> ← Beginnen Sie hier, wenn Sie neu bei F5 sind</li>
+<li>🔧 <a href="/de/technology/f5-ltm-deep-dive/">F5 LTM Deep Dive</a></li>
+<li>🌐 <a href="/de/technology/f5-gtm-deep-dive/">F5 GTM &amp; GSLB Deep Dive</a></li>
 </ul>
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
-<li>🔐 <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — Wo WAF in Zero Trust passt</li>
+<li>🔐 <a href="/de/architecture/zero-trust-architecture-behaviors/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — Wo WAF in Zero Trust passt</li>
 <li>🛡️ <a href="/de/technology/identity-based-microsegmentation-8021x/">802.1X Identitätsbasierte Architektur im Praxiseinsatz</a> — Defense in Depth über Netzwerkschichten</li>
 <li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Monitoring richtig gemacht</a> — WAF-Protokolle in proaktives Monitoring integrieren</li>
 <li>🛡️ <a href="/de/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Vollständige Datenverkehrssichtbarkeit neben WAF</li>

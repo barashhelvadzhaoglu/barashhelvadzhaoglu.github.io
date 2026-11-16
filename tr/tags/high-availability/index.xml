@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>High Availability on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/tr/tags/high-availability/</link><description>Recent content in High Availability on Barash Helvadzhaoglu</description><generator>Hugo -- 0.170.0</generator><language>tr</language><lastBuildDate>Wed, 08 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/tr/tags/high-availability/index.xml" rel="self" type="application/rss+xml"/><item><title>F5 LTM Deep Dive: Virtual Server'lar, iRule'lar, SSL Offloading ve HA</title><link>https://barashhelvadzhaoglu.com/tr/technology/f5-ltm-deep-dive/</link><pubDate>Wed, 08 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/f5-ltm-deep-dive/</guid><description>F5 BIG-IP LTM teknik inceleme — full-proxy mimari, virtual server, pool yapılandırması, iRule, SSL offloading ve sıfır downtime migrasyon rehberi.</description><content:encoded><![CDATA[<h1 id="f5-ltm-deep-dive-virtual-serverlar-irulelar-ssl-offloading-ve-ha">F5 LTM Deep Dive: Virtual Server&rsquo;lar, iRule&rsquo;lar, SSL Offloading ve HA</h1>
 <p>Bu yazı F5 BIG-IP serisinin bir parçasıdır.</p>
 <blockquote>
-<p><strong>F5&rsquo;e yeni misiniz?</strong> Önce platform genel bakışıyla başlayın: <a href="/tr/technology/f5-bigip-application-delivery-platform-overview/">F5 BIG-IP Bir Load Balancer Değil — Uygulama Teslim Platformudur</a></p>
+<p><strong>F5&rsquo;e yeni misiniz?</strong> Önce platform genel bakışıyla başlayın: <a href="/tr/technology/f5-master/">F5 BIG-IP Bir Load Balancer Değil — Uygulama Teslim Platformudur</a></p>
 </blockquote>
 <p>Büyük resmi zaten biliyorsanız ve LTM&rsquo;e derinlemesine inmek istiyorsanız — yapılandırma, iRule&rsquo;lar, migrasyon saha notları — doğru yerdesiniz.</p>
 <hr>
@@ -272,14 +272,14 @@ Yeni aktif cihazda tüm virtual server&rsquo;lar doğrulandıktan sonra:</p>
 <hr>
 <h2 id="bu-seri">Bu Seri</h2>
 <ul>
-<li>📖 <a href="/tr/technology/f5-bigip-application-delivery-platform-overview/">F5 BIG-IP Platform Genel Bakış — Tüm Modüller</a> ← F5&rsquo;e yeniyseniz buradan başlayın</li>
-<li>🌐 <a href="/tr/technology/f5-gtm-gslb-global-traffic-management/">F5 GTM ve GSLB Deep Dive</a></li>
-<li>🛡️ <a href="/tr/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive</a></li>
+<li>📖 <a href="/tr/technology/f5-master/">F5 BIG-IP Platform Genel Bakış — Tüm Modüller</a> ← F5&rsquo;e yeniyseniz buradan başlayın</li>
+<li>🌐 <a href="/tr/technology/f5-gtm-deep-dive/">F5 GTM ve GSLB Deep Dive</a></li>
+<li>🛡️ <a href="/tr/technology/f5-waf-deep-dive/">F5 WAF Deep Dive</a></li>
 </ul>
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>
 <li>🛠️ <a href="/tr/posts/next-gen-console-server-architecture/">Ağın Arka Kapısı: Yeni Nesil Console Server Mimarisi</a> — F5 bakım pencereleri sırasında out-of-band erişim</li>
 <li>🛡️ <a href="/tr/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — ADC ile birlikte trafik görünürlüğü</li>
-<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti</a> — LTM&rsquo;nin Zero Trust mimarisindeki yeri</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti</a> — LTM&rsquo;nin Zero Trust mimarisindeki yeri</li>
 </ul>
 ]]></content:encoded></item></channel></rss>

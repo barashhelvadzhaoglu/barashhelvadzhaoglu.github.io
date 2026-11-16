@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>WLAN-Design on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/wlan-design/</link><description>Recent content in WLAN-Design on Barash Helvadzhaoglu</description><generator>Hugo -- 0.170.0</generator><language>de</language><lastBuildDate>Wed, 29 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/wlan-design/index.xml" rel="self" type="application/rss+xml"/><item><title>WiFi-Design für KMU, Hotels und Arztpraxen: Feldnotizen</title><link>https://barashhelvadzhaoglu.com/de/technology/wifi-smb-hotel-medical/</link><pubDate>Wed, 29 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/wifi-smb-hotel-medical/</guid><description>WLAN-Design für KMU, Hotels und Arztpraxen — Dichte-Planung, Gäste-Segmentierung, Bandbreitenmanagement und PMS-Integration.</description><content:encoded><![CDATA[<h1 id="wifi-design-für-kmu-hotels-und-arztpraxen-feldnotizen">WiFi-Design für KMU, Hotels und Arztpraxen: Feldnotizen</h1>
 <p>Dieser Artikel ist Teil der Enterprise-WiFi-Serie.</p>
 <blockquote>
-<p><strong>Neu im Enterprise-Wireless-Bereich?</strong> Beginnen Sie mit der Übersicht: <a href="/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/">Enterprise WiFi-Architektur: Von Standards bis zur Deployment</a></p>
+<p><strong>Neu im Enterprise-Wireless-Bereich?</strong> Beginnen Sie mit der Übersicht: <a href="/de/technology/wifi-master/">Enterprise WiFi-Architektur: Von Standards bis zur Deployment</a></p>
 </blockquote>
 <hr>
 <h2 id="warum-der-umgebungstyp-wichtiger-ist-als-die-gerätemarke">Warum der Umgebungstyp wichtiger ist als die Gerätemarke</h2>
@@ -217,14 +217,14 @@ Enterprise-APs erfordern PoE. Ein Cisco- oder Aruba-WiFi-6-AP mit mehreren Radio
 <hr>
 <h2 id="diese-serie">Diese Serie</h2>
 <ul>
-<li>📖 <a href="/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/">Enterprise WiFi-Architektur Übersicht</a> ← Beginnen Sie hier</li>
-<li>📡 <a href="/de/technology/wifi-80211-standards-wifi4-wifi5-wifi6/">802.11 Standards Deep Dive</a></li>
-<li>🏢 <a href="/de/technology/enterprise-wlan-controller-architektur-cisco-aruba/">Enterprise Controller-Architektur: Cisco und Aruba</a></li>
-<li>🔐 <a href="/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/">WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey</a></li>
+<li>📖 <a href="/de/technology/wifi-master/">Enterprise WiFi-Architektur Übersicht</a> ← Beginnen Sie hier</li>
+<li>📡 <a href="/de/technology/wifi-standards/">802.11 Standards Deep Dive</a></li>
+<li>🏢 <a href="/de/technology/wifi-controller/">Enterprise Controller-Architektur: Cisco und Aruba</a></li>
+<li>🔐 <a href="/de/technology/wifi-security/">WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey</a></li>
 </ul>
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
-<li>📡 <a href="/de/technology/nas-backup-aws-s3-cloud-kmu/">NAS-Backup mit AWS S3 — Datensicherheit für KMU</a> — KMU-Datenschutz neben WiFi</li>
+<li>📡 <a href="/de/posts/nas-backup/">NAS-Backup mit AWS S3 — Datensicherheit für KMU</a> — KMU-Datenschutz neben WiFi</li>
 <li>🔐 <a href="/de/technology/identity-based-microsegmentation-8021x/">802.1X Identitätsbasierte Architektur im Praxiseinsatz</a> — Die Identitätsschicht für Enterprise Wireless</li>
 <li>🏗️ <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Systemdenken im Netzwerkdesign</li>
 </ul>

@@ -180,9 +180,9 @@
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
 <li>🔐 <a href="/de/technology/identity-based-microsegmentation-8021x/">802.1X-Projekte: Die identitätsbasierte Architektur im Praxiseinsatz</a> — Der Praxiseinsatz-Leitfaden, den ISE ermöglicht</li>
-<li>🏛️ <a href="/de/architecture/cisco-dna-center-catalyst-center-architecture-guide/">Cisco DNA Center / Catalyst Center: Wann es sinnvoll ist</a> — Die Campus-Management-Plattform, mit der ISE integriert</li>
-<li>🔐 <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — Die Philosophie hinter identitätsbasierter Zugangskontrolle</li>
-<li>🛡️ <a href="/de/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive</a> — Ergänzende L7-Sicherheit neben ISEs L2/L3-Durchsetzung</li>
+<li>🏛️ <a href="/de/architecture/catalyst-center-architecture/">Cisco DNA Center / Catalyst Center: Wann es sinnvoll ist</a> — Die Campus-Management-Plattform, mit der ISE integriert</li>
+<li>🔐 <a href="/de/architecture/zero-trust-architecture-behaviors/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — Die Philosophie hinter identitätsbasierter Zugangskontrolle</li>
+<li>🛡️ <a href="/de/technology/f5-waf-deep-dive/">F5 WAF Deep Dive</a> — Ergänzende L7-Sicherheit neben ISEs L2/L3-Durchsetzung</li>
 </ul>
 ]]></content:encoded></item><item><title>802.1X-Projekte: Implementierung der identitätsbasierten Architektur in der Praxis</title><link>https://barashhelvadzhaoglu.com/de/technology/identity-based-microsegmentation-8021x/</link><pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/identity-based-microsegmentation-8021x/</guid><description>Ein Praxisdokument, das den Erfolg von 802.1X-Projekten basierend auf AD-, PKI- und GPO-Disziplin statt nur auf Networking diskutiert.</description><content:encoded><![CDATA[<h1 id="8021x-projekte-implementierung-der-identitätsbasierten-architektur-in-der-praxis">802.1X-Projekte: Implementierung der identitätsbasierten Architektur in der Praxis</h1>
 <p>802.1X-Projekte sehen von außen wie ein <strong>Network-Job</strong> aus; weil die Kontaktpunkte Switch-Ports, SSIDs und RADIUS sind. Aber im echten Leben wird der Erfolg von 802.1X oft nicht an den Netzwerkgeräten entschieden, sondern in der <strong>Active Directory-Struktur</strong>, der <strong>Zertifikatsinfrastruktur (PKI)</strong> und dem <strong>Endpoint-Management</strong>. Der Grund ist einfach: 802.1X zwingt die Organisation dazu, über ihr <strong>„Identitätsmodell&quot;</strong> zu sprechen, anstatt nur über das VLAN des Ports. Mit anderen Worten: Man wechselt von „welcher Port gehört zu welchem VLAN&quot; zu einem System von <strong>„welche Identität tritt mit welcher Berechtigung in das Netzwerk ein&quot;.</strong></p>
@@ -199,7 +199,7 @@
 <li>Der Erfolg hängt mehr von der <strong>AD/PKI/Endpoint-Disziplin</strong> ab als vom Netzwerk selbst.</li>
 </ul>
 <blockquote>
-<p>Für die Zero-Trust-Denkweise hinter identitätsbasiertem Zugang: <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Die Zero-Trust-Denkweise: Sicherheit als Architektur, nicht als Produkt</a></p>
+<p>Für die Zero-Trust-Denkweise hinter identitätsbasiertem Zugang: <a href="/de/architecture/zero-trust-architecture-behaviors/">Die Zero-Trust-Denkweise: Sicherheit als Architektur, nicht als Produkt</a></p>
 </blockquote>
 <h3 id="1-planung-ohne-vlan-plan-wird-8021x-zu-einer-chaos-maschine-statt-einer-policy-maschine">1) Planung: Ohne VLAN-Plan wird 802.1X zu einer „Chaos-Maschine&quot; statt einer „Policy-Maschine&quot;</h3>
 <p>Beim Start von 802.1X ist der erste Reflex von jedem: „Wir richten RADIUS ein, schreiben es auf den Switch und fertig.&quot; In der Praxis endet dies meist mit dem allerersten <strong>Pilotbenutzer.</strong> Denn der Pilotbenutzer verbindet sich, und plötzlich taucht diese Frage auf: „In welches VLAN soll dieser Benutzer?&quot;</p>
@@ -330,7 +330,7 @@
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <p><strong>Architektur &amp; Sicherheit</strong></p>
 <ul>
-<li>🔐 <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Die Zero-Trust-Denkweise: Sicherheit als Architektur, nicht als Produkt</a> — Die architektonische Grundlage hinter identitätsbasiertem Zugang</li>
+<li>🔐 <a href="/de/architecture/zero-trust-architecture-behaviors/">Die Zero-Trust-Denkweise: Sicherheit als Architektur, nicht als Produkt</a> — Die architektonische Grundlage hinter identitätsbasiertem Zugang</li>
 <li>🏗️ <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Systemdenken statt Produktauswahl</li>
 <li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Monitoring richtig gemacht</a> — Richtlinienverstöße erkennen bevor sie eskalieren</li>
 </ul>
@@ -443,7 +443,7 @@
 <h2 id="kontinuierliches-monitoring-der-kritischste-teil-der-architektur">Kontinuierliches Monitoring: Der kritischste Teil der Architektur</h2>
 <p>Zugriff und Verhalten werden auf jeder Schicht überwacht und protokolliert. Wenn eine Anomalie oder riskante Aktivität erkannt wird, schränkt das System automatisch den Zugriff ein oder fordert zusätzliche Verifikation an.</p>
 <blockquote>
-<p>Für den Aufbau echter Sichtbarkeit in Ihrer Infrastruktur: <a href="/de/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen und proaktiv handeln</a></p>
+<p>Für den Aufbau echter Sichtbarkeit in Ihrer Infrastruktur: <a href="/de/architecture/monitoring-not-just-seeing/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen und proaktiv handeln</a></p>
 </blockquote>
 <h2 id="fazit">Fazit</h2>
 <p>Zero Trust ist kein Produkt.
@@ -460,12 +460,12 @@ Diese Version erweitert die architektonische Grundlage der Serie.</p>
 <ul>
 <li>📐 <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Der Grundlagenartikel dieser Serie</li>
 <li>🏗️ <a href="/de/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Warum die richtige Produktwahl allein nicht ausreicht</a> — Systemdenken im Core-Network-Design</li>
-<li>📊 <a href="/de/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen</a> — Echte Transparenz in der Infrastruktur aufbauen</li>
+<li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen</a> — Echte Transparenz in der Infrastruktur aufbauen</li>
 </ul>
 <p><strong>Technisches Engineering</strong></p>
 <ul>
-<li>🔐 <a href="/de/posts/unlocking-success-in-802-1x-projects-field-insights/">802.1X Projekte erfolgreich umsetzen: Praxiseinblicke</a> — Identitätsbasierter Zugang in Unternehmensnetzwerken</li>
-<li>🛡️ <a href="/de/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Erweiterte Traffic-Sichtbarkeit und Sicherheitsstrategie</li>
-<li>🛠️ <a href="/de/posts/next-gen-console-server-terminal-server-architecture/">Die Hintertür des Netzwerks: Next-Gen Console Server Architektur</a> — Out-of-Band-Zugang wenn alles andere versagt</li>
+<li>🔐 <a href="/de/posts/8021x-field-deployment-teaser/">802.1X Projekte erfolgreich umsetzen: Praxiseinblicke</a> — Identitätsbasierter Zugang in Unternehmensnetzwerken</li>
+<li>🛡️ <a href="/de/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Erweiterte Traffic-Sichtbarkeit und Sicherheitsstrategie</li>
+<li>🛠️ <a href="/de/posts/next-gen-console-server-architecture/">Die Hintertür des Netzwerks: Next-Gen Console Server Architektur</a> — Out-of-Band-Zugang wenn alles andere versagt</li>
 </ul>
 ]]></content:encoded></item></channel></rss>

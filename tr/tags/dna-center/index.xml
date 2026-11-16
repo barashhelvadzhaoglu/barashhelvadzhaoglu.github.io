@@ -144,15 +144,15 @@
 <h2 id="ilgili-makaleler">İlgili Makaleler</h2>
 <ul>
 <li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">Sahadan 802.1X Kimlik Tabanlı Mimari</a> — DNA Center + ISE kombinasyonunu güçlü kılan kimlik altyapısı</li>
-<li>🔐 <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Yaklaşımı: Güvenliği Ürün Değil Mimari Olarak Tasarlamak</a> — SD-Access politika modelinin arkasındaki mimari felsefe</li>
+<li>🔐 <a href="/en/architecture/zero-trust-architecture-behaviors/">Zero Trust Yaklaşımı: Güvenliği Ürün Değil Mimari Olarak Tasarlamak</a> — SD-Access politika modelinin arkasındaki mimari felsefe</li>
 <li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yetmez?</a> — Kampüs mimarisi bağlamı</li>
 <li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">Doğru İzleme (Monitoring)</a> — DNA Center assurance yeteneğinin genel izleme stratejisine uyumu</li>
-<li>🌐 <a href="/en/technology/enterprise-wifi-controller-architecture-cisco-aruba/">Kurumsal WiFi Controller Mimarisi</a> — DNA Center ile kablosuz ağ entegrasyonu</li>
+<li>🌐 <a href="/en/technology/wifi-controller/">Kurumsal WiFi Controller Mimarisi</a> — DNA Center ile kablosuz ağ entegrasyonu</li>
 </ul>
 ]]></content:encoded></item><item><title>Kurumsal WiFi Controller Mimarisi: Cisco ve Aruba WLAN Tasarımı</title><link>https://barashhelvadzhaoglu.com/tr/technology/wifi-controller/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/wifi-controller/</guid><description>Kurumsal kablosuz controller mimarileri — Cisco WLC ile DNA Center, Aruba Mobility Master ile Central, merkezi ve dağıtık tasarımlar.</description><content:encoded><![CDATA[<h1 id="kurumsal-wifi-controller-mimarisi-cisco-ve-aruba-wlan-tasarımı">Kurumsal WiFi Controller Mimarisi: Cisco ve Aruba WLAN Tasarımı</h1>
 <p>Bu yazı Kurumsal WiFi serisinin bir parçasıdır.</p>
 <blockquote>
-<p><strong>Kurumsal kablosuz ağa yeni misiniz?</strong> Genel bakışla başlayın: <a href="/tr/technology/kurumsal-wifi-mimarisi-tam-rehber/">Kurumsal WiFi Mimarisi: Standartlardan Deployment&rsquo;a</a></p>
+<p><strong>Kurumsal kablosuz ağa yeni misiniz?</strong> Genel bakışla başlayın: <a href="/tr/technology/wifi-master/">Kurumsal WiFi Mimarisi: Standartlardan Deployment&rsquo;a</a></p>
 </blockquote>
 <hr>
 <h2 id="controller-mimarisi-neden-önemli">Controller Mimarisi Neden Önemli</h2>
@@ -374,10 +374,10 @@ DNA Center, SGT tabanlı politikayı uçtan uca uygular
 <hr>
 <h2 id="bu-seri">Bu Seri</h2>
 <ul>
-<li>📖 <a href="/tr/technology/kurumsal-wifi-mimarisi-tam-rehber/">Kurumsal WiFi Mimarisi Genel Bakış</a> ← Buradan başlayın</li>
-<li>📡 <a href="/tr/technology/wifi-80211-standartlari-wifi4-wifi5-wifi6/">802.11 Standartları Deep Dive</a></li>
-<li>🏨 <a href="/tr/technology/wifi-tasarimi-kobi-otel-saglik/">KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı</a></li>
-<li>🔐 <a href="/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/">WiFi Güvenliği: WPA3, 802.1X, Sahte AP, Site Survey</a></li>
+<li>📖 <a href="/tr/technology/wifi-master/">Kurumsal WiFi Mimarisi Genel Bakış</a> ← Buradan başlayın</li>
+<li>📡 <a href="/tr/technology/wifi-standards/">802.11 Standartları Deep Dive</a></li>
+<li>🏨 <a href="/tr/technology/wifi-smb-hotel-medical/">KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı</a></li>
+<li>🔐 <a href="/tr/technology/wifi-security/">WiFi Güvenliği: WPA3, 802.1X, Sahte AP, Site Survey</a></li>
 </ul>
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>

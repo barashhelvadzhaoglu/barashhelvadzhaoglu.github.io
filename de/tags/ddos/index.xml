@@ -251,8 +251,8 @@ Microsofts Angebot für Azure-gehostete Ressourcen. Am relevantesten für Organi
 <hr>
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
-<li>🛡️ <a href="/de/technology/f5-bigip-application-delivery-platform-overview/">F5 BIG-IP Plattformübersicht</a> — F5 AFM als Teil der DDoS-Defense-in-Depth</li>
-<li>🔐 <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — DDoS-Schutz im Zero-Trust-Framework</li>
+<li>🛡️ <a href="/de/technology/f5-master/">F5 BIG-IP Plattformübersicht</a> — F5 AFM als Teil der DDoS-Defense-in-Depth</li>
+<li>🔐 <a href="/de/architecture/zero-trust-architecture-behaviors/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — DDoS-Schutz im Zero-Trust-Framework</li>
 <li>🛡️ <a href="/de/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Datenverkehrssichtbarkeit für DDoS-Forensik</li>
 <li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Monitoring richtig gemacht</a> — DDoS früh durch proaktives Monitoring erkennen</li>
 </ul>

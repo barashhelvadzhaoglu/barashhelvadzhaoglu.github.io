@@ -189,9 +189,9 @@ Gerekli SSL inspection throughput&#39;u:
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>
 <li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değil</a> — Firewall yerleştirme için mimari bağlam</li>
-<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Firewall tasarımının arkasındaki politika felsefesi</li>
-<li>🛡️ <a href="/tr/technology/ddos-koruma-stratejileri-isp-scrubbing-on-premise-bulut/">DDoS Koruma Stratejileri</a> — Firewall&rsquo;un yukarısında ne var</li>
-<li>🛡️ <a href="/tr/technology/f5-waf-asm-advanced-waf-uygulama-guvenligi/">F5 WAF Deep Dive</a> — Firewall politikasını tamamlayan Katman 7 koruması</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Firewall tasarımının arkasındaki politika felsefesi</li>
+<li>🛡️ <a href="/tr/technology/ddos-protection-strategies/">DDoS Koruma Stratejileri</a> — Firewall&rsquo;un yukarısında ne var</li>
+<li>🛡️ <a href="/tr/technology/f5-waf-deep-dive/">F5 WAF Deep Dive</a> — Firewall politikasını tamamlayan Katman 7 koruması</li>
 <li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">İzleme Doğru Yapıldığında</a> — Firewall davranışını görünür kılmak</li>
 </ul>
 ]]></content:encoded></item><item><title>🚀 Mezun Rehberi: Bir Network Mühendisi Aslında Ne Yapar?</title><link>https://barashhelvadzhaoglu.com/tr/posts/career-guide-network-engineering/</link><pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/posts/career-guide-network-engineering/</guid><description>Yeni mezunlar için ağ mühendisliği kariyer rehberi. Endüstriyel altyapı, günlük operasyonlar ve profesyonelleşme yol haritası.</description><content:encoded><![CDATA[<p>Merhaba arkadaşlar! Yeni mezun oldunuz, diplomanız elinizde, önünüzde uçsuz bucaksız bir IT dünyası var. &ldquo;Hangi yolu seçmeliyim?&rdquo; diye düşünürken <strong>Network Mühendisliği</strong> ile karşılaştınız. Peki bu insanlar sadece kablo mu takıyor, yoksa sahnede görünmeyen büyük bir zeka mı var? Gelin dijital dünyanın bu görünmez kahramanlığına derinlemesine dalalım.</p>

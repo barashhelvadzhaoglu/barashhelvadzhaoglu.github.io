@@ -137,12 +137,12 @@ This version expands on the architectural foundation of the series.</p>
 <ul>
 <li>📐 <a href="/en/architecture/it-infrastructure-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a> — The foundational article of this series</li>
 <li>🏗️ <a href="/en/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough</a> — Architecture-first core network design</li>
-<li>🛡️ <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product</a> — Security as architecture</li>
+<li>🛡️ <a href="/en/architecture/zero-trust-architecture-behaviors/">The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product</a> — Security as architecture</li>
 </ul>
 <p><strong>Technical Engineering</strong></p>
 <ul>
-<li>📊 <a href="/en/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively</a> — Operational visibility</li>
-<li>🛠️ <a href="/en/posts/next-gen-console-server-terminal-server-architecture/">The Backdoor of the Network: Next-Gen Console Server Architecture</a> — Out-of-band access</li>
-<li>🛡️ <a href="/en/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Traffic visibility and security strategy</li>
+<li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively</a> — Operational visibility</li>
+<li>🛠️ <a href="/en/posts/next-gen-console-server-architecture/">The Backdoor of the Network: Next-Gen Console Server Architecture</a> — Out-of-band access</li>
+<li>🛡️ <a href="/en/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Traffic visibility and security strategy</li>
 </ul>
 ]]></content:encoded></item></channel></rss>

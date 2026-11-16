@@ -13,7 +13,7 @@
 <li>Der Erfolg hängt mehr von der <strong>AD/PKI/Endpoint-Disziplin</strong> ab als vom Netzwerk selbst.</li>
 </ul>
 <blockquote>
-<p>Für die Zero-Trust-Denkweise hinter identitätsbasiertem Zugang: <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Die Zero-Trust-Denkweise: Sicherheit als Architektur, nicht als Produkt</a></p>
+<p>Für die Zero-Trust-Denkweise hinter identitätsbasiertem Zugang: <a href="/de/architecture/zero-trust-architecture-behaviors/">Die Zero-Trust-Denkweise: Sicherheit als Architektur, nicht als Produkt</a></p>
 </blockquote>
 <h3 id="1-planung-ohne-vlan-plan-wird-8021x-zu-einer-chaos-maschine-statt-einer-policy-maschine">1) Planung: Ohne VLAN-Plan wird 802.1X zu einer „Chaos-Maschine&quot; statt einer „Policy-Maschine&quot;</h3>
 <p>Beim Start von 802.1X ist der erste Reflex von jedem: „Wir richten RADIUS ein, schreiben es auf den Switch und fertig.&quot; In der Praxis endet dies meist mit dem allerersten <strong>Pilotbenutzer.</strong> Denn der Pilotbenutzer verbindet sich, und plötzlich taucht diese Frage auf: „In welches VLAN soll dieser Benutzer?&quot;</p>
@@ -144,7 +144,7 @@
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <p><strong>Architektur &amp; Sicherheit</strong></p>
 <ul>
-<li>🔐 <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Die Zero-Trust-Denkweise: Sicherheit als Architektur, nicht als Produkt</a> — Die architektonische Grundlage hinter identitätsbasiertem Zugang</li>
+<li>🔐 <a href="/de/architecture/zero-trust-architecture-behaviors/">Die Zero-Trust-Denkweise: Sicherheit als Architektur, nicht als Produkt</a> — Die architektonische Grundlage hinter identitätsbasiertem Zugang</li>
 <li>🏗️ <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Systemdenken statt Produktauswahl</li>
 <li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Monitoring richtig gemacht</a> — Richtlinienverstöße erkennen bevor sie eskalieren</li>
 </ul>

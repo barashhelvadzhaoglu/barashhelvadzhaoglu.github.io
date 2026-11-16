@@ -144,10 +144,10 @@
 <h2 id="related-articles">Related Articles</h2>
 <ul>
 <li>🔐 <a href="/en/technology/identity-based-microsegmentation-8021x/">802.1X Identity-Based Architecture in the Field</a> — The identity foundation that makes DNA Center + ISE powerful</li>
-<li>🔐 <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture</a> — The architectural philosophy behind SD-Access policy model</li>
+<li>🔐 <a href="/en/architecture/zero-trust-architecture-behaviors/">The Zero Trust Mindset: Engineering Security as an Architecture</a> — The architectural philosophy behind SD-Access policy model</li>
 <li>🏗️ <a href="/en/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough</a> — Campus architecture context</li>
 <li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">Monitoring Done Right</a> — How DNA Center assurance fits into broader monitoring strategy</li>
-<li>🌐 <a href="/en/technology/enterprise-wifi-controller-architecture-cisco-aruba/">Enterprise WiFi Controller Architecture</a> — Wireless integration with DNA Center</li>
+<li>🌐 <a href="/en/technology/wifi-controller/">Enterprise WiFi Controller Architecture</a> — Wireless integration with DNA Center</li>
 </ul>
 ]]></content:encoded></item><item><title>Cisco ISE: Architecture, Licensing, and When to Use It</title><link>https://barashhelvadzhaoglu.com/en/technology/cisco-ise-architecture/</link><pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/technology/cisco-ise-architecture/</guid><description>Cisco ISE licensing explained (Essentials, Advantage, Premier and the separate Device Admin / TACACS+ license) plus node roles, deployment models, pxGrid and when ISE beats NPS or ClearPass.</description><content:encoded><![CDATA[<h1 id="cisco-ise-architecture-licensing-and-when-to-use-it">Cisco ISE: Architecture, Licensing, and When to Use It</h1>
 <p>Cisco Identity Services Engine (ISE) is the policy brain behind enterprise network access control. It&rsquo;s the platform that answers the question — for every device trying to connect to the network — of <em>who are you, what are you, are you healthy, and what are you allowed to do?</em></p>
@@ -341,8 +341,8 @@ NPS covers basic RADIUS and 802.1X at no extra cost. ISE adds profiling, guest a
 <h2 id="related-articles">Related Articles</h2>
 <ul>
 <li>🔐 <a href="/en/technology/identity-based-microsegmentation-8021x/">802.1X Projects: Deploying the Identity-Based Architecture in the Field</a> — The field deployment guide that ISE enables</li>
-<li>🏛️ <a href="/en/architecture/cisco-dna-center-catalyst-center-architecture-guide/">Cisco DNA Center / Catalyst Center: When It Makes Sense</a> — The campus management platform ISE integrates with</li>
-<li>🔐 <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture</a> — The philosophy behind identity-based access control</li>
-<li>🛡️ <a href="/en/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive</a> — Complementary Layer 7 security alongside ISE&rsquo;s Layer 2/3 enforcement</li>
+<li>🏛️ <a href="/en/architecture/catalyst-center-architecture/">Cisco DNA Center / Catalyst Center: When It Makes Sense</a> — The campus management platform ISE integrates with</li>
+<li>🔐 <a href="/en/architecture/zero-trust-architecture-behaviors/">The Zero Trust Mindset: Engineering Security as an Architecture</a> — The philosophy behind identity-based access control</li>
+<li>🛡️ <a href="/en/technology/f5-waf-deep-dive/">F5 WAF Deep Dive</a> — Complementary Layer 7 security alongside ISE&rsquo;s Layer 2/3 enforcement</li>
 </ul>
 ]]></content:encoded></item></channel></rss>

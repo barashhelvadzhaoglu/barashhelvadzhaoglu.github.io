@@ -191,9 +191,9 @@ Select a model rated for ≥ 2.4 Gbps SSL inspection throughput
 <h2 id="related-articles">Related Articles</h2>
 <ul>
 <li>🏗️ <a href="/en/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough</a> — Architectural context for firewall placement</li>
-<li>🔐 <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture</a> — Policy philosophy behind firewall design</li>
-<li>🛡️ <a href="/en/technology/ddos-protection-strategies-isp-scrubbing-on-premise-cloud/">DDoS Protection Strategies</a> — What sits upstream of the firewall</li>
-<li>🛡️ <a href="/en/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive</a> — Layer 7 protection that complements firewall policy</li>
+<li>🔐 <a href="/en/architecture/zero-trust-architecture-behaviors/">The Zero Trust Mindset: Engineering Security as an Architecture</a> — Policy philosophy behind firewall design</li>
+<li>🛡️ <a href="/en/technology/ddos-protection-strategies/">DDoS Protection Strategies</a> — What sits upstream of the firewall</li>
+<li>🛡️ <a href="/en/technology/f5-waf-deep-dive/">F5 WAF Deep Dive</a> — Layer 7 protection that complements firewall policy</li>
 <li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">Monitoring Done Right</a> — Making firewall behavior visible</li>
 </ul>
 ]]></content:encoded></item></channel></rss>

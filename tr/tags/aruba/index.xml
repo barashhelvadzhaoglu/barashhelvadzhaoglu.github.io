@@ -77,11 +77,11 @@ SD-WAN pazarında Fortinet ve Cisco, Aruba&rsquo;ya kıyasla daha büyük bir ku
 <p>HPE Aruba EdgeConnect SD-WAN, pazardaki en olgun WAN optimization yeteneğini modern bir SD-WAN mimarisine taşır. WAN optimization&rsquo;ın önemini koruduğu senaryolarda — lokasyonlar arası replikasyon, gecikmeye duyarlı eski uygulamalar, broadband üzerinde yüksek güvenilirlik gereksinimleri — Silver Peak mirası gerçek bir teknik ayrışma sunar.</p>
 <p>Aruba entegrasyonu; kampüs ve şube altyapısına sahip kurumlara kablosuz, kablolu ve WAN altyapısında operasyonel olarak son derece cazip bir birleşik yönetim yolu sağlar. Mevcut bir Aruba altyapısı bulunmayan ve belirgin bir WAN optimization ihtiyacı olmayan ortamlardaki saf SD-WAN kurulumlarında ise Cisco veya Fortinet&rsquo;e kıyasla ayrışan noktalar daralmaktadır.</p>
 <hr>
-<p><em>Bu serideki bir sonraki yazı: <a href="/en/posts/palo-alto-sd-wan/">Palo Alto SD-WAN — Prisma SD-WAN ve Güvenlik Öncelikli Yaklaşım</a></em></p>
+<p><em>Bu serideki bir sonraki yazı: <a href="/en/technology/palo-alto-sd-wan/">Palo Alto SD-WAN — Prisma SD-WAN ve Güvenlik Öncelikli Yaklaşım</a></em></p>
 ]]></content:encoded></item><item><title>KOBİ, Oteller ve Muayenehaneler İçin WiFi Tasarımı: Saha Notları</title><link>https://barashhelvadzhaoglu.com/tr/technology/wifi-smb-hotel-medical/</link><pubDate>Wed, 29 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/wifi-smb-hotel-medical/</guid><description>KOBİ, otel ve muayenehaneler için WiFi tasarım rehberi — yoğunluk planlaması, misafir segmentasyonu, bant genişliği yönetimi ve PMS entegrasyonu.</description><content:encoded><![CDATA[<h1 id="kobi-oteller-ve-muayenehaneler-için-wifi-tasarımı-saha-notları">KOBİ, Oteller ve Muayenehaneler İçin WiFi Tasarımı: Saha Notları</h1>
 <p>Bu yazı Kurumsal WiFi serisinin bir parçasıdır.</p>
 <blockquote>
-<p><strong>Kurumsal kablosuz ağa yeni misiniz?</strong> Genel bakışla başlayın: <a href="/tr/technology/kurumsal-wifi-mimarisi-tam-rehber/">Kurumsal WiFi Mimarisi: Standartlardan Deployment&rsquo;a</a></p>
+<p><strong>Kurumsal kablosuz ağa yeni misiniz?</strong> Genel bakışla başlayın: <a href="/tr/technology/wifi-master/">Kurumsal WiFi Mimarisi: Standartlardan Deployment&rsquo;a</a></p>
 </blockquote>
 <hr>
 <h2 id="ortam-türü-neden-ekipman-markasından-daha-önemlidir">Ortam Türü Neden Ekipman Markasından Daha Önemlidir</h2>
@@ -297,21 +297,21 @@ Kurumsal AP&rsquo;ler PoE gerektirir. Birden fazla radyolu bir Cisco veya Aruba 
 <hr>
 <h2 id="bu-seri">Bu Seri</h2>
 <ul>
-<li>📖 <a href="/tr/technology/kurumsal-wifi-mimarisi-tam-rehber/">Kurumsal WiFi Mimarisi Genel Bakış</a> ← Buradan başlayın</li>
-<li>📡 <a href="/tr/technology/wifi-80211-standartlari-wifi4-wifi5-wifi6/">802.11 Standartları Deep Dive</a></li>
-<li>🏢 <a href="/tr/technology/kurumsal-wifi-controller-mimarisi-cisco-aruba/">Kurumsal Controller Mimarisi: Cisco ve Aruba</a></li>
-<li>🔐 <a href="/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/">WiFi Güvenliği: WPA3, 802.1X, Sahte AP, Site Survey</a></li>
+<li>📖 <a href="/tr/technology/wifi-master/">Kurumsal WiFi Mimarisi Genel Bakış</a> ← Buradan başlayın</li>
+<li>📡 <a href="/tr/technology/wifi-standards/">802.11 Standartları Deep Dive</a></li>
+<li>🏢 <a href="/tr/technology/wifi-controller/">Kurumsal Controller Mimarisi: Cisco ve Aruba</a></li>
+<li>🔐 <a href="/tr/technology/wifi-security/">WiFi Güvenliği: WPA3, 802.1X, Sahte AP, Site Survey</a></li>
 </ul>
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>
-<li>📡 <a href="/tr/technology/nas-backup-aws-s3-cloud-kobi/">NAS Yedekleme ve AWS S3 — KOBİ&rsquo;ler için Veri Güvenliği</a> — WiFi&rsquo;nin yanında KOBİ veri koruma</li>
+<li>📡 <a href="/tr/posts/nas-backup/">NAS Yedekleme ve AWS S3 — KOBİ&rsquo;ler için Veri Güvenliği</a> — WiFi&rsquo;nin yanında KOBİ veri koruma</li>
 <li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Kimlik Tabanlı Mimari Sahada</a> — Kurumsal kablosuz için kimlik katmanı</li>
 <li>🏗️ <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Ürünler Koleksiyonu Değildir</a> — Ağ tasarımında sistem düşüncesi</li>
 </ul>
 ]]></content:encoded></item><item><title>Kurumsal WiFi Controller Mimarisi: Cisco ve Aruba WLAN Tasarımı</title><link>https://barashhelvadzhaoglu.com/tr/technology/wifi-controller/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/wifi-controller/</guid><description>Kurumsal kablosuz controller mimarileri — Cisco WLC ile DNA Center, Aruba Mobility Master ile Central, merkezi ve dağıtık tasarımlar.</description><content:encoded><![CDATA[<h1 id="kurumsal-wifi-controller-mimarisi-cisco-ve-aruba-wlan-tasarımı">Kurumsal WiFi Controller Mimarisi: Cisco ve Aruba WLAN Tasarımı</h1>
 <p>Bu yazı Kurumsal WiFi serisinin bir parçasıdır.</p>
 <blockquote>
-<p><strong>Kurumsal kablosuz ağa yeni misiniz?</strong> Genel bakışla başlayın: <a href="/tr/technology/kurumsal-wifi-mimarisi-tam-rehber/">Kurumsal WiFi Mimarisi: Standartlardan Deployment&rsquo;a</a></p>
+<p><strong>Kurumsal kablosuz ağa yeni misiniz?</strong> Genel bakışla başlayın: <a href="/tr/technology/wifi-master/">Kurumsal WiFi Mimarisi: Standartlardan Deployment&rsquo;a</a></p>
 </blockquote>
 <hr>
 <h2 id="controller-mimarisi-neden-önemli">Controller Mimarisi Neden Önemli</h2>
@@ -533,10 +533,10 @@ DNA Center, SGT tabanlı politikayı uçtan uca uygular
 <hr>
 <h2 id="bu-seri">Bu Seri</h2>
 <ul>
-<li>📖 <a href="/tr/technology/kurumsal-wifi-mimarisi-tam-rehber/">Kurumsal WiFi Mimarisi Genel Bakış</a> ← Buradan başlayın</li>
-<li>📡 <a href="/tr/technology/wifi-80211-standartlari-wifi4-wifi5-wifi6/">802.11 Standartları Deep Dive</a></li>
-<li>🏨 <a href="/tr/technology/wifi-tasarimi-kobi-otel-saglik/">KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı</a></li>
-<li>🔐 <a href="/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/">WiFi Güvenliği: WPA3, 802.1X, Sahte AP, Site Survey</a></li>
+<li>📖 <a href="/tr/technology/wifi-master/">Kurumsal WiFi Mimarisi Genel Bakış</a> ← Buradan başlayın</li>
+<li>📡 <a href="/tr/technology/wifi-standards/">802.11 Standartları Deep Dive</a></li>
+<li>🏨 <a href="/tr/technology/wifi-smb-hotel-medical/">KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı</a></li>
+<li>🔐 <a href="/tr/technology/wifi-security/">WiFi Güvenliği: WPA3, 802.1X, Sahte AP, Site Survey</a></li>
 </ul>
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>
@@ -553,10 +553,10 @@ DNA Center, SGT tabanlı politikayı uçtan uca uygular
 <p>Bu yazı size <strong>büyük resmi</strong> verir — kurumsal kablosuz mimarisinin neyi içerdiğini, temel kararların neler olduğunu ve her deep dive&rsquo;ın nereye gittiğini.</p>
 <p><strong>Mühendisseniz</strong> ve belirli bir konuya derinlemesine inmek istiyorsanız — kullanım senaryonuzu kapsayan yazıya atlayın:</p>
 <ul>
-<li>📡 <strong><a href="/tr/technology/wifi-80211-standartlari-wifi4-wifi5-wifi6/">802.11 Standartları Deep Dive: WiFi 4, 5, 6, 6E ve Gerçekte Ne Değişti</a></strong> — ax, ac, n ve be&rsquo;nin kapasite, kapsama alanı ve deployment kararları için gerçekte ne anlama geldiği</li>
-<li>🏢 <strong><a href="/tr/technology/kurumsal-wifi-controller-mimarisi-cisco-aruba/">Kurumsal Controller Mimarisi: Cisco ve Aruba WLAN Tasarımı</a></strong> — Merkezi ve dağıtık kontrol, mobilite alanları, WLC ve bulut yönetimi karşılaştırması</li>
-<li>🏨 <strong><a href="/tr/technology/wifi-tasarimi-kobi-otel-saglik/">KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı</a></strong> — Yoğunluk planlaması, misafir segmentasyonu ve beklenti yönetimi üzerine pratik saha notları</li>
-<li>🔐 <strong><a href="/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/">WiFi Güvenliği: WPA3, 802.1X, Sahte AP Tespiti ve Site Survey</a></strong> — Kimlik doğrulama, şifreleme, saldırı tespiti ve Ekahau survey metodolojisi</li>
+<li>📡 <strong><a href="/tr/technology/wifi-standards/">802.11 Standartları Deep Dive: WiFi 4, 5, 6, 6E ve Gerçekte Ne Değişti</a></strong> — ax, ac, n ve be&rsquo;nin kapasite, kapsama alanı ve deployment kararları için gerçekte ne anlama geldiği</li>
+<li>🏢 <strong><a href="/tr/technology/wifi-controller/">Kurumsal Controller Mimarisi: Cisco ve Aruba WLAN Tasarımı</a></strong> — Merkezi ve dağıtık kontrol, mobilite alanları, WLC ve bulut yönetimi karşılaştırması</li>
+<li>🏨 <strong><a href="/tr/technology/wifi-smb-hotel-medical/">KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı</a></strong> — Yoğunluk planlaması, misafir segmentasyonu ve beklenti yönetimi üzerine pratik saha notları</li>
+<li>🔐 <strong><a href="/tr/technology/wifi-security/">WiFi Güvenliği: WPA3, 802.1X, Sahte AP Tespiti ve Site Survey</a></strong> — Kimlik doğrulama, şifreleme, saldırı tespiti ve Ekahau survey metodolojisi</li>
 </ul>
 <p><strong>Mimar veya karar vericiyseniz</strong> ve kablosuz çözümleri değerlendiriyorsanız — burada okumaya devam edin. Bu yazı, RF uzmanlığı gerektirmeden stratejik soruları yanıtlar.</p>
 <hr>
@@ -625,7 +625,7 @@ DNA Center, SGT tabanlı politikayı uçtan uca uygular
 </ul>
 <p><strong>WiFi 6E</strong>, 6 GHz bandını ekledi — komşu ağlardan ve eski cihazlardan gelen girişimi ortadan kaldıran büyük ölçüde tıkanmamış bir spektrum. Yoğun kentsel ortamlarda önemli avantaj.</p>
 <p><strong>WiFi 7</strong> ortaya çıkıyor ve Çok Bağlantılı Çalışma (MLO) sayesinde tek bir cihazın aynı anda birden fazla bant ve kanalı kullanması — verimi iyileştiriyor ve gecikmeyi azaltıyor. 2026 itibarıyla hâlâ erken kurumsal deployment aşamasında.</p>
-<p>→ <strong><a href="/tr/technology/wifi-80211-standartlari-wifi4-wifi5-wifi6/">802.11 Standartları Deep Dive</a></strong></p>
+<p>→ <strong><a href="/tr/technology/wifi-standards/">802.11 Standartları Deep Dive</a></strong></p>
 <hr>
 <h2 id="controller-mimarisi-zekanın-nerede-yaşadığı">Controller Mimarisi: Zekanın Nerede Yaşadığı</h2>
 <p>Kurumsal kablosuz ağlarda iki temel mimari model vardır:</p>
@@ -648,7 +648,7 @@ DNA Center, SGT tabanlı politikayı uçtan uca uygular
 <h3 id="dağıtık--kampüs-fabric">Dağıtık / Kampüs Fabric</h3>
 <p>Modern büyük kampüs deployment&rsquo;ları çoğunlukla kablosuzu daha geniş ağ fabric&rsquo;ine entegre eder — AP&rsquo;ler, cihaz kablo veya kablosuz bağlansın tutarlı erişim kontrolüyle kimlik tabanlı VLAN atamasıyla kablolu portlarla aynı politika ve segmentasyon modeline katılır.</p>
 <p>SD-Access ile Cisco DNA Center ve Central ile Aruba CX bu yaklaşımın örnekleridir.</p>
-<p>→ <strong><a href="/tr/technology/kurumsal-wifi-controller-mimarisi-cisco-aruba/">Kurumsal Controller Mimarisi Deep Dive</a></strong></p>
+<p>→ <strong><a href="/tr/technology/wifi-controller/">Kurumsal Controller Mimarisi Deep Dive</a></strong></p>
 <hr>
 <h2 id="kobi-otel-ve-muayenehane-tasarım-prensipleri">KOBİ, Otel ve Muayenehane: Tasarım Prensipleri</h2>
 <p>Tüketici WiFi ekipmanı, profesyonel ortamlarda düşük kalite nedeniyle değil — yoğunluk, yönetim gereksinimleri veya bu ortamların güvenlik beklentileri için tasarlanmadığı için başarısız olur.</p>
@@ -675,7 +675,7 @@ DNA Center, SGT tabanlı politikayı uçtan uca uygular
 <li><strong>Misafir portalı:</strong> Kimlik doğrulama, şartlar kabul, potansiyel olarak oda numarası doğrulama. Otomatik sağlama için PMS (Otel Yönetim Sistemi) ile entegrasyon.</li>
 <li><strong>Personel ve misafir ağı:</strong> Tamamen ayrı — personel ağına hiçbir koşulda misafir ağından erişilememeli.</li>
 </ul>
-<p>→ <strong><a href="/tr/technology/wifi-tasarimi-kobi-otel-saglik/">KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı Deep Dive</a></strong></p>
+<p>→ <strong><a href="/tr/technology/wifi-smb-hotel-medical/">KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı Deep Dive</a></strong></p>
 <hr>
 <h2 id="roaming-ve-band-yönlendirme">Roaming ve Band Yönlendirme</h2>
 <h3 id="roaming-göründüğünden-neden-daha-zordur">Roaming: Göründüğünden Neden Daha Zordur</h3>
@@ -716,7 +716,7 @@ DNA Center, SGT tabanlı politikayı uçtan uca uygular
 <h3 id="sahte-ap-tespiti">Sahte AP Tespiti</h3>
 <p>Sahte AP, ağınıza bağlı yetkisiz bir erişim noktasıdır — kötü niyetle yerleştirilen veya ofise ev yönlendiricisi getiren iyi niyetli bir çalışan.</p>
 <p>Kurumsal kablosuz controller&rsquo;lar RF ortamını sürekli olarak AP&rsquo;ler için tarar. Kablolu ağınızın BSSID&rsquo;si veya SSID&rsquo;siyle eşleşen bir AP tespit edildiğinde, sahte olarak işaretlenir ve — çoğu platformda — otomatik olarak çevrelenebilir (controller, sahte AP&rsquo;ye bağlanan istemcilere kimlik doğrulama iptali çerçeveleri gönderir).</p>
-<p>→ <strong><a href="/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/">WiFi Güvenliği Deep Dive: WPA3, 802.1X, Sahte AP Tespiti ve Site Survey</a></strong></p>
+<p>→ <strong><a href="/tr/technology/wifi-security/">WiFi Güvenliği Deep Dive: WPA3, 802.1X, Sahte AP Tespiti ve Site Survey</a></strong></p>
 <hr>
 <h2 id="site-survey-çoğu-projenin-atladığı-adım">Site Survey: Çoğu Projenin Atladığı Adım</h2>
 <p>Site survey, AP deployment öncesinde ve sonrasında RF ortamının sistematik olarak ölçülmesidir. Bu adımı atlamak, &ldquo;WiFi deployment yaptık ama düzgün çalışmıyor&rdquo; durumlarının en yaygın nedenidir.</p>
@@ -730,7 +730,7 @@ DNA Center, SGT tabanlı politikayı uçtan uca uygular
 <li>İstemcilerin AP&rsquo;ler arasında bağlantıyı kaybettiği roaming ölü noktaları</li>
 </ul>
 <p>Uygun bir site survey&rsquo;in maliyeti, kurulumdan sonra önemli yeniden çalışma gerektiren kablosuz deployment maliyetiyle karşılaştırıldığında küçüktür.</p>
-<p>→ <strong><a href="/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/">WiFi Güvenliği Deep Dive, Site Survey metodolojisini içerir</a></strong></p>
+<p>→ <strong><a href="/tr/technology/wifi-security/">WiFi Güvenliği Deep Dive, Site Survey metodolojisini içerir</a></strong></p>
 <hr>
 <h2 id="doğru-platformu-seçme">Doğru Platformu Seçme</h2>
 <table>
@@ -774,10 +774,10 @@ DNA Center, SGT tabanlı politikayı uçtan uca uygular
 <hr>
 <h2 id="bu-seri">Bu Seri</h2>
 <ul>
-<li>📡 <strong><a href="/tr/technology/wifi-80211-standartlari-wifi4-wifi5-wifi6/">802.11 Standartları Deep Dive</a></strong> — WiFi 4, 5, 6, 6E ve 7: ne değişti, pratikte ne önemli</li>
-<li>🏢 <strong><a href="/tr/technology/kurumsal-wifi-controller-mimarisi-cisco-aruba/">Kurumsal Controller Mimarisi</a></strong> — Cisco ve Aruba mimarileri, merkezi ve bulut karşılaştırması, mobilite alanları</li>
-<li>🏨 <strong><a href="/tr/technology/wifi-tasarimi-kobi-otel-saglik/">KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı</a></strong> — Gerçek dünya deployment senaryolarında pratik saha notları</li>
-<li>🔐 <strong><a href="/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/">WiFi Güvenliği: WPA3, 802.1X, Sahte AP, Site Survey</a></strong> — Kimlik doğrulama, şifreleme, saldırı tespiti, Ekahau metodolojisi</li>
+<li>📡 <strong><a href="/tr/technology/wifi-standards/">802.11 Standartları Deep Dive</a></strong> — WiFi 4, 5, 6, 6E ve 7: ne değişti, pratikte ne önemli</li>
+<li>🏢 <strong><a href="/tr/technology/wifi-controller/">Kurumsal Controller Mimarisi</a></strong> — Cisco ve Aruba mimarileri, merkezi ve bulut karşılaştırması, mobilite alanları</li>
+<li>🏨 <strong><a href="/tr/technology/wifi-smb-hotel-medical/">KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı</a></strong> — Gerçek dünya deployment senaryolarında pratik saha notları</li>
+<li>🔐 <strong><a href="/tr/technology/wifi-security/">WiFi Güvenliği: WPA3, 802.1X, Sahte AP, Site Survey</a></strong> — Kimlik doğrulama, şifreleme, saldırı tespiti, Ekahau metodolojisi</li>
 </ul>
 <hr>
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>

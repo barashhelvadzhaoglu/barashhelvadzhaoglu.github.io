@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Netzwerkarchitektur on Barash Helvadzhaoglu</title><link>https://barashhelvadzhaoglu.com/de/tags/netzwerkarchitektur/</link><description>Recent content in Netzwerkarchitektur on Barash Helvadzhaoglu</description><generator>Hugo -- 0.170.0</generator><language>de</language><lastBuildDate>Fri, 17 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://barashhelvadzhaoglu.com/de/tags/netzwerkarchitektur/index.xml" rel="self" type="application/rss+xml"/><item><title>Enterprise WLAN-Controller-Architektur: Cisco und Aruba WLAN-Design</title><link>https://barashhelvadzhaoglu.com/de/technology/wifi-controller/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/technology/wifi-controller/</guid><description>Enterprise-WLAN-Controller Deep Dive — Cisco WLC vs. DNA Center, Aruba Mobility Master vs. Central, zentrale vs. verteilte Designs.</description><content:encoded><![CDATA[<h1 id="enterprise-wlan-controller-architektur-cisco-und-aruba-wlan-design">Enterprise WLAN-Controller-Architektur: Cisco und Aruba WLAN-Design</h1>
 <p>Dieser Artikel ist Teil der Enterprise-WiFi-Serie.</p>
 <blockquote>
-<p><strong>Neu im Enterprise-Wireless-Bereich?</strong> Beginnen Sie mit der Übersicht: <a href="/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/">Enterprise WiFi-Architektur: Von Standards bis zur Deployment</a></p>
+<p><strong>Neu im Enterprise-Wireless-Bereich?</strong> Beginnen Sie mit der Übersicht: <a href="/de/technology/wifi-master/">Enterprise WiFi-Architektur: Von Standards bis zur Deployment</a></p>
 </blockquote>
 <hr>
 <h2 id="warum-controller-architektur-wichtig-ist">Warum Controller-Architektur wichtig ist</h2>
@@ -222,10 +222,10 @@ DNA Center setzt SGT-basierte Richtlinie Ende-zu-Ende durch
 <hr>
 <h2 id="diese-serie">Diese Serie</h2>
 <ul>
-<li>📖 <a href="/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/">Enterprise WiFi-Architektur Übersicht</a> ← Beginnen Sie hier</li>
-<li>📡 <a href="/de/technology/wifi-80211-standards-wifi4-wifi5-wifi6/">802.11 Standards Deep Dive</a></li>
-<li>🏨 <a href="/de/technology/wifi-design-kmu-hotel-gesundheit/">WiFi-Design für KMU, Hotels und Arztpraxen</a></li>
-<li>🔐 <a href="/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/">WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey</a></li>
+<li>📖 <a href="/de/technology/wifi-master/">Enterprise WiFi-Architektur Übersicht</a> ← Beginnen Sie hier</li>
+<li>📡 <a href="/de/technology/wifi-standards/">802.11 Standards Deep Dive</a></li>
+<li>🏨 <a href="/de/technology/wifi-smb-hotel-medical/">WiFi-Design für KMU, Hotels und Arztpraxen</a></li>
+<li>🔐 <a href="/de/technology/wifi-security/">WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey</a></li>
 </ul>
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
@@ -283,7 +283,7 @@ DNA Center setzt SGT-basierte Richtlinie Ende-zu-Ende durch
 </ul>
 <p>Das bedeutet nicht „zwei Firewalls kaufen&quot;, sondern „zwei unterschiedliche Aufgaben mit passenden Werkzeugen abdecken&quot;. Wenn alles in eine Box gepackt wird, leidet entweder Performance, Manageability oder Security – meist mindestens eines davon.</p>
 <blockquote>
-<p>Für ein tieferes Verständnis der Sicherheitsphilosophie hinter dieser Architektur empfehle ich: <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt</a></p>
+<p>Für ein tieferes Verständnis der Sicherheitsphilosophie hinter dieser Architektur empfehle ich: <a href="/de/architecture/zero-trust-architecture-behaviors/">Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt</a></p>
 </blockquote>
 <p>Und damit sind wir direkt bei der Kapazitätsplanung.</p>
 <h2 id="firewall-kapazitätsplanung-durchsatz-allein-ist-trügerisch">Firewall-Kapazitätsplanung: Durchsatz allein ist trügerisch</h2>
@@ -343,7 +343,7 @@ Besonders bei Application Visibility, Policy-Tiefe und SASE sehe ich Palo Alto k
 <p>Meine persönliche Haltung: Wo Teams reif genug sind, profitieren Architekturen oft von spezialisierten Herstellern pro Layer. Wo Einfachheit, Klarheit und ein zentraler Supportkanal wichtiger sind, ist ein Single-Vendor-Ansatz völlig legitim.</p>
 <p>Ein letzter Punkt ist mir besonders wichtig: Automatisierung. API-Fähigkeit ist heute kein Bonus mehr, sondern ein Auswahlkriterium. Produkte sollten nicht zuerst nach Hardware, sondern nach Automatisierbarkeit bewertet werden.</p>
 <blockquote>
-<p>Einen praktischen Rahmen für den Aufbau von Infrastruktur-Sichtbarkeit finden Sie hier: <a href="/de/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen und proaktiv handeln</a></p>
+<p>Einen praktischen Rahmen für den Aufbau von Infrastruktur-Sichtbarkeit finden Sie hier: <a href="/de/architecture/monitoring-not-just-seeing/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen und proaktiv handeln</a></p>
 </blockquote>
 <h2 id="serverraum-und-verkabelung-die-realität-über-die-niemand-spricht--aber-jeder-bezahlt">Serverraum und Verkabelung: Die Realität, über die niemand spricht – aber jeder bezahlt</h2>
 <p>In Netzwerkprojekten stehen meist die „glänzenden&quot; Themen im Vordergrund. Doch viele Probleme entstehen viel tiefer: im Serverraum und in der Verkabelung.</p>
@@ -369,15 +369,15 @@ Diese Version erweitert die architektonische Grundlage der Serie.</p>
 <p>Wenn Ihnen dieser Artikel gefallen hat, könnten auch diese Beiträge interessant sein:</p>
 <p><strong>Architektur &amp; Sicherheitsdesign</strong></p>
 <ul>
-<li>📐 <a href="/de/architecture/it-infrastructure-is-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Der Grundlagenartikel dieser Serie</li>
-<li>🛡️ <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt</a> — Warum Zero Trust eine Philosophie und kein Produkt ist</li>
-<li>📊 <a href="/de/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen</a> — Echte Transparenz in der Infrastruktur aufbauen</li>
+<li>📐 <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Der Grundlagenartikel dieser Serie</li>
+<li>🛡️ <a href="/de/architecture/zero-trust-architecture-behaviors/">Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt</a> — Warum Zero Trust eine Philosophie und kein Produkt ist</li>
+<li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen</a> — Echte Transparenz in der Infrastruktur aufbauen</li>
 </ul>
 <p><strong>Technisches Engineering</strong></p>
 <ul>
-<li>🛠️ <a href="/de/posts/next-gen-console-server-terminal-server-architecture/">Die Hintertür des Netzwerks: Next-Gen Console Server Architektur</a> — Out-of-Band-Zugang wenn alles andere versagt</li>
-<li>🛡️ <a href="/de/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Erweiterte Traffic-Sichtbarkeit und Sicherheitsstrategie</li>
-<li>🔐 <a href="/de/posts/unlocking-success-in-802-1x-projects-field-insights/">802.1X Projekte erfolgreich umsetzen: Praxiseinblicke</a> — Identitätsbasierter Zugang in Unternehmensnetzwerken</li>
+<li>🛠️ <a href="/de/posts/next-gen-console-server-architecture/">Die Hintertür des Netzwerks: Next-Gen Console Server Architektur</a> — Out-of-Band-Zugang wenn alles andere versagt</li>
+<li>🛡️ <a href="/de/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Erweiterte Traffic-Sichtbarkeit und Sicherheitsstrategie</li>
+<li>🔐 <a href="/de/posts/8021x-field-deployment-teaser/">802.1X Projekte erfolgreich umsetzen: Praxiseinblicke</a> — Identitätsbasierter Zugang in Unternehmensnetzwerken</li>
 <li>⚙️ <a href="/de/posts/cisco-nexus-nxos-upgrade-guide/">Nexus Software Upgrade Guide</a> — NX-OS Upgrade ohne Ausfallzeit</li>
 </ul>
 ]]></content:encoded></item><item><title>IT-Infrastruktur ist keine Produktsammlung — sie ist ein System</title><link>https://barashhelvadzhaoglu.com/de/architecture/it-infrastructure-not-a-collection-of-products/</link><pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/de/architecture/it-infrastructure-not-a-collection-of-products/</guid><description>IT-Infrastrukturprojekte scheitern, weil die Umgebung nie zum System wird. Architektonischer Rahmen für die Core-Network-Serie.</description><content:encoded><![CDATA[<h1 id="it-infrastruktur-ist-keine-produktsammlung--sie-ist-ein-system">IT-Infrastruktur ist keine Produktsammlung — sie ist ein System</h1>
@@ -421,7 +421,7 @@ Eine Infrastruktur ist dafür konzipiert, eine Organisation zu tragen.</p>
 </ul>
 <p>Ohne klare Antworten auf diese Fragen werden selbst die besten Produkte irgendwann gegeneinander arbeiten.</p>
 <blockquote>
-<p>Für einen tiefen Einblick, wie Identität und Vertrauensgrenzen in der Praxis definiert werden: <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt</a></p>
+<p>Für einen tiefen Einblick, wie Identität und Vertrauensgrenzen in der Praxis definiert werden: <a href="/de/architecture/zero-trust-architecture-behaviors/">Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt</a></p>
 </blockquote>
 <hr>
 <h2 id="architektur-zeigt-sich-unter-druck">Architektur zeigt sich unter Druck</h2>
@@ -456,7 +456,7 @@ Sie findet sich in operativen Workflows.</p>
 <p>Wenn diese Workflows manuell, fragmentiert oder undokumentiert sind, wird die Infrastruktur diese Realität widerspiegeln – unabhängig davon, wie modern der Technologie-Stack erscheint.</p>
 <p>Deshalb sind Automatisierung, Observability und Lifecycle-Management keine optionalen Extras. Sie sind architektonische Elemente. Infrastruktur, die nicht konsistent betrieben werden kann, wird niemals sicher skalieren.</p>
 <blockquote>
-<p>Einen praktischen Rahmen für den Aufbau echter Sichtbarkeit in Ihrer Infrastruktur finden Sie hier: <a href="/de/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen und proaktiv handeln</a></p>
+<p>Einen praktischen Rahmen für den Aufbau echter Sichtbarkeit in Ihrer Infrastruktur finden Sie hier: <a href="/de/architecture/monitoring-not-just-seeing/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen und proaktiv handeln</a></p>
 </blockquote>
 <hr>
 <h2 id="warum-das-wichtig-ist-bevor-wir-über-networking-sprechen">Warum das wichtig ist, bevor wir über Networking sprechen</h2>
@@ -491,13 +491,13 @@ Diese Version erweitert die architektonische Grundlage der Serie.</p>
 <p><strong>Architektur &amp; Sicherheitsdesign</strong></p>
 <ul>
 <li>🏗️ <a href="/de/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Warum die richtige Produktwahl allein nicht ausreicht</a> — Systemdenken im Core-Network-Design</li>
-<li>🛡️ <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt</a> — Warum Zero Trust eine Philosophie und kein Produkt ist</li>
-<li>📊 <a href="/de/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen</a> — Echte Transparenz in der Infrastruktur aufbauen</li>
+<li>🛡️ <a href="/de/architecture/zero-trust-architecture-behaviors/">Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt</a> — Warum Zero Trust eine Philosophie und kein Produkt ist</li>
+<li>📊 <a href="/de/architecture/monitoring-not-just-seeing/">Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen</a> — Echte Transparenz in der Infrastruktur aufbauen</li>
 </ul>
 <p><strong>Technisches Engineering</strong></p>
 <ul>
-<li>🛠️ <a href="/de/posts/next-gen-console-server-terminal-server-architecture/">Die Hintertür des Netzwerks: Next-Gen Console Server Architektur</a> — Out-of-Band-Zugang wenn alles andere versagt</li>
-<li>🛡️ <a href="/de/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Erweiterte Traffic-Sichtbarkeit und Sicherheitsstrategie</li>
-<li>🔐 <a href="/de/posts/unlocking-success-in-802-1x-projects-field-insights/">802.1X Projekte erfolgreich umsetzen: Praxiseinblicke</a> — Identitätsbasierter Zugang in Unternehmensnetzwerken</li>
+<li>🛠️ <a href="/de/posts/next-gen-console-server-architecture/">Die Hintertür des Netzwerks: Next-Gen Console Server Architektur</a> — Out-of-Band-Zugang wenn alles andere versagt</li>
+<li>🛡️ <a href="/de/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Erweiterte Traffic-Sichtbarkeit und Sicherheitsstrategie</li>
+<li>🔐 <a href="/de/posts/8021x-field-deployment-teaser/">802.1X Projekte erfolgreich umsetzen: Praxiseinblicke</a> — Identitätsbasierter Zugang in Unternehmensnetzwerken</li>
 </ul>
 ]]></content:encoded></item></channel></rss>

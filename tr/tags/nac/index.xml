@@ -180,9 +180,9 @@
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>
 <li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Projeleri: Kimlik Tabanlı Mimariyi Sahada Kullanıma Almak</a> — ISE&rsquo;nin etkinleştirdiği saha deployment rehberi</li>
-<li>🏛️ <a href="/tr/architecture/cisco-dna-center-catalyst-center-architecture-guide/">Cisco DNA Center / Catalyst Center: Ne Zaman Mantıklıdır</a> — ISE&rsquo;nin entegre olduğu kampüs yönetim platformu</li>
-<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Kimlik tabanlı erişim kontrolünün arkasındaki felsefe</li>
-<li>🛡️ <a href="/tr/technology/f5-waf-asm-advanced-waf-application-security/">F5 WAF Deep Dive</a> — ISE&rsquo;nin L2/L3 uygulamasının yanında tamamlayıcı L7 güvenliği</li>
+<li>🏛️ <a href="/tr/architecture/catalyst-center-architecture/">Cisco DNA Center / Catalyst Center: Ne Zaman Mantıklıdır</a> — ISE&rsquo;nin entegre olduğu kampüs yönetim platformu</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Kimlik tabanlı erişim kontrolünün arkasındaki felsefe</li>
+<li>🛡️ <a href="/tr/technology/f5-waf-deep-dive/">F5 WAF Deep Dive</a> — ISE&rsquo;nin L2/L3 uygulamasının yanında tamamlayıcı L7 güvenliği</li>
 </ul>
 ]]></content:encoded></item><item><title>802.1X Projeleri: Kimliği Ağa Taşıyan Mimariyi Sahada Kurmak</title><link>https://barashhelvadzhaoglu.com/tr/technology/identity-based-microsegmentation-8021x/</link><pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/tr/technology/identity-based-microsegmentation-8021x/</guid><description>802.1X projelerinin networkten ziyade AD, PKI ve GPO disiplinine bağlı başarısını ele alan saha tecrübesi dökümanı.</description><content:encoded><![CDATA[<h1 id="8021x-projeleri-kimliği-ağa-taşıyan-mimariyi-sahada-kurmak">802.1X Projeleri: Kimliği Ağa Taşıyan Mimariyi Sahada Kurmak</h1>
 <p>802.1X projeleri dışarıdan bakınca <strong>network işi</strong> gibi görünür; çünkü dokunulan yer switch portlarıdır, SSID&rsquo;lerdir, RADIUS&rsquo;tur. Ama gerçek hayatta 802.1X&rsquo;in başarısı çoğu zaman network cihazlarının üzerinde değil; <strong>Active Directory düzeninde</strong>, <strong>sertifika altyapısında (PKI)</strong> ve <strong>uç cihaz yönetiminde</strong> belirlenir. Bunun nedeni basit: 802.1X, portun VLAN&rsquo;ını değil, kurumun <strong>&ldquo;kimlik modelini&rdquo;</strong> konuşmaya zorlar. Yani &ldquo;hangi port hangi VLAN&quot;dan, <strong>&ldquo;hangi kimlik hangi yetkiyle ağa girer&rdquo;</strong> düzenine geçersin.</p>
@@ -199,7 +199,7 @@
 <li>Başarı network&rsquo;ten çok <strong>AD/PKI/endpoint disiplinine</strong> bağlıdır.</li>
 </ul>
 <blockquote>
-<p>Kimlik tabanlı erişimin arkasındaki Zero Trust zihniyeti için: <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Ürün Değil Mimari Olarak Tasarlamak</a></p>
+<p>Kimlik tabanlı erişimin arkasındaki Zero Trust zihniyeti için: <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Ürün Değil Mimari Olarak Tasarlamak</a></p>
 </blockquote>
 <h3 id="1-planlama-vlan-planı-yoksa-8021x-kural-motoru-değil-kaos-motoru-olur">1) Planlama: VLAN planı yoksa 802.1X &ldquo;kural motoru&rdquo; değil &ldquo;kaos motoru&rdquo; olur</h3>
 <p>802.1X&rsquo;e geçerken herkesin ilk refleksi şudur: &ldquo;RADIUS kurarız, switch&rsquo;e yazarız, biter.&rdquo; Sahada bunun bittiği yer genelde ilk <strong>pilot kullanıcıdır.</strong> Çünkü pilot kullanıcı bağlanır ve bir anda şu soru çıkar: &ldquo;Bu kullanıcı hangi VLAN&rsquo;a gidecek?&rdquo; İşte 802.1X&rsquo;in seni zorladığı yer burasıdır.</p>
@@ -333,7 +333,7 @@
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <p><strong>Mimari &amp; Güvenlik</strong></p>
 <ul>
-<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Ürün Değil Mimari Olarak Tasarlamak</a> — Kimlik tabanlı erişimin mimari temeli</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Ürün Değil Mimari Olarak Tasarlamak</a> — Kimlik tabanlı erişimin mimari temeli</li>
 <li>🏗️ <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Sistem düşüncesi ve ürün seçimi</li>
 <li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">Monitoring Zihniyeti: Sadece Görmek Değil, Anlamak</a> — Policy ihlallerini tırmanmadan yakalamak</li>
 </ul>
@@ -446,7 +446,7 @@
 <h2 id="sürekli-izleme-mimarinin-en-kritik-parçası">Sürekli İzleme: Mimarinin En Kritik Parçası</h2>
 <p>Her katmanda erişim ve davranışlar izlenir ve kaydedilir. Anormal bir durum veya riskli hareket tespit edilirse, sistem otomatik olarak erişimi sınırlar veya ek doğrulama ister.</p>
 <blockquote>
-<p>Altyapıda gerçek görünürlük nasıl kurulur: <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a></p>
+<p>Altyapıda gerçek görünürlük nasıl kurulur: <a href="/tr/architecture/monitoring-not-just-seeing/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a></p>
 </blockquote>
 <h2 id="sonuç">Sonuç</h2>
 <p>Zero Trust bir ürün değildir.
@@ -463,12 +463,12 @@ Bu versiyon, serinin mimari temelini genişletiyor.</p>
 <ul>
 <li>📐 <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Bir Ürün Koleksiyonu Değildir</a> — Bu serinin temel yazısı</li>
 <li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir</a> — Core network tasarımında sistem düşüncesi</li>
-<li>📊 <a href="/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a> — Altyapıda gerçek görünürlük</li>
+<li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek</a> — Altyapıda gerçek görünürlük</li>
 </ul>
 <p><strong>Teknik Mühendislik</strong></p>
 <ul>
-<li>🔐 <a href="/tr/posts/unlocking-success-in-802-1x-projects-field-insights/">802.1X Projelerinde Başarı: Saha Deneyimleri</a> — Kimlik tabanlı erişimin sahada uygulanması</li>
-<li>🛡️ <a href="/tr/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Gelişmiş trafik görünürlüğü ve güvenlik stratejisi</li>
-<li>🛠️ <a href="/tr/posts/next-gen-console-server-terminal-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Her şey kesildiğinde out-of-band erişim</li>
+<li>🔐 <a href="/tr/posts/8021x-field-deployment-teaser/">802.1X Projelerinde Başarı: Saha Deneyimleri</a> — Kimlik tabanlı erişimin sahada uygulanması</li>
+<li>🛡️ <a href="/tr/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Gelişmiş trafik görünürlüğü ve güvenlik stratejisi</li>
+<li>🛠️ <a href="/tr/posts/next-gen-console-server-architecture/">Ağın Arka Kapısı: Next-Gen Console Server Mimarisi</a> — Her şey kesildiğinde out-of-band erişim</li>
 </ul>
 ]]></content:encoded></item></channel></rss>

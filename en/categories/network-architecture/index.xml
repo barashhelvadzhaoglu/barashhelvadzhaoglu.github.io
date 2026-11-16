@@ -461,13 +461,13 @@ This version expands on the architectural foundation of the series.</p>
 <ul>
 <li>📐 <a href="/en/architecture/it-infrastructure-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a> — The foundational article of this series</li>
 <li>🏗️ <a href="/en/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough</a> — Architecture-first core network design</li>
-<li>🛡️ <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product</a> — Security as architecture</li>
+<li>🛡️ <a href="/en/architecture/zero-trust-architecture-behaviors/">The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product</a> — Security as architecture</li>
 </ul>
 <p><strong>Technical Engineering</strong></p>
 <ul>
-<li>📊 <a href="/en/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively</a> — Operational visibility</li>
-<li>🛠️ <a href="/en/posts/next-gen-console-server-terminal-server-architecture/">The Backdoor of the Network: Next-Gen Console Server Architecture</a> — Out-of-band access</li>
-<li>🛡️ <a href="/en/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Traffic visibility and security strategy</li>
+<li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively</a> — Operational visibility</li>
+<li>🛠️ <a href="/en/posts/next-gen-console-server-architecture/">The Backdoor of the Network: Next-Gen Console Server Architecture</a> — Out-of-band access</li>
+<li>🛡️ <a href="/en/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Traffic visibility and security strategy</li>
 </ul>
 ]]></content:encoded></item><item><title>Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough</title><link>https://barashhelvadzhaoglu.com/en/architecture/core-network-is-not-a-product-list/</link><pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate><guid>https://barashhelvadzhaoglu.com/en/architecture/core-network-is-not-a-product-list/</guid><description>Enterprise network projects fail due to fragmented architecture, not wrong products. Deep-dive into firewall, switching, AP selection, and capacity planning.</description><content:encoded><![CDATA[<h1 id="switch-firewall-ap--why-choosing-the-right-products-is-not-enough">Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough</h1>
 <h2 id="architecture-capacity-planning-and-the-vendor-reality-no-one-talks-about">Architecture, capacity planning, and the vendor reality no one talks about</h2>
@@ -518,7 +518,7 @@ This version expands on the architectural foundation of the series.</p>
 <li>In some architectures, additional components such as WAF or Cloud FW.</li>
 </ul>
 <blockquote>
-<p>For a deeper look at how identity and segmentation fit into a broader security philosophy, see: <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product</a></p>
+<p>For a deeper look at how identity and segmentation fit into a broader security philosophy, see: <a href="/en/architecture/zero-trust-architecture-behaviors/">The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product</a></p>
 </blockquote>
 <p>This does not mean &ldquo;buying two firewalls&rdquo;; it means &ldquo;assigning two different jobs to the right tools.&rdquo; When you pile everything into a single box, you lose either performance, manageability, or security. Usually, at least one of the three is lost.</p>
 <p>And this takes us directly to capacity planning.</p>
@@ -580,7 +580,7 @@ I believe Palo Alto creates a serious difference in application visibility, poli
 My personal view is this: there are vendors who have proven themselves more strongly in specific areas, and if the IT team is mature enough to manage this distinction, selecting different vendors for different layers can produce much stronger technical results. On the other hand, some organizations prefer to move forward with a single vendor to avoid integration issues, installation complexity, and configuration errors, and to resolve all problems through a single support channel. This is also a completely valid approach.</p>
 <p>Finally, there is one point I want to emphasize strongly: today, almost all major vendors are making serious investments in automation. At this point, API support is no longer an &ldquo;extra,&rdquo; but a direct selection criterion. What can be done via APIs, what can be automated, and how open the integration is must be on the table when selecting products.</p>
 <blockquote>
-<p>For a practical framework on building visibility into your infrastructure, see: <a href="/en/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively</a></p>
+<p>For a practical framework on building visibility into your infrastructure, see: <a href="/en/architecture/monitoring-not-just-seeing/">The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively</a></p>
 </blockquote>
 <p>As I mentioned in my first article, in my opinion, automation processes should not be considered as a layer added later during product selection. On the contrary, automation and operational processes should be placed at the top of the pyramid, and products should be selected according to this framework. The question of which switch, which firewall, and which AP should come after the question: &ldquo;How will I manage this architecture automatically?&rdquo; In my view, correct core network design starts exactly here.</p>
 <h2 id="server-room-and-cabling-the-reality-no-one-wants-to-talk-about-but-everyone-pays-for">Server Room and Cabling: The Reality No One Wants to Talk About, but Everyone Pays For</h2>
@@ -608,15 +608,15 @@ This version expands the architectural foundation for the series.</p>
 <p>If you found this article useful, you may also be interested in these related deep-dives:</p>
 <p><strong>Architecture &amp; Security Design</strong></p>
 <ul>
-<li>📐 <a href="/en/architecture/it-infrastructure-is-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a> — The foundational article for this series</li>
-<li>🛡️ <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product</a> — Why Zero Trust is a philosophy, not a product you can buy</li>
-<li>📊 <a href="/en/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively</a> — How to build real visibility into your infrastructure</li>
+<li>📐 <a href="/en/architecture/it-infrastructure-not-a-collection-of-products/">IT Infrastructure Is Not a Collection of Products</a> — The foundational article for this series</li>
+<li>🛡️ <a href="/en/architecture/zero-trust-architecture-behaviors/">The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product</a> — Why Zero Trust is a philosophy, not a product you can buy</li>
+<li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively</a> — How to build real visibility into your infrastructure</li>
 </ul>
 <p><strong>Technical Engineering</strong></p>
 <ul>
-<li>🛠️ <a href="/en/posts/next-gen-console-server-terminal-server-architecture/">The Backdoor of the Network: Next-Gen Console Server Architecture</a> — Out-of-band access when everything else fails</li>
-<li>🛡️ <a href="/en/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Advanced traffic visibility and security strategy</li>
-<li>🔐 <a href="/en/posts/unlocking-success-in-802-1x-projects-field-insights/">Unlocking Success in 802.1X Projects: Field Insights</a> — Identity-based access in enterprise networks</li>
+<li>🛠️ <a href="/en/posts/next-gen-console-server-architecture/">The Backdoor of the Network: Next-Gen Console Server Architecture</a> — Out-of-band access when everything else fails</li>
+<li>🛡️ <a href="/en/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Advanced traffic visibility and security strategy</li>
+<li>🔐 <a href="/en/posts/8021x-field-deployment-teaser/">Unlocking Success in 802.1X Projects: Field Insights</a> — Identity-based access in enterprise networks</li>
 <li>⚙️ <a href="/en/posts/cisco-nexus-nxos-upgrade-guide/">Nexus Software Upgrade Guide</a> — Zero-downtime NX-OS upgrade walkthrough</li>
 </ul>
 ]]></content:encoded></item></channel></rss>

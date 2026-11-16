@@ -266,8 +266,8 @@ Cisco&rsquo;nun OT odaklı yönetim ve güvenlik platformu, OT ağı görünürl
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>
 <li>🔐 <a href="/tr/technology/identity-based-microsegmentation-8021x/">802.1X Kimlik Tabanlı Mimari Sahada</a> — 802.1X&rsquo;in IT ortamlarında nasıl çalıştığı ve OT&rsquo;nin neden farklı olduğu</li>
-<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — IT/OT sınır tasarımına uygulanan Zero Trust prensipleri</li>
-<li>🛡️ <a href="/tr/technology/ddos-koruma-stratejileri-isp-scrubbing-on-premise-bulut/">DDoS Koruma Stratejileri</a> — OT bağlantılı altyapıyı volumetrik saldırılardan korumak</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — IT/OT sınır tasarımına uygulanan Zero Trust prensipleri</li>
+<li>🛡️ <a href="/tr/technology/ddos-protection-strategies/">DDoS Koruma Stratejileri</a> — OT bağlantılı altyapıyı volumetrik saldırılardan korumak</li>
 <li>🏗️ <a href="/tr/architecture/it-infrastructure-not-a-collection-of-products/">IT Altyapısı Ürünler Koleksiyonu Değildir</a> — OT ağ tasarımı için de geçerli sistem düşüncesi</li>
 </ul>
 ]]></content:encoded></item></channel></rss>

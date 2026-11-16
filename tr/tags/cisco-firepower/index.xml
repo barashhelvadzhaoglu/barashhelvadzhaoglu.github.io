@@ -189,9 +189,9 @@ Gerekli SSL inspection throughput&#39;u:
 <h2 id="ilgili-yazılar">İlgili Yazılar</h2>
 <ul>
 <li>🏗️ <a href="/tr/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değil</a> — Firewall yerleştirme için mimari bağlam</li>
-<li>🔐 <a href="/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Firewall tasarımının arkasındaki politika felsefesi</li>
-<li>🛡️ <a href="/tr/technology/ddos-koruma-stratejileri-isp-scrubbing-on-premise-bulut/">DDoS Koruma Stratejileri</a> — Firewall&rsquo;un yukarısında ne var</li>
-<li>🛡️ <a href="/tr/technology/f5-waf-asm-advanced-waf-uygulama-guvenligi/">F5 WAF Deep Dive</a> — Firewall politikasını tamamlayan Katman 7 koruması</li>
+<li>🔐 <a href="/tr/architecture/zero-trust-architecture-behaviors/">Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek</a> — Firewall tasarımının arkasındaki politika felsefesi</li>
+<li>🛡️ <a href="/tr/technology/ddos-protection-strategies/">DDoS Koruma Stratejileri</a> — Firewall&rsquo;un yukarısında ne var</li>
+<li>🛡️ <a href="/tr/technology/f5-waf-deep-dive/">F5 WAF Deep Dive</a> — Firewall politikasını tamamlayan Katman 7 koruması</li>
 <li>📊 <a href="/tr/architecture/monitoring-not-just-seeing/">İzleme Doğru Yapıldığında</a> — Firewall davranışını görünür kılmak</li>
 </ul>
 ]]></content:encoded></item></channel></rss>

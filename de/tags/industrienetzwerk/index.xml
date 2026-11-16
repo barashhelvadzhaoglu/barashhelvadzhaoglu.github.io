@@ -187,8 +187,8 @@ Das sind keine traditionellen Firewalls — sie sind OT-spezifische Sicherheits�
 <h2 id="verwandte-artikel">Verwandte Artikel</h2>
 <ul>
 <li>🔐 <a href="/de/technology/identity-based-microsegmentation-8021x/">802.1X Identitätsbasierte Architektur im Praxiseinsatz</a> — Wie 802.1X in IT-Umgebungen funktioniert und warum OT anders ist</li>
-<li>🔐 <a href="/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — Zero-Trust-Prinzipien auf IT/OT-Grenzdesign angewendet</li>
-<li>🛡️ <a href="/de/technology/ddos-schutzstrategien-isp-scrubbing-on-premise-cloud/">DDoS-Schutzstrategien</a> — OT-verbundene Infrastruktur vor volumetrischen Angriffen schützen</li>
+<li>🔐 <a href="/de/architecture/zero-trust-architecture-behaviors/">Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln</a> — Zero-Trust-Prinzipien auf IT/OT-Grenzdesign angewendet</li>
+<li>🛡️ <a href="/de/technology/ddos-protection-strategies/">DDoS-Schutzstrategien</a> — OT-verbundene Infrastruktur vor volumetrischen Angriffen schützen</li>
 <li>🏗️ <a href="/de/architecture/it-infrastructure-not-a-collection-of-products/">IT-Infrastruktur ist keine Produktsammlung</a> — Systemdenken, das gleichermaßen für OT-Netzwerkdesign gilt</li>
 </ul>
 ]]></content:encoded></item></channel></rss>

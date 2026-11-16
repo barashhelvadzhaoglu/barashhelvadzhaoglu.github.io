@@ -508,7 +508,7 @@ An infrastructure is designed to sustain an organization.</p>
 </ul>
 <p>Without clear answers to these questions, even the best products will eventually work against each other.</p>
 <blockquote>
-<p>For a deep dive into how identity and trust boundaries are defined in practice, see: <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product</a></p>
+<p>For a deep dive into how identity and trust boundaries are defined in practice, see: <a href="/en/architecture/zero-trust-architecture-behaviors/">The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product</a></p>
 </blockquote>
 <hr>
 <h2 id="architecture-reveals-itself-under-stress">Architecture reveals itself under stress</h2>
@@ -543,7 +543,7 @@ It is found in operational workflows.</p>
 <p>If these workflows are manual, fragmented, or undocumented, the infrastructure will reflect that reality—regardless of how modern the technology stack appears.</p>
 <p>This is why automation, observability, and lifecycle management are not optional extras. They are architectural elements. Infrastructure that cannot be operated consistently will never scale safely.</p>
 <blockquote>
-<p>For a practical framework on building real observability into your infrastructure, see: <a href="/en/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively</a></p>
+<p>For a practical framework on building real observability into your infrastructure, see: <a href="/en/architecture/monitoring-not-just-seeing/">The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively</a></p>
 </blockquote>
 <hr>
 <h2 id="why-this-matters-before-we-talk-about-networking">Why this matters before we talk about networking</h2>
@@ -579,13 +579,13 @@ This version expands the architectural foundation for the series.</p>
 <p><strong>Architecture &amp; Security Design</strong></p>
 <ul>
 <li>🏗️ <a href="/en/architecture/core-network-is-not-a-product-list/">Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough</a> — Applying systems thinking to core network design</li>
-<li>🛡️ <a href="/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/">The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product</a> — Why Zero Trust is a philosophy, not a product</li>
-<li>📊 <a href="/en/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/">The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively</a> — Building real visibility into your infrastructure</li>
+<li>🛡️ <a href="/en/architecture/zero-trust-architecture-behaviors/">The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product</a> — Why Zero Trust is a philosophy, not a product</li>
+<li>📊 <a href="/en/architecture/monitoring-not-just-seeing/">The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively</a> — Building real visibility into your infrastructure</li>
 </ul>
 <p><strong>Technical Engineering</strong></p>
 <ul>
-<li>🛠️ <a href="/en/posts/next-gen-console-server-terminal-server-architecture/">The Backdoor of the Network: Next-Gen Console Server Architecture</a> — Out-of-band access when everything else fails</li>
-<li>🛡️ <a href="/en/posts/network-packet-broker-npb-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Advanced traffic visibility and security strategy</li>
-<li>🔐 <a href="/en/posts/unlocking-success-in-802-1x-projects-field-insights/">Unlocking Success in 802.1X Projects: Field Insights</a> — Identity-based access in enterprise networks</li>
+<li>🛠️ <a href="/en/posts/next-gen-console-server-architecture/">The Backdoor of the Network: Next-Gen Console Server Architecture</a> — Out-of-band access when everything else fails</li>
+<li>🛡️ <a href="/en/posts/network-packet-broker-masterclass/">Network Packet Broker (NPB) Masterclass</a> — Advanced traffic visibility and security strategy</li>
+<li>🔐 <a href="/en/posts/8021x-field-deployment-teaser/">Unlocking Success in 802.1X Projects: Field Insights</a> — Identity-based access in enterprise networks</li>
 </ul>
 ]]></content:encoded></item></channel></rss>
