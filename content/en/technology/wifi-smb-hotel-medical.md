@@ -33,7 +33,7 @@ aliases:
 
 This article is part of the Enterprise WiFi series.
 
-> **New to enterprise wireless?** Start with the overview: [Enterprise WiFi Architecture: From Standards to Deployment](/en/technology/enterprise-wifi-architecture-complete-guide/)
+> **New to enterprise wireless?** Start with the overview: [Enterprise WiFi Architecture: From Standards to Deployment](/en/technology/wifi-master/)
 
 ---
 
@@ -269,13 +269,13 @@ Enterprise APs require PoE. A Cisco or Aruba WiFi 6 AP with multiple radios draw
 
 ## This Series
 
-- 📖 [Enterprise WiFi Architecture Overview](/en/technology/enterprise-wifi-architecture-complete-guide/) ← Start here
-- 📡 [802.11 Standards Deep Dive](/en/technology/wifi-80211-standards-wifi4-wifi5-wifi6/)
-- 🏢 [Enterprise Controller Architecture: Cisco and Aruba](/en/technology/enterprise-wifi-controller-architecture-cisco-aruba/)
-- 🔐 [WiFi Security: WPA3, 802.1X, Rogue AP, Site Survey](/en/technology/wifi-security-wpa3-8021x-site-survey/)
+- 📖 [Enterprise WiFi Architecture Overview](/en/technology/wifi-master/) ← Start here
+- 📡 [802.11 Standards Deep Dive](/en/technology/wifi-standards/)
+- 🏢 [Enterprise Controller Architecture: Cisco and Aruba](/en/technology/wifi-controller/)
+- 🔐 [WiFi Security: WPA3, 802.1X, Rogue AP, Site Survey](/en/technology/wifi-security/)
 
 ## Related Articles
 
-- 📡 [NAS Backup with AWS S3 — Data Security for SMBs](/en/technology/nas-backup-aws-s3-cloud-smb/) — SMB data protection alongside WiFi
+- 📡 [NAS Backup with AWS S3 — Data Security for SMBs](/en/posts/nas-backup/) — SMB data protection alongside WiFi
 - 🔐 [802.1X Identity-Based Architecture in the Field](/en/technology/identity-based-microsegmentation-8021x/) — The identity layer for enterprise wireless
 - 🏗️ [IT Infrastructure Is Not a Collection of Products](/en/architecture/it-infrastructure-not-a-collection-of-products/) — Systems thinking in network design

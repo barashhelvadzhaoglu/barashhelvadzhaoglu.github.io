@@ -149,4 +149,4 @@ Die Aruba-Integration eröffnet Unternehmen mit Campus- und Branch-Standorten ei
 
 ---
 
-*Als Nächstes in dieser Serie: [Palo Alto SD-WAN – Prisma SD-WAN und der Security-First-Ansatz](/en/posts/palo-alto-sd-wan/)*
+*Als Nächstes in dieser Serie: [Palo Alto SD-WAN – Prisma SD-WAN und der Security-First-Ansatz](/en/technology/palo-alto-sd-wan/)*

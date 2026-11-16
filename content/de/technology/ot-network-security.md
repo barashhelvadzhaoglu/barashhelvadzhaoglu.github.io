@@ -298,6 +298,6 @@ Aus Felderfahrung — Dinge, die vor jeder Netzwerkänderung in einer OT-Umgebun
 ## Verwandte Artikel
 
 - 🔐 [802.1X Identitätsbasierte Architektur im Praxiseinsatz](/de/technology/identity-based-microsegmentation-8021x/) — Wie 802.1X in IT-Umgebungen funktioniert und warum OT anders ist
-- 🔐 [Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln](/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Zero-Trust-Prinzipien auf IT/OT-Grenzdesign angewendet
-- 🛡️ [DDoS-Schutzstrategien](/de/technology/ddos-schutzstrategien-isp-scrubbing-on-premise-cloud/) — OT-verbundene Infrastruktur vor volumetrischen Angriffen schützen
+- 🔐 [Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln](/de/architecture/zero-trust-architecture-behaviors/) — Zero-Trust-Prinzipien auf IT/OT-Grenzdesign angewendet
+- 🛡️ [DDoS-Schutzstrategien](/de/technology/ddos-protection-strategies/) — OT-verbundene Infrastruktur vor volumetrischen Angriffen schützen
 - 🏗️ [IT-Infrastruktur ist keine Produktsammlung](/de/architecture/it-infrastructure-not-a-collection-of-products/) — Systemdenken, das gleichermaßen für OT-Netzwerkdesign gilt

@@ -31,7 +31,7 @@ TocOpen: true
 
 This article is part of the Enterprise WiFi series.
 
-> **New to enterprise wireless?** Start with the overview: [Enterprise WiFi Architecture: From Standards to Deployment](/en/technology/enterprise-wifi-architecture-complete-guide/)
+> **New to enterprise wireless?** Start with the overview: [Enterprise WiFi Architecture: From Standards to Deployment](/en/technology/wifi-master/)
 
 ---
 
@@ -232,10 +232,10 @@ Enterprise controllers (Cisco RRM, Aruba ARM) automatically assign channels and 
 
 ## This Series
 
-- 📖 [Enterprise WiFi Architecture Overview](/en/technology/enterprise-wifi-architecture-complete-guide/) ← Start here
-- 🏢 [Enterprise Controller Architecture: Cisco and Aruba](/en/technology/enterprise-wifi-controller-architecture-cisco-aruba/)
-- 🏨 [WiFi Design for SMB, Hotels, and Medical Practices](/en/technology/wifi-design-smb-hotel-medical/)
-- 🔐 [WiFi Security: WPA3, 802.1X, Rogue AP, Site Survey](/en/technology/wifi-security-wpa3-8021x-site-survey/)
+- 📖 [Enterprise WiFi Architecture Overview](/en/technology/wifi-master/) ← Start here
+- 🏢 [Enterprise Controller Architecture: Cisco and Aruba](/en/technology/wifi-controller/)
+- 🏨 [WiFi Design for SMB, Hotels, and Medical Practices](/en/technology/wifi-smb-hotel-medical/)
+- 🔐 [WiFi Security: WPA3, 802.1X, Rogue AP, Site Survey](/en/technology/wifi-security/)
 
 ## Related Articles
 

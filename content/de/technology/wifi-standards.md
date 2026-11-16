@@ -33,7 +33,7 @@ aliases:
 
 Dieser Artikel ist Teil der Enterprise-WiFi-Serie.
 
-> **Neu im Enterprise-Wireless-Bereich?** Beginnen Sie mit der Übersicht: [Enterprise WiFi-Architektur: Von Standards bis zur Deployment](/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/)
+> **Neu im Enterprise-Wireless-Bereich?** Beginnen Sie mit der Übersicht: [Enterprise WiFi-Architektur: Von Standards bis zur Deployment](/de/technology/wifi-master/)
 
 ---
 
@@ -234,10 +234,10 @@ Enterprise-Controller (Cisco RRM, Aruba ARM) weisen Kanäle automatisch zu und p
 
 ## Diese Serie
 
-- 📖 [Enterprise WiFi-Architektur Übersicht](/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/) ← Beginnen Sie hier
-- 🏢 [Enterprise Controller-Architektur: Cisco und Aruba](/de/technology/enterprise-wlan-controller-architektur-cisco-aruba/)
-- 🏨 [WiFi-Design für KMU, Hotels und Arztpraxen](/de/technology/wifi-design-kmu-hotel-gesundheit/)
-- 🔐 [WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey](/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/)
+- 📖 [Enterprise WiFi-Architektur Übersicht](/de/technology/wifi-master/) ← Beginnen Sie hier
+- 🏢 [Enterprise Controller-Architektur: Cisco und Aruba](/de/technology/wifi-controller/)
+- 🏨 [WiFi-Design für KMU, Hotels und Arztpraxen](/de/technology/wifi-smb-hotel-medical/)
+- 🔐 [WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey](/de/technology/wifi-security/)
 
 ## Verwandte Artikel
 

@@ -279,7 +279,7 @@ For engineers who built their careers on CUCM, Expressway, TelePresence, and the
 
 ## Related Articles
 
-- 🔐 [The Zero Trust Mindset: Engineering Security as an Architecture](/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Security architecture for cloud collaboration environments
+- 🔐 [The Zero Trust Mindset: Engineering Security as an Architecture](/en/architecture/zero-trust-architecture-behaviors/) — Security architecture for cloud collaboration environments
 - 🏗️ [IT Infrastructure Is Not a Collection of Products](/en/architecture/it-infrastructure-not-a-collection-of-products/) — Systems thinking that applies equally to collaboration platforms
 - 📊 [Monitoring Done Right](/en/architecture/monitoring-not-just-seeing/) — Monitoring collaboration infrastructure proactively
-- 🔧 [SecureCRT and SuperPutty: Terminal Tools Every Network Engineer Should Know](/en/technology/securecrt-superputty-network-engineer-guide/) — Tools for managing the on-premise infrastructure that collaboration runs on
+- 🔧 [SecureCRT and SuperPutty: Terminal Tools Every Network Engineer Should Know](/en/technology/securecrt-superputty/) — Tools for managing the on-premise infrastructure that collaboration runs on

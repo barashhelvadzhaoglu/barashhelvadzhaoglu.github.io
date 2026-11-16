@@ -189,9 +189,9 @@ Diese Version erweitert die architektonische Grundlage der Serie.
 **Architektur & Strategie**
 - 📐 [IT-Infrastruktur ist keine Produktsammlung](/de/architecture/it-infrastructure-not-a-collection-of-products/) — Der Grundlagenartikel dieser Serie
 - 🏗️ [Switch, Firewall, AP — Warum die richtige Produktwahl allein nicht ausreicht](/de/architecture/core-network-is-not-a-product-list/) — Architektur-zuerst Core-Network-Design
-- 🛡️ [Zero Trust Mindset: Sicherheit als Architektur](/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Sicherheit als Architektur
+- 🛡️ [Zero Trust Mindset: Sicherheit als Architektur](/de/architecture/zero-trust-architecture-behaviors/) — Sicherheit als Architektur
 
 **Technisches Engineering**
-- 📊 [Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen](/de/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/) — Operative Sichtbarkeit
-- 🛠️ [Die Hintertür des Netzwerks: Next-Gen Console Server Architektur](/de/posts/next-gen-console-server-terminal-server-architecture/) — Out-of-Band-Zugang
-- 🛡️ [Network Packet Broker (NPB) Masterclass](/de/posts/network-packet-broker-npb-masterclass/) — Traffic-Sichtbarkeit und Sicherheitsstrategie
+- 📊 [Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen](/de/architecture/monitoring-not-just-seeing/) — Operative Sichtbarkeit
+- 🛠️ [Die Hintertür des Netzwerks: Next-Gen Console Server Architektur](/de/posts/next-gen-console-server-architecture/) — Out-of-Band-Zugang
+- 🛡️ [Network Packet Broker (NPB) Masterclass](/de/posts/network-packet-broker-masterclass/) — Traffic-Sichtbarkeit und Sicherheitsstrategie

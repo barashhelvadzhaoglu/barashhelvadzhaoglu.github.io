@@ -300,7 +300,7 @@ Gerekli SSL inspection throughput'u:
 ## İlgili Yazılar
 
 - 🏗️ [Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değil](/tr/architecture/core-network-is-not-a-product-list/) — Firewall yerleştirme için mimari bağlam
-- 🔐 [Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek](/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Firewall tasarımının arkasındaki politika felsefesi
-- 🛡️ [DDoS Koruma Stratejileri](/tr/technology/ddos-koruma-stratejileri-isp-scrubbing-on-premise-bulut/) — Firewall'un yukarısında ne var
-- 🛡️ [F5 WAF Deep Dive](/tr/technology/f5-waf-asm-advanced-waf-uygulama-guvenligi/) — Firewall politikasını tamamlayan Katman 7 koruması
+- 🔐 [Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek](/tr/architecture/zero-trust-architecture-behaviors/) — Firewall tasarımının arkasındaki politika felsefesi
+- 🛡️ [DDoS Koruma Stratejileri](/tr/technology/ddos-protection-strategies/) — Firewall'un yukarısında ne var
+- 🛡️ [F5 WAF Deep Dive](/tr/technology/f5-waf-deep-dive/) — Firewall politikasını tamamlayan Katman 7 koruması
 - 📊 [İzleme Doğru Yapıldığında](/tr/architecture/monitoring-not-just-seeing/) — Firewall davranışını görünür kılmak

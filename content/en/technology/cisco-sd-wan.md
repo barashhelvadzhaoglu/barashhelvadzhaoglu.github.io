@@ -150,4 +150,4 @@ For enterprises already deep in the Cisco ecosystem — DNA Center, ISE, Umbrell
 
 ---
 
-*Next in this series: [HPE Aruba SD-WAN — EdgeConnect and the WAN Optimization Legacy](/en/posts/hpe-aruba-sd-wan/)*
+*Next in this series: [HPE Aruba SD-WAN — EdgeConnect and the WAN Optimization Legacy](/en/technology/hpe-aruba-sd-wan/)*

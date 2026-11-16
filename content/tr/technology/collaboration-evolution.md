@@ -270,7 +270,7 @@ CUCM, Expressway, TelePresence ve tam Cisco iş birliği yığını üzerine kar
 
 ## İlgili Yazılar
 
-- 🔐 [Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek](/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Bulut iş birliği ortamları için güvenlik mimarisi
+- 🔐 [Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek](/tr/architecture/zero-trust-architecture-behaviors/) — Bulut iş birliği ortamları için güvenlik mimarisi
 - 🏗️ [IT Altyapısı Ürünler Koleksiyonu Değildir](/tr/architecture/it-infrastructure-not-a-collection-of-products/) — İş birliği platformları için de geçerli sistem düşüncesi
 - 📊 [İzleme Doğru Yapıldığında](/tr/architecture/monitoring-not-just-seeing/) — İş birliği altyapısını proaktif olarak izleme
-- 🔧 [SecureCRT ve SuperPutty](/tr/technology/securecrt-superputty-network-engineer-guide/) — İş birliğinin üzerinde çalıştığı şirket içi altyapıyı yönetmek için araçlar
+- 🔧 [SecureCRT ve SuperPutty](/tr/technology/securecrt-superputty/) — İş birliğinin üzerinde çalıştığı şirket içi altyapıyı yönetmek için araçlar

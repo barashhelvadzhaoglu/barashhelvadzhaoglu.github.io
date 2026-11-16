@@ -207,6 +207,6 @@ Dürüst özet:
 ## İlgili Yazılar
 
 - 🔐 [802.1X Projeleri: Kimlik Tabanlı Mimariyi Sahada Kullanıma Almak](/tr/technology/identity-based-microsegmentation-8021x/) — ISE'nin etkinleştirdiği saha deployment rehberi
-- 🏛️ [Cisco DNA Center / Catalyst Center: Ne Zaman Mantıklıdır](/tr/architecture/cisco-dna-center-catalyst-center-architecture-guide/) — ISE'nin entegre olduğu kampüs yönetim platformu
-- 🔐 [Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek](/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Kimlik tabanlı erişim kontrolünün arkasındaki felsefe
-- 🛡️ [F5 WAF Deep Dive](/tr/technology/f5-waf-asm-advanced-waf-application-security/) — ISE'nin L2/L3 uygulamasının yanında tamamlayıcı L7 güvenliği
+- 🏛️ [Cisco DNA Center / Catalyst Center: Ne Zaman Mantıklıdır](/tr/architecture/catalyst-center-architecture/) — ISE'nin entegre olduğu kampüs yönetim platformu
+- 🔐 [Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek](/tr/architecture/zero-trust-architecture-behaviors/) — Kimlik tabanlı erişim kontrolünün arkasındaki felsefe
+- 🛡️ [F5 WAF Deep Dive](/tr/technology/f5-waf-deep-dive/) — ISE'nin L2/L3 uygulamasının yanında tamamlayıcı L7 güvenliği

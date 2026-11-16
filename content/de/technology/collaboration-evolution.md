@@ -272,7 +272,7 @@ Für Ingenieure, die ihre Karriere auf CUCM, Expressway, TelePresence und dem vo
 
 ## Verwandte Artikel
 
-- 🔐 [Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln](/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Sicherheitsarchitektur für Cloud-Kollaborationsumgebungen
+- 🔐 [Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln](/de/architecture/zero-trust-architecture-behaviors/) — Sicherheitsarchitektur für Cloud-Kollaborationsumgebungen
 - 🏗️ [IT-Infrastruktur ist keine Produktsammlung](/de/architecture/it-infrastructure-not-a-collection-of-products/) — Systemdenken, das gleichermaßen für Kollaborationsplattformen gilt
 - 📊 [Monitoring richtig gemacht](/de/architecture/monitoring-not-just-seeing/) — Kollaborationsinfrastruktur proaktiv überwachen
-- 🔧 [SecureCRT und SuperPutty](/de/technology/securecrt-superputty-network-engineer-guide/) — Tools zur Verwaltung der On-Premise-Infrastruktur, auf der Kollaboration läuft
+- 🔧 [SecureCRT und SuperPutty](/de/technology/securecrt-superputty/) — Tools zur Verwaltung der On-Premise-Infrastruktur, auf der Kollaboration läuft

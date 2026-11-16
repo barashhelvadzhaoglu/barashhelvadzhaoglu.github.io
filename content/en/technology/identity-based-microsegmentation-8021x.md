@@ -37,7 +37,7 @@ This transition changes an organization's habits. Because when 802.1X is deploye
 - 802.1X is an **identity architecture**, not just port security.
 - Success depends more on **AD/PKI/endpoint discipline** than on the network itself.
 
-> For the Zero Trust mindset behind identity-based access, see: [The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product](/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/)
+> For the Zero Trust mindset behind identity-based access, see: [The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product](/en/architecture/zero-trust-architecture-behaviors/)
 
 ### 1) Planning: Without a VLAN plan, 802.1X becomes a "chaos engine" instead of a "policy engine"
 
@@ -235,7 +235,7 @@ The good projects I've seen in the field are the projects that accept this from 
 ## Related Articles
 
 **Architecture & Security**
-- 🔐 [The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product](/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — The architectural foundation behind identity-based access
+- 🔐 [The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product](/en/architecture/zero-trust-architecture-behaviors/) — The architectural foundation behind identity-based access
 - 🏗️ [IT Infrastructure Is Not a Collection of Products](/en/architecture/it-infrastructure-not-a-collection-of-products/) — Systems thinking over product selection
 - 📊 [Monitoring Done Right: How to Build a Proactive IT Operations Culture](/en/architecture/monitoring-not-just-seeing/) — Catching policy violations before they escalate
 

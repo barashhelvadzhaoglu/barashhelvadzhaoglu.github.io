@@ -33,7 +33,7 @@ aliases:
 
 Bu yazı Kurumsal WiFi serisinin bir parçasıdır.
 
-> **Kurumsal kablosuz ağa yeni misiniz?** Genel bakışla başlayın: [Kurumsal WiFi Mimarisi: Standartlardan Deployment'a](/tr/technology/kurumsal-wifi-mimarisi-tam-rehber/)
+> **Kurumsal kablosuz ağa yeni misiniz?** Genel bakışla başlayın: [Kurumsal WiFi Mimarisi: Standartlardan Deployment'a](/tr/technology/wifi-master/)
 
 ---
 
@@ -353,10 +353,10 @@ ClearPass'ın **OnGuard** ajanı posture değerlendirmesi yapar — kurumsal diz
 
 ## Bu Seri
 
-- 📖 [Kurumsal WiFi Mimarisi Genel Bakış](/tr/technology/kurumsal-wifi-mimarisi-tam-rehber/) ← Buradan başlayın
-- 📡 [802.11 Standartları Deep Dive](/tr/technology/wifi-80211-standartlari-wifi4-wifi5-wifi6/)
-- 🏨 [KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı](/tr/technology/wifi-tasarimi-kobi-otel-saglik/)
-- 🔐 [WiFi Güvenliği: WPA3, 802.1X, Sahte AP, Site Survey](/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/)
+- 📖 [Kurumsal WiFi Mimarisi Genel Bakış](/tr/technology/wifi-master/) ← Buradan başlayın
+- 📡 [802.11 Standartları Deep Dive](/tr/technology/wifi-standards/)
+- 🏨 [KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı](/tr/technology/wifi-smb-hotel-medical/)
+- 🔐 [WiFi Güvenliği: WPA3, 802.1X, Sahte AP, Site Survey](/tr/technology/wifi-security/)
 
 ## İlgili Yazılar
 

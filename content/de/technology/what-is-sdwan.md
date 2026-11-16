@@ -149,4 +149,4 @@ Die führenden Hersteller — Fortinet, Cisco, HPE Aruba und Palo Alto — verfo
 
 ---
 
-*Dieser Artikel ist Teil einer Serie über SD-WAN-Architekturen. Weiter: [Fortinet SD-WAN — Security-Driven Networking in der Praxis](/de/posts/fortinet-sd-wan/)*
+*Dieser Artikel ist Teil einer Serie über SD-WAN-Architekturen. Weiter: [Fortinet SD-WAN — Security-Driven Networking in der Praxis](/de/technology/fortinet-sd-wan/)*

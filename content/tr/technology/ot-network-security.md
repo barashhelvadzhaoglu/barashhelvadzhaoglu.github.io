@@ -311,6 +311,6 @@ Saha deneyiminden — OT ortamında herhangi bir ağ değişikliği yapmadan ön
 ## İlgili Yazılar
 
 - 🔐 [802.1X Kimlik Tabanlı Mimari Sahada](/tr/technology/identity-based-microsegmentation-8021x/) — 802.1X'in IT ortamlarında nasıl çalıştığı ve OT'nin neden farklı olduğu
-- 🔐 [Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek](/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — IT/OT sınır tasarımına uygulanan Zero Trust prensipleri
-- 🛡️ [DDoS Koruma Stratejileri](/tr/technology/ddos-koruma-stratejileri-isp-scrubbing-on-premise-bulut/) — OT bağlantılı altyapıyı volumetrik saldırılardan korumak
+- 🔐 [Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek](/tr/architecture/zero-trust-architecture-behaviors/) — IT/OT sınır tasarımına uygulanan Zero Trust prensipleri
+- 🛡️ [DDoS Koruma Stratejileri](/tr/technology/ddos-protection-strategies/) — OT bağlantılı altyapıyı volumetrik saldırılardan korumak
 - 🏗️ [IT Altyapısı Ürünler Koleksiyonu Değildir](/tr/architecture/it-infrastructure-not-a-collection-of-products/) — OT ağ tasarımı için de geçerli sistem düşüncesi

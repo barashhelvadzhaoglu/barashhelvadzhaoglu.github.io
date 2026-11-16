@@ -45,10 +45,10 @@ Dieser Artikel gibt Ihnen das **Gesamtbild** — was Enterprise Wireless-Archite
 
 **Wenn Sie Ingenieur sind** und tief in ein bestimmtes Thema eintauchen möchten — springen Sie zu dem Artikel, der Ihren Anwendungsfall abdeckt:
 
-- 📡 **[802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E und was sich wirklich geändert hat](/de/technology/wifi-80211-standards-wifi4-wifi5-wifi6/)** — Was ax, ac, n und be wirklich für Kapazität, Reichweite und Deployment-Entscheidungen bedeuten
-- 🏢 **[Enterprise Controller-Architektur: Cisco und Aruba WLAN-Design](/de/technology/enterprise-wlan-controller-architektur-cisco-aruba/)** — Zentralisierte vs. verteilte Steuerung, Mobilitätsdomänen, WLC vs. Cloud-Management
-- 🏨 **[WiFi-Design für KMU, Hotels und Arztpraxen](/de/technology/wifi-design-kmu-hotel-gesundheit/)** — Praktische Feldnotizen zu Dichte-Planung, Gäste-Segmentierung und Erwartungsmanagement
-- 🔐 **[WiFi-Sicherheit: WPA3, 802.1X, Rogue-AP-Erkennung und Site Survey](/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/)** — Authentifizierung, Verschlüsselung, Intrusion Detection und Ekahau-Survey-Methodik
+- 📡 **[802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E und was sich wirklich geändert hat](/de/technology/wifi-standards/)** — Was ax, ac, n und be wirklich für Kapazität, Reichweite und Deployment-Entscheidungen bedeuten
+- 🏢 **[Enterprise Controller-Architektur: Cisco und Aruba WLAN-Design](/de/technology/wifi-controller/)** — Zentralisierte vs. verteilte Steuerung, Mobilitätsdomänen, WLC vs. Cloud-Management
+- 🏨 **[WiFi-Design für KMU, Hotels und Arztpraxen](/de/technology/wifi-smb-hotel-medical/)** — Praktische Feldnotizen zu Dichte-Planung, Gäste-Segmentierung und Erwartungsmanagement
+- 🔐 **[WiFi-Sicherheit: WPA3, 802.1X, Rogue-AP-Erkennung und Site Survey](/de/technology/wifi-security/)** — Authentifizierung, Verschlüsselung, Intrusion Detection und Ekahau-Survey-Methodik
 
 **Wenn Sie Architekt oder Entscheidungsträger sind** und Wireless-Lösungen evaluieren — lesen Sie hier weiter. Dieser Artikel beantwortet die strategischen Fragen ohne RF-Expertise vorauszusetzen.
 
@@ -94,7 +94,7 @@ Die theoretischen Raten in Marketingmaterialien werden in der Praxis nie erreich
 
 **WiFi 7** entsteht gerade mit Multi-Link-Operation (MLO), die einem einzelnen Gerät ermöglicht, gleichzeitig mehrere Bänder und Kanäle zu nutzen. Stand 2026 noch in früher Enterprise-Deployment-Phase.
 
-→ **[802.11 Standards Deep Dive](/de/technology/wifi-80211-standards-wifi4-wifi5-wifi6/)**
+→ **[802.11 Standards Deep Dive](/de/technology/wifi-standards/)**
 
 ---
 
@@ -141,7 +141,7 @@ Moderne Großcampus-Deployments integrieren Wireless oft in das breitere Netzwer
 
 Cisco DNA Center mit SD-Access und Aruba CX mit Central sind Beispiele dieses Ansatzes.
 
-→ **[Enterprise Controller-Architektur Deep Dive](/de/technology/enterprise-wlan-controller-architektur-cisco-aruba/)**
+→ **[Enterprise Controller-Architektur Deep Dive](/de/technology/wifi-controller/)**
 
 ---
 
@@ -173,7 +173,7 @@ Wichtige Hotel WiFi Design-Entscheidungen:
 - **Gastportal:** Authentifizierung, Nutzungsbestätigung, potenziell Zimmernummer-Validierung. Integration mit PMS (Property Management System) für automatische Provisionierung.
 - **Personal- vs. Gastnetzwerk:** Vollständig getrennt — auf das Personalnetzwerk darf unter keinen Umständen vom Gastnetzwerk aus zugegriffen werden.
 
-→ **[WiFi-Design für KMU, Hotels und Arztpraxen Deep Dive](/de/technology/wifi-design-kmu-hotel-gesundheit/)**
+→ **[WiFi-Design für KMU, Hotels und Arztpraxen Deep Dive](/de/technology/wifi-smb-hotel-medical/)**
 
 ---
 
@@ -234,7 +234,7 @@ Ein Rogue AP ist ein unautorisierter Access Point, der mit Ihrem Netzwerk verbun
 
 Enterprise Wireless Controller scannen die RF-Umgebung kontinuierlich auf APs. Wenn ein AP erkannt wird, der zur BSSID oder SSID Ihres kabelgebundenen Netzwerks passt, wird er als Rogue markiert und — auf den meisten Plattformen — kann automatisch eingedämmt werden.
 
-→ **[WiFi-Sicherheit Deep Dive: WPA3, 802.1X, Rogue-AP-Erkennung und Site Survey](/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/)**
+→ **[WiFi-Sicherheit Deep Dive: WPA3, 802.1X, Rogue-AP-Erkennung und Site Survey](/de/technology/wifi-security/)**
 
 ---
 
@@ -254,7 +254,7 @@ Was ein Site Survey aufdeckt:
 
 Die Kosten eines ordentlichen Site Surveys sind gering im Vergleich zu den Kosten einer Wireless-Deployment, die nach der Installation erhebliche Nacharbeiten erfordert.
 
-→ **[WiFi-Sicherheit Deep Dive beinhaltet Site-Survey-Methodik](/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/)**
+→ **[WiFi-Sicherheit Deep Dive beinhaltet Site-Survey-Methodik](/de/technology/wifi-security/)**
 
 ---
 
@@ -274,10 +274,10 @@ Die Kosten eines ordentlichen Site Surveys sind gering im Vergleich zu den Koste
 
 ## Diese Serie
 
-- 📡 **[802.11 Standards Deep Dive](/de/technology/wifi-80211-standards-wifi4-wifi5-wifi6/)** — WiFi 4, 5, 6, 6E und 7: was sich geändert hat, was in der Praxis wichtig ist
-- 🏢 **[Enterprise Controller-Architektur](/de/technology/enterprise-wlan-controller-architektur-cisco-aruba/)** — Cisco und Aruba Architekturen, zentralisiert vs. Cloud, Mobilitätsdomänen
-- 🏨 **[WiFi-Design für KMU, Hotels und Arztpraxen](/de/technology/wifi-design-kmu-hotel-gesundheit/)** — Praktische Feldnotizen zu realen Deployment-Szenarien
-- 🔐 **[WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey](/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/)** — Authentifizierung, Verschlüsselung, Intrusion Detection, Ekahau-Methodik
+- 📡 **[802.11 Standards Deep Dive](/de/technology/wifi-standards/)** — WiFi 4, 5, 6, 6E und 7: was sich geändert hat, was in der Praxis wichtig ist
+- 🏢 **[Enterprise Controller-Architektur](/de/technology/wifi-controller/)** — Cisco und Aruba Architekturen, zentralisiert vs. Cloud, Mobilitätsdomänen
+- 🏨 **[WiFi-Design für KMU, Hotels und Arztpraxen](/de/technology/wifi-smb-hotel-medical/)** — Praktische Feldnotizen zu realen Deployment-Szenarien
+- 🔐 **[WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey](/de/technology/wifi-security/)** — Authentifizierung, Verschlüsselung, Intrusion Detection, Ekahau-Methodik
 
 ---
 

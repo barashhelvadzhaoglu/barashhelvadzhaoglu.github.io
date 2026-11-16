@@ -33,7 +33,7 @@ aliases:
 
 Dieser Artikel ist Teil der F5 BIG-IP-Serie.
 
-> **Neu bei F5?** Beginnen Sie zuerst mit der Plattformübersicht: [F5 BIG-IP ist kein Load Balancer — Es ist eine Application Delivery Platform](/de/technology/f5-bigip-application-delivery-platform-overview/)
+> **Neu bei F5?** Beginnen Sie zuerst mit der Plattformübersicht: [F5 BIG-IP ist kein Load Balancer — Es ist eine Application Delivery Platform](/de/technology/f5-master/)
 
 Wenn Sie das Gesamtbild bereits kennen und tief in LTM eintauchen möchten — Konfiguration, iRules, Migrations-Praxisnotizen — sind Sie hier richtig.
 
@@ -441,12 +441,12 @@ Wir fanden 3 iRules, die vor dem Cutover Modifikationen erforderten. Diese im St
 
 ## Diese Serie
 
-- 📖 [F5 BIG-IP Plattformübersicht — Alle Module](/de/technology/f5-bigip-application-delivery-platform-overview/) ← Beginnen Sie hier, wenn Sie neu bei F5 sind
-- 🌐 [F5 GTM & GSLB Deep Dive](/de/technology/f5-gtm-gslb-global-traffic-management/)
-- 🛡️ [F5 WAF Deep Dive](/de/technology/f5-waf-asm-advanced-waf-application-security/)
+- 📖 [F5 BIG-IP Plattformübersicht — Alle Module](/de/technology/f5-master/) ← Beginnen Sie hier, wenn Sie neu bei F5 sind
+- 🌐 [F5 GTM & GSLB Deep Dive](/de/technology/f5-gtm-deep-dive/)
+- 🛡️ [F5 WAF Deep Dive](/de/technology/f5-waf-deep-dive/)
 
 ## Verwandte Artikel
 
 - 🛠️ [Die Hintertür des Netzwerks: Next-Gen Console Server Architektur](/de/posts/next-gen-console-server-architecture/) — Out-of-Band-Zugang während F5-Wartungsfenstern
 - 🛡️ [Network Packet Broker (NPB) Masterclass](/de/posts/network-packet-broker-masterclass/) — Datenverkehrssichtbarkeit neben ADC
-- 🔐 [Die Zero-Trust-Mentalität](/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Wo LTM in einer Zero-Trust-Architektur passt
+- 🔐 [Die Zero-Trust-Mentalität](/de/architecture/zero-trust-architecture-behaviors/) — Wo LTM in einer Zero-Trust-Architektur passt

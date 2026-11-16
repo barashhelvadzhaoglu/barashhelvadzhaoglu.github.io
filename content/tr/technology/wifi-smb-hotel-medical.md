@@ -33,7 +33,7 @@ aliases:
 
 Bu yazı Kurumsal WiFi serisinin bir parçasıdır.
 
-> **Kurumsal kablosuz ağa yeni misiniz?** Genel bakışla başlayın: [Kurumsal WiFi Mimarisi: Standartlardan Deployment'a](/tr/technology/kurumsal-wifi-mimarisi-tam-rehber/)
+> **Kurumsal kablosuz ağa yeni misiniz?** Genel bakışla başlayın: [Kurumsal WiFi Mimarisi: Standartlardan Deployment'a](/tr/technology/wifi-master/)
 
 ---
 
@@ -269,13 +269,13 @@ Kurumsal AP'ler PoE gerektirir. Birden fazla radyolu bir Cisco veya Aruba WiFi 6
 
 ## Bu Seri
 
-- 📖 [Kurumsal WiFi Mimarisi Genel Bakış](/tr/technology/kurumsal-wifi-mimarisi-tam-rehber/) ← Buradan başlayın
-- 📡 [802.11 Standartları Deep Dive](/tr/technology/wifi-80211-standartlari-wifi4-wifi5-wifi6/)
-- 🏢 [Kurumsal Controller Mimarisi: Cisco ve Aruba](/tr/technology/kurumsal-wifi-controller-mimarisi-cisco-aruba/)
-- 🔐 [WiFi Güvenliği: WPA3, 802.1X, Sahte AP, Site Survey](/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/)
+- 📖 [Kurumsal WiFi Mimarisi Genel Bakış](/tr/technology/wifi-master/) ← Buradan başlayın
+- 📡 [802.11 Standartları Deep Dive](/tr/technology/wifi-standards/)
+- 🏢 [Kurumsal Controller Mimarisi: Cisco ve Aruba](/tr/technology/wifi-controller/)
+- 🔐 [WiFi Güvenliği: WPA3, 802.1X, Sahte AP, Site Survey](/tr/technology/wifi-security/)
 
 ## İlgili Yazılar
 
-- 📡 [NAS Yedekleme ve AWS S3 — KOBİ'ler için Veri Güvenliği](/tr/technology/nas-backup-aws-s3-cloud-kobi/) — WiFi'nin yanında KOBİ veri koruma
+- 📡 [NAS Yedekleme ve AWS S3 — KOBİ'ler için Veri Güvenliği](/tr/posts/nas-backup/) — WiFi'nin yanında KOBİ veri koruma
 - 🔐 [802.1X Kimlik Tabanlı Mimari Sahada](/tr/technology/identity-based-microsegmentation-8021x/) — Kurumsal kablosuz için kimlik katmanı
 - 🏗️ [IT Altyapısı Ürünler Koleksiyonu Değildir](/tr/architecture/it-infrastructure-not-a-collection-of-products/) — Ağ tasarımında sistem düşüncesi

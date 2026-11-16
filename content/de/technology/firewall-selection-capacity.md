@@ -296,7 +296,7 @@ Modell auswählen, das für ≥ 2,4 Gbps SSL-Inspection-Durchsatz bewertet ist
 ## Verwandte Artikel
 
 - 🏗️ [Switch, Firewall, AP — Warum die Auswahl der richtigen Produkte nicht ausreicht](/de/architecture/core-network-is-not-a-product-list/) — Architektonischer Kontext für Firewall-Platzierung
-- 🔐 [Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln](/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Richtlinienphilosophie hinter Firewall-Design
-- 🛡️ [DDoS-Schutzstrategien](/de/technology/ddos-schutzstrategien-isp-scrubbing-on-premise-cloud/) — Was upstream der Firewall sitzt
-- 🛡️ [F5 WAF Deep Dive](/de/technology/f5-waf-asm-advanced-waf-anwendungssicherheit/) — Layer-7-Schutz, der Firewall-Richtlinien ergänzt
+- 🔐 [Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln](/de/architecture/zero-trust-architecture-behaviors/) — Richtlinienphilosophie hinter Firewall-Design
+- 🛡️ [DDoS-Schutzstrategien](/de/technology/ddos-protection-strategies/) — Was upstream der Firewall sitzt
+- 🛡️ [F5 WAF Deep Dive](/de/technology/f5-waf-deep-dive/) — Layer-7-Schutz, der Firewall-Richtlinien ergänzt
 - 📊 [Monitoring richtig gemacht](/de/architecture/monitoring-not-just-seeing/) — Firewall-Verhalten sichtbar machen

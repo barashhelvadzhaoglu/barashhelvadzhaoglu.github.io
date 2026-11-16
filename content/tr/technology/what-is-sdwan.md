@@ -149,4 +149,4 @@ SD-WAN, kurumsal WAN için olgun, kanıtlanmış bir mimaridir. Bulut iş yükle
 
 ---
 
-*Bu makale SD-WAN mimarileri üzerine bir serinin parçasıdır. Sıradaki: [Fortinet SD-WAN — Pratikte Güvenlik Odaklı Ağ](/tr/posts/fortinet-sd-wan/)*
+*Bu makale SD-WAN mimarileri üzerine bir serinin parçasıdır. Sıradaki: [Fortinet SD-WAN — Pratikte Güvenlik Odaklı Ağ](/tr/technology/fortinet-sd-wan/)*

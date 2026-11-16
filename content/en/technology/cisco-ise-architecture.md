@@ -224,6 +224,6 @@ NPS covers basic RADIUS and 802.1X at no extra cost. ISE adds profiling, guest a
 ## Related Articles
 
 - 🔐 [802.1X Projects: Deploying the Identity-Based Architecture in the Field](/en/technology/identity-based-microsegmentation-8021x/) — The field deployment guide that ISE enables
-- 🏛️ [Cisco DNA Center / Catalyst Center: When It Makes Sense](/en/architecture/cisco-dna-center-catalyst-center-architecture-guide/) — The campus management platform ISE integrates with
-- 🔐 [The Zero Trust Mindset: Engineering Security as an Architecture](/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — The philosophy behind identity-based access control
-- 🛡️ [F5 WAF Deep Dive](/en/technology/f5-waf-asm-advanced-waf-application-security/) — Complementary Layer 7 security alongside ISE's Layer 2/3 enforcement
+- 🏛️ [Cisco DNA Center / Catalyst Center: When It Makes Sense](/en/architecture/catalyst-center-architecture/) — The campus management platform ISE integrates with
+- 🔐 [The Zero Trust Mindset: Engineering Security as an Architecture](/en/architecture/zero-trust-architecture-behaviors/) — The philosophy behind identity-based access control
+- 🛡️ [F5 WAF Deep Dive](/en/technology/f5-waf-deep-dive/) — Complementary Layer 7 security alongside ISE's Layer 2/3 enforcement

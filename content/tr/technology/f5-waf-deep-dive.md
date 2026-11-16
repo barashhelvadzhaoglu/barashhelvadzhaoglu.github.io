@@ -33,7 +33,7 @@ aliases:
 
 Bu yazı F5 BIG-IP serisinin bir parçasıdır.
 
-> **F5'e yeni misiniz?** Önce platform genel bakışıyla başlayın: [F5 BIG-IP Bir Load Balancer Değil — Uygulama Teslim Platformudur](/tr/technology/f5-bigip-uygulama-teslim-platformu-genel-bakis/)
+> **F5'e yeni misiniz?** Önce platform genel bakışıyla başlayın: [F5 BIG-IP Bir Load Balancer Değil — Uygulama Teslim Platformudur](/tr/technology/f5-master/)
 
 Büyük resmi zaten anlıyorsanız ve WAF'a derinlemesine inmek istiyorsanız — güvenlik modelleri, OWASP kapsamı, bot savunması ve deployment stratejisi — doğru yerdesiniz.
 
@@ -351,13 +351,13 @@ Bankacılık ortamında WAF logları Splunk'a iletildi:
 
 ## Bu Seri
 
-- 📖 [F5 BIG-IP Platform Genel Bakış — Tüm Modüller](/tr/technology/f5-bigip-uygulama-teslim-platformu-genel-bakis/) ← F5'e yeniyseniz buradan başlayın
-- 🔧 [F5 LTM Deep Dive](/tr/technology/f5-ltm-virtual-server-irule-ssl-offloading-ha/)
-- 🌐 [F5 GTM ve GSLB Deep Dive](/tr/technology/f5-gtm-gslb-global-traffic-management/)
+- 📖 [F5 BIG-IP Platform Genel Bakış — Tüm Modüller](/tr/technology/f5-master/) ← F5'e yeniyseniz buradan başlayın
+- 🔧 [F5 LTM Deep Dive](/tr/technology/f5-ltm-deep-dive/)
+- 🌐 [F5 GTM ve GSLB Deep Dive](/tr/technology/f5-gtm-deep-dive/)
 
 ## İlgili Yazılar
 
-- 🔐 [Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek](/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — WAF'ın Zero Trust'taki yeri
+- 🔐 [Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek](/tr/architecture/zero-trust-architecture-behaviors/) — WAF'ın Zero Trust'taki yeri
 - 🛡️ [802.1X Kimlik Tabanlı Mimari Sahada](/tr/technology/identity-based-microsegmentation-8021x/) — Ağ katmanlarında derinlemesine savunma
 - 📊 [İzleme Doğru Yapıldığında](/tr/architecture/monitoring-not-just-seeing/) — WAF loglarını proaktif izlemeye entegre etmek
 - 🛡️ [Network Packet Broker (NPB) Masterclass](/tr/posts/network-packet-broker-masterclass/) — WAF ile birlikte tam trafik görünürlüğü

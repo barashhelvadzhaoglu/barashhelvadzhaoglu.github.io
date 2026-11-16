@@ -33,7 +33,7 @@ aliases:
 
 This article is part of the Enterprise WiFi series.
 
-> **New to enterprise wireless?** Start with the overview: [Enterprise WiFi Architecture: From Standards to Deployment](/en/technology/enterprise-wifi-architecture-complete-guide/)
+> **New to enterprise wireless?** Start with the overview: [Enterprise WiFi Architecture: From Standards to Deployment](/en/technology/wifi-master/)
 
 ---
 
@@ -318,13 +318,13 @@ WIDS events should be integrated into your SIEM or monitoring platform for centr
 
 ## This Series
 
-- 📖 [Enterprise WiFi Architecture Overview](/en/technology/enterprise-wifi-architecture-complete-guide/) ← Start here
-- 📡 [802.11 Standards Deep Dive](/en/technology/wifi-80211-standards-wifi4-wifi5-wifi6/)
-- 🏢 [Enterprise Controller Architecture: Cisco and Aruba](/en/technology/enterprise-wifi-controller-architecture-cisco-aruba/)
-- 🏨 [WiFi Design for SMB, Hotels, and Medical Practices](/en/technology/wifi-design-smb-hotel-medical/)
+- 📖 [Enterprise WiFi Architecture Overview](/en/technology/wifi-master/) ← Start here
+- 📡 [802.11 Standards Deep Dive](/en/technology/wifi-standards/)
+- 🏢 [Enterprise Controller Architecture: Cisco and Aruba](/en/technology/wifi-controller/)
+- 🏨 [WiFi Design for SMB, Hotels, and Medical Practices](/en/technology/wifi-smb-hotel-medical/)
 
 ## Related Articles
 
 - 🔐 [802.1X Identity-Based Architecture in the Field](/en/technology/identity-based-microsegmentation-8021x/) — Deep dive on 802.1X beyond wireless
-- 🔐 [The Zero Trust Mindset: Engineering Security as an Architecture](/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Where wireless security fits in Zero Trust
+- 🔐 [The Zero Trust Mindset: Engineering Security as an Architecture](/en/architecture/zero-trust-architecture-behaviors/) — Where wireless security fits in Zero Trust
 - 📊 [Monitoring Done Right](/en/architecture/monitoring-not-just-seeing/) — Integrating wireless events into proactive monitoring

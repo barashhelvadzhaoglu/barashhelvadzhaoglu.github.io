@@ -241,7 +241,7 @@ Einige Dinge, die nicht in der Dokumentation stehen, aber in der Praxis von Bede
 ## Verwandte Artikel
 
 - 🔐 [Identitätsbasierte 802.1X-Architektur in der Praxis](/de/technology/identity-based-microsegmentation-8021x/) – Das Identitätsfundament, das DNA Center + ISE so leistungsfähig macht
-- 🔐 [Das Zero-Trust-Mindset: Sicherheit als Architektur entwickeln](/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) – Die architektonische Philosophie hinter dem SD-Access-Policy-Modell
+- 🔐 [Das Zero-Trust-Mindset: Sicherheit als Architektur entwickeln](/en/architecture/zero-trust-architecture-behaviors/) – Die architektonische Philosophie hinter dem SD-Access-Policy-Modell
 - 🏗️ [Switch, Firewall, AP – Warum die Wahl der richtigen Produkte nicht ausreicht](/de/architecture/core-network-is-not-a-product-list/) – Kontext der Campus-Architektur
 - 📊 [Richtiges Monitoring](/de/architecture/monitoring-not-just-seeing/) – Wie sich DNA Center Assurance in eine umfassendere Monitoring-Strategie einfügt
-- 🌐 [Enterprise WLAN-Controller-Architektur](/en/technology/enterprise-wifi-controller-architecture-cisco-aruba/) – WLAN-Integration mit DNA Center
+- 🌐 [Enterprise WLAN-Controller-Architektur](/en/technology/wifi-controller/) – WLAN-Integration mit DNA Center

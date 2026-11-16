@@ -33,7 +33,7 @@ aliases:
 
 Dieser Artikel ist Teil der Enterprise-WiFi-Serie.
 
-> **Neu im Enterprise-Wireless-Bereich?** Beginnen Sie mit der Übersicht: [Enterprise WiFi-Architektur: Von Standards bis zur Deployment](/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/)
+> **Neu im Enterprise-Wireless-Bereich?** Beginnen Sie mit der Übersicht: [Enterprise WiFi-Architektur: Von Standards bis zur Deployment](/de/technology/wifi-master/)
 
 ---
 
@@ -269,13 +269,13 @@ Enterprise-APs erfordern PoE. Ein Cisco- oder Aruba-WiFi-6-AP mit mehreren Radio
 
 ## Diese Serie
 
-- 📖 [Enterprise WiFi-Architektur Übersicht](/de/technology/enterprise-wifi-architektur-vollstaendiger-leitfaden/) ← Beginnen Sie hier
-- 📡 [802.11 Standards Deep Dive](/de/technology/wifi-80211-standards-wifi4-wifi5-wifi6/)
-- 🏢 [Enterprise Controller-Architektur: Cisco und Aruba](/de/technology/enterprise-wlan-controller-architektur-cisco-aruba/)
-- 🔐 [WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey](/de/technology/wifi-sicherheit-wpa3-8021x-site-survey/)
+- 📖 [Enterprise WiFi-Architektur Übersicht](/de/technology/wifi-master/) ← Beginnen Sie hier
+- 📡 [802.11 Standards Deep Dive](/de/technology/wifi-standards/)
+- 🏢 [Enterprise Controller-Architektur: Cisco und Aruba](/de/technology/wifi-controller/)
+- 🔐 [WiFi-Sicherheit: WPA3, 802.1X, Rogue AP, Site Survey](/de/technology/wifi-security/)
 
 ## Verwandte Artikel
 
-- 📡 [NAS-Backup mit AWS S3 — Datensicherheit für KMU](/de/technology/nas-backup-aws-s3-cloud-kmu/) — KMU-Datenschutz neben WiFi
+- 📡 [NAS-Backup mit AWS S3 — Datensicherheit für KMU](/de/posts/nas-backup/) — KMU-Datenschutz neben WiFi
 - 🔐 [802.1X Identitätsbasierte Architektur im Praxiseinsatz](/de/technology/identity-based-microsegmentation-8021x/) — Die Identitätsschicht für Enterprise Wireless
 - 🏗️ [IT-Infrastruktur ist keine Produktsammlung](/de/architecture/it-infrastructure-not-a-collection-of-products/) — Systemdenken im Netzwerkdesign

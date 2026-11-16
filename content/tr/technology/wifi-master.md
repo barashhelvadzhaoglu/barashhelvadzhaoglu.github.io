@@ -45,10 +45,10 @@ Bu yazı size **büyük resmi** verir — kurumsal kablosuz mimarisinin neyi iç
 
 **Mühendisseniz** ve belirli bir konuya derinlemesine inmek istiyorsanız — kullanım senaryonuzu kapsayan yazıya atlayın:
 
-- 📡 **[802.11 Standartları Deep Dive: WiFi 4, 5, 6, 6E ve Gerçekte Ne Değişti](/tr/technology/wifi-80211-standartlari-wifi4-wifi5-wifi6/)** — ax, ac, n ve be'nin kapasite, kapsama alanı ve deployment kararları için gerçekte ne anlama geldiği
-- 🏢 **[Kurumsal Controller Mimarisi: Cisco ve Aruba WLAN Tasarımı](/tr/technology/kurumsal-wifi-controller-mimarisi-cisco-aruba/)** — Merkezi ve dağıtık kontrol, mobilite alanları, WLC ve bulut yönetimi karşılaştırması
-- 🏨 **[KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı](/tr/technology/wifi-tasarimi-kobi-otel-saglik/)** — Yoğunluk planlaması, misafir segmentasyonu ve beklenti yönetimi üzerine pratik saha notları
-- 🔐 **[WiFi Güvenliği: WPA3, 802.1X, Sahte AP Tespiti ve Site Survey](/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/)** — Kimlik doğrulama, şifreleme, saldırı tespiti ve Ekahau survey metodolojisi
+- 📡 **[802.11 Standartları Deep Dive: WiFi 4, 5, 6, 6E ve Gerçekte Ne Değişti](/tr/technology/wifi-standards/)** — ax, ac, n ve be'nin kapasite, kapsama alanı ve deployment kararları için gerçekte ne anlama geldiği
+- 🏢 **[Kurumsal Controller Mimarisi: Cisco ve Aruba WLAN Tasarımı](/tr/technology/wifi-controller/)** — Merkezi ve dağıtık kontrol, mobilite alanları, WLC ve bulut yönetimi karşılaştırması
+- 🏨 **[KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı](/tr/technology/wifi-smb-hotel-medical/)** — Yoğunluk planlaması, misafir segmentasyonu ve beklenti yönetimi üzerine pratik saha notları
+- 🔐 **[WiFi Güvenliği: WPA3, 802.1X, Sahte AP Tespiti ve Site Survey](/tr/technology/wifi-security/)** — Kimlik doğrulama, şifreleme, saldırı tespiti ve Ekahau survey metodolojisi
 
 **Mimar veya karar vericiyseniz** ve kablosuz çözümleri değerlendiriyorsanız — burada okumaya devam edin. Bu yazı, RF uzmanlığı gerektirmeden stratejik soruları yanıtlar.
 
@@ -94,7 +94,7 @@ Pazarlama materyallerindeki teorik hızlar pratikte hiçbir zaman ulaşılmaz. G
 
 **WiFi 7** ortaya çıkıyor ve Çok Bağlantılı Çalışma (MLO) sayesinde tek bir cihazın aynı anda birden fazla bant ve kanalı kullanması — verimi iyileştiriyor ve gecikmeyi azaltıyor. 2026 itibarıyla hâlâ erken kurumsal deployment aşamasında.
 
-→ **[802.11 Standartları Deep Dive](/tr/technology/wifi-80211-standartlari-wifi4-wifi5-wifi6/)**
+→ **[802.11 Standartları Deep Dive](/tr/technology/wifi-standards/)**
 
 ---
 
@@ -141,7 +141,7 @@ Modern büyük kampüs deployment'ları çoğunlukla kablosuzu daha geniş ağ f
 
 SD-Access ile Cisco DNA Center ve Central ile Aruba CX bu yaklaşımın örnekleridir.
 
-→ **[Kurumsal Controller Mimarisi Deep Dive](/tr/technology/kurumsal-wifi-controller-mimarisi-cisco-aruba/)**
+→ **[Kurumsal Controller Mimarisi Deep Dive](/tr/technology/wifi-controller/)**
 
 ---
 
@@ -173,7 +173,7 @@ Temel otel WiFi tasarım kararları:
 - **Misafir portalı:** Kimlik doğrulama, şartlar kabul, potansiyel olarak oda numarası doğrulama. Otomatik sağlama için PMS (Otel Yönetim Sistemi) ile entegrasyon.
 - **Personel ve misafir ağı:** Tamamen ayrı — personel ağına hiçbir koşulda misafir ağından erişilememeli.
 
-→ **[KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı Deep Dive](/tr/technology/wifi-tasarimi-kobi-otel-saglik/)**
+→ **[KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı Deep Dive](/tr/technology/wifi-smb-hotel-medical/)**
 
 ---
 
@@ -234,7 +234,7 @@ Sahte AP, ağınıza bağlı yetkisiz bir erişim noktasıdır — kötü niyetl
 
 Kurumsal kablosuz controller'lar RF ortamını sürekli olarak AP'ler için tarar. Kablolu ağınızın BSSID'si veya SSID'siyle eşleşen bir AP tespit edildiğinde, sahte olarak işaretlenir ve — çoğu platformda — otomatik olarak çevrelenebilir (controller, sahte AP'ye bağlanan istemcilere kimlik doğrulama iptali çerçeveleri gönderir).
 
-→ **[WiFi Güvenliği Deep Dive: WPA3, 802.1X, Sahte AP Tespiti ve Site Survey](/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/)**
+→ **[WiFi Güvenliği Deep Dive: WPA3, 802.1X, Sahte AP Tespiti ve Site Survey](/tr/technology/wifi-security/)**
 
 ---
 
@@ -254,7 +254,7 @@ Site survey'in ortaya koyduğu şeyler:
 
 Uygun bir site survey'in maliyeti, kurulumdan sonra önemli yeniden çalışma gerektiren kablosuz deployment maliyetiyle karşılaştırıldığında küçüktür.
 
-→ **[WiFi Güvenliği Deep Dive, Site Survey metodolojisini içerir](/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/)**
+→ **[WiFi Güvenliği Deep Dive, Site Survey metodolojisini içerir](/tr/technology/wifi-security/)**
 
 ---
 
@@ -274,10 +274,10 @@ Uygun bir site survey'in maliyeti, kurulumdan sonra önemli yeniden çalışma g
 
 ## Bu Seri
 
-- 📡 **[802.11 Standartları Deep Dive](/tr/technology/wifi-80211-standartlari-wifi4-wifi5-wifi6/)** — WiFi 4, 5, 6, 6E ve 7: ne değişti, pratikte ne önemli
-- 🏢 **[Kurumsal Controller Mimarisi](/tr/technology/kurumsal-wifi-controller-mimarisi-cisco-aruba/)** — Cisco ve Aruba mimarileri, merkezi ve bulut karşılaştırması, mobilite alanları
-- 🏨 **[KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı](/tr/technology/wifi-tasarimi-kobi-otel-saglik/)** — Gerçek dünya deployment senaryolarında pratik saha notları
-- 🔐 **[WiFi Güvenliği: WPA3, 802.1X, Sahte AP, Site Survey](/tr/technology/wifi-guvenligi-wpa3-8021x-site-survey/)** — Kimlik doğrulama, şifreleme, saldırı tespiti, Ekahau metodolojisi
+- 📡 **[802.11 Standartları Deep Dive](/tr/technology/wifi-standards/)** — WiFi 4, 5, 6, 6E ve 7: ne değişti, pratikte ne önemli
+- 🏢 **[Kurumsal Controller Mimarisi](/tr/technology/wifi-controller/)** — Cisco ve Aruba mimarileri, merkezi ve bulut karşılaştırması, mobilite alanları
+- 🏨 **[KOBİ, Oteller ve Muayenehane İçin WiFi Tasarımı](/tr/technology/wifi-smb-hotel-medical/)** — Gerçek dünya deployment senaryolarında pratik saha notları
+- 🔐 **[WiFi Güvenliği: WPA3, 802.1X, Sahte AP, Site Survey](/tr/technology/wifi-security/)** — Kimlik doğrulama, şifreleme, saldırı tespiti, Ekahau metodolojisi
 
 ---
 

@@ -102,7 +102,7 @@ In many organizations, the following scenarios are very reasonable:
 * Data Center / High-performance FW: DC traffic, high session count, high PPS, low latency requirements.
 * In some architectures, additional components such as WAF or Cloud FW.
 
-> For a deeper look at how identity and segmentation fit into a broader security philosophy, see: [The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product](/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/)
+> For a deeper look at how identity and segmentation fit into a broader security philosophy, see: [The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product](/en/architecture/zero-trust-architecture-behaviors/)
 
 This does not mean "buying two firewalls"; it means "assigning two different jobs to the right tools." When you pile everything into a single box, you lose either performance, manageability, or security. Usually, at least one of the three is lost.
 
@@ -176,7 +176,7 @@ My personal view is this: there are vendors who have proven themselves more stro
 
 Finally, there is one point I want to emphasize strongly: today, almost all major vendors are making serious investments in automation. At this point, API support is no longer an "extra," but a direct selection criterion. What can be done via APIs, what can be automated, and how open the integration is must be on the table when selecting products.
 
-> For a practical framework on building visibility into your infrastructure, see: [The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively](/en/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/)
+> For a practical framework on building visibility into your infrastructure, see: [The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively](/en/architecture/monitoring-not-just-seeing/)
 
 As I mentioned in my first article, in my opinion, automation processes should not be considered as a layer added later during product selection. On the contrary, automation and operational processes should be placed at the top of the pyramid, and products should be selected according to this framework. The question of which switch, which firewall, and which AP should come after the question: "How will I manage this architecture automatically?" In my view, correct core network design starts exactly here.
 
@@ -219,12 +219,12 @@ This version expands the architectural foundation for the series.
 If you found this article useful, you may also be interested in these related deep-dives:
 
 **Architecture & Security Design**
-- 📐 [IT Infrastructure Is Not a Collection of Products](/en/architecture/it-infrastructure-is-not-a-collection-of-products/) — The foundational article for this series
-- 🛡️ [The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product](/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Why Zero Trust is a philosophy, not a product you can buy
-- 📊 [The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively](/en/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/) — How to build real visibility into your infrastructure
+- 📐 [IT Infrastructure Is Not a Collection of Products](/en/architecture/it-infrastructure-not-a-collection-of-products/) — The foundational article for this series
+- 🛡️ [The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product](/en/architecture/zero-trust-architecture-behaviors/) — Why Zero Trust is a philosophy, not a product you can buy
+- 📊 [The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively](/en/architecture/monitoring-not-just-seeing/) — How to build real visibility into your infrastructure
 
 **Technical Engineering**
-- 🛠️ [The Backdoor of the Network: Next-Gen Console Server Architecture](/en/posts/next-gen-console-server-terminal-server-architecture/) — Out-of-band access when everything else fails
-- 🛡️ [Network Packet Broker (NPB) Masterclass](/en/posts/network-packet-broker-npb-masterclass/) — Advanced traffic visibility and security strategy
-- 🔐 [Unlocking Success in 802.1X Projects: Field Insights](/en/posts/unlocking-success-in-802-1x-projects-field-insights/) — Identity-based access in enterprise networks
+- 🛠️ [The Backdoor of the Network: Next-Gen Console Server Architecture](/en/posts/next-gen-console-server-architecture/) — Out-of-band access when everything else fails
+- 🛡️ [Network Packet Broker (NPB) Masterclass](/en/posts/network-packet-broker-masterclass/) — Advanced traffic visibility and security strategy
+- 🔐 [Unlocking Success in 802.1X Projects: Field Insights](/en/posts/8021x-field-deployment-teaser/) — Identity-based access in enterprise networks
 - ⚙️ [Nexus Software Upgrade Guide](/en/posts/cisco-nexus-nxos-upgrade-guide/) — Zero-downtime NX-OS upgrade walkthrough

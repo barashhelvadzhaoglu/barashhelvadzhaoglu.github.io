@@ -33,7 +33,7 @@ aliases:
 
 Dieser Artikel ist Teil der F5 BIG-IP-Serie.
 
-> **Neu bei F5?** Beginnen Sie zuerst mit der Plattformübersicht: [F5 BIG-IP ist kein Load Balancer — Es ist eine Application Delivery Platform](/de/technology/f5-bigip-application-delivery-platform-uebersicht/)
+> **Neu bei F5?** Beginnen Sie zuerst mit der Plattformübersicht: [F5 BIG-IP ist kein Load Balancer — Es ist eine Application Delivery Platform](/de/technology/f5-master/)
 
 Wenn Sie das Gesamtbild bereits verstehen und tief in GTM eintauchen möchten — iQuery, Wide IPs, Topologie-Routing, TTL-Strategie und Multi-DC-Design — sind Sie hier richtig.
 
@@ -348,12 +348,12 @@ Mit aktivierter Persistenz gibt GTM unabhängig von der Load-Balancing-Methode f
 
 ## Diese Serie
 
-- 📖 [F5 BIG-IP Plattformübersicht — Alle Module](/de/technology/f5-bigip-application-delivery-platform-uebersicht/) ← Beginnen Sie hier, wenn Sie neu bei F5 sind
-- 🔧 [F5 LTM Deep Dive](/de/technology/f5-ltm-virtual-server-irules-ssl-offloading-ha/)
-- 🛡️ [F5 WAF Deep Dive](/de/technology/f5-waf-asm-advanced-waf-anwendungssicherheit/)
+- 📖 [F5 BIG-IP Plattformübersicht — Alle Module](/de/technology/f5-master/) ← Beginnen Sie hier, wenn Sie neu bei F5 sind
+- 🔧 [F5 LTM Deep Dive](/de/technology/f5-ltm-deep-dive/)
+- 🛡️ [F5 WAF Deep Dive](/de/technology/f5-waf-deep-dive/)
 
 ## Verwandte Artikel
 
 - 🏗️ [IT-Infrastruktur ist keine Produktsammlung](/de/architecture/it-infrastructure-not-a-collection-of-products/) — Systemdenken für Multi-DC-Design
-- 🔐 [Die Zero-Trust-Mentalität](/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Identitätsbewusster Zugang über verteilte Infrastruktur
+- 🔐 [Die Zero-Trust-Mentalität](/de/architecture/zero-trust-architecture-behaviors/) — Identitätsbewusster Zugang über verteilte Infrastruktur
 - 📊 [Monitoring richtig gemacht](/de/architecture/monitoring-not-just-seeing/) — GTM- und LTM-Gesundheit proaktiv überwachen

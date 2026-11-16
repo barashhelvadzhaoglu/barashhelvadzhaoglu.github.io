@@ -90,7 +90,7 @@ Systemorientiertes Design funktioniert anders. Es beginnt mit grundlegenden Frag
 
 Ohne klare Antworten auf diese Fragen werden selbst die besten Produkte irgendwann gegeneinander arbeiten.
 
-> Für einen tiefen Einblick, wie Identität und Vertrauensgrenzen in der Praxis definiert werden: [Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt](/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/)
+> Für einen tiefen Einblick, wie Identität und Vertrauensgrenzen in der Praxis definiert werden: [Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt](/de/architecture/zero-trust-architecture-behaviors/)
 
 ---
 
@@ -135,7 +135,7 @@ Wenn diese Workflows manuell, fragmentiert oder undokumentiert sind, wird die In
 
 Deshalb sind Automatisierung, Observability und Lifecycle-Management keine optionalen Extras. Sie sind architektonische Elemente. Infrastruktur, die nicht konsistent betrieben werden kann, wird niemals sicher skalieren.
 
-> Einen praktischen Rahmen für den Aufbau echter Sichtbarkeit in Ihrer Infrastruktur finden Sie hier: [Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen und proaktiv handeln](/de/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/)
+> Einen praktischen Rahmen für den Aufbau echter Sichtbarkeit in Ihrer Infrastruktur finden Sie hier: [Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen und proaktiv handeln](/de/architecture/monitoring-not-just-seeing/)
 
 ---
 
@@ -185,10 +185,10 @@ Diese Version erweitert die architektonische Grundlage der Serie.
 
 **Architektur & Sicherheitsdesign**
 - 🏗️ [Switch, Firewall, AP — Warum die richtige Produktwahl allein nicht ausreicht](/de/architecture/core-network-is-not-a-product-list/) — Systemdenken im Core-Network-Design
-- 🛡️ [Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt](/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Warum Zero Trust eine Philosophie und kein Produkt ist
-- 📊 [Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen](/de/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/) — Echte Transparenz in der Infrastruktur aufbauen
+- 🛡️ [Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt](/de/architecture/zero-trust-architecture-behaviors/) — Warum Zero Trust eine Philosophie und kein Produkt ist
+- 📊 [Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen](/de/architecture/monitoring-not-just-seeing/) — Echte Transparenz in der Infrastruktur aufbauen
 
 **Technisches Engineering**
-- 🛠️ [Die Hintertür des Netzwerks: Next-Gen Console Server Architektur](/de/posts/next-gen-console-server-terminal-server-architecture/) — Out-of-Band-Zugang wenn alles andere versagt
-- 🛡️ [Network Packet Broker (NPB) Masterclass](/de/posts/network-packet-broker-npb-masterclass/) — Erweiterte Traffic-Sichtbarkeit und Sicherheitsstrategie
-- 🔐 [802.1X Projekte erfolgreich umsetzen: Praxiseinblicke](/de/posts/unlocking-success-in-802-1x-projects-field-insights/) — Identitätsbasierter Zugang in Unternehmensnetzwerken
+- 🛠️ [Die Hintertür des Netzwerks: Next-Gen Console Server Architektur](/de/posts/next-gen-console-server-architecture/) — Out-of-Band-Zugang wenn alles andere versagt
+- 🛡️ [Network Packet Broker (NPB) Masterclass](/de/posts/network-packet-broker-masterclass/) — Erweiterte Traffic-Sichtbarkeit und Sicherheitsstrategie
+- 🔐 [802.1X Projekte erfolgreich umsetzen: Praxiseinblicke](/de/posts/8021x-field-deployment-teaser/) — Identitätsbasierter Zugang in Unternehmensnetzwerken

@@ -45,10 +45,10 @@ This article gives you the **big picture** — what enterprise wireless architec
 
 **If you are an engineer** who wants to go deep on a specific topic — jump to the article that covers your use case:
 
-- 📡 **[802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E and What Actually Changed](/en/technology/wifi-80211-standards-wifi4-wifi5-wifi6/)** — What ax, ac, n, and be actually mean for capacity, range, and deployment decisions
-- 🏢 **[Enterprise Controller Architecture: Cisco and Aruba WLAN Design](/en/technology/enterprise-wifi-controller-architecture-cisco-aruba/)** — Centralized vs. distributed control, mobility domains, WLC vs. cloud management
-- 🏨 **[WiFi Design for SMB, Hotels, and Medical Practices](/en/technology/wifi-design-smb-hotel-medical/)** — Practical field notes on density planning, guest segmentation, and managing expectations
-- 🔐 **[WiFi Security: WPA3, 802.1X, Rogue AP Detection, and Site Survey](/en/technology/wifi-security-wpa3-8021x-site-survey/)** — Authentication, encryption, intrusion detection, and Ekahau survey methodology
+- 📡 **[802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E and What Actually Changed](/en/technology/wifi-standards/)** — What ax, ac, n, and be actually mean for capacity, range, and deployment decisions
+- 🏢 **[Enterprise Controller Architecture: Cisco and Aruba WLAN Design](/en/technology/wifi-controller/)** — Centralized vs. distributed control, mobility domains, WLC vs. cloud management
+- 🏨 **[WiFi Design for SMB, Hotels, and Medical Practices](/en/technology/wifi-smb-hotel-medical/)** — Practical field notes on density planning, guest segmentation, and managing expectations
+- 🔐 **[WiFi Security: WPA3, 802.1X, Rogue AP Detection, and Site Survey](/en/technology/wifi-security/)** — Authentication, encryption, intrusion detection, and Ekahau survey methodology
 
 **If you are an architect or decision-maker** evaluating wireless solutions — keep reading here. This article answers the strategic questions without requiring RF expertise.
 
@@ -94,7 +94,7 @@ The theoretical rates in marketing materials are never achieved in practice. Wha
 
 **WiFi 7** is emerging, with Multi-Link Operation (MLO) enabling a single device to simultaneously use multiple bands and channels — improving throughput and reducing latency. Still in early enterprise deployment as of 2026.
 
-→ **[802.11 Standards Deep Dive](/en/technology/wifi-80211-standards-wifi4-wifi5-wifi6/)**
+→ **[802.11 Standards Deep Dive](/en/technology/wifi-standards/)**
 
 ---
 
@@ -141,7 +141,7 @@ Modern large-campus deployments often integrate wireless into the broader networ
 
 Cisco DNA Center with SD-Access and Aruba CX with Central are examples of this approach.
 
-→ **[Enterprise Controller Architecture Deep Dive](/en/technology/enterprise-wifi-controller-architecture-cisco-aruba/)**
+→ **[Enterprise Controller Architecture Deep Dive](/en/technology/wifi-controller/)**
 
 ---
 
@@ -173,7 +173,7 @@ Key hotel WiFi design decisions:
 - **Guest portal:** Authentication, terms acceptance, potentially room-number validation. Integration with PMS (Property Management System) for automatic provisioning.
 - **Staff vs. guest network:** Completely separate — staff network must not be reachable from the guest network under any circumstances.
 
-→ **[WiFi Design for SMB, Hotels, and Medical Practices Deep Dive](/en/technology/wifi-design-smb-hotel-medical/)**
+→ **[WiFi Design for SMB, Hotels, and Medical Practices Deep Dive](/en/technology/wifi-smb-hotel-medical/)**
 
 ---
 
@@ -234,7 +234,7 @@ A rogue AP is an unauthorized access point connected to your network — either 
 
 Enterprise wireless controllers continuously scan the RF environment for APs. When an AP is detected that matches your wired network's BSSID or SSID, it's flagged as a rogue and — on most platforms — can be automatically contained (the controller sends deauthentication frames to clients connecting to the rogue AP).
 
-→ **[WiFi Security Deep Dive: WPA3, 802.1X, Rogue AP Detection, and Site Survey](/en/technology/wifi-security-wpa3-8021x-site-survey/)**
+→ **[WiFi Security Deep Dive: WPA3, 802.1X, Rogue AP Detection, and Site Survey](/en/technology/wifi-security/)**
 
 ---
 
@@ -254,7 +254,7 @@ What a site survey reveals:
 
 The cost of a proper site survey is small compared to the cost of a wireless deployment that requires significant rework after installation.
 
-→ **[WiFi Security Deep Dive includes Site Survey methodology](/en/technology/wifi-security-wpa3-8021x-site-survey/)**
+→ **[WiFi Security Deep Dive includes Site Survey methodology](/en/technology/wifi-security/)**
 
 ---
 
@@ -274,10 +274,10 @@ The cost of a proper site survey is small compared to the cost of a wireless dep
 
 ## This Series
 
-- 📡 **[802.11 Standards Deep Dive](/en/technology/wifi-80211-standards-wifi4-wifi5-wifi6/)** — WiFi 4, 5, 6, 6E, and 7: what changed, what matters in practice
-- 🏢 **[Enterprise Controller Architecture](/en/technology/enterprise-wifi-controller-architecture-cisco-aruba/)** — Cisco and Aruba architectures, centralized vs. cloud, mobility domains
-- 🏨 **[WiFi Design for SMB, Hotels, and Medical Practices](/en/technology/wifi-design-smb-hotel-medical/)** — Practical field notes on real-world deployment scenarios
-- 🔐 **[WiFi Security: WPA3, 802.1X, Rogue AP, Site Survey](/en/technology/wifi-security-wpa3-8021x-site-survey/)** — Authentication, encryption, intrusion detection, Ekahau methodology
+- 📡 **[802.11 Standards Deep Dive](/en/technology/wifi-standards/)** — WiFi 4, 5, 6, 6E, and 7: what changed, what matters in practice
+- 🏢 **[Enterprise Controller Architecture](/en/technology/wifi-controller/)** — Cisco and Aruba architectures, centralized vs. cloud, mobility domains
+- 🏨 **[WiFi Design for SMB, Hotels, and Medical Practices](/en/technology/wifi-smb-hotel-medical/)** — Practical field notes on real-world deployment scenarios
+- 🔐 **[WiFi Security: WPA3, 802.1X, Rogue AP, Site Survey](/en/technology/wifi-security/)** — Authentication, encryption, intrusion detection, Ekahau methodology
 
 ---
 

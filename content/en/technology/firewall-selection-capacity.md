@@ -304,7 +304,7 @@ Select a model rated for ≥ 2.4 Gbps SSL inspection throughput
 ## Related Articles
 
 - 🏗️ [Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough](/en/architecture/core-network-is-not-a-product-list/) — Architectural context for firewall placement
-- 🔐 [The Zero Trust Mindset: Engineering Security as an Architecture](/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Policy philosophy behind firewall design
-- 🛡️ [DDoS Protection Strategies](/en/technology/ddos-protection-strategies-isp-scrubbing-on-premise-cloud/) — What sits upstream of the firewall
-- 🛡️ [F5 WAF Deep Dive](/en/technology/f5-waf-asm-advanced-waf-application-security/) — Layer 7 protection that complements firewall policy
+- 🔐 [The Zero Trust Mindset: Engineering Security as an Architecture](/en/architecture/zero-trust-architecture-behaviors/) — Policy philosophy behind firewall design
+- 🛡️ [DDoS Protection Strategies](/en/technology/ddos-protection-strategies/) — What sits upstream of the firewall
+- 🛡️ [F5 WAF Deep Dive](/en/technology/f5-waf-deep-dive/) — Layer 7 protection that complements firewall policy
 - 📊 [Monitoring Done Right](/en/architecture/monitoring-not-just-seeing/) — Making firewall behavior visible

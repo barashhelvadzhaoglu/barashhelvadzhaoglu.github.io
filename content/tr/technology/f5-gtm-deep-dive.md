@@ -33,7 +33,7 @@ aliases:
 
 Bu yazı F5 BIG-IP serisinin bir parçasıdır.
 
-> **F5'e yeni misiniz?** Önce platform genel bakışıyla başlayın: [F5 BIG-IP Bir Load Balancer Değil — Uygulama Teslim Platformudur](/tr/technology/f5-bigip-uygulama-teslim-platformu-genel-bakis/)
+> **F5'e yeni misiniz?** Önce platform genel bakışıyla başlayın: [F5 BIG-IP Bir Load Balancer Değil — Uygulama Teslim Platformudur](/tr/technology/f5-master/)
 
 Büyük resmi zaten anlıyorsanız ve GTM'e derinlemesine inmek istiyorsanız — iQuery, Wide IP'ler, topoloji routing, TTL stratejisi ve çok DC tasarımı — doğru yerdesiniz.
 
@@ -348,12 +348,12 @@ Persistence etkinleştirildiğinde GTM, load balancing yönteminden bağımsız 
 
 ## Bu Seri
 
-- 📖 [F5 BIG-IP Platform Genel Bakış — Tüm Modüller](/tr/technology/f5-bigip-uygulama-teslim-platformu-genel-bakis/) ← F5'e yeniyseniz buradan başlayın
-- 🔧 [F5 LTM Deep Dive](/tr/technology/f5-ltm-virtual-server-irule-ssl-offloading-ha/)
-- 🛡️ [F5 WAF Deep Dive](/tr/technology/f5-waf-asm-advanced-waf-uygulama-guvenligi/)
+- 📖 [F5 BIG-IP Platform Genel Bakış — Tüm Modüller](/tr/technology/f5-master/) ← F5'e yeniyseniz buradan başlayın
+- 🔧 [F5 LTM Deep Dive](/tr/technology/f5-ltm-deep-dive/)
+- 🛡️ [F5 WAF Deep Dive](/tr/technology/f5-waf-deep-dive/)
 
 ## İlgili Yazılar
 
 - 🏗️ [IT Altyapısı Ürünler Koleksiyonu Değildir](/tr/architecture/it-infrastructure-not-a-collection-of-products/) — Çok DC tasarımı için sistem düşüncesi
-- 🔐 [Zero Trust Zihniyeti](/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Dağıtık altyapıda kimlik bilincine sahip erişim
+- 🔐 [Zero Trust Zihniyeti](/tr/architecture/zero-trust-architecture-behaviors/) — Dağıtık altyapıda kimlik bilincine sahip erişim
 - 📊 [İzleme Doğru Yapıldığında](/tr/architecture/monitoring-not-just-seeing/) — GTM ve LTM sağlığını proaktif olarak izleme

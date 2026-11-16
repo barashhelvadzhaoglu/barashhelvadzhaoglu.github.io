@@ -46,9 +46,9 @@ Dieser Artikel gibt Ihnen das **Gesamtbild** — was F5 ist, wo es steht, was je
 
 **Wenn Sie Netzwerk- oder Sicherheitsingenieur sind** und tief in Konfiguration, iRules, Migrations-Praxisnotizen und Architekturdetails einsteigen möchten — springen Sie direkt zum Modul, das Sie interessiert:
 
-- 🔧 **[F5 LTM Deep Dive](/de/technology/f5-ltm-virtual-server-irules-ssl-offloading-ha/)** — Virtual Server, Pools, iRules, SSL Offloading, HA und eine Migration von 30 Geräten ohne Downtime
-- 🌐 **[F5 GTM & GSLB Deep Dive](/de/technology/f5-gtm-gslb-global-traffic-management/)** — iQuery, Wide IPs, Topologie-Routing, DNS-TTL-Strategie, Multi-DC-Failover-Design
-- 🛡️ **[F5 WAF Deep Dive](/de/technology/f5-waf-asm-advanced-waf-application-security/)** — ASM vs. Advanced WAF, OWASP Top 10, Bot-Abwehr, Deployment-Strategie von transparent zu blockierend
+- 🔧 **[F5 LTM Deep Dive](/de/technology/f5-ltm-deep-dive/)** — Virtual Server, Pools, iRules, SSL Offloading, HA und eine Migration von 30 Geräten ohne Downtime
+- 🌐 **[F5 GTM & GSLB Deep Dive](/de/technology/f5-gtm-deep-dive/)** — iQuery, Wide IPs, Topologie-Routing, DNS-TTL-Strategie, Multi-DC-Failover-Design
+- 🛡️ **[F5 WAF Deep Dive](/de/technology/f5-waf-deep-dive/)** — ASM vs. Advanced WAF, OWASP Top 10, Bot-Abwehr, Deployment-Strategie von transparent zu blockierend
 
 **Wenn Sie Architekt oder Entscheidungsträger sind** und bewerten, ob F5 zu Ihrer Infrastruktur passt — lesen Sie hier weiter. Dieser Artikel beantwortet diese Frage, ohne dass Sie iRule-Syntax verstehen müssen.
 
@@ -106,7 +106,7 @@ Was LTM bietet:
 - iRules — eine programmierbare Skriptschicht, die Datenverkehr mit Leitungsgeschwindigkeit manipuliert: Header neu schreiben, nach URI routen, Inhalte einfügen, Ratenbegrenzungen erzwingen
 - Hochverfügbarkeit — Aktiv-Standby- oder Aktiv-Aktiv-Clustering mit Failover unter einer Sekunde
 
-→ **[F5 LTM Deep Dive: Virtual Server, iRules, SSL Offloading & HA](/de/technology/f5-ltm-virtual-server-irules-ssl-offloading-ha/)**
+→ **[F5 LTM Deep Dive: Virtual Server, iRules, SSL Offloading & HA](/de/technology/f5-ltm-deep-dive/)**
 
 ---
 
@@ -124,7 +124,7 @@ Was GTM bietet:
 - Topologiebasiertes Routing — europäische Benutzer zu EU-Rechenzentren, Nahost-Benutzer zu regionalen DCs
 - Flexible Richtlinien: Primär bevorzugen (Global Availability), gleichmäßige Verteilung (Round Robin) oder verbindungsbewusst (Least Connections)
 
-→ **[F5 GTM & GSLB Deep Dive: Globales Traffic-Management und DNS-Failover](/de/technology/f5-gtm-gslb-global-traffic-management/)**
+→ **[F5 GTM & GSLB Deep Dive: Globales Traffic-Management und DNS-Failover](/de/technology/f5-gtm-deep-dive/)**
 
 ---
 
@@ -140,7 +140,7 @@ F5 bietet zwei WAF-Stufen:
 
 Was WAF schützt: SQL-Injection, XSS, CSRF, Parameter-Tampering, Cookie-Poisoning, erzwungenes Durchsuchen, Bot-Datenverkehr und Anwendungsschicht-DoS.
 
-→ **[F5 WAF Deep Dive: Anwendungssicherheit mit ASM und Advanced WAF](/de/technology/f5-waf-asm-advanced-waf-application-security/)**
+→ **[F5 WAF Deep Dive: Anwendungssicherheit mit ASM und Advanced WAF](/de/technology/f5-waf-deep-dive/)**
 
 ---
 
@@ -233,15 +233,15 @@ Die ehrliche Zusammenfassung: Im Banking, Telekommunikation und großen Unterneh
 
 Dieser Artikel ist der Ausgangspunkt. Jedes Modul hat einen eigenen Deep Dive:
 
-- 🔧 **[F5 LTM Deep Dive: Virtual Server, iRules, SSL Offloading & HA](/de/technology/f5-ltm-virtual-server-irules-ssl-offloading-ha/)** — Full-Proxy-Architektur, Pool-Konfiguration, Health Monitors, iRule-Beispiele, Session Persistence, HA-Clustering und eine Zero-Downtime-Migration von 30 Geräten
-- 🌐 **[F5 GTM & GSLB Deep Dive: Globales Traffic-Management und DNS-Failover](/de/technology/f5-gtm-gslb-global-traffic-management/)** — Wide IPs, iQuery, Topologie-Routing, TTL-Strategie, Aktiv-Aktiv- und Aktiv-Standby-DC-Muster
-- 🛡️ **[F5 WAF Deep Dive: Anwendungssicherheit mit ASM und Advanced WAF](/de/technology/f5-waf-asm-advanced-waf-application-security/)** — Sicherheitsrichtlinienmodelle, OWASP-Top-10-Abdeckung, Bot-Abwehr, L7-DoS-Schutz und Deployment-Strategie von transparent zu blockierend
+- 🔧 **[F5 LTM Deep Dive: Virtual Server, iRules, SSL Offloading & HA](/de/technology/f5-ltm-deep-dive/)** — Full-Proxy-Architektur, Pool-Konfiguration, Health Monitors, iRule-Beispiele, Session Persistence, HA-Clustering und eine Zero-Downtime-Migration von 30 Geräten
+- 🌐 **[F5 GTM & GSLB Deep Dive: Globales Traffic-Management und DNS-Failover](/de/technology/f5-gtm-deep-dive/)** — Wide IPs, iQuery, Topologie-Routing, TTL-Strategie, Aktiv-Aktiv- und Aktiv-Standby-DC-Muster
+- 🛡️ **[F5 WAF Deep Dive: Anwendungssicherheit mit ASM und Advanced WAF](/de/technology/f5-waf-deep-dive/)** — Sicherheitsrichtlinienmodelle, OWASP-Top-10-Abdeckung, Bot-Abwehr, L7-DoS-Schutz und Deployment-Strategie von transparent zu blockierend
 
 ---
 
 ## Verwandte Artikel
 
 - 🛡️ [Network Packet Broker (NPB) Masterclass](/de/posts/network-packet-broker-masterclass/) — Datenverkehrssichtbarkeit über den gesamten Stack
-- 🔐 [Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln](/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Wo APM und WAF in Zero Trust passen
+- 🔐 [Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln](/de/architecture/zero-trust-architecture-behaviors/) — Wo APM und WAF in Zero Trust passen
 - 🏗️ [IT-Infrastruktur ist keine Produktsammlung](/de/architecture/it-infrastructure-not-a-collection-of-products/) — Systemdenken hinter der ADC-Platzierung
 - 🎯 [Netzwerkinfrastruktur-Produktauswahl: Strategische Kriterien](/de/architecture/network-product-selection-strategy/) — Wie man ADC-Anbieter objektiv bewertet

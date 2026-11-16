@@ -46,9 +46,9 @@ Bu yazı size **büyük resmi** verir — F5'in ne olduğu, nerede durduğu, her
 
 **Ağ veya güvenlik mühendisiyseniz** ve yapılandırma, iRule'lar, migrasyon saha notları ve mimari detaylara derinlemesine inmek istiyorsanız — doğrudan ilgilendiğiniz modüle atlayın:
 
-- 🔧 **[F5 LTM Deep Dive](/tr/technology/f5-ltm-virtual-server-irule-ssl-offloading-ha/)** — Virtual server'lar, pool'lar, iRule'lar, SSL offloading, HA ve 30 cihazlık migrasyon rehberi
-- 🌐 **[F5 GTM ve GSLB Deep Dive](/tr/technology/f5-gtm-gslb-global-traffic-management/)** — iQuery, Wide IP'ler, topoloji routing, DNS TTL stratejisi, çok DC failover tasarımı
-- 🛡️ **[F5 WAF Deep Dive](/tr/technology/f5-waf-asm-advanced-waf-application-security/)** — ASM ve Advanced WAF, OWASP Top 10, bot savunması, şeffaftan engellemeye deployment stratejisi
+- 🔧 **[F5 LTM Deep Dive](/tr/technology/f5-ltm-deep-dive/)** — Virtual server'lar, pool'lar, iRule'lar, SSL offloading, HA ve 30 cihazlık migrasyon rehberi
+- 🌐 **[F5 GTM ve GSLB Deep Dive](/tr/technology/f5-gtm-deep-dive/)** — iQuery, Wide IP'ler, topoloji routing, DNS TTL stratejisi, çok DC failover tasarımı
+- 🛡️ **[F5 WAF Deep Dive](/tr/technology/f5-waf-deep-dive/)** — ASM ve Advanced WAF, OWASP Top 10, bot savunması, şeffaftan engellemeye deployment stratejisi
 
 **Mimar veya karar vericiyseniz** ve F5'in altyapınıza uyup uymadığını değerlendiriyorsanız — okumaya burada devam edin. Bu yazı, iRule sözdizimini anlamanızı gerektirmeden o soruyu yanıtlıyor.
 
@@ -106,7 +106,7 @@ LTM'nin sunduğu özellikler:
 - iRule'lar — trafik düzeyinde hat hızında çalışan programlanabilir bir betik katmanı: başlık yeniden yazma, URI'ye göre yönlendirme, içerik ekleme, hız sınırı uygulama
 - Yüksek erişilebilirlik — saniye altı failover ile Aktif-Yedek veya Aktif-Aktif kümeleme
 
-→ **[F5 LTM Deep Dive: Virtual Server'lar, iRule'lar, SSL Offloading ve HA](/tr/technology/f5-ltm-virtual-server-irule-ssl-offloading-ha/)**
+→ **[F5 LTM Deep Dive: Virtual Server'lar, iRule'lar, SSL Offloading ve HA](/tr/technology/f5-ltm-deep-dive/)**
 
 ---
 
@@ -124,7 +124,7 @@ GTM'nin sunduğu özellikler:
 - Topoloji tabanlı routing — Avrupalı kullanıcılar AB veri merkezlerine, Orta Doğulu kullanıcılar bölgesel DC'lere
 - Esnek politikalar: her zaman birincil tercih et (Global Availability), eşit dağılım (Round Robin) veya bağlantı bilincine sahip (Least Connections)
 
-→ **[F5 GTM ve GSLB Deep Dive: Global Trafik Yönetimi ve DNS Failover](/tr/technology/f5-gtm-gslb-global-traffic-management/)**
+→ **[F5 GTM ve GSLB Deep Dive: Global Trafik Yönetimi ve DNS Failover](/tr/technology/f5-gtm-deep-dive/)**
 
 ---
 
@@ -140,7 +140,7 @@ F5 iki WAF katmanı sunar:
 
 WAF'ın koruduğu şeyler: SQL injection, XSS, CSRF, parametre tampering, çerez zehirlenmesi, zorla gezinme, bot trafiği ve uygulama katmanı DoS.
 
-→ **[F5 WAF Deep Dive: ASM ve Advanced WAF ile Uygulama Güvenliği](/tr/technology/f5-waf-asm-advanced-waf-application-security/)**
+→ **[F5 WAF Deep Dive: ASM ve Advanced WAF ile Uygulama Güvenliği](/tr/technology/f5-waf-deep-dive/)**
 
 ---
 
@@ -233,15 +233,15 @@ Dürüst özet: şirket içi altyapıya ve görev-kritik uygulama gereksinimleri
 
 Bu yazı başlangıç noktasıdır. Her modülün özel bir deep dive'ı vardır:
 
-- 🔧 **[F5 LTM Deep Dive: Virtual Server'lar, iRule'lar, SSL Offloading ve HA](/tr/technology/f5-ltm-virtual-server-irule-ssl-offloading-ha/)** — Full-proxy mimarisi, pool yapılandırması, health monitor'lar, iRule örnekleri, session persistence, HA kümeleme ve sıfır downtime 30 cihaz migrasyon rehberi
-- 🌐 **[F5 GTM ve GSLB Deep Dive: Global Trafik Yönetimi ve DNS Failover](/tr/technology/f5-gtm-gslb-global-traffic-management/)** — Wide IP'ler, iQuery, topoloji routing, TTL stratejisi, aktif-aktif ve aktif-yedek DC desenleri
-- 🛡️ **[F5 WAF Deep Dive: ASM ve Advanced WAF ile Uygulama Güvenliği](/tr/technology/f5-waf-asm-advanced-waf-application-security/)** — Güvenlik politikası modelleri, OWASP Top 10 kapsamı, bot savunması, L7 DoS koruması ve şeffaftan engellemeye deployment stratejisi
+- 🔧 **[F5 LTM Deep Dive: Virtual Server'lar, iRule'lar, SSL Offloading ve HA](/tr/technology/f5-ltm-deep-dive/)** — Full-proxy mimarisi, pool yapılandırması, health monitor'lar, iRule örnekleri, session persistence, HA kümeleme ve sıfır downtime 30 cihaz migrasyon rehberi
+- 🌐 **[F5 GTM ve GSLB Deep Dive: Global Trafik Yönetimi ve DNS Failover](/tr/technology/f5-gtm-deep-dive/)** — Wide IP'ler, iQuery, topoloji routing, TTL stratejisi, aktif-aktif ve aktif-yedek DC desenleri
+- 🛡️ **[F5 WAF Deep Dive: ASM ve Advanced WAF ile Uygulama Güvenliği](/tr/technology/f5-waf-deep-dive/)** — Güvenlik politikası modelleri, OWASP Top 10 kapsamı, bot savunması, L7 DoS koruması ve şeffaftan engellemeye deployment stratejisi
 
 ---
 
 ## İlgili Yazılar
 
 - 🛡️ [Network Packet Broker (NPB) Masterclass](/tr/posts/network-packet-broker-masterclass/) — Tam yığın genelinde trafik görünürlüğü
-- 🔐 [Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek](/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — APM ve WAF'ın Zero Trust'ta yeri
+- 🔐 [Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek](/tr/architecture/zero-trust-architecture-behaviors/) — APM ve WAF'ın Zero Trust'ta yeri
 - 🏗️ [IT Altyapısı Ürünler Koleksiyonu Değildir](/tr/architecture/it-infrastructure-not-a-collection-of-products/) — ADC yerleşiminin arkasındaki sistem düşüncesi
 - 🎯 [Ağ Altyapısı Ürün Seçimi: Stratejik Kriterler](/tr/architecture/network-product-selection-strategy/) — ADC satıcılarını nesnel olarak nasıl değerlendirirsiniz

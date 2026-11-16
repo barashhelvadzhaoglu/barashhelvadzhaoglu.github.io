@@ -201,4 +201,4 @@ aliases:
 ---
 
 *Üst yönetim kademesinden profesyonel bir referans mektubu talep üzerine sunulabilir.*  
-*Proje detayları veya danışmanlık sorguları için [iletişime geçin](/tr/iletisim/).*
+*Proje detayları veya danışmanlık sorguları için [iletişime geçin](/tr/contact/).*

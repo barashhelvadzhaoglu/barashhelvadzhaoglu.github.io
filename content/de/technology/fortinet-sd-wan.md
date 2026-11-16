@@ -147,4 +147,4 @@ Im Gartner Magic Quadrant spiegelt Fortinets dauerhafte Platzierung unter den Le
 
 ---
 
-*Als Nächstes in dieser Serie: [Cisco SD-WAN — Catalyst SD-WAN and the Enterprise Architecture Approach](/en/posts/cisco-sd-wan/)*
+*Als Nächstes in dieser Serie: [Cisco SD-WAN — Catalyst SD-WAN and the Enterprise Architecture Approach](/en/technology/cisco-sd-wan/)*

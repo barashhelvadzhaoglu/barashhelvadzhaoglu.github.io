@@ -149,4 +149,4 @@ The major vendors — Fortinet, Cisco, HPE Aruba, and Palo Alto — each take a 
 
 ---
 
-*This article is part of a series on SD-WAN architectures. Next: [Fortinet SD-WAN — Security-Driven Networking in Practice](/en/posts/fortinet-sd-wan/)*
+*This article is part of a series on SD-WAN architectures. Next: [Fortinet SD-WAN — Security-Driven Networking in Practice](/en/technology/fortinet-sd-wan/)*

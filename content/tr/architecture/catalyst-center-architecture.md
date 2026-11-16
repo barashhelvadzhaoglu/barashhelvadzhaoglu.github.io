@@ -243,7 +243,7 @@ Dokümantasyonda görünmeyen ancak pratikte önem taşıyan birkaç husus:
 ## İlgili Makaleler
 
 - 🔐 [Sahadan 802.1X Kimlik Tabanlı Mimari](/tr/technology/identity-based-microsegmentation-8021x/) — DNA Center + ISE kombinasyonunu güçlü kılan kimlik altyapısı
-- 🔐 [Zero Trust Yaklaşımı: Güvenliği Ürün Değil Mimari Olarak Tasarlamak](/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — SD-Access politika modelinin arkasındaki mimari felsefe
+- 🔐 [Zero Trust Yaklaşımı: Güvenliği Ürün Değil Mimari Olarak Tasarlamak](/en/architecture/zero-trust-architecture-behaviors/) — SD-Access politika modelinin arkasındaki mimari felsefe
 - 🏗️ [Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yetmez?](/tr/architecture/core-network-is-not-a-product-list/) — Kampüs mimarisi bağlamı
 - 📊 [Doğru İzleme (Monitoring)](/tr/architecture/monitoring-not-just-seeing/) — DNA Center assurance yeteneğinin genel izleme stratejisine uyumu
-- 🌐 [Kurumsal WiFi Controller Mimarisi](/en/technology/enterprise-wifi-controller-architecture-cisco-aruba/) — DNA Center ile kablosuz ağ entegrasyonu
+- 🌐 [Kurumsal WiFi Controller Mimarisi](/en/technology/wifi-controller/) — DNA Center ile kablosuz ağ entegrasyonu

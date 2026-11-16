@@ -206,9 +206,9 @@ This version expands on the architectural foundation of the series.
 **Architecture & Strategy**
 - 📐 [IT Infrastructure Is Not a Collection of Products](/en/architecture/it-infrastructure-not-a-collection-of-products/) — The foundational article of this series
 - 🏗️ [Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough](/en/architecture/core-network-is-not-a-product-list/) — Architecture-first core network design
-- 🛡️ [The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product](/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Security as architecture
+- 🛡️ [The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product](/en/architecture/zero-trust-architecture-behaviors/) — Security as architecture
 
 **Technical Engineering**
-- 📊 [The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively](/en/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/) — Operational visibility
-- 🛠️ [The Backdoor of the Network: Next-Gen Console Server Architecture](/en/posts/next-gen-console-server-terminal-server-architecture/) — Out-of-band access
-- 🛡️ [Network Packet Broker (NPB) Masterclass](/en/posts/network-packet-broker-npb-masterclass/) — Traffic visibility and security strategy
+- 📊 [The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively](/en/architecture/monitoring-not-just-seeing/) — Operational visibility
+- 🛠️ [The Backdoor of the Network: Next-Gen Console Server Architecture](/en/posts/next-gen-console-server-architecture/) — Out-of-band access
+- 🛡️ [Network Packet Broker (NPB) Masterclass](/en/posts/network-packet-broker-masterclass/) — Traffic visibility and security strategy

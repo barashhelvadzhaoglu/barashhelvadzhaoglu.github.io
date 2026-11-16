@@ -207,6 +207,6 @@ Einige Beobachtungen aus Produktions-Deployments:
 ## Verwandte Artikel
 
 - 🔐 [802.1X-Projekte: Die identitätsbasierte Architektur im Praxiseinsatz](/de/technology/identity-based-microsegmentation-8021x/) — Der Praxiseinsatz-Leitfaden, den ISE ermöglicht
-- 🏛️ [Cisco DNA Center / Catalyst Center: Wann es sinnvoll ist](/de/architecture/cisco-dna-center-catalyst-center-architecture-guide/) — Die Campus-Management-Plattform, mit der ISE integriert
-- 🔐 [Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln](/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Die Philosophie hinter identitätsbasierter Zugangskontrolle
-- 🛡️ [F5 WAF Deep Dive](/de/technology/f5-waf-asm-advanced-waf-application-security/) — Ergänzende L7-Sicherheit neben ISEs L2/L3-Durchsetzung
+- 🏛️ [Cisco DNA Center / Catalyst Center: Wann es sinnvoll ist](/de/architecture/catalyst-center-architecture/) — Die Campus-Management-Plattform, mit der ISE integriert
+- 🔐 [Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln](/de/architecture/zero-trust-architecture-behaviors/) — Die Philosophie hinter identitätsbasierter Zugangskontrolle
+- 🛡️ [F5 WAF Deep Dive](/de/technology/f5-waf-deep-dive/) — Ergänzende L7-Sicherheit neben ISEs L2/L3-Durchsetzung

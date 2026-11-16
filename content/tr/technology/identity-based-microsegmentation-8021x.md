@@ -39,7 +39,7 @@ Bu geçiş, bir kurumun alışkanlıklarını değiştirir. Çünkü 802.1X devr
 - 802.1X port güvenliği değil, **kimlik mimarisidir.**
 - Başarı network'ten çok **AD/PKI/endpoint disiplinine** bağlıdır.
 
-> Kimlik tabanlı erişimin arkasındaki Zero Trust zihniyeti için: [Zero Trust Zihniyeti: Güvenliği Ürün Değil Mimari Olarak Tasarlamak](/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/)
+> Kimlik tabanlı erişimin arkasındaki Zero Trust zihniyeti için: [Zero Trust Zihniyeti: Güvenliği Ürün Değil Mimari Olarak Tasarlamak](/tr/architecture/zero-trust-architecture-behaviors/)
 
 ### 1) Planlama: VLAN planı yoksa 802.1X "kural motoru" değil "kaos motoru" olur
 
@@ -200,7 +200,7 @@ Posture tasarımında en çok önerdiğim pratik yaklaşım: posture'u ilk aşam
 ## İlgili Yazılar
 
 **Mimari & Güvenlik**
-- 🔐 [Zero Trust Zihniyeti: Güvenliği Ürün Değil Mimari Olarak Tasarlamak](/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Kimlik tabanlı erişimin mimari temeli
+- 🔐 [Zero Trust Zihniyeti: Güvenliği Ürün Değil Mimari Olarak Tasarlamak](/tr/architecture/zero-trust-architecture-behaviors/) — Kimlik tabanlı erişimin mimari temeli
 - 🏗️ [IT Altyapısı Bir Ürün Koleksiyonu Değildir](/tr/architecture/it-infrastructure-not-a-collection-of-products/) — Sistem düşüncesi ve ürün seçimi
 - 📊 [Monitoring Zihniyeti: Sadece Görmek Değil, Anlamak](/tr/architecture/monitoring-not-just-seeing/) — Policy ihlallerini tırmanmadan yakalamak
 

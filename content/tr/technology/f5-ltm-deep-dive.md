@@ -33,7 +33,7 @@ aliases:
 
 Bu yazı F5 BIG-IP serisinin bir parçasıdır.
 
-> **F5'e yeni misiniz?** Önce platform genel bakışıyla başlayın: [F5 BIG-IP Bir Load Balancer Değil — Uygulama Teslim Platformudur](/tr/technology/f5-bigip-application-delivery-platform-overview/)
+> **F5'e yeni misiniz?** Önce platform genel bakışıyla başlayın: [F5 BIG-IP Bir Load Balancer Değil — Uygulama Teslim Platformudur](/tr/technology/f5-master/)
 
 Büyük resmi zaten biliyorsanız ve LTM'e derinlemesine inmek istiyorsanız — yapılandırma, iRule'lar, migrasyon saha notları — doğru yerdesiniz.
 
@@ -441,12 +441,12 @@ Cutover öncesinde değişiklik gerektiren 3 iRule bulduk. Bunları staging orta
 
 ## Bu Seri
 
-- 📖 [F5 BIG-IP Platform Genel Bakış — Tüm Modüller](/tr/technology/f5-bigip-application-delivery-platform-overview/) ← F5'e yeniyseniz buradan başlayın
-- 🌐 [F5 GTM ve GSLB Deep Dive](/tr/technology/f5-gtm-gslb-global-traffic-management/)
-- 🛡️ [F5 WAF Deep Dive](/tr/technology/f5-waf-asm-advanced-waf-application-security/)
+- 📖 [F5 BIG-IP Platform Genel Bakış — Tüm Modüller](/tr/technology/f5-master/) ← F5'e yeniyseniz buradan başlayın
+- 🌐 [F5 GTM ve GSLB Deep Dive](/tr/technology/f5-gtm-deep-dive/)
+- 🛡️ [F5 WAF Deep Dive](/tr/technology/f5-waf-deep-dive/)
 
 ## İlgili Yazılar
 
 - 🛠️ [Ağın Arka Kapısı: Yeni Nesil Console Server Mimarisi](/tr/posts/next-gen-console-server-architecture/) — F5 bakım pencereleri sırasında out-of-band erişim
 - 🛡️ [Network Packet Broker (NPB) Masterclass](/tr/posts/network-packet-broker-masterclass/) — ADC ile birlikte trafik görünürlüğü
-- 🔐 [Zero Trust Zihniyeti](/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — LTM'nin Zero Trust mimarisindeki yeri
+- 🔐 [Zero Trust Zihniyeti](/tr/architecture/zero-trust-architecture-behaviors/) — LTM'nin Zero Trust mimarisindeki yeri

@@ -149,4 +149,4 @@ Gartner Magic Quadrant tarafında ise Fortinet'in istikrarlı Liderler konumland
 
 ---
 
-*Bu seride bir sonraki yazı: [Cisco SD-WAN — Catalyst SD-WAN ve Kurumsal Mimari Yaklaşımı](/en/posts/cisco-sd-wan/)*
+*Bu seride bir sonraki yazı: [Cisco SD-WAN — Catalyst SD-WAN ve Kurumsal Mimari Yaklaşımı](/en/technology/cisco-sd-wan/)*

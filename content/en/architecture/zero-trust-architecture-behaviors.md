@@ -158,7 +158,7 @@ Even guest access is controlled in Zero Trust architecture. Guest users are veri
 
 Access and behavior are monitored and logged at every layer. If an anomaly or risky activity is detected, the system automatically restricts access or requests additional verification.
 
-> For building real visibility into your infrastructure: [The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively](/en/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/)
+> For building real visibility into your infrastructure: [The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively](/en/architecture/monitoring-not-just-seeing/)
 
 ## Conclusion
 
@@ -182,9 +182,9 @@ This version expands the architectural foundation for the series.
 **Architecture & Security Design**
 - 📐 [IT Infrastructure Is Not a Collection of Products](/en/architecture/it-infrastructure-not-a-collection-of-products/) — The foundational article of this series
 - 🏗️ [Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough](/en/architecture/core-network-is-not-a-product-list/) — Systems thinking in core network design
-- 📊 [The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively](/en/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/) — Building real visibility into your infrastructure
+- 📊 [The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively](/en/architecture/monitoring-not-just-seeing/) — Building real visibility into your infrastructure
 
 **Technical Engineering**
-- 🔐 [Unlocking Success in 802.1X Projects: Field Insights](/en/posts/unlocking-success-in-802-1x-projects-field-insights/) — Identity-based access in enterprise networks
-- 🛡️ [Network Packet Broker (NPB) Masterclass](/en/posts/network-packet-broker-npb-masterclass/) — Advanced traffic visibility and security strategy
-- 🛠️ [The Backdoor of the Network: Next-Gen Console Server Architecture](/en/posts/next-gen-console-server-terminal-server-architecture/) — Out-of-band access when everything else fails
+- 🔐 [Unlocking Success in 802.1X Projects: Field Insights](/en/posts/8021x-field-deployment-teaser/) — Identity-based access in enterprise networks
+- 🛡️ [Network Packet Broker (NPB) Masterclass](/en/posts/network-packet-broker-masterclass/) — Advanced traffic visibility and security strategy
+- 🛠️ [The Backdoor of the Network: Next-Gen Console Server Architecture](/en/posts/next-gen-console-server-architecture/) — Out-of-band access when everything else fails

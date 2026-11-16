@@ -159,7 +159,7 @@ Zero Trust mimarisinde misafir erişimleri bile kontrol altındadır. Guest port
 
 Her katmanda erişim ve davranışlar izlenir ve kaydedilir. Anormal bir durum veya riskli hareket tespit edilirse, sistem otomatik olarak erişimi sınırlar veya ek doğrulama ister.
 
-> Altyapıda gerçek görünürlük nasıl kurulur: [İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek](/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/)
+> Altyapıda gerçek görünürlük nasıl kurulur: [İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek](/tr/architecture/monitoring-not-just-seeing/)
 
 ## Sonuç
 
@@ -183,9 +183,9 @@ Bu versiyon, serinin mimari temelini genişletiyor.
 **Mimari & Güvenlik Tasarımı**
 - 📐 [IT Altyapısı Bir Ürün Koleksiyonu Değildir](/tr/architecture/it-infrastructure-not-a-collection-of-products/) — Bu serinin temel yazısı
 - 🏗️ [Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir](/tr/architecture/core-network-is-not-a-product-list/) — Core network tasarımında sistem düşüncesi
-- 📊 [İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek](/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/) — Altyapıda gerçek görünürlük
+- 📊 [İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek](/tr/architecture/monitoring-not-just-seeing/) — Altyapıda gerçek görünürlük
 
 **Teknik Mühendislik**
-- 🔐 [802.1X Projelerinde Başarı: Saha Deneyimleri](/tr/posts/unlocking-success-in-802-1x-projects-field-insights/) — Kimlik tabanlı erişimin sahada uygulanması
-- 🛡️ [Network Packet Broker (NPB) Masterclass](/tr/posts/network-packet-broker-npb-masterclass/) — Gelişmiş trafik görünürlüğü ve güvenlik stratejisi
-- 🛠️ [Ağın Arka Kapısı: Next-Gen Console Server Mimarisi](/tr/posts/next-gen-console-server-terminal-server-architecture/) — Her şey kesildiğinde out-of-band erişim
+- 🔐 [802.1X Projelerinde Başarı: Saha Deneyimleri](/tr/posts/8021x-field-deployment-teaser/) — Kimlik tabanlı erişimin sahada uygulanması
+- 🛡️ [Network Packet Broker (NPB) Masterclass](/tr/posts/network-packet-broker-masterclass/) — Gelişmiş trafik görünürlüğü ve güvenlik stratejisi
+- 🛠️ [Ağın Arka Kapısı: Next-Gen Console Server Mimarisi](/tr/posts/next-gen-console-server-architecture/) — Her şey kesildiğinde out-of-band erişim

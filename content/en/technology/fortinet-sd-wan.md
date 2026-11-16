@@ -147,4 +147,4 @@ For the Gartner Magic Quadrant, Fortinet's consistent Leaders placement reflects
 
 ---
 
-*Next in this series: [Cisco SD-WAN — Catalyst SD-WAN and the Enterprise Architecture Approach](/en/posts/cisco-sd-wan/)*
+*Next in this series: [Cisco SD-WAN — Catalyst SD-WAN and the Enterprise Architecture Approach](/en/technology/cisco-sd-wan/)*

@@ -106,7 +106,7 @@ In vielen Organisationen sind folgende Szenarien völlig legitim:
 
 Das bedeutet nicht „zwei Firewalls kaufen", sondern „zwei unterschiedliche Aufgaben mit passenden Werkzeugen abdecken". Wenn alles in eine Box gepackt wird, leidet entweder Performance, Manageability oder Security – meist mindestens eines davon.
 
-> Für ein tieferes Verständnis der Sicherheitsphilosophie hinter dieser Architektur empfehle ich: [Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt](/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/)
+> Für ein tieferes Verständnis der Sicherheitsphilosophie hinter dieser Architektur empfehle ich: [Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt](/de/architecture/zero-trust-architecture-behaviors/)
 
 Und damit sind wir direkt bei der Kapazitätsplanung.
 
@@ -178,7 +178,7 @@ Meine persönliche Haltung: Wo Teams reif genug sind, profitieren Architekturen 
 
 Ein letzter Punkt ist mir besonders wichtig: Automatisierung. API-Fähigkeit ist heute kein Bonus mehr, sondern ein Auswahlkriterium. Produkte sollten nicht zuerst nach Hardware, sondern nach Automatisierbarkeit bewertet werden.
 
-> Einen praktischen Rahmen für den Aufbau von Infrastruktur-Sichtbarkeit finden Sie hier: [Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen und proaktiv handeln](/de/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/)
+> Einen praktischen Rahmen für den Aufbau von Infrastruktur-Sichtbarkeit finden Sie hier: [Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen und proaktiv handeln](/de/architecture/monitoring-not-just-seeing/)
 
 ## Serverraum und Verkabelung: Die Realität, über die niemand spricht – aber jeder bezahlt
 
@@ -217,12 +217,12 @@ Diese Version erweitert die architektonische Grundlage der Serie.
 Wenn Ihnen dieser Artikel gefallen hat, könnten auch diese Beiträge interessant sein:
 
 **Architektur & Sicherheitsdesign**
-- 📐 [IT-Infrastruktur ist keine Produktsammlung](/de/architecture/it-infrastructure-is-not-a-collection-of-products/) — Der Grundlagenartikel dieser Serie
-- 🛡️ [Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt](/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Warum Zero Trust eine Philosophie und kein Produkt ist
-- 📊 [Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen](/de/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/) — Echte Transparenz in der Infrastruktur aufbauen
+- 📐 [IT-Infrastruktur ist keine Produktsammlung](/de/architecture/it-infrastructure-not-a-collection-of-products/) — Der Grundlagenartikel dieser Serie
+- 🛡️ [Zero Trust Mindset: Sicherheit als Architektur, nicht als Produkt](/de/architecture/zero-trust-architecture-behaviors/) — Warum Zero Trust eine Philosophie und kein Produkt ist
+- 📊 [Der Monitoring-Mindset: Nicht nur sehen, sondern verstehen](/de/architecture/monitoring-not-just-seeing/) — Echte Transparenz in der Infrastruktur aufbauen
 
 **Technisches Engineering**
-- 🛠️ [Die Hintertür des Netzwerks: Next-Gen Console Server Architektur](/de/posts/next-gen-console-server-terminal-server-architecture/) — Out-of-Band-Zugang wenn alles andere versagt
-- 🛡️ [Network Packet Broker (NPB) Masterclass](/de/posts/network-packet-broker-npb-masterclass/) — Erweiterte Traffic-Sichtbarkeit und Sicherheitsstrategie
-- 🔐 [802.1X Projekte erfolgreich umsetzen: Praxiseinblicke](/de/posts/unlocking-success-in-802-1x-projects-field-insights/) — Identitätsbasierter Zugang in Unternehmensnetzwerken
+- 🛠️ [Die Hintertür des Netzwerks: Next-Gen Console Server Architektur](/de/posts/next-gen-console-server-architecture/) — Out-of-Band-Zugang wenn alles andere versagt
+- 🛡️ [Network Packet Broker (NPB) Masterclass](/de/posts/network-packet-broker-masterclass/) — Erweiterte Traffic-Sichtbarkeit und Sicherheitsstrategie
+- 🔐 [802.1X Projekte erfolgreich umsetzen: Praxiseinblicke](/de/posts/8021x-field-deployment-teaser/) — Identitätsbasierter Zugang in Unternehmensnetzwerken
 - ⚙️ [Nexus Software Upgrade Guide](/de/posts/cisco-nexus-nxos-upgrade-guide/) — NX-OS Upgrade ohne Ausfallzeit

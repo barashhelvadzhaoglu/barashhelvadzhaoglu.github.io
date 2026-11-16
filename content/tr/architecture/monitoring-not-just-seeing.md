@@ -123,9 +123,9 @@ Bu yüzden monitoring "kuralım dursun" denilecek bir sistem değil; tasarlanaca
 **Mimari & Strateji**
 - 📐 [IT Altyapısı Bir Ürün Koleksiyonu Değildir](/tr/architecture/it-infrastructure-not-a-collection-of-products/) — Bu serinin temel yazısı
 - 🏗️ [Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir](/tr/architecture/core-network-is-not-a-product-list/) — Mimari öncelikli core network tasarımı
-- 🛡️ [Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek](/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Mimari olarak güvenlik
-- 🎯 [Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler ve Saha Deneyimleri](/tr/architecture/network-infrastructure-product-selection-strategic-criteria/) — Stratejik ürün değerlendirmesi
+- 🛡️ [Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek](/tr/architecture/zero-trust-architecture-behaviors/) — Mimari olarak güvenlik
+- 🎯 [Ağ Altyapısında Ürün Seçimi: Stratejik Kriterler ve Saha Deneyimleri](/tr/architecture/network-product-selection-strategy/) — Stratejik ürün değerlendirmesi
 
 **Teknik Mühendislik**
-- 🛠️ [Ağın Arka Kapısı: Next-Gen Console Server Mimarisi](/tr/posts/next-gen-console-server-terminal-server-architecture/) — Out-of-band erişim
-- 🛡️ [Network Packet Broker (NPB) Masterclass](/tr/posts/network-packet-broker-npb-masterclass/) — Trafik görünürlüğü ve güvenlik stratejisi
+- 🛠️ [Ağın Arka Kapısı: Next-Gen Console Server Mimarisi](/tr/posts/next-gen-console-server-architecture/) — Out-of-band erişim
+- 🛡️ [Network Packet Broker (NPB) Masterclass](/tr/posts/network-packet-broker-masterclass/) — Trafik görünürlüğü ve güvenlik stratejisi

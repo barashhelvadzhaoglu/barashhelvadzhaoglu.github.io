@@ -33,7 +33,7 @@ aliases:
 
 This article is part of the Enterprise WiFi series.
 
-> **New to enterprise wireless?** Start with the overview: [Enterprise WiFi Architecture: From Standards to Deployment](/en/technology/enterprise-wifi-architecture-complete-guide/)
+> **New to enterprise wireless?** Start with the overview: [Enterprise WiFi Architecture: From Standards to Deployment](/en/technology/wifi-master/)
 
 ---
 
@@ -353,10 +353,10 @@ ClearPass's **OnGuard** agent performs posture assessment — checking that corp
 
 ## This Series
 
-- 📖 [Enterprise WiFi Architecture Overview](/en/technology/enterprise-wifi-architecture-complete-guide/) ← Start here
-- 📡 [802.11 Standards Deep Dive](/en/technology/wifi-80211-standards-wifi4-wifi5-wifi6/)
-- 🏨 [WiFi Design for SMB, Hotels, and Medical Practices](/en/technology/wifi-design-smb-hotel-medical/)
-- 🔐 [WiFi Security: WPA3, 802.1X, Rogue AP, Site Survey](/en/technology/wifi-security-wpa3-8021x-site-survey/)
+- 📖 [Enterprise WiFi Architecture Overview](/en/technology/wifi-master/) ← Start here
+- 📡 [802.11 Standards Deep Dive](/en/technology/wifi-standards/)
+- 🏨 [WiFi Design for SMB, Hotels, and Medical Practices](/en/technology/wifi-smb-hotel-medical/)
+- 🔐 [WiFi Security: WPA3, 802.1X, Rogue AP, Site Survey](/en/technology/wifi-security/)
 
 ## Related Articles
 

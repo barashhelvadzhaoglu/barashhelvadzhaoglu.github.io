@@ -106,7 +106,7 @@ Birçok kurumda şu senaryolar çok makuldür:
 
 Bu "iki firewall almak" demek değildir; bu, "iki farklı işi doğru araca vermek" demektir. Tek kutuya her şeyi yığdığında, ya performans kaybedersin ya yönetim kaybedersin ya da güvenlik kaybedersin.
 
-> Bu mimarinin arkasındaki güvenlik felsefesini daha derinlemesine anlamak için: [Zero Trust Zihniyeti: Güvenliği Mimari Olarak Mühendislemek](/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/)
+> Bu mimarinin arkasındaki güvenlik felsefesini daha derinlemesine anlamak için: [Zero Trust Zihniyeti: Güvenliği Mimari Olarak Mühendislemek](/tr/architecture/zero-trust-architecture-behaviors/)
 
 Ve bu bizi doğrudan kapasite planlamasına götürür.
 
@@ -170,7 +170,7 @@ Palo Alto Networks tarafına geldiğimizde tablo daha net: Palo Alto, firewall k
 
 Son olarak özellikle altını çizmek istediğim bir nokta var: günümüzde neredeyse tüm büyük üreticiler otomasyon tarafına ciddi yatırım yapıyor. API desteği artık bir "ekstra" değil, doğrudan bir seçim kriteri.
 
-> Altyapınızda gerçek görünürlük oluşturmak için pratik bir çerçeve: [İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek](/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/)
+> Altyapınızda gerçek görünürlük oluşturmak için pratik bir çerçeve: [İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek](/tr/architecture/monitoring-not-just-seeing/)
 
 ## Sistem Odası ve Kablolama: Kimsenin Konuşmak İstemediği Ama Herkesin Bedelini Ödediği Gerçek
 
@@ -204,12 +204,12 @@ Bu versiyon, serinin mimari temelini genişletiyor.
 Bu yazıyı faydalı bulduysanız, şu yazılar da ilginizi çekebilir:
 
 **Mimari & Güvenlik Tasarımı**
-- 📐 [IT Altyapısı Bir Ürün Koleksiyonu Değildir](/tr/architecture/it-infrastructure-is-not-a-collection-of-products/) — Bu serinin temel yazısı
-- 🛡️ [Zero Trust Zihniyeti: Güvenliği Mimari Olarak Mühendislemek](/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Zero Trust neden bir ürün değil, bir felsefedir
-- 📊 [İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek](/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/) — Altyapınızda gerçek görünürlük nasıl inşa edilir
+- 📐 [IT Altyapısı Bir Ürün Koleksiyonu Değildir](/tr/architecture/it-infrastructure-not-a-collection-of-products/) — Bu serinin temel yazısı
+- 🛡️ [Zero Trust Zihniyeti: Güvenliği Mimari Olarak Mühendislemek](/tr/architecture/zero-trust-architecture-behaviors/) — Zero Trust neden bir ürün değil, bir felsefedir
+- 📊 [İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek](/tr/architecture/monitoring-not-just-seeing/) — Altyapınızda gerçek görünürlük nasıl inşa edilir
 
 **Teknik Mühendislik**
-- 🛠️ [Ağın Arka Kapısı: Next-Gen Console Server Mimarisi](/tr/posts/next-gen-console-server-terminal-server-architecture/) — Her şey kesildiğinde out-of-band erişim
-- 🛡️ [Network Packet Broker (NPB) Masterclass](/tr/posts/network-packet-broker-npb-masterclass/) — Gelişmiş trafik görünürlüğü ve güvenlik stratejisi
-- 🔐 [802.1X Projelerinde Başarı: Saha Deneyimleri](/tr/posts/unlocking-success-in-802-1x-projects-field-insights/) — Kurumsal ağlarda kimlik tabanlı erişim
+- 🛠️ [Ağın Arka Kapısı: Next-Gen Console Server Mimarisi](/tr/posts/next-gen-console-server-architecture/) — Her şey kesildiğinde out-of-band erişim
+- 🛡️ [Network Packet Broker (NPB) Masterclass](/tr/posts/network-packet-broker-masterclass/) — Gelişmiş trafik görünürlüğü ve güvenlik stratejisi
+- 🔐 [802.1X Projelerinde Başarı: Saha Deneyimleri](/tr/posts/8021x-field-deployment-teaser/) — Kurumsal ağlarda kimlik tabanlı erişim
 - ⚙️ [Nexus Yazılım Yükseltme Rehberi](/tr/posts/cisco-nexus-nxos-upgrade-guide/) — Kesintisiz NX-OS yükseltme adım adım

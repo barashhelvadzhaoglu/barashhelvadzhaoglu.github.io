@@ -34,7 +34,7 @@ aliases:
 
 Dieser Artikel ist Teil der F5 BIG-IP-Serie.
 
-> **Neu bei F5?** Beginnen Sie zuerst mit der Plattformübersicht: [F5 BIG-IP ist kein Load Balancer — Es ist eine Application Delivery Platform](/de/technology/f5-bigip-application-delivery-platform-uebersicht/)
+> **Neu bei F5?** Beginnen Sie zuerst mit der Plattformübersicht: [F5 BIG-IP ist kein Load Balancer — Es ist eine Application Delivery Platform](/de/technology/f5-master/)
 
 Wenn Sie das Gesamtbild bereits verstehen und tief in WAF eintauchen möchten — Sicherheitsmodelle, OWASP-Abdeckung, Bot-Abwehr und Deployment-Strategie — sind Sie hier richtig.
 
@@ -352,13 +352,13 @@ In der Banking-Umgebung wurden WAF-Protokolle an Splunk weitergeleitet für:
 
 ## Diese Serie
 
-- 📖 [F5 BIG-IP Plattformübersicht — Alle Module](/de/technology/f5-bigip-application-delivery-platform-uebersicht/) ← Beginnen Sie hier, wenn Sie neu bei F5 sind
-- 🔧 [F5 LTM Deep Dive](/de/technology/f5-ltm-virtual-server-irules-ssl-offloading-ha/)
-- 🌐 [F5 GTM & GSLB Deep Dive](/de/technology/f5-gtm-gslb-global-traffic-management/)
+- 📖 [F5 BIG-IP Plattformübersicht — Alle Module](/de/technology/f5-master/) ← Beginnen Sie hier, wenn Sie neu bei F5 sind
+- 🔧 [F5 LTM Deep Dive](/de/technology/f5-ltm-deep-dive/)
+- 🌐 [F5 GTM & GSLB Deep Dive](/de/technology/f5-gtm-deep-dive/)
 
 ## Verwandte Artikel
 
-- 🔐 [Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln](/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Wo WAF in Zero Trust passt
+- 🔐 [Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln](/de/architecture/zero-trust-architecture-behaviors/) — Wo WAF in Zero Trust passt
 - 🛡️ [802.1X Identitätsbasierte Architektur im Praxiseinsatz](/de/technology/identity-based-microsegmentation-8021x/) — Defense in Depth über Netzwerkschichten
 - 📊 [Monitoring richtig gemacht](/de/architecture/monitoring-not-just-seeing/) — WAF-Protokolle in proaktives Monitoring integrieren
 - 🛡️ [Network Packet Broker (NPB) Masterclass](/de/posts/network-packet-broker-masterclass/) — Vollständige Datenverkehrssichtbarkeit neben WAF

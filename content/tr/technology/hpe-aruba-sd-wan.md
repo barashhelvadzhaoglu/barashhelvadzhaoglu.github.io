@@ -149,4 +149,4 @@ Aruba entegrasyonu; kampüs ve şube altyapısına sahip kurumlara kablosuz, kab
 
 ---
 
-*Bu serideki bir sonraki yazı: [Palo Alto SD-WAN — Prisma SD-WAN ve Güvenlik Öncelikli Yaklaşım](/en/posts/palo-alto-sd-wan/)*
+*Bu serideki bir sonraki yazı: [Palo Alto SD-WAN — Prisma SD-WAN ve Güvenlik Öncelikli Yaklaşım](/en/technology/palo-alto-sd-wan/)*

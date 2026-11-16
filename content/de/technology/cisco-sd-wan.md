@@ -150,4 +150,4 @@ Für Unternehmen, die bereits tief im Cisco-Ökosystem verankert sind – DNA Ce
 
 ---
 
-*Als Nächstes in dieser Serie: [HPE Aruba SD-WAN – EdgeConnect und das Erbe der WAN-Optimierung](/en/posts/hpe-aruba-sd-wan/)*
+*Als Nächstes in dieser Serie: [HPE Aruba SD-WAN – EdgeConnect und das Erbe der WAN-Optimierung](/en/technology/hpe-aruba-sd-wan/)*

@@ -31,7 +31,7 @@ TocOpen: true
 
 This article is part of the F5 BIG-IP series.
 
-> **New to F5?** Start with the platform overview first: [F5 BIG-IP Is Not a Load Balancer — It's an Application Delivery Platform](/en/technology/f5-bigip-application-delivery-platform-overview/)
+> **New to F5?** Start with the platform overview first: [F5 BIG-IP Is Not a Load Balancer — It's an Application Delivery Platform](/en/technology/f5-master/)
 
 If you already know the big picture and want to go deep on LTM — configuration, iRules, migration field notes — you're in the right place.
 
@@ -439,12 +439,12 @@ We found 3 iRules requiring modification before cutover. Finding these in stagin
 
 ## This Series
 
-- 📖 [F5 BIG-IP Platform Overview — All Modules](/en/technology/f5-bigip-application-delivery-platform-overview/) ← Start here if you're new to F5
-- 🌐 [F5 GTM & GSLB Deep Dive](/en/technology/f5-gtm-gslb-global-traffic-management/)
-- 🛡️ [F5 WAF Deep Dive](/en/technology/f5-waf-asm-advanced-waf-application-security/)
+- 📖 [F5 BIG-IP Platform Overview — All Modules](/en/technology/f5-master/) ← Start here if you're new to F5
+- 🌐 [F5 GTM & GSLB Deep Dive](/en/technology/f5-gtm-deep-dive/)
+- 🛡️ [F5 WAF Deep Dive](/en/technology/f5-waf-deep-dive/)
 
 ## Related Articles
 
 - 🛠️ [The Backdoor of the Network: Next-Gen Console Server Architecture](/en/posts/next-gen-console-server-architecture/) — Out-of-band access during F5 maintenance windows
 - 🛡️ [Network Packet Broker (NPB) Masterclass](/en/posts/network-packet-broker-masterclass/) — Traffic visibility alongside ADC
-- 🔐 [The Zero Trust Mindset](/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Where LTM fits in a Zero Trust architecture
+- 🔐 [The Zero Trust Mindset](/en/architecture/zero-trust-architecture-behaviors/) — Where LTM fits in a Zero Trust architecture

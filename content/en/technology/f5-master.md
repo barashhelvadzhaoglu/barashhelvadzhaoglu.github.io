@@ -46,9 +46,9 @@ This article gives you the **big picture** — what F5 is, where it sits, what e
 
 **If you are a network or security engineer** who wants to go deep into configuration, iRules, migration field notes, and architecture details — jump directly to the module that interests you:
 
-- 🔧 **[F5 LTM Deep Dive](/en/technology/f5-ltm-deep-dive-virtual-servers-irules-ha/)** — Virtual servers, pools, iRules, SSL offloading, HA, and a 30-device migration walkthrough
-- 🌐 **[F5 GTM & GSLB Deep Dive](/en/technology/f5-gtm-gslb-global-traffic-management/)** — iQuery, Wide IPs, topology routing, DNS TTL strategy, multi-DC failover design
-- 🛡️ **[F5 WAF Deep Dive](/en/technology/f5-waf-asm-advanced-waf-application-security/)** — ASM vs Advanced WAF, OWASP Top 10, bot defense, transparent-to-blocking deployment strategy
+- 🔧 **[F5 LTM Deep Dive](/en/technology/f5-ltm-deep-dive/)** — Virtual servers, pools, iRules, SSL offloading, HA, and a 30-device migration walkthrough
+- 🌐 **[F5 GTM & GSLB Deep Dive](/en/technology/f5-gtm-deep-dive/)** — iQuery, Wide IPs, topology routing, DNS TTL strategy, multi-DC failover design
+- 🛡️ **[F5 WAF Deep Dive](/en/technology/f5-waf-deep-dive/)** — ASM vs Advanced WAF, OWASP Top 10, bot defense, transparent-to-blocking deployment strategy
 
 **If you are an architect or decision-maker** evaluating whether F5 fits your infrastructure — keep reading here. This article answers that question without requiring you to understand iRule syntax.
 
@@ -106,7 +106,7 @@ What LTM provides:
 - iRules — a programmable scripting layer that manipulates traffic at wire speed: rewrite headers, route by URI, inject content, enforce rate limits
 - High availability — Active-Standby or Active-Active clustering with sub-second failover
 
-→ **[F5 LTM Deep Dive: Virtual Servers, iRules, SSL Offloading & HA](/en/technology/f5-ltm-deep-dive-virtual-servers-irules-ha/)**
+→ **[F5 LTM Deep Dive: Virtual Servers, iRules, SSL Offloading & HA](/en/technology/f5-ltm-deep-dive/)**
 
 ---
 
@@ -124,7 +124,7 @@ What GTM provides:
 - Topology-based routing — European users to EU data centers, Middle Eastern users to regional DCs
 - Flexible policies: always-prefer-primary (Global Availability), equal distribution (Round Robin), or connection-aware (Least Connections)
 
-→ **[F5 GTM & GSLB Deep Dive: Global Traffic Management and DNS Failover](/en/technology/f5-gtm-gslb-global-traffic-management/)**
+→ **[F5 GTM & GSLB Deep Dive: Global Traffic Management and DNS Failover](/en/technology/f5-gtm-deep-dive/)**
 
 ---
 
@@ -140,7 +140,7 @@ F5 offers two WAF tiers:
 
 What WAF protects against: SQL injection, XSS, CSRF, parameter tampering, cookie poisoning, forceful browsing, bot traffic, and application-layer DoS.
 
-→ **[F5 WAF Deep Dive: Application Security with ASM and Advanced WAF](/en/technology/f5-waf-asm-advanced-waf-application-security/)**
+→ **[F5 WAF Deep Dive: Application Security with ASM and Advanced WAF](/en/technology/f5-waf-deep-dive/)**
 
 ---
 
@@ -246,15 +246,15 @@ LTM balances traffic between servers in one data center. GTM (BIG-IP DNS) sends 
 
 This article is the starting point. Each module has a dedicated deep dive:
 
-- 🔧 **[F5 LTM Deep Dive: Virtual Servers, iRules, SSL Offloading & HA](/en/technology/f5-ltm-deep-dive-virtual-servers-irules-ha/)** — Full-proxy architecture, pool configuration, health monitors, iRule examples, session persistence, HA clustering, and a zero-downtime 30-device migration walkthrough
-- 🌐 **[F5 GTM & GSLB Deep Dive: Global Traffic Management and DNS Failover](/en/technology/f5-gtm-gslb-global-traffic-management/)** — Wide IPs, iQuery, topology routing, TTL strategy, active-active vs. active-standby DC patterns
-- 🛡️ **[F5 WAF Deep Dive: Application Security with ASM and Advanced WAF](/en/technology/f5-waf-asm-advanced-waf-application-security/)** — Security policy models, OWASP Top 10 coverage, bot defense, L7 DoS protection, and transparent-to-blocking deployment strategy
+- 🔧 **[F5 LTM Deep Dive: Virtual Servers, iRules, SSL Offloading & HA](/en/technology/f5-ltm-deep-dive/)** — Full-proxy architecture, pool configuration, health monitors, iRule examples, session persistence, HA clustering, and a zero-downtime 30-device migration walkthrough
+- 🌐 **[F5 GTM & GSLB Deep Dive: Global Traffic Management and DNS Failover](/en/technology/f5-gtm-deep-dive/)** — Wide IPs, iQuery, topology routing, TTL strategy, active-active vs. active-standby DC patterns
+- 🛡️ **[F5 WAF Deep Dive: Application Security with ASM and Advanced WAF](/en/technology/f5-waf-deep-dive/)** — Security policy models, OWASP Top 10 coverage, bot defense, L7 DoS protection, and transparent-to-blocking deployment strategy
 
 ---
 
 ## Related Articles
 
 - 🛡️ [Network Packet Broker (NPB) Masterclass](/en/posts/network-packet-broker-masterclass/) — Traffic visibility across the full stack
-- 🔐 [The Zero Trust Mindset: Engineering Security as an Architecture](/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Where APM and WAF fit in Zero Trust
+- 🔐 [The Zero Trust Mindset: Engineering Security as an Architecture](/en/architecture/zero-trust-architecture-behaviors/) — Where APM and WAF fit in Zero Trust
 - 🏗️ [IT Infrastructure Is Not a Collection of Products](/en/architecture/it-infrastructure-not-a-collection-of-products/) — Systems thinking behind ADC placement
 - 🎯 [Network Infrastructure Product Selection: Strategic Criteria](/en/architecture/network-product-selection-strategy/) — How to evaluate ADC vendors objectively

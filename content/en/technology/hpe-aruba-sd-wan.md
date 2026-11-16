@@ -151,4 +151,4 @@ The Aruba integration gives campus-and-branch organizations a path to unified ma
 
 ---
 
-*Next in this series: [Palo Alto SD-WAN — Prisma SD-WAN and the Security-First Approach](/en/posts/palo-alto-sd-wan/)*
+*Next in this series: [Palo Alto SD-WAN — Prisma SD-WAN and the Security-First Approach](/en/technology/palo-alto-sd-wan/)*

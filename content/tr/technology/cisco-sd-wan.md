@@ -150,4 +150,4 @@ Halihazırda Cisco ekosistemine yoğun yatırım yapmış olan kurumlar için �
 
 ---
 
-*Bu serinin bir sonraki yazısı: [HPE Aruba SD-WAN — EdgeConnect ve WAN Optimizasyonu Mirası](/en/posts/hpe-aruba-sd-wan/)*
+*Bu serinin bir sonraki yazısı: [HPE Aruba SD-WAN — EdgeConnect ve WAN Optimizasyonu Mirası](/en/technology/hpe-aruba-sd-wan/)*

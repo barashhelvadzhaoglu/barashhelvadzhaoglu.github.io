@@ -201,4 +201,4 @@ aliases:
 ---
 
 *Ein professionelles Empfehlungsschreiben der Geschäftsleitung ist auf Anfrage erhältlich.*  
-*[Kontakt aufnehmen](/de/kontakt/) für Projektdetails oder Beratungsanfragen.*
+*[Kontakt aufnehmen](/de/contact/) für Projektdetails oder Beratungsanfragen.*

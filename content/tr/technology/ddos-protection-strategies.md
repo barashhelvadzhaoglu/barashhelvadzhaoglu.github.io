@@ -298,7 +298,7 @@ Teknoloji, DDoS hazırlığının yalnızca bir parçasıdır. Diğer kısım or
 
 ## İlgili Yazılar
 
-- 🛡️ [F5 BIG-IP Platform Genel Bakış](/tr/technology/f5-bigip-application-delivery-platform-overview/) — DDoS savunmanın derinliğinin bir parçası olarak F5 AFM
-- 🔐 [Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek](/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Zero Trust çerçevesinde DDoS koruması
+- 🛡️ [F5 BIG-IP Platform Genel Bakış](/tr/technology/f5-master/) — DDoS savunmanın derinliğinin bir parçası olarak F5 AFM
+- 🔐 [Zero Trust Zihniyeti: Güvenliği Bir Mimari Olarak Mühendislemek](/tr/architecture/zero-trust-architecture-behaviors/) — Zero Trust çerçevesinde DDoS koruması
 - 🛡️ [Network Packet Broker (NPB) Masterclass](/tr/posts/network-packet-broker-masterclass/) — DDoS adli analizi için gerekli trafik görünürlüğü
 - 📊 [İzleme Doğru Yapıldığında](/tr/architecture/monitoring-not-just-seeing/) — Proaktif izleme yoluyla DDoS'u erken tespit etmek

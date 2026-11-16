@@ -334,7 +334,7 @@ Technology is only part of DDoS readiness. The other part is organizational:
 
 ## Related Articles
 
-- 🛡️ [F5 BIG-IP Platform Overview](/en/technology/f5-bigip-application-delivery-platform-overview/) — F5 AFM as part of DDoS defense in depth
-- 🔐 [The Zero Trust Mindset: Engineering Security as an Architecture](/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — DDoS protection within a Zero Trust framework
+- 🛡️ [F5 BIG-IP Platform Overview](/en/technology/f5-master/) — F5 AFM as part of DDoS defense in depth
+- 🔐 [The Zero Trust Mindset: Engineering Security as an Architecture](/en/architecture/zero-trust-architecture-behaviors/) — DDoS protection within a Zero Trust framework
 - 🛡️ [Network Packet Broker (NPB) Masterclass](/en/posts/network-packet-broker-masterclass/) — Traffic visibility essential for DDoS forensics
 - 📊 [Monitoring Done Right](/en/architecture/monitoring-not-just-seeing/) — Detecting DDoS early through proactive monitoring

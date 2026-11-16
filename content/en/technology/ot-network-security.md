@@ -311,6 +311,6 @@ From field experience — things that should happen before any network change in
 ## Related Articles
 
 - 🔐 [802.1X Identity-Based Architecture in the Field](/en/technology/identity-based-microsegmentation-8021x/) — How 802.1X works in IT environments, and why OT is different
-- 🔐 [The Zero Trust Mindset: Engineering Security as an Architecture](/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Zero Trust principles applied to IT/OT boundary design
-- 🛡️ [DDoS Protection Strategies](/en/technology/ddos-protection-strategies-isp-scrubbing-on-premise-cloud/) — Protecting OT-connected infrastructure from volumetric attacks
+- 🔐 [The Zero Trust Mindset: Engineering Security as an Architecture](/en/architecture/zero-trust-architecture-behaviors/) — Zero Trust principles applied to IT/OT boundary design
+- 🛡️ [DDoS Protection Strategies](/en/technology/ddos-protection-strategies/) — Protecting OT-connected infrastructure from volumetric attacks
 - 🏗️ [IT Infrastructure Is Not a Collection of Products](/en/architecture/it-infrastructure-not-a-collection-of-products/) — Systems thinking that applies equally to OT network design

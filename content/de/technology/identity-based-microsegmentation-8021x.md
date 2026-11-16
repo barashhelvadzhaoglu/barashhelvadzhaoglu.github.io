@@ -39,7 +39,7 @@ Dieser Übergang ändert die Gewohnheiten einer Organisation. Denn wenn 802.1X i
 - 802.1X ist eine **Identitätsarchitektur**, nicht nur Port-Sicherheit.
 - Der Erfolg hängt mehr von der **AD/PKI/Endpoint-Disziplin** ab als vom Netzwerk selbst.
 
-> Für die Zero-Trust-Denkweise hinter identitätsbasiertem Zugang: [Die Zero-Trust-Denkweise: Sicherheit als Architektur, nicht als Produkt](/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/)
+> Für die Zero-Trust-Denkweise hinter identitätsbasiertem Zugang: [Die Zero-Trust-Denkweise: Sicherheit als Architektur, nicht als Produkt](/de/architecture/zero-trust-architecture-behaviors/)
 
 ### 1) Planung: Ohne VLAN-Plan wird 802.1X zu einer „Chaos-Maschine" statt einer „Policy-Maschine"
 
@@ -194,7 +194,7 @@ Der Erfolg von 802.1X ist eher die Summe aus **AD-Ordnung, GPO-Disziplin, PKI-Ma
 ## Verwandte Artikel
 
 **Architektur & Sicherheit**
-- 🔐 [Die Zero-Trust-Denkweise: Sicherheit als Architektur, nicht als Produkt](/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Die architektonische Grundlage hinter identitätsbasiertem Zugang
+- 🔐 [Die Zero-Trust-Denkweise: Sicherheit als Architektur, nicht als Produkt](/de/architecture/zero-trust-architecture-behaviors/) — Die architektonische Grundlage hinter identitätsbasiertem Zugang
 - 🏗️ [IT-Infrastruktur ist keine Produktsammlung](/de/architecture/it-infrastructure-not-a-collection-of-products/) — Systemdenken statt Produktauswahl
 - 📊 [Monitoring richtig gemacht](/de/architecture/monitoring-not-just-seeing/) — Richtlinienverstöße erkennen bevor sie eskalieren
 

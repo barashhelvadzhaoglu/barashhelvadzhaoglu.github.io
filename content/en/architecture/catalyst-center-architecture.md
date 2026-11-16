@@ -241,7 +241,7 @@ A few things that don't appear in documentation but matter in practice:
 ## Related Articles
 
 - 🔐 [802.1X Identity-Based Architecture in the Field](/en/technology/identity-based-microsegmentation-8021x/) — The identity foundation that makes DNA Center + ISE powerful
-- 🔐 [The Zero Trust Mindset: Engineering Security as an Architecture](/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — The architectural philosophy behind SD-Access policy model
+- 🔐 [The Zero Trust Mindset: Engineering Security as an Architecture](/en/architecture/zero-trust-architecture-behaviors/) — The architectural philosophy behind SD-Access policy model
 - 🏗️ [Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough](/en/architecture/core-network-is-not-a-product-list/) — Campus architecture context
 - 📊 [Monitoring Done Right](/en/architecture/monitoring-not-just-seeing/) — How DNA Center assurance fits into broader monitoring strategy
-- 🌐 [Enterprise WiFi Controller Architecture](/en/technology/enterprise-wifi-controller-architecture-cisco-aruba/) — Wireless integration with DNA Center
+- 🌐 [Enterprise WiFi Controller Architecture](/en/technology/wifi-controller/) — Wireless integration with DNA Center

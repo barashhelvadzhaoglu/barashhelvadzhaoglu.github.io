@@ -34,7 +34,7 @@ aliases:
 
 This article is part of the F5 BIG-IP series.
 
-> **New to F5?** Start with the platform overview first: [F5 BIG-IP Is Not a Load Balancer — It's an Application Delivery Platform](/en/technology/f5-bigip-application-delivery-platform-overview/)
+> **New to F5?** Start with the platform overview first: [F5 BIG-IP Is Not a Load Balancer — It's an Application Delivery Platform](/en/technology/f5-master/)
 
 If you already understand the big picture and want to go deep on WAF — security models, OWASP coverage, bot defense, and deployment strategy — you're in the right place.
 
@@ -365,13 +365,13 @@ No. Start in transparent mode, let the policy learn and tune false positives, th
 
 ## This Series
 
-- 📖 [F5 BIG-IP Platform Overview — All Modules](/en/technology/f5-bigip-application-delivery-platform-overview/) ← Start here if you're new to F5
-- 🔧 [F5 LTM Deep Dive](/en/technology/f5-ltm-deep-dive-virtual-servers-irules-ha/)
-- 🌐 [F5 GTM & GSLB Deep Dive](/en/technology/f5-gtm-gslb-global-traffic-management/)
+- 📖 [F5 BIG-IP Platform Overview — All Modules](/en/technology/f5-master/) ← Start here if you're new to F5
+- 🔧 [F5 LTM Deep Dive](/en/technology/f5-ltm-deep-dive/)
+- 🌐 [F5 GTM & GSLB Deep Dive](/en/technology/f5-gtm-deep-dive/)
 
 ## Related Articles
 
-- 🔐 [The Zero Trust Mindset: Engineering Security as an Architecture](/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Where WAF fits in Zero Trust
+- 🔐 [The Zero Trust Mindset: Engineering Security as an Architecture](/en/architecture/zero-trust-architecture-behaviors/) — Where WAF fits in Zero Trust
 - 🛡️ [802.1X Identity-Based Architecture in the Field](/en/technology/identity-based-microsegmentation-8021x/) — Defense in depth across network layers
 - 📊 [Monitoring Done Right](/en/architecture/monitoring-not-just-seeing/) — Integrating WAF logs into proactive monitoring
 - 🛡️ [Network Packet Broker (NPB) Masterclass](/en/posts/network-packet-broker-masterclass/) — Full traffic visibility alongside WAF

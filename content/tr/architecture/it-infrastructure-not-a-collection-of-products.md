@@ -90,7 +90,7 @@ Sistem odaklı tasarım farklı çalışır. Temel sorularla başlar:
 
 Bu sorulara net cevaplar olmadan, en iyi ürünler bile eninde sonunda birbirine karşı çalışacaktır.
 
-> Kimliğin ve güven sınırlarının pratikte nasıl tanımlandığına dair derinlemesine bir bakış için: [Zero Trust Zihniyeti: Güvenliği Mimari Olarak Mühendislemek](/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/)
+> Kimliğin ve güven sınırlarının pratikte nasıl tanımlandığına dair derinlemesine bir bakış için: [Zero Trust Zihniyeti: Güvenliği Mimari Olarak Mühendislemek](/tr/architecture/zero-trust-architecture-behaviors/)
 
 ---
 
@@ -135,7 +135,7 @@ Bu iş akışları manuel, parçalı veya belgelenmemişse, teknoloji yığını
 
 Bu nedenle otomasyon, gözlemlenebilirlik ve yaşam döngüsü yönetimi isteğe bağlı ekstralar değildir. Bunlar mimari unsurlardır. Tutarlı biçimde işletilemeyecek altyapı hiçbir zaman güvenli ölçeklenemez.
 
-> Altyapınızda gerçek gözlemlenebilirlik oluşturmak için pratik bir çerçeve: [İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek](/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/)
+> Altyapınızda gerçek gözlemlenebilirlik oluşturmak için pratik bir çerçeve: [İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek](/tr/architecture/monitoring-not-just-seeing/)
 
 ---
 
@@ -185,10 +185,10 @@ Bu versiyon, serinin mimari temelini genişletiyor.
 
 **Mimari & Güvenlik Tasarımı**
 - 🏗️ [Switch, Firewall, AP — Doğru Ürünleri Seçmek Neden Yeterli Değildir](/tr/architecture/core-network-is-not-a-product-list/) — Core network tasarımında sistem düşüncesi
-- 🛡️ [Zero Trust Zihniyeti: Güvenliği Mimari Olarak Mühendislemek](/tr/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Zero Trust neden bir ürün değil, bir felsefedir
-- 📊 [İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek](/tr/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/) — Altyapınızda gerçek görünürlük nasıl inşa edilir
+- 🛡️ [Zero Trust Zihniyeti: Güvenliği Mimari Olarak Mühendislemek](/tr/architecture/zero-trust-architecture-behaviors/) — Zero Trust neden bir ürün değil, bir felsefedir
+- 📊 [İzleme Zihniyeti: Sadece Görmek Değil, Anlamak ve Proaktif Hareket Etmek](/tr/architecture/monitoring-not-just-seeing/) — Altyapınızda gerçek görünürlük nasıl inşa edilir
 
 **Teknik Mühendislik**
-- 🛠️ [Ağın Arka Kapısı: Next-Gen Console Server Mimarisi](/tr/posts/next-gen-console-server-terminal-server-architecture/) — Her şey kesildiğinde out-of-band erişim
-- 🛡️ [Network Packet Broker (NPB) Masterclass](/tr/posts/network-packet-broker-npb-masterclass/) — Gelişmiş trafik görünürlüğü ve güvenlik stratejisi
-- 🔐 [802.1X Projelerinde Başarı: Saha Deneyimleri](/tr/posts/unlocking-success-in-802-1x-projects-field-insights/) — Kurumsal ağlarda kimlik tabanlı erişim
+- 🛠️ [Ağın Arka Kapısı: Next-Gen Console Server Mimarisi](/tr/posts/next-gen-console-server-architecture/) — Her şey kesildiğinde out-of-band erişim
+- 🛡️ [Network Packet Broker (NPB) Masterclass](/tr/posts/network-packet-broker-masterclass/) — Gelişmiş trafik görünürlüğü ve güvenlik stratejisi
+- 🔐 [802.1X Projelerinde Başarı: Saha Deneyimleri](/tr/posts/8021x-field-deployment-teaser/) — Kurumsal ağlarda kimlik tabanlı erişim

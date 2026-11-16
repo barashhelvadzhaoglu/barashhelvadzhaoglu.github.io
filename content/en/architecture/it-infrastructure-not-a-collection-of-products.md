@@ -90,7 +90,7 @@ A system-oriented design works differently. It starts by asking fundamental ques
 
 Without clear answers to these questions, even the best products will eventually work against each other.
 
-> For a deep dive into how identity and trust boundaries are defined in practice, see: [The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product](/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/)
+> For a deep dive into how identity and trust boundaries are defined in practice, see: [The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product](/en/architecture/zero-trust-architecture-behaviors/)
 
 ---
 
@@ -135,7 +135,7 @@ If these workflows are manual, fragmented, or undocumented, the infrastructure w
 
 This is why automation, observability, and lifecycle management are not optional extras. They are architectural elements. Infrastructure that cannot be operated consistently will never scale safely.
 
-> For a practical framework on building real observability into your infrastructure, see: [The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively](/en/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/)
+> For a practical framework on building real observability into your infrastructure, see: [The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively](/en/architecture/monitoring-not-just-seeing/)
 
 ---
 
@@ -187,10 +187,10 @@ If you found this article useful, you may also be interested in these:
 
 **Architecture & Security Design**
 - 🏗️ [Switch, Firewall, AP — Why Choosing the Right Products Is Not Enough](/en/architecture/core-network-is-not-a-product-list/) — Applying systems thinking to core network design
-- 🛡️ [The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product](/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Why Zero Trust is a philosophy, not a product
-- 📊 [The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively](/en/architecture/monitoring-mindset-not-just-seeing-but-understanding-and-acting-proactively/) — Building real visibility into your infrastructure
+- 🛡️ [The Zero Trust Mindset: Engineering Security as an Architecture, Not a Product](/en/architecture/zero-trust-architecture-behaviors/) — Why Zero Trust is a philosophy, not a product
+- 📊 [The Monitoring Mindset: Not Just Seeing, But Understanding and Acting Proactively](/en/architecture/monitoring-not-just-seeing/) — Building real visibility into your infrastructure
 
 **Technical Engineering**
-- 🛠️ [The Backdoor of the Network: Next-Gen Console Server Architecture](/en/posts/next-gen-console-server-terminal-server-architecture/) — Out-of-band access when everything else fails
-- 🛡️ [Network Packet Broker (NPB) Masterclass](/en/posts/network-packet-broker-npb-masterclass/) — Advanced traffic visibility and security strategy
-- 🔐 [Unlocking Success in 802.1X Projects: Field Insights](/en/posts/unlocking-success-in-802-1x-projects-field-insights/) — Identity-based access in enterprise networks
+- 🛠️ [The Backdoor of the Network: Next-Gen Console Server Architecture](/en/posts/next-gen-console-server-architecture/) — Out-of-band access when everything else fails
+- 🛡️ [Network Packet Broker (NPB) Masterclass](/en/posts/network-packet-broker-masterclass/) — Advanced traffic visibility and security strategy
+- 🔐 [Unlocking Success in 802.1X Projects: Field Insights](/en/posts/8021x-field-deployment-teaser/) — Identity-based access in enterprise networks

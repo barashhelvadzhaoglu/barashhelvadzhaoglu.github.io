@@ -34,7 +34,7 @@ aliases:
 
 This article is part of the F5 BIG-IP series.
 
-> **New to F5?** Start with the platform overview first: [F5 BIG-IP Is Not a Load Balancer — It's an Application Delivery Platform](/en/technology/f5-bigip-application-delivery-platform-overview/)
+> **New to F5?** Start with the platform overview first: [F5 BIG-IP Is Not a Load Balancer — It's an Application Delivery Platform](/en/technology/f5-master/)
 
 If you already understand the big picture and want to go deep on GTM — iQuery, Wide IPs, topology routing, TTL strategy, and multi-DC design — you're in the right place.
 
@@ -362,12 +362,12 @@ GTM monitors the virtual servers in each data center (through iQuery with LTM, o
 
 ## This Series
 
-- 📖 [F5 BIG-IP Platform Overview — All Modules](/en/technology/f5-bigip-application-delivery-platform-overview/) ← Start here if you're new to F5
-- 🔧 [F5 LTM Deep Dive](/en/technology/f5-ltm-deep-dive-virtual-servers-irules-ha/)
-- 🛡️ [F5 WAF Deep Dive](/en/technology/f5-waf-asm-advanced-waf-application-security/)
+- 📖 [F5 BIG-IP Platform Overview — All Modules](/en/technology/f5-master/) ← Start here if you're new to F5
+- 🔧 [F5 LTM Deep Dive](/en/technology/f5-ltm-deep-dive/)
+- 🛡️ [F5 WAF Deep Dive](/en/technology/f5-waf-deep-dive/)
 
 ## Related Articles
 
 - 🏗️ [IT Infrastructure Is Not a Collection of Products](/en/architecture/it-infrastructure-not-a-collection-of-products/) — Systems thinking for multi-DC design
-- 🔐 [The Zero Trust Mindset](/en/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — Identity-aware access across distributed infrastructure
+- 🔐 [The Zero Trust Mindset](/en/architecture/zero-trust-architecture-behaviors/) — Identity-aware access across distributed infrastructure
 - 📊 [Monitoring Done Right](/en/architecture/monitoring-not-just-seeing/) — Monitoring GTM and LTM health proactively

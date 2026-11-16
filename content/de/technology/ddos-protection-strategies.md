@@ -296,7 +296,7 @@ Technologie ist nur ein Teil der DDoS-Bereitschaft. Der andere Teil ist organisa
 
 ## Verwandte Artikel
 
-- 🛡️ [F5 BIG-IP Plattformübersicht](/de/technology/f5-bigip-application-delivery-platform-overview/) — F5 AFM als Teil der DDoS-Defense-in-Depth
-- 🔐 [Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln](/de/architecture/zero-trust-mindset-engineering-security-as-an-architecture-not-a-product/) — DDoS-Schutz im Zero-Trust-Framework
+- 🛡️ [F5 BIG-IP Plattformübersicht](/de/technology/f5-master/) — F5 AFM als Teil der DDoS-Defense-in-Depth
+- 🔐 [Die Zero-Trust-Mentalität: Sicherheit als Architektur entwickeln](/de/architecture/zero-trust-architecture-behaviors/) — DDoS-Schutz im Zero-Trust-Framework
 - 🛡️ [Network Packet Broker (NPB) Masterclass](/de/posts/network-packet-broker-masterclass/) — Datenverkehrssichtbarkeit für DDoS-Forensik
 - 📊 [Monitoring richtig gemacht](/de/architecture/monitoring-not-just-seeing/) — DDoS früh durch proaktives Monitoring erkennen
