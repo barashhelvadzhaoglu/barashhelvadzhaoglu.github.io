@@ -1,6 +1,6 @@
 ---
-title: "802.11 Standards Deep Dive: WiFi 4, 5, 6, 6E and What Actually Changed"
-description: "802.11 standards deep dive — what n, ac, ax, and be deliver in real deployments, OFDMA, MU-MIMO, BSS Coloring, and how to choose."
+title: "WiFi 4 vs 5 vs 6 vs 6E vs 7: 802.11 Standards Compared"
+description: "802.11n, ac, ax and be compared in plain terms: real speeds, OFDMA, MU-MIMO, 6 GHz and which WiFi standard to choose for an enterprise network."
 date: 2026-05-01
 draft: false
 

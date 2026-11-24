@@ -1,6 +1,6 @@
 ---
-title: "Enterprise WiFi Architecture: From Standards to Deployment — A Complete Guide"
-description: "Master guide to enterprise wireless — 802.11 standards, controller architectures, SMB and hotel design, roaming, security, and site survey."
+title: "What Standards Influence Enterprise WiFi Deployments?"
+description: "The standards behind enterprise WiFi: 802.11 generations, WPA3 and 802.1X security, roaming (802.11k/v/r), plus controller design and site survey."
 date: 2026-04-01
 draft: false
 

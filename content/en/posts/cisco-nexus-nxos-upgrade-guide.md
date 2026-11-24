@@ -1,7 +1,7 @@
 ---
-title: "Cisco Nexus NX-OS Software Upgrade Guide: Field-Tested Step by Step"
+title: "Cisco Nexus NX-OS Upgrade Path & Matrix: Step-by-Step Guide"
 seoTitle: "Cisco Nexus NX-OS Upgrade Path & Matrix: Step-by-Step Upgrade Guide"
-description: "How to check the Cisco NX-OS upgrade path with the Nexus Upgrade and ISSU Matrix, then upgrade a Nexus 9000, 3000 or 7000 step by step: install all, MD5, rollback and ROMMON recovery."
+description: "Find your NX-OS upgrade path with the Nexus Upgrade Matrix, then upgrade Nexus 9000/3000/7000 safely: pre-checks, install all, ISSU and rollback."
 date: 2025-12-30
 draft: false
 

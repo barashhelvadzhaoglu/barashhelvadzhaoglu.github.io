@@ -1,6 +1,6 @@
 ---
-title: "Cisco ISE: Architektur, Lizenzierung und wann es sinnvoll ist"
-description: "Cisco ISE Architekturleitfaden — Deployment-Modelle, Node-Rollen, Lizenzstufen, pxGrid-Integrationen und wann ISE die richtige Wahl ist."
+title: "Cisco ISE Architektur: Nodes, Lizenzen & Deployment"
+description: "Cisco ISE verständlich erklärt: PAN, MnT und PSN Rollen, Deployment-Größen, Lizenzen (Essentials, Advantage, Premier) und wann ISE sinnvoll ist."
 date: 2026-04-20
 draft: false
 
